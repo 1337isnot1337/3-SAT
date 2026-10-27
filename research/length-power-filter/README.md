@@ -40,6 +40,22 @@ pattern or leading asymptotic capacity. The checker verifies every normalized
 crossing entry in memory and records finite rank-inflation bounds. It does not
 infer an all-size ratio from those finite bounds.
 
+## Extreme-shift recovery of the first-moment minor
+
+A sharper finite test asks for a specified invertible pairing rather than an
+arbitrary full-rank matrix in the scalar span. On the PR 19 asymmetric
+codebooks at `h=4` and `h=6`, and on the custom full-rank codebook at
+`h=7,N=4`, the scalar space generated using only `|s|>=h` contains the
+highest-charge first-moment pairing. Its selected minor has ranks `2`, `4`,
+and `4`, respectively. Thus the finite witnesses recover the already uniform
+PR 19 local inverse instead of relying on a new generic matrix inversion.
+
+The checker computes the complete scalar-output rational weight space and
+tests exact membership of the induced label matrix. The three saved reports
+also record the other tested highest-charge and uncharged moments. These are
+still three finite grades: no uniform recovery formula, all-size scalarity,
+leading capacity, or improved bound follows without the remaining proof.
+
 An all-size successor with the same leading capacities and a constant-fraction
 central omission would give the conditional piece ratio
 
@@ -59,6 +75,12 @@ From the repository root, with standard-library Python:
 
 ```sh
 python3 -I -B research/length-power-filter/screen.py
+python3 -I -B research/length-power-filter/moment_recovery.py 4 2 \
+  --output research/length-power-filter/moment-recovery-h4.json
+python3 -I -B research/length-power-filter/moment_recovery.py 6 4 \
+  --output research/length-power-filter/moment-recovery-h6.json
+python3 -I -B research/length-power-filter/moment_recovery.py 7 4 \
+  --output research/length-power-filter/moment-recovery-h7.json
 make verify
 ```
 
