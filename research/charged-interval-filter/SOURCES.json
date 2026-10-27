@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem unchanged; no baseline correctness audit"
+  },
+  "charged_predecessor": {
+    "package": "research/charged-operator-moments",
+    "merge_commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+    "credit": "Charged zeroth/first-moment identities, symmetric-polynomial L,P,T,R_L formulas and first-moment rank"
+  },
+  "asymmetric_predecessor": {
+    "package": "research/charged-asymmetric-crossing",
+    "merge_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+    "credit": "Uniform asymmetric normalization, directional rank transfer and high-charge support-rank bound"
+  },
+  "rational_transfer": {
+    "package": "research/odd-prime-rank-transfer",
+    "merge_commit": "72daf9b8fd3bb23f29852f5150c0af1256119a46",
+    "credit": "Uniform rational rank-only interface and exact signed integer-query recovery"
+  },
+  "external_operator_source": {
+    "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+    "contributor": "Anthropic",
+    "url": "https://hexagonmath.org/2610.00577v1",
+    "source_repository_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+    "license": "CC BY 4.0",
+    "labels": ["lem:Q", "eq:half-row", "eq:half-col", "thm:halfpieces"]
+  },
+  "new_work": {
+    "license": "Apache-2.0",
+    "disclosure": "Substantial Kimi (Moonshot AI) assistance; no independent review or priority claim",
+    "scope": "Left-only highest-charge scalarity and length rule, explicit correction of mixed projection, and exact capacity-versus-interval no-improvement inequality"
+  }
+}

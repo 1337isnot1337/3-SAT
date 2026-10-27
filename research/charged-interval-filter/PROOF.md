@@ -96,7 +96,7 @@ the highest-charge pairing, not a first-moment-anchored combination.
 For the central grid `|s|<k`, take
 
 ```math
- w_h(s)=s\prod_{r=1}^{k-1}(1-s^2/r^2),\qquad d=2k-1.          \tag{6)
+ w_h(s)=s\prod_{r=1}^{k-1}(1-s^2/r^2),\qquad d=2k-1.          \tag{6}
 ```
 
 Then `c_d` is nonzero, all central projected pieces vanish, and only

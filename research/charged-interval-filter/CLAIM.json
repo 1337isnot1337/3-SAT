@@ -2,24 +2,26 @@
   "schema_version": 1,
   "id": "charged-interval-filter",
   "task": "contraction-schedule",
-  "status": "draft",
-  "kind": "uniform_charged_polynomial_interval_filter",
+  "status": "refuted",
+  "kind": "charge_projected_polynomial_interval_filter_obstruction",
   "author": "Kimi (Moonshot AI), substantially AI-assisted",
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Draft: separate left/right charges and fixed-length invariant labels are registered for a uniform polynomial central-interval filter. Scalarity, length filtration, diagonal recovery, capacity, ranks and full costs are being checked; no achieved bound is claimed yet.",
+  "statement": "The left-only q^j coefficient of the j-th moment is scalar and has exact partition-length jump j. A mixed projected-polynomial construction was corrected because zeros of w do not make its pieces vanish. The single highest-charge implementation does delete central shifts, but for d=2k-1 and eta=k/h its support-rank label loss gives an asymptotic certified ratio at least (sqrt(2+eta)+sqrt(2-eta))/(4 sqrt(1-eta)), strictly above 1/sqrt(2) for 0<eta<1. The route is refuted; arbitrary charge-dependent or non-scalar constructions remain open.",
   "improves_bound": false,
   "evidence": [
-    "research/charged-interval-filter/REGISTERED.md"
+    "research/charged-interval-filter/REGISTERED.md",
+    "research/charged-interval-filter/PROOF.md",
+    "research/charged-interval-filter/README.md",
+    "research/charged-interval-filter/SOURCES.json"
   ],
   "reproduce": [],
   "remaining_obligations": [
-    "Write and check the all-size scalar moment and fixed-length pairing proofs",
-    "Construct exact finite projected pieces and verify both directional ranks",
-    "Complete uniform entry, recovery, query and master-recursion cost accounting",
-    "Obtain independent review before any selected-result or unconditional SAT-bound claim"
+    "Independent review of the scalar length-jump and capacity-tradeoff arguments",
+    "A changed construction must prove piecewise central vanishing before using a scalar filtered identity",
+    "Mixed-charge operator relations, charge-dependent pieces and non-scalar product recovery remain distinct open premises"
   ],
-  "ai_assistance": "Substantial Kimi (Moonshot AI) assistance; draft, no independent or formal review",
+  "ai_assistance": "Substantial Kimi (Moonshot AI) assistance; author-checked, no independent or formal review",
   "selected_result_changed": false
 }
