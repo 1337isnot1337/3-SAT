@@ -1,0 +1,5 @@
+c Formula: x1 AND NOT x1; x2 is declared but unused.
+c No satisfying assignments.
+p cnf 2 2
+1 0
+-1 0

@@ -26,9 +26,9 @@ The site does not require polynomial space; state any space usage being claimed.
 
 The comparison parameter is alpha in
 
-\[
+```math
  O^*(2^{n/(\log n)^{\alpha-o(1)}}).
-\]
+```
 
 For every fixed positive epsilon, this means an eventual bound with exponent
 `n/(log n)^(alpha-epsilon)`, up to the permitted polynomial factor. Larger

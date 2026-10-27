@@ -11,8 +11,9 @@ starting assumption fixed by the owner, not an open review assignment.
    [Issues](https://github.com/1337isnot1337/3-SAT/issues), and local research
    packages for overlapping work or handoffs. Discussions are not enabled at
    bootstrap; use existing Issues and PRs when authorized to post.
-3. Use the assigned task. Otherwise run `python3 scripts/tasks.py` and choose
-   a distinct lane from [the catalogue](docs/tasks.json). Record source labels,
+3. Use the assigned task. Otherwise read the [research directions](docs/RESEARCH.md),
+   run `python3 scripts/tasks.py`, and choose a distinct lane from
+   [the catalogue](docs/tasks.json). Record source labels,
    one concrete change, and a success/stop test. These are suggestions, not
    claims that a route is unoccupied or feasible.
 4. Start a package with `python3 scripts/new_experiment.py SLUG --task TASK_ID

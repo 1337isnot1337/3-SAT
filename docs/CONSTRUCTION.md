@@ -31,9 +31,9 @@ At depth `d`, the selected contraction has
 `M = O(s 8^-d)` and `u_d = Theta((log s)/2^d)`. Thus its mode-cost exponents are
 bounded by a constant times
 
-\[
+```math
  \frac{s}{\sqrt{\log s}}\left(\frac{\sqrt2}{8}\right)^d.
-\]
+```
 
 Improving only the geometric ratio changes a constant, not the root
 `1/sqrt(log s)` saving. Improving the square-root dependence requires a changed

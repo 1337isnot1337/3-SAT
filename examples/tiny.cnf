@@ -1,0 +1,5 @@
+c Formula: x1 AND (NOT x2 OR x3)
+c Exactly 3 satisfying assignments on the 3 declared variables.
+p cnf 3 2
+1 0
+-2 3 0
