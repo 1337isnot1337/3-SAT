@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "anthropic-hexagon-2610.00577v1",
+      "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+      "contributor": "Anthropic",
+      "version": "1",
+      "version_date": "2026-10-27",
+      "read_on": "2026-10-27",
+      "landing_url": "https://hexagonmath.org/2610.00577v1",
+      "source_url": "https://hexagonmath.org/src/2610.00577v1",
+      "license_on_landing_page": "CC BY 4.0",
+      "source_archive": {"format": "zip", "bytes": 248241, "sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2"},
+      "source_file": {"archive_path": "main.tex", "bytes": 248111, "sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553"},
+      "source_labels_read": ["intro:thm:strong", "ov:stronger", "def:genpieces", "thm:master", "thm:halfpieces", "eq:half-row", "eq:half-col", "app:onelog", "app:lean"],
+      "formal_repository": "https://github.com/anthropics/formal-math",
+      "formal_repository_observed_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+      "formal_directory": "eth",
+      "scope": "Read the paper source and confirm repository/directory availability. No Lean build, kernel replay, semantic audit or theorem acceptance performed. Not a proof dependency of the scalar-lift component. No upstream file replaced."
+    }
+  ]
+}

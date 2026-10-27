@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "Scalar parity lift: unchanged general-density exponent envelope",
+  "source_result": "OAI-2026-10-25",
+  "source_labels": ["thm:tensor-contraction", "lem:tensor-sparse-query", "subsec:sharp-dense"],
+  "scope": "Bookkeeping for the replacement encoding proved in PROOF.md; no new alpha and no iterated-log saving",
+  "network_size": {"n": "1", "log": "0", "loglog": "1"},
+  "contraction_log_saving": "1/2",
+  "overheads": [
+    {"name": "sparsification", "scale": {"n": "1", "log": "-1/2", "loglog": "0"}},
+    {"name": "high-incidence branching", "scale": {"n": "1", "log": "-1/2", "loglog": "0"}},
+    {"name": "degree arrays", "scale": {"n": "1/2", "log": "1", "loglog": "0"}},
+    {"name": "query construction, number of queries and entry evaluation", "scale": {"n": "1/10", "log": "0", "loglog": "0"}, "note": "Every fixed polylogarithmic exponent is eventually below n^(1/10). Entry evaluation is covered inside the accepted contraction theorem as well; this loose additional charge does not remove it."}
+  ]
+}
