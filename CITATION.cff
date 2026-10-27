@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Cite the original OpenAI preprint for the accepted theorem; cite individual research packages for subsequent contributions."
+title: "3-SAT bounds research"
+type: software
+authors:
+  - name: "3-SAT contributors"
+repository-code: "https://github.com/1337isnot1337/3-SAT"
+license: Apache-2.0
+references:
+  - type: report
+    title: "The Exponential Time Hypothesis is False"
+    authors:
+      - name: "OpenAI"
+    year: 2026
+    url: "https://github.com/openai/math/blob/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf"

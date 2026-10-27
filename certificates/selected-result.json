@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "result_id": "OAI-2026-10-25",
+  "status": "owner_accepted_external_theorem",
+  "acceptance": {
+    "date": "2026-10-26",
+    "authority": "Repository owner's explicit instruction",
+    "statement": "Accept the OpenAI proof as completely true. Do not reprove or audit it."
+  },
+  "alpha": "1/2",
+  "algorithm": "deterministic exact counting; decide SAT by testing count > 0",
+  "scope": "All k-CNF formulas for each fixed k >= 2; 3-SAT uses k=3",
+  "general_time": "(n+m)^O_k(1) * 2^O_k(n log log n / sqrt(log n))",
+  "fixed_density_time": "(n+m)^O_k,D(1) * 2^O_k,D(n / sqrt(log n)), for each fixed D and m <= Dn",
+  "space": "(n+m)^O_k(1) bits",
+  "source_repository": "https://github.com/openai/math",
+  "source_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "source_manifest": "SOURCES.json",
+  "paper": "upstream/openai-eth-2026/paper.pdf",
+  "paper_sha256": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123",
+  "theorem": "Theorem 1.1 (thm:main); sharper algorithm in Appendix D",
+  "external_evidence_at_capture": "Claimed on Big O Speedrun; owner acceptance here does not change that label",
+  "source_integrity_command": "python3 -B scripts/sources.py",
+  "verification_scope": "Frozen source integrity and repository infrastructure only; theorem accepted by owner instruction",
+  "local_algorithm_implementation": null,
+  "selected_local_improvement": null,
+  "independent_review_records": []
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "name": "Accepted fixed-density cost envelope",
+  "source_result": "OAI-2026-10-25",
+  "source_labels": ["subsec:sharp-fixed-density", "thm:tensor-contraction"],
+  "scope": "m <= Dn for fixed D; asymptotic upper-envelope bookkeeping, not a finite runtime model",
+  "network_size": {"n": "1", "log": "0", "loglog": "0"},
+  "contraction_log_saving": "1/2",
+  "overheads": [
+    {"name": "polynomial reduction and readout", "scale": {"n": "0", "log": "1", "loglog": "0"}}
+  ]
+}

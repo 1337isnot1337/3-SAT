@@ -1,0 +1,14 @@
+3-SAT research repository
+Copyright 2026 3-SAT contributors
+
+Initial repository prepared with OpenAI Codex assistance.
+
+The unchanged OpenAI preprint and build sources in upstream/openai-eth-2026/
+are from openai/math, commit 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a,
+preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/.
+Author: OpenAI. Title: The Exponential Time Hypothesis is False.
+The upstream Apache-2.0 license is retained in that directory.
+
+The research workflow was informed by CrocSwap/integer-mult-bounds at
+de5ec2e7a6074068452f45b1a191b5c72832df4a. No research packages or
+mathematical constructions from that repository are included.

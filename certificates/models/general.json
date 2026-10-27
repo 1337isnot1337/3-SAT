@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "Accepted general-density cost envelope",
+  "source_result": "OAI-2026-10-25",
+  "source_labels": ["lem:tensor-sparse-query", "eq:sharp-wire-budget", "subsec:sharp-dense", "thm:tensor-contraction"],
+  "scope": "Asymptotic upper-envelope bookkeeping; fixed clause width; constants and finite cutoffs unspecified",
+  "network_size": {"n": "1", "log": "0", "loglog": "1"},
+  "contraction_log_saving": "1/2",
+  "overheads": [
+    {"name": "sparsification", "scale": {"n": "1", "log": "-1/2", "loglog": "0"}},
+    {"name": "high-incidence branches", "scale": {"n": "1", "log": "-1/2", "loglog": "0"}},
+    {"name": "degree arrays", "scale": {"n": "1/2", "log": "1", "loglog": "0"}},
+    {"name": "query construction and query multiplicity", "scale": {"n": "1/10", "log": "0", "loglog": "0"}, "note": "Any fixed power of log n is eventually at most n^(1/10); this is a loose eventual envelope, not a finite estimate."}
+  ]
+}

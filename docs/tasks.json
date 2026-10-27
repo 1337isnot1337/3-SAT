@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "priority_revision": 1,
+  "assessed_on": "2026-10-26",
+  "baseline_result": "OAI-2026-10-25",
+  "policy": "Accept the OpenAI theorem as true. Tasks seek improvements, not a baseline proof audit. Check live overlap; listing is not reservation or evidence of novelty.",
+  "tasks": [
+    {
+      "id": "weighted-modes",
+      "question": "Can realizable mode structure improve the root M/sqrt(u) enumeration cost?",
+      "source_file": "upstream/openai-eth-2026/build/quantitative-contraction.tex",
+      "source_labels": ["eq:tensor-mode-multiplicity", "eq:tensor-mode-budget", "eq:tensor-partition-count"],
+      "first_step": "Write the exact generating function for one changed mode family. Identify a constraint absent from the unrestricted weighted-partition envelope, then derive its complete asymptotic count.",
+      "success": "A proved smaller exponent for a realizable mode family, with the new deformation/precision and child contracts stated. A scoped family result is useful even before global composition.",
+      "stop": "Only a constant, finite histogram, or smaller upper bound with unachievable simultaneous parameters; record that scope before extending.",
+      "existing_evidence": ["docs/CONSTRUCTION.md", "research/baseline-cost-model/README.md"],
+      "open_obligations": ["Changed mode family and realizability", "Complete recursive cost and all outer overheads"],
+      "overlap_terms": ["weighted modes", "partition count", "mode multiplicity"],
+      "status": "unclaimed_at_bootstrap"
+    },
+    {
+      "id": "contraction-schedule",
+      "question": "Can a changed packing, taper, or recursive schedule improve the logarithmic saving of the full contraction theorem?",
+      "source_file": "upstream/openai-eth-2026/build/quantitative-contraction.tex",
+      "source_labels": ["eq:tensor-parameters", "eq:tensor-packing-conditions", "lem:tapered-hermite", "eq:tensor-precision-bound", "subsec:tensor-cost"],
+      "first_step": "Choose one changed schedule and write its root cost, depth-wise u and wire sizes, precision increments, entry cost and leaf threshold together. Compare its dominant exponent with the accepted model.",
+      "success": "A simultaneously feasible full budget with a better contraction envelope, or a precise obstruction to the proposed schedule.",
+      "stop": "Changing only the geometric recursion ratio or improving a term that another unchanged term dominates.",
+      "existing_evidence": ["docs/CONSTRUCTION.md", "research/baseline-cost-model/README.md"],
+      "open_obligations": ["New schedule feasibility", "Packing, precision, entries, leaves and descriptions under that schedule"],
+      "overlap_terms": ["taper", "precision", "packing", "recursion schedule"],
+      "status": "unclaimed_at_bootstrap"
+    },
+    {
+      "id": "dense-encoding",
+      "question": "Can arbitrary-density sparse queries use fewer than O(n log log n) wires without paying the gain in entries or preprocessing?",
+      "source_file": "upstream/openai-eth-2026/build/quantitative-reduction.tex",
+      "source_labels": ["lem:tensor-sparse-query", "eq:sharp-incidence-degree", "eq:sharp-wire-budget", "subsec:sharp-dense"],
+      "first_step": "Change one monomial-indexing or grouping choice. Charge index bits, invalid codes, group degree, tensor-entry work, number of arrays and all query/reduction branches.",
+      "success": "A full improved general-density bound. Removing log log n is valuable but leaves alpha at 1/2; label it that way.",
+      "stop": "Assuming fixed clause density, omitting rejected greedy query candidates, or hiding exponential entry work in a succinct tensor description.",
+      "existing_evidence": ["certificates/models/general.json", "docs/CONSTRUCTION.md"],
+      "open_obligations": ["Changed uniform encoding", "All query instances, including candidates not selected by the greedy procedure"],
+      "overlap_terms": ["sparse query", "monomial indexing", "wire budget", "dense encoding"],
+      "status": "unclaimed_at_bootstrap"
+    },
+    {
+      "id": "decision-only",
+      "question": "Can decision avoid exact-counting requirements and beat the accepted alpha or its logarithmic correction?",
+      "source_file": "docs/PROBLEM.md",
+      "source_labels": [],
+      "first_step": "State the weaker interface being used and construct one candidate algorithm with an explicit per-input success probability and worst-run time bound. Name every place where exact counts were previously used.",
+      "success": "A complete decision reduction or scoped new primitive with a quantified error and a paid total budget; space tradeoffs are allowed if explicit.",
+      "stop": "An average-case input guarantee, expected-time-only guarantee, or a randomized polynomial identity step with unbounded or uncharged error amplification.",
+      "existing_evidence": ["docs/PROBLEM.md", "certificates/selected-result.json"],
+      "open_obligations": ["Uniform worst-case decision algorithm", "Correctness probability for each fixed input", "Worst-outcome time and all amplification costs"],
+      "overlap_terms": ["decision only", "randomized", "isolation", "one sided error"],
+      "status": "unclaimed_at_bootstrap"
+    },
+    {
+      "id": "complete-cost",
+      "question": "Does a proposed change improve the complete exponent after all overheads are composed?",
+      "source_file": "satbounds/cost.py",
+      "source_labels": [],
+      "first_step": "Copy the appropriate cost model into a new research package, add every changed and unchanged overhead, and run python3 -m satbounds.cost on it. Then attach a proof of the new assumptions or identify the missing one.",
+      "success": "An exact cost comparison for a named proposal, with sufficient realizability conditions and remaining obligations. A cost-only screen remains conditional.",
+      "stop": "Relabelling a hypothetical input exponent as an achieved algorithm, removing only iterated logs and claiming larger alpha, or comparing unspecified big-O constants numerically.",
+      "existing_evidence": ["research/baseline-cost-model/README.md", "tests/test_cost.py"],
+      "open_obligations": ["One concrete new proposal", "Proof that its inputs and parameter conditions can hold simultaneously"],
+      "overlap_terms": ["full cost", "composition", "alpha", "overhead"],
+      "status": "baseline_tool_available"
+    }
+  ]
+}

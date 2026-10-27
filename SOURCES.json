@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "https://github.com/openai/math",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "retrieved_at_utc": "2026-10-27T04:44:01.117735+00:00",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "path": "upstream/openai-eth-2026/README.md",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/README.md",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/README.md",
+      "bytes": 551,
+      "sha256": "a40b8829123b44bd9cfb589e5afa856b0018dc8cb36de36fa79e4315a03fe506"
+    },
+    {
+      "path": "upstream/openai-eth-2026/LICENSE",
+      "upstream_path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "upstream/openai-eth-2026/paper.pdf",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf",
+      "bytes": 887884,
+      "sha256": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
+    },
+    {
+      "path": "upstream/openai-eth-2026/build/main_full_version.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+      "bytes": 214857,
+      "sha256": "b2e6159d4fb7ea6aa4f89ac15605152b0333a5f7cafe93323492bc20a5c066aa"
+    },
+    {
+      "path": "upstream/openai-eth-2026/build/quantitative-circuits.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-circuits.tex",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-circuits.tex",
+      "bytes": 4152,
+      "sha256": "0059668a666a35a6e0a67a7c5ed2e9b504862f4207d86e83ce5b7ab4b23fcc11"
+    },
+    {
+      "path": "upstream/openai-eth-2026/build/quantitative-contraction.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-contraction.tex",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-contraction.tex",
+      "bytes": 27544,
+      "sha256": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+    },
+    {
+      "path": "upstream/openai-eth-2026/build/quantitative-reduction.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex",
+      "url": "https://raw.githubusercontent.com/openai/math/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex",
+      "bytes": 17832,
+      "sha256": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
+    }
+  ],
+  "context_sources": [
+    {
+      "id": "speedrun-3sat",
+      "url": "https://bigospeedrun.com/3sat",
+      "response_sha256": "083c2991d312e402133a4406a8a13ca6117d2460e7320bfe9c337610abece0e4",
+      "observed": "Site lists alpha=1/2 as Claimed; no qualifying community review repository is recognized at capture. This repo accepts the theorem by owner instruction."
+    },
+    {
+      "id": "jiang-cai-2026",
+      "url": "https://arxiv.org/abs/2607.10697v1",
+      "observed": "Historical constant-base randomized general-3SAT bound O*(1.307031578^n). Not vendored."
+    }
+  ],
+  "workflow_reference": {
+    "repository": "https://github.com/CrocSwap/integer-mult-bounds",
+    "commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "files": [
+      "AGENTS.md",
+      "autoresearch.md",
+      "CONTRIBUTING.md",
+      "certificates/selected-result.json",
+      "docs/research/research-package-guide.md"
+    ],
+    "usage": "Workflow reference only; no mathematical dependency and no copied research packages."
+  }
+}

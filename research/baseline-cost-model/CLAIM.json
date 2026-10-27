@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "bootstrap-cost-model",
+  "task": "complete-cost",
+  "status": "scoped_checked",
+  "kind": "conditional_cost_bookkeeping",
+  "author": "Initial repository, with OpenAI Codex assistance",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Exact rational exponent-envelope bookkeeping reproduces the accepted general and fixed-density envelopes and rejects specified misleading improvement inferences under its supplied assumptions.",
+  "improves_bound": false,
+  "evidence": ["satbounds/cost.py", "tests/test_cost.py", "certificates/models/general.json", "certificates/models/fixed-density.json"],
+  "reproduce": ["python3", "-B", "-m", "unittest", "discover", "-s", "tests", "-p", "test_cost.py", "-v"],
+  "remaining_obligations": ["No changed algorithm or better bound is supplied", "Completeness and realizability of any hypothetical improved cost model require a separate proof"]
+}
