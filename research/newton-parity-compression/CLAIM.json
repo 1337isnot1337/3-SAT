@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "newton-parity-compression",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "encoding_lemma_and_scoped_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A scalar Boolean parity lift sharpens the retained incidence-degree cutoff from k(a+2p-2) to k(a+p-1), replacing the p-coefficient truncated algebra by Z/2^p Z. A realizable family of distinct sparse nonlinear equations still has exp(Omega(n log log n)) unit incidence coefficients, precluding smaller wire order from zero-coefficient pruning in a one-monomial-per-code encoding. The full SAT time envelope and alpha are unchanged.",
+  "improves_bound": false,
+  "evidence": [
+    "research/newton-parity-compression/PROOF.md",
+    "research/newton-parity-compression/verify.py",
+    "research/newton-parity-compression/verification.json"
+  ],
+  "reproduce": [
+    "python3", "-I", "-B", "research/newton-parity-compression/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written proof and new contraction interface",
+    "A changed aggregate representation or another mechanism giving a uniform asymptotic improvement",
+    "Complete realizable all-input cost for any proposed successor; no new SAT time bound is established"
+  ],
+  "source_labels": ["lem:tensor-sparse-query", "eq:sharp-incidence-degree", "eq:sharp-wire-budget", "thm:tensor-contraction", "lem:rational-idempotent", "lem:total-order"],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or human review claimed",
+  "full_time_envelope": "(n+m)^O_k(1) 2^O_k(n log log n / sqrt(log n)), unchanged",
+  "alpha": "1/2",
+  "selected_result_changed": false
+}

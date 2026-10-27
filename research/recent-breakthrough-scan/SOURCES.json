@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-10-27",
+  "repository": "https://github.com/anthropics/formal-math",
+  "commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "baseline_openai_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "files": [
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/README.source.txt",
+      "upstream_path": "eth/README.md",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/README.md",
+      "license": "Apache-2.0",
+      "bytes": 3696,
+      "sha256": "844e0dd78593f728e6a6a1f52b7b3d1e162020c1746ac1f4b3c4e5f2ff7f494e"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/MainResults.lean",
+      "upstream_path": "eth/MainResults.lean",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/MainResults.lean",
+      "license": "Apache-2.0",
+      "bytes": 11542,
+      "sha256": "47f78a9550d95b37d8718dd1ee16ae824da893a5e17c319f737e6d0a5ed24944"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/Solution.lean",
+      "upstream_path": "eth/Solution.lean",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/Solution.lean",
+      "license": "Apache-2.0",
+      "bytes": 3171,
+      "sha256": "27d304798a6ec294db7fdeee301227b70d72044cb31c85615901a8d728b0b98f"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/NOTICE",
+      "upstream_path": "eth/NOTICE",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/NOTICE",
+      "license": "Apache-2.0",
+      "bytes": 924,
+      "sha256": "5dc7b1516f2efe701c0917fd0b10ee89fc4d41f50a8b3576af0a6333cefb5b93"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/comparator.json",
+      "upstream_path": "eth/comparator.json",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/comparator.json",
+      "license": "Apache-2.0",
+      "bytes": 293,
+      "sha256": "757e5537ccf47d1946521b0b5fb91a230cdcfd8933dc9ab047710709c15ffa7e"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/lean-toolchain",
+      "upstream_path": "eth/lean-toolchain",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/lean-toolchain",
+      "license": "Apache-2.0",
+      "bytes": 25,
+      "sha256": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/lake-manifest.json",
+      "upstream_path": "eth/lake-manifest.json",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/lake-manifest.json",
+      "license": "Apache-2.0",
+      "bytes": 3150,
+      "sha256": "cb1a77f35eaedde6b3c4aeb4a81b108c27a59f2ef54b3ed957883241513a905e"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/LICENSE",
+      "upstream_path": "eth/LICENSE",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/LICENSE",
+      "license": "Apache-2.0",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/github-paper.pdf",
+      "upstream_path": "eth/paper.pdf",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/paper.pdf",
+      "license": "Apache-2.0",
+      "bytes": 900337,
+      "sha256": "7af518b09342c967ea371c74b8989806684c5d02aabe5763ca08554aff5025a0"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/PaperIndex.lean",
+      "upstream_path": "eth/proof/PaperIndex.lean",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/proof/PaperIndex.lean",
+      "license": "Apache-2.0",
+      "bytes": 184428,
+      "sha256": "22f1b39f4c334535e4cbd06d8516e39dd4d162e74ef7c2dd543e7d8746eb85e8"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/lakefile.toml",
+      "upstream_path": "eth/lakefile.toml",
+      "url": "https://raw.githubusercontent.com/anthropics/formal-math/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth/lakefile.toml",
+      "license": "Apache-2.0",
+      "bytes": 4390,
+      "sha256": "3a116ef40830945191c63be8b953f621e4dbd03240398327c6d92ed4d269046b"
+    },
+    {
+      "path": "research/recent-breakthrough-scan/sources/anthropic/hexagon-v1-paper.pdf",
+      "upstream_path": "hexagon:2610.00577v1",
+      "url": "https://hexagonmath.org/pdf/2610.00577v1",
+      "license": "CC-BY-4.0",
+      "bytes": 897574,
+      "sha256": "85034e06e1d058aa4ed7d895c226ae755ebd3a5c6614b07ba14981915c4f7360"
+    }
+  ],
+  "full_formalization_vendored": false,
+  "formal_build_replayed": false,
+  "publisher_ci": {
+    "url": "https://github.com/anthropics/formal-math/actions/runs/40442388505",
+    "job": "verify (eth)",
+    "head_sha": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+    "conclusion_observed": "success",
+    "independent_replay": false
+  }
+}

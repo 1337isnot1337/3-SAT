@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "field": "GF(8), V^3+V+1",
+  "variables": 2,
+  "all_ordered_two_equation_systems": 256,
+  "field_point_evaluations": 16384,
+  "unsatisfiable_systems": 81,
+  "maximum_zero_fingerprints_for_nonempty_solution_set": 15,
+  "field_points_per_system": 64,
+  "certified_failure_upper_bound": "2/8",
+  "identities": [
+    "weighted truth sum = incidence expansion",
+    "unreduced scalar-polynomial contraction reduces to field contraction"
+  ],
+  "control": "unweighted parity can miss a nonempty solution set",
+  "scope": "finite exhaustive algebra checks; no larger alpha or implementation of the accepted contraction"
+}
