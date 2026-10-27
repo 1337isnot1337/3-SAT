@@ -1,0 +1,374 @@
+{
+  "bindings": {
+    "accepted_upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "base_commit": "4ec0e136b819b7d12fedf72ad2f8286098c6f4a7",
+    "construction_sha256": "8f13d16725c28289a57467ee1f623998d32ef65e927182644b4ebf88e4471435",
+    "dual_checker_sha256": "ef60ebb627a93badb94d363bedd725d21722f7bfac5c9c72a55d937ea3683227",
+    "module_sha256": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "screen_sha256": "ccbe3f10d10c32fb679d240847346853d8b41981b8e258224753a4d823d65b27",
+    "symmetry_barrier_sha256": "6beffb4e631c0e56f0d7286d06ceef2905c6b6280285768ce1294b82b85aa1a9"
+  },
+  "direct_checks": [
+    {
+      "direct_factorization_and_crossing_entries": 80,
+      "direct_rational_flattening_ranks": 8,
+      "lambda": 1
+    },
+    {
+      "direct_factorization_and_crossing_entries": 1792,
+      "direct_rational_flattening_ranks": 12,
+      "lambda": 2
+    }
+  ],
+  "global_symmetry_dual": {
+    "base_polynomial_terms": 11,
+    "exact_bound_table": [
+      {
+        "minimum_orbit": "336",
+        "r": 8,
+        "shared_bit_lower_bound": 17
+      },
+      {
+        "minimum_orbit": "720720",
+        "r": 16,
+        "shared_bit_lower_bound": 39
+      },
+      {
+        "minimum_orbit": "7823721906000",
+        "r": 32,
+        "shared_bit_lower_bound": 86
+      },
+      {
+        "minimum_orbit": "2372522057963096036830232400",
+        "r": 64,
+        "shared_bit_lower_bound": 182
+      },
+      {
+        "minimum_orbit": "588265785309913584553256203729711049642336107151033778000",
+        "r": 128,
+        "shared_bit_lower_bound": 378
+      },
+      {
+        "minimum_orbit": "99867357681464653067257251021962336356199118634514074303284828514891354657281572010484474263760164968473679168946000",
+        "r": 256,
+        "shared_bit_lower_bound": 771
+      }
+    ],
+    "full_word_checks": [
+      {
+        "all_word_eigenidentities": 65536,
+        "nonsymmetric_singleton": {
+          "col_support": 65536,
+          "nonzero_dual_pairing": "1/336",
+          "row_support": 1,
+          "type": [
+            5,
+            1,
+            1,
+            1
+          ],
+          "word": 27
+        },
+        "r": 8,
+        "weighted_pairing": "16",
+        "wrong_orbit_normalization_rejected": true
+      },
+      {
+        "all_word_eigenidentities": 262144,
+        "nonsymmetric_singleton": {
+          "col_support": 262144,
+          "nonzero_dual_pairing": "1/504",
+          "row_support": 1,
+          "type": [
+            6,
+            1,
+            1,
+            1
+          ],
+          "word": 27
+        },
+        "r": 9,
+        "weighted_pairing": "32",
+        "wrong_orbit_normalization_rejected": null
+      }
+    ],
+    "macro_alphabet_controls": {
+      "direct_macro_character_checks": 4096,
+      "three_bit_dual_upper": "253/384",
+      "three_bit_upper_square_below_half": true,
+      "three_class_transform_square": "64 I",
+      "two_bit_lower_square_exceeds_half": true,
+      "two_bit_rho_rational_lower": "9051301/12800000"
+    },
+    "scope": "all-size proof is in SYMMETRY-BARRIER.md; finite checks verify the listed domains",
+    "symbolic_duals": [
+      {
+        "minimum_orbit_bound": 336,
+        "nonzero_dual_types": 11,
+        "r": 8
+      },
+      {
+        "minimum_orbit_bound": 504,
+        "nonzero_dual_types": 22,
+        "r": 9
+      },
+      {
+        "minimum_orbit_bound": 720,
+        "nonzero_dual_types": 29,
+        "r": 10
+      },
+      {
+        "minimum_orbit_bound": 990,
+        "nonzero_dual_types": 36,
+        "r": 11
+      },
+      {
+        "minimum_orbit_bound": 1320,
+        "nonzero_dual_types": 43,
+        "r": 12
+      },
+      {
+        "minimum_orbit_bound": 1716,
+        "nonzero_dual_types": 48,
+        "r": 13
+      },
+      {
+        "minimum_orbit_bound": 2184,
+        "nonzero_dual_types": 57,
+        "r": 14
+      },
+      {
+        "minimum_orbit_bound": 2730,
+        "nonzero_dual_types": 64,
+        "r": 15
+      },
+      {
+        "minimum_orbit_bound": 720720,
+        "nonzero_dual_types": 45,
+        "r": 16
+      },
+      {
+        "minimum_orbit_bound": 1113840,
+        "nonzero_dual_types": 90,
+        "r": 17
+      },
+      {
+        "minimum_orbit_bound": 1670760,
+        "nonzero_dual_types": 107,
+        "r": 18
+      },
+      {
+        "minimum_orbit_bound": 2441880,
+        "nonzero_dual_types": 132,
+        "r": 19
+      },
+      {
+        "minimum_orbit_bound": 3488400,
+        "nonzero_dual_types": 149,
+        "r": 20
+      },
+      {
+        "minimum_orbit_bound": 4883760,
+        "nonzero_dual_types": 172,
+        "r": 21
+      },
+      {
+        "minimum_orbit_bound": 6715170,
+        "nonzero_dual_types": 195,
+        "r": 22
+      },
+      {
+        "minimum_orbit_bound": 9085230,
+        "nonzero_dual_types": 216,
+        "r": 23
+      },
+      {
+        "minimum_orbit_bound": 2196606720,
+        "nonzero_dual_types": 119,
+        "r": 24
+      },
+      {
+        "minimum_orbit_bound": 3432198000,
+        "nonzero_dual_types": 238,
+        "r": 25
+      },
+      {
+        "minimum_orbit_bound": 5249244000,
+        "nonzero_dual_types": 277,
+        "r": 26
+      },
+      {
+        "minimum_orbit_bound": 7873866000,
+        "nonzero_dual_types": 320,
+        "r": 27
+      },
+      {
+        "minimum_orbit_bound": 11603592000,
+        "nonzero_dual_types": 361,
+        "r": 28
+      },
+      {
+        "minimum_orbit_bound": 16825208400,
+        "nonzero_dual_types": 410,
+        "r": 29
+      },
+      {
+        "minimum_orbit_bound": 24036012000,
+        "nonzero_dual_types": 453,
+        "r": 30
+      },
+      {
+        "minimum_orbit_bound": 33868926000,
+        "nonzero_dual_types": 496,
+        "r": 31
+      },
+      {
+        "minimum_orbit_bound": 7823721906000,
+        "nonzero_dual_types": 249,
+        "r": 32
+      }
+    ]
+  },
+  "profiles": [
+    {
+      "common_denominator_bits": 1,
+      "lambda": 1,
+      "max_coefficient_bits": 4,
+      "max_exact_support_product": 4,
+      "piece_data_sha256": "01f85de0f431996ef4a8a515d90d0fb7862fa27828f1c3010bb015f189c95329",
+      "retained_pieces": 4,
+      "type_dimension": 4,
+      "worst_piece": {
+        "basis_index": 3,
+        "col_support": 1,
+        "pivot": 0,
+        "row_support": 4
+      },
+      "worst_shared_bit_total": 2
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 2,
+      "max_coefficient_bits": 6,
+      "max_exact_support_product": 16,
+      "piece_data_sha256": "49a5e01ce8c6f4596da8b543dab6fd1cc717c58076e1d7a1b42804c942a8b0ab",
+      "retained_pieces": 6,
+      "type_dimension": 10,
+      "worst_piece": {
+        "basis_index": 9,
+        "col_support": 1,
+        "pivot": 0,
+        "row_support": 16
+      },
+      "worst_shared_bit_total": 4
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 3,
+      "max_coefficient_bits": 8,
+      "max_exact_support_product": 64,
+      "piece_data_sha256": "7bcb2cd783059a15e9111c2be6be7b6830abc2ddd8336000a9f5372cdaacfbe6",
+      "retained_pieces": 15,
+      "type_dimension": 20,
+      "worst_piece": {
+        "basis_index": 19,
+        "col_support": 1,
+        "pivot": 0,
+        "row_support": 64
+      },
+      "worst_shared_bit_total": 6
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 4,
+      "max_coefficient_bits": 10,
+      "max_exact_support_product": 2700,
+      "piece_data_sha256": "97ddaec001ab3f2cb2f37ce2439aa5c2372acc02532d94141dfb3be6d9d31beb",
+      "retained_pieces": 27,
+      "type_dimension": 35,
+      "worst_piece": {
+        "basis_index": 24,
+        "col_support": 75,
+        "pivot": 24,
+        "row_support": 36
+      },
+      "worst_shared_bit_total": 13
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 5,
+      "max_coefficient_bits": 12,
+      "max_exact_support_product": 5184,
+      "piece_data_sha256": "cf130a2d644f88430a946ac18134ba58a269ff51b5f5a4ecdfed326811a619c8",
+      "retained_pieces": 43,
+      "type_dimension": 56,
+      "worst_piece": {
+        "basis_index": 39,
+        "col_support": 36,
+        "pivot": 28,
+        "row_support": 144
+      },
+      "worst_shared_bit_total": 14
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 6,
+      "max_coefficient_bits": 14,
+      "max_exact_support_product": 449436,
+      "piece_data_sha256": "e99444ec4cfe8fc912567bc6996570c0f222ac491b050539a4c52b4756f660ec",
+      "retained_pieces": 65,
+      "type_dimension": 84,
+      "worst_piece": {
+        "basis_index": 70,
+        "col_support": 2236,
+        "pivot": 70,
+        "row_support": 201
+      },
+      "worst_shared_bit_total": 20
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 7,
+      "max_coefficient_bits": 16,
+      "max_exact_support_product": 6723756,
+      "piece_data_sha256": "880d7ff8a206f77c8c790d383e964db50b278d42ff8ef064a7fd6eacc2e4533b",
+      "retained_pieces": 96,
+      "type_dimension": 120,
+      "worst_piece": {
+        "basis_index": 100,
+        "col_support": 4789,
+        "pivot": 88,
+        "row_support": 1404
+      },
+      "worst_shared_bit_total": 24
+    },
+    {
+      "common_denominator_bits": 1,
+      "lambda": 8,
+      "max_coefficient_bits": 18,
+      "max_exact_support_product": 81063168,
+      "piece_data_sha256": "20c0dca4623b52aad40b983a0d0528c3fb688d96227644e16766527446a6b261",
+      "retained_pieces": 134,
+      "type_dimension": 165,
+      "worst_piece": {
+        "basis_index": 132,
+        "col_support": 11328,
+        "pivot": 106,
+        "row_support": 7156
+      },
+      "worst_shared_bit_total": 27
+    }
+  ],
+  "registered_lambda": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "scope": "exact bounded crossing-family screen; no asymptotic rate or SAT improvement",
+  "status": "PASS"
+}

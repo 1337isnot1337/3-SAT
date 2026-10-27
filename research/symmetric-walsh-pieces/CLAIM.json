@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "symmetric-walsh-pieces",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "uniform_crossing_construction_and_symmetry_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "4ec0e136b819b7d12fedf72ad2f8286098c6f4a7",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A uniform Pauli/Walsh crossing construction makes the two exact flattening ranks the supports of a coefficient function and its transform, with integer factors and polynomially many symmetric pieces. A global invariant dual forces some piece in every coordinate-permutation-symmetric Pauli-diagonal decomposition to have both supports at least lambda!/((lambda-3k)!(k!)^3), k=floor(lambda/8), ruling out the accepted rho target in that class. The proof extends to color blocks and macro-alphabets; it does not rule out nonsymmetric or non-Pauli pieces, and no SAT improvement is established.",
+  "improves_bound": false,
+  "evidence": [
+    "research/symmetric-walsh-pieces/CONSTRUCTION.md",
+    "research/symmetric-walsh-pieces/SYMMETRY-BARRIER.md",
+    "research/symmetric-walsh-pieces/walsh.py",
+    "research/symmetric-walsh-pieces/dual.py",
+    "research/symmetric-walsh-pieces/screen.py",
+    "research/symmetric-walsh-pieces/verification.json",
+    "research/symmetric-walsh-pieces/SOURCES.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/symmetric-walsh-pieces/screen.py"],
+  "remaining_obligations": [
+    "Independent review of the uniform construction and all-size support dual",
+    "A changed symmetry or operator class with a proved smaller eventual support rate; the same symmetric binary and two-bit macro classes are obstructed",
+    "All master-recursion and arbitrary-density costs for any genuinely improved successor"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent review claimed",
+  "selected_result_changed": false
+}
