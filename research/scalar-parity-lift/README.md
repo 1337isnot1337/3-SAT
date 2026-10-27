@@ -93,6 +93,10 @@ The user also supplied Anthropic's paper during this run. Its
 operator/partition construction, the same stated alpha, and the precise
 piece-improvement condition worth investigating. It is not a proof
 dependency, and the Lean development has not been built here.
+Its Appendix D also contains the scalar projector coefficients and
+total-selection truncation used here. The proof and comparison now
+give that direct credit; this package does not claim the underlying
+mechanism is new to the literature.
 
 ## Sources and credit
 

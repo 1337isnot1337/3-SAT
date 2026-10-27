@@ -4,6 +4,16 @@ This changes the sparse-query encoding in the owner-accepted OpenAI theorem.
 It does not audit that theorem. The construction and proof below are
 AI-assisted and have no independent review.
 
+After the initial checkpoint, the user supplied Anthropic's
+[Hexagon 2610.00577v1](https://hexagonmath.org/2610.00577v1). Its
+Appendix D independently uses the same scalar parity coefficients
+sigma_i=+/-2^(i-1) and a total selection cutoff n+r. Thus the scalar
+mechanism and its linear selection budget are also present in that
+external paper. This package derives the incidence-variable replacement
+for the frozen OpenAI interface and supplies its own checks; it makes
+no novelty or priority claim for the identity or cutoff. See the
+[source comparison](EXTERNAL-COMPARISON.md) for exact source pins.
+
 ## 1. An exact local lift
 
 Normalize an equation over F_2 on Boolean variables by multilinearizing its

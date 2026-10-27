@@ -30,6 +30,16 @@ The paper explicitly says it does not know whether the log log n factor
 can be removed (`ov:stronger`). No inference about practical SAT speed
 follows from this asymptotic comparison.
 
+There is direct overlap with this package's scalar mechanism. Appendix D,
+Step 1 (`app:onelog:identity`), expands each even-parity indicator with
+coefficients sigma_i=+/-2^(i-1) and discards tuples with more than n+r
+selected check-clause incidences. That is the same integer projector
+valuation and total-selection principle behind our bound k(a+p-1).
+The paper applies it to clause-violation marks; this package writes it
+for normalized sparse-polynomial/test-variable incidences and composes
+it with the frozen OpenAI contraction. The scalar principle is not a
+new result unique to this package.
+
 ## The different construction that matters
 
 The main body uses factorizable pieces of a crossing-equality tensor,

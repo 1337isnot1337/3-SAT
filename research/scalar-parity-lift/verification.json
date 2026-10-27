@@ -1,6 +1,6 @@
 {
   "artifact_sha256": {
-    "PROOF.md": "4cc12813e326a166af2fbac04d8fff635056f5006d67205fe25bbc9102983736",
+    "PROOF.md": "73bce2fae7045090ce0614fdf2cdb4bd014a84d5850ec92955ee6fc73349524f",
     "model.json": "74e5c41fa1cf3bc2e4b63421ea1595407ec0716dad749ad4210577512ac9e1f0",
     "scalar_lift.py": "df7cde6e7bd2234073021588b9e68f0ab6599fba7f9b4a4bae0f8f9b650560c2",
     "verify.py": "4565ac2e9c3d2c3727749d5dbc31ebf09e862b401346b9cfd505db647ab44901"
