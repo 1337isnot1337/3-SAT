@@ -1,0 +1,451 @@
+{
+  "status": "PASS",
+  "scope": "full charged normalized tensors at lambda=1,2; minor-only lambda=1..4",
+  "minor_profiles": [
+    {
+      "lambda": 1,
+      "h": 4,
+      "N": 2,
+      "full_partition_dimension": 5,
+      "inverse_max_numerator_bits": 1,
+      "inverse_max_denominator_bits": 9
+    },
+    {
+      "lambda": 2,
+      "h": 6,
+      "N": 4,
+      "full_partition_dimension": 11,
+      "inverse_max_numerator_bits": 1,
+      "inverse_max_denominator_bits": 16
+    },
+    {
+      "lambda": 3,
+      "h": 9,
+      "N": 8,
+      "full_partition_dimension": 30,
+      "inverse_max_numerator_bits": 1,
+      "inverse_max_denominator_bits": 28
+    },
+    {
+      "lambda": 4,
+      "h": 12,
+      "N": 16,
+      "full_partition_dimension": 77,
+      "inverse_max_numerator_bits": 5,
+      "inverse_max_denominator_bits": 39
+    }
+  ],
+  "full_profiles": [
+    {
+      "lambda": 1,
+      "h": 4,
+      "N": 2,
+      "full_partition_dimension": 5,
+      "first_moment_rank": 2,
+      "row_indices": [
+        0,
+        2
+      ],
+      "column_indices": [
+        1,
+        4
+      ],
+      "minor": [
+        [
+          "288",
+          "0"
+        ],
+        [
+          "0",
+          "-288"
+        ]
+      ],
+      "inverse": [
+        [
+          "1/288",
+          "0"
+        ],
+        [
+          "0",
+          "-1/288"
+        ]
+      ],
+      "pieces": [
+        {
+          "shift": -8,
+          "row_rank": 1,
+          "col_rank": 1,
+          "source_row_terms": 1,
+          "source_col_terms": 870
+        },
+        {
+          "shift": -7,
+          "row_rank": 1,
+          "col_rank": 1,
+          "source_row_terms": 2,
+          "source_col_terms": 654
+        },
+        {
+          "shift": -6,
+          "row_rank": 2,
+          "col_rank": 2,
+          "source_row_terms": 4,
+          "source_col_terms": 489
+        },
+        {
+          "shift": -5,
+          "row_rank": 2,
+          "col_rank": 2,
+          "source_row_terms": 7,
+          "source_col_terms": 361
+        },
+        {
+          "shift": -4,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 12,
+          "source_col_terms": 265
+        },
+        {
+          "shift": -3,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 19,
+          "source_col_terms": 191
+        },
+        {
+          "shift": -2,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 30,
+          "source_col_terms": 137
+        },
+        {
+          "shift": -1,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 45,
+          "source_col_terms": 96
+        },
+        {
+          "shift": 1,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 96,
+          "source_col_terms": 45
+        },
+        {
+          "shift": 2,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 137,
+          "source_col_terms": 30
+        },
+        {
+          "shift": 3,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 191,
+          "source_col_terms": 19
+        },
+        {
+          "shift": 4,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 265,
+          "source_col_terms": 12
+        },
+        {
+          "shift": 5,
+          "row_rank": 4,
+          "col_rank": 4,
+          "source_row_terms": 361,
+          "source_col_terms": 7
+        },
+        {
+          "shift": 6,
+          "row_rank": 4,
+          "col_rank": 3,
+          "source_row_terms": 489,
+          "source_col_terms": 4
+        },
+        {
+          "shift": 7,
+          "row_rank": 2,
+          "col_rank": 2,
+          "source_row_terms": 654,
+          "source_col_terms": 2
+        },
+        {
+          "shift": 8,
+          "row_rank": 1,
+          "col_rank": 1,
+          "source_row_terms": 870,
+          "source_col_terms": 1
+        }
+      ],
+      "positive_grade_order_checks": 128,
+      "exact_rational_rank_checks": 64,
+      "crossing_entries": 16,
+      "predicate_counts": 4,
+      "prime": 65537
+    },
+    {
+      "lambda": 2,
+      "h": 6,
+      "N": 4,
+      "full_partition_dimension": 11,
+      "first_moment_rank": 4,
+      "row_indices": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "column_indices": [
+        1,
+        3,
+        6,
+        10
+      ],
+      "minor": [
+        [
+          "21600",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1440",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-17280",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "43200"
+        ]
+      ],
+      "inverse": [
+        [
+          "1/21600",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1/1440",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1/17280",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1/43200"
+        ]
+      ],
+      "pieces": [
+        {
+          "shift": -12,
+          "row_rank": 1,
+          "col_rank": 6,
+          "source_row_terms": 1,
+          "source_col_terms": 7143
+        },
+        {
+          "shift": -11,
+          "row_rank": 1,
+          "col_rank": 6,
+          "source_row_terms": 2,
+          "source_col_terms": 5624
+        },
+        {
+          "shift": -10,
+          "row_rank": 3,
+          "col_rank": 8,
+          "source_row_terms": 4,
+          "source_col_terms": 4411
+        },
+        {
+          "shift": -9,
+          "row_rank": 6,
+          "col_rank": 8,
+          "source_row_terms": 7,
+          "source_col_terms": 3439
+        },
+        {
+          "shift": -8,
+          "row_rank": 7,
+          "col_rank": 8,
+          "source_row_terms": 12,
+          "source_col_terms": 2669
+        },
+        {
+          "shift": -7,
+          "row_rank": 7,
+          "col_rank": 8,
+          "source_row_terms": 19,
+          "source_col_terms": 2057
+        },
+        {
+          "shift": -6,
+          "row_rank": 11,
+          "col_rank": 12,
+          "source_row_terms": 30,
+          "source_col_terms": 1578
+        },
+        {
+          "shift": -5,
+          "row_rank": 11,
+          "col_rank": 12,
+          "source_row_terms": 45,
+          "source_col_terms": 1200
+        },
+        {
+          "shift": -4,
+          "row_rank": 15,
+          "col_rank": 16,
+          "source_row_terms": 67,
+          "source_col_terms": 908
+        },
+        {
+          "shift": -3,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 97,
+          "source_col_terms": 680
+        },
+        {
+          "shift": -2,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 139,
+          "source_col_terms": 506
+        },
+        {
+          "shift": -1,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 195,
+          "source_col_terms": 372
+        },
+        {
+          "shift": 1,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 372,
+          "source_col_terms": 195
+        },
+        {
+          "shift": 2,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 506,
+          "source_col_terms": 139
+        },
+        {
+          "shift": 3,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 680,
+          "source_col_terms": 97
+        },
+        {
+          "shift": 4,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 908,
+          "source_col_terms": 67
+        },
+        {
+          "shift": 5,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 1200,
+          "source_col_terms": 45
+        },
+        {
+          "shift": 6,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 1578,
+          "source_col_terms": 30
+        },
+        {
+          "shift": 7,
+          "row_rank": 16,
+          "col_rank": 16,
+          "source_row_terms": 2057,
+          "source_col_terms": 19
+        },
+        {
+          "shift": 8,
+          "row_rank": 16,
+          "col_rank": 11,
+          "source_row_terms": 2669,
+          "source_col_terms": 12
+        },
+        {
+          "shift": 9,
+          "row_rank": 12,
+          "col_rank": 7,
+          "source_row_terms": 3439,
+          "source_col_terms": 7
+        },
+        {
+          "shift": 10,
+          "row_rank": 12,
+          "col_rank": 4,
+          "source_row_terms": 4411,
+          "source_col_terms": 4
+        },
+        {
+          "shift": 11,
+          "row_rank": 8,
+          "col_rank": 2,
+          "source_row_terms": 5624,
+          "source_col_terms": 2
+        },
+        {
+          "shift": 12,
+          "row_rank": 6,
+          "col_rank": 1,
+          "source_row_terms": 7143,
+          "source_col_terms": 1
+        }
+      ],
+      "positive_grade_order_checks": 24,
+      "exact_rational_rank_checks": 96,
+      "crossing_entries": 256,
+      "predicate_counts": 16,
+      "prime": 65537
+    }
+  ],
+  "bindings": {
+    "model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "verify.py": "bd968d175634c275fd03b1ddd449d7623d4f24afed24c01617d8eb325718278b",
+    "REGISTERED.md": "317290b369eb7756f74aafae47a88ce1babf3feb42698be85151654bb0010062"
+  },
+  "predecessor_bindings": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  },
+  "field_compiler_sha256": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba"
+}

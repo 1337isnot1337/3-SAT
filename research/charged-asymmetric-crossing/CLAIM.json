@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "charged-asymmetric-crossing",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "uniform_asymmetric_first_moment_crossing",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A uniform actual rational crossing family normalizes a nonprincipal minor of the charged first-moment pairing, omits the central s=0 piece, and preserves both required flattening ranks through a local x-axis inverse. The minimal grade has h=Theta(lambda^2) and p(h)<h^2*2^lambda; rational generation and normalization cost 2^O(lambda). The inherited rho=1/sqrt(2) and selected alpha are unchanged. A limited charge-independent high-coefficient support-rank lemma is supplied for future filters; no central interval filter is achieved.",
+  "improves_bound": false,
+  "evidence": [
+    "research/charged-asymmetric-crossing/REGISTERED.md",
+    "research/charged-asymmetric-crossing/PROOF.md",
+    "research/charged-asymmetric-crossing/NEXT.md",
+    "research/charged-asymmetric-crossing/model.py",
+    "research/charged-asymmetric-crossing/verify.py",
+    "research/charged-asymmetric-crossing/verification.json",
+    "research/charged-asymmetric-crossing/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/charged-asymmetric-crossing/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the actual asymmetric crossing and uniform time/rank proofs, retaining predecessor evidence boundaries",
+    "A valid scalar filter removing a fixed central interval without losing leading label/output capacity or either rank bound",
+    "The supplied envelope does not improve rho; a smaller actual-rank theorem or changed family remains necessary",
+    "Full master/SAT implementation and polynomial-space compilation are not supplied"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent or formal review",
+  "selected_result_changed": false
+}

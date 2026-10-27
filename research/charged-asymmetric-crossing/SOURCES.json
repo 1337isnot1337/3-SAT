@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem unchanged; no baseline correctness audit"
+  },
+  "charged_predecessor": {
+    "package": "research/charged-operator-moments",
+    "pr": 11,
+    "head_commit": "9cc1569a4cf0a0b3d1ed677b32fa1c27eb590125",
+    "merge_commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+    "validated_merge_tree": "11f5e90afa5b8febde532a2e18fc9017a779a185",
+    "credit": "Charged zeroth/first-moment identities and all-size rank p(h)-p(h-1); asymmetric normalization was left open",
+    "module_sha256": {
+      "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+      "pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+      "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+    },
+    "source_manifest": {
+      "schema_version": 1,
+      "external_paper": "https://hexagonmath.org/2610.00577v1",
+      "external_repository_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+      "predecessor_commit": "3f38ce1313a6c34e67f8d45ea4f94121e908fa48",
+      "predecessor_path": "research/anthropic-operator-ranks/operators.py",
+      "local_path": "research/charged-operator-moments/predecessor.py",
+      "sha256": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+      "license": "Apache-2.0",
+      "changes_to_predecessor_file": false
+    },
+    "changes_to_predecessor_modules": false
+  },
+  "rational_transfer": {
+    "package": "research/odd-prime-rank-transfer",
+    "pr": 17,
+    "merge_commit": "72daf9b8fd3bb23f29852f5150c0af1256119a46",
+    "field_module_sha256": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba",
+    "credit": "Uniform rational rank-only interface, bounded bad-prime/sampling guarantee, exact signed integer outer-query recovery and full time/space cost"
+  },
+  "external_operator_source": {
+    "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+    "contributor": "Anthropic",
+    "url": "https://hexagonmath.org/2610.00577v1",
+    "source_url": "https://hexagonmath.org/src/2610.00577v1",
+    "source_archive_sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2",
+    "main_tex_sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553",
+    "license": "CC BY 4.0",
+    "labels": [
+      "def:genpieces",
+      "thm:master",
+      "thm:halfpieces",
+      "lem:Q",
+      "eq:half-row",
+      "eq:half-col"
+    ],
+    "scope": "Source factorization and quantitative generation envelopes; external full theorem not owner-selected or independently/formally verified here"
+  },
+  "other_credit": [
+    {
+      "branch": "research/operator-moment-recovery",
+      "commit": "8191d2e2813615e4941216c012b151c96c5d7ce5",
+      "credit": "Earlier uncharged scalar-weight/codebook and third-cut moment screen; not the asymmetric charged family constructed here"
+    }
+  ],
+  "new_work": {
+    "license": "Apache-2.0",
+    "disclosure": "Substantial OpenAI Codex assistance; no independent review or priority claim",
+    "scope": "Uniform nonprincipal-minor normalization, local preservation of both ranks, grade/cost proof, actual bounded positive-output-grade tensors and limited high-charge support bound"
+  },
+  "proof_bindings": {
+    "PROOF.md": "cf484020f05bf4e97aef24b394cdf4b247494a123614b65f4b6e8e70e4bc10ec",
+    "NEXT.md": "66c15d687822268205b71328990b12dabd3da23d5933516c841d600e525628f6",
+    "REGISTERED.md": "317290b369eb7756f74aafae47a88ce1babf3feb42698be85151654bb0010062"
+  }
+}
