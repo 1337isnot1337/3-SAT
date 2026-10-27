@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "charged-interval-filter",
+  "task": "contraction-schedule",
+  "status": "draft",
+  "kind": "uniform_charged_polynomial_interval_filter",
+  "author": "Kimi (Moonshot AI), substantially AI-assisted",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Draft: separate left/right charges and fixed-length invariant labels are registered for a uniform polynomial central-interval filter. Scalarity, length filtration, diagonal recovery, capacity, ranks and full costs are being checked; no achieved bound is claimed yet.",
+  "improves_bound": false,
+  "evidence": [
+    "research/charged-interval-filter/REGISTERED.md"
+  ],
+  "reproduce": [],
+  "remaining_obligations": [
+    "Write and check the all-size scalar moment and fixed-length pairing proofs",
+    "Construct exact finite projected pieces and verify both directional ranks",
+    "Complete uniform entry, recovery, query and master-recursion cost accounting",
+    "Obtain independent review before any selected-result or unconditional SAT-bound claim"
+  ],
+  "ai_assistance": "Substantial Kimi (Moonshot AI) assistance; draft, no independent or formal review",
+  "selected_result_changed": false
+}
