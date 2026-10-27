@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "modular-rank-factorization",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "modular_rank_factor_compiler_and_precision_transfer",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "fdb2d6d5e585b75f12e79fd0f67934eed22af173",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A deterministic local-ring compiler factors an integer matrix modulo 2^P with inner dimension at most its rational rank and P-bit factors. Applied to crossing pieces it replaces explicit small integer factors by rational rank bounds, with a polynomial precision cap paying all known normalizers and canonical creation identities. The written master-time transfer is conditional on the stated rank-only family and retains all outer costs; exponential-space compilation is explicit. No cheaper rank family or SAT exponent is obtained.",
+  "improves_bound": false,
+  "evidence": [
+    "research/modular-rank-factorization/PROOF.md",
+    "research/modular-rank-factorization/modular.py",
+    "research/modular-rank-factorization/verify.py",
+    "research/modular-rank-factorization/crossing.py",
+    "research/modular-rank-factorization/verification.json",
+    "research/modular-rank-factorization/crossing-verification.json",
+    "research/modular-rank-factorization/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/modular-rank-factorization/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size rank-factor and precision/master transfer arguments",
+    "A uniformly evaluable cheaper crossing family with both rational rank bounds and a paid normalizer",
+    "Polynomial-space compilation, if that guarantee is desired; current generic factors use exponential space",
+    "A rational odd-prime transfer needs its own bounded-query, bad-prime, probability and worst-outcome time proof"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent or formal review",
+  "selected_result_changed": false
+}
