@@ -1,0 +1,24 @@
+{
+  "command": [
+    "pdftotext",
+    "-layout",
+    "PDF",
+    "-"
+  ],
+  "files": [
+    {
+      "normalized_characters": 145673,
+      "normalized_text_sha256": "f8765305e8e67fc268763d6c1d051e225c03461869f3b1bfe598ab9ec7fe5d29",
+      "path": "hexagon-v1-paper.pdf",
+      "pdf_sha256": "85034e06e1d058aa4ed7d895c226ae755ebd3a5c6614b07ba14981915c4f7360"
+    },
+    {
+      "normalized_characters": 145673,
+      "normalized_text_sha256": "f8765305e8e67fc268763d6c1d051e225c03461869f3b1bfe598ab9ec7fe5d29",
+      "path": "github-paper.pdf",
+      "pdf_sha256": "7af518b09342c967ea371c74b8989806684c5d02aabe5763ca08554aff5025a0"
+    }
+  ],
+  "result": "PASS",
+  "scope": "equal whitespace-normalized Poppler text after Hexagon watermark removal; PDFs differ in bytes"
+}
