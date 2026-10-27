@@ -1,0 +1,1881 @@
+{
+  "artifact_sha256": {
+    "PROOF.md": "b76de4b71a835c81bcb7d82537ae38b60d7d5bf9e923455e220d74ccd3f7fd39",
+    "SOURCES.json": "2b1973d1c9124d82ac4bf1b011ffb8697cb7f8f0d3d8cd2335d45bb6b54bd759",
+    "operators.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+    "screen.py": "1b223465a3bf51c501f0d2f5cca0f4e88df4dbc3f9a566c5a184bfcdd0080dc6"
+  },
+  "cases": [
+    {
+      "crossing_identity_entries": 16,
+      "encoded_states": [
+        [
+          1,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "first_moment_zero_entries": 16,
+      "fixed_piece_reweighting_is_one_dimensional": true,
+      "full_energy_dimension": 2,
+      "full_state_dual_pairing_checks": 4,
+      "h": 2,
+      "lambda": 1,
+      "matrix_size": 4,
+      "operator_order_vector_checks": 72,
+      "original_piece_count": 9,
+      "piece_span_rank": {
+        "method": "modular_lower_bound_matches_proved_upper_bound",
+        "modular_lower_bounds": {
+          "1009": 8,
+          "101": 8,
+          "103": 8
+        },
+        "proved_upper_bound": 8,
+        "rank_index_bits": 3,
+        "rank_over_Q": 8,
+        "upper_bound_index_bits": 3,
+        "upper_bound_reason": "nonzero_first_moment_relation"
+      },
+      "pieces": [
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 60,
+          "largest_integer_coefficient_bits": 3,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 1,
+          "shift": -4,
+          "tensor_sha256": "8a1046f9ed127027efadaf9362de82aaac05c466e78828f5c3f3fe68d00e8b42"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 41,
+          "largest_integer_coefficient_bits": 5,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 2,
+          "shift": -3,
+          "tensor_sha256": "b615e64334a5ff5cb77b54928445bc8b19099e5634c7fcc3047e09e2a9ae7503"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 28,
+          "largest_integer_coefficient_bits": 5,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 3,
+              "101": 3,
+              "103": 3
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 3,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 4,
+          "shift": -2,
+          "tensor_sha256": "98ab214f054b32c189358d68dd4a84414030079ca05e568a268b612e5e1418b6"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 18,
+          "largest_integer_coefficient_bits": 6,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 3,
+              "101": 3,
+              "103": 3
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 3,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 7,
+          "shift": -1,
+          "tensor_sha256": "a3e43dc7e3d1f8e2a80a6d2b99008ecae0f91bfe3cf2447145359210d505a45a"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 12,
+          "largest_integer_coefficient_bits": 7,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 12,
+          "shift": 0,
+          "tensor_sha256": "396c1d93ce4703bc54f6a6c7fa6fbd064cad9047ccbebaf01be6891e4fdd1ace"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 7,
+          "largest_integer_coefficient_bits": 6,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 18,
+          "shift": 1,
+          "tensor_sha256": "802452c9ecad415321482f1e52c11b3c87438ef724f5de637210f9b80f8a784f"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 4,
+          "largest_integer_coefficient_bits": 7,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 28,
+          "shift": 2,
+          "tensor_sha256": "41ddb39189678a2919d5e066da9392c98019926878032faaf16f2b800b860f8c"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 2,
+          "largest_integer_coefficient_bits": 6,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 41,
+          "shift": 3,
+          "tensor_sha256": "db1d72f925806d303655e9b610b6ab0b1d43a1cfce07210288acca1513e3fd11"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 1,
+          "largest_integer_coefficient_bits": 5,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 60,
+          "shift": 4,
+          "tensor_sha256": "4244bf0c50faef2121c330baf16605d0cd23824eb7e26da40e05a8175d193eb9"
+        }
+      ],
+      "pruned_crossing_identity_entries": 16,
+      "pruned_piece_count": 8,
+      "rank_index_bit_savings": 0,
+      "strict_rank_gaps": 2,
+      "worst_exact_shared_bit_total": 4
+    },
+    {
+      "crossing_identity_entries": 256,
+      "encoded_states": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "first_moment_zero_entries": 256,
+      "fixed_piece_reweighting_is_one_dimensional": true,
+      "full_energy_dimension": 5,
+      "full_state_dual_pairing_checks": 25,
+      "h": 4,
+      "lambda": 2,
+      "matrix_size": 16,
+      "operator_order_vector_checks": 1088,
+      "original_piece_count": 17,
+      "piece_span_rank": {
+        "method": "modular_lower_bound_matches_proved_upper_bound",
+        "modular_lower_bounds": {
+          "1009": 16,
+          "101": 16,
+          "103": 16
+        },
+        "proved_upper_bound": 16,
+        "rank_index_bits": 4,
+        "rank_over_Q": 16,
+        "upper_bound_index_bits": 4,
+        "upper_bound_reason": "nonzero_first_moment_relation"
+      },
+      "pieces": [
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 870,
+          "largest_integer_coefficient_bits": 10,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 1,
+          "shift": -8,
+          "tensor_sha256": "e081576e17633f4c5f1a6de54fd93534cbea159ab26a73776d2bef5481c780fa"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 654,
+          "largest_integer_coefficient_bits": 12,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 2,
+          "shift": -7,
+          "tensor_sha256": "9c7154965900f8b336103eba90a9df0d510a18ca8dd2d60989a40e3d22a07bca"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 489,
+          "largest_integer_coefficient_bits": 14,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 4,
+          "shift": -6,
+          "tensor_sha256": "93aa93150849e0661051325295f2dca0b551b24b7d8220a2a45c0bee5694f57d"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 361,
+          "largest_integer_coefficient_bits": 16,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 6,
+              "101": 6,
+              "103": 6
+            },
+            "proved_upper_bound": 7,
+            "rank_index_bits": 3,
+            "rank_over_Q": 6,
+            "upper_bound_index_bits": 3,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 7,
+          "shift": -5,
+          "tensor_sha256": "e87bbd9f9b243f901d30551f1ad4581dbfc64e06dbb034df4e2676e5e64528d8"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 265,
+          "largest_integer_coefficient_bits": 17,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 9,
+              "101": 9,
+              "103": 9
+            },
+            "proved_upper_bound": 12,
+            "rank_index_bits": 4,
+            "rank_over_Q": 9,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 12,
+          "shift": -4,
+          "tensor_sha256": "f82ba61ceb7ae276d8484d4e11658f1ad0240dbc51154b630757bcf3f8e72a98"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 191,
+          "largest_integer_coefficient_bits": 18,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 13,
+              "101": 13,
+              "103": 13
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 13,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 19,
+          "shift": -3,
+          "tensor_sha256": "121c47e4b1c586d6ea775126432f8afdd7260111551fe2a0e2a509ac3a0bc6ce"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 137,
+          "largest_integer_coefficient_bits": 19,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 15,
+              "101": 15,
+              "103": 15
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 15,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 30,
+          "shift": -2,
+          "tensor_sha256": "6b07ed9bcbdb580fb54922d737d0d6c49adc5fbb337ef4f7e106dbec5fd2c042"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 96,
+          "largest_integer_coefficient_bits": 19,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 45,
+          "shift": -1,
+          "tensor_sha256": "55626859218c2e445d6a5f41bf96ae27b4c42f841c342a68c602617d2d44a308"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 67,
+          "largest_integer_coefficient_bits": 20,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 67,
+          "shift": 0,
+          "tensor_sha256": "2a939aff40272587fc89440d0120bfc23fe8c3c3a61663b3c7f9ec0bffbc35de"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 45,
+          "largest_integer_coefficient_bits": 20,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 96,
+          "shift": 1,
+          "tensor_sha256": "e0935315bb8bd61085d5dc1b0328bd3a2e967938d887565531dc34c1b5e65f66"
+        },
+        {
+          "column": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 15,
+              "101": 15,
+              "103": 15
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 15,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 30,
+          "largest_integer_coefficient_bits": 20,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 137,
+          "shift": 2,
+          "tensor_sha256": "7a13d6d668bb871024d3ab84cbb5a922195074997b7a34913167df5fde84f3ba"
+        },
+        {
+          "column": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 13,
+              "101": 13,
+              "103": 13
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 13,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 19,
+          "largest_integer_coefficient_bits": 20,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 191,
+          "shift": 3,
+          "tensor_sha256": "0263c5ccc671d02bf1694b34f1b0f60902e67eb285d7c8c013b840a3beb9ccad"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 12,
+              "101": 12,
+              "103": 12
+            },
+            "proved_upper_bound": 12,
+            "rank_index_bits": 4,
+            "rank_over_Q": 12,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 12,
+          "largest_integer_coefficient_bits": 19,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 265,
+          "shift": 4,
+          "tensor_sha256": "79730ad03bb30b2ab8ca74e9fc61c9fc01ebfd484e4271098e9a693957db3a3c"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 7,
+              "101": 7,
+              "103": 7
+            },
+            "proved_upper_bound": 7,
+            "rank_index_bits": 3,
+            "rank_over_Q": 7,
+            "upper_bound_index_bits": 3,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 7,
+          "largest_integer_coefficient_bits": 18,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 361,
+          "shift": 5,
+          "tensor_sha256": "2bcd0e78c07797fe96e4b9704ccd12334e80747130784c6d03dfd96cd7a9a0a1"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 4,
+          "largest_integer_coefficient_bits": 17,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 489,
+          "shift": 6,
+          "tensor_sha256": "afbcdc6347217262e1ed4da1f896b0b8c9de389defce2f9743fa2ef10b703a50"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 2,
+          "largest_integer_coefficient_bits": 16,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 654,
+          "shift": 7,
+          "tensor_sha256": "1dfc3b75e42926af99c900d010e17d494f4d6b331780c7c22e814801f74d44ce"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 1,
+          "largest_integer_coefficient_bits": 13,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 16,
+              "101": 16,
+              "103": 16
+            },
+            "proved_upper_bound": 16,
+            "rank_index_bits": 4,
+            "rank_over_Q": 16,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 870,
+          "shift": 8,
+          "tensor_sha256": "12e715c3683ad6dcc054eb002c34bbe29cbcc412fa5281fc22da6323f49db95b"
+        }
+      ],
+      "pruned_crossing_identity_entries": 256,
+      "pruned_piece_count": 16,
+      "rank_index_bit_savings": 0,
+      "strict_rank_gaps": 6,
+      "worst_exact_shared_bit_total": 8
+    },
+    {
+      "crossing_identity_entries": 4096,
+      "encoded_states": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          1,
+          1
+        ]
+      ],
+      "first_moment_zero_entries": 4096,
+      "fixed_piece_reweighting_is_one_dimensional": true,
+      "full_energy_dimension": 11,
+      "full_state_dual_pairing_checks": 121,
+      "h": 6,
+      "lambda": 3,
+      "matrix_size": 64,
+      "operator_order_vector_checks": 12800,
+      "original_piece_count": 25,
+      "piece_span_rank": {
+        "method": "modular_lower_bound_matches_proved_upper_bound",
+        "modular_lower_bounds": {
+          "1009": 24,
+          "101": 24,
+          "103": 24
+        },
+        "proved_upper_bound": 24,
+        "rank_index_bits": 5,
+        "rank_over_Q": 24,
+        "upper_bound_index_bits": 5,
+        "upper_bound_reason": "nonzero_first_moment_relation"
+      },
+      "pieces": [
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 7143,
+          "largest_integer_coefficient_bits": 18,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 1,
+          "shift": -12,
+          "tensor_sha256": "676a59bc460ecf16ce619b98e6041510a828b376f051cc085f3a8ca653d25d2b"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 5624,
+          "largest_integer_coefficient_bits": 21,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 2,
+          "shift": -11,
+          "tensor_sha256": "07941ecc7cdf444f4b2ad7eccf97c5413aca43274b125ec2c2b68f094a9c81cc"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 4411,
+          "largest_integer_coefficient_bits": 24,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 4,
+          "shift": -10,
+          "tensor_sha256": "48d952c4f7d7ca1d7614d99ea28f19d88bf0170bb5f299e2e6755f709061d79e"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 3439,
+          "largest_integer_coefficient_bits": 27,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 7,
+              "101": 7,
+              "103": 7
+            },
+            "proved_upper_bound": 7,
+            "rank_index_bits": 3,
+            "rank_over_Q": 7,
+            "upper_bound_index_bits": 3,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 7,
+          "shift": -9,
+          "tensor_sha256": "8e61cabc3e804d5ce6dd4f80722e7774c2e8fbaaba0f281059e88a4863796dc3"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 2669,
+          "largest_integer_coefficient_bits": 29,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 12,
+              "101": 12,
+              "103": 12
+            },
+            "proved_upper_bound": 12,
+            "rank_index_bits": 4,
+            "rank_over_Q": 12,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 12,
+          "shift": -8,
+          "tensor_sha256": "2b87e02f3d03d9e1e4e27e681ec7e3e03c032af58f2ad33e66313dd97e35be47"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 2057,
+          "largest_integer_coefficient_bits": 31,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 18,
+              "101": 18,
+              "103": 18
+            },
+            "proved_upper_bound": 19,
+            "rank_index_bits": 5,
+            "rank_over_Q": 18,
+            "upper_bound_index_bits": 5,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 19,
+          "shift": -7,
+          "tensor_sha256": "8a68e567962bc9e293ebf30a686e2b7f59163fbac6087a4a7f0dfd063b4dfc4b"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 1578,
+          "largest_integer_coefficient_bits": 32,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 27,
+              "101": 27,
+              "103": 27
+            },
+            "proved_upper_bound": 30,
+            "rank_index_bits": 5,
+            "rank_over_Q": 27,
+            "upper_bound_index_bits": 5,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 30,
+          "shift": -6,
+          "tensor_sha256": "7f455a427fa6aba93b49901667119850f2c2fb980e96013743d329e8231542cd"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 1200,
+          "largest_integer_coefficient_bits": 34,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 40,
+              "101": 40,
+              "103": 40
+            },
+            "proved_upper_bound": 45,
+            "rank_index_bits": 6,
+            "rank_over_Q": 40,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 45,
+          "shift": -5,
+          "tensor_sha256": "32b4fb31088ab587887d34dea1da3fd42c6a762001fe0bd3b40d19f7ffd0b2ed"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 908,
+          "largest_integer_coefficient_bits": 35,
+          "row": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 57,
+              "101": 57,
+              "103": 57
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 57,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 67,
+          "shift": -4,
+          "tensor_sha256": "ef6cc6284a586364d14d3b245ba22705f3c1f62cc4857e66cce16307f5cc1e64"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 680,
+          "largest_integer_coefficient_bits": 35,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 97,
+          "shift": -3,
+          "tensor_sha256": "bec6f38c4d12ce3b690912a8fede686d56e777e45177b2f81f7c100f23053030"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 506,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 139,
+          "shift": -2,
+          "tensor_sha256": "66a1b77c572736d3a32926817e3821c410105cbd616156e9233c28d64cb38015"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 372,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 195,
+          "shift": -1,
+          "tensor_sha256": "e820b46aed6f33e1a4a48c3ee990bd38c7a0fab99185ea28662020d4cb972029"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 272,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 272,
+          "shift": 0,
+          "tensor_sha256": "e06b27bf33dbcb351a6445933f7f2fa3405afa24d006339048281a9a73637f4a"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 195,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 372,
+          "shift": 1,
+          "tensor_sha256": "fdd7e12b25444e575114118fa68436f108a2de8680f0da56cbb793ed9ce5ede6"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 139,
+          "largest_integer_coefficient_bits": 37,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 506,
+          "shift": 2,
+          "tensor_sha256": "a57c556b0fc03ed8f5430530bb506812f8ca180f097fbe799f74e8557377b830"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 97,
+          "largest_integer_coefficient_bits": 37,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 680,
+          "shift": 3,
+          "tensor_sha256": "01d262d01e356d568ea418ae43f1bd4244e15097c51d8ed78b55e09b9d5a4ea3"
+        },
+        {
+          "column": {
+            "method": "rational_elimination",
+            "modular_lower_bounds": {
+              "1009": 62,
+              "101": 62,
+              "103": 62
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 62,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 67,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 63
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 908,
+          "shift": 4,
+          "tensor_sha256": "31182b560a17ca8bad5956e63380b5de14829445033cbee71ad14c21c072779b"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 45,
+              "101": 45,
+              "103": 45
+            },
+            "proved_upper_bound": 45,
+            "rank_index_bits": 6,
+            "rank_over_Q": 45,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 45,
+          "largest_integer_coefficient_bits": 36,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 1200,
+          "shift": 5,
+          "tensor_sha256": "8717874017b9b0012519221bc98238752b76620577e3d0f644097701bbfc38d9"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 30,
+              "101": 30,
+              "103": 30
+            },
+            "proved_upper_bound": 30,
+            "rank_index_bits": 5,
+            "rank_over_Q": 30,
+            "upper_bound_index_bits": 5,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 30,
+          "largest_integer_coefficient_bits": 34,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 1578,
+          "shift": 6,
+          "tensor_sha256": "9e882c60c5d6d52a09996b0e9959ba3fe77dd1136d84d7f8607efaace4ed564a"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 19,
+              "101": 19,
+              "103": 19
+            },
+            "proved_upper_bound": 19,
+            "rank_index_bits": 5,
+            "rank_over_Q": 19,
+            "upper_bound_index_bits": 5,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 19,
+          "largest_integer_coefficient_bits": 32,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 2057,
+          "shift": 7,
+          "tensor_sha256": "1c451d17599fa0ea70d21732c282258b3e502f89b566993527da900282464751"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 12,
+              "101": 12,
+              "103": 12
+            },
+            "proved_upper_bound": 12,
+            "rank_index_bits": 4,
+            "rank_over_Q": 12,
+            "upper_bound_index_bits": 4,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 12,
+          "largest_integer_coefficient_bits": 32,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 2669,
+          "shift": 8,
+          "tensor_sha256": "16e1069ef28d43df4e9eaf057bdb0e09545f7222e44fff53b70237a79aeead0b"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 7,
+              "101": 7,
+              "103": 7
+            },
+            "proved_upper_bound": 7,
+            "rank_index_bits": 3,
+            "rank_over_Q": 7,
+            "upper_bound_index_bits": 3,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 7,
+          "largest_integer_coefficient_bits": 31,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 3439,
+          "shift": 9,
+          "tensor_sha256": "9d50cabd64271af2d1bb1ad013a4aa813161a030264a0f7f142466ba7245a9e6"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 4,
+              "101": 4,
+              "103": 4
+            },
+            "proved_upper_bound": 4,
+            "rank_index_bits": 2,
+            "rank_over_Q": 4,
+            "upper_bound_index_bits": 2,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 4,
+          "largest_integer_coefficient_bits": 30,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 4411,
+          "shift": 10,
+          "tensor_sha256": "eeebdc6663140778bf9421b7f6c42246a3f40ed806735a2c47020cf18fb91946"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 2,
+              "101": 2,
+              "103": 2
+            },
+            "proved_upper_bound": 2,
+            "rank_index_bits": 1,
+            "rank_over_Q": 2,
+            "upper_bound_index_bits": 1,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 2,
+          "largest_integer_coefficient_bits": 28,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 5624,
+          "shift": 11,
+          "tensor_sha256": "b2815d9e2b66559261c9704380fdfeea4ce615878926d816acf5e7c718ccc1da"
+        },
+        {
+          "column": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 1,
+              "101": 1,
+              "103": 1
+            },
+            "proved_upper_bound": 1,
+            "rank_index_bits": 0,
+            "rank_over_Q": 1,
+            "upper_bound_index_bits": 0,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "column_factorization_terms": 1,
+          "largest_integer_coefficient_bits": 24,
+          "row": {
+            "method": "modular_lower_bound_matches_proved_upper_bound",
+            "modular_lower_bounds": {
+              "1009": 64,
+              "101": 64,
+              "103": 64
+            },
+            "proved_upper_bound": 64,
+            "rank_index_bits": 6,
+            "rank_over_Q": 64,
+            "upper_bound_index_bits": 6,
+            "upper_bound_reason": "explicit_intermediate_factorization_and_matrix_size"
+          },
+          "row_factorization_terms": 7143,
+          "shift": 12,
+          "tensor_sha256": "0c4f4e1468737fbd96034bd59d74e318c09493829464549c5b1b803c2e024548"
+        }
+      ],
+      "pruned_crossing_identity_entries": 4096,
+      "pruned_piece_count": 24,
+      "rank_index_bit_savings": 0,
+      "strict_rank_gaps": 5,
+      "worst_exact_shared_bit_total": 12
+    }
+  ],
+  "general_homogeneous_first_moment_cases": 217,
+  "operator_checks": {
+    "bad_prime_control": {
+      "mod101_rank": 1,
+      "mod103_rank": 2,
+      "rational_rank": 2
+    },
+    "integer_binomial_cases": 153,
+    "normal_order_vs_recurrence": 196
+  },
+  "result": "PASS_FINITE_OPERATOR_PIECES",
+  "schema_version": 1,
+  "scope": "Exact finite operator identities and characteristic-zero ranks only; no improved rho, SAT algorithm or asymptotic bound",
+  "source_sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553"
+}
