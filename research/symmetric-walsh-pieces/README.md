@@ -100,6 +100,9 @@ and checks exact macro-alphabet entropy inequalities and 4,096 direct
 three-bit macro character sums. These finite checks do not independently
 review the written all-size proof or implement the full contraction.
 
+A [clean Git-free export](VALIDATION.md) reproduces the saved output byte
+for byte and passes all 17 repository tests.
+
 ## Limits and open next questions
 
 The obstruction also tensorizes over a fixed number of growing color

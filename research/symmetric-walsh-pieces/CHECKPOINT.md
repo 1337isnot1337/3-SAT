@@ -61,7 +61,7 @@ height, polynomial piece count, explicit support unranking and `2^O(lambda)`
 evaluation, and charge the full external master recursion before any SAT
 bound. The external paper is not automatically accepted or selected.
 
-Immediate actions: finish a clean-export replay, publish/merge this coherent
-global result, then register and run the new macro-family. Existing other
+The [clean-export replay](VALIDATION.md) is complete. Immediate actions:
+publish/merge this coherent global result, then register and run the new macro-family. Existing other
 branches cover Anthropic operator ranks, charged moments, moment recovery
 and sparse oscillators. Preserve them and check live overlap.
