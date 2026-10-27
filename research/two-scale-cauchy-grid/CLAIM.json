@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "two-scale-cauchy-grid",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "changed_deformation_and_scoped_precision_model",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "8a659c67d4988540aa6ac8393bb06314ecbe81e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A two-scale 4L-node packet grid has uniform derivative valuations, integral shifted kernels and exact local Smith valuations 4j-2 popcount(j)+2(b-r) floor(j/d). A complete all-node recovery functional normalized by explicitly modeled spectral scales has exact optimum W/(w^T A^-1 K), with denominator below 10(r+t+2), independent of the numerical gap. A generic full-grid rational-polynomial witness gives an all-jet precision obstruction at these scales. A full mode algorithm, tensor realization of the stronger witness, and a SAT time improvement are not established.",
+  "improves_bound": false,
+  "evidence": [
+    "research/two-scale-cauchy-grid/PROOF.md",
+    "research/two-scale-cauchy-grid/LOSS-MODEL.md",
+    "research/two-scale-cauchy-grid/verify.py",
+    "research/two-scale-cauchy-grid/verification.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/two-scale-cauchy-grid/verify.py"],
+  "remaining_obligations": [
+    "Independent review of the component proofs",
+    "A genuinely changed aggregate cost or tensor-aware recovery premise; the same gap-plus-slope functional is now solved",
+    "Full inherited precision, child, entry, leaf and outer reduction cost before any bound claim"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent review claimed",
+  "selected_result_changed": false
+}
