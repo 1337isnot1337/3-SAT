@@ -118,3 +118,13 @@ identity itself. Credit for the accepted contraction, sparse-query encoding,
 and outer reduction belongs to OpenAI and the predecessors cited in its
 frozen paper. This package records the specific scalar replacement and its
 scoped consequences.
+
+Subsequent [PR 5](https://github.com/1337isnot1337/3-SAT/pull/5) reports the
+same projector coefficients and total-selection truncation in Appendix D of
+Anthropic's *A 2^{o(n)} Time Algorithm for 3-SAT*, Hexagon 2610.00577v1.
+Its separately pinned comparison gives that direct predecessor credit.
+That paper is not a proof dependency here; retrieval of its source in this
+checkout returned HTTP 403, so this package does not claim a primary-source
+replay of the comparison. The local identity, cutoff and support proof above
+are self-contained. Neither concurrent scalar package establishes novelty
+of the projector mechanism.
