@@ -1,0 +1,212 @@
+{
+  "bindings": {
+    "proof_sha256": "bbcbec620d8aa988c1592ba9da8832885073f6b7fa36786d70d6e02c930a728d",
+    "reference_sha256": "28342796251b26e855878b96cc09ff5f412d1e6ea786d390ef370ca211adb288",
+    "script_sha256": "18d7db2ef6514b59add3e1da3e1df5fe2caa5aee1af30ff2a74c6b15585ac244"
+  },
+  "canonical_collision": {
+    "difference_node_contents": [
+      3,
+      4
+    ],
+    "first_A": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "first_B": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "origin_counts": [
+      1,
+      2
+    ],
+    "second_A": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "second_B": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  "complete_local_data_parity_classification": [
+    {
+      "ambiguous_local_data": 4,
+      "distinct_local_data": 4,
+      "opposite_origin_parities_example": {
+        "first_A_word": 1,
+        "first_B_word": 3,
+        "second_A_word": 1,
+        "second_B_word": 4
+      },
+      "p": 1
+    },
+    {
+      "ambiguous_local_data": 21,
+      "distinct_local_data": 30,
+      "opposite_origin_parities_example": {
+        "first_A_word": 1,
+        "first_B_word": 2,
+        "second_A_word": 1,
+        "second_B_word": 5
+      },
+      "p": 2
+    },
+    {
+      "ambiguous_local_data": 14,
+      "distinct_local_data": 118,
+      "opposite_origin_parities_example": {
+        "first_A_word": 3,
+        "first_B_word": 5,
+        "second_A_word": 7,
+        "second_B_word": 6
+      },
+      "p": 3
+    },
+    {
+      "ambiguous_local_data": 0,
+      "distinct_local_data": 145,
+      "opposite_origin_parities_example": null,
+      "p": 4
+    },
+    {
+      "ambiguous_local_data": 0,
+      "distinct_local_data": 145,
+      "opposite_origin_parities_example": null,
+      "p": 5
+    },
+    {
+      "ambiguous_local_data": 0,
+      "distinct_local_data": 145,
+      "opposite_origin_parities_example": null,
+      "p": 6
+    }
+  ],
+  "min_active_node_content_histogram": {
+    "0": 78,
+    "1": 34,
+    "2": 8
+  },
+  "origin_odd_pairs": 120,
+  "registered_tensor_pairs": 256,
+  "scope": "complete L=2 Boolean-table screen; no growing-packet theorem",
+  "signed_taper_example": {
+    "A": [
+      -3,
+      -4,
+      0,
+      -1
+    ],
+    "B": [
+      1,
+      -1,
+      1,
+      0
+    ],
+    "canonical_mod2_node_contents": [
+      2,
+      1
+    ],
+    "polynomial": "1-T^2",
+    "signed_node_contents": [
+      3,
+      3
+    ]
+  },
+  "status": "PASS",
+  "witness_for_each_content": {
+    "0": {
+      "A": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "B": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "node_contents": [
+        0,
+        0
+      ],
+      "origin_count": 1,
+      "polynomial": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "1": {
+      "A": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "B": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "node_contents": [
+        2,
+        1
+      ],
+      "origin_count": 1,
+      "polynomial": [
+        "1",
+        "-1",
+        "2",
+        "0",
+        "3/2",
+        "2",
+        "1/2"
+      ]
+    },
+    "2": {
+      "A": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "B": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "node_contents": [
+        3,
+        2
+      ],
+      "origin_count": 1,
+      "polynomial": [
+        "1",
+        "-1/2",
+        "-1",
+        "5/4",
+        "1/4",
+        "-3/4",
+        "-1/4"
+      ]
+    }
+  }
+}
