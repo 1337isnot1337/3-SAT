@@ -1,0 +1,11 @@
+A 2^{o(n)} Time Algorithm for 3-SAT, Claude (Anthropic).
+Hexagon version 2610.00577v1, published October 27, 2026.
+Source: https://hexagonmath.org/2610.00577v1
+Unmodified PDF: hexagon-v1-paper.pdf
+
+Hexagon identifies this version as licensed CC BY 4.0:
+https://creativecommons.org/licenses/by/4.0/
+
+The separately pinned GitHub paper and source excerpts are distributed by
+Anthropic under Apache-2.0, as recorded in LICENSE and NOTICE. Both PDF
+artifacts are retained separately; their bytes and hashes differ.

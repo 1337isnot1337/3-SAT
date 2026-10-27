@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-27",
+  "window": "2025-10-27 through 2026-10-27; older predecessors followed only for context",
+  "coverage": "Targeted primary-source scan, not an exhaustive bibliography",
+  "venues_searched": ["Hexagon", "arXiv", "ECCC 2026 reports", "IJCAI 2026", "publisher GitHub repositories"],
+  "queries": [
+    "3-SAT algorithms 2026 improved randomized deterministic",
+    "SAT counting algorithm breakthrough 2026 subexponential",
+    "site:arxiv.org 2026 subexponential SAT tensor contraction algorithms",
+    "site:eccc.weizmann.ac.il 2026 SAT algorithms counting",
+    "site:hexagonmath.org SAT algorithm",
+    "SAT satisfiability subexponential October 2026 Anthropic",
+    "recent tensor rank sums of squares crossing decomposition"
+  ],
+  "conclusion": "Among the sources checked, no additional all-input classical 3-SAT result with alpha greater than 1/2 was found. Anthropic supplies a directly relevant different construction with the same alpha. Adjacent results require explicit transfer arguments.",
+  "papers": [
+    {
+      "id": "hexagon:2610.00577v1",
+      "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+      "authors": ["Claude (Anthropic)"],
+      "date": "2026-10-27",
+      "primary_url": "https://hexagonmath.org/2610.00577v1",
+      "evidence_scope": "Main theorem and Appendices A, B, D, E and H read; relevant formulas visually inspected; source artifacts pinned; no formal build replay",
+      "reported_result": "Deterministic exact counting in 2^O(min{k^2 n log log n/sqrt(log n), k m/sqrt(log m)}) time under the paper's normalization",
+      "sat_alpha": "1/2 for fixed k",
+      "action": "Incorporate operator crossing pieces and their complete bit-cost interface as a new research mechanism; retain the accepted selected result"
+    },
+    {
+      "id": "ECCC:TR26-281",
+      "title": "Exposition of OpenAI's Matrix Multiplication in Exponent 9/4 (and an explicit algorithm)",
+      "authors": ["Amir Shpilka"],
+      "date": "2026-10-27",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/281/",
+      "evidence_scope": "Primary abstract and metadata checked; proof not replayed",
+      "reported_result": "Explicit matrix multiplication exponent below 9/4+epsilon with base size at most 2^{(1/epsilon)^O(1)}",
+      "sat_alpha": null,
+      "action": "Keep for explicit matrix-based subroutines; a faster polynomial subroutine alone does not lower the current SAT exponential envelope"
+    },
+    {
+      "id": "arXiv:2610.26563v2",
+      "title": "Simultaneous Matrix Multiplication by Tensor Contraction Aggregation",
+      "authors": ["Edgar Solomonik", "Markus Blaser"],
+      "date": "2026-10-22",
+      "first_submitted": "2026-10-19",
+      "primary_url": "https://arxiv.org/abs/2610.26563v2",
+      "evidence_scope": "Primary abstract, revision and ancillary-file listing checked",
+      "reported_result": "Exact and border-rank constructions for selected batches of independent products; explicitly does not improve omega",
+      "sat_alpha": null,
+      "action": "Use as a source of exact aggregation gadgets; prove both row and column factorization costs and any border-recovery precision before transfer"
+    },
+    {
+      "id": "arXiv:2610.15426v1",
+      "title": "Solving Restricted Versions of #SAT Faster than 2^m: Algorithms and Lower Bounds",
+      "authors": ["Sanjay Jain", "Junqiang Peng", "Frank Stephan", "Mingyu Xiao"],
+      "date": "2026-10-11",
+      "primary_url": "https://arxiv.org/abs/2610.15426v1",
+      "evidence_scope": "Primary abstract and metadata checked",
+      "reported_result": "Weighted #k-SAT in 2^{m(1-1/O(k))}; weighted #2-occ-SAT in 2^{m omega/3}",
+      "sat_alpha": "0 when used directly at fixed positive clause density",
+      "action": "Candidate bounded-instance or restricted-structure fallback; no all-input improvement on the accepted subexponential bound"
+    },
+    {
+      "id": "arXiv:2605.14093v2",
+      "title": "New Algorithms for Parity-SAT and Its Bounded-Occurrence Versions",
+      "authors": ["Sanjay Jain", "Junqiang Peng", "Frank Stephan", "Haoyun Tang", "Mingyu Xiao"],
+      "date": "2026-05-15",
+      "first_submitted": "2026-05-13",
+      "primary_url": "https://arxiv.org/abs/2605.14093v2",
+      "evidence_scope": "Primary abstract, revision and SAT 2026 acceptance comment checked",
+      "reported_result": "Polynomial-space parity algorithms, including 1.1193^n for occurrence two and 1.1052^L in formula length",
+      "sat_alpha": "No direct SAT decision guarantee: even positive counts have parity zero",
+      "action": "Consider only with a separately paid weighted or isolation wrapper; cross-reference decision work in PR #2"
+    },
+    {
+      "id": "arXiv:2607.10697v1",
+      "title": "A Better Analysis For PPSZ For 3-SAT",
+      "authors": ["Tao Jiang", "Shaowei Cai"],
+      "date": "2026-07-12",
+      "primary_url": "https://arxiv.org/abs/2607.10697v1",
+      "evidence_scope": "Primary abstract and metadata checked; already cited by docs/PROBLEM.md",
+      "reported_result": "Randomized general 3-SAT in O*(1.307031578^n), by an exact dual-certificate recombination of existing analyses",
+      "sat_alpha": "0",
+      "action": "Retain as the historical constant-base comparison; no new incorporation needed"
+    },
+    {
+      "id": "IJCAI:2026:254",
+      "title": "Complementary Branching for #SAT: Bounded-Degree Bounds and Faster #3-SAT",
+      "authors": ["Konstantin Kutzkov"],
+      "date": "2026",
+      "primary_url": "https://ijcai.org/proceedings/2026/254",
+      "evidence_scope": "Publisher abstract and proceedings metadata checked",
+      "reported_result": "Complementary counting branches; deterministic #3-SAT bound O*(1.637^n)",
+      "sat_alpha": "0",
+      "action": "A potential explicit fallback and test-fixture source; not an asymptotic replacement for the accepted theorem"
+    },
+    {
+      "id": "ECCC:TR26-278",
+      "title": "Near-Quadratic Time Multivariate Polynomial Interpolation",
+      "authors": ["Chandra Kanta Mohapatra"],
+      "date": "2026-10-14",
+      "publication_date": "2026-10-27",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/278/",
+      "evidence_scope": "Primary abstract and metadata checked",
+      "reported_result": "N^{2+o(1)} poly(m,d,log|F|) interpolation under the stated matrix conditions; general case randomized Las Vegas",
+      "sat_alpha": null,
+      "action": "Only useful after a changed recovery problem; current recovery already has polynomial overhead, and finite-field hypotheses do not automatically apply to the two-adic ring"
+    },
+    {
+      "id": "ECCC:TR26-153",
+      "title": "Blocky Matrices and Group Idempotents",
+      "authors": ["Gaia Carenini"],
+      "date": "2026-08-22",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/153/",
+      "evidence_scope": "Primary abstract, blocky-matrix definition and theorem statements in pages 1-3 read",
+      "reported_result": "Signed equality-kernel decomposition with at most 2^{O(gamma^4)} pieces, improving the earlier gamma^6 dependence",
+      "sat_alpha": null,
+      "action": "Useful structural lead, but a single blocky matrix can have arbitrarily many blocks and full rank; piece count is not the crossing bit-cost contract"
+    },
+    {
+      "id": "ECCC:TR26-025",
+      "title": "Beyond Bilinear Complexity: What Works and What Breaks with Many Modes?",
+      "authors": ["Cornelius Brand", "Radu Curticapean", "Petteri Kaski", "Baitian Li", "Ian Orzel", "Tim Seppelt", "Jiaheng Wang"],
+      "date": "2026-02-12",
+      "publication_date": "2026-02-20",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/025/",
+      "evidence_scope": "Primary abstract and metadata checked",
+      "reported_result": "Rank and circuit-complexity bounds for higher-mode tensors; limitations on extending circuit submultiplicativity, under the stated hypotheses",
+      "sat_alpha": null,
+      "action": "Retain as a transfer warning: low circuit complexity, rank and both directional crossing costs must not be identified without proof"
+    },
+    {
+      "id": "arXiv:2512.01227v1",
+      "title": "Multiquadratic Sum-of-Squares Lower Bounds Imply VNC^1 != VNP",
+      "authors": ["Benjamin Rossman", "Davidson Zhu"],
+      "date": "2025-12-01",
+      "primary_url": "https://arxiv.org/abs/2512.01227v1",
+      "evidence_scope": "Primary abstract and Anthropic's citation to the crossing interpretation checked",
+      "reported_result": "Conditional connection from explicit multiquadratic SoS lower bounds to arithmetic-formula lower bounds",
+      "sat_alpha": null,
+      "action": "Predecessor context for the crossing/SoS connection; not a new SAT algorithm"
+    },
+    {
+      "id": "arXiv:2610.11432v1",
+      "title": "Near-Inverse-Linear Barriers for Explicit Affine Witness Isolation",
+      "authors": ["Sebastian Ben Daniel"],
+      "date": "2026-10-08",
+      "primary_url": "https://arxiv.org/abs/2610.11432v1",
+      "evidence_scope": "Primary abstract and metadata checked",
+      "reported_result": "Specified strong nonuniform explicit affine-isolation guarantees imply NP subset P/poly; the inverse-linear endpoint is not claimed",
+      "sat_alpha": null,
+      "action": "Do not assume a polynomial-resource constant-success isolation primitive as a free step; this is a scoped implication, not an unconditional runtime lower bound"
+    }
+  ]
+}
