@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "scope": "finite exact checks of three scoped lemmas; no improved SAT exponent",
+  "cauchy": {
+    "all_minors_checked": 14097,
+    "dimensions": [
+      1,
+      7
+    ],
+    "odd_shifts": [
+      1,
+      3,
+      7
+    ]
+  },
+  "taper": {
+    "exact_primal_dual_certificates": 8,
+    "samples": [
+      {
+        "u": 1,
+        "a": 2,
+        "u_times_optimum_W1": 1.0
+      },
+      {
+        "u": 2,
+        "a": 4,
+        "u_times_optimum_W1": 1.6627906976744187
+      },
+      {
+        "u": 3,
+        "a": 6,
+        "u_times_optimum_W1": 2.121453111082835
+      },
+      {
+        "u": 4,
+        "a": 8,
+        "u_times_optimum_W1": 2.3993709731726165
+      },
+      {
+        "u": 8,
+        "a": 16,
+        "u_times_optimum_W1": 2.759250649665973
+      },
+      {
+        "u": 16,
+        "a": 32,
+        "u_times_optimum_W1": 2.8799652918543175
+      },
+      {
+        "u": 32,
+        "a": 64,
+        "u_times_optimum_W1": 2.9387755097129187
+      },
+      {
+        "u": 64,
+        "a": 128,
+        "u_times_optimum_W1": 2.9690721649484537
+      }
+    ]
+  },
+  "modes": {
+    "parameter_cases": 510,
+    "explicit_tuples": 256,
+    "smallest_witness": {
+      "u": 1,
+      "a": 16,
+      "i": 0,
+      "packets": 1,
+      "M": 65536,
+      "independent_binary_choices": 16384,
+      "maximum_total_weight": 67379200,
+      "admitted_tuples": "2^16384"
+    }
+  }
+}
