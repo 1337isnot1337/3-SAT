@@ -1,0 +1,51 @@
+{
+  "cnf_bridge": {
+    "exact_cnf_count_comparisons": 735,
+    "includes_repeats_tautologies_empty_clauses_unused_and_zero_variables": true
+  },
+  "grouped_networks": {
+    "degree_arrays": 1494,
+    "invalid_wire_assignments": 5266,
+    "modular_network_counts": 25,
+    "wire_assignments": 26117
+  },
+  "scalar_lifts": {
+    "all_anf_polynomials": 32768,
+    "integer_coefficient_comparisons": 524288,
+    "max_width": 3,
+    "nonzero_nonconstant_valuation_checks": 303546,
+    "variables": 4
+  },
+  "scope": "exact finite reference checks; no asymptotic algorithm or independent review",
+  "sharpness_and_support": {
+    "cyclic_nonlinear_fixtures": 4,
+    "exhausted_unit_coefficient_incidence_monomials": 591130,
+    "sharp_cutoff_certificates": 60
+  },
+  "source_bindings": {
+    "checker_sha256": "9f4e72cff092521dbbf84308063c12058547135424e38093ae4124b1bac0beff",
+    "frozen_source_sha256": {
+      "upstream/openai-eth-2026/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream/openai-eth-2026/README.md": "a40b8829123b44bd9cfb589e5afa856b0018dc8cb36de36fa79e4315a03fe506",
+      "upstream/openai-eth-2026/build/main_full_version.tex": "b2e6159d4fb7ea6aa4f89ac15605152b0333a5f7cafe93323492bc20a5c066aa",
+      "upstream/openai-eth-2026/build/quantitative-circuits.tex": "0059668a666a35a6e0a67a7c5ed2e9b504862f4207d86e83ce5b7ab4b23fcc11",
+      "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+      "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a",
+      "upstream/openai-eth-2026/paper.pdf": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
+    },
+    "proof_sha256": "a64b86fc29999128b4a07d2f9a960b85cf74c430ff48d5ef4bb5fa136c31263b",
+    "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
+  },
+  "sparse_systems": {
+    "all_ordered_pairs_of_three_variable_width_two_anfs": 16384,
+    "modular_count_comparisons": 65573,
+    "omitted_zero_coefficients": 31466
+  },
+  "status": "PASS",
+  "subset_decoder": {
+    "invalid_codes": 528,
+    "max_incidence_universe": 10,
+    "valid_codes": 2047,
+    "zero_wire_group_pairs": 21
+  }
+}
