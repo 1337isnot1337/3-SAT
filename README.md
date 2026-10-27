@@ -105,15 +105,15 @@ To donate an agent session, use the [ready-to-copy prompt](autoresearch.md#donat
 
 ## Repository guide
 
-| Path | Purpose |
+| Guide | Contents |
 | --- | --- |
-| [docs/STATE.md](docs/STATE.md) | Accepted result and current project state |
-| [docs/CONSTRUCTION.md](docs/CONSTRUCTION.md) | Map of the accepted algorithm and its improvement points |
-| [certificates/](certificates/) | Selected-result record and exact cost models |
-| [research/](research/) | Scoped attempts, evidence, and handoffs |
-| [satbounds/](satbounds/) | Shared cost and SAT reference tools |
-| [examples/](examples/) | Small runnable DIMACS formulas |
-| [upstream/](upstream/) | Unchanged OpenAI paper, TeX sources, and license |
+| [Current state](docs/STATE.md) | Accepted result and current project state |
+| [Construction map](docs/CONSTRUCTION.md) | Accepted algorithm and its improvement points |
+| [Result records](certificates/) | Selected-result record and exact cost models |
+| [Research packages](research/) | Scoped attempts, evidence, and handoffs |
+| [Reference tools](satbounds/) | Shared cost and SAT reference tools |
+| [Examples](examples/) | Small runnable DIMACS formulas |
+| [Original sources](upstream/) | Unchanged OpenAI paper, TeX sources, and license |
 
 `make verify` checks source integrity, metadata, local links, cost bookkeeping,
 and SAT reference cases. Passing these checks validates that stated scope;
