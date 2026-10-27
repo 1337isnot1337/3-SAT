@@ -2,17 +2,23 @@
   "schema_version": 1,
   "id": "cauchy-newton-modes",
   "task": "weighted-modes",
-  "status": "draft",
-  "kind": "research_attempt",
+  "status": "scoped_checked",
+  "kind": "exact_mode_expansion_component_improvement",
   "author": "1337isnot1337; substantial OpenAI Codex assistance",
   "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Draft: no result claimed",
+  "statement": "A finite rational Newton identity supplies one Cauchy mode per tile and index with coefficient valuation at least a+1-i+3k-2 popcount(k), at the accepted evaluation points. It preserves the recursion interface and improves the leading coefficient of the stated colored-partition upper envelope by 1/sqrt(3). The complete asymptotic exponent and alpha are unchanged.",
   "improves_bound": false,
-  "evidence": [],
-  "reproduce": [],
+  "evidence": [
+    "research/cauchy-newton-modes/PROOF.md",
+    "research/cauchy-newton-modes/verify.py",
+    "research/cauchy-newton-modes/verification.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/cauchy-newton-modes/verify.py"],
   "remaining_obligations": [
-    "State and check the proposed result"
+    "Independent review of the all-size identity, extension-point integrality, recursion and asymptotic enumeration argument",
+    "No complete subexponential contraction or SAT algorithm is implemented locally",
+    "A larger alpha needs a changed root tradeoff; this constant-factor component refinement does not provide one"
   ]
 }

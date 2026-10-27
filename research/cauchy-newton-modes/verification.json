@@ -1,0 +1,103 @@
+{
+  "finite_mode_counts": [
+    {
+      "geometric_with_initial_weight": 3699,
+      "indices_per_tile": 16,
+      "initial_weight": 5,
+      "newton": 759,
+      "precision": 32,
+      "raw_geometric": 2974398,
+      "tiles": 2
+    },
+    {
+      "geometric_with_initial_weight": 114115475,
+      "indices_per_tile": 16,
+      "initial_weight": 5,
+      "newton": 3581459,
+      "precision": 64,
+      "raw_geometric": 79721684576062,
+      "tiles": 4
+    },
+    {
+      "geometric_with_initial_weight": 643627548128,
+      "indices_per_tile": 32,
+      "initial_weight": 7,
+      "newton": 1824994779,
+      "precision": 128,
+      "raw_geometric": 910707891752618264055,
+      "tiles": 4
+    }
+  ],
+  "generic_bilinear_cauchy_spectrum": {
+    "dimensions": [
+      1,
+      6
+    ],
+    "minors": 1268,
+    "smith_valuations": "j+2*v2(j!)=3*j-2*popcount(j)"
+  },
+  "rational_identity": {
+    "identities": 1540,
+    "numerators": [
+      -3,
+      3
+    ],
+    "odd_denominators": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "tile_lengths": [
+      1,
+      10
+    ]
+  },
+  "result": "PASS",
+  "scope": "finite exact algebra and enumeration only; no full SAT implementation",
+  "source_tiles": {
+    "coefficient_integrality_checks": 2504,
+    "evaluation_points": [
+      "1",
+      "U; U^2+U+1=0"
+    ],
+    "guard_precision_checks": 7512,
+    "kernel_identities": 2504,
+    "negative_controls": [
+      "binom(U,2) has valuation -1",
+      "division by k! requires guard bits"
+    ],
+    "nodes": "t=+-2^i for every 0<=i<a",
+    "packet_exponents": [
+      1,
+      4
+    ],
+    "rows_and_tiles": "all crossing rows and all column tiles"
+  },
+  "whole_network": {
+    "bit_assignment_pairs": 256,
+    "degree_feasible_mode_tuples": 36,
+    "exact_identity": true,
+    "groups": 2,
+    "precision_checks": 16,
+    "retained_tuples": {
+      "1": 1,
+      "10": 17,
+      "11": 21,
+      "12": 25,
+      "13": 28,
+      "14": 30,
+      "15": 33,
+      "16": 35,
+      "2": 1,
+      "3": 1,
+      "4": 3,
+      "5": 5,
+      "6": 5,
+      "7": 8,
+      "8": 12,
+      "9": 15
+    },
+    "wires": 4
+  }
+}

@@ -1,6 +1,7 @@
 # cauchy-newton-modes
 
-Status: draft component checkpoint; independent review pending.
+Status: `scoped_checked` for the stated finite checks. All-size arguments are
+author-checked with substantial AI assistance; independent review pending.
 
 Task: `weighted-modes`. Base commit: `fd6df02023122badbdd888803146f0bd92002214`.
 
@@ -13,12 +14,13 @@ Replace geometric Cauchy modes by the finite rational Newton identity in
 
 ## Statement and scope
 
-The proposed row coefficients have valuation at least
+The constructed row coefficients have valuation at least
 `a+1-i+3k-2 popcount(k)`, using one mode per tile and index. The formal
 enumeration envelope improves by `1/sqrt(3)` in its leading coefficient.
 The full asymptotic exponent and alpha do not change. The derivation and
-the integration into the accepted recursion are written out; the extension
-ring and combined-network checks remain to be added.
+the integration into the accepted recursion are written out. The checker
+tests source kernels at nonrational extension points, guard precision and a
+complete small child-network identity.
 
 ## Complete cost
 
@@ -28,18 +30,37 @@ larger-alpha claim is made.
 
 ## Evidence and reproduction
 
-`python3 -I -B research/cauchy-newton-modes/explore.py` checks the exact
-rank decomposition over rational points for all tile lengths 1 through 15.
-It passed on October 27, 2026. `make verify` passes 17 tests and the frozen
-source and repository checks. This scratch checker uses only standard-library
-Python; it is not a contraction implementation.
+Run from the repository root with standard-library Python 3.11+:
+
+```sh
+python3 -I -B research/cauchy-newton-modes/verify.py
+make verify
+```
+
+[Saved output](verification.json) records 1,540 rational identities; 2,504
+source-kernel identities and coefficient-integrality checks in the unramified
+quadratic extension; 7,512 guard-precision checks; 1,268 exact generic Cauchy
+minors; and a four-wire network with all 256 pairs of assignments, all 36
+degree-feasible mode tuples and 16 precision truncations. Negative controls
+show why arbitrary extension points and division without guard bits fail.
+
+Finite formal enumeration also improves after retaining the source's initial
+valuation: with four tiles, 16 indices per tile, precision 64 and initial
+weight 5, the count drops from 114,115,475 to 3,581,459. These are exact
+tuple counts, not observed contraction or SAT runtimes. The other two saved
+parameter cases also improve.
+
+The checker takes under a minute on the authoring machine. It is not a
+contraction implementation and does not verify the all-size proof.
 
 ## Limits and open next questions
 
-Next add bounded checks over a nontrivial unramified extension, negative
-controls for the integrality hypothesis, and a small whole-network identity.
-Then publish a reproducible result with saved output and explicit coverage.
 The root `M/sqrt(u)` scale is unchanged; a larger alpha needs another idea.
+First review the congruence needed for integer-valued binomial factors and
+the local guard-precision calculation. Next exploit additional restrictions
+on realizable source rows or coefficients, or change recovery together with
+the kernel. Reoptimizing the same linear-weight partition envelope can only
+change its constant. See the [proof](PROOF.md) for all cost boundaries.
 
 ## Sources and credit
 

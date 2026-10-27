@@ -165,6 +165,19 @@ constants in the accepted big-O theorem. Inserting the unchanged precision
 bound still gives `exp(O(M/sqrt(u)))`. The root still has `u=Theta(log s)`;
 alpha remains `1/2` and the arbitrary-density `log log n` factor remains.
 
+## 5. Generic spectrum of the new canonical kernel
+
+For the integer-indexed matrix `H_(r,j)=1/(1-2rj)`, `0<=r,j<d`, (1)
+gives `H=Phi diag(c_k) Phi^T`, where `Phi_(r,k)=phi_k(r)` is lower
+triangular with unit diagonal over `Z_(2)`. All its entries are integral,
+so `Phi` and its inverse are integral. Consequently its Smith valuations
+are exactly `k+2v2(k!)`, in increasing order. This explains the linear
+three-slope weights for this canonical kernel. It is a different matrix
+from PR #1's normalized additive Cauchy block, whose spectrum has slope
+four. No contradiction or stronger obstruction for the actual restricted
+source-row domain is asserted. Such a restriction could still improve
+the constant.
+
 ## Sources and limits
 
 Frozen OpenAI source commit `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`:
