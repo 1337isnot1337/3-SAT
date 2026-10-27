@@ -1,0 +1,180 @@
+{
+  "bindings": {
+    "base_commit": "8ba468df535d26bca9ee925e3d9bcb7179ffb0bb",
+    "macro_sha256": "7ca02a48c19dd74fd48d08e1e8f17eeaa23b049acfe73eab561f3e0586c5d38d",
+    "predecessor_sha256": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "refined_screen_sha256": "8f0d62e2b0fabe27ede461764a1679b952235a58f73f54cdb9bdf77643b7a3a1",
+    "refined_sha256": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb",
+    "refinement_proof_sha256": "c1900ac9e7aece1c08a1959a16ee7994363afdb9f0ed181a5043ff25679e2d43",
+    "schemes_sha256": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  },
+  "local_scheme": {
+    "all_local_characters": 4096,
+    "largest_local_dual_threshold": 7,
+    "matrix": [
+      [
+        1,
+        7,
+        7,
+        7,
+        21,
+        21
+      ],
+      [
+        1,
+        7,
+        -1,
+        -1,
+        -3,
+        -3
+      ],
+      [
+        1,
+        -1,
+        7,
+        -1,
+        -3,
+        -3
+      ],
+      [
+        1,
+        -1,
+        -1,
+        -5,
+        -3,
+        9
+      ],
+      [
+        1,
+        -1,
+        -1,
+        -1,
+        5,
+        -3
+      ],
+      [
+        1,
+        -1,
+        -1,
+        3,
+        -3,
+        1
+      ]
+    ],
+    "target": [
+      1,
+      1,
+      1,
+      -1,
+      1,
+      -1
+    ],
+    "trace_dual_map": {
+      "0": 0,
+      "1": 1,
+      "2": 4,
+      "3": 5,
+      "4": 2,
+      "5": 3,
+      "6": 6,
+      "7": 7
+    },
+    "weights": [
+      1,
+      7,
+      7,
+      7,
+      21,
+      21
+    ]
+  },
+  "profiles": [
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "8",
+      "input_bits": 3,
+      "macros": 1,
+      "max_coefficient_bits": 8,
+      "piece_data_sha256": "639531fd996b1a985e413c61d42c25afe3e56022b46b664e66335e22eb3f7d01",
+      "pieces": 4,
+      "type_dimension": 6,
+      "worst_piece": {
+        "basis_index": 4,
+        "col_support": 8,
+        "pivot": 1,
+        "row_support": 29
+      },
+      "worst_shared_bits": 8
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "9",
+      "input_bits": 6,
+      "macros": 2,
+      "max_coefficient_bits": 14,
+      "piece_data_sha256": "6d0a9891b72c83c1f886fa63d2c7da57ca0d90dad8c60627ee0d26f90e4ebc57",
+      "pieces": 10,
+      "type_dimension": 21,
+      "worst_piece": {
+        "basis_index": 12,
+        "col_support": 400,
+        "pivot": 12,
+        "row_support": 400
+      },
+      "worst_shared_bits": 18
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "9",
+      "input_bits": 9,
+      "macros": 3,
+      "max_coefficient_bits": 20,
+      "piece_data_sha256": "1aaa99626f1329e0cfb8fca730527ebaa07498565ce7badb3a44834bf7a7ae7b",
+      "pieces": 19,
+      "type_dimension": 56,
+      "worst_piece": {
+        "basis_index": 46,
+        "col_support": 1457,
+        "pivot": 15,
+        "row_support": 51248
+      },
+      "worst_shared_bits": 27
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "39/4",
+      "input_bits": 12,
+      "macros": 4,
+      "max_coefficient_bits": 27,
+      "piece_data_sha256": "3aafb61e957bff50ee0cb8765161b089dc42493528d9c92c10a850364655fe65",
+      "pieces": 44,
+      "type_dimension": 126,
+      "worst_piece": {
+        "basis_index": 108,
+        "col_support": 108165,
+        "pivot": 40,
+        "row_support": 2667078
+      },
+      "worst_shared_bits": 39
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 15,
+      "macros": 5,
+      "max_coefficient_bits": 34,
+      "piece_data_sha256": "e97a00dd682f33c02453daf8c194634423cc13eca7d006d6b521bb0cf54b6b45",
+      "pieces": 70,
+      "type_dimension": 252,
+      "worst_piece": {
+        "basis_index": 196,
+        "col_support": 8777392,
+        "pivot": 116,
+        "row_support": 48212739
+      },
+      "worst_shared_bits": 50
+    }
+  ],
+  "scope": "exact six-class R=1..5 screen; no eventual support rate",
+  "status": "PASS"
+}

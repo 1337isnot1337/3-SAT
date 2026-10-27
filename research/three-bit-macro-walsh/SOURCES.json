@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem; no correctness audit or source modification"
+  },
+  "piece_contract": {
+    "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+    "contributor": "Anthropic",
+    "url": "https://hexagonmath.org/2610.00577v1",
+    "source_url": "https://hexagonmath.org/src/2610.00577v1",
+    "source_archive_sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2",
+    "main_tex_sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553",
+    "license": "CC BY 4.0",
+    "labels": [
+      "def:genpieces",
+      "thm:master",
+      "eq:half-row",
+      "eq:half-col"
+    ],
+    "local_capture_manifest": "research/anthropic-operator-ranks/SOURCES.json",
+    "scope": "Source of the factorization contract and comparison target; external full theorem not automatically selected or owner-accepted"
+  },
+  "background": [
+    {
+      "title": "Pauli Decomposition via the Fast Walsh-Hadamard Transform",
+      "authors": [
+        "Timothy N. Georges",
+        "Bjorn K. Berntson",
+        "Christoph Sunderhauf",
+        "Aleksei V. Ivanov"
+      ],
+      "url": "https://arxiv.org/abs/2408.06206v4",
+      "pdf_url": "https://arxiv.org/pdf/2408.06206v4",
+      "version_date": "2025-03-11",
+      "journal_doi": "10.1088/1367-2630/adb44d",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "pdf_bytes": 546759,
+      "pdf_sha256": "55087f5a3747f4aa5024599dc0761536175d4670403d73f25107cdadd2db1829",
+      "read_on": "2026-10-27",
+      "scope": "Abstract read for standard Pauli/Walsh background and PDF pinned; not a dependency of the self-contained rank and support-dual proofs; no source copied"
+    }
+  ],
+  "local_predecessor": {
+    "package": "research/symmetric-walsh-pieces",
+    "merge_commit": "8ba468df535d26bca9ee925e3d9bcb7179ffb0bb",
+    "module": "research/symmetric-walsh-pieces/walsh.py",
+    "module_sha256": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "credit": "Pauli/Bell rank factorization, simultaneous adapted basis, binary/two-bit symmetry duals; reused module unchanged"
+  },
+  "new_work": {
+    "scope": "Three-bit coarse and F8-refined class constructions; finite-block dual certificate and all-size tensorization/averaging obstruction",
+    "disclosure": "Substantial OpenAI Codex assistance, no independent or formal review",
+    "license": "Apache-2.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "direct ranks at R=1 and exhaustive support codes at R=1,2",
+  "profiles": [
+    {
+      "macros": 1,
+      "actual_words": 64,
+      "valid_support_codes": 204,
+      "integer_factor_and_crossing_entries": 20480,
+      "exact_flattening_ranks": 8
+    },
+    {
+      "macros": 2,
+      "actual_words": 4096,
+      "valid_support_codes": 18346
+    }
+  ],
+  "bindings": {
+    "direct_sha256": "2f52b0b3b0f5342134aad7d6020eb2066238cf917b3fcfc9958b124a80d598db",
+    "refined_sha256": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb",
+    "schemes_sha256": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235",
+    "macro_sha256": "7ca02a48c19dd74fd48d08e1e8f17eeaa23b049acfe73eab561f3e0586c5d38d"
+  }
+}
