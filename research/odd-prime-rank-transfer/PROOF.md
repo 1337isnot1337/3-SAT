@@ -120,6 +120,16 @@ cap does not require enumerating its exponentially many queries in advance.
 Created inner field factors are not original outer-query tensors; their
 integer magnitudes do not enter this exact boundary-recovery bound.
 
+Concretely, for the source's g-node network with per-node port-bit bound
+P_net and entry-bit bound B, `B_query=g(P_net+B)` is sufficient: its
+wire-bit count is at most g P_net and its tensor-bit sum at most g B.
+In `app:onelog`, the source bounds g P_net by
+`O(n Delta(log Delta+log n))` and uses `B=(k+1)M+1`, with M polynomial
+in n. It also has g<=n and polynomial parameter caps for every profile
+and candidate. These give a single polynomial query-range bound. Its
+initial grouped clique has polynomial size by
+`K^2 L<=U+g P_net/K+K^2`, supplying the root-size cap used below.
+
 ## 5. Field compilation and recursion
 
 Reduce each rational entry modulo p by inverting its denominator. If a
