@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "nodewise-taper-loss",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "nodewise_loss_optimization",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Author-checked maximum principle and symmetry reduction give an exact real optimum W/(w^T B_plus^-1 1)=Theta(W/u) for arbitrary nodewise multiplicities on the retained valuation levels. Ordinary Hermite highest-jet coefficients retain normalized loss at least W/(2u)-1. A separate polynomial witness obstructs generic joint recovery at uniformly o(M D_t/u) precision, even with all jets. Realizability by actual tensor deformations is not shown; no alpha improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/nodewise-taper-loss/PROOF.md",
+    "research/nodewise-taper-loss/verify.py",
+    "research/nodewise-taper-loss/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/nodewise-taper-loss/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written all-size proof",
+    "The generic polynomial witness is not shown realizable by a tensor network or SAT reduction",
+    "Actual deformation structure or omitted charts may allow better recovery",
+    "Formal mode count is not nonzero coefficient support on SAT inputs",
+    "A complete improved all-input bound remains open"
+  ]
+}
