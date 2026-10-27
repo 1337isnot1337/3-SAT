@@ -19,7 +19,7 @@ a stronger theorem.
 
 Current branch: `research/two-scale-cauchy-grid`. First pushed checkpoint
 `816af80` supplies the valid changed grid and stronger local spectrum.
-The next commit includes the complete nodewise model, exact duals,
+This package includes the complete nodewise model, exact duals,
 gap-independent bound, large-gap limit, and generic full-grid witnesses.
 The Git log identifies its full SHA. Every relevant command is offline:
 
@@ -36,9 +36,9 @@ distinctions. The completed comparison includes all dummy nodes and
 arbitrary nodewise multiplicities, so neither omission is a valid reopening
 premise for the same numerical-gap argument.
 
-Next actions: review the component and model for scope and indexing; replay
-from a clean export; commit/push a final coherent checkpoint and open/merge
-the research PR after fresh canonical checks. Then select a materially
+The clean Git-free replay is recorded in [VALIDATION.md](VALIDATION.md).
+Next actions: open/merge the research PR after fresh canonical checks,
+then select a materially
 different mechanism. Candidate directions are aggregate mode identities,
 a tensor-aware joint recovery contract, or a different deformation whose
 local spectrum and full reconstruction cost are proved together. Do not
