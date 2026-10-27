@@ -1,4 +1,5 @@
 """Complete registered scalar filtering over all charge-deficit coefficients."""
+from fractions import Fraction as F
 from hashlib import sha256
 import importlib.util
 import json
@@ -88,7 +89,7 @@ def classify(tensors, N, cutoff):
                     index = ((x * N + y) * N + u) * N + v
                     assert combined[index] == (matrix[x][v] if y == u else 0)
                     normalized = sum((normalization[x][a] * combined[((a * N + y) * N + u) * N + v]
-                                      for a in range(N)), poly.F(0))
+                                      for a in range(N)), F(0))
                     assert normalized == int(x == v and y == u)
     active = [(name, weight) for name, weight in zip(names, weights) if weight]
     result["witness"] = {"piece_count": len(active), "grid_choices": choices,
