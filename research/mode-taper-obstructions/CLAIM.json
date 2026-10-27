@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "mode-taper-obstructions",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "scoped_obstruction_and_exact_optimization",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "3cebc0c307e8d680caa240c102643c35006318ae",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Three author-checked scoped lemmas: squarefree formal modes retain exp(Omega(M/sqrt(u))) choices under strengthened uniform weights and degree caps; the level-dependent Hermite-product loss has exact real optimum W/(w^T B^-1 1)=Theta(W/u); local Cauchy Smith valuations are 4j-2 popcount(j). No new SAT bound or lower bound for all contractions.",
+  "improves_bound": false,
+  "evidence": [
+    "research/mode-taper-obstructions/PROOF.md",
+    "research/mode-taper-obstructions/verify.py",
+    "research/mode-taper-obstructions/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/mode-taper-obstructions/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written scoped proofs; finite checks do not establish the all-size lemmas",
+    "Formal mode choices need not have nonzero coefficients on SAT inputs; exploit support, cancellation or aggregation to escape the model",
+    "The product-loss optimum is not a lower bound for every recovery algorithm; a changed recovery functional remains open",
+    "A different kernel or representation needs integrality, locality, precision, entry and recursive cost proofs",
+    "A complete uniform all-input 3-SAT improvement remains open; alpha stays 1/2"
+  ],
+  "source_file": "upstream/openai-eth-2026/build/quantitative-contraction.tex",
+  "source_sha256": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+  "source_labels": [
+    "eq:tensor-mode-expansion",
+    "eq:tensor-mode-multiplicity",
+    "eq:tensor-mode-budget",
+    "eq:tensor-partition-count",
+    "eq:tensor-hermite-loss",
+    "lem:tapered-hermite",
+    "eq:tensor-precision-bound"
+  ],
+  "independent_review_records": []
+}
