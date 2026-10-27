@@ -1,0 +1,314 @@
+{
+  "bindings": {
+    "base_commit": "8a659c67d4988540aa6ac8393bb06314ecbe81e2",
+    "checker_sha256": "edbac56fbc5be576b7d6b1cd6cdfdc3fe7fcbbfb64bdc58f3e635ce1acba0dbe",
+    "frozen_source_sha256": {
+      "upstream/openai-eth-2026/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream/openai-eth-2026/README.md": "a40b8829123b44bd9cfb589e5afa856b0018dc8cb36de36fa79e4315a03fe506",
+      "upstream/openai-eth-2026/build/main_full_version.tex": "b2e6159d4fb7ea6aa4f89ac15605152b0333a5f7cafe93323492bc20a5c066aa",
+      "upstream/openai-eth-2026/build/quantitative-circuits.tex": "0059668a666a35a6e0a67a7c5ed2e9b504862f4207d86e83ce5b7ab4b23fcc11",
+      "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+      "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a",
+      "upstream/openai-eth-2026/paper.pdf": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
+    },
+    "proof_sha256": "247a4b5b82ac5c711bd2f73048ae270a8b5d0b906b19050dc0118faaef3cdea3",
+    "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
+  },
+  "parameter_fixtures": [
+    {
+      "H": 2,
+      "alpha_exponent": 5,
+      "b": 3,
+      "checked_integer_coefficients": 1536,
+      "d": 2,
+      "derivative_valuation": 14,
+      "expanded_shifted_kernels": 96,
+      "grid_nodes": 16,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 69,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            10,
+            12
+          ]
+        },
+        {
+          "direct_minor_determinants": 69,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            10,
+            12
+          ]
+        }
+      ],
+      "localized_real_matches": 12,
+      "selected_real_differences": [
+        -8,
+        -1,
+        0,
+        1,
+        8,
+        9
+      ],
+      "slots": 4,
+      "zero_matrix_dummy_nodes": 7
+    },
+    {
+      "H": 2,
+      "alpha_exponent": 8,
+      "b": 6,
+      "checked_integer_coefficients": 1536,
+      "d": 2,
+      "derivative_valuation": 23,
+      "expanded_shifted_kernels": 96,
+      "grid_nodes": 16,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 69,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            16,
+            18
+          ]
+        },
+        {
+          "direct_minor_determinants": 69,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            16,
+            18
+          ]
+        }
+      ],
+      "localized_real_matches": 12,
+      "selected_real_differences": [
+        -64,
+        -1,
+        0,
+        1,
+        64,
+        65
+      ],
+      "slots": 4,
+      "zero_matrix_dummy_nodes": 7
+    },
+    {
+      "H": 4,
+      "alpha_exponent": 6,
+      "b": 3,
+      "checked_integer_coefficients": 6144,
+      "d": 2,
+      "derivative_valuation": 33,
+      "expanded_shifted_kernels": 192,
+      "grid_nodes": 32,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            10,
+            12,
+            22,
+            24,
+            32,
+            34
+          ]
+        },
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            10,
+            12,
+            22,
+            24,
+            32,
+            34
+          ]
+        }
+      ],
+      "localized_real_matches": 56,
+      "selected_real_differences": [
+        -8,
+        -1,
+        0,
+        1,
+        8,
+        9
+      ],
+      "slots": 8,
+      "zero_matrix_dummy_nodes": 11
+    },
+    {
+      "H": 4,
+      "alpha_exponent": 9,
+      "b": 6,
+      "checked_integer_coefficients": 6144,
+      "d": 2,
+      "derivative_valuation": 54,
+      "expanded_shifted_kernels": 192,
+      "grid_nodes": 32,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            16,
+            18,
+            34,
+            36,
+            50,
+            52
+          ]
+        },
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            16,
+            18,
+            34,
+            36,
+            50,
+            52
+          ]
+        }
+      ],
+      "localized_real_matches": 56,
+      "selected_real_differences": [
+        -64,
+        -1,
+        0,
+        1,
+        64,
+        65
+      ],
+      "slots": 8,
+      "zero_matrix_dummy_nodes": 11
+    },
+    {
+      "H": 2,
+      "alpha_exponent": 6,
+      "b": 4,
+      "checked_integer_coefficients": 6144,
+      "d": 4,
+      "derivative_valuation": 29,
+      "expanded_shifted_kernels": 192,
+      "grid_nodes": 32,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            6,
+            8,
+            18,
+            20,
+            24,
+            26
+          ]
+        },
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            6,
+            8,
+            18,
+            20,
+            24,
+            26
+          ]
+        }
+      ],
+      "localized_real_matches": 56,
+      "selected_real_differences": [
+        -16,
+        -1,
+        0,
+        1,
+        16,
+        17
+      ],
+      "slots": 8,
+      "zero_matrix_dummy_nodes": 11
+    },
+    {
+      "H": 2,
+      "alpha_exponent": 9,
+      "b": 7,
+      "checked_integer_coefficients": 6144,
+      "d": 4,
+      "derivative_valuation": 38,
+      "expanded_shifted_kernels": 192,
+      "grid_nodes": 32,
+      "local_spectra": [
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 1,
+          "smith_valuations": [
+            0,
+            2,
+            6,
+            8,
+            24,
+            26,
+            30,
+            32
+          ]
+        },
+        {
+          "direct_minor_determinants": 12869,
+          "odd_c": 3,
+          "smith_valuations": [
+            0,
+            2,
+            6,
+            8,
+            24,
+            26,
+            30,
+            32
+          ]
+        }
+      ],
+      "localized_real_matches": 56,
+      "selected_real_differences": [
+        -128,
+        -1,
+        0,
+        1,
+        128,
+        129
+      ],
+      "slots": 8,
+      "zero_matrix_dummy_nodes": 11
+    }
+  ],
+  "scope": "exact finite checks of a changed grid and local spectrum; no full algorithm",
+  "status": "PASS",
+  "total_complete_shifted_kernels": 960,
+  "total_direct_minor_determinants": 103228,
+  "total_expanded_integer_coefficients": 27648
+}
