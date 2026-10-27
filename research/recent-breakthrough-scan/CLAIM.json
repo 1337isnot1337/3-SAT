@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "recent-breakthrough-scan",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "dated_primary_source_research_scan",
+  "author": "1337isnot1337, with substantial OpenAI Codex assistance",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A bounded October 27, 2026 primary-source scan records twelve recent SAT and related algebra papers, reading scope, adoption decisions, and a source-pinned comparison of Anthropic's different operator crossing construction with the same alpha 1/2. No additional larger all-input classical 3-SAT alpha was found among the checked sources. Offline checks validate copied source bytes and metadata, not cited theorems.",
+  "improves_bound": false,
+  "evidence": [
+    "research/recent-breakthrough-scan/SCAN.json",
+    "research/recent-breakthrough-scan/SOURCES.json",
+    "research/recent-breakthrough-scan/METHODS.md",
+    "research/recent-breakthrough-scan/verification.json",
+    "research/recent-breakthrough-scan/pdf-comparison.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/recent-breakthrough-scan/verify.py"],
+  "remaining_obligations": [
+    "The scan is targeted rather than exhaustive; repeat live discovery before relying on it as current",
+    "Abstract-only entries do not constitute a proof review or a transferred algorithm",
+    "The external Lean development and publisher axiom/kernel reports have not been independently replayed",
+    "A smaller feasible crossing ratio still requires a new operator identity with the complete uniform cost contract"
+  ]
+}

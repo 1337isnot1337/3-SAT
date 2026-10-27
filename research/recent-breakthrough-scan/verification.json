@@ -1,0 +1,11 @@
+{
+  "anthropic_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "as_of": "2026-10-27",
+  "formal_build_replayed": false,
+  "pinned_external_bytes": 2020887,
+  "pinned_external_files": 12,
+  "primary_papers": 12,
+  "result": "PASS",
+  "scope": "source integrity and metadata only; no theorem or Lean replay",
+  "selected_alpha": "1/2"
+}
