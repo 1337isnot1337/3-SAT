@@ -1,0 +1,88 @@
+{
+  "alpha_improvement_claimed": false,
+  "charges": [
+    -1,
+    0,
+    1,
+    2
+  ],
+  "contraction_binomial_checks": 144,
+  "full_common_label_inverse_exists": false,
+  "independent_normal_order_checks": 448,
+  "label_capacity_checks": 127,
+  "larger_polynomial_rank_cases": [
+    {
+      "full_dimension": 30,
+      "h": 9,
+      "rank": 8,
+      "scope": "independent polynomial formula; charged operators not enumerated here"
+    },
+    {
+      "full_dimension": 42,
+      "h": 10,
+      "rank": 12,
+      "scope": "independent polynomial formula; charged operators not enumerated here"
+    }
+  ],
+  "operator_pairing_ranks": [
+    {
+      "full_dimension": 2,
+      "h": 2,
+      "p_h_minus_p_h_minus_one": 1,
+      "rank": 1
+    },
+    {
+      "full_dimension": 3,
+      "h": 3,
+      "p_h_minus_p_h_minus_one": 1,
+      "rank": 1
+    },
+    {
+      "full_dimension": 5,
+      "h": 4,
+      "p_h_minus_p_h_minus_one": 2,
+      "rank": 2
+    },
+    {
+      "full_dimension": 7,
+      "h": 5,
+      "p_h_minus_p_h_minus_one": 2,
+      "rank": 2
+    },
+    {
+      "full_dimension": 11,
+      "h": 6,
+      "p_h_minus_p_h_minus_one": 4,
+      "rank": 4
+    },
+    {
+      "full_dimension": 15,
+      "h": 7,
+      "p_h_minus_p_h_minus_one": 4,
+      "rank": 4
+    },
+    {
+      "full_dimension": 22,
+      "h": 8,
+      "p_h_minus_p_h_minus_one": 7,
+      "rank": 7
+    }
+  ],
+  "polynomial_identity_inputs": 139,
+  "positive_grade_moment_cases": 608,
+  "result": "PASS",
+  "right_inverse_checks": 275,
+  "scope": "finite exact charged operators, moments and polynomial identities; no full SAT algorithm or independent theorem review",
+  "source_sha256": {
+    "PROOF.md": "94f3f840f92eea3ae3b9b5d37f880836e51243f38f24a43c15d4156046c14ddd",
+    "SOURCES.json": "13a4f417af6a1420642748ff5c22d6d10b90fab5af5ab5051136b8a7f65a4302",
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+    "verify.py": "c3be84aa4cc8187de30d9f8f038df3a8dfbace6711e81611a73698e2274592fa"
+  },
+  "square_zero": true,
+  "two_order_output_vector_checks": 3224,
+  "vacuum_pairing_entry_checks": 917,
+  "zero_charge_predecessor_controls": 112
+}
