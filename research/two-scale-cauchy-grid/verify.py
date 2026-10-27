@@ -163,6 +163,155 @@ def check_grid(r: int, t: int, b: int) -> dict:
             "local_spectra": spectra}
 
 
+def loss_matrix(r: int, t: int, b: int) -> tuple[list[list[Fraction]], list[Fraction], list[Fraction]]:
+    d, H, gap = 1 << r, 1 << t, b - r
+    size = r + t + 2
+    A = [[Fraction(0) for _ in range(size)] for _ in range(size)]
+    K, weights = [], []
+    for i in range(r + 1):
+        D = d >> i
+        A[i][i] = Fraction(2 * H * (2 * D + gap - 1) - 1)
+        for k in range(i + 1, r + 1):
+            A[i][k] = Fraction(-2 * H * (d >> k) * (k - i))
+        for j in range(t + 1):
+            A[i][r + 1 + j] = Fraction(-(H >> j) * (b + j - i))
+        K.append(Fraction(2 * H * (D + gap)))
+        weights.append(Fraction(2, 1 << i))
+    for j in range(t + 1):
+        row = r + 1 + j
+        E = H >> j
+        A[row][row] = Fraction(2 * E - 1)
+        for k in range(j + 1, t + 1):
+            A[row][r + 1 + k] = Fraction(-(H >> k) * (k - j))
+        K.append(Fraction(2 * E))
+        weights.append(Fraction(1, d * (1 << j)))
+    return A, K, weights
+
+
+def upper_solve(A: list[list[Fraction]], rhs: list[Fraction]) -> list[Fraction]:
+    answer = [Fraction(0)] * len(rhs)
+    for i in reversed(range(len(rhs))):
+        answer[i] = (rhs[i] - sum((A[i][j] * answer[j] for j in range(i + 1, len(rhs))),
+                                 Fraction(0))) / A[i][i]
+    return answer
+
+
+def transpose_solve(A: list[list[Fraction]], rhs: list[Fraction]) -> list[Fraction]:
+    answer = [Fraction(0)] * len(rhs)
+    for i in range(len(rhs)):
+        answer[i] = (rhs[i] - sum((A[j][i] * answer[j] for j in range(i)),
+                                 Fraction(0))) / A[i][i]
+    return answer
+
+
+def apply_matrix(A: list[list[Fraction]], x: list[Fraction]) -> list[Fraction]:
+    return [sum((a * b for a, b in zip(row, x)), Fraction(0)) for row in A]
+
+
+def product_grid(r: int, t: int, b: int) -> list[tuple[int, int]]:
+    d, H, B = 1 << r, 1 << t, 1 << b
+    return [(low + B * high, v2(low) if low else r + 1 + v2(high))
+            for high in range(-H, H) for low in range(-d, d) if low or high]
+
+
+def check_loss_program() -> dict:
+    certificates = direct_rows = limit_checks = 0
+    profiles = []
+    for r in range(1, 11):
+        for t in range(1, 11):
+            for b in sorted({r + 2, r + 5, r + (1 << r), r + (1 << (2 * r))}):
+                d, H, L = 1 << r, 1 << t, 1 << (r + t)
+                A, K, weights = loss_matrix(r, t, b)
+                v = upper_solve(A, K)
+                y = transpose_solve(A, weights)
+                require(all(x > 0 for x in v + y), "Nonpositive primal/dual")
+                require(apply_matrix(A, v) == K, "Primal residual")
+                Z = sum((a * x for a, x in zip(weights, v)), Fraction(0))
+                require(Z == sum((a * x for a, x in zip(y, K)), Fraction(0)), "Dual objective")
+                require(sum(weights) == Fraction(4 * L - 1, L), "Full-grid mass")
+                phi = ([Fraction(2 * (r - i + t + 2)) for i in range(r + 1)]
+                       + [Fraction(2 * (t - j + 1)) for j in range(t + 1)])
+                require(all(a >= k for a, k in zip(apply_matrix(A, phi), K)), "Gap-independent supersolution")
+                require(all(x <= z for x, z in zip(v, phi)), "Inverse comparison")
+                require(Z < 10 * (r + t + 2), "Gap-independent normalizer")
+                for i, row in enumerate(A):
+                    require(-sum(row[i + 1:], Fraction(0)) <= 4 * K[i], "Rounding loss bound")
+                    correction = (b + t + 1 - i if i <= r else
+                                  t + 1 - (i - r - 1))
+                    require(correction <= K[i], "Highest-jet correction")
+                At = sum((v[r + 1 + j] / (2 * (1 << j)) for j in range(t + 1)), Fraction(0))
+                limiting_v = [1 + At] * (r + 1) + v[r + 1:]
+                require(all(2 * H * limiting_v[i] - sum(
+                    (Fraction(H >> j) * limiting_v[r + 1 + j] for j in range(t + 1)), Fraction(0))
+                            == 2 * H for i in range(r + 1)), "Large-gap leading equations")
+                limit_Z = sum((w * x for w, x in zip(weights, limiting_v)), Fraction(0))
+                require(limit_Z == 4 - Fraction(2, d) + 4 * At, "Exact large-gap limit")
+                limit_checks += 1
+                if r == t and r in [1, 2, 4, 8] and b in [r + 2, r + (1 << (2 * r))]:
+                    profiles.append({"r": r, "t": t, "b": b,
+                                     "exact_normalizer": str(Z), "large_gap_limit": str(limit_Z)})
+                if r <= 2 and t <= 2 and b in [r + 2, r + 5]:
+                    nodes = product_grid(r, t, b)
+                    alpha_val = b + t + 1
+                    for node, row in nodes:
+                        for column in range(len(A)):
+                            direct = sum((alpha_val if node == root else v2(node - root)) - v2(root)
+                                         for root, root_class in nodes if root_class == column)
+                            require(direct == A[row][column], "Full-node loss matrix count")
+                            direct_rows += 1
+                certificates += 1
+    return {"exact_primal_dual_certificates": certificates,
+            "independent_full_node_matrix_entries": direct_rows,
+            "large_gap_leading_system_checks": limit_checks, "profiles": profiles,
+            "coverage": "r,t=1..10; b in {r+2,r+5,r+2^r,r+2^(2r)}, deduplicated"}
+
+
+def check_generic_gap_witnesses() -> dict:
+    expanded = coefficient_checks = 0
+    witnesses = []
+    r = t = 1
+    for b in [3, 6]:
+        d, H, L = 2, 2, 4
+        a = r + t
+        M = 160 * (a + 2)
+        lam = Fraction(M, 20 * (a + 2))
+        A, K, weights = loss_matrix(r, t, b)
+        v = upper_solve(A, K)
+        q = [-(-(lam * x).numerator // (lam * x).denominator) for x in v]
+        P = apply_matrix(A, list(map(Fraction, q)))
+        require(all(p >= Fraction(M, 40 * (a + 2)) * k for p, k in zip(P, K)),
+                "Rounded generic witness precision")
+        nodes = product_grid(r, t, b)
+        degree = sum(q[cls] for _, cls in nodes)
+        require(degree < L * (Fraction(M, 2) + 4) <= M * (4 * L - 1), "Generic witness degree")
+        denominator = prod((-root) ** q[cls] for root, cls in nodes)
+        alpha = 1 << (b + t + 1)
+        for node, cls in nodes + [(0, -1)]:
+            polynomial = [1]
+            for root, root_class in nodes:
+                for _ in range(q[root_class]):
+                    updated = [0] * (len(polynomial) + 1)
+                    for j, coefficient in enumerate(polynomial):
+                        updated[j] += (node - root) * coefficient
+                        updated[j + 1] += alpha * coefficient
+                    polynomial = updated
+            expected = P[cls] if node else Fraction(0)
+            actual = min(v2(c) - v2(denominator) for c in polynomial if c)
+            require(actual == expected and actual >= 0, "Expanded generic witness chart")
+            if node:
+                threshold = (M * K[cls].numerator) // (40 * (a + 2) * K[cls].denominator)
+                require(all(not c or v2(c) - v2(denominator) >= threshold for c in polynomial),
+                        "Complete generic witness jet does not vanish")
+            else:
+                require(polynomial[0] == denominator, "Generic witness origin value")
+            expanded += 1
+            coefficient_checks += len(polynomial)
+        witnesses.append({"r": r, "t": t, "b": b, "M": M, "degree": degree,
+                          "multiplicities": q, "node_class_contents": list(map(str, P))})
+    return {"witnesses": witnesses, "complete_chart_expansions": expanded,
+            "expanded_integer_coefficients": coefficient_checks}
+
+
 def main() -> None:
     fixtures = [check_grid(r, t, b) for r, t in [(1, 1), (1, 2), (2, 1)]
                 for b in [r + 2, r + 5]]
@@ -178,9 +327,12 @@ def main() -> None:
                   for fixture in fixtures for s in fixture["local_spectra"]),
               "total_complete_shifted_kernels": sum(f["expanded_shifted_kernels"] for f in fixtures),
               "total_expanded_integer_coefficients": sum(f["checked_integer_coefficients"] for f in fixtures),
+              "nodewise_loss_program": check_loss_program(),
+              "generic_gap_precision_witnesses": check_generic_gap_witnesses(),
               "bindings": {"base_commit": json.loads((HERE / "CLAIM.json").read_text())["base_commit"],
                            "upstream_commit": manifest["upstream_commit"], "frozen_source_sha256": source_hashes,
                            "proof_sha256": sha256((HERE / "PROOF.md").read_bytes()).hexdigest(),
+                           "loss_model_proof_sha256": sha256((HERE / "LOSS-MODEL.md").read_bytes()).hexdigest(),
                            "checker_sha256": sha256(Path(__file__).read_bytes()).hexdigest()}}
     print(json.dumps(report, indent=2, sort_keys=True))
 

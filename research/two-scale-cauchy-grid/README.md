@@ -1,4 +1,4 @@
-# two-scale-cauchy-grid
+# Two-scale Cauchy grid: stronger spectrum and its recovery cost
 
 Status: `scoped_checked` for the component and finite domain below. The full
 contraction schedule remains open; no SAT time improvement is claimed.
@@ -19,13 +19,23 @@ theorem; this is a proposed replacement of its deformation, not an audit.
 
 ## Statement and scope
 
-First prove uniform derivative valuations and integral shifted kernels,
-then determine the local Cauchy Smith spectrum. Candidate formula at index
-`j` is `4j-2 popcount(j)+2(b-r) floor(j/d)`. A large `b` can strengthen
+The [component proof](PROOF.md) establishes uniform derivative valuations,
+integral shifted kernels, and the exact local Cauchy Smith spectrum
+`4j-2 popcount(j)+2(b-r) floor(j/d)`. A large `b` strengthens
 that spectrum without increasing the number of slots or nodes. Success
 for the full objective requires the **same** gap to survive the Hermite
 precision, all children and entry costs. Stop an unchanged route if those
 costs cancel the spectral benefit. No time or alpha improvement is claimed.
+
+The complete [nodewise loss/slope model](LOSS-MODEL.md) now charges that
+benefit against recovery. It allows arbitrary multiplicities at **all**
+nonzero nodes, including both dummy classes. The exact optimum is
+`W/(w^T A^-1 K)`, with `w^T A^-1 K < 10(r+t+2)`, independently of the
+gap. Its large-gap limit is also explicit. A rational-polynomial witness
+has origin value one but all complete nonzero-node jets vanish below a
+constant times `M K/(r+t+2)`. Those are exact mathematical statements;
+the relation from the chosen scales K to a full mode algorithm is a stated
+model, and the stronger witness is not established as an actual tensor family.
 
 ## Complete cost
 
@@ -36,6 +46,9 @@ computable in polynomial bit time. These facts do not establish a full
 contraction. The exact missing costs are changed Hermite precision, actual
 crossing-tile factors and multiplicities, inherited precision, child sizes,
 leaves, and all outer reduction/query work. The selected result is unchanged.
+The loss calculation shows that the gap-plus-local-spectrum comparison
+cannot replace `log L=r+t` by the much larger numerical gap `b`. This is
+a stopping condition for that cost model, not a SAT runtime lower bound.
 
 ## Evidence and reproduction
 
@@ -50,6 +63,13 @@ The [proof](PROOF.md) establishes the component formulas. The standard-library
 content checks on that registered domain. It also checks grid derivatives,
 matching-node units, dummy nodes and localization bits. The saved output is
 [verification.json](verification.json), with proof/checker/source hashes.
+The second registered domain has `r,t=1,...,10` and
+`b in {r+2,r+5,r+2^r,r+2^(2r)}` (duplicates removed): 390 exact primal/dual
+certificates, all supersolution and large-gap-limit checks, and 1,496
+independent full-node matrix entries for the smaller cases. Two generic
+witnesses at `r=t=1`, `b=3,6`, `M=640` expand all 32 charts and all 9,184
+integer coefficients. Every finite conclusion is limited to this domain;
+the all-size arguments are written separately.
 
 ```sh
 python3 -I -B research/two-scale-cauchy-grid/verify.py
@@ -61,12 +81,14 @@ an independent proof review. The checker is outside default CI.
 
 ## Limits and open next questions
 
-The first checkpoint confirms a larger **local** spectrum and a valid
-shifted-integral kernel at arbitrarily large gaps. The next calculation is
-the exact product-grid Hermite loss functional, normalized by those local
-spectral slopes, so any precision cancellation is tested before asserting
-a running-time gain. The broad goal remains active. Do not treat a local
-invariant-factor change as a complete algorithm.
+The larger local spectrum is retained as a valid component. The same-gap
+recovery calculation prevents this particular numerical-range argument
+from certifying a better logarithmic saving. Reopen with an actual mode
+aggregate cost that differs from K, a tensor-specific recovery theorem
+excluding the generic witness, or another kernel identity. Simply increasing
+the same gap and optimizing the same nodewise functional is closed by the
+all-size calculation. The broad research goal remains active; see the
+[checkpoint](CHECKPOINT.md).
 
 ## Sources and credit
 
@@ -80,4 +102,7 @@ that same interval. [PR 4](https://github.com/1337isnot1337/3-SAT/pull/4)
 supplies stronger ordinary Newton modes; [PR 6](https://github.com/1337isnot1337/3-SAT/pull/6)
 shows why generic recovery precision must also be charged. Current
 operator-rank and sparse-oscillator branches concern the other construction
-and are preserved. New material is Apache-2.0, with substantial Codex assistance.
+and are preserved. The nodewise maximum principle and primal/dual method
+are adapted with direct credit to [PR 8](https://github.com/1337isnot1337/3-SAT/pull/8);
+the new matrix, spectrum scales, supersolution and full-grid witness are
+given here. New material is Apache-2.0, with substantial Codex assistance.

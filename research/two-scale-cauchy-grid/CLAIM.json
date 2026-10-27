@@ -3,15 +3,16 @@
   "id": "two-scale-cauchy-grid",
   "task": "contraction-schedule",
   "status": "scoped_checked",
-  "kind": "changed_deformation_component",
+  "kind": "changed_deformation_and_scoped_precision_model",
   "author": "Cinna Davis (OpenAI Codex assisted)",
   "base_commit": "8a659c67d4988540aa6ac8393bb06314ecbe81e2",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "A two-scale packet grid has only 4L nodes, contains every port difference, has uniform derivative valuations and integral shifted Cauchy kernels for an arbitrary dyadic gap. Its normalized local Cauchy Smith valuations are exactly 4j-2 popcount(j)+2(b-r) floor(j/d). A complete changed recovery/mode schedule and a SAT time improvement are not established.",
+  "statement": "A two-scale 4L-node packet grid has uniform derivative valuations, integral shifted kernels and exact local Smith valuations 4j-2 popcount(j)+2(b-r) floor(j/d). A complete all-node recovery functional normalized by explicitly modeled spectral scales has exact optimum W/(w^T A^-1 K), with denominator below 10(r+t+2), independent of the numerical gap. A generic full-grid rational-polynomial witness gives an all-jet precision obstruction at these scales. A full mode algorithm, tensor realization of the stronger witness, and a SAT time improvement are not established.",
   "improves_bound": false,
   "evidence": [
     "research/two-scale-cauchy-grid/PROOF.md",
+    "research/two-scale-cauchy-grid/LOSS-MODEL.md",
     "research/two-scale-cauchy-grid/verify.py",
     "research/two-scale-cauchy-grid/verification.json"
   ],
