@@ -13,7 +13,10 @@
   "evidence": [
     "research/characteristic-two-decision/PROOF.md",
     "research/characteristic-two-decision/verify.py",
-    "research/characteristic-two-decision/verification.json"
+    "research/characteristic-two-decision/verification.json",
+    "research/characteristic-two-decision/FOLLOWUPS.md",
+    "research/characteristic-two-decision/check_followups.py",
+    "research/characteristic-two-decision/followup-verification.json"
   ],
   "reproduce": [
     "python3",
@@ -25,6 +28,7 @@
     "Independent review of the written all-size evaluator and randomized wrapper",
     "No implementation of the accepted contraction is provided",
     "Reducing monomial wire entropy while preserving entry cost and maximum degree",
-    "A complete better general-case bound; no alpha improvement is claimed"
+    "A complete better general-case bound; no alpha improvement is claimed",
+    "Shared binary-matroid rank predicate needs a small admissible network; naive aggregate tensors can violate the maximum-degree contract"
   ]
 }

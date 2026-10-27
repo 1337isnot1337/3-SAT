@@ -53,7 +53,24 @@ PR #1's mode/taper obstructions are predecessor context, not a mathematical
 dependency. At this checkpoint canonical main contains no selected improvement;
 the only open PR at the initial overlap check was #1. No priority claim is made.
 
-The next experiment is aggregating equations before indexing monomials. It must
-pay both aggregate coefficient evaluation and maximum tensor degree; a smaller
-formal wire count alone is insufficient. A failed mechanism will be recorded
-with its precise reopening condition before a pivot.
+The [follow-up ledger](FOLLOWUPS.md) records the aggregation experiment: its
+coefficient oracle is valid, but the proposed aggregate tensors can violate
+the maximum-degree hypothesis. It also supplies the exact even-node parity
+counterexample and a binary-matroid identity for the shared sparse hashes.
+Reproduce these additional checks with:
+
+```sh
+python3 -I -B research/characteristic-two-decision/check_followups.py
+```
+
+The saved [follow-up output](followup-verification.json) contains 4,096 matroid
+identity evaluations, eight exact local-chart checks, and an integer degree
+counterexample. Next work must distribute the shared rank predicate or split
+aggregate tensors while paying every entry and degree cost.
+
+A later live overlap refresh found draft branches `research/scalar-parity-lift`
+at `ca0a7f5beaedcadbbc1fbadfae6271ecf582b2e6` and
+`research/cauchy-newton-modes` at `21d9215fe0bb9834c6ac9f13fb463a909a6300a8`.
+They pursue different scalar-lift and local-mode constant improvements. Their
+claims are not imported here, and neither advertises a larger alpha at those
+heads.

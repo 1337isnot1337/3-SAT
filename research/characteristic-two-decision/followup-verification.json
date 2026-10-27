@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "even_node": {
+    "packet_length": 4,
+    "even_node": -2,
+    "F_at_zero": "1",
+    "F_at_even_node": "0",
+    "F_linear_coefficient": "1/4",
+    "nonzero_local_entry": "5/3",
+    "integral_shifted_charts_checked": 8,
+    "conclusion": "even-node parity preservation is false despite integral local charts"
+  },
+  "matroid": {
+    "all_binary_2_by_4_matrices": 256,
+    "syndrome_evaluations": 4096
+  },
+  "aggregation": {
+    "n": "340282366920938463463374607431768211456",
+    "test_groups": 8,
+    "equations_in_example_group": "42535295865117307932921825928971026432",
+    "variable_groups": 4294967296,
+    "candidate_s": "1020847100762815390390123822295304634368",
+    "rigorous_tensor_degree_lower_bound": "127605887595351923798765477245747200000",
+    "exact_check": "degree_lower^10 > candidate_s^9",
+    "scope": "counterexample to automatic degree admissibility of this monomial-index aggregation"
+  }
+}

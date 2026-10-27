@@ -203,6 +203,14 @@ construction or the sparsification tree. Both remain charged, as do the
 high-incidence branches, degree arrays, field embedding and contraction.
 Their full composition retains the accepted general exponent and alpha.
 
+To retain the accepted fixed-density guarantee as well, use the accepted
+clause-network counter when `m<=n ceil(log2 ceil(log2 n))`, and this wrapper
+otherwise, with bounded small inputs handled directly. Every fixed-density
+family eventually takes the first branch, with exponent `O_k,D(n/sqrt(log n))`.
+During high-incidence branching, free variables that disappear from all
+remaining tests still contribute their factors `(1+r_v)`; they must not be
+silently discarded from an already defined weighted partition function.
+
 ## Open objective
 
 To improve the bound, the entropy in the monomial wire encoding or the
