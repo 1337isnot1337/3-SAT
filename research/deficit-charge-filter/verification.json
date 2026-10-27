@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite charge-deficit scalar classifications on the registered codebooks; no all-size gain",
+  "cases": [
+    {
+      "lambda": 1,
+      "h": 4,
+      "maximum_deficit": 7,
+      "bands": [
+        {"removed_abs_shift_le": 0, "allowed_deficit_columns": 90, "constraint_rank_over_Q": 12, "scalar_weight_nullity": 78, "label_matrix_space_dimension": 4, "full_rank_scalar_pairing_exists": true, "piece_count": 5, "maximum_active_abs_shift": 6, "maximum_active_deficit": 2},
+        {"removed_abs_shift_le": 1, "allowed_deficit_columns": 76, "constraint_rank_over_Q": 12, "scalar_weight_nullity": 64, "label_matrix_space_dimension": 4, "full_rank_scalar_pairing_exists": true, "piece_count": 5, "maximum_active_abs_shift": 6, "maximum_active_deficit": 2},
+        {"removed_abs_shift_le": 3, "allowed_deficit_columns": 48, "constraint_rank_over_Q": 12, "scalar_weight_nullity": 36, "label_matrix_space_dimension": 4, "full_rank_scalar_pairing_exists": true, "piece_count": 5, "maximum_active_abs_shift": 6, "maximum_active_deficit": 2},
+        {"removed_abs_shift_le": 7, "allowed_deficit_columns": 4, "constraint_rank_over_Q": 3, "scalar_weight_nullity": 1, "label_matrix_space_dimension": 0, "full_rank_scalar_pairing_exists": false}
+      ]
+    },
+    {
+      "lambda": 2,
+      "h": 6,
+      "maximum_deficit": 11,
+      "bands": [
+        {"removed_abs_shift_le": 0, "allowed_deficit_columns": 228, "constraint_rank_over_Q": 140, "scalar_weight_nullity": 88, "label_matrix_space_dimension": 16, "full_rank_scalar_pairing_exists": true, "piece_count": 68, "maximum_active_abs_shift": 12, "maximum_active_deficit": 8},
+        {"removed_abs_shift_le": 1, "allowed_deficit_columns": 206, "constraint_rank_over_Q": 140, "scalar_weight_nullity": 66, "label_matrix_space_dimension": 16, "full_rank_scalar_pairing_exists": true, "piece_count": 70, "maximum_active_abs_shift": 12, "maximum_active_deficit": 10},
+        {"removed_abs_shift_le": 2, "allowed_deficit_columns": 184, "constraint_rank_over_Q": 138, "scalar_weight_nullity": 46, "label_matrix_space_dimension": 11, "full_rank_scalar_pairing_exists": true, "piece_count": 70, "maximum_active_abs_shift": 12, "maximum_active_deficit": 10},
+        {"removed_abs_shift_le": 5, "allowed_deficit_columns": 118, "constraint_rank_over_Q": 103, "scalar_weight_nullity": 15, "label_matrix_space_dimension": 3, "full_rank_scalar_pairing_exists": false},
+        {"removed_abs_shift_le": 11, "allowed_deficit_columns": 12, "constraint_rank_over_Q": 12, "scalar_weight_nullity": 0, "label_matrix_space_dimension": 0, "full_rank_scalar_pairing_exists": false}
+      ]
+    }
+  ],
+  "full_weight_space_control_h4": {
+    "states": 5,
+    "cutoff_0": {"label_space_dimension": 14, "max_basis_label_rank": 4},
+    "cutoff_1": {"label_space_dimension": 8, "max_basis_label_rank": 4},
+    "cutoff_3": {"label_space_dimension": 2, "max_basis_label_rank": 1},
+    "cutoff_7": {"label_space_dimension": 0, "max_basis_label_rank": 0}
+  },
+  "verification_boundary": "Exact rational finite algebra. No independent all-size proof review, formal verification or full SAT implementation."
+}
