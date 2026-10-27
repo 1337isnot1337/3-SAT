@@ -88,6 +88,8 @@ pairings at h=2,4,6, not just the chosen binary code states. Its last
 run took 45.74 seconds and about 253 MiB peak RSS on this host. This
 is checker cost, not a SAT speed result. The screen is separate from
 default CI; `make verify` remains lightweight.
+A clean Git-free export reproduced the full saved screen byte for byte;
+the exact checkpoint and scope are in [VALIDATION.md](VALIDATION.md).
 
 ## Limits and open next questions
 
