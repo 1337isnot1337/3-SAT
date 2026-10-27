@@ -35,6 +35,7 @@ Python 3.11+, standard library, from the repository root:
 
 ```sh
 python3 -I -B research/parity-recovery-precision/verify.py
+python3 -I -B research/parity-recovery-precision/explore_boolean_packets.py
 make verify
 ```
 
@@ -48,6 +49,12 @@ The generic taper family adds 45 parameter triples, 1,548 shifted disks and
 shifted polynomials checks all 3,472 integer coefficients for the smaller
 registered cases. Exact coverage and source/proof/checker hashes are in the
 saved report.
+The separately saved [Boolean packet screen](boolean-packets.json) exhausts
+all 256 canonical `0/1` tensor pairs on one two-slot packet, comparing full
+active jets at precisions one through six. It finds opposite-parity collisions
+through precision three, including an explicit pair proved in Section 4.1;
+precision four separates parity in this bounded class. Checking only odd
+inputs against zero data would miss the precision-three collisions.
 The finite checker is a rational reference calculation, not the accepted
 recursive contraction or an independent proof review. Default CI stays small.
 

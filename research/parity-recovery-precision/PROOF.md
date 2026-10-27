@@ -149,6 +149,50 @@ lower bound on the stated interpolation-data interface. It does not rule
 out a tensor-aware shortcut, a different deformation, or a different
 decision reduction.
 
+### 4.1 Canonical Boolean inputs can also collide away from zero data
+
+Excluding a signed witness after reducing its entries modulo two is not
+enough to establish recovery for canonical Boolean inputs. Two different
+nonzero data-generating networks can collide. There is an explicit example
+on one `L=2` packet. List the tables in bit-mask order `0,1,2,3`:
+
+```math
+ A_1=(1,1,0,0),\quad B_1=(1,0,1,0),\qquad
+ A_2=(1,1,1,0),\quad B_2=(0,1,1,0).
+```
+
+These tables use only canonical zero and one entries. Their original counts
+are `1` and `2`, with opposite parities. Put `d=d_2`. Direct substitution
+in the source's actual affine row formula gives
+
+```math
+ F_1(T)=2-d(T),\qquad
+ F_2(T)=2+d(T)(2T^2+T^3),
+```
+
+using `W_01(T)+W_10(T)=-2T^2-T^3`. Therefore
+
+```math
+ F_1(T)-F_2(T)=-d(T)(1+2T^2+T^3).
+```
+
+At the active nodes `t=-1,+1`, respectively, the complete shifted
+difference has exact contents `3` and `4`. Indeed `d(t+4z)` has content
+`2` by (1), and the second factor has contents `1` and `2`, as seen from
+its constant and linear coefficients. Content is additive under products:
+after extracting the content powers, reduction modulo two gives nonzero
+polynomials whose product is nonzero. Thus both complete local jets agree
+modulo eight, despite different origin parities.
+
+The accompanying exhaustive `L=2` screen covers all 256 pairs of Boolean
+tables. Of the 120 pairs with odd origin count, none has zero data at both
+active nodes modulo eight; the maximum minimum content is two. Nevertheless
+opposite-parity data collisions still occur at precision three, as above.
+At precision four, the full local data separate origin parity in this
+finite class. This is a bounded classification, not a growing-packet
+recovery theorem. It shows why an odd-versus-zero screen alone cannot
+certify a tensor-specific escape.
+
 ## 5. A matching generic-polynomial precision obstruction
 
 There is a stronger witness for the **generic Hermite recovery interface**.

@@ -78,7 +78,7 @@
       "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a",
       "upstream/openai-eth-2026/paper.pdf": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
     },
-    "proof_sha256": "0954df865689ad8bd9d326c13c84bfea9dae3794b49ce9bd3cc1923fe59479e5",
+    "proof_sha256": "bbcbec620d8aa988c1592ba9da8832885073f6b7fa36786d70d6e02c930a728d",
     "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
   },
   "status": "PASS"

@@ -13,7 +13,9 @@
   "evidence": [
     "research/parity-recovery-precision/PROOF.md",
     "research/parity-recovery-precision/verify.py",
-    "research/parity-recovery-precision/verification.json"
+    "research/parity-recovery-precision/verification.json",
+    "research/parity-recovery-precision/explore_boolean_packets.py",
+    "research/parity-recovery-precision/boolean-packets.json"
   ],
   "reproduce": ["python3", "-I", "-B", "research/parity-recovery-precision/verify.py"],
   "remaining_obligations": [

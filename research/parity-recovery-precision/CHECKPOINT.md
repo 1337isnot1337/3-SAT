@@ -36,10 +36,11 @@ the `M/L` scale for growing packets. Do not conflate those scopes.
 
 ## Live research queue
 
-1. Investigate which generic recovery witnesses occur as actual deformed
-   contractions with creation-time canonical `0/1` lifts. Arbitrary signed
-   tensor entries can change the later shifted polynomial when replaced by
-   those lifts, although they preserve origin parity. Preserve this distinction.
+1. The complete `L=2` canonical Boolean screen now rules out a simple escape:
+   odd-versus-zero content is at most two, but opposite-parity **nonzero**
+   cases still collide through precision three. The explicit pair and proof
+   are in Section 4.1; the full finite data separate parity at precision four.
+   For growing packets the generic witness's tensor realization remains open.
 2. Test a concrete alternative mechanism after refreshing PRs: aggregate
    incidence representations, a tensor-aware recovery, or a genuinely changed
    deformation. Merely reducing output precision or retuning a fixed taper
@@ -53,3 +54,8 @@ Current outside work at the last read: PR 1 mode/taper functional bounds;
 PR 2 weighted characteristic-two decision; PR 4 rational Newton modes;
 PR 5 scalar parity and a construction comparison. Preserve their work and
 credit overlaps. No agents were spawned in this session.
+
+The user subsequently explicitly authorized merging PRs. Complete the
+necessary scoped checks, preserve source and claim labels, and integrate
+coherent PRs without another permission request. A merge is not an
+independent review or selection of a stronger theorem.
