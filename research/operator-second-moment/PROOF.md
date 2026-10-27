@@ -1,11 +1,11 @@
-# Exact second moment of the uncharged crossing pieces
+# Second-moment spectrum and a quadratic crossing filter
 
 Status: author-checked, substantially AI-assisted research. The OpenAI theorem
 is accepted as a premise. This note studies the external Anthropic operator
 construction; it neither audits that theorem nor claims a SAT bound improvement.
 Source and predecessor pins are in [SOURCES.json](SOURCES.json).
 
-## 1. Polynomial operators
+## 1. Polynomial operators and the exact second moment
 
 Let `R=Q[u_1,u_2,...]`, with `weight(u_j)=j`. For a partition `nu`, write
 `u^nu=prod_(j in nu)u_j` and `m_nu!=prod_j mult_j(nu)!`. Define
@@ -16,23 +16,17 @@ Let `R=Q[u_1,u_2,...]`, with `weight(u_j)=j`. For a partition `nu`, write
 ```
 
 ```math
- F=\sum_{r\ge1}(-1)^{r-1}r u_r,
- \qquad
+ B=\sum_{j\ge1}u_{j+1}\frac{\partial}{\partial u_j},
+ \qquad F=\sum_{r\ge1}(-1)^{r-1}r u_r,
+```
+
+```math
  U_h=\frac1{2h}F\left(FA+2A\frac\partial{\partial u_1}\right).
 ```
 
-Every expression is finite on a polynomial. Although `A` and `F` can change
-weight, `U_h` is followed by extraction of weight `h`. On monomials of weight
-`h`, this gives a linear operator `R_h -> R_h`. Equivalently,
-
-```math
- A(u_j)=\sum_{n=1}^j {j-1\choose n-1}u_n.
-```
-
-The implementation in [second.py](second.py) evaluates this definition without
-using the normal-ordered operator code.
-
-## 2. Exact second-moment formula
+Every expression is finite on a polynomial. On weight-`h` input, `U_h` is
+followed by extraction of weight `h`, giving an operator `R_h -> R_h`.
+Also `A(u_j)=sum_(n=1)^j binom(j-1,n-1)u_n`.
 
 **Theorem 1.** For every `h>=1`, partitions `mu,nu` of `h`, and every output
 energy space `V_E`, the uncharged pieces satisfy
@@ -43,133 +37,200 @@ energy space `V_E`, the uncharged pieces satisfy
  \tag{1}
 ```
 
-Equivalently, the scalar in the predecessor's partition-label normalization is
-`4hE h! U_h`.
-
-The derivation uses the same Laurent contraction expansion as PR 11. Terms with
-no uncontracted field have no second derivative at the diagonal. A single free
+The derivation uses the Laurent contraction expansion of PR 11. Terms with no
+uncontracted field have no second derivative at the diagonal, and one free
 weight-one current has no equal-energy matrix coefficient in the uncharged
-construction. Thus only two free weight-one currents contribute. Their two
-opposite energy shifts give the scalar factor `4hE`; the remaining factorial is
-the same fully contracted normalization as in the zeroth crossing.
+construction. Only two free weight-one currents contribute, with scalar mode
+trace `4hE`.
 
-There are two possible locations for the free factors:
-
-1. Both are on the encoded first side. The transformed contraction identity
-   `sum_n (-1)^(r+n) binom(r,n) gamma_(n,m)=m binom(m-1,r-1)` leaves the
-   exponential `A` on all other factor pairs. The two free insertions give
-   `F^2A`.
-2. One is on each side. Selecting the free column factor differentiates its
-   monomial before applying `A`. Weight conservation and the same alternating
-   binomial sums cancel every column part except `u_1`; the remaining row
-   insertion gives `2FA partial/partial u_1`.
-
-Two free factors on the second side alone cannot conserve weight: the
-transformed contraction requires each contracted column part to be at least its
-matched row part. Combining the two cases and the mode trace yields (1). The
-independent normal-ordered implementation checks this formula entry by entry at
-the finite grades and energies recorded in [verification.json](verification.json).
-
-## 3. Length filtration and uniform singularity
-
-Multiplication by `F` adds one factor and `partial/partial u_1` removes one.
-Consequently
+If both free factors are on the encoded first side, the transformed contraction
+identity
 
 ```math
- U_h(R_{h,\ell})\subseteq R_{h,\ell}\oplus R_{h,\ell+2},
+ \sum_n(-1)^{r+n}{r\choose n}\gamma_{n,m}
+ =m{m-1\choose r-1}
 ```
 
-where `R_(h,ell)` is the length-`ell` subspace. No term lowers partition length.
-This explains the block-triangular structure but does not by itself prove
-singularity: some length-preserving diagonal entries are nonzero.
+leaves `A` on the other factor pairs and gives `F^2A`. If one free factor is on
+each side, selecting the column factor differentiates its monomial before `A`.
+Weight conservation and the same alternating binomial sums cancel every column
+part except `u_1`, giving `2FA partial/partial u_1`. Two free factors on the
+second side alone cannot conserve weight. This proves (1). The independent
+normal-ordered implementation checks the formula entry by entry at the finite
+grades and energies in [verification.json](verification.json).
 
-**Proposition 2.** The full common-label pairing in (1) is singular for every
-`h>=2`.
+The same factorial bookkeeping shows that `2hU_h` has integer entries in the
+partition-label normalization. The checker also tests this integrality
+explicitly through weight 14.
 
-For `h=2`, `U_2(u_2)=0`. For `h=3`,
+## 2. The all-size spectral decomposition
+
+Write `p(h)` for the partition count, with `p(t)=0` for `t<0`, and put
+`a_h=(h-2)/h`. PR 11 proved that `L:R_j -> R_(j-1)` is surjective for every
+`j>=2`. On each fixed partition length `m`, `[L,B]=m Id`.
+
+**Lemma 2 (operator identities).** For every `h>=1`,
 
 ```math
- U_3(6u_3-u_1^3)=0.
+ L^2U_h=0,                                               \tag{2}
 ```
-
-For `h>=4`, we exhibit a larger uniform kernel family. Put
 
 ```math
- D=A\frac\partial{\partial u_1}A^{-1}
-  =\frac\partial{\partial u_1}-\frac\partial{\partial u_2},
+ U_hk=k\qquad(Lk=0),                                    \tag{3}
 ```
 
-where the conjugation identity follows from `[L,partial/partial u_1]=-partial/partial u_2`.
-Let `v=u_1+u_2`, `C=sum_(r>=3)(-1)^(r-1)r u_r`, and
+and, on `H_h=ker L_h^2`,
 
 ```math
- S=-\frac34u_1^2+\left(v-\frac C2\right)u_1.
+ L(U_h+a_h)=0.                                          \tag{4}
 ```
 
-Then `D(u_1)=1`, `D(v)=D(C)=0`, and `2DS=-F`. Hence, for every polynomial
-`f` with `Df=0`,
+These are graded polynomial identities. For (2), expand
+`F(FA+2A partial/partial u_1)` and collect weight-`h` terms; the transformed
+binomial coefficients cancel after two applications of `L`. For (3), `Ak=k`
+on `ker L`, and the remaining symmetric translation-invariant sum is the
+constant term. For (4), decompose `f in H_h` as `f=k_0+Bk_1`, where
+`Lk_0=Lk_1=0`: surjectivity of `L` and `[L,B]=m` make this decomposition
+unique. Substitution in the definition of `U_h` gives
+`U_h(Bk_1)+a_hBk_1 in ker L`, while (3) handles `k_0`. Equivalently,
+`LU_h=-a_hL` on `H_h`. [verify.py](verify.py) independently checks all three
+identities through weight 14; the finite checks are evidence for, not a
+replacement of, this expansion.
+
+**Theorem 3.** For every `h>=1`,
 
 ```math
- (F+2D)(e^Sf)=0.                                    \tag{2}
+ U_h(U_h-1)(U_h+a_h)=0,                                 \tag{5}
 ```
-
-The variables `v,u_3,u_4,...` generate `ker D` and have weights `2,3,4,...`.
-Choose any nonzero `f in ker D` of weight `h-2`; such an `f` exists for every
-`h>=4`. Define
 
 ```math
- g=[A^{-1}(e^Sf)]_{\rm weight\ }h.                  \tag{3}
+ \operatorname{rank}U_h=p(h)-p(h-2).                    \tag{6}
 ```
 
-Only grades at most `h` of `e^Sf` can enter `F(F+2D)Ag` before the final weight
-`h` extraction. Thus (2) implies `U_h(g)=0`. Finally `S` starts in weight two,
-with weight-two component `u_1^2/4`, so the weight-`h` component of `g` is
-`u_1^2f/4`. In particular `g` is nonzero. This proves the proposition.
+Moreover `image U_h=H_h`. The eigenvalue `1` has multiplicity
+`p(h)-p(h-1)`, and `-(h-2)/h` has multiplicity `p(h-1)-p(h-2)` (with the
+obvious small-`h` conventions).
 
-The construction gives a lower bound on nullity, not the exact rank. Finite
-exact elimination observes
+**Proof.** By (2), `image U_h` is contained in `H_h`. Since `L^2` is surjective
+onto `R_(h-2)`,
 
 ```math
- \operatorname{rank}U_h=p(h)-p(h-2)                 \tag{4}
+ \dim H_h=p(h)-p(h-2).
 ```
 
-for `1<=h<=10`. It also observes the operator identity
+On `H_h`, (3) and (4) imply `(U_h-1)(U_h+a_h)=0`. For arbitrary `g`, `U_hg`
+lies in `H_h`, proving (5). The restriction of `L` to `H_h` has kernel
+`ker L_h` and is onto `ker L_(h-1)`: if `Lk=0` has length `m`, then
+`L(Bk/m)=k`. Thus the two nonzero eigenvalue multiplicities are
 
 ```math
- U_h(U_h-1)\left(U_h+\frac{h-2}{h}\right)=0          \tag{5}
+ \dim\ker L_h=p(h)-p(h-1),\qquad
+ \dim\ker L_{h-1}=p(h-1)-p(h-2).
 ```
 
-on the same finite grades. Equations (4) and (5) are **finite observations, not
-all-size claims** in this package. An all-size proof would supply a much
-sharper spectral decomposition and is the next algebraic target.
+Their sum is `dim H_h`. The restriction of `U_h` to `H_h` has full rank on
+that subspace (including the rank-one `h=2` case), so `image U_h=H_h` and (6)
+follows. ∎
 
-## 4. Possible crossing filter and its unpaid obligations
+In particular the full common-label second-moment pairing is singular for every
+`h>=2`, with nullity `p(h-2)`, but its nonzero spectrum is completely explicit.
 
-At output energy `E=h`, divide the zeroth and second moments by `h!`:
+## 3. An explicit normalizer inverse
+
+For `h>=3`, define spectral projectors
 
 ```math
- \sum_s C_s=I,
- \qquad
- \sum_s s^2C_s=4h^2U_h.                              \tag{6}
+ P_0=-a_h^{-1}(U_h-1)(U_h+a_h),\qquad
+ P_1=\frac{U_h(U_h+a_h)}{1+a_h},
 ```
 
-Formally, if `I-4h^2U_h` has a uniform computable inverse with paid entry costs,
-multiplying the pieces by `1-s^2` and that inverse gives a crossing sum using
-only shifts with `s not in {+1,-1}`. The finite identity (5) shows invertibility
-at the checked grades. It is not yet a uniform construction. A successor must
-prove all-size invertibility, preserve both directional flattening ranks, and
-charge inverse heights, entries, precision and every recursive overhead.
+```math
+ P_-=\frac{U_h(U_h-1)}{a_h(1+a_h)}.
+```
 
-Even if completed, deleting only `+1` and `-1` leaves `s=0` and nearby shifts;
-it does not by itself improve the leading `rho=1/sqrt(2)` envelope or SAT alpha.
-This is a concrete component-filter route, not a claimed asymptotic result.
+Then
 
-## 5. Scope and cost boundary
+```math
+ (I-4h^2U_h)^{-1}
+ =P_0+\frac{P_1}{1-4h^2}+\frac{P_-}{1+4h(h-2)}.         \tag{7}
+```
 
-No new reduction, query family, tensor network, recursive schedule or SAT
-algorithm is constructed here. There are therefore no new reduction branches,
-queries, tensor entries, modes, precision levels, random bits or amplification
-costs to charge. The accepted general and fixed-density envelopes and the
-selected result remain unchanged. The exact formula and singularity are results
-about the named operator pairing; the finite ranks and spectral checks are not
-independent review or proof of an asymptotic algorithm.
+The denominators are nonzero. For `h=1`, `U_1=1` and the inverse is `-1/3`.
+For `h=2`, `U_2^2=U_2` and
+
+```math
+ (I-16U_2)^{-1}=I-\frac{16}{15}U_2.                     \tag{8}
+```
+
+Thus the inverse uses only `U_h` and `U_h^2`, not generic exponential-height
+adjugates. Since `2hU_h` is integral, its entries have polynomial-in-`h`
+height. Summing over at most `p(h)` labels and clearing the displayed
+polynomial denominators preserves a polynomial-in-`h` bit-height bound up to
+the explicit label-count factor accounted below.
+
+## 4. Actual crossing pieces omitting `s=+1` and `s=-1`
+
+Normalize the source pieces at output energy `E=h` by `h!`, writing
+
+```math
+ \sum_s C_s=I,\qquad \sum_s s^2C_s=4h^2U_h.              \tag{9}
+```
+
+Let `M_h=I-4h^2U_h`. For every shift other than `+1` and `-1`, define
+
+```math
+ A_s=(1-s^2)(M_h^{-1}\otimes I)C_s,                     \tag{10}
+```
+
+where the inverse acts on the first (`x`) label. Then
+
+```math
+ \sum_{s\ne\pm1}A_s=M_h^{-1}(I-4h^2U_h)=I.              \tag{11}
+```
+
+These are actual rational functions, not merely a rank hypothesis. On the row
+flattening the transformation is `(1-s^2)M_h^{-1}\otimes I_y`, and on the
+column flattening it is `(1-s^2)M_h^{-1}\otimes I_u`. Both are invertible for
+every retained shift. Consequently BOTH directional ranks are exactly
+preserved.
+
+For a target `N=2^lambda`, choose the least `h` with `p(h)>=N` and use all
+partitions of `h` as labels. The predecessor's injection gives
+`p(h)<=h p(h-1)`, so minimality implies
+
+```math
+ N\le p(h)<hN.                                          \tag{12}
+```
+
+Thus only `2^O(lambda)` labels are needed, and `h=Theta(lambda^2)` by the same
+Hardy--Ramanujan estimate used in PR 19. Explicit generation of `U_h`, its
+square and (7), followed by the source normal-order recurrence, takes
+`2^O(lambda)` bit time. The rational entries have `O(lambda)` bits apart from
+polynomial bookkeeping in `h`; no factorial-height inverse is used.
+
+There are `4h-1` pieces: the original `4h+1` shifts with `+1` and `-1`
+removed. This improves the piece count by two, and by one relative to PR 19's
+first-moment family. The central shift and all other nearby shifts remain.
+The source's two-direction term envelope is unchanged, so the supplied ratio
+is still `rho=1/sqrt(2)`, with no SAT alpha improvement.
+
+## 5. Full cost transfer and evidence boundary
+
+PR 17's bounded exact prime-field transfer applies to this explicit rational
+rank-only family. It pays all parameter denominators, recovers exact signed
+integer outer queries and preserves the source master-time envelope. Retain
+every reduction branch, rejected greedy query, profile, entry computation and
+recursive call. The generic compiler's exponential space and one-sided
+decision error remain explicit. No full SAT solver is implemented here.
+
+The checker verifies the spectral inverse against independent Gauss--Jordan
+elimination, constructs all actual filtered pieces through weight 4, checks
+723 crossing identities and compares both directional flattening ranks with
+the unfiltered pieces. It also checks (2)--(6) at bounded grades. These finite
+checks do not independently review the all-size proof, the external theorem or
+the full transfer. No selected-result change is claimed.
+
+Deleting two isolated shifts cannot improve the leading term envelope while
+`s=0` and nearby shifts remain. A further improvement needs a higher-moment
+family or another mechanism that removes a whole central interval with paid
+normalization and both rank bounds.
