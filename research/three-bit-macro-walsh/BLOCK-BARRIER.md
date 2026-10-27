@@ -22,7 +22,8 @@ the frozen vector, without running the search or adapted-basis algorithm.
 
 More generally, let a closed finite class scheme on an alphabet of size
 N squared have a self-adjoint Fourier transform with square N squared,
-positive-eigenvalue target q, and positive local class sizes. Suppose a
+positive-eigenvalue sign target q taking values +1 or -1, and positive
+local class sizes. Suppose a
 class-type-constant function h on b macros satisfies
 
 1. its Fourier transform is N to the power b times h;

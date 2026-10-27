@@ -26,7 +26,7 @@ checks through degree 16. No human, independent or formal review is claimed.
 Do not extend the same six-class screen. A next positive construction must
 change local class invariance, global macro permutation symmetry, or the
 Pauli-diagonal representation. One concrete alternate premise is the
-eight-element nonzero-product partition over F8, before Frobenius fusion:
+unfused product partition over F8, before Frobenius fusion:
 zero, A=0, B=0, and each of seven values AB in F8*. It has ten classes of
 sizes 1,7,7,7,7,7,7,7,7,7. Its symmetric powers are polynomial-dimensional
 for fixed ten classes, but already expensive; test a structural local/block
