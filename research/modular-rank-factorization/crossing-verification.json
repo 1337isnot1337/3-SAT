@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "one-level integer crossing expansion with modular rank factors",
+  "predicates": 256,
+  "pieces": 4,
+  "normalizer": 64,
+  "output_precision": 4,
+  "working_precision": 10,
+  "selected_directions_and_dimensions": [
+    {
+      "direction": "col",
+      "inner_dimension": 1
+    },
+    {
+      "direction": "col",
+      "inner_dimension": 8
+    },
+    {
+      "direction": "row",
+      "inner_dimension": 8
+    },
+    {
+      "direction": "row",
+      "inner_dimension": 1
+    }
+  ],
+  "bindings": {
+    "crossing.py": "720950b415452c7561dd0a17ef7c77380d43137224de9a466dd92aea41fc88c3",
+    "modular.py": "3fa1ca96619998baed515a4c428d9c11bac56efdc3f2b4b2399a283b41543a8f",
+    "predecessor_refined.py": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb"
+  }
+}

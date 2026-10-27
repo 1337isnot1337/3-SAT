@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "bounded exact modular matrix and precision controls",
+  "counts": {
+    "two_by_two": 5000,
+    "binary_three_by_three": 3072,
+    "structured_rectangular": 240,
+    "division_cases": 19968,
+    "nested_division_cases": 6528,
+    "inverse_valuation_controls": 16
+  },
+  "negative_controls": [
+    "rank over F2 loses nonzero torsion factors",
+    "division without valuation precision is ambiguous",
+    "creation identities cannot be promoted to higher precision",
+    "generic inverse normalization can require exponential precision"
+  ],
+  "bindings": {
+    "modular.py": "3fa1ca96619998baed515a4c428d9c11bac56efdc3f2b4b2399a283b41543a8f",
+    "verify.py": "d1acfd1fe0887078ee465208e3413d3006ab92075e3268208b333b5a6cc39231",
+    "PROOF.md": "36f013de1990fd0b514bcdef9873739341834eabef4bdb6fc23c1bfa4c69e941"
+  }
+}

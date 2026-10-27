@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "anthropic-hexagon-2610.00577v1",
+      "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+      "contributor": "Anthropic",
+      "version": "1",
+      "version_date": "2026-10-27",
+      "read_on": "2026-10-27",
+      "landing_url": "https://hexagonmath.org/2610.00577v1",
+      "source_url": "https://hexagonmath.org/src/2610.00577v1",
+      "license_on_landing_page": "CC BY 4.0",
+      "source_archive": {
+        "format": "zip",
+        "bytes": 248241,
+        "sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2"
+      },
+      "source_file": {
+        "archive_path": "main.tex",
+        "bytes": 248111,
+        "sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553"
+      },
+      "source_labels_read": [
+        "intro:thm:strong",
+        "ov:stronger",
+        "def:genpieces",
+        "thm:master",
+        "thm:halfpieces",
+        "eq:half-row",
+        "eq:half-col",
+        "app:onelog",
+        "app:lean"
+      ],
+      "formal_repository": "https://github.com/anthropics/formal-math",
+      "formal_repository_observed_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+      "formal_directory": "eth",
+      "scope": "Source of the crossing factor contract, quantitative master recurrence and intermediate precision bounds; external full theorem not owner-selected or independently/formally checked here"
+    }
+  ],
+  "local_predecessors": [
+    {
+      "package": "research/three-bit-macro-walsh",
+      "merge_commit": "fdb2d6d5e585b75f12e79fd0f67934eed22af173",
+      "module": "research/three-bit-macro-walsh/refined.py",
+      "sha256": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb",
+      "credit": "Actual uniform integer crossing and exact rational rank/support envelopes used by the bounded end-to-end test; underlying Pauli/Bell engine credited to PR 14"
+    },
+    {
+      "package": "research/anthropic-operator-ranks",
+      "credit": "Distinction between source intermediate dimensions and actual ranks; finite uncharged rank screen"
+    },
+    {
+      "pr": 11,
+      "head_at_read": "9cc1569a4cf0a0b3d1ed677b32fa1c27eb590125",
+      "credit": "Charged moment pairing and its explicit unpaid normalization/coordinate/height interface; no results copied or promoted"
+    }
+  ],
+  "background": [
+    {
+      "title": "Fast Algorithms for Linear Algebra Modulo N",
+      "authors": [
+        "Arne Storjohann",
+        "Thom Mulders"
+      ],
+      "year": 1998,
+      "venue": "ESA 1998, LNCS 1461, pages 139-150",
+      "author_url": "https://cs.uwaterloo.ca/~astorjoh/esa.pdf",
+      "bytes": 909244,
+      "sha256": "5dabd2c5b8b7f34d0f35a52e0ae49e0396a1a7ff04bfa26fc163bbb59f573ae4",
+      "scope": "Author-hosted primary paper, introduction and modular arithmetic/module sections read for established modular linear algebra; no source redistributed or license asserted; self-contained chain-ring peeling proof is supplied"
+    }
+  ],
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem unchanged; no correctness audit"
+  }
+}
