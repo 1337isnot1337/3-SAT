@@ -1,0 +1,139 @@
+{
+  "alpha_improvement_claimed": false,
+  "finite_rank_and_spectral_rows": [
+    {
+      "dimension": 1,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "1"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 1,
+      "nullity": 0,
+      "rank": 1
+    },
+    {
+      "dimension": 2,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "0"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 2,
+      "nullity": 1,
+      "rank": 1
+    },
+    {
+      "dimension": 3,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-1/3"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 3,
+      "nullity": 1,
+      "rank": 2
+    },
+    {
+      "dimension": 5,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-1/2"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 4,
+      "nullity": 2,
+      "rank": 3
+    },
+    {
+      "dimension": 7,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-3/5"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 5,
+      "nullity": 3,
+      "rank": 4
+    },
+    {
+      "dimension": 11,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-2/3"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 6,
+      "nullity": 5,
+      "rank": 6
+    },
+    {
+      "dimension": 15,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-5/7"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 7,
+      "nullity": 7,
+      "rank": 8
+    },
+    {
+      "dimension": 22,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-3/4"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 8,
+      "nullity": 11,
+      "rank": 11
+    },
+    {
+      "dimension": 30,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-7/9"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 9,
+      "nullity": 15,
+      "rank": 15
+    },
+    {
+      "dimension": 42,
+      "finite_eigenvalues": [
+        0,
+        1,
+        "-4/5"
+      ],
+      "finite_rank_observation": "p(h)-p(h-2)",
+      "h": 10,
+      "nullity": 22,
+      "rank": 20
+    }
+  ],
+  "independent_second_moment_entries": 594,
+  "nonzero_length_filtration_entries": 106,
+  "quadratic_crossing_filter_constructed": false,
+  "result": "PASS",
+  "scope": "independent exact operators at h<=6 and polynomial matrices at h<=10; finite ranks/spectra are not all-size claims",
+  "source_sha256": {
+    "PROOF.md": "f8a37fcad9d3dda71bb93271137ccf6f7ff94798724ebba055a6e680ba950d51",
+    "SOURCES.json": "9133932d4e05b52f0315c5b84a259cfce37ac875d1434709ac7473d276ec4405",
+    "second.py": "014bb300728f18f7ae2cf8fbdcdc28b37a80f4d31c0ed890c1feb7edb1e6451f",
+    "verify.py": "faff2a3adfefdfe4d8cc921c3d4d356d63e48e63ad025eefbd45baaf6aff213d"
+  },
+  "spectral_cubic_checks": 10,
+  "uniform_rank_or_spectral_proof_claimed": false,
+  "uniform_singularity_proof": "PROOF.md section 3"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "operator-second-moment",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "exact_operator_second_moment_and_singularity",
+  "author": "1337isnot1337, with substantial AI assistance from Kimi",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The uncharged second operator moment has exact partition pairing 4hE h! U_h, where U_h=(1/(2h))F(FA+2A d/du_1), A=exp(L), and F=sum_(r>=1)(-1)^(r-1)r u_r. The full common-label pairing is singular for every h>=2 by an explicit uniform kernel construction. Independent normal-ordered checks cover 594 entries through weight 6. Rank p(h)-p(h-2) and the cubic U_h(U_h-1)(U_h+(h-2)/h)=0 are exact finite observations through weight 10, not all-size claims. No actual quadratic filter, SAT bound improvement or selected-result change is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/operator-second-moment/PROOF.md",
+    "research/operator-second-moment/second.py",
+    "research/operator-second-moment/verify.py",
+    "research/operator-second-moment/verification.json",
+    "research/operator-second-moment/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/operator-second-moment/verify.py"
+  ],
+  "external_source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "remaining_obligations": [
+    "Independent review of the all-size second-moment and uniform-kernel arguments",
+    "Prove or refute the finite rank formula and spectral cubic at all weights",
+    "For a quadratic crossing filter, prove uniform invertibility and pay both ranks, inverse heights, entries and recursive overheads",
+    "No complete SAT algorithm, larger alpha or selected-result change is claimed"
+  ]
+}
