@@ -2,17 +2,33 @@
   "schema_version": 1,
   "id": "scalar-parity-lift",
   "task": "dense-encoding",
-  "status": "draft",
-  "kind": "research_attempt",
+  "status": "scoped_checked",
+  "kind": "constructive_component_improvement",
   "author": "OpenAI Codex (AI-assisted)",
   "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Draft: no result claimed",
+  "statement": "An exact integer scalar parity projector gives retained incidence degree min(N,k(a+p-1)) modulo 2^p, replacing the source's k(a+2(p-1)) envelope and auxiliary V-algebra. A complete grouped-network replacement preserves deterministic exact counting with the unchanged accepted full asymptotic bound. The degree cutoff is sharp, and retained-support families show that this coefficientwise indexing change alone does not remove log log n. No new alpha is claimed.",
   "improves_bound": false,
-  "evidence": [],
-  "reproduce": [],
+  "evidence": [
+    "research/scalar-parity-lift/PROOF.md",
+    "research/scalar-parity-lift/verification.json",
+    "research/scalar-parity-lift/scalar_lift.py",
+    "research/scalar-parity-lift/verify.py",
+    "research/scalar-parity-lift/model.json",
+    "research/scalar-parity-lift/EXTERNAL-COMPARISON.md",
+    "research/scalar-parity-lift/EXTERNAL-SOURCES.json",
+    "research/scalar-parity-lift/HANDOFF.md"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/scalar-parity-lift/verify.py"],
   "remaining_obligations": [
-    "State and check the proposed result"
-  ]
+    "Independent review of the written all-size component proof and full cost composition",
+    "A changed aggregation, row basis, or contraction mechanism for a better full general-density bound",
+    "The newly supplied Anthropic operator-piece construction has been compared and pinned, but no piece-rank experiment or Lean build was run"
+  ],
+  "full_time_envelope_changed": false,
+  "alpha": "1/2",
+  "independent_review_records": [],
+  "formal_verification": null,
+  "ai_assistance": "Substantial OpenAI Codex assistance in mathematical reasoning, code, checks and writing. No independent or human review claimed."
 }

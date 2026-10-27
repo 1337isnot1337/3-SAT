@@ -8,7 +8,7 @@ uses polynomial space; full coefficient tables are only for small checks.
 
 from __future__ import annotations
 
-from itertools import combinations, product
+from itertools import product
 from math import comb
 
 

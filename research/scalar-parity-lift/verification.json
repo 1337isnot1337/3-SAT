@@ -1,0 +1,238 @@
+{
+  "artifact_sha256": {
+    "PROOF.md": "4cc12813e326a166af2fbac04d8fff635056f5006d67205fe25bbc9102983736",
+    "model.json": "74e5c41fa1cf3bc2e4b63421ea1595407ec0716dad749ad4210577512ac9e1f0",
+    "scalar_lift.py": "df7cde6e7bd2234073021588b9e68f0ab6599fba7f9b4a4bae0f8f9b650560c2",
+    "verify.py": "4565ac2e9c3d2c3727749d5dbc31ebf09e862b401346b9cfd505db647ab44901"
+  },
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "cost_model": {
+    "alpha": "1/2",
+    "alpha_scope": "Fixed iterated-log powers do not change alpha",
+    "dominant_envelope": {
+      "log": "-1/2",
+      "loglog": "1",
+      "n": "1"
+    },
+    "dominant_terms": [
+      "composed contraction"
+    ],
+    "name": "Scalar parity lift: unchanged general-density exponent envelope",
+    "scope": "Asymptotic bookkeeping under supplied assumptions only; no new algorithm certified",
+    "terms": [
+      {
+        "envelope": {
+          "log": "-1/2",
+          "loglog": "1",
+          "n": "1"
+        },
+        "name": "composed contraction"
+      },
+      {
+        "envelope": {
+          "log": "-1/2",
+          "loglog": "0",
+          "n": "1"
+        },
+        "name": "sparsification"
+      },
+      {
+        "envelope": {
+          "log": "-1/2",
+          "loglog": "0",
+          "n": "1"
+        },
+        "name": "high-incidence branching"
+      },
+      {
+        "envelope": {
+          "log": "1",
+          "loglog": "0",
+          "n": "1/2"
+        },
+        "name": "degree arrays"
+      },
+      {
+        "envelope": {
+          "log": "0",
+          "loglog": "0",
+          "n": "1/10"
+        },
+        "name": "query construction, number of queries and entry evaluation"
+      }
+    ]
+  },
+  "grouped_networks": {
+    "arrays": 3833,
+    "invalid_codes": 8704,
+    "max_wires": 8,
+    "network_cases": 47,
+    "valid_indices": 39075,
+    "wire_assignments": 47779,
+    "zero_wire_pairs": 9320
+  },
+  "high_incidence_branches": [
+    {
+      "N0": 32,
+      "branch_counts": [
+        128,
+        1
+      ],
+      "fixed_variables": [
+        0
+      ],
+      "free_variables": 7,
+      "n": 8,
+      "threshold": 8,
+      "total_count": 129
+    },
+    {
+      "N0": 32,
+      "branch_counts": [
+        64,
+        64,
+        64,
+        0
+      ],
+      "fixed_variables": [
+        0,
+        1
+      ],
+      "free_variables": 6,
+      "n": 8,
+      "threshold": 8,
+      "total_count": 192
+    }
+  ],
+  "local_projectors": {
+    "boolean_evaluation_checks": 526410,
+    "coefficient_comparisons": 526410,
+    "divisibility_checks": 526410,
+    "normalized_polynomials": 33046
+  },
+  "result": "PASS_EXACT_SCALAR_PARITY_LIFT",
+  "retained_support_family": [
+    {
+      "certified_retained_nonzero_coefficients": "43046721",
+      "k": 3,
+      "n": 16,
+      "row_rank": 16,
+      "scope_and_variable_load": 5,
+      "terms_per_equation": 3
+    },
+    {
+      "certified_retained_nonzero_coefficients": "23283064365386962890625",
+      "k": 3,
+      "n": 32,
+      "row_rank": 32,
+      "scope_and_variable_load": 7,
+      "terms_per_equation": 5
+    },
+    {
+      "certified_retained_nonzero_coefficients": "542101086242752217003726400434970855712890625",
+      "k": 3,
+      "n": 64,
+      "row_rank": 64,
+      "scope_and_variable_load": 7,
+      "terms_per_equation": 5
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Finite component and encoding checks; no fast contraction implementation or independent proof review",
+  "sharp_degree_witnesses": [
+    {
+      "count": 2,
+      "count_with_top_degree_removed": 10,
+      "equations": 3,
+      "free_variables": 3,
+      "k": 1,
+      "sharp_degree": 6,
+      "top_coefficient": 8
+    },
+    {
+      "count": 12,
+      "count_with_top_degree_removed": 44,
+      "equations": 5,
+      "free_variables": 5,
+      "k": 2,
+      "sharp_degree": 20,
+      "top_coefficient": 32
+    },
+    {
+      "count": 72,
+      "count_with_top_degree_removed": 200,
+      "equations": 7,
+      "free_variables": 7,
+      "k": 3,
+      "sharp_degree": 42,
+      "top_coefficient": 128
+    }
+  ],
+  "shifted_integrality_failure_control": {
+    "L": 4,
+    "W00_at_minus_two": "0",
+    "W00_at_zero": "1",
+    "alpha": 8,
+    "conclusion": "Do not infer F(t) = F(0) mod 2 from shifted integrality",
+    "global_leading_coefficient": "-1/144",
+    "shifted_blocks_checked": 128
+  },
+  "subset_indexing": {
+    "invalid_subset_indices": 2004,
+    "valid_subset_indices": 8191
+  },
+  "systems": {
+    "discarded_nonzero_integer_coefficients": 32440,
+    "ordered_two_equation_systems": 16660,
+    "precision_cases": 66340,
+    "retained_nonzero_incidence_terms": 1198725
+  },
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "upstream_sha256": {
+    "main_full_version.tex": "b2e6159d4fb7ea6aa4f89ac15605152b0333a5f7cafe93323492bc20a5c066aa",
+    "quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+    "quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
+  },
+  "wire_envelope_comparisons": [
+    {
+      "N": 13824,
+      "a": 384,
+      "k": 3,
+      "n": 64,
+      "old_degree_envelope": 1536,
+      "old_stars_bars_bit_ceiling": 7198,
+      "scalar_degree_envelope": 1344,
+      "scalar_stars_bars_bit_ceiling": 6544
+    },
+    {
+      "N": 43904,
+      "a": 768,
+      "k": 3,
+      "n": 128,
+      "old_degree_envelope": 3072,
+      "old_stars_bars_bit_ceiling": 16365,
+      "scalar_degree_envelope": 2688,
+      "scalar_stars_bars_bit_ceiling": 14820
+    },
+    {
+      "N": 131072,
+      "a": 1536,
+      "k": 3,
+      "n": 256,
+      "old_degree_envelope": 6144,
+      "old_stars_bars_bit_ceiling": 36187,
+      "scalar_degree_envelope": 5376,
+      "scalar_stars_bars_bit_ceiling": 32677
+    },
+    {
+      "N": 373248,
+      "a": 3072,
+      "k": 3,
+      "n": 512,
+      "old_degree_envelope": 12288,
+      "old_stars_bars_bit_ceiling": 78525,
+      "scalar_degree_envelope": 10752,
+      "scalar_stars_bars_bit_ceiling": 70749
+    }
+  ]
+}
