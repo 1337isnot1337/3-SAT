@@ -165,7 +165,80 @@ constants in the accepted big-O theorem. Inserting the unchanged precision
 bound still gives `exp(O(M/sqrt(u)))`. The root still has `u=Theta(log s)`;
 alpha remains `1/2` and the arbitrary-density `log log n` factor remains.
 
-## 5. Generic spectrum of the new canonical kernel
+## 5. Stronger modes at every odd interpolation node
+
+When `i=0`, crossing row and column slots have the same parity. Thus
+`t-y0+x` is odd, `z_x=1/(T-y0+x)` is congruent to one modulo two, and
+`(z_x-1)/2` is integral. It is congruent to a rational two-adic integer
+modulo `2^(A-1)`. Since `k<d=2^(A-2)`, the same counting proof makes
+`binom((z_x-1)/2,k)` integral, including at nonrational `zeta`.
+
+Instead eliminate at row points `a_h=1+2h` and column points `h`. Put
+
+```math
+ \rho_k(z)=\frac{\binom{(z-1)/2}{k}}{\prod_{h=0}^k(1-2hz)},\qquad
+ \sigma_k(j)=\frac{\binom jk}{\prod_{h=0}^k(1-2(1+2h)j)},
+```
+
+```math
+ c_k^{\rm odd}=2^{2k}(k!)^2\bigl(1-2(1+2k)k\bigr).
+```
+
+Then exactly, for every `j in {0,...,d-1}`,
+
+```math
+ \frac1{1-2zj}=\sum_{k=0}^{d-1}c_k^{\rm odd}\rho_k(z)\sigma_k(j). \tag{5}
+```
+
+To verify this by the same elimination proof, replace `(z)_k` in the
+residual by `prod_(h<k)(z-a_h)` and replace the factors `1-2hj` by
+`1-2a_hj`. The rank-one term becomes
+
+```math
+ \frac{2^k(1-2a_kk)\prod_{h<k}(z-a_h)(j-h)}
+ {\prod_{h\le k}(1-2hz)\prod_{h\le k}(1-2a_hj)}.
+```
+
+Now `prod_(h<k)(z-a_h)=2^k k! binom((z-1)/2,k)`, proving (5).
+All denominators remain units. There is still one mode per tile and index,
+now with coefficient valuation at least
+
+```math
+ w_k^{\rm odd}=A+2k+2v_2(k!)=A+4k-2\operatorname{popcount}(k). \tag{6}
+```
+
+Computing the row binomial variable requires one further local guard bit
+to form `(z-1)/2`; no extra precision is passed to a child. All other
+entry, recursion and space bounds in Section 3 are unchanged. Using (5)
+at odd nodes and (2) at the other active nodes therefore gives one
+uniform variant of the accepted contraction. Recovery still uses all
+the original nodes and multiplicities. The odd-node mode-count envelope is
+
+```math
+ \log N_{\rm odd}\le\left(\frac\pi{\sqrt6}+o(1)\right)\sqrt{cp},
+```
+
+a factor `1/2` in the leading coefficient of the geometric envelope.
+The uniform all-node guarantee remains (4); a worst-branch estimate cannot
+replace it with the odd-node coefficient. Neither version changes alpha.
+
+### Why this change alone still has the square-root scale
+
+For a formal family with `c=Theta(M/D)` occupied tiles and precision
+`p=Theta(MD/u)`, take the first `B=floor(delta D/sqrt(u))` modes of each
+tile, where `delta>0` is a sufficiently small fixed constant. All the new
+weights, including the odd-node weights, are at most `A+4B`. Since
+`A=log2(D)+1=O(log s)` and `D>=2^u`, the total weight of these `cB`
+variables, each with exponent one, is at most
+`cB(A+4B)<p` for that choice of `delta` and sufficiently large source size.
+Every squarefree subset is therefore retained, giving
+`exp(Omega(M/sqrt(u)))` formal tuples as well. The upper and lower orders
+match for this specified full-tile formal family. This does not assert
+nonzero realizable coefficients on SAT inputs; it explains exactly why
+linear changes to the weights are a constant refinement of this enumeration
+strategy. PR #1 is the predecessor for this type of formal counting barrier.
+
+## 6. Generic spectra of the canonical kernels
 
 For the integer-indexed matrix `H_(r,j)=1/(1-2rj)`, `0<=r,j<d`, (1)
 gives `H=Phi diag(c_k) Phi^T`, where `Phi_(r,k)=phi_k(r)` is lower
@@ -174,9 +247,17 @@ so `Phi` and its inverse are integral. Consequently its Smith valuations
 are exactly `k+2v2(k!)`, in increasing order. This explains the linear
 three-slope weights for this canonical kernel. It is a different matrix
 from PR #1's normalized additive Cauchy block, whose spectrum has slope
-four. No contradiction or stronger obstruction for the actual restricted
-source-row domain is asserted. Such a restriction could still improve
-the constant.
+four.
+
+For the odd-row matrix `1/(1-2(1+2r)j)`, (5) gives two lower triangular
+integral basis matrices, each with unit diagonal. Its exact Smith
+valuations are `2k+2v2(k!)`. This realizes a four-slope spectrum in the
+odd-node recursion without adding a row-residue partition. PR #1 already
+proved the corresponding linear spectrum for its normalized local block;
+the new contribution here is its usable separable expansion and the
+uniform guard/integrality argument. No contradiction or stronger
+obstruction for other restricted source-row domains is asserted. Those
+restrictions could still improve the constant at even nodes.
 
 ## Sources and limits
 

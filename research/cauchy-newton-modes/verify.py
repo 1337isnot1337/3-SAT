@@ -7,9 +7,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from fractions import Fraction as F
+from hashlib import sha256
 from itertools import combinations, product
 import json
 from math import factorial, prod
+from pathlib import Path
 
 
 def require(condition, message):
@@ -112,6 +114,24 @@ def gain(k):
     return k + 2*int(v2(factorial(k)))
 
 
+def odd_row_basis(z,k):
+    return prod(((z-1)/2-h for h in range(k)),start=ONE)/factorial(k)/prod(
+        (1-2*z*h for h in range(k+1)),start=ONE)
+
+
+def odd_column_basis(j,k):
+    return prod((Q(j)-h for h in range(k)),start=ONE)/factorial(k)/prod(
+        (1-2*(1+2*h)*j for h in range(k+1)),start=ONE)
+
+
+def odd_coefficient(k):
+    return 2**(2*k)*factorial(k)**2*(1-2*(1+2*k)*k)
+
+
+def odd_gain(k):
+    return 2*k+2*int(v2(factorial(k)))
+
+
 def prefactor(a, t, zeta):
     L = 2**a
     T = Q(t) + 2**(a+1)*zeta
@@ -120,11 +140,16 @@ def prefactor(a, t, zeta):
     return T, prod((T-q for q in grid), start=ONE)/derivative
 
 
-def modular_basis(z, k, p):
+def modular_basis(z, k, p, odd=False):
     """Compute via guard bits and integer operations on two coordinates."""
     extra = int(v2(factorial(k)))
     modulus = 2**(p+extra)
-    zr = z.residue(p+extra)
+    if odd:
+        zr0 = z.residue(p+extra+1)
+        require(zr0[0]%2 == 1 and zr0[1]%2 == 0, "odd row coordinate")
+        zr = ((zr0[0]-1)//2, zr0[1]//2)
+    else:
+        zr = z.residue(p+extra)
     def mul(x, y):
         return ((x[0]*y[0]-x[1]*y[1]) % modulus,
                 (x[0]*y[1]+x[1]*y[0]-x[1]*y[1]) % modulus)
@@ -156,6 +181,7 @@ def check_rational_identity():
 
 def check_source_tiles():
     identities = integrality = guards = 0
+    odd_identities = odd_integrality = odd_guards = 0
     for a in range(1, 5):
         L = 2**a
         for i in range(a):
@@ -174,6 +200,8 @@ def check_source_tiles():
                         P = common/b
                         require(P.valuation() >= A, "initial row valuation")
                         row = [basis(z,k) for k in range(d)]
+                        if i == 0:
+                            odd_row = [odd_row_basis(z,k) for k in range(d)]
                         for k in range(d):
                             require(row[k].valuation() >= 0, "extension binomial integrality")
                             require((P*coefficient(k)*row[k]).valuation() >= A+gain(k),
@@ -183,6 +211,15 @@ def check_source_tiles():
                                 require(modular_basis(z,k,p) == row[k].residue(p),
                                         "guard precision calculation")
                                 guards += 1
+                            if i == 0:
+                                require(odd_row[k].valuation() >= 0, "odd row integrality")
+                                require((P*odd_coefficient(k)*odd_row[k]).valuation()
+                                        >= A+odd_gain(k), "odd node mode valuation")
+                                odd_integrality += 1
+                                for p in (2,5,11):
+                                    require(modular_basis(z,k,p,odd=True) == odd_row[k].residue(p),
+                                            "odd row guard precision")
+                                    odd_guards += 1
                         for j in range(d):
                             H = sum((coefficient(k)*row[k]*column_basis[j][k]
                                      for k in range(d)), start=Q())
@@ -190,6 +227,11 @@ def check_source_tiles():
                             y = y0+2**(i+1)*j
                             require(P*H == common/(T-y+x), "source kernel reconstruction")
                             identities += 1
+                            if i == 0:
+                                odd_H = sum((odd_coefficient(k)*odd_row[k]*odd_column_basis(j,k)
+                                             for k in range(d)),start=Q())
+                                require(odd_H == H, "odd source kernel identity")
+                                odd_identities += 1
     require(basis(U,2).valuation() == -1, "nonrational negative control")
     # Deliberately omit the guard bit when computing binom(2,2) mod 2.
     # The falling product 2 is zero mod 2; dividing that residue gives 0,
@@ -200,6 +242,9 @@ def check_source_tiles():
             "rows_and_tiles": "all crossing rows and all column tiles",
             "kernel_identities": identities, "coefficient_integrality_checks": integrality,
             "guard_precision_checks": guards,
+            "odd_node_kernel_identities": odd_identities,
+            "odd_node_coefficient_checks": odd_integrality,
+            "odd_node_guard_precision_checks": odd_guards,
             "negative_controls": ["binom(U,2) has valuation -1",
                                   "division by k! requires guard bits"]}
 
@@ -225,10 +270,11 @@ def determinant(matrix):
 
 def check_generic_spectrum():
     """An additional finite check, not a claim about every source tile's spectrum."""
-    checks = 0
+    checks = odd_checks = 0
     for d in range(1,7):
         for k in range(1,d+1):
             minimum = float("inf")
+            odd_minimum = float("inf")
             for rows, columns in product(combinations(range(d),k),repeat=2):
                 value = determinant([[F(1,1-2*x*y) for y in columns] for x in rows])
                 expected = k*(k-1)//2 + sum(v2(y-x) for x,y in combinations(rows,2))
@@ -236,9 +282,16 @@ def check_generic_spectrum():
                 require(v2(value) == expected, "bilinear Cauchy minor valuation")
                 minimum = min(minimum,v2(value))
                 checks += 1
+                odd_value = determinant([[F(1,1-2*(1+2*x)*y) for y in columns] for x in rows])
+                require(v2(odd_value) == expected+k*(k-1)//2, "odd row Cauchy minor")
+                odd_minimum = min(odd_minimum,v2(odd_value))
+                odd_checks += 1
             require(minimum == sum(gain(j) for j in range(k)), "generic Smith divisor")
+            require(odd_minimum == sum(odd_gain(j) for j in range(k)), "odd Smith divisor")
     return {"dimensions": [1,6], "minors": checks,
-            "smith_valuations": "j+2*v2(j!)=3*j-2*popcount(j)"}
+            "smith_valuations": "j+2*v2(j!)=3*j-2*popcount(j)",
+            "odd_row_minors":odd_checks,
+            "odd_row_smith_valuations":"2*j+2*v2(j!)=4*j-2*popcount(j)"}
 
 
 def polynomial_product(left, right):
@@ -250,10 +303,14 @@ def polynomial_product(left, right):
     return answer
 
 
-def check_network():
+def check_network(odd=False):
     """One complete four-wire deformed network, both groups, all bit assignments."""
     a, i, t = 2, 0, 1
     L, d, A = 4, 2, 3
+    rb = odd_row_basis if odd else basis
+    cb = odd_column_basis if odd else basis
+    ck = odd_coefficient if odd else coefficient
+    gk = odd_gain if odd else gain
     T, common = prefactor(a,t,U)
     W = [[common/(T-y+x) for y in range(L)] for x in range(L)]
     rows = {g: [x for x in range(L) if x%2 == g] for g in range(2)}
@@ -292,18 +349,18 @@ def check_network():
                     factor = {(0,0): local if Y[x] else 1-local}
                     for k in range(d):
                         key = tuple(int(h==k) for h in range(d))
-                        factor[key] = P*coefficient(k)*basis(z,k)*(1 if Y[x] else -1)
+                        factor[key] = P*ck(k)*rb(z,k)*(1 if Y[x] else -1)
                     poly = polynomial_product(poly,factor)
                 value = poly.get(beta[g],Q())
                 source_tile = 1-g
                 for k in range(d):
-                    source_form = sum((basis(j,k)*X[source_tile+2*j] for j in range(d)),
+                    source_form = sum((cb(j,k)*X[source_tile+2*j] for j in range(d)),
                                       start=Q())
                     value *= source_form**beta[source_tile][k]
                 value *= row_tensor(g,Ylocal)*col_tensor(g,Xlocal)
                 child += value
             child_values.append(child)
-        weight = sum((A+gain(k))*beta[h][k] for h in range(2) for k in range(d))
+        weight = sum((A+gk(k))*beta[h][k] for h in range(2) for k in range(d))
         terms.append((weight,child_values[0]*child_values[1]))
     require(sum((term for _,term in terms),start=Q()) == direct, "whole network identity")
     kept_counts = {}
@@ -312,6 +369,7 @@ def check_network():
         require((direct-kept).valuation() >= p, "whole network precision truncation")
         kept_counts[str(p)] = sum(w<p for w,_ in terms)
     return {"wires":4,"groups":2,"bit_assignment_pairs":256,
+            "expansion":"odd_node" if odd else "general",
             "degree_feasible_mode_tuples":len(terms),
             "exact_identity":True,"precision_checks":16,"retained_tuples":kept_counts}
 
@@ -327,7 +385,8 @@ def partition_counts(c,p,d,A):
     return {"tiles":c,"precision":p,"indices_per_tile":d,"initial_weight":A,
             "raw_geometric":count(range(1,d+1)),
             "geometric_with_initial_weight":count(range(A,A+d)),
-            "newton":count([A+gain(k) for k in range(d)])}
+            "newton":count([A+gain(k) for k in range(d)]),
+            "newton_odd_node":count([A+odd_gain(k) for k in range(d)])}
 
 
 def main():
@@ -335,12 +394,20 @@ def main():
               "rational_identity":check_rational_identity(),
               "source_tiles":check_source_tiles(),
               "generic_bilinear_cauchy_spectrum":check_generic_spectrum(),
-              "whole_network":check_network()}
+              "whole_network":[check_network(),check_network(odd=True)]}
     result["finite_mode_counts"] = [partition_counts(*parameters) for parameters in
                                     [(2,32,16,5),(4,64,16,5),(4,128,32,7)]]
     for case in result["finite_mode_counts"]:
-        require(case["newton"] < case["geometric_with_initial_weight"] <= case["raw_geometric"],
+        require(case["newton_odd_node"] < case["newton"]
+                < case["geometric_with_initial_weight"] <= case["raw_geometric"],
                 "finite enumeration improvement")
+    root = Path(__file__).resolve().parents[2]
+    source_paths = ["research/cauchy-newton-modes/verify.py",
+                    "research/cauchy-newton-modes/PROOF.md",
+                    "upstream/openai-eth-2026/build/quantitative-contraction.tex",
+                    "certificates/selected-result.json"]
+    result["source_sha256"] = {name:sha256((root/name).read_bytes()).hexdigest()
+                               for name in source_paths}
     result["result"] = "PASS"
     print(json.dumps(result,indent=2,sort_keys=True))
 

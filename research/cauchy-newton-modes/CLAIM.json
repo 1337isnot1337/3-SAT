@@ -8,7 +8,7 @@
   "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "A finite rational Newton identity supplies one Cauchy mode per tile and index with coefficient valuation at least a+1-i+3k-2 popcount(k), at the accepted evaluation points. It preserves the recursion interface and improves the leading coefficient of the stated colored-partition upper envelope by 1/sqrt(3). The complete asymptotic exponent and alpha are unchanged.",
+  "statement": "Finite rational Newton identities supply one Cauchy mode per tile and index with coefficient valuation at least a+1-i+3k-2 popcount(k), and a+1-i+4k-2 popcount(k) at odd nodes. At the accepted evaluation points they preserve the recursion interface and improve the leading coefficient of the stated colored-partition upper envelope by 1/sqrt(3) uniformly and by 1/2 at odd nodes. The complete asymptotic exponent and alpha are unchanged.",
   "improves_bound": false,
   "evidence": [
     "research/cauchy-newton-modes/PROOF.md",
