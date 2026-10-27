@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "bounded exact transfer controls; no AKS or SAT implementation",
+  "field_matrix_cases": 2387,
+  "rejected_bad_denominator_cases": 738,
+  "signed_query_cases": 19388,
+  "prime_intervals": [
+    {
+      "T": 8,
+      "prime_count": 43
+    },
+    {
+      "T": 9,
+      "prime_count": 75
+    },
+    {
+      "T": 10,
+      "prime_count": 137
+    },
+    {
+      "T": 11,
+      "prime_count": 255
+    },
+    {
+      "T": 12,
+      "prime_count": 464
+    },
+    {
+      "T": 13,
+      "prime_count": 872
+    },
+    {
+      "T": 14,
+      "prime_count": 1612
+    },
+    {
+      "T": 15,
+      "prime_count": 3030
+    },
+    {
+      "T": 16,
+      "prime_count": 5709
+    }
+  ],
+  "negative_controls": [
+    "capped all-composite trials",
+    "zero normalizer numerator",
+    "small final-count prime fails for a larger query",
+    "ordinary prime residues do not preserve signed modulo-two values"
+  ],
+  "bindings": {
+    "field.py": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba",
+    "verify.py": "514725e84bae2d9d161051d5d19c632b141c6e69ad123178fc6daa4528c701c8",
+    "PROOF.md": "cfb07fd29edff1fef7f853296854b9e39e3db1bd79b719f589ef6fee49e12c52",
+    "REGISTERED.md": "aac624c88b3b079e80428f009428b0644ae06c47964acbef9e4cf8c104775179"
+  }
+}

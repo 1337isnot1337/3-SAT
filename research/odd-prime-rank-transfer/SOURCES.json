@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "anthropic-hexagon-2610.00577v1",
+      "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+      "contributor": "Anthropic",
+      "version": "1",
+      "version_date": "2026-10-27",
+      "read_on": "2026-10-27",
+      "landing_url": "https://hexagonmath.org/2610.00577v1",
+      "source_url": "https://hexagonmath.org/src/2610.00577v1",
+      "license_on_landing_page": "CC BY 4.0",
+      "source_archive": {
+        "format": "zip",
+        "bytes": 248241,
+        "sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2"
+      },
+      "source_file": {
+        "archive_path": "main.tex",
+        "bytes": 248111,
+        "sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553"
+      },
+      "source_labels_read": [
+        "intro:thm:strong",
+        "ov:stronger",
+        "def:genpieces",
+        "thm:master",
+        "thm:halfpieces",
+        "eq:half-row",
+        "eq:half-col",
+        "app:onelog",
+        "app:lean"
+      ],
+      "formal_repository": "https://github.com/anthropics/formal-math",
+      "formal_repository_observed_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+      "formal_directory": "eth",
+      "scope": "Source of the crossing factor contract, quantitative master recurrence and intermediate precision bounds; external full theorem not owner-selected or independently/formally checked here"
+    }
+  ],
+  "local_predecessors": [
+    {
+      "package": "research/modular-rank-factorization",
+      "merge_commit": "6245ff589cdd461c75114308f4571af45dfb809d",
+      "credit": "Deterministic rank-only modular factor interface, full precision ledger and normalizer-valuation limitation; this package changes characteristic and restores exact original integer query values"
+    },
+    {
+      "package": "research/three-bit-macro-walsh",
+      "merge_commit": "fdb2d6d5e585b75f12e79fd0f67934eed22af173",
+      "module": "research/three-bit-macro-walsh/refined.py",
+      "sha256": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb",
+      "credit": "Actual uniform integer crossing and exact rational rank/support envelopes used by the bounded end-to-end test; underlying Pauli/Bell engine credited to PR 14"
+    },
+    {
+      "package": "research/anthropic-operator-ranks",
+      "credit": "Distinction between source intermediate dimensions and actual ranks; finite uncharged rank screen"
+    },
+    {
+      "pr": 11,
+      "head_at_read": "9cc1569a4cf0a0b3d1ed677b32fa1c27eb590125",
+      "credit": "Charged moment pairing and its explicit unpaid normalization/coordinate/height interface; no results copied or promoted"
+    }
+  ],
+  "background": [
+    {
+      "title": "Fast Algorithms for Linear Algebra Modulo N",
+      "authors": [
+        "Arne Storjohann",
+        "Thom Mulders"
+      ],
+      "year": 1998,
+      "venue": "ESA 1998, LNCS 1461, pages 139-150",
+      "author_url": "https://cs.uwaterloo.ca/~astorjoh/esa.pdf",
+      "bytes": 909244,
+      "sha256": "5dabd2c5b8b7f34d0f35a52e0ae49e0396a1a7ff04bfa26fc163bbb59f573ae4",
+      "scope": "Author-hosted primary paper, introduction and modular arithmetic/module sections read for established modular linear algebra; no source redistributed or license asserted; self-contained chain-ring peeling proof is supplied"
+    },
+    {
+      "title": "Approximate formulas for some functions of prime numbers",
+      "authors": [
+        "J. Barkley Rosser",
+        "Lowell Schoenfeld"
+      ],
+      "year": 1962,
+      "doi": "10.1215/ijm/1255631807",
+      "publisher_url": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-6/issue-1/Approximate-formulas-for-some-functions-of-prime-numbers/10.1215/ijm/1255631807.full",
+      "read_copy_url": "https://denisevellachemla.eu/Rosser-Schoenfeld-1962.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "bytes": 2520753,
+      "scope": "Original primary paper in a mirror; equations 3.5 and 3.6, printed page 69, read and used for explicit dyadic prime density; publisher page blocked by anti-bot; no source redistributed or license asserted"
+    },
+    {
+      "title": "PRIMES is in P",
+      "authors": [
+        "Manindra Agrawal",
+        "Neeraj Kayal",
+        "Nitin Saxena"
+      ],
+      "year": 2004,
+      "doi": "10.4007/annals.2004.160.781",
+      "publisher_url": "https://annals.math.princeton.edu/2004/160-2/p12",
+      "pdf_url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n2-p12.pdf",
+      "sha256": "cdf418fbe5948a9a3e4ffd0fe2f916db3194547bd9401c4dccb5d9317b0e1dbe",
+      "bytes": 274461,
+      "scope": "Published primary abstract, deterministic algorithm, Theorem 4.1 and polynomial-time claim read; used as established primality theorem, not implemented or independently reproved; no source redistributed"
+    },
+    {
+      "title": "Errata: PRIMES is in P",
+      "authors": [
+        "Manindra Agrawal",
+        "Neeraj Kayal",
+        "Nitin Saxena"
+      ],
+      "year": 2019,
+      "doi": "10.4007/annals.2019.189.1.6",
+      "pdf_url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n1-p06-s.pdf",
+      "sha256": "1bce3f60ca1b3b3042ee90167bd6a87150fcf6cbb29982667eddf22e04314109",
+      "bytes": 222384,
+      "scope": "Both pages read; corrected Lemma 4.3 included in the cited deterministic polynomial-time primality theorem; no source redistributed"
+    }
+  ],
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem unchanged; no correctness audit"
+  },
+  "transfer_scope": "Uniform rational rank-only contract and bounded prime-field inner computation with exact signed integer outer-query recovery; no cheaper ranks or selected-result change"
+}

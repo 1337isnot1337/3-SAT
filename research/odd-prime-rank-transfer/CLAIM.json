@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "odd-prime-rank-transfer",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "rational_rank_only_randomized_transfer",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "6245ff589cdd461c75114308f4571af45dfb809d",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A written transfer replaces low-height integer crossing factors and normalizers by uniform exact rational entry generation in 2^O(lambda) bit time and two rational rank bounds. One boundedly sampled polynomial-bit prime avoids all possible parameter denominators with success above 99/100, generic field factors keep the ranks, and exact signed recovery of every original integer network query preserves the outer comparisons and modulo-two reduction. Every random outcome has the charged source master time envelope; failure flags yield one-sided decision error. Exponential space is explicit. No smaller rho or selected SAT improvement is obtained.",
+  "improves_bound": false,
+  "evidence": [
+    "research/odd-prime-rank-transfer/REGISTERED.md",
+    "research/odd-prime-rank-transfer/PROOF.md",
+    "research/odd-prime-rank-transfer/CONJUGATION.md",
+    "research/odd-prime-rank-transfer/field.py",
+    "research/odd-prime-rank-transfer/verify.py",
+    "research/odd-prime-rank-transfer/crossing.py",
+    "research/odd-prime-rank-transfer/verification.json",
+    "research/odd-prime-rank-transfer/crossing-verification.json",
+    "research/odd-prime-rank-transfer/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/odd-prime-rank-transfer/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the uniform rational transfer, all-query bounds and complete cost argument",
+    "A cheaper valid rational crossing family with both required rank bounds, polynomial piece count and uniform generation",
+    "Full implementation of the master/SAT algorithm and production primality routine is not supplied by the bounded component checkers",
+    "Polynomial-space generic factor generation, if that guarantee is desired"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent or formal review",
+  "selected_result_changed": false
+}

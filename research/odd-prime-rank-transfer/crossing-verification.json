@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "exact conjugated rational crossing, field factors and all 256 predicates",
+  "N": 8,
+  "prime": 101,
+  "predicates": 256,
+  "exact_crossing_entries": 8192,
+  "max_dyadic_denominator_exponent": 9,
+  "pieces": [
+    {
+      "row_rational_rank_bound": 64,
+      "col_rational_rank_bound": 1,
+      "row_field_rank": 64,
+      "col_field_rank": 1,
+      "selected": "col"
+    },
+    {
+      "row_rational_rank_bound": 29,
+      "col_rational_rank_bound": 8,
+      "row_field_rank": 29,
+      "col_field_rank": 8,
+      "selected": "col"
+    },
+    {
+      "row_rational_rank_bound": 8,
+      "col_rational_rank_bound": 29,
+      "row_field_rank": 8,
+      "col_field_rank": 29,
+      "selected": "row"
+    },
+    {
+      "row_rational_rank_bound": 1,
+      "col_rational_rank_bound": 64,
+      "row_field_rank": 1,
+      "col_field_rank": 64,
+      "selected": "row"
+    }
+  ],
+  "bindings": {
+    "crossing.py": "a523135a326f249c5f1d255e958af429fd575868795bd1d33162a246e81e7e00",
+    "field.py": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba",
+    "CONJUGATION.md": "b3a8944c76e0a81343c1d9e32eb5870374ec33772514511e7090281edf22ef3c",
+    "predecessor_refined.py": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb"
+  }
+}
