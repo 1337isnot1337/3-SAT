@@ -158,13 +158,15 @@ The complete sparse-query budget is:
 | Exceptional bounded sizes | Direct enumeration with a fixed cutoff |
 | Randomness, amplification | None |
 
-The resulting sparse-query and general-density time envelopes remain
-`poly(n+m) 2^O_k(n log log n/sqrt(log n))`, with polynomial space.
+The resulting sparse-query bound remains
+`n^O_(k,c)(1) 2^O_(k,c)(n log log n/sqrt(log n))`, with polynomial space.
 For general CNF use the accepted sparsification and greedy hash reduction
 without changing which queries are answered: all selected **and rejected**
-candidates are covered by this sparse-query interface. Sparsification has
+candidates are covered by this sparse-query interface, with `c=c(k)`.
+Sparsification has
 `2^O_k(n/sqrt(log n))` leaves and the total per-leaf query construction and
-multiplicity is `2^((log n)^O_k(1))`. Both are absorbed in the same envelope.
+multiplicity is `2^((log n)^O_k(1))`. Both are absorbed in the general-density
+envelope `poly(n+m) 2^O_k(n log log n/sqrt(log n))`.
 For fixed density keep the accepted clause-network route, with its sharper
 `poly(n+m) 2^O_(k,D)(n/sqrt(log n))` guarantee. Normalization handles arbitrary
 input clause counts in polynomial input time. Finite exceptional cases of the
