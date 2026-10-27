@@ -81,3 +81,16 @@ The source SHA-256 is
 Licensing and full source pins are in [SOURCES.json](../../SOURCES.json).
 PR #1 supplies predecessor context; this proof includes the new argument in full.
 No priority or external evidence-level claim is made.
+
+The pre-submission refresh found concurrent
+[PR #6](https://github.com/1337isnot1337/3-SAT/pull/6), head
+`8e1a26dceff0c55207a48193a013853ce415d32f`. Its Section 5 already establishes
+the same order of generic all-jet obstruction using a linear taper, with the
+weaker requirement `M>=2u`; it also supplies a distinct actual unary-network
+witness. Theorem 3 here is an overlapping alternative construction from the
+exact optimizer, not a new claim beyond PR #6. The separate contribution of
+this package is the arbitrary-node maximum principle, exact symmetrization,
+full-node dual and optimum, and the highest-jet coefficient connection.
+The next finite experiment will examine the actual single-packet polynomial
+lattice under linear parity recovery, preserving the distinction between
+arbitrary integer tensor coefficients and canonical Boolean tensor tables.
