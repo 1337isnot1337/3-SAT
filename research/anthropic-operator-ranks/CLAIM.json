@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "anthropic-operator-ranks",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "operator_piece_count_component_improvement",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The zero-charge polynomial-ring operator pieces satisfy the first-moment relation sum_s s A_s=0. Integer reweighting (1-s) removes shift s=1, giving 4h pieces instead of 4h+1 with the same h! crossing denominator and both factorization bit counts. A complete exact finite lambda=1,2,3 screen verifies the identities, ranks and optimality of one deletion within scalar reweightings of those fixed tensors. There is no smaller rho, full time envelope or alpha.",
+  "improves_bound": false,
+  "evidence": [
+    "research/anthropic-operator-ranks/PROOF.md",
+    "research/anthropic-operator-ranks/verification.json",
+    "research/anthropic-operator-ranks/operators.py",
+    "research/anthropic-operator-ranks/screen.py",
+    "research/anthropic-operator-ranks/SOURCES.json",
+    "research/anthropic-operator-ranks/source/anthropic-2610.00577v1.tex.gz",
+    "research/anthropic-operator-ranks/HANDOFF.md"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/anthropic-operator-ranks/screen.py"],
+  "remaining_obligations": [
+    "Independent review of the written all-size first-moment proof",
+    "A changed factorization or recovery reducing the dominant shared-bit parameter rho",
+    "Higher-moment pairing structure is an uncompleted next experiment; no inverse, aggregation or SAT consequence is established"
+  ],
+  "alpha": "1/2",
+  "full_time_envelope_changed": false,
+  "independent_review_records": [],
+  "formal_verification": null,
+  "ai_assistance": "Substantial OpenAI Codex assistance; author checks only, no independent or human review claimed."
+}

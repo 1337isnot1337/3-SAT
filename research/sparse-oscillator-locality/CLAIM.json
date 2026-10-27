@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "sparse-oscillator-locality",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "sparse_operator_extension_obstruction",
+  "author": "1337isnot1337, with substantial OpenAI Codex assistance",
+  "base_commit": "13fb41c1ca5f416b50a247f744296742ec1bca73",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For the unchanged h=1 operator identity of Anthropic's Appendix B, deleting oscillator indices while retaining index 1 yields an exact defect m Id at the first missing index m. This rules out the proposed sparse-index extension under its stated unchanged coefficients. Restricted partition growth and arithmetic energy rescaling are recorded separately; no larger SAT alpha is obtained.",
+  "improves_bound": false,
+  "evidence": [
+    "research/sparse-oscillator-locality/PROOF.md",
+    "research/sparse-oscillator-locality/verify.py",
+    "research/sparse-oscillator-locality/verification.json",
+    "research/recent-breakthrough-scan/SOURCES.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/sparse-oscillator-locality/verify.py"],
+  "external_source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "remaining_obligations": [
+    "Independent review of the all-size finite-difference, growth and rational-series arguments",
+    "A positive improvement requires a different two-order operator identity and dual label pairing, or compression of the actual unthinned pieces",
+    "No complete SAT algorithm, larger alpha, or general runtime lower bound is claimed"
+  ]
+}
