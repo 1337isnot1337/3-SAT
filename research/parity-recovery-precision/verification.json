@@ -10,6 +10,14 @@
   "exact_power_content_checks": 224,
   "exact_shifted_content_checks": 56,
   "explicit_unary_packet_sums": 210,
+  "generic_taper_precision_witnesses": {
+    "active_node_precision_bounds": 1206,
+    "all_shifted_disks": 1548,
+    "complete_shifted_expansions": 136,
+    "coverage": "a=1..5, u=1..a, M in {2u,4u,8u}; full expansions for a<=3 and M<=4u",
+    "expanded_integer_coefficients": 3472,
+    "parameter_triples": 45
+  },
   "grid_fixtures": [
     {
       "L": 2,
@@ -60,7 +68,7 @@
   },
   "scope": "finite exact rational checks of a recovery-data barrier; no SAT improvement",
   "source_bindings": {
-    "checker_sha256": "384ce07f0a58f4aef74d6615bfe2785ae51e1eef799caaabeef759291d3df49d",
+    "checker_sha256": "28342796251b26e855878b96cc09ff5f412d1e6ea786d390ef370ca211adb288",
     "frozen_source_sha256": {
       "upstream/openai-eth-2026/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
       "upstream/openai-eth-2026/README.md": "a40b8829123b44bd9cfb589e5afa856b0018dc8cb36de36fa79e4315a03fe506",
@@ -70,7 +78,7 @@
       "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a",
       "upstream/openai-eth-2026/paper.pdf": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
     },
-    "proof_sha256": "1965f80de2ddec57ce4627197be95478e0a17e123a0b7d3e259c8fbbb1c809ce",
+    "proof_sha256": "0954df865689ad8bd9d326c13c84bfea9dae3794b49ce9bd3cc1923fe59479e5",
     "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
   },
   "status": "PASS"

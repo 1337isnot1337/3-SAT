@@ -8,7 +8,7 @@
   "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "The actual diagonal Cauchy entry d_L has origin value one while its complete shifted polynomial at any nonzero node t has exact content a+1-v_2(t). Powers multiply this content, giving an all-jet indistinguishability obstruction. These powers occur in bounded-degree unary networks; fixed packet size sometimes requires Omega(M) precision and jet order even for origin parity. This refutes the proposed fixed-packet parity shortcut, not the accepted theorem.",
+  "statement": "The actual diagonal Cauchy entry d_L and its network-realizable powers give an all-jet parity indistinguishability obstruction, requiring Omega(M) precision and jet order at fixed packet size. A stronger rational-polynomial taper witness satisfies the actual generic recovery hypotheses and has exact retained-node contents Theta(MD_i/u), showing this precision scale is order-sharp for the generic retained-node interface even for parity and nonlinear processing of all jets. The stronger family's growing-packet tensor realization is not established. No SAT improvement or critique of the accepted theorem is claimed.",
   "improves_bound": false,
   "evidence": [
     "research/parity-recovery-precision/PROOF.md",
@@ -18,7 +18,7 @@
   "reproduce": ["python3", "-I", "-B", "research/parity-recovery-precision/verify.py"],
   "remaining_obligations": [
     "Independent review of the written all-size proof and network realization",
-    "Determine the precision barrier for generic recovery at growing packet size",
+    "Determine whether efficient tensor contractions realize the stronger generic taper witness or obey a useful additional restriction",
     "Find a tensor-specific restriction, new deformation or decision interface giving an actual time improvement"
   ],
   "ai_assistance": "Substantial OpenAI Codex assistance; no independent review claimed",
