@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "parity-recovery-precision",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "recovery_data_precision_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The actual diagonal Cauchy entry d_L has origin value one while its complete shifted polynomial at any nonzero node t has exact content a+1-v_2(t). Powers multiply this content, giving an all-jet indistinguishability obstruction. These powers occur in bounded-degree unary networks; fixed packet size sometimes requires Omega(M) precision and jet order even for origin parity. This refutes the proposed fixed-packet parity shortcut, not the accepted theorem.",
+  "improves_bound": false,
+  "evidence": [
+    "research/parity-recovery-precision/PROOF.md",
+    "research/parity-recovery-precision/verify.py",
+    "research/parity-recovery-precision/verification.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/parity-recovery-precision/verify.py"],
+  "remaining_obligations": [
+    "Independent review of the written all-size proof and network realization",
+    "Determine the precision barrier for generic recovery at growing packet size",
+    "Find a tensor-specific restriction, new deformation or decision interface giving an actual time improvement"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent review claimed",
+  "alpha": "1/2, unchanged",
+  "selected_result_changed": false
+}
