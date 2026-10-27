@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "scope": "finite exact checks of nodewise loss optimization; no improved alpha",
+  "exhaustive_nonzero_multiplicity_vectors": 17111,
+  "certificates": {
+    "exact_primal_dual_certificates": 10,
+    "lifted_nodewise_dual_columns": 68,
+    "samples": [
+      {
+        "a": 1,
+        "u": 1,
+        "u_times_optimum_W1": 1.5
+      },
+      {
+        "a": 2,
+        "u": 1,
+        "u_times_optimum_W1": 1.75
+      },
+      {
+        "a": 2,
+        "u": 2,
+        "u_times_optimum_W1": 1.826086956521739
+      },
+      {
+        "a": 3,
+        "u": 2,
+        "u_times_optimum_W1": 2.0588235294117645
+      },
+      {
+        "a": 3,
+        "u": 3,
+        "u_times_optimum_W1": 2.0521172638436482
+      },
+      {
+        "a": 4,
+        "u": 4,
+        "u_times_optimum_W1": 2.211558877234702
+      },
+      {
+        "a": 16,
+        "u": 8,
+        "u_times_optimum_W1": 2.768433734875736
+      },
+      {
+        "a": 32,
+        "u": 16,
+        "u_times_optimum_W1": 2.87999830500976
+      },
+      {
+        "a": 64,
+        "u": 32,
+        "u_times_optimum_W1": 2.938775510190616
+      },
+      {
+        "a": 128,
+        "u": 64,
+        "u_times_optimum_W1": 2.9690721649484537
+      }
+    ]
+  },
+  "exact_top_jet_coefficients": 18,
+  "generic_joint_recovery_witnesses": [
+    {
+      "a": 2,
+      "u": 1,
+      "M": 16,
+      "level_multiplicities": [
+        3
+      ],
+      "degree": 12,
+      "charts": [
+        {
+          "node": -4,
+          "gauss_valuation": 0
+        },
+        {
+          "node": -3,
+          "gauss_valuation": 21
+        },
+        {
+          "node": -2,
+          "gauss_valuation": 0
+        },
+        {
+          "node": -1,
+          "gauss_valuation": 21
+        },
+        {
+          "node": 0,
+          "gauss_valuation": 0
+        },
+        {
+          "node": 1,
+          "gauss_valuation": 21
+        },
+        {
+          "node": 2,
+          "gauss_valuation": 0
+        },
+        {
+          "node": 3,
+          "gauss_valuation": 21
+        }
+      ]
+    },
+    {
+      "a": 3,
+      "u": 2,
+      "M": 32,
+      "level_multiplicities": [
+        3,
+        3
+      ],
+      "degree": 36,
+      "charts": [
+        {
+          "node": -8,
+          "gauss_valuation": 0
+        },
+        {
+          "node": -7,
+          "gauss_valuation": 33
+        },
+        {
+          "node": -6,
+          "gauss_valuation": 21
+        },
+        {
+          "node": -5,
+          "gauss_valuation": 33
+        },
+        {
+          "node": -4,
+          "gauss_valuation": 0
+        },
+        {
+          "node": -3,
+          "gauss_valuation": 33
+        },
+        {
+          "node": -2,
+          "gauss_valuation": 21
+        },
+        {
+          "node": -1,
+          "gauss_valuation": 33
+        },
+        {
+          "node": 0,
+          "gauss_valuation": 0
+        },
+        {
+          "node": 1,
+          "gauss_valuation": 33
+        },
+        {
+          "node": 2,
+          "gauss_valuation": 21
+        },
+        {
+          "node": 3,
+          "gauss_valuation": 33
+        },
+        {
+          "node": 4,
+          "gauss_valuation": 0
+        },
+        {
+          "node": 5,
+          "gauss_valuation": 33
+        },
+        {
+          "node": 6,
+          "gauss_valuation": 21
+        },
+        {
+          "node": 7,
+          "gauss_valuation": 33
+        }
+      ]
+    }
+  ]
+}
