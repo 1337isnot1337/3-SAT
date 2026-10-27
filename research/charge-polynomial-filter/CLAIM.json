@@ -3,34 +3,34 @@
   "id": "charge-polynomial-filter",
   "task": "contraction-schedule",
   "status": "scoped_checked",
-  "kind": "finite_complete_charge_span_scalar_filter_classification",
-  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "kind": "finite_length_amplified_charge_scalar_filter_classification",
+  "author": "Cinna Davis and 1337isnot1337, with substantial AI assistance",
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "A registered exact finite screen spans every charge coefficient on the PR 19 asymmetric codebooks and classifies scalar-output pairings by complete rational nullspaces and exact determinant polynomials. It constructs actual filtered crossings for the listed positive cutoffs and certifies singularity for the listed negative finite spaces. In particular lambda=2 admits removal of shifts -2..2 but not -5..5 in that raw-charge space. No all-size filter, cheaper rho or improved SAT exponent is obtained.",
+  "statement": "Exact finite screens span complete scalar charge-coefficient spaces on the PR 19 codebooks. Completing the raw lambda=2 boundary gives invertible pairings through cutoff 4 and singularity at cutoff 5. The new local length-amplified rescaling q^(len(mu)+len(nu)) gives an actual normalized crossing at lambda=2,h=6 after removing every shift -5,...,5, while its entire scalar matrix space is identically singular at cutoff 6. The witness checks all 256 crossing entries and has recorded finite shared-bit bound 8 with coefficient-rank inflation at most 23. The separate inverse-length deficit space tops out at cutoff 3. These are finite component results, not an all-size filter, smaller rho or improved SAT exponent.",
   "improves_bound": false,
   "evidence": [
     "research/charge-polynomial-filter/REGISTERED.md",
     "research/charge-polynomial-filter/METHOD.md",
     "research/charge-polynomial-filter/polynomial.py",
     "research/charge-polynomial-filter/linear.py",
-    "research/charge-polynomial-filter/screen.py",
-    "research/charge-polynomial-filter/raw-verification.json",
-    "research/charge-polynomial-filter/SOURCES.json"
+    "research/charge-polynomial-filter/deficit.py",
+    "research/charge-polynomial-filter/generalized.py",
+    "research/charge-polynomial-filter/generalized-verification.json"
   ],
   "reproduce": [
     "python3",
     "-I",
     "-B",
-    "research/charge-polynomial-filter/screen.py"
+    "research/charge-polynomial-filter/generalized.py"
   ],
   "remaining_obligations": [
-    "A genuinely changed local charge rescaling is registered next; raw negative certificates do not cover it",
-    "All-size existence, scalarity, leading label/output capacity and both rank bounds for any constant-fraction central filter",
-    "A uniform selector and complete rational-transfer cost; finite N<=4 symbolic determinants alone do not supply it",
-    "Independent review of the written and finite component arguments"
+    "An all-size existence proof and uniform selector with leading label/output capacity",
+    "Both directional rank bounds and complete rational-transfer costs for any uniform successor",
+    "The cutoff-6 certificate covers only the stated finite length-amplified scalar space, not every rescaling or codebook",
+    "Independent review of the finite classifications and predecessor arguments"
   ],
-  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "ai_assistance": "Substantial OpenAI Codex and Kimi assistance; no independent or formal review",
   "selected_result_changed": false
 }
