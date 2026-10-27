@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "scope": "complete registered finite scalar spaces; no all-size gain",
+  "construction": "coefficient e=d+2(len(mu)+len(nu)) of q^(2(len(mu)+len(nu)))Q_s^(q)",
+  "cases": [
+    {
+      "lambda": 1,
+      "h": 4,
+      "N": 2,
+      "maximum_raw_charge_degree": 7,
+      "charge_evaluation_checks": 154,
+      "bands": [
+        {
+          "removed_abs_shift_le": 4,
+          "allowed_deficit_columns": 56,
+          "constraint_rank": 11,
+          "scalar_weight_nullity": 45,
+          "label_matrix_space_dimension": 4,
+          "determinant_monomials": 3,
+          "full_rank_scalar_pairing_exists": true,
+          "witness": {
+            "piece_count": 3,
+            "normalized_crossing_entries": 16,
+            "finite_shared_bit_upper_bound": 4,
+            "coefficient_rank_inflation_bound": 43
+          },
+          "family": "length_power",
+          "length_power": 2
+        },
+        {
+          "removed_abs_shift_le": 5,
+          "allowed_deficit_columns": 34,
+          "constraint_rank": 10,
+          "scalar_weight_nullity": 24,
+          "label_matrix_space_dimension": 2,
+          "determinant_monomials": 0,
+          "full_rank_scalar_pairing_exists": false,
+          "family": "length_power",
+          "length_power": 2
+        }
+      ]
+    },
+    {
+      "lambda": 2,
+      "h": 6,
+      "N": 4,
+      "maximum_raw_charge_degree": 11,
+      "charge_evaluation_checks": 524,
+      "bands": [
+        {
+          "removed_abs_shift_le": 5,
+          "allowed_deficit_columns": 118,
+          "constraint_rank": 93,
+          "scalar_weight_nullity": 25,
+          "label_matrix_space_dimension": 6,
+          "determinant_monomials": 0,
+          "full_rank_scalar_pairing_exists": false,
+          "family": "raw",
+          "length_power": 0
+        },
+        {
+          "removed_abs_shift_le": 6,
+          "allowed_deficit_columns": 237,
+          "constraint_rank": 136,
+          "scalar_weight_nullity": 101,
+          "label_matrix_space_dimension": 9,
+          "determinant_monomials": 18,
+          "full_rank_scalar_pairing_exists": true,
+          "witness": {
+            "piece_count": 94,
+            "normalized_crossing_entries": 256,
+            "finite_shared_bit_upper_bound": 8,
+            "coefficient_rank_inflation_bound": 67
+          },
+          "family": "length_power",
+          "length_power": 2
+        },
+        {
+          "removed_abs_shift_le": 7,
+          "allowed_deficit_columns": 189,
+          "constraint_rank": 122,
+          "scalar_weight_nullity": 67,
+          "label_matrix_space_dimension": 6,
+          "determinant_monomials": 0,
+          "full_rank_scalar_pairing_exists": false,
+          "family": "length_power",
+          "length_power": 2
+        }
+      ]
+    }
+  ],
+  "bindings": {
+    "README.md": "dba6be9c13f14e5a23b52429f9ae31512f627fb101f18fa7b4a2cd16cf139932",
+    "screen.py": "0b83be6587a34332ff5b94454e079b5cc4329712539ca550fd9b266a736addae"
+  }
+}
