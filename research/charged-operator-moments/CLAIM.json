@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "charged-operator-moments",
+  "task": "contraction-schedule",
+  "status": "draft",
+  "kind": "research_attempt",
+  "author": "1337isnot1337, with substantial OpenAI Codex assistance",
+  "base_commit": "8a659c67d4988540aa6ac8393bb06314ecbe81e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Draft: no result claimed",
+  "improves_bound": false,
+  "evidence": [],
+  "reproduce": [],
+  "remaining_obligations": [
+    "State and check the proposed result"
+  ]
+}

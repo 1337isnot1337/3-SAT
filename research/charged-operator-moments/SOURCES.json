@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "external_paper": "https://hexagonmath.org/2610.00577v1",
+  "external_repository_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "predecessor_commit": "3f38ce1313a6c34e67f8d45ea4f94121e908fa48",
+  "predecessor_path": "research/anthropic-operator-ranks/operators.py",
+  "local_path": "research/charged-operator-moments/predecessor.py",
+  "sha256": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+  "license": "Apache-2.0",
+  "changes_to_predecessor_file": false
+}
