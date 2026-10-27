@@ -77,6 +77,8 @@ The [reference routines](scalar_lift.py) enumerate small cases; they do
 not implement the accepted subexponential contraction algorithm. No
 native speed measurement or end-to-end fast SAT solver is claimed.
 `make verify` passes all 17 repository tests and source/metadata checks.
+A Git-free export reproduced the checker output byte for byte; see
+[VALIDATION.md](VALIDATION.md) for its exact source checkpoint and scope.
 
 ## Limits and open next questions
 
@@ -104,6 +106,12 @@ Its SHA-256 is `0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a
 The parity-projector identity is elementary; no scientific-priority
 claim is made. Original material is Apache-2.0 and AI-assisted.
 
-Adjacent work was checked in open PRs 1 and 2. PR 2's weighted
+Adjacent work was checked in open PRs 1-4. PR 2's weighted
 characteristic-two fingerprint preserves decision; this component
 preserves deterministic exact counts. Neither PR is a proof dependency.
+The concurrent [PR 3](https://github.com/1337isnot1337/3-SAT/pull/3)
+explicitly credits this branch's first checkpoint `ca0a7f5` and develops
+the same scalar cutoff, full composition and support-entropy obstruction.
+Those core conclusions overlap; this package does not claim exclusive
+priority. Its checker, exact control for the user's refuted shortcut and
+new external-paper comparison are separately supplied here.

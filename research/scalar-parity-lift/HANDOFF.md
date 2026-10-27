@@ -27,6 +27,13 @@ checks and failure controls. `make verify` checks source integrity and
 repository consistency plus 17 tests. Neither command mechanically
 verifies the written asymptotic proof.
 
+At the submission boundary, concurrent PR 3 had developed the same
+scalar cutoff and support-entropy conclusions, crediting the initial
+`ca0a7f5` checkpoint. Its observed head was
+`10e6eafc5fbf18325968218b7773e9175a11a4ef`. Preserve that credit and
+coordinate any eventual integration; the two packages are overlapping
+derivations and checks, not two distinct exponent improvements.
+
 ## Do not repeat unchanged
 
 - Reducing k(a+f) by one fails: the cyclic two-monomial examples have a

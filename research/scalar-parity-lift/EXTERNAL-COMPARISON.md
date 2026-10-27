@@ -100,3 +100,8 @@ do not automatically apply to these different operator pieces.
 characteristic-two fingerprints for decision. The scalar lift here
 instead preserves deterministic exact counting modulo 2^(f+1).
 These PRs are credited as adjacent work, not proof dependencies.
+The concurrent [PR 3](https://github.com/1337isnot1337/3-SAT/pull/3)
+develops the same scalar projector and degree cutoff as this package,
+explicitly crediting its first checkpoint `ca0a7f5`. The separate
+operator-rank question above remains a changed mechanism; the scalar
+results must not be counted as two distinct frontier advances.
