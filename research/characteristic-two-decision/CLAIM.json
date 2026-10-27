@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "characteristic-two-decision",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Characteristic-two weighted decision fingerprints replace integer parity lifts; incidence degree ka and polynomial-time tensor entries; strict finite-field embedding and a written constraint-parameter evaluator; sparse random hash wrapper avoids greedy exact-count queries. The complete current exponent and alpha remain unchanged.",
+  "improves_bound": false,
+  "evidence": [
+    "research/characteristic-two-decision/PROOF.md",
+    "research/characteristic-two-decision/verify.py",
+    "research/characteristic-two-decision/verification.json",
+    "research/characteristic-two-decision/FOLLOWUPS.md",
+    "research/characteristic-two-decision/check_followups.py",
+    "research/characteristic-two-decision/followup-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/characteristic-two-decision/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written all-size evaluator and randomized wrapper",
+    "No implementation of the accepted contraction is provided",
+    "Reducing monomial wire entropy while preserving entry cost and maximum degree",
+    "A complete better general-case bound; no alpha improvement is claimed",
+    "Shared binary-matroid rank predicate needs a small admissible network; naive aggregate tensors can violate the maximum-degree contract"
+  ]
+}

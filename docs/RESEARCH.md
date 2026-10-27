@@ -35,6 +35,14 @@ A larger alpha requires a better dominant logarithmic saving.
 Task: `contraction-schedule`. Relevant source labels include
 `eq:tensor-parameters`, `eq:tensor-precision-bound`, and `subsec:tensor-cost`.
 
+The [October 27 primary-source scan](../research/recent-breakthrough-scan/README.md)
+adds Anthropic's operator/partition crossing construction as another mechanism
+to study. It has the same stated alpha `1/2`; its new improvement target is
+a smaller feasible two-direction piece-cost ratio. The
+[comparison](../research/recent-breakthrough-scan/METHODS.md) states that
+interface and distinguishes it from a formal rank, dimension or interpolation
+saving. The selected result is unchanged.
+
 ## General-density encoding
 
 The arbitrary-density route uses sparse polynomial queries and an encoding
