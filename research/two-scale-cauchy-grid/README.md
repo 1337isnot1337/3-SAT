@@ -5,7 +5,7 @@ contraction schedule remains open; no SAT time improvement is claimed.
 
 Task: `contraction-schedule`. Base commit: `8a659c67d4988540aa6ac8393bb06314ecbe81e2`.
 
-Contributor: Cinna Davis (OpenAI Codex assisted). Disclose substantial AI assistance.
+Contributor: Cinna Davis, with substantial OpenAI Codex assistance.
 
 ## Question and changed premise
 

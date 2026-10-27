@@ -150,6 +150,10 @@ envelope nor an increase from alpha `1/2`. A proof that the extra gap
 cancels between mode divisibility and recovery precision would close this
 particular attempt; otherwise the complete schedule is the next target.
 
+The exact full-node calculation in [LOSS-MODEL.md](LOSS-MODEL.md) now
+closes the naive gap-plus-spectral-slope comparison. It does not supply
+an actual complete mode algorithm or exclude a different aggregate cost.
+
 ## Credit
 
 The accepted OpenAI source, exact labels and predecessor packages are pinned

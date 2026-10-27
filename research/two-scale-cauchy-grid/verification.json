@@ -12,7 +12,7 @@
       "upstream/openai-eth-2026/paper.pdf": "5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123"
     },
     "loss_model_proof_sha256": "9a7fdefce9c532577393a50395954d23eb3cb69c98110db5ef5bcf0edbb1f9a9",
-    "proof_sha256": "247a4b5b82ac5c711bd2f73048ae270a8b5d0b906b19050dc0118faaef3cdea3",
+    "proof_sha256": "62f29c439673aed5ea8cb220b1b5d4f7ad7aac4ca6d52bb95521ebb933fcce90",
     "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
   },
   "generic_gap_precision_witnesses": {

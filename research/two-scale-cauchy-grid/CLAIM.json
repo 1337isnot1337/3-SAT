@@ -19,7 +19,7 @@
   "reproduce": ["python3", "-I", "-B", "research/two-scale-cauchy-grid/verify.py"],
   "remaining_obligations": [
     "Independent review of the component proofs",
-    "Joint changed recovery precision and realizable crossing-mode factors with their multiplicities",
+    "A genuinely changed aggregate cost or tensor-aware recovery premise; the same gap-plus-slope functional is now solved",
     "Full inherited precision, child, entry, leaf and outer reduction cost before any bound claim"
   ],
   "ai_assistance": "Substantial OpenAI Codex assistance; no independent review claimed",
