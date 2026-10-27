@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "three-bit-macro-walsh",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "uniform_macro_crossing_construction_and_finite_block_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "8ba468df535d26bca9ee925e3d9bcb7179ffb0bb",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Three-bit macro Pauli/Walsh crossing constructions with exact integer factors and weighted support ranks. A local dual closes the three-class family. A frozen 27-term four-macro dual and a tensorization/averaging lemma force some same piece in every six-class macro-type-constant decomposition to have both word supports at least 129654^floor(R/4), ruling out the target crossing rate in this family. This is not a SAT improvement or a lower bound for arbitrary crossing pieces.",
+  "improves_bound": false,
+  "evidence": [
+    "research/three-bit-macro-walsh/README.md",
+    "research/three-bit-macro-walsh/CONSTRUCTION.md",
+    "research/three-bit-macro-walsh/SCHEME-REFINEMENT.md",
+    "research/three-bit-macro-walsh/BLOCK-BARRIER.md",
+    "research/three-bit-macro-walsh/four-block-dual.json",
+    "research/three-bit-macro-walsh/certificate.py",
+    "research/three-bit-macro-walsh/direct.py",
+    "research/three-bit-macro-walsh/verification/certificate.json",
+    "research/three-bit-macro-walsh/verification/direct.json",
+    "research/three-bit-macro-walsh/verification/coarse-screen.json",
+    "research/three-bit-macro-walsh/verification/refined-screen.json",
+    "research/three-bit-macro-walsh/verification/block-search.json",
+    "research/three-bit-macro-walsh/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/three-bit-macro-walsh/certificate.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the finite-block support-dual theorem and certificate",
+    "A construction changing local class invariance, global macro permutation symmetry or Pauli-diagonal representation; unchanged coarse/six-class screens are closed",
+    "Complete master recursion and arbitrary-density costs for any improved successor"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent review claimed",
+  "selected_result_changed": false
+}

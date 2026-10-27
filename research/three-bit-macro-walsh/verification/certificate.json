@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "frozen dual identity and tensor-support certificate",
+  "minimum_seed_type": 129654,
+  "seed_pairing": 17948262528,
+  "tensor_checks": [
+    {
+      "blocks": 1,
+      "degree": 4,
+      "nonzero_types": 27,
+      "minimum_type_cardinality": 129654
+    },
+    {
+      "blocks": 2,
+      "degree": 8,
+      "nonzero_types": 161,
+      "minimum_type_cardinality": 32686421670
+    },
+    {
+      "blocks": 3,
+      "degree": 12,
+      "nonzero_types": 552,
+      "minimum_type_cardinality": 7355827511386641
+    },
+    {
+      "blocks": 4,
+      "degree": 16,
+      "nonzero_types": 1415,
+      "minimum_type_cardinality": 1430568690241985328321
+    }
+  ],
+  "rate_comparison": "129654^100 > 2^1698; (1698/400)^2 > 18",
+  "bindings": {
+    "four-block-dual.json": "be01ea894d2772bbab5b825165f6aa6de8b24b2eb3fc27b3d567babae877a5d0",
+    "certificate.py": "d1cff57e43b1d57df6b81e336dd5175bcbcc5eddd63c37cc35158e04df179b1b",
+    "schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235",
+    "BLOCK-BARRIER.md": "8e98d0cb1c98d0667c7662b9ed4905b6f843b5e1fe8e1d88fb7566af5d2edcd6",
+    "SCHEME-REFINEMENT.md": "c1900ac9e7aece1c08a1959a16ee7994363afdb9f0ed181a5043ff25679e2d43"
+  }
+}

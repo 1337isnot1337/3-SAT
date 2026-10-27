@@ -1,0 +1,218 @@
+{
+  "bindings": {
+    "base_commit": "8ba468df535d26bca9ee925e3d9bcb7179ffb0bb",
+    "construction_sha256": "991c35b3a815155ffcc1d2f5609a3f470d850606fe2075abdabdd6216a5709bd",
+    "module_sha256": "7ca02a48c19dd74fd48d08e1e8f17eeaa23b049acfe73eab561f3e0586c5d38d",
+    "predecessor_module_sha256": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "screen_sha256": "615d1a1d270a9b2c98507b10b084304b1669cbbaf0d10f58aaacab793c01046f"
+  },
+  "direct_local_characters": 4096,
+  "profiles": [
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 3,
+      "macros": 1,
+      "max_coefficient_bits": 8,
+      "piece_data_sha256": "58580263a33196c629acc3772f0a9523a1c3011f437296967202f8f4b9154eec",
+      "pieces": 3,
+      "type_dimension": 3,
+      "worst_piece": {
+        "basis_index": 1,
+        "col_support": 29,
+        "pivot": 1,
+        "row_support": 29
+      },
+      "worst_shared_bits": 10
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 6,
+      "macros": 2,
+      "max_coefficient_bits": 14,
+      "piece_data_sha256": "9c007f20fab94713581ab0590461d621de479f3ced1ac766898fb4b77b6f53f2",
+      "pieces": 6,
+      "type_dimension": 6,
+      "worst_piece": {
+        "basis_index": 3,
+        "col_support": 841,
+        "pivot": 3,
+        "row_support": 841
+      },
+      "worst_shared_bits": 20
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 9,
+      "macros": 3,
+      "max_coefficient_bits": 20,
+      "piece_data_sha256": "8f9cfbe704d7d3252ddc8878aaf8b2c9bfe55c6184f507ca6c443dee79a22fba",
+      "pieces": 10,
+      "type_dimension": 10,
+      "worst_piece": {
+        "basis_index": 6,
+        "col_support": 24389,
+        "pivot": 6,
+        "row_support": 24389
+      },
+      "worst_shared_bits": 30
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 12,
+      "macros": 4,
+      "max_coefficient_bits": 27,
+      "piece_data_sha256": "8aaead53ed3360912c97a36516f71260ed01d7b9a68e19ba318ad39166860365",
+      "pieces": 15,
+      "type_dimension": 15,
+      "worst_piece": {
+        "basis_index": 10,
+        "col_support": 707281,
+        "pivot": 10,
+        "row_support": 707281
+      },
+      "worst_shared_bits": 40
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 15,
+      "macros": 5,
+      "max_coefficient_bits": 33,
+      "piece_data_sha256": "5cfab559a9d6424a028314c7b0959b7ec7de3f4b7837a5557b523843d43e77ba",
+      "pieces": 21,
+      "type_dimension": 21,
+      "worst_piece": {
+        "basis_index": 13,
+        "col_support": 20511149,
+        "pivot": 13,
+        "row_support": 20511149
+      },
+      "worst_shared_bits": 50
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 18,
+      "macros": 6,
+      "max_coefficient_bits": 39,
+      "piece_data_sha256": "456107092f1d5661d9425204383191ac00ecd7d34974e27fe011597dcd7901a9",
+      "pieces": 28,
+      "type_dimension": 28,
+      "worst_piece": {
+        "basis_index": 17,
+        "col_support": 594823321,
+        "pivot": 17,
+        "row_support": 594823321
+      },
+      "worst_shared_bits": 60
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 21,
+      "macros": 7,
+      "max_coefficient_bits": 45,
+      "piece_data_sha256": "1f6712397307fe3517a80fbd0b02700d6294f9c94b71598b5b2884cd32f21048",
+      "pieces": 36,
+      "type_dimension": 36,
+      "worst_piece": {
+        "basis_index": 23,
+        "col_support": 17249876309,
+        "pivot": 23,
+        "row_support": 17249876309
+      },
+      "worst_shared_bits": 70
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 24,
+      "macros": 8,
+      "max_coefficient_bits": 52,
+      "piece_data_sha256": "f0b063bd7c8a2fa432f5037188e3f1cd42f353d178340ef1de08c96a74767838",
+      "pieces": 45,
+      "type_dimension": 45,
+      "worst_piece": {
+        "basis_index": 29,
+        "col_support": 678142955071,
+        "pivot": 29,
+        "row_support": 678142955071
+      },
+      "worst_shared_bits": 80
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 27,
+      "macros": 9,
+      "max_coefficient_bits": 58,
+      "piece_data_sha256": "d7d3e39172c531b47299c66c31b0000d77a2cbefc1219d3826cdfc29bd70b4e4",
+      "pieces": 55,
+      "type_dimension": 55,
+      "worst_piece": {
+        "basis_index": 35,
+        "col_support": 26185092241981,
+        "pivot": 35,
+        "row_support": 26185092241981
+      },
+      "worst_shared_bits": 90
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "10",
+      "input_bits": 30,
+      "macros": 10,
+      "max_coefficient_bits": 65,
+      "piece_data_sha256": "4ed9d076db40d8b49f662a3302ab6f81a01da60d17660c20de42d4271450e50c",
+      "pieces": 66,
+      "type_dimension": 66,
+      "worst_piece": {
+        "basis_index": 43,
+        "col_support": 1005019137150127,
+        "pivot": 43,
+        "row_support": 1005019137150127
+      },
+      "worst_shared_bits": 100
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "112/11",
+      "input_bits": 33,
+      "macros": 11,
+      "max_coefficient_bits": 72,
+      "piece_data_sha256": "a17c62afeb51cb89226d9f0bb704a2026559058da1e7fbb93f367c737ab59a51",
+      "pieces": 78,
+      "type_dimension": 78,
+      "worst_piece": {
+        "basis_index": 50,
+        "col_support": 38393271068795413,
+        "pivot": 50,
+        "row_support": 38393271068795413
+      },
+      "worst_shared_bits": 112
+    },
+    {
+      "common_denominator_bits": 1,
+      "finite_bits_per_macro": "61/6",
+      "input_bits": 36,
+      "macros": 12,
+      "max_coefficient_bits": 79,
+      "piece_data_sha256": "70f9a78f4578e66bf89842019fe480cfe60a055af26a80c555ba4f54e748d1c5",
+      "pieces": 91,
+      "type_dimension": 91,
+      "worst_piece": {
+        "basis_index": 60,
+        "col_support": 1461020904219211231,
+        "pivot": 60,
+        "row_support": 1461020904219211231
+      },
+      "worst_shared_bits": 122
+    }
+  ],
+  "scope": "exact R=1..12 macro-family screen; no asymptotic gain",
+  "status": "PASS"
+}
