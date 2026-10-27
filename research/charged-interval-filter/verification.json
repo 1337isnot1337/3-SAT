@@ -1,0 +1,44 @@
+{
+  "alpha_improvement_claimed": false,
+  "counterexample": {
+    "cutoff": 2,
+    "extra_weight_repair_predicted_sum": {
+      "(1, 1, 1)": "-26208"
+    },
+    "extra_weight_repair_retained_sum": {
+      "(1, 1, 1)": "-1296"
+    },
+    "filter": "w(s)=s(s^2-1)",
+    "full_projected_sum": {
+      "(1, 1, 1)": "-6"
+    },
+    "h": 3,
+    "omitted_central_sum": {
+      "(1, 1, 1)": "318",
+      "(3,)": "504"
+    },
+    "output": [
+      1,
+      1,
+      1
+    ],
+    "retained_sum_after_central_omission": {
+      "(1, 1, 1)": "-324",
+      "(3,)": "-504"
+    }
+  },
+  "meaning": "valid controls and explicit counterexamples reproduced; no interval filter",
+  "result": "PASS",
+  "rho_improvement_claimed": false,
+  "scalar_highest_charge_checks": 224,
+  "scope": "left-charged two-order and highest-charge checks at h<=3; full h=3 projected tensors",
+  "source_sha256": {
+    "PROOF.md": "57cc7cbfd892838bfd0d0acf06801c35e1e81a4ae6b637a595037a5f96bd7e1d",
+    "SOURCES.json": "dc7c324abbb116a496334dbc32228a2898efde48fe13fefa4da4f153a2c95c50",
+    "labels.py": "e432286cc0acd40d39c6efd71165b32d3d2ffaaf1339de7c1bc8d7db0215cb9c",
+    "left.py": "87eb130465347373442f56c189d86cab403c58a5b96f2b0f2ee82187a0a11a55",
+    "verify.py": "a7a8ecb4d940679a0c5baabfd70d04cd6ae152812fe3ee73a1966ab9a9378f5b"
+  },
+  "two_order_checks": 484,
+  "uniform_interval_filter_constructed": false
+}
