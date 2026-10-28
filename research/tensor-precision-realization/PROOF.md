@@ -200,12 +200,12 @@ bound against a tensor-aware or different-deformation algorithm.
 
 For the periodic construction, suppose additionally that every used
 packet is full. Then each selected-row polynomial is divisible by
-`2^(2(a-u)+2)` at each active node, gaining `a-u` bits beyond the
-previous bound. With the same conditional-expectation word construction,
+`2^(2(a-u)+3)` at each active node if `a>u`, gaining `a-u+1` bits
+beyond the previous bound. If `a=u`, use the earlier two-bit bound. With the same conditional-expectation word construction,
 complete active-node data vanish modulo
 
 ```
-2^((floor(M/8)+1)*(2(a-u)+2)).
+2^((floor(M/8)+1)*(2(a-u)+3))   when a>u.
 ```
 
 This improvement is specific to full packets; it does not change the
@@ -230,13 +230,28 @@ by `2^k`, and every term with `b>=1` is also divisible by `2^k` because
 
 The first Cauchy factor has content at least `a+2-u` by the previous
 argument, and the parenthesized series has content at least `k=a-u`.
-Summing over the word's 1-residues preserves that divisibility. The
+For `k>=1`, there is one more bit: if `P/A` is divisible by four, the
+first Cauchy factor has one extra bit because `v_2(t+x-y_0)<=u-2`.
+Otherwise `P/A` has valuation exactly one. Modulo `2h` the only terms
+that can survive in the parenthesized series are `h` and `(P/A)S_1`;
+since `S_1=h(h-1)/2`, these two terms cancel modulo `2h`. The higher
+terms are multiples of `2h`. Thus in either case the product has content
+at least `2k+3`. Summing over the word's 1-residues preserves that
+divisibility. The
 selected-row product and the other integral row factors then yield the
-claimed bound. The full-packet bound fails for a partial packet: take `L=4`, `P=2`,
+claimed bound. The bound `2k+3` is sharp uniformly in the parameters: let `a>=3`,
+`u=2`, `P=4`, `x=0`, `t=1-L`, and use the word that is 1 only on residue
+0. Here `A(0)=1-L` is odd, so `P/A` is divisible by 4. After dividing
+by `h=2^(a-2)`, the parenthesized series has odd constant term: its
+`b=0` term is 1 and every other term is even. The linear coefficient of
+the diagonal Cauchy factor has valuation `a+1`, so the selected-row
+linear coefficient has valuation exactly `a+1+(a-2)=2k+3`.
+
+The full-packet bound fails for a partial packet: take `L=4`, `P=2`,
 real slots `{0,2,3}`, word `(0,1)`, selected row `x=3` and node `t=-3`.
 The sole 1-column is 3, so the row is the diagonal polynomial `W_33`.
 Its shifted content is exactly 3 by the predecessor's diagonal formula,
-while the full-packet bound would require 4. Exact finite controls are
+while the full-packet bound would require 5. Exact finite controls are
 included in `verify_periodic.py`; they are examples, not a proof for all
 `L`.
 

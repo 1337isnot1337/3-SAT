@@ -114,22 +114,34 @@ def main():
                         assert all(not c or full.prior.valuation(c)>=a+2-u for c in shifted)
                         rows+=1
                         if len(real)==length:
-                            assert all(not c or full.prior.valuation(c)>=2*(a-u)+2 for c in shifted)
+                            assert all(not c or full.prior.valuation(c)>=(2*(a-u)+3 if a>u else 2) for c in shifted)
                             full_rows+=1
                         else:
                             content=min(full.prior.valuation(c) for c in shifted if c)
-                            if content < 2*(a-u)+2 and partial_counterexample is None:
+                            if content < (2*(a-u)+3 if a>u else 2) and partial_counterexample is None:
                                 partial_counterexample={'L':length,'P':p,'real_slots':sorted(real),
                                                         'word':list(word),'row':x,'t':t,
-                                                        'content':content,'full_packet_bound':2*(a-u)+2}
+                                                        'content':content,'full_packet_bound':(2*(a-u)+3 if a>u else 2)}
                     shifted=full.prior.shift(polynomial,t,2*length)
                     assert all(not c or full.prior.valuation(c)>=len(selected)*(a+2-u) for c in shifted)
                     packet+=1
+    sharpness=[]
+    for length in (8,16,32):
+        a=length.bit_length()-1
+        form=[F(0)]
+        for y in range(0,length,4):
+            form=full.add(form,full.prior.kernel_polynomial(length,0,y))
+        shifted=full.prior.shift(form,1-length,2*length)
+        content=min(full.prior.valuation(c) for c in shifted if c)
+        linear=full.prior.valuation(shifted[1])
+        assert content==linear==2*a-1
+        sharpness.append({'L':length,'content':content,'linear_coefficient_valuation':linear})
     assert partial_counterexample is not None
     print(json.dumps({'status':'PASS','cycle_transfer_bruteforce_checks':transfer,
                       'periodic_packet_product_checks':packet,'selected_row_checks':rows,
                       'full_packet_cancellation_row_checks':full_rows,
                       'partial_packet_counterexample':partial_counterexample,
+                      'sharpness_family':sharpness,
                       'conditional_expectation_examples':examples,
                       'scope':'finite periodic words and two occupied sets per L,P; not an all-size proof'},indent=2))
 

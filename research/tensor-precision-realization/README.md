@@ -18,8 +18,8 @@ A second construction uses periodic words to make every retained active
 node vanish modulo `2^((floor(M/8)+1)*(a+2-u))` under the source packing
 conditions. This is a separate input family from the all-nonzero-node
 witness and gives `Omega(M(a-u))` precision when `a-u` grows. Full
-packets admit an additional `a-u` bits per selected row through a proved
-Cauchy power-sum cancellation; a three-slot partial packet gives a
+packets admit an additional `a-u+1` bits per selected row when `a>u` through a proved
+Cauchy power-sum cancellation; this uniform row bound is sharp. A three-slot partial packet gives a
 counterexample to carrying that bound over unchanged.
 
 This strengthens the earlier actual-network witness for growing packets,
