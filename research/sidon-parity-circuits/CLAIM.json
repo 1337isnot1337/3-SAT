@@ -8,14 +8,15 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Explicit low-load quadratic sparse-query systems require n(L-1) binary XOR gates under disjoint-support sharing for the given rows; L=floor(log2 n)-2. This is not a SAT lower bound or an improved SAT algorithm. For power-of-two n, an exact row-space reduction counts the same family in polynomial time via a cycle independent-set formula. For arbitrary n, a kernel-parameterized exact algorithm uses poly(n) 2^d time and polynomial space, with d bounded by gcd(n_odd, 2^L-1). This enumeration has d=(n-5)/10 on an explicit infinite subsequence. Realizable adjacent-product words are exactly those avoiding cyclic 101, with Fibonacci zero-run weights; no improved enumeration bound follows. Generating 101-free kernel prefixes gives a poly(n) lambda^d exact algorithm, lambda=1.754877666..., but remains exponential on the linear-kernel subsequence.",
+  "statement": "Explicit low-load quadratic sparse-query systems require n(L-1) binary XOR gates under disjoint-support sharing for the given rows; L=floor(log2 n)-2. This is not a SAT lower bound or an improved SAT algorithm. For power-of-two n, an exact row-space reduction counts the same family in polynomial time via a cycle independent-set formula. For arbitrary n, a kernel-parameterized exact algorithm uses poly(n) 2^d time and polynomial space, with d bounded by gcd(n_odd, 2^L-1). This enumeration has d=(n-5)/10 on an explicit infinite subsequence. Realizable adjacent-product words are exactly those avoiding cyclic 101, with Fibonacci zero-run weights; no improved enumeration bound follows. Generating 101-free kernel prefixes gives a poly(n) lambda^d exact algorithm, lambda=1.754877666..., but remains exponential on the linear-kernel subsequence. The prefix algorithm extends to arbitrary affine circulant XOR systems of adjacent Boolean products, parameterized by the linear nullity.",
   "improves_bound": false,
   "evidence": [
     "research/sidon-parity-circuits/PROOF.md",
     "research/sidon-parity-circuits/verify.py",
     "research/sidon-parity-circuits/arbitrary.py",
     "research/sidon-parity-circuits/runs.py",
-    "research/sidon-parity-circuits/prefix.py"
+    "research/sidon-parity-circuits/prefix.py",
+    "research/sidon-parity-circuits/circulant.py"
   ],
   "reproduce": [
     "python3",

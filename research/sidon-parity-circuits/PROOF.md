@@ -281,3 +281,44 @@ the independently enumerated n=155 count at d=15. There it visits
 5,842 prefixes rather than 32,768 kernel words; 435 pass the full
 cyclic filter. These counts do not prove a stronger asymptotic bound
 on the filtered set.
+
+## General affine circulant systems of adjacent products
+
+The prefix method is not restricted to the Sidon shift pattern. For any
+n>=3, any binary n-vector c, and any binary n-vector b, consider
+
+    XOR_(0<=j<n) c_j x_(i+j) x_(i+j+1) = b_i,    i in Z/nZ.
+
+Let f=Y^n-1 and let g be the cyclic reversal of the polynomial with
+coefficients c, so multiplication by g implements the displayed
+forward-shift equations in coefficient order. Put
+`h=gcd(g,f)`, `d=deg h`. There is a deterministic exact algorithm for
+this entire class in `poly(n) lambda^d` bit time and polynomial space,
+with the same lambda as above. If the cyclic linear equations in the
+adjacent-product vector m are inconsistent, the algorithm returns zero
+in polynomial time. This is a restricted quadratic-query algorithm,
+not an unrestricted sparse-query or SAT bound.
+
+For the proof let b(Y) be the right-hand side polynomial of degree <n.
+The congruence g m=b mod f is solvable exactly when h divides b. If it
+does, set q=f/h. For q!=1, g/h is invertible modulo q; use the
+extended Euclidean algorithm to construct a particular solution
+`m_0 = (g/h)^(-1) (b/h) mod q`. For q=1, take m_0=0. Every solution
+has a unique representation `m_0+qv`, `deg v<d`. As before q has
+constant coefficient 1, and hence the first d coefficients of m
+provide a bijection from the affine solution set to binary d-words.
+Generate only 101-free first d bits, solve the affine triangular system
+for v, check the *whole cyclic* word, and sum its preimage weight. The
+run formula proves both exactness and all cases, including all-zero,
+all-one, zero operator and nonzero right-hand side. Polynomial gcd,
+division, extended gcd and bounded-bit integer arithmetic fit the
+claimed time and space. If g=0, h=f; consistency requires b=0 and the
+algorithm still works with q=1, d=n. A smaller nullity may come from
+any shift set, including large-span ones.
+
+The checker `circulant.py` exhausts all 1,344 choices of c and b for
+n=3,4,5, and 60 additional deterministic choices for n=6,7,8. It
+compares to direct enumeration of the original x variables; 437 of these
+1,404 linear systems are inconsistent. This is finite validation of
+the implementation, not independent review of the proof or an
+asymptotic SAT improvement.

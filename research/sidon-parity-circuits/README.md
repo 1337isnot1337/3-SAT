@@ -29,7 +29,10 @@ arbitrary n has a deterministic polynomial-space exact count in time
 condition, such as `d=O(log n)`. Using the triangular prefix map and
 the 101-free realizability condition improves this particular upper bound
 to `poly(n) lambda^d`, where lambda=1.754877666..., in polynomial space.
-In fact, the infinite subsequence
+The same `poly(n) lambda^d` bound extends to *any* circulant XOR
+system of adjacent products, including arbitrary right-hand sides, where
+d is the nullity of its cyclic linear operator. This is a restricted
+quadratic-query class. In fact, the infinite subsequence
 `n=5(2^L-1)` has `d=(n-5)/10`; this enumeration is exponential there.
 
 The question was whether simple gate-level parity sharing uniformly gives
@@ -47,6 +50,7 @@ python3 -I -B research/sidon-parity-circuits/verify.py
 python3 -I -B research/sidon-parity-circuits/arbitrary.py
 python3 -I -B research/sidon-parity-circuits/runs.py
 python3 -I -B research/sidon-parity-circuits/prefix.py
+python3 -I -B research/sidon-parity-circuits/circulant.py
 make verify
 ```
 
@@ -63,7 +67,9 @@ The run checker exhausts 2,040 short product patterns and screens three
 linear-kernel cases. The prefix checker compares its output against brute
 force and full kernel enumeration, including n=155 at d=15. These finite
 checks do not mechanically
-prove the all-size statement. No external dependency or heavy check is added
+prove the all-size statement. The affine-circulant checker compares 1,404
+systems, including 437 inconsistent linear systems, against direct Boolean
+counts. No external dependency or heavy check is added
 to default CI.
 
 ## Sources and credit
