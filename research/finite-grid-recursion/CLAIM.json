@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "finite-grid-recursion",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "finite_aspect_ratio_minimax_recursion",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "343b301cc28302bcbad0d4fb7c55f16fd17fe8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For geometric finite grid dimensions in the stated ideal quarter-disk recurrence, n times the squared cost coefficient tends to a positive constant.",
+  "improves_bound": false,
+  "evidence": [
+    "research/finite-grid-recursion/README.md",
+    "research/finite-grid-recursion/PROOF.md",
+    "research/finite-grid-recursion/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/finite-grid-recursion/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the perturbation and inverse-square argument",
+    "Prove all grouping, rounding, actual piece, and full SAT algorithm costs before claiming a runtime bound"
+  ]
+}
