@@ -114,6 +114,8 @@ where the exponential expression is a lower bound under the stated capacity
 assumption. For PR #19's selected dimension this is
 `L_h >= N^{1-sqrt(1-epsilon)-o(1)}`. This is a necessary raw-summand count,
 not a runtime lower bound for every possible representation or algorithm.
+For example, support restricted to `|s|>=7h/4` requires at least
+`N^{1/2-o(1)}` raw summands for a nonzero scalar entry.
 
 For the predecessor's unchanged directional term-count envelope, this also
 limits what a support-only calculation can certify. Its normalized envelope
