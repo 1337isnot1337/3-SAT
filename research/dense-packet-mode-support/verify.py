@@ -109,8 +109,22 @@ def first_mode(a):
     assert valuation(complete) >= a
     extra = valuation(partial)
     assert extra == (0 if a % 2 else 2)
+    n = 3*q
+    sums = []
+    for k in (1, 2):
+        total = sum((common/(T+2*r) * 2**k*factorial(k)**2*(1-2*k*k)
+                     * phi(F(1, T+2*r), k) for r in range(n)), start=F(0))
+        sums.append(total)
+    formula1 = -2*common*F(n, (T-2)*(T+2*n-2))
+    bracket = (3*F(1, T-4)+F(1, T-2)
+               -3*F(1, T+2*n-4)-F(1, T+2*n-2))
+    assert sums == [formula1, 7*common*bracket]
+    assert valuation(sums[0]) == a+2+(0 if a % 2 else 1)
+    assert valuation(sums[1]) == a+5
     return {'a': a, 'L': L, 'q': q, 'common_v2': valuation(common),
-            'first_mode_excess_v2': extra, 'complete_pairing_v2': valuation(complete)}
+            'first_mode_excess_v2': extra, 'complete_pairing_v2': valuation(complete),
+            'mode_1_v2': valuation(sums[0]), 'mode_2_v2': valuation(sums[1]),
+            'telescoping_identities': True}
 
 
 def packing():

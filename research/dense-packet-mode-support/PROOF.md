@@ -181,6 +181,45 @@ subtracting it from the multiple of `2^a` leaves valuation exactly two.
 This proves (3). The checker verifies `a=3,...,9`. The result bounds only
 this one coefficient and does not establish the many-mode precision scale.
 
+### Two more single-mode coefficients by telescoping
+
+In the same placement, write `n=3q`, `T=2L+1`, and let `A_k` be the sum
+of row coefficients of mode `k` over `r=0,...,n-1`. The sign from the
+equality's linear term does not change its valuation. The next two exact
+valuations are
+
+```
+v2(A_1) = a+2 + (0 if a is odd, 1 if a is even),
+v2(A_2) = a+5.                                           (4)
+```
+
+For mode 1, the row summand is
+`-2G/[(T+2r)(T+2r-2)]`. Consecutive terms telescope to
+
+```
+A_1 = -2G n/[(T-2)(T+2n-2)].
+```
+
+Both denominator factors are odd. If `a` is odd then `n=K-1` is odd;
+if `a` is even then `n=K-2` has valuation one. This gives the first line.
+
+For mode 2, the row summand is
+`56G(b-1)/[b(b-2)(b-4)]`, `b=T+2r`. Partial fractions and telescoping give
+
+```
+A_2 = 7G [3/(T-4)+1/(T-2)
+          -3/(T+2n-4)-1/(T+2n-2)].
+```
+
+Put `v=T-4`. The bracket equals `8n Q` divided by four odd factors, where
+`Q=v^2+(2n+3)v+3n+3`. Since `v=1 mod 4`, `Q=3+n mod 4`. When `a` is odd,
+`n=3 mod 4`, so `v2(n)=0` and `v2(Q)=1`. When `a` is even, `n=2 mod 4`,
+so `v2(n)=1` and `v2(Q)=0`. In both cases the bracket has valuation four,
+proving the second line of (4). The checker independently sums the source
+Newton coefficients and compares the telescoping expressions for
+`a=3,...,9`. These are three separate degree-one mode monomials, not a
+bound on arbitrary mixed-mode coefficients.
+
 ## 4. Exponent count and the source precision
 
 Choose
@@ -198,12 +237,12 @@ noneligible packets contribute a power of two from their free unary
 columns. Thus each complete summand has valuation at most
 
 ```
-M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (4)
+M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (5)
 ```
 
 The source's actual precision at `t=1` is
 `p_t=p+8 ceil(3M/u)L+8M(a+1)`, hence `p_t>=24ML/u`. For large `N`, the
-right side of (4) is strictly below `p_t`. All complete summands are
+right side of (5) is strictly below `p_t`. All complete summands are
 therefore nonzero modulo `2^p_t`.
 
 The Newton mode weight satisfies `w_k<=a+1+3k`. The total weight of every

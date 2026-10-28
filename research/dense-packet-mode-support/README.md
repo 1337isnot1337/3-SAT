@@ -26,9 +26,9 @@ The specified packing need not be the source's default deterministic
 labeling. The network is disconnected and easily simplified; nonzero terms
 may cancel after summation, and other algorithms may aggregate or eliminate
 them. This is a scoped support result, not a time lower bound. The count is
-smaller than the formal `exp(Theta(M/sqrt(u)))` envelope. For one consecutive triple placement, the first mode has exactly zero or
-two extra powers of two according to packet exponent parity; this is a
-one-coefficient result. A sharper bound on coefficient valuations is needed to bridge that gap, and even that would
+smaller than the formal `exp(Theta(M/sqrt(u)))` envelope. For one consecutive triple placement, pairing and telescoping give exact
+valuations for the first three individual modes; these do not bound
+mixed-mode coefficients. A sharper bound on coefficient valuations is needed to bridge that gap, and even that would
 not by itself establish a SAT lower bound or improvement.
 
 ## Reproduce
@@ -43,8 +43,7 @@ make verify
 [verification.json](verification.json) binds the checker and proof to the
 frozen source and PR #4's local mode proof. Exact packet checks at `L=8,16`
 verify source units, odd common denominators, selected summands, valuations,
-and the full local contraction over rational numbers. A first-mode
-pairing identity is checked for `a=3,...,9`. A small `r=2` toy
+and the full local contraction over rational numbers. Pairing and telescoping identities for three modes are checked for `a=3,...,9`. A small `r=2` toy
 checks full packet orientation, pair loads, and eligibility; it is not the
 source's asymptotic schedule. The checker does not independently prove the
 all-size construction or implement the full recursive contraction.

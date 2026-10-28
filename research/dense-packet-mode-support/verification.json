@@ -6,7 +6,10 @@
       "common_v2": 4,
       "complete_pairing_v2": 4,
       "first_mode_excess_v2": 0,
-      "q": 1
+      "mode_1_v2": 5,
+      "mode_2_v2": 8,
+      "q": 1,
+      "telescoping_identities": true
     },
     {
       "L": 16,
@@ -14,7 +17,10 @@
       "common_v2": 5,
       "complete_pairing_v2": 6,
       "first_mode_excess_v2": 2,
-      "q": 2
+      "mode_1_v2": 7,
+      "mode_2_v2": 9,
+      "q": 2,
+      "telescoping_identities": true
     },
     {
       "L": 32,
@@ -22,7 +28,10 @@
       "common_v2": 6,
       "complete_pairing_v2": 8,
       "first_mode_excess_v2": 0,
-      "q": 5
+      "mode_1_v2": 7,
+      "mode_2_v2": 10,
+      "q": 5,
+      "telescoping_identities": true
     },
     {
       "L": 64,
@@ -30,7 +39,10 @@
       "common_v2": 7,
       "complete_pairing_v2": 10,
       "first_mode_excess_v2": 2,
-      "q": 10
+      "mode_1_v2": 9,
+      "mode_2_v2": 11,
+      "q": 10,
+      "telescoping_identities": true
     },
     {
       "L": 128,
@@ -38,7 +50,10 @@
       "common_v2": 8,
       "complete_pairing_v2": 12,
       "first_mode_excess_v2": 0,
-      "q": 21
+      "mode_1_v2": 9,
+      "mode_2_v2": 12,
+      "q": 21,
+      "telescoping_identities": true
     },
     {
       "L": 256,
@@ -46,7 +61,10 @@
       "common_v2": 9,
       "complete_pairing_v2": 14,
       "first_mode_excess_v2": 2,
-      "q": 42
+      "mode_1_v2": 11,
+      "mode_2_v2": 13,
+      "q": 42,
+      "telescoping_identities": true
     },
     {
       "L": 512,
@@ -54,7 +72,10 @@
       "common_v2": 10,
       "complete_pairing_v2": 16,
       "first_mode_excess_v2": 0,
-      "q": 85
+      "mode_1_v2": 11,
+      "mode_2_v2": 14,
+      "q": 85,
+      "telescoping_identities": true
     }
   ],
   "packet_cases": [
@@ -85,8 +106,8 @@
   ],
   "sha256": {
     "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
-    "research/dense-packet-mode-support/PROOF.md": "a6bde0bb654392bca97db59d997436eb19f3bd129157c85e45198fc2d6c30a93",
-    "research/dense-packet-mode-support/verify.py": "ddf9a58cf92d3e6bcb1cab0a7a37f21cce5638de862408355af743958045dde2",
+    "research/dense-packet-mode-support/PROOF.md": "3506ce081bf031fb01f0c729d21a3a92cc91de0f1c17df3ce40ba751e9407f33",
+    "research/dense-packet-mode-support/verify.py": "dccc31e19415433e1a4d44840f562d9882c78576b69792a03a6645a2645320d3",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
   },
   "toy_packing": {
