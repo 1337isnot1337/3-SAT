@@ -13,6 +13,6 @@ python3 -I -B research/separator-hierarchy/verify.py
 make verify
 ```
 
-The first command checks 1,200 reproducibly generated small CNFs against exhaustive counting, including empty clauses and free variables, and exhaustively checks balanced separators of a 16-vertex graph instance. These are finite controls, not verification of the all-size proof or of expansion. The checker uses only Python's standard library.
+The first command checks 1,200 reproducibly generated small CNFs against exhaustive counting, including empty clauses and free variables, and exhaustively checks balanced separators of a 16-vertex graph instance and checks the exact-width-three encoding on it. These are finite controls, not verification of the all-size proof or of expansion. The checker uses only Python's standard library.
 
 A useful continuation would identify a nontrivial SAT-preserving preprocessing that provably produces low-load hierarchies, and charge its branches and time. Any general claim must handle formulas that retain expander primal graphs after the proposed preprocessing.

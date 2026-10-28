@@ -120,6 +120,18 @@ def check():
     adj = expander_graph(4)
     n = len(adj)
     assert max(map(len, adj.values())) <= 8
+    clauses = []
+    for u in adj:
+        for v in adj[u]:
+            if u < v:
+                w = min(adj[u] - {v})
+                clauses += [(u, v, -w), (-u, -v, w)]
+    assert all(len(cl) == 3 and len({abs(lit) for lit in cl}) == 3 for cl in clauses)
+    assert all(any(v in cl for cl in clauses) and any(-v in cl for cl in clauses) for v in adj)
+    assert all(any(lit > 0 for lit in cl) and any(lit < 0 for lit in cl) for cl in clauses)
+    primal = graph(set(adj), clauses)
+    assert all(adj[v] <= primal[v] for v in adj)
+    assert max(sum(v in {abs(lit) for lit in cl} for cl in clauses) for v in adj) <= 144
     minimum = n
     balanced_count = 0
     for mask in range(1 << n):
@@ -130,7 +142,8 @@ def check():
             balanced_count += 1
     assert minimum > 0
     print(f'PASS: {checked} seeded CNFs; 4x4 graph, {sum(map(len, adj.values()))//2} edges; '
-          f'{balanced_count} balanced separators; minimum size {minimum}')
+          f'{balanced_count} balanced separators; minimum size {minimum}; '
+          f'{len(clauses)} exact-width-three clauses passed')
 
 
 if __name__ == '__main__':
