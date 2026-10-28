@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "grade-twelve-filter",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "finite_exact_scalar_filter_obstruction",
+  "author": "OpenAI Codex",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For the deterministic charge-one grade-twelve N=16 asymmetric codebooks, every rational scalar-output shift weight vanishing at -1, 0, 1 is zero. Exact edge-column rank and modular rank certificates for necessary off-diagonal constraints prove the finite statement; no SAT bound is improved.",
+  "improves_bound": false,
+  "evidence": [
+    "research/grade-twelve-filter/README.md",
+    "research/grade-twelve-filter/verify.py",
+    "research/grade-twelve-filter/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/grade-twelve-filter/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of operator implementation and finite certificate",
+    "Other codebooks, charges, larger grades, and non-scalar filters remain open",
+    "A uniform capacity-preserving construction and full SAT cost accounting remain open"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}
