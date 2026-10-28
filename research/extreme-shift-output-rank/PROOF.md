@@ -115,6 +115,22 @@ assumption. For PR #19's selected dimension this is
 `L_h >= N^{1-sqrt(1-epsilon)-o(1)}`. This is a necessary raw-summand count,
 not a runtime lower bound for every possible representation or algorithm.
 
+For the predecessor's unchanged directional term-count envelope, this also
+limits what a support-only calculation can certify. Its normalized envelope
+at `u=|s|/h` is
+
+```math
+ \rho(u)=\frac{\sqrt{2+u}+\sqrt{2-u}}4,\qquad 0\le u\le2.
+```
+
+This function decreases with u. With polynomially many raw summands, the
+necessary shift above gives `u<=1+o(1)`, so the maximum of these *upper-bound
+expressions* over retained shifts is at least
+`(sqrt(3)+1)/4-o(1)`. Thus this particular term-count envelope cannot, from
+support exclusion alone, certify a smaller leading rho. This is not a lower
+bound on actual tensor ranks: improved rank estimates, exponentially many
+mixed summands, or a different decomposition are not excluded.
+
 In particular, the grade choice in PR #19 has `D_h=N=2^lambda` and
 `p(h)<h^2 N`, so its output dimension meets this condition with C=2.
 The estimate is asymptotic and does not provide a numerical threshold here.
