@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "rectangular-grid-accounting",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "rectangular_crossing_cost_ledger",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Exact rectangular crossing ledger and offset weighted minimax over the ideal quarter-disk envelope; no full recursion or SAT runtime claim.",
+  "improves_bound": false,
+  "evidence": [
+    "research/rectangular-grid-accounting/README.md",
+    "research/rectangular-grid-accounting/PROOF.md",
+    "research/rectangular-grid-accounting/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/rectangular-grid-accounting/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of rectangular factor accounting and ideal minimax",
+    "Establish two child grouping algorithms and account for every recursive and reduction overhead"
+  ]
+}
