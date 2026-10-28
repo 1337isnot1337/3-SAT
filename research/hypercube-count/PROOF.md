@@ -62,8 +62,24 @@ Substituting in (1) and summing coordinatewise yields
 
 The all-ones codeword contributes exactly one. Every other exponent is
 positive and even, hence C_d=1 (mod 9). If 4 divides d, every other exponent
-is a positive multiple of four, so C_d=1 (mod 81). These congruences are
-checks on this exact family, not a faster weight-enumerator algorithm.
+is a positive multiple of four, so C_d=1 (mod 81). These congruences are checks on this exact family, not a faster
+weight-enumerator algorithm.
+
+A stronger congruence uses a separately cited prior theorem. Fish, Key and
+Mwambene, Theorem 1(a) and Result 2, state that the even-d cube adjacency
+code has minimum nonzero weight d, crediting Fish and Key--Seneviratne.
+See [SOURCES.md](SOURCES.md); this minimum-distance theorem is an external
+dependency here, not proved or independently reviewed in this package.
+Since 1 is in C, for any c other than 1 the word 1+c is a nonzero codeword,
+so m-wt(c)=wt(1+c)>=d. Equation (5) therefore also gives, assuming that
+published theorem,
+
+    C_d = 1 (mod 3^d) for every even d>=2.                     (5a)
+
+The self-duality and block facts above are independently derived for this
+application, but are themselves established in that prior literature. The
+published distance theorem is not a claim of a new SAT bound or a faster
+count.
 
 ## Arbitrary fixed-bit branches for odd d
 

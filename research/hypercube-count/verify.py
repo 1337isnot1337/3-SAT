@@ -157,7 +157,8 @@ def main():
             code = {adjacency(d, y) for y in range(1 << m)}
             assert len(code) == 1 << (m // 2)
             assert sum(3 ** (m - c.bit_count()) for c in code) == formula(d)
-            assert formula(d) % (81 if d % 4 == 0 else 9) == 1
+            assert formula(d) % (3 ** d) == 1
+            assert min(c.bit_count() for c in code if c) == d
             checks['dual_enumerator_checks'] += 1
     rng = random.Random(20261028)
     for d in (1, 3):

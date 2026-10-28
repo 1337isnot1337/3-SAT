@@ -19,7 +19,7 @@
   },
   "scope": "bounded exact controls; no independent proof review",
   "sha256": {
-    "PROOF.md": "d40a5652270f009c73ee54081e2032752722757bb92a3da75c5542e340664322",
-    "verify.py": "5f72db825df2bf95c3309163cc2370bfa61e2553f6343560475e416024524fa2"
+    "PROOF.md": "23cbaff5cbc952da75fe271c697240d2b7b82a7b523031cfc453de6303b90a30",
+    "verify.py": "690450c6115c25c1de15e34cbf4419e28beb04826eab8be7f33e6b43ae09610e"
   }
 }

@@ -28,7 +28,9 @@ of fixed y variables. For even d, linear elimination extends the same
 here whether even d has a simpler closed form or faster count. The even-d
 image is a self-dual binary code, giving a second weight-enumerator identity
 and count congruences `C_d=1 mod 9`, strengthened to `C_d=1 mod 81` when
-4 divides d.
+4 divides d. Applying the published cube-code minimum-distance theorem
+strengthens this to `C_d=1 mod 3^d` for every even d; that external
+dependency and earlier credit are recorded in [SOURCES.md](SOURCES.md).
 
 This is a computation for one family, not a general SAT time improvement.
 It illustrates that coefficientwise support entropy or a large supplied
@@ -48,7 +50,7 @@ vectors for d=1,...,10, 1,364 block-image controls, all 65,808 x/y pairs for
 d=1,2,3, all 65,812 y assignments for d=1,2,3,4, 881 odd-d branch
 cases, and 6,661 even-d branch cases; 1,915 of the branch cases are
 contradictory. There are also 34,782 column-overlap checks, 4,000 seeded
-codeword-weight controls and two dual-enumerator comparisons. The independently
+codeword-weight controls and two dual-enumerator and minimum-distance comparisons. The independently
 computed direct sums agree with the formulas. The [saved output](verification.json)
 hash-binds proof and verifier; bounded controls do not constitute an independent
 review or a proof of the asymptotic algorithm.
@@ -60,8 +62,9 @@ The double-cover example was recorded in
 and discussed with [issue #67](https://github.com/1337isnot1337/3-SAT/issues/67).
 [PR #44](https://github.com/1337isnot1337/3-SAT/pull/44) contains the earlier
 row-basis support mechanism; [PR #73](https://github.com/1337isnot1337/3-SAT/pull/73)
-studies a different oriented single-cube system. The accepted upstream source
-is pinned by [SOURCES.json](../../SOURCES.json) at
+studies a different oriented single-cube system. The self-dual hypercube-code facts were established in prior work by Fish,
+Key, Seneviratne and collaborators, as detailed in [SOURCES.md](SOURCES.md).
+The accepted upstream source is pinned by [SOURCES.json](../../SOURCES.json) at
 `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`.
 
 The proof does not claim anything about general
