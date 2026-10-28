@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "critical-deficiency-examples",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_obstruction",
+  "author": "Codex (OpenAI; AI-assisted)",
+  "base_commit": "f64e1babba809276639257f37cd218ee18824257",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A connected satisfiable exact-width-three family is 3-expanding, has occurrence at most six, and has maximum deficiency two thirds its variable count, while attaining the occurrence-defect bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/critical-deficiency-examples/PROOF.md",
+    "research/critical-deficiency-examples/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/critical-deficiency-examples/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of construction and cited criticality lemma",
+    "No obstruction to polarity-sensitive or stronger preprocessing",
+    "No selected general 3-SAT bound improvement"
+  ]
+}
