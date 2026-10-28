@@ -12,6 +12,7 @@ python3 -I -B research/expander-walk-greedy/verify_bias.py
 python3 -I -B research/expander-walk-greedy/verify_pairwise.py
 python3 -I -B research/expander-walk-greedy/verify_handoff.py
 python3 -I -B research/expander-walk-greedy/verify_near_one.py
+python3 -I -B research/expander-walk-greedy/verify_ceiling.py
 make verify
 ```
 
