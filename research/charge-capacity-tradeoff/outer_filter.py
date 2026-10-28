@@ -71,6 +71,24 @@ for h in range(2,5):
                     assert out==({state:eig} if eig else {}), (h,E,state,r,reverse,out,eig)
                     cases+=1
 
+walk_cases=0
+for h in range(2,7):
+    for r in range(h-1):
+        # Fold a walk started at +2(h-r) onto the nonnegative half-line.
+        states={2*(h-r):1}
+        for _ in range(2*h):
+            new={}
+            for pos,count in states.items():
+                if pos == 0:
+                    new[1]=new.get(1,0)+2*count
+                else:
+                    new[pos-1]=new.get(pos-1,0)+count
+                    new[pos+1]=new.get(pos+1,0)+count
+            states=new
+        for j in range(1,h):
+            assert states.get(2*j,0) == binom(2*h,r+j)+binom(2*h,r-j)
+            walk_cases += 1
+
 rank_cases=[]
 for h in range(2,21):
     def kernel(r,j):
@@ -78,9 +96,12 @@ for h in range(2,21):
     matrix=[[kernel(r,j)-kernel(r,1) for r in range(h-1)] for j in range(2,h+1)]
     actual=rank(matrix)
     assert actual == h-1, (h,actual)
+    kernel_matrix=[[binom(2*h,r+j)+binom(2*h,r-j)
+                    for r in reversed(range(h-1))] for j in range(1,h)]
+    assert rank(kernel_matrix) == h-1, h
     rank_cases.append({'h':h,'rank':actual})
 print(json.dumps({'result':'PASS','operator_cases':cases,'operator_grades':[2,4],
-                  'constraint_ranks':rank_cases,'source_hashes':{
+                  'constraint_ranks':rank_cases,'folded_walk_cases':walk_cases,'source_hashes':{
                       name:sha256((SOURCE/name).read_bytes()).hexdigest()
                       for name in ('charged.py','predecessor.py')},
                   'checker_sha256':sha256(Path(__file__).read_bytes()).hexdigest()},

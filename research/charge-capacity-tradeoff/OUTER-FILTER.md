@@ -15,9 +15,10 @@ q-independent scalar weights w_s supported on `2<=|s|<=h`. Define
     G_j=sum_(r=0)^(h-2) c_r (B_(r+j)+B_(r-j)).             (1)
 
 If the extracted q^(2h-2) operator is scalar on the full grade-h output
-space, then **G_j=0 for every j=1,...,h**. In particular, any nonzero
-scalar value must come entirely from the output-independent terms. This
-condition does not prove those terms vanish.
+space, then **every c_r vanishes**, and the extracted operator is zero.
+Thus no nonzero scalar operator on the full output grade can be obtained
+from such outer shifts for this label pair. This does not rule out a
+pairing using different labels or a projected output compression.
 
 For a proof, set r=h-s, let m_j be part multiplicities in a grade-E
 output partition, and define
@@ -56,20 +57,45 @@ a contradiction. For complex weights, apply the real argument to the
 real or imaginary part of a hypothetical nonzero t. Therefore t=0 and
 all G_j vanish.
 
-## Finite rank evidence and open step
+## Nonsingularity from reflected walks
 
-The h-1 scalarity equations `G_j*(-1)^j = -G_1` for j=2,...,h give an
+It remains to show that G_1=...=G_h=0 forces c=0. Consider the square
+kernel K_(j,r)=B_(r+j)+B_(r-j) with j=1,...,h-1 and r=0,...,h-2.
+Reverse its columns and write a=h-r, so the starting coordinates a are
+2,...,h in increasing order. The entry K_(j,r) counts ordinary length-2h
+walks on the integers starting at 2a and ending at either +2j or -2j.
+Folding at zero gives walks on the nonnegative integers with steps +/-1,
+where a departure from zero has weight 2 and every other step has weight 1.
+The binomial counts are exactly B_(r+j) and B_(r-j).
+
+These weighted walks form a layered planar directed network. All vertices
+reachable at a given time have the same parity, so two paths that exchange
+order share a vertex. By the Lindstrom--Gessel--Viennot determinant lemma,
+the determinant of the matrix with sources 2a in increasing order and
+sinks 2j in increasing order is the positive weighted sum of vertex-disjoint
+families connecting them in that order. At least one such family exists:
+from each 2a, take two downward steps, then repeat an upward and a downward
+step h-1 times. It ends at 2(a-1), stays positive and remains disjoint
+from the other paths. Hence the determinant is strictly positive. The
+square K matrix is nonsingular, so G_1=...=G_(h-1)=0 implies c=0.
+
+Equation (3) is invariant under s -> -s. Consequently c=0 means each
+symmetric weight sum vanishes, and the entire extracted operator on this
+label pair is zero. The proof works over characteristic zero, since the
+integer determinant is nonzero; reduction modulo a prime that divides it
+needs separate analysis.
+
+## Checks and limits
+
+The h-1 scalarity equations `(-1)^j G_j = -G_1` for j=2,...,h give an
 (h-1)-square rational matrix in c_0,...,c_(h-2). Exact elimination finds
-rank h-1 for every h=2,...,20. If this matrix were proved nonsingular for
-all h, the symmetric shift weights would all vanish; antisymmetric
-weights cancel in this particular output operator by (3). The finite
-rank list is **not** an all-size proof, and no stronger conclusion is
-asserted here. It would concern only this one input-label pairing even if
-proved.
+rank h-1 for every h=2,...,20, and also checks the square K rank. For
+h=2,...,6, an independent folded-walk dynamic program checks its binomial
+entries. These finite calculations are not the all-size proof above.
 
 `outer_filter.py` checks (3) by exact charge interpolation on every output
 partition of E=0,...,h, every shift -h,...,h, and both operator orders
-for h=2,3,4. It also computes the finite constraint ranks above. Saved
+for h=2,3,4. It also computes the finite constraint ranks and folded-walk checks above. Saved
 results and predecessor hashes are in `outer-filter-verification.json`.
 The q-degree support bound of the parent package still limits input-label
 capacity, but it does not by itself relate shift width to charge degree.

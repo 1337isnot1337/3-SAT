@@ -39,9 +39,9 @@ it and act scalarly, with rank-three label matrix. The [adjacent-shift proof](AD
 shows the analogous all-ones operator has simple spectrum for every h>=5,
 so this particular example cannot extend to larger grades using the same
 shift and unprojected scalar subspace. [Outer-filter constraints](OUTER-FILTER.md)
-prove a necessary all-size condition for weighted outer-shift scalarity
-on the full grade-h space; their stronger nonsingularity conclusion is
-checked only through h=20. Other constructions remain open.
+prove that weighted outer shifts cannot produce a nonzero scalar for
+the all-ones output operator on the full grade-h space. The proof combines
+a sign-variation argument with a reflected-walk determinant. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;

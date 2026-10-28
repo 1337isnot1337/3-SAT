@@ -1,5 +1,5 @@
 {
-  "checker_sha256": "9379c5607c5de7740945586aa5b9ca1514a17169d58931a3863cb9c55c0f615f",
+  "checker_sha256": "a873de0499625010b542f22a7cf4480c05470d70504fef4641a77c3cc4f4c77b",
   "constraint_ranks": [
     {
       "h": 2,
@@ -78,6 +78,7 @@
       "rank": 19
     }
   ],
+  "folded_walk_cases": 55,
   "operator_cases": 354,
   "operator_grades": [
     2,
