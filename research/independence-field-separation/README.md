@@ -27,7 +27,9 @@ two except in dimensions zero and one. This establishes that the
 subspace-indexed upper envelope in PR #37 is worst-case sharp over Q and odd
 characteristic; the characteristic-two cancellation from PR #104 is a real
 field-specific compression. The claim is for a specified cut and does not
-imply a SAT lower bound or an all-order separation.
+imply a SAT lower bound or an all-order separation. It also shows why the
+binary rank cannot be used as the rational-rank hypothesis of PR #17's
+odd-prime compiler; that compiler concerns different crossing pieces.
 
 ## Reproduction
 

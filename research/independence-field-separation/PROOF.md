@@ -146,3 +146,11 @@ characteristic-two rank is exactly m/2+1, whereas its rational and odd-field
 rank is 2^((log_2(m/2+1))^2/4+O(1)). This compares the ranks for the same
 explicit table and same split. It does not change the fixed-cut or
 no-SAT-lower-bound scope.
+
+The same example is also a field-transfer control: a rank bound proved only
+in characteristic two cannot be substituted for a rational rank bound, even
+for this 0/1 table. This does not contradict PR #17's rational-to-odd-prime
+compiler, whose hypothesis is a rational rank bound; it prevents using the
+binary cancellation result as that hypothesis without an additional proof.
+The table here is an independence interface, not one of PR #17's crossing
+pieces.
