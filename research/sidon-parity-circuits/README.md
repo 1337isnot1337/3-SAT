@@ -18,7 +18,11 @@ bound without the disjoint-support hypothesis. Row-basis changes,
 cancellation, Boolean relations among monomials and tensor aggregation are
 outside the claim. The source's incidence-monomial indexer is a different
 representation and already has a better O(n log log n) wire envelope.
-No generalized runtime improvement is claimed.
+No generalized runtime improvement is claimed. For power-of-two n, the
+proof also derives an exact polynomial-time count for this same witness: its
+answer is F_(n-1)+F_(n+1), plus one when L is even. This uses a cyclic
+row-space change and the structure of the actual quadratic monomials, both
+outside the restricted circuit model.
 
 The question was whether simple gate-level parity sharing uniformly gives
 O(n) wires for low-load sparse queries. Success is a rigorous obstruction
@@ -38,7 +42,9 @@ make verify
 The bounded checker directly verifies all pairwise row intersections, all
 variable loads and the source threshold, and the constructed gate counts at
 n=16,20,31,32,64,100,128,256,512. It checks 680 gate-constraint assignments
-and 9,504 quadratic scope assignments. These finite checks do not mechanically
+and 9,504 quadratic scope assignments. It also checks the binary matrix rank
+at five power-of-two sizes and exhausts all 65,536 original assignments at
+n=16, obtaining 2,208 solutions. These finite checks do not mechanically
 prove the all-size statement. No external dependency or heavy check is added
 to default CI.
 

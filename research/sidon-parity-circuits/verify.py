@@ -82,12 +82,59 @@ def check_boolean_realization(n):
     return checks
 
 
+
+def binary_rank(masks):
+    pivots = {}
+    for value in masks:
+        while value:
+            pivot = value.bit_length() - 1
+            if pivot in pivots:
+                value ^= pivots[pivot]
+            else:
+                pivots[pivot] = value
+                break
+    return len(pivots)
+
+
+def lucas(n):
+    a, b = 2, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+
+def check_power_two_kernel():
+    outcomes = []
+    for n in (16, 32, 64, 128, 256):
+        supports = rows(n)
+        length = len(supports[0])
+        masks = [sum(1 << j for j in row) for row in supports]
+        rank = binary_rank(masks)
+        assert rank == n - (length % 2 == 0)
+        assert all(mask.bit_count() % 2 == length % 2 for mask in masks)
+        outcomes.append((n, length, rank, lucas(n) + (length % 2 == 0)))
+    # Independent direct truth-table evaluation of the original equations.
+    n = 16
+    masks = [sum(1 << j for j in row) for row in rows(n)]
+    observed = 0
+    for x in range(1 << n):
+        adjacent = x & (((x >> 1) | ((x & 1) << (n - 1))))
+        observed += all((adjacent & mask).bit_count() % 2 == 0 for mask in masks)
+    assert observed == lucas(n) + 1
+    return outcomes, observed
+
+
 def main():
     print('n L incidences max_load threshold gates internal_gate_wires')
     for n in (16, 20, 31, 32, 64, 100, 128, 256, 512):
         print(*check_structure(n))
     print('gate_constraint_assignments', check_gate_semantics())
     print('quadratic_scope_assignments', sum(check_boolean_realization(n) for n in (16, 20, 32, 64)))
+    outcomes, observed = check_power_two_kernel()
+    print('power_two_n L rank exact_count')
+    for outcome in outcomes:
+        print(*outcome)
+    print('n16_original_equations_exhaustive_count', observed)
     print('All checks passed.')
 
 
