@@ -179,3 +179,38 @@ and polynomial-space guarantee under the accepted theorem. The extension
 to fixed q=2^r matroids has q-dependent constants and still reports parity.
 This is a consequence for explicitly sparse matroid representations; it
 is not an improvement to the selected general 3-SAT theorem.
+
+## Row-space preprocessing
+
+The independence polynomial is determined by ker(A), so replacing A by any
+binary matrix B with the same row space leaves the polynomial and kernel
+weight enumerator unchanged. Equality of row spaces is decidable by Gaussian
+elimination: it is equivalent to rank(A)=rank(B)=rank([A;B]). Thus an
+explicit proposed B can be verified in polynomial time, after which the
+network size is s_B=m+rows(B)+ones(B). The original input length remains in
+L and in the polynomial preprocessing/description factor; a sparse B does
+not make reading a dense A free.
+
+Two unconditional polynomial-time candidates are useful. First, sort the
+original rows by Hamming weight and greedily retain a row when it increases
+rank. The retained rows form a minimum-total-weight basis among subsets of
+the supplied rows, by the standard vector-matroid greedy exchange argument.
+Second, compute the binary reduced row-echelon basis. Choose the candidate
+with fewer ones. Both have rank(A) rows, span the same row space, and have
+at most as many ones as the original matrix because the first candidate is
+a subset. They do not necessarily minimize the weight of a basis allowed
+to use arbitrary linear combinations. The equality check and both candidate
+constructions take polynomial time and space; their resulting s_B may be used
+in the accepted-contraction bound while L still accounts for A.
+
+For a concrete reduction, take even n and let B=I_n+J_n over F_2, where
+J_n is all ones. Since B^2=I_n+n J_n=I_n, B is invertible. The n-by-2n
+matrix A=[B | B] has 2n(n-1) ones, but its reduced row space has basis
+[I_n | I_n] with 2n ones. Thus the network parameter falls from Theta(n^2)
+to Theta(n) after polynomial-time row reduction. This example is easy even
+without contraction: its independence polynomial is
+product_i(1+z_i+z_(n+i)). It demonstrates a valid preprocessing gain, not
+an unrestricted SAT improvement or a guarantee for source hash matrices.
+A genuinely smaller complete SAT bound would require proving a uniformly
+small equivalent representation for the relevant checks while paying all
+clause, branch and query costs.

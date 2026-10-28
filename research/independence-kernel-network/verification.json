@@ -6,7 +6,89 @@
   "GF8_size_parity_interpolations": 200,
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "42ce8f234ef2c149b6b0d371b6f004e069a8487f56fc63f5045aea9dcd46af66",
+  "checker_sha256": "fda58e0bf7ce345b393bcc58cfe801d599ff505388c29f995bccfe4e5af5f9f5",
+  "dense_rowspace_controls": [
+    {
+      "n": 2,
+      "original_ones": 4,
+      "reduced_ones": 4
+    },
+    {
+      "n": 4,
+      "original_ones": 24,
+      "reduced_ones": 8
+    },
+    {
+      "n": 6,
+      "original_ones": 60,
+      "reduced_ones": 12
+    },
+    {
+      "n": 8,
+      "original_ones": 112,
+      "reduced_ones": 16
+    },
+    {
+      "n": 10,
+      "original_ones": 180,
+      "reduced_ones": 20
+    },
+    {
+      "n": 12,
+      "original_ones": 264,
+      "reduced_ones": 24
+    },
+    {
+      "n": 14,
+      "original_ones": 364,
+      "reduced_ones": 28
+    },
+    {
+      "n": 16,
+      "original_ones": 480,
+      "reduced_ones": 32
+    },
+    {
+      "n": 18,
+      "original_ones": 612,
+      "reduced_ones": 36
+    },
+    {
+      "n": 20,
+      "original_ones": 760,
+      "reduced_ones": 40
+    },
+    {
+      "n": 22,
+      "original_ones": 924,
+      "reduced_ones": 44
+    },
+    {
+      "n": 24,
+      "original_ones": 1104,
+      "reduced_ones": 48
+    },
+    {
+      "n": 26,
+      "original_ones": 1300,
+      "reduced_ones": 52
+    },
+    {
+      "n": 28,
+      "original_ones": 1512,
+      "reduced_ones": 56
+    },
+    {
+      "n": 30,
+      "original_ones": 1740,
+      "reduced_ones": 60
+    },
+    {
+      "n": 32,
+      "original_ones": 1984,
+      "reduced_ones": 64
+    }
+  ],
   "encoded_F4_row_checks": 8192,
   "explicit_xor_gate_cases": 65536,
   "matrices_3x4": 4096,
@@ -212,6 +294,7 @@
     "3": 729,
     "4": 4096
   },
+  "row_basis_cases": 4096,
   "seed": 25104,
   "zeta_coefficient_checks": 65536
 }

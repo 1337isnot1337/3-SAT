@@ -88,6 +88,31 @@ def evaluate(cols, weights):
     assert lifted.bit_length() <= 5
 
 
+def row_rref(rows):
+    pivots = {}
+    for value in rows:
+        v = value
+        while v:
+            bit = v.bit_length()-1
+            if bit not in pivots:
+                pivots[bit] = v
+                break
+            v ^= pivots[bit]
+    for bit in sorted(pivots):
+        for larger in sorted(pivots):
+            if larger > bit and (pivots[larger] >> bit & 1):
+                pivots[larger] ^= pivots[bit]
+    return [pivots[bit] for bit in sorted(pivots, reverse=True)]
+
+
+def greedy_row_basis(rows):
+    selected = []
+    for value in sorted(rows, key=lambda v: (v.bit_count(), v)):
+        if rank(selected+[value]) > len(selected):
+            selected.append(value)
+    return selected
+
+
 def gf8_interpolate(values):
     n = len(values)
     rows = []
@@ -210,6 +235,30 @@ def run():
         cols = [rng.randrange(8) for _ in range(6)]
         weights = [rng.randrange(8) for _ in range(6)]
         evaluate(cols, weights)
+    row_basis_cases = 0
+    for rows in itertools.product(range(16), repeat=3):
+        full_rank = rank(rows)
+        greedy = greedy_row_basis(rows)
+        canonical = row_rref(rows)
+        assert len(greedy) == len(canonical) == full_rank
+        assert row_rref(greedy) == canonical
+        costs = []
+        for mask in range(8):
+            chosen = [v for i,v in enumerate(rows) if mask >> i & 1]
+            if len(chosen) == full_rank and rank(chosen) == full_rank:
+                costs.append(sum(v.bit_count() for v in chosen))
+        assert sum(v.bit_count() for v in greedy) == min(costs)
+        row_basis_cases += 1
+    dense_controls = []
+    for n in range(2, 33, 2):
+        all_bits = (1 << n)-1
+        left = [all_bits ^ (1 << i) for i in range(n)]
+        rows = [v | (v << n) for v in left]
+        reduced = row_rref(rows)
+        assert rank(rows) == n
+        assert set(reduced) == {1 << i | 1 << (n+i) for i in range(n)}
+        dense_controls.append({'n': n, 'original_ones': 2*n*(n-1),
+                               'reduced_ones': 2*n})
     general_cases = {}
     for q in (3,4):
         count = 0
@@ -278,7 +327,8 @@ def run():
     unmatched_independence = (1+1+1) % 3
     unmatched_kernel = ((1+1)**2+1) % 3
     assert unmatched_independence == 0 and unmatched_kernel == 2
-    return {'GF8_size_parity_interpolations': parity_interpolations,
+    return {'row_basis_cases': row_basis_cases, 'dense_rowspace_controls': dense_controls,
+            'GF8_size_parity_interpolations': parity_interpolations,
             'F3_kernel_and_coefficient_rank_control': [3,2],
             'mismatched_characteristic_control_F3': [unmatched_independence, unmatched_kernel],
             'prime_power_identity_cases': general_cases,

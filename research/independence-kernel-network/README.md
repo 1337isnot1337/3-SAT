@@ -32,6 +32,13 @@ avoids that separation. Thus the topology bypasses a fixed-order width cost,
 not every ordering or every SAT representation. General clause inputs can
 still require more than the desired `n log log n` wires.
 
+Any equivalent binary row-space representation can replace A, with equality
+verified in polynomial time and the original input length retained in the
+description cost. A minimum-weight basis among the supplied rows and the
+reduced row-echelon basis are inexpensive candidates. An explicit dense
+`[B | B]` example reduces from quadratic to linear nonzeros, though it is
+itself easy and proves no uniform SAT gain.
+
 For matrices with `a+h=O(m)`, the bound is
 `poly(m) 2^O(m/sqrt(log m))` with polynomial space. Evaluating at `m+1`
 field points and interpolating also recovers the parity of the number of
@@ -53,7 +60,8 @@ grouped polynomial-lift controls, plus 200 end-to-end GF(8) size-parity
 interpolations. The prime-power identity is checked
 exhaustively on 2-by-2 matrices over F3 and F4, with a mismatched-
 characteristic failure control, including explicit binary
-linear-map controls for the F4 row checks. It also checks
+linear-map controls for the F4 row checks. The checker also exhausts
+4,096 small row-basis instances and verifies 16 dense-to-sparse controls. It also checks
 32 paired-column width profiles. The [saved output](verification.json) pins
 the checker hash and seed. These are finite controls, not an independent
 review or an implementation of the accepted contraction solver.
