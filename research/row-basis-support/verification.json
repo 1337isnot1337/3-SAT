@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "exhaustive_invertible_4x4": 20160,
+    "mobius_edge_coefficients": 11468,
+    "negative_controls": 1,
+    "nonzero_row_combinations": 1009,
+    "sampled_invertible_bases": 700,
+    "systems": 7
+  },
+  "scope": "bounded exact checks only; no independent proof review",
+  "sha256": {
+    "PROOF.md": "e163fccdd0eb737425f304a98bace45a754dee01b8c33edc529d258946f20ed1",
+    "verify.py": "6bd59afaf4080c0c1e16386dd76b589ef21548df0403ff08b05dbaf5610d0e3e"
+  }
+}
