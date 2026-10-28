@@ -1,0 +1,15 @@
+{
+  "both_operator_orders": true,
+  "checker_sha256": "302a98867778d89a841238ebc5fd2d4899abfd557b330fc586ebc4b315ea6113",
+  "grades": [
+    2,
+    4
+  ],
+  "operator_cases": 46,
+  "output_grades": "0 through h",
+  "result": "PASS",
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

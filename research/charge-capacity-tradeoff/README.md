@@ -41,7 +41,10 @@ so this particular example cannot extend to larger grades using the same
 shift and unprojected scalar subspace. [Outer-filter constraints](OUTER-FILTER.md)
 prove that weighted outer shifts cannot produce a nonzero scalar for
 the all-ones output operator on the full grade-h space. The proof combines
-a sign-variation argument with a reflected-walk determinant. Other constructions remain open.
+a sign-variation argument with a reflected-walk determinant. A separate
+[high-shift filter](TAIL-FILTER.md) obtains a nonzero scalar on the same
+label pair beyond that shift range, but its full label rank is at most
+three. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -64,6 +67,7 @@ python3 -I -B research/charge-capacity-tradeoff/adjacent_shift.py
 python3 -I -B research/charge-capacity-tradeoff/adjacent_pairing.py
 python3 -I -B research/charge-capacity-tradeoff/adjacent_spectrum.py
 python3 -I -B research/charge-capacity-tradeoff/outer_filter.py
+python3 -I -B research/charge-capacity-tradeoff/tail_filter.py
 make verify
 ```
 
@@ -81,6 +85,8 @@ records the full finite label pairing and leakage checks.
 [adjacent-spectrum-verification.json](adjacent-spectrum-verification.json)
 records the broader adjacent-shift checks. [outer-filter-verification.json](outer-filter-verification.json)
 records the weighted-shift formula and finite rank checks.
+[tail-filter-verification.json](tail-filter-verification.json) records the
+high-shift scalar coefficient checks.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,
