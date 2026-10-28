@@ -89,6 +89,40 @@ therefore a constant-row-weight, constant-relative-distance sparse-check
 matrix with O(n) rows. The XOR-Cayley degree lower bound in PROOF.md does not
 apply to this different graph.
 
+## Near-rate-one isolation encoding
+
+For any fixed positive integer L, the preceding construction also reduces
+the sparse-isolation code length from the predecessor's 8n to
+
+    N = n + ceil(n/L),    B = 2L,    n >= 4L.
+
+The check construction applies because N<=2n<=Bn. If its graph has more
+than one vertex on a side, its row count is less than N/(2B)=N/(4L), at most
+n/(2L)<=ceil(n/L). If it has one vertex on each side, the row count is at
+most N/(16B)+2 <= n/(16L)+2 <= n/L. In both cases the kernel dimension is at
+least n. Its relative distance is at least 1/P(2L), a positive constant for
+fixed L, and each check has at most D(2L) nonzeros.
+
+By Gaussian elimination select a linearly independent *subset of the
+original check rows*, rather than replacing them by dense linear combinations.
+Let its rank be r. Select an information set of N-r kernel coordinates and
+designate n of them for the input assignment; set the remaining N-r-n
+information coordinates to zero. Each assignment then extends to exactly one
+codeword. The resulting representation uses N-n=ceil(n/L) auxiliary bits and
+exactly r+(N-r-n)=N-n equations: r selected constant-weight checks and
+N-r-n unary zero checks. Distinct encoded assignments remain at relative
+distance at least 1/P(2L). The information-set computation and row selection
+are polynomial time and space. Handle n<4L by direct enumeration; for fixed L
+this is a finite exception.
+
+The predecessor's isolation argument therefore still applies with
+`O_L(log n)` sampled coordinates per isolation row. Its subsequent queries,
+error budget, sparse hashing, tensor encoding and contraction remain charged.
+For each fixed L this is a near-rate-one encoding with constants depending on
+L; allowing L to grow with n requires a new cost analysis. This does not
+claim a smaller SAT exponent or an improved hidden leading constant in the
+accepted bound.
+
 ## Linear-size hashed fingerprint network at fixed density
 
 There is a second conditional composition with the merged
@@ -151,8 +185,8 @@ asserted.
 `verify_expander.py` checks the eight port permutations, symmetry, and exact
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
 and powers 1,2,3, plus 700 integer padding/row-budget schedules. It also
-checks the two-dimensional subcode averaging bound and small exact sampler
-biases, plus complete full and shortened kernels of a scaled 32-edge
+checks the two-dimensional subcode averaging bound, small exact sampler
+biases, and finite near-rate row-count inequalities, plus complete full and shortened kernels of a scaled 32-edge
 Tanner fixture using the tested inner checks. That fixture does not meet the
 large source parameters. The verifier does not
 prove the cited all-size spectral theorem, construct its huge required power,

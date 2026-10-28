@@ -4,6 +4,7 @@
     3
   ],
   "mixing_subset_pairs": 787200,
+  "near_rate_inequalities": 1312,
   "padding_schedules": 700,
   "port_inverse_cases": 7592,
   "powers": [

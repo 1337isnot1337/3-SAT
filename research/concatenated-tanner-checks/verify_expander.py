@@ -149,6 +149,19 @@ def check_tanner_fixture():
             'short_minimum_weight':min(w.bit_count() for w in short if w)}
 
 
+def check_near_rate():
+    cases = 0
+    for L in range(1, 33):
+        for n in range(4*L, 4*L+41):
+            N = n + (n+L-1)//L
+            assert N <= 2*n
+            # q=1 upper bound, and strict q>1 bound N/(4L).
+            assert 2*((N+64*L-1)//(64*L)) <= N-n
+            assert N <= 4*L*(N-n)
+            cases += 1
+    return cases
+
+
 def main():
     cases = 0
     for n in (2, 3):
@@ -188,7 +201,8 @@ def main():
                       'subcodes_checked':subcodes, 'sampler_bias_cases':sampler_cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
                       'powers':[1,2,3], 'port_inverse_cases':check_port_inverses(),
-                      'tanner_fixture':check_tanner_fixture()},
+                      'tanner_fixture':check_tanner_fixture(),
+                      'near_rate_inequalities':check_near_rate()},
                      indent=2, sort_keys=True))
 
 

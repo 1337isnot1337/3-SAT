@@ -52,5 +52,7 @@ distance; B-dependent constants are much larger. Fixed-density expander-code
 existence is classical (Sipser and Spielman, 1996); the package records a
 source-compatible quantitative interface rather than claiming that existence
 result as new. It also makes the existing hash-syndrome network linear-size
-for fixed B, preserving the known fixed-density exponent. Its exact small-graph checks
+for fixed B, preserving the known fixed-density exponent. For any fixed L,
+it gives an isolation encoding with n+ceil(n/L) code bits and the same
+number of auxiliary equations; the constants depend on L. Its exact small-graph checks
 are reproduced with `python3 -I -B research/concatenated-tanner-checks/verify_expander.py`.
