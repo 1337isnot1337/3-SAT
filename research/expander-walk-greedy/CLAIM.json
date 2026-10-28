@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "expander-walk-greedy",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "sparse_greedy_query_compression",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A deterministic expander-walk candidate multiset has q d^(P-1) 2^P rows per round, q < 2m and d=O(log(m+2)); it rejects each support of size at least m/P with probability at least 1/20, enabling 14n greedy rounds under the source counting oracle. This compresses preprocessing but does not improve the selected SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/expander-walk-greedy/PROOF.md",
+    "research/expander-walk-greedy/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/expander-walk-greedy/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size construction and oracle cost composition",
+    "Find and charge an explicit small-bias coefficient family if reducing the 2^P factor",
+    "No improved alpha or full new SAT algorithm is claimed"
+  ]
+}

@@ -1,0 +1,18 @@
+# Expander-walk candidates for greedy sparse checks
+
+Status: author-checked scoped argument, pending independent review. Base `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`. Issue [#40](https://github.com/1337isnot1337/3-SAT/issues/40). Task: dense-encoding. Contributor: Cinna Davis, with substantial OpenAI Codex assistance.
+
+[PROOF.md](PROOF.md) replaces independent clause-index lists in the accepted theorem's greedy parity selection with walks on a deterministic constant-gap Walsh-Cayley graph. It gives q d^(P-1) 2^P candidates per round, q<2m and d=O(log(m+2)), versus (2m)^P; 14n rounds suffice, compared with the source's 3n. The bound holds for every large violation support and every candidate remains an admissible sparse query. This reduces the quasipolynomial overhead but does not improve the selected alpha or prove a new 3-SAT time bound. The proof relies on the owner-accepted upstream counting theorem, not a local implementation.
+
+Reproduce the finite exact checks and repository verification:
+
+```sh
+python3 -I -B research/expander-walk-greedy/verify.py
+make verify
+```
+
+The verifier enumerates small supports and uses exact rational walk probabilities, also directly enumerating coefficient strings and repeated-vertex paths in a smaller domain. It is a finite check of the construction and parity identity, not a proof of the asymptotic argument. No human review or formal proof is claimed. See [PROOF.md](PROOF.md) for scope, assumptions, algorithm, and all costs.
+
+Credit: OpenAI source commit `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`, `lem:sparse-checks`, `lem:greedy-hashes`, and `eq:hash-query`; source manifest [SOURCES.json](../../SOURCES.json). The graph uses the same Walsh shift construction, with a constant rather than density-dependent spectral target. Expander walks and averaging are standard; no priority or novelty claim for these techniques is made. Issue #29 and #31 concern incidence indexing and row bases, not candidate enumeration. The source's local-code and greedy framework remain intact.
+
+Open: Can an explicit small-bias family replace all 2^P coefficient strings while retaining the per-support probability guarantee and efficient construction? Any new family must handle all repeated-vertex hit patterns. Can fewer oracle calls affect a dominant term under a changed contraction or preprocessing contract? Neither question is resolved here.
