@@ -69,7 +69,7 @@ def modular_rank(rows,prime):
 results=[]
 for h in (2,3,4):
     labels=charged.partitions(h)
-    shifts=list(range(h,2*h+1))
+    shifts=list(range(-2*h,-h+1))+list(range(h,2*h+1))
     coeff=interpolation_weights(2*h,2*h-3)
     pieces=[]
     for s in shifts:
@@ -88,31 +88,37 @@ for h in (2,3,4):
                     for target,value in outputs[0].items():
                         d[(a,b,state,target)]=value
         pieces.append(d)
-    rows=[]
-    for a in labels:
-        for b in labels:
-            for y in labels:
-                for u in labels:
-                    key=(a,b,y,u)
-                    if u!=y:
-                        rows.append([p.get(key,0) for p in pieces])
-                    elif y!=labels[0]:
-                        rows.append([p.get(key,0)-p.get((a,b,labels[0],labels[0]),0) for p in pieces])
-    basis=rational_null(rows,len(shifts))
-    mr=modular_rank(rows,65537)
-    assert mr == len(shifts)-len(basis)
-    expected_dim=1 if h==2 else 0
-    assert len(basis)==expected_dim,(h,basis)
-    pair_ranks=[]
-    for v in basis:
-        mat=[[sum(v[i]*pieces[i].get((a,b,labels[0],labels[0]),0)
-               for i in range(len(shifts))) for b in labels] for a in labels]
-        pair_ranks.append(predecessor.exact_rank(mat))
-    if h==2:
-        assert basis==[[F(1,10),F(2,5),F(1)]] and pair_ranks==[2]
-    results.append({'h':h,'shifts':shifts,'constraint_count':len(rows),
-                    'modular_rank':mr,'basis':[[str(x) for x in v] for v in basis],
-                    'pairing_ranks':pair_ranks})
+    for mode,indices in (('positive',list(range(h+1,len(shifts)))),
+                         ('bilateral',list(range(len(shifts))))):
+        active=[pieces[i] for i in indices]
+        rows=[]
+        for a in labels:
+            for b in labels:
+                for y in labels:
+                    for u in labels:
+                        key=(a,b,y,u)
+                        if u!=y:
+                            rows.append([p.get(key,0) for p in active])
+                        elif y!=labels[0]:
+                            rows.append([p.get(key,0)-p.get((a,b,labels[0],labels[0]),0) for p in active])
+        basis=rational_null(rows,len(active))
+        mr=modular_rank(rows,65537)
+        assert mr == len(active)-len(basis)
+        expected_dim=({'positive':{2:1,3:0,4:0},'bilateral':{2:3,3:2,4:2}})[mode][h]
+        assert len(basis)==expected_dim,(h,mode,basis)
+        pair_ranks=[]
+        for v in basis:
+            mat=[[sum(v[i]*active[i].get((a,b,labels[0],labels[0]),0)
+                   for i in range(len(active))) for b in labels] for a in labels]
+            pair_ranks.append(predecessor.exact_rank(mat))
+        if mode=='positive' and h==2:
+            assert basis==[[F(1,10),F(2,5),F(1)]] and pair_ranks==[2]
+        if mode=='bilateral':
+            assert pair_ranks==({2:[2,2,2],3:[2,2],4:[4,4]})[h]
+        results.append({'h':h,'mode':mode,'shifts':[shifts[i] for i in indices],
+                        'constraint_count':len(rows),'modular_rank':mr,
+                        'basis':[[str(x) for x in v] for v in basis],
+                        'pairing_ranks':pair_ranks})
 print(json.dumps({'result':'PASS','prime':65537,'both_operator_orders':True,
                   'results':results,'source_hashes':{
                       name:sha256((SOURCE/name).read_bytes()).hexdigest()

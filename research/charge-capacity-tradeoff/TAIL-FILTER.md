@@ -113,11 +113,23 @@ independently, extracts q^(2h-3), and imposes all scalarity equations for
 every full grade-h row label, column label and output basis state. At h=2
 the weight space is one-dimensional, spanned by `(1,4,10)` in shift
 order, and its scalar label pairing has rank 2. At h=3 and h=4 the only
-scalarizing weight is zero. These are exact finite statements; they do
-not cover negative shifts, restricted or compressed output spaces, other
-charge-degree combinations, or larger h.
+scalarizing weight is zero. These are exact finite statements; they do not cover restricted or
+compressed output spaces, other charge-degree combinations, or larger h.
+
+Allowing both tails changes the answer. The same check finds a
+three-dimensional scalarizing weight space at h=2 and a two-dimensional
+one at h=3 and h=4. Each of the two displayed basis vectors at h=3 has
+label-pairing rank 2; each at h=4 has rank 4, which attains the structural
+support bound for h=4 and degree 5. For example, in shift order
+`(-8,-7,-6,-5,-4,4,5,6,7,8)`, the integer vector
+
+    (3300,1230,378,86,11,1,6,18,30,0)
+
+gives an exact full-output scalar pairing of rank 4 at h=4. Its existence
+is a finite calculation, not an all-size construction; rank of arbitrary
+linear combinations of the displayed basis vectors is not classified.
 
 `tail_next_screen.py` constructs every constraint using exact charge
-interpolation in both operator orders, computes rational nullspaces, and
+interpolation in both operator orders, computes rational nullspaces for both tail choices, and
 independently certifies the constraint ranks modulo 65537. Its output is
 hash-bound in `tail-next-screen-verification.json`.

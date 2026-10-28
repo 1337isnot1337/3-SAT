@@ -49,8 +49,9 @@ a sign-variation argument with a reflected-walk determinant. A separate
 with rank exactly three for h>=3. The same weights fail scalarity one
 charge degree lower already at h=2, and parity compression does not
 repair it at h=3. An exact full-output screen over all positive tail
-weights finds no nonzero scalarizing weight at h=3 or h=4, but does not
-establish an all-size obstruction. Other constructions remain open.
+weights finds no nonzero scalarizing weight at h=3 or h=4. Allowing both
+tails gives finite scalar pairings, including rank four at h=4; neither
+screen establishes an all-size result. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
