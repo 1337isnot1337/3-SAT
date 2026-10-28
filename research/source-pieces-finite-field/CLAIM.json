@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "source-pieces-finite-field",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The actual Appendix B integer pieces and both integer factorizations reduce modulo p, with original normalizer h! invertible exactly when p>h. For p<=h the original summed pieces vanish and cannot be scalar-normalized to equality.",
+  "improves_bound": false,
+  "evidence": [
+    "research/source-pieces-finite-field/PROOF.md",
+    "research/source-pieces-finite-field/verify.py",
+    "research/source-pieces-finite-field/pieces.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/source-pieces-finite-field/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written transfer",
+    "Exact integer-query recovery or a complete decision guarantee remains separate",
+    "No improved crossing rank, global SAT algorithm, or alpha is claimed"
+  ]
+}
