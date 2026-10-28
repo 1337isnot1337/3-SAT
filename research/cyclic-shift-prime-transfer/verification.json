@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "finite good-prime and actual cyclic crossing controls",
+  "primes_up_to_10000": 308,
+  "good_prime_length_checks": 4004,
+  "negative_controls": 3,
+  "cyclic_dimension": 8,
+  "cyclic_denominator": 255,
+  "crossing_primes": [
+    7,
+    23,
+    31,
+    47,
+    71
+  ],
+  "pieces": 4,
+  "factorizations": 40,
+  "crossing_entries": 4096,
+  "predicate_counts": 256,
+  "max_entry_denominator_bits": 9,
+  "sha256": {
+    "research/cyclic-shift-prime-transfer/PROOF.md": "7e23c98e6be01ff3a3cc481be1cd6c2fca7af6aedf4520334dd9bc9ecbe2e38a",
+    "research/cyclic-shift-prime-transfer/verify.py": "95db14ceea48aa36f9602e48666f4fb7a07c698b69d18944dff54e297bfe57a3",
+    "research/deterministic-crt-transfer/verify.py": "f22639017e8c259144354d78f0d74a05024d011a40fd55bb8d9469d067bca6a7",
+    "research/odd-prime-rank-transfer/field.py": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba",
+    "research/three-bit-macro-walsh/refined.py": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb"
+  }
+}

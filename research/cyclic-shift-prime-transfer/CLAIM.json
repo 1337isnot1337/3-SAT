@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "cyclic-shift-prime-transfer",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "structured_cyclic_denominator_deterministic_transfer",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "11d67f99701b48b078ccf79ff033d04bb9c45afe",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For cyclic conjugation by 2I-C at dimensions N=2^lambda, all primes 7 mod 8 avoid every 2^N-1 denominator. An explicit progression bound and a compact base-family bad-prime certificate yield deterministic polynomially many good primes and exact signed CRT recovery under the PR 17 and PR 60 crossing contracts. Both rational ranks are preserved. No improved rho, alpha, or polynomial-space result is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/cyclic-shift-prime-transfer/PROOF.md",
+    "research/cyclic-shift-prime-transfer/SOURCES.json",
+    "research/cyclic-shift-prime-transfer/verify.py",
+    "research/cyclic-shift-prime-transfer/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/cyclic-shift-prime-transfer/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size good-prime and time arguments",
+    "A cheaper valid crossing family with both rank bounds and a structured prime supply",
+    "Deterministic good-prime selection for unrestricted PR 17 rational families"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source": {
+    "title": "Explicit bounds for primes in arithmetic progressions",
+    "authors": ["Michael A. Bennett", "Greg Martin", "Kevin O'Bryant", "Andrew Rechnitzer"],
+    "version": "arXiv:1802.00085v3, 27 November 2018",
+    "abstract_url": "https://arxiv.org/abs/1802.00085v3",
+    "pdf_url": "https://arxiv.org/pdf/1802.00085v3",
+    "pdf_sha256": "e51f8b8f63486c2259efe076d367504f08dda0fe9e99dc35bf36de544ffc0601",
+    "pdf_bytes": 1122139,
+    "scope": "Abstract explicit bound for theta(x;q,a) with 3 <= q <= 100000, x >= 8*10^9; applied only at q=8, a=7. The source is cited, not redistributed."
+  },
+  "predecessors": [
+    "research/deterministic-crt-transfer/PROOF.md, PR 60, commit 11d67f9",
+    "research/odd-prime-rank-transfer/CONJUGATION.md, PR 17",
+    "research/three-bit-macro-walsh/CONSTRUCTION.md, PR 15",
+    "research/symmetric-walsh-pieces/CONSTRUCTION.md, PR 14"
+  ],
+  "accepted_baseline": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a, pinned in ../../SOURCES.json"
+}
