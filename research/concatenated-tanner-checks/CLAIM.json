@@ -13,7 +13,8 @@
   "evidence": [
     "research/concatenated-tanner-checks/PROOF.md",
     "research/concatenated-tanner-checks/verify.py",
-    "research/concatenated-tanner-checks/verification.json"
+    "research/concatenated-tanner-checks/verification.json",
+    "research/concatenated-tanner-checks/VALIDATION.md"
   ],
   "reproduce": [
     "python3",
