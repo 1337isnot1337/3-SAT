@@ -1,0 +1,13 @@
+{
+  "local_d": 4096,
+  "local_h": 3,
+  "local_support_samples": 3000,
+  "max_input_bits": 512,
+  "parameter_cases": 20000,
+  "regimes": {
+    "q1": 2311,
+    "q_gt_1": 17689
+  },
+  "result": "pass",
+  "seed": 719491
+}
