@@ -136,6 +136,42 @@ def check_shift_span():
     return cases
 
 
+def check_bitwise_shift_selection():
+    cases = 0
+    for q in (2, 4, 8, 16):
+        bits = q.bit_length()-1
+        denom = 4
+        state = [(1, 1) for _ in range(1, q)]
+        for _ in range(12):
+            prefix = 0
+            def score(value, remaining):
+                total = 0
+                for b, (plus, minus) in enumerate(state, start=1):
+                    if b & remaining:
+                        total += denom*(plus+minus)
+                    else:
+                        sign = 1 if (b & value).bit_count() % 2 == 0 else -1
+                        total += plus*(denom+sign) + minus*(denom-sign)
+                return total
+            for i in range(bits):
+                remaining_before = (q-1) ^ ((1 << i)-1)
+                remaining_after = (q-1) ^ ((1 << (i+1))-1)
+                before = score(prefix, remaining_before)
+                options = [score(prefix | (bit << i), remaining_after) for bit in (0, 1)]
+                assert sum(options) == 2*before
+                chosen = int(options[1] < options[0])
+                assert options[chosen] <= before
+                prefix |= chosen << i
+                cases += 1
+            new_state = []
+            for b, (plus, minus) in enumerate(state, start=1):
+                sign = 1 if (b & prefix).bit_count() % 2 == 0 else -1
+                new_state.append((plus*(denom+sign), minus*(denom-sign)))
+            assert sum(a+b for a,b in new_state) <= denom*sum(a+b for a,b in state)
+            state = new_state
+    return cases
+
+
 def main():
     rng = random.Random(834211)
     regimes = {'q1': 0, 'q_gt_1': 0, 'local_fallback': 0, 'local_construct': 0,
@@ -195,6 +231,7 @@ def main():
                       'direct_positive_h': h, 'entropy_checks': entropy_checks,
                       'positive_entropy_cases': positive_entropy,
                       'shift_list_cases': check_shift_span(),
+                      'bitwise_shift_decisions': check_bitwise_shift_selection(),
                       'toy_low_weight_words': bad_words, 'toy_codewords': codewords,
                       'toy_min_distance': minimum, 'result': 'pass'}, indent=2, sort_keys=True))
 

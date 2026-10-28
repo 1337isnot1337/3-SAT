@@ -113,9 +113,16 @@ term exceeding exp(epsilon^2 d/4). Since
 
     epsilon^2 d/4 = d/(16 K^2) = 4 mu,
 
-this exceeds 2(q-1)<2^(mu+1). All rational numerators have polynomial bit
-length and all q shifts can be enumerated at each step. For q=1 the mixing
-bound is immediate.
+this exceeds 2(q-1)<2^(mu+1). All rational numerators have polynomial bit length. The shifts can be chosen
+bit by bit, avoiding the enumeration of all q candidates at every round. For
+a partially fixed shift, a nonzero character has a known sign exactly when
+none of its remaining coordinates is selected by that character; otherwise
+its conditional expected sign is zero. Thus each of the two choices for the
+next bit has an exactly computable conditional potential, and their average is
+the previous potential. Choose the lower one. At most 2q ceil(log2 q) terms
+are examined per shift, for O(d q log q) term evaluations in total instead
+of O(d q^2); integer bit lengths remain polynomial. For q=1 the mixing bound
+is immediate.
 
 The source mixing argument gives, for any nonzero accepted edge word of
 weight w and touched vertex sets U,V,
@@ -166,7 +173,8 @@ iterated logarithm or increase alpha.
 
 The verifier checks 20,000 seeded integer schedules, directly exercises a
 positive-h parameter branch using a 65,537-bit integer, checks 2,000 exact
-inner-code entropy cases, exhausts small Walsh shift lists, checks two scaled
+inner-code entropy cases, exhausts small Walsh shift lists and bitwise
+conditional-potential decisions, checks two scaled
 conditional-expectation constructions, and enumerates all 32,767 nonzero
 words in a small GF(8)-outer concatenated code whose binary inner encoder is
 selected from the checked conditional-expectation matrix. The finite

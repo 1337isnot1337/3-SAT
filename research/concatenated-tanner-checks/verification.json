@@ -1,4 +1,5 @@
 {
+  "bitwise_shift_decisions": 120,
   "direct_positive_h": 2,
   "entropy_checks": 2000,
   "parameter_cases": 20000,
