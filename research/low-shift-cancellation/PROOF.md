@@ -12,10 +12,10 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4) + 2 max(0,floor(h/2)-2).
+2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + [h>=4].
 ```
 
-For even h>=4 this is 4h-8, and for odd h>=5 it is 4h-9. This
+For even h>=4 this is 4h-7, and for odd h>=5 it is 4h-8. This
 strengthens PR #59's lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. The new witnesses use y=(h), which
 can be absent from the source's lexicographic binary codebook; no stronger
@@ -76,6 +76,25 @@ to an h-4-dimensional space of genuine rational combinations of piece
 entries supported entirely in `[-h,h]`: m_1=0 cancels both endpoint
 coefficients. Multiplicity-vector embedding ensures no nonzero vector in
 this kernel maps to the zero Laurent polynomial.
+
+## A diagonal symmetric low-shift row
+
+Still using x=v=e and y=(h), let P_diag be the row with output (h), and
+let P_ref be the row for the three-part output `(h-2,1,1)`. The original
+crossing identity gives `P_diag(1)=h!`, while P_ref(1)=0. At z^(h+1),
+the first operator produces `h^2 t_1^(h-1)`. To return to t_h, the
+second annihilates all h-1 ones and creates t_h, in h choices, so the
+diagonal endpoint is `h^2 h!`. Formula (1) gives the P_ref endpoint
+`C_h=(h-1) h^2 h!`. Therefore
+
+```
+W_diag = (h-1) P_diag - P_ref
+```
+
+is symmetric and supported in [-h,h]. It is annihilated by L, since both
+of its rows lie in the all-ones label slice, and `W_diag(1)=(h-1)h!`.
+Every row of the three-part low-shift space vanishes at z=1, by (1).
+Consequently W_diag adds one independent symmetric direction.
 
 ## A one-sided space from two-part outputs
 
@@ -198,8 +217,8 @@ This also proves each image map injective, by setting the other input
 to zero. Hence the new negative-only space has dimension
 `max(0,floor(h/2)-2)`.
 
-It remains independent of the symmetric low-support space together with
-the previous positive-only space. If S is symmetric and P,N are the
+It remains independent of the augmented symmetric low-support space,
+including W_diag, together with the previous positive-only space. If S is symmetric and P,N are the
 positive- and negative-only rows with S+P+N=0, then
 `P(z)-N(1/z)` is both a polynomial in z and a polynomial in z^-1, hence
 constant. Both P and N vanish at z=1, so that constant is zero; the
@@ -226,7 +245,7 @@ other rows, so its coefficient is zero; then shift -2h isolates G_(h-1).
 Proceeding downward through h+2 successively eliminates F_l and G_(l-1);
 shift h+1 finally eliminates F_1. All three low-support spaces have no terms at those shifts and their
 sum is direct, so that sum meets the predecessor span only at zero.
-Their dimensions give rank at least `3h-4+2 max(0,floor(h/2)-2)` for h>=4.
+Their dimensions give rank at least `3h-3+2 max(0,floor(h/2)-2)` for h>=4.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
 

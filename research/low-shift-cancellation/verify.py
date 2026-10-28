@@ -60,6 +60,17 @@ def closed_three(h, output):
     return {s: v for s, v in coefficients.items() if v}
 
 
+def closed_diagonal(h):
+    result = defaultdict(int)
+    result[0] = math.factorial(h)
+    scale = h*h*math.factorial(h)
+    for j in range(3):
+        value = scale*math.comb(2,j)*(-1)**j
+        result[h-1+j] += value
+        result[-h-1+j] += value
+    return {s: v for s, v in result.items() if v}
+
+
 def closed_two(h, output):
     counts = Counter(output)
     denom = math.prod(math.factorial(n) for n in counts.values())
@@ -115,6 +126,7 @@ def run():
     two_part_cases = 0
     two_part_recurrence_rows = 0
     reverse_recurrence_rows = 0
+    diagonal_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
         symmetric_polynomials = []
@@ -142,6 +154,18 @@ def run():
         ref_count, ref_poly = next((n, v) for n, v in symmetric_polynomials if n)
         symmetric_low = [[ref_count*poly.get(j, 0)-n*ref_poly.get(j, 0)
                           for j in range(-h, h+1)] for n, poly in symmetric_polynomials]
+        diagonal = closed_diagonal(h)
+        ref_raw = closed_three(h, (h-2, 1, 1))
+        diag_low = {j: (h-1)*diagonal.get(j, 0)-ref_raw.get(j, 0)
+                    for j in set(diagonal)|set(ref_raw)}
+        assert all(not value or abs(j) <= h for j, value in diag_low.items())
+        assert sum(diag_low.values()) == (h-1)*math.factorial(h)
+        symmetric_low.append([diag_low.get(j, 0) for j in range(-h, h+1)])
+        if h <= 6:
+            direct = {shift: dict(piece_vector(one, one, (h,), shift)).get((h,), 0)
+                      for shift in range(-2*h, 2*h+1)}
+            assert {s: value for s, value in direct.items() if value} == diagonal
+            diagonal_recurrence_rows += 1
         reference = (h-2, 2)
         if h <= 6:
             d = (2,) + (1,)*(h-2)
@@ -184,13 +208,14 @@ def run():
             two_part_cases += 1
         assert modular_rank(one_sided_rows, prime) == max(0, h//2-2)
         assert modular_rank(symmetric_low + combined_positive + combined_negative, prime) == (
-            h-4 + 2*max(0, h//2-2))
+            h-3 + 2*max(0, h//2-2))
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
                       'multiplicity_and_kernel_rank_cases': 37,
                       'one_sided_rank_cases': 37, 'two_part_cases': two_part_cases,
                       'two_part_recurrence_rows': two_part_recurrence_rows,
-                      'reverse_recurrence_rows': reverse_recurrence_rows, 'prime': prime}, indent=2))
+                      'reverse_recurrence_rows': reverse_recurrence_rows,
+                      'diagonal_recurrence_rows': diagonal_recurrence_rows, 'prime': prime}, indent=2))
 
 
 if __name__ == '__main__':

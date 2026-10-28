@@ -10,5 +10,6 @@
   "two_part_cases": 361,
   "two_part_recurrence_rows": 7,
   "reverse_recurrence_rows": 7,
+  "diagonal_recurrence_rows": 3,
   "prime": 1000003
 }
