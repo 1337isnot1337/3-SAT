@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "finite branching and sparse-outer identities, not full source algorithm",
+  "three_variable_antichains": 1465,
+  "strict_branch_checks": 27696,
+  "certified_zero_X_cases": 2396,
+  "positive_X_cases": 196,
+  "positive_X_wrong_F_controls": 196,
+  "signed_CRT_F_cases": 2592,
+  "sha256": {
+    "research/general-density-streamed-space/PROOF.md": "10f45baac9c4f67daa6d570ff87d34a8956424b9adc82af142400bcc69151a5d",
+    "research/general-density-streamed-space/verify.py": "666fa6962d65f7b678389570da8d90dd888bd39581eab6e244962bd5d5b5d9c0",
+    "research/deterministic-crt-transfer/verify.py": "f22639017e8c259144354d78f0d74a05024d011a40fd55bb8d9469d067bca6a7"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "general-density-streamed-space",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "conditional_general_density_streamed_composition",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "3ede89684cdeb1a0121673823e26d13c4817c3b7",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Under the source crossing, recurrence, disjoint sparsification and time hypotheses, polynomial-workspace field-factor/root contracts, and a uniformly generated deterministic good-prime inventory, the general-density counting route can stream its sparsification stack, profile queries and greedy state in polynomial workspace while retaining the source n log log n/(log n)^alpha time envelope. The accepted baseline already has polynomial-space alpha 1/2; no better rho or selected result is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/general-density-streamed-space/PROOF.md",
+    "research/general-density-streamed-space/verify.py",
+    "research/general-density-streamed-space/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/general-density-streamed-space/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the source-dependent all-size space and time composition",
+    "A truly cheaper crossing family satisfying both rank and uniform resource contracts",
+    "A deterministic good-prime inventory under unrestricted rational generation"
+  ]
+}
