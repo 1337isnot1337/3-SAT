@@ -1,0 +1,101 @@
+{
+  "direct_cubic_zero_mode_checks": 76,
+  "full_parity_compression_tests": [
+    {
+      "label_grade": 2,
+      "output_energy": 2,
+      "charge": 1,
+      "labels": 2,
+      "output_states": 2,
+      "scalar_pairing_rank": 1,
+      "offdiagonal_same_parity_checks": 0
+    },
+    {
+      "label_grade": 3,
+      "output_energy": 2,
+      "charge": 1,
+      "labels": 3,
+      "output_states": 2,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 0
+    },
+    {
+      "label_grade": 3,
+      "output_energy": 3,
+      "charge": 1,
+      "labels": 3,
+      "output_states": 3,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 18
+    },
+    {
+      "label_grade": 3,
+      "output_energy": 4,
+      "charge": 1,
+      "labels": 3,
+      "output_states": 5,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 72
+    },
+    {
+      "label_grade": 4,
+      "output_energy": 4,
+      "charge": 1,
+      "labels": 5,
+      "output_states": 5,
+      "scalar_pairing_rank": 4,
+      "offdiagonal_same_parity_checks": 200
+    },
+    {
+      "label_grade": 5,
+      "output_energy": 5,
+      "charge": 1,
+      "labels": 7,
+      "output_states": 7,
+      "scalar_pairing_rank": 5,
+      "offdiagonal_same_parity_checks": 882
+    }
+  ],
+  "additional_charge_checks": [
+    {
+      "label_grade": 3,
+      "output_energy": 4,
+      "charge": -1,
+      "labels": 3,
+      "output_states": 5,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 72
+    },
+    {
+      "label_grade": 3,
+      "output_energy": 4,
+      "charge": 0,
+      "labels": 3,
+      "output_states": 5,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 72
+    },
+    {
+      "label_grade": 3,
+      "output_energy": 4,
+      "charge": 2,
+      "labels": 3,
+      "output_states": 5,
+      "scalar_pairing_rank": 2,
+      "offdiagonal_same_parity_checks": 72
+    }
+  ],
+  "one_state_rank_only": {
+    "label_grade": 6,
+    "labels": 11,
+    "scalar_pairing_rank": 8
+  },
+  "sha256": {
+    "research/charged-cubic-parity/verify.py": "334df2f145845041ab04b82703512c969c61056749ec6135fda9d26c184206a8",
+    "research/charged-cubic-parity/PROOF.md": "c90a339f593509a07c1fac54ac604693587e8d80b8904b3928bb4adcf3064e0a",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
