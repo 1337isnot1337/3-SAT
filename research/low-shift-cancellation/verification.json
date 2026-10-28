@@ -14,5 +14,6 @@
   "second_input_recurrence_rows": 2,
   "second_diagonal_recurrence_rows": 1,
   "general_input_recurrence_rows": 1,
+  "high_recurrence_rows": 6,
   "prime": 1000003
 }

@@ -167,6 +167,42 @@ def one_sided(output, reference):
     return {s: v for s, v in result.items() if v}
 
 
+def high_row(h):
+    factor = -(h-1)*math.factorial(h)
+    terms = ((-h-1,h), (-h,-(h-2)), (-3,2), (h-1,h+1), (h-2,-(h-1)))
+    result = defaultdict(int)
+    for exponent, value in terms:
+        for j in range(4):
+            result[exponent+j] += factor*value*math.comb(3,j)*(-1)**(3-j)
+    return {s: v for s, v in result.items() if v}
+
+
+def g_one(h):
+    k = h//2
+    factor = -math.comb(h-2,k-1)*math.comb(h,k+1)*math.factorial(h-k-1)*h
+    bracket = defaultdict(int)
+    if h % 2 == 0:
+        bracket[-h-2] = h+1
+        bracket[-h-1] = -1
+        bracket[0] = h+2
+        degree = h+1
+    else:
+        for exponent, value in ((-h,k*(k-1)), (-h-1,k*(k+1)),
+                                (1,k*(k+1)), (0,k*(k+1))):
+            bracket[exponent] += 2*value
+        n2 = {-h-1: -(h+1)*(k-1)+(k-1),
+              -h-2: -(h+1)*(k+1), 0: k+1}
+        for exponent, value in n2.items():
+            bracket[exponent+1] += value
+            bracket[exponent] -= value
+        degree = h
+    result = defaultdict(int)
+    for exponent, value in bracket.items():
+        for j in range(degree+1):
+            result[exponent+j] += factor*value*math.comb(degree,j)*(-1)**(degree-j)
+    return {s: v for s, v in result.items() if v}
+
+
 def run():
     prime = 1000003
     formula_cases = 0
@@ -178,10 +214,31 @@ def run():
     second_input_recurrence_rows = 0
     second_diagonal_recurrence_rows = 0
     general_input_recurrence_rows = 0
+    high_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
         symmetric_polynomials = []
         one = (1,)*h
+        d = (2,) + (1,)*(h-2)
+        g, r = g_one(h), high_row(h)
+        ge = g.get(-h-2, 0)
+        gd = g.get(-h-1, 0)-g.get(h+1, 0)
+        re = r.get(-h-2, 0)-r.get(h+2, 0)
+        rd = r.get(-h-1, 0)-r.get(h+1, 0)
+        assert ge and re and rd*ge != gd*re
+        assert rd*(h+1) == -(3*h+2)*re
+        k = h//2
+        if h % 2 == 0:
+            assert gd == -h*ge
+        else:
+            assert gd*(k+1)**2 == -(2*k**3+3*k**2+4*k+2)*ge
+        if h <= 6:
+            output = one if h % 2 == 0 else d
+            for y, u, expected in (((h,), output, g), ((h-1,1), (h,), r)):
+                direct = {shift: dict(piece_vector(d, one, y, shift)).get(u, 0)
+                          for shift in range(-2*h, 2*h+1)}
+                assert {j: value for j, value in direct.items() if value} == expected
+                high_recurrence_rows += 1
         for output in three_partitions(h):
             vector = [output.count(j) for j in range(1, h-1)]
             rows.append(vector)
@@ -317,6 +374,7 @@ def run():
                       'second_input_recurrence_rows': second_input_recurrence_rows,
                       'second_diagonal_recurrence_rows': second_diagonal_recurrence_rows,
                       'general_input_recurrence_rows': general_input_recurrence_rows,
+                      'high_recurrence_rows': high_recurrence_rows,
                       'prime': prime}, indent=2))
 
 

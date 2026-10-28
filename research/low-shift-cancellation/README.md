@@ -8,14 +8,15 @@ OpenAI Codex assistance.
 
 The [proof](PROOF.md) improves PR #59's uncharged **full partition-space**
 shift-rank lower bound to
-`2h+max(0,h-4)+2 max(0,floor(h/2)-2)+[h>=4]+2[h>=6]+[h>=9]`:
-4h-4 for even h>=10 and 4h-5 for odd h>=9. An explicit normal-order
+`2h+max(0,h-4)+2 max(0,floor(h/2)-2)+2[h>=4]+2[h>=6]+[h>=9]`:
+4h-3 for even h>=10 and 4h-4 for odd h>=9. An explicit normal-order
 formula identifies three-part output rows with their partition multiplicity
 vectors. Their span has dimension h-3; its h-4-dimensional kernel at the
 one-part coordinate gives low-support rows independent of PR #59's hook and
 moment witnesses. A diagonal low-support row adds one further symmetric
 direction, another two-part input adds two for h>=6, and a further input
-adds one for h>=9. In particular, the all-ones label slice has exactly
+adds one for h>=9. A nonsymmetric high-shift row adds another for h>=4.
+In particular, the all-ones label slice has exactly
 2h shift directions for h>=9, matching PR #59's upper bound. Two-part
 constructions in opposite label orders supply two independent
 one-sided low-support spaces, also independent of the symmetric space.

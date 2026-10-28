@@ -12,10 +12,10 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + [h>=4] + 2[h>=6] + [h>=9].
+2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + 2[h>=4] + 2[h>=6] + [h>=9].
 ```
 
-For even h>=10 this is 4h-4, and for odd h>=9 it is 4h-5. This
+For even h>=10 this is 4h-3, and for odd h>=9 it is 4h-4. This
 strengthens PR #59's lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. Moreover, for h>=9 the fixed
 all-ones label slice has shift-span rank exactly 2h: the symmetric
@@ -368,6 +368,80 @@ Their dimensions give rank at least
 `3h-3+2 max(0,floor(h/2)-2)+2[h>=6]+[h>=9]` for h>=4.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
+
+## A nonsymmetric high-shift direction
+
+For h>=4, take labels x=d, v=e, input `(h-1,1)` and output `(h)`.
+Call its shift polynomial R. As before, the mixed zeroth and second
+moments vanish, so L(R)=0. Normal ordering gives
+
+```
+R(z)=-(h-1)h! (z-1)^3 [
+ h z^(-h-1) -(h-2)z^(-h) +2z^(-3)
+ +(h+1)z^(h-1) -(h-1)z^(h-2) ].                            (5)
+```
+
+Indeed exactly one field remains uncontracted on the a side and two on
+the b side. The coefficient of `:J_1(z)J_1(1)^2:` is `-h!`, and that
+of `(z-1):J_2(z)J_1(1)^2:` is `-h!/2`. Between input `(h-1,1)` and
+output `(h)` their entries are respectively
+
+```
+2(h-1)[z^(-h)+z^(-2)+z^(h-1)],
+2(h-1)[-h z^(-h-1)-2z^(-3)+(h-1)z^(h-2)],
+```
+
+which gives (5). In particular R is supported in `[-h-1,h+2]` and
+its four relevant endpoint coefficients obey
+
+```
+(R_(-h-1)-R_(h+1))/(R_(-h-2)-R_(h+2)) = -(3h+2)/(h+1). (6)
+```
+
+Let G_1 be the first nonsymmetric predecessor hook row. Its input is
+(h), its labels are d,e, and its output is e for even h and d for odd h.
+It has no positive shift h+2, a nonzero negative shift -h-2, and
+
+```
+(G_1,-(h+1)-G_1,h+1)/G_1,-(h+2)
+  = -h                                                    if h=2k,
+  = -(2k^3+3k^2+4k+2)/(k+1)^2                           if h=2k+1. (7)
+```
+
+For a direct derivation, set
+`D=-binom(h-2,k-1)binom(h,k+1)(h-k-1)!`. Normal ordering the d,e labels
+and input (h) leaves k fields on the a side and k+1 on the b side. If
+h=2k, the output is e and
+
+```
+G_1(z)=D h (z-1)^(h+1) [(h+1)z^(-h-2)-z^(-h-1)+(h+2)].
+```
+
+If h=2k+1, the output is d and
+
+```
+G_1(z)=D h (z-1)^h [
+ 2k(((k-1)z+(k+1))z^(-h-1)+(k+1)(z+1))
+ +(z-1)(-(h+1)((k-1)z+(k+1))z^(-h-2)
+          +(k-1)z^(-h-1)+(k+1)) ].
+```
+
+These expressions use the same `Gamma_21=-2` contraction and the
+`J_1,J_2` definitions as (2); expansion gives (7). The normal-order
+checker compares them with the original recurrence at h=4,5,6.
+
+The values in (6) and (7) differ for every h>=4. In the even case this
+is `h^2-2h-2>0`; in the odd case k>=2 and the difference after clearing
+positive denominators is `(k-1)(2k+1)^2>0`.
+
+R cannot lie in the preceding span. If it did, L(R)=0 and all low rows
+and F_l,G_l have zero L, while L(H)!=0, so H's coefficient would vanish.
+R has no shifts beyond h+2 in magnitude. Descending through high shifts
+forces all F_l with l>=3 and all G_l with l>=2 to vanish, leaving only
+F_1,F_2,G_1. Since F_1,F_2 are symmetric and G_1 has zero positive
+h+2 endpoint, their antisymmetric endpoint ratios would force (6) to
+equal (7), a contradiction. Thus R adds one independent direction for
+all h>=4. It uses states that may be absent from the binary codebook.
 
 ## Limits
 
