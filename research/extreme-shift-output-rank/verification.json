@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "scope": "finite fixed-label compressed operator controls; all-size argument is in PROOF.md",
+  "profiles": [
+    {
+      "bits": 1,
+      "h": 4,
+      "N": 2,
+      "fixed_label_pairs": 4,
+      "shifts": [
+        -8,
+        -7,
+        -6,
+        0,
+        6,
+        7,
+        8
+      ],
+      "two_order_and_rank_checks": 28,
+      "separable_label_mixture_checks": 7,
+      "central_full_rank_controls": [
+        {
+          "shift": -4,
+          "maximum_rank": 2
+        },
+        {
+          "shift": -3,
+          "maximum_rank": 2
+        },
+        {
+          "shift": -2,
+          "maximum_rank": 2
+        },
+        {
+          "shift": -1,
+          "maximum_rank": 2
+        },
+        {
+          "shift": 0,
+          "maximum_rank": 2
+        },
+        {
+          "shift": 1,
+          "maximum_rank": 2
+        },
+        {
+          "shift": 2,
+          "maximum_rank": 2
+        },
+        {
+          "shift": 3,
+          "maximum_rank": 2
+        },
+        {
+          "shift": 4,
+          "maximum_rank": 2
+        }
+      ],
+      "max_observed_compressed_rank": 2,
+      "endpoint_pair_budget": 2,
+      "endpoint_scalar_weight_checks": 0
+    },
+    {
+      "bits": 2,
+      "h": 6,
+      "N": 4,
+      "fixed_label_pairs": 4,
+      "shifts": [
+        -12,
+        -11,
+        -10,
+        0,
+        10,
+        11,
+        12
+      ],
+      "two_order_and_rank_checks": 28,
+      "separable_label_mixture_checks": 7,
+      "central_full_rank_controls": [
+        {
+          "shift": -6,
+          "maximum_rank": 4
+        },
+        {
+          "shift": -5,
+          "maximum_rank": 4
+        },
+        {
+          "shift": -4,
+          "maximum_rank": 4
+        },
+        {
+          "shift": -3,
+          "maximum_rank": 4
+        },
+        {
+          "shift": -2,
+          "maximum_rank": 4
+        },
+        {
+          "shift": -1,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 0,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 1,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 2,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 3,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 4,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 5,
+          "maximum_rank": 4
+        },
+        {
+          "shift": 6,
+          "maximum_rank": 4
+        }
+      ],
+      "max_observed_compressed_rank": 4,
+      "endpoint_pair_budget": 2,
+      "endpoint_scalar_weight_checks": 100
+    }
+  ],
+  "unequal_energy_controls": [
+    {
+      "h": 4,
+      "E": 0,
+      "output_dimension": 1,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 1,
+      "output_dimension": 1,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 3,
+      "output_dimension": 3,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 5,
+      "output_dimension": 7,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    }
+  ],
+  "noncoordinate_control": {
+    "h": 6,
+    "D": 4,
+    "ambient_dimension": 11,
+    "shifts": [
+      -12,
+      -11,
+      11,
+      12
+    ],
+    "rank_checks": 4,
+    "endpoint_weight_checks": 25
+  },
+  "model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
+}

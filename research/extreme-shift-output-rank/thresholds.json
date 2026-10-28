@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "finite exact rank-budget scan; no eventual monotonicity claim",
+  "maximum_grade": 2000,
+  "number_of_grade_events": 146,
+  "last_grade_event": {
+    "h": 1987,
+    "bits": 146
+  },
+  "results": {
+    "1/4": {
+      "first_passing_grade": {
+        "h": 887,
+        "bits": 93
+      },
+      "passing_events": 54,
+      "later_failing_grades": []
+    },
+    "1/2": {
+      "first_passing_grade": {
+        "h": 92,
+        "bits": 23
+      },
+      "passing_events": 124,
+      "later_failing_grades": []
+    },
+    "3/4": {
+      "first_passing_grade": {
+        "h": 14,
+        "bits": 5
+      },
+      "passing_events": 142,
+      "later_failing_grades": []
+    }
+  }
+}

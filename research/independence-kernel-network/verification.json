@@ -1,0 +1,33 @@
+{
+  "F3_kernel_and_coefficient_rank_control": [
+    3,
+    2
+  ],
+  "GF8_size_parity_interpolations": 200,
+  "GF8_weighted_and_group_lift_cases": 2000,
+  "boolean_weight_cases": 65536,
+  "checker_sha256": "1c81678462ab620f7c455dd3e4c2074cc0b7691ad002043e63703c3477dc8314",
+  "dense_rowspace_controls": {
+    "cases": 16,
+    "max_n": 32
+  },
+  "encoded_F4_row_checks": 8192,
+  "explicit_xor_gate_cases": 65536,
+  "matrices_3x4": 4096,
+  "mismatched_characteristic_control_F3": [
+    0,
+    2
+  ],
+  "nonzero_column_rowspace_cases": 2401,
+  "paired_order_controls": {
+    "cases": 32,
+    "max_b": 32
+  },
+  "prime_power_identity_cases": {
+    "3": 729,
+    "4": 4096
+  },
+  "row_basis_cases": 4096,
+  "seed": 25104,
+  "zeta_coefficient_checks": 65536
+}

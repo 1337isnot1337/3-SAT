@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "independence-kernel-network",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Over matching characteristic, a finite-field matroid independence polynomial is a weighted kernel sum; binary and fixed characteristic-two prime-power inputs admit nonlocal sparse networks and accepted-contraction evaluation. No SAT improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/independence-kernel-network/PROOF.md",
+    "research/independence-kernel-network/verify.py",
+    "research/independence-kernel-network/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/independence-kernel-network/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the polynomial identity and grouped-ring cost",
+    "Integrate actual clause violations and all sparse-query costs",
+    "Prove a uniformly improved complete SAT bound before claiming one"
+  ]
+}

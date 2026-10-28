@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "eight-macro high-floor invariant dual rank",
+  "all_types": 24310,
+  "eligible_types": 6345,
+  "input_orbits": 1382,
+  "output_orbits": 5594,
+  "prime": 65521,
+  "minor_rank": 1382,
+  "direct_entry_controls": 20,
+  "bindings": {
+    "research/unfused-f8-dual/eight.py": "f0c4ef652fcbcdd2352edd1366254385ce2cb36873432d23068a6181427d989d",
+    "research/unfused-f8-dual/eight.cpp": "db39d5d1ef574e566997680120c284d31ef76c414152e405b81e9d8604a3b9e4",
+    "research/unfused-f8-dual/eight-pivot-rows.json": "55fac8bd10a54afd2a62209e9a7c9007ebd534f9f997a895f2f392daa836e82a",
+    "research/unfused-f8-dual/screen.py": "875bf4f84f86d76474ebe4d9ae94d9d2b158bfa795e3759958e99da857dc132b",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235",
+    "research/three-bit-macro-walsh/four-block-dual.json": "be01ea894d2772bbab5b825165f6aa6de8b24b2eb3fc27b3d567babae877a5d0"
+  }
+}

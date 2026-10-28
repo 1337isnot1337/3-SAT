@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "scalar-relation-witness",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For every h >= 2, explicit symmetric and antisymmetric hook entries yield full partition-space shift rank at least 2h, strengthened to 2h+max(0,floor((floor((2h-3)/3)-1)/2)) by low-support full-space witnesses; a codebook containing the reference states and q hooks inherits rank at least 2q. The source lexicographic codebook has q >= (2/kappa-o(1)) sqrt(h) log(h), kappa=pi sqrt(2/3). On energy E the all-ones label slice obeys Q_s=Q_-s and sum_s (s^2-4hE) Q_s=0, bounding its rank by 2h at E=h.",
+  "improves_bound": false,
+  "evidence": [
+    "research/scalar-relation-witness/PROOF.md",
+    "research/scalar-relation-witness/verify.py",
+    "research/scalar-relation-witness/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/scalar-relation-witness/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument",
+    "Determine full 4h rank for all h or locate further relations",
+    "Determine sharper actual codebook coverage and account for all recursive costs in any algorithmic proposal"
+  ]
+}
