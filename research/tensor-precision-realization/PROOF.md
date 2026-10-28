@@ -196,6 +196,50 @@ grows. It still does not match the generic `Theta(M D_i/u)` threshold,
 which can be exponentially larger in `a-i`, and does not imply any lower
 bound against a tensor-aware or different-deformation algorithm.
 
+## An extra cancellation for full packets
+
+For the periodic construction, suppose additionally that every used
+packet is full. Then each selected-row polynomial is divisible by
+`2^(2(a-u)+2)` at each active node, gaining `a-u` bits beyond the
+previous bound. With the same conditional-expectation word construction,
+complete active-node data vanish modulo
+
+```
+2^((floor(M/8)+1)*(2(a-u)+2)).
+```
+
+This improvement is specific to full packets; it does not change the
+arbitrary-occupancy result. To prove it, fix one selected row, one active
+node `t`, and one residue `y_0 mod P` whose word bit is 1. Because the
+row is selected, `t+x-y_0` has valuation at most `u-1`. All `h=L/P`
+columns `y_0+jP` are present. Write `T=t+alpha z` and
+`A=T-(y_0-x)`. In the two-adic formal power-series ring,
+
+```
+sum_{j=0}^{h-1} W_{x,y_0+jP}(T)
+ = W_{x,y_0}(T) sum_{b>=0} (P/A)^b S_b,
+S_b = sum_{j=0}^{h-1} j^b.
+```
+
+The series converges coefficientwise because `P/A` has positive
+two-adic valuation. If `h=2^k`, every `S_b` is divisible by `2^(k-1)`
+for `k>=1`; for `b=0` it is divisible by `2^k`. This follows by induction
+on `k`, pairing `j` and `j+2^(k-1)`. Thus the `b=0` term is divisible
+by `2^k`, and every term with `b>=1` is also divisible by `2^k` because
+`P/A` is even. The conclusion is immediate when `h=1` as well.
+
+The first Cauchy factor has content at least `a+2-u` by the previous
+argument, and the parenthesized series has content at least `k=a-u`.
+Summing over the word's 1-residues preserves that divisibility. The
+selected-row product and the other integral row factors then yield the
+claimed bound. The full-packet bound fails for a partial packet: take `L=4`, `P=2`,
+real slots `{0,2,3}`, word `(0,1)`, selected row `x=3` and node `t=-3`.
+The sole 1-column is 3, so the row is the diagonal polynomial `W_33`.
+Its shifted content is exactly 3 by the predecessor's diagonal formula,
+while the full-packet bound would require 4. Exact finite controls are
+included in `verify_periodic.py`; they are examples, not a proof for all
+`L`.
+
 ## Deformation calculation
 
 Let `C(T)=product_{s=-L}^{L-1}(T-s)` and `alpha=2L`. The source's

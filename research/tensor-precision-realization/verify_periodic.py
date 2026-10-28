@@ -69,7 +69,8 @@ def construct_multi(counts,base):
 
 
 def main():
-    transfer=packet=rows=0
+    transfer=packet=rows=full_rows=0
+    partial_counterexample=None
     examples=[]
     for counts in ([[2,1],[1,2]], [[1,0,2,1],[0,1,1,2]]):
         words=construct_multi(counts,8)
@@ -112,11 +113,23 @@ def main():
                         shifted=full.prior.shift(forms[x],t,2*length)
                         assert all(not c or full.prior.valuation(c)>=a+2-u for c in shifted)
                         rows+=1
+                        if len(real)==length:
+                            assert all(not c or full.prior.valuation(c)>=2*(a-u)+2 for c in shifted)
+                            full_rows+=1
+                        else:
+                            content=min(full.prior.valuation(c) for c in shifted if c)
+                            if content < 2*(a-u)+2 and partial_counterexample is None:
+                                partial_counterexample={'L':length,'P':p,'real_slots':sorted(real),
+                                                        'word':list(word),'row':x,'t':t,
+                                                        'content':content,'full_packet_bound':2*(a-u)+2}
                     shifted=full.prior.shift(polynomial,t,2*length)
                     assert all(not c or full.prior.valuation(c)>=len(selected)*(a+2-u) for c in shifted)
                     packet+=1
+    assert partial_counterexample is not None
     print(json.dumps({'status':'PASS','cycle_transfer_bruteforce_checks':transfer,
                       'periodic_packet_product_checks':packet,'selected_row_checks':rows,
+                      'full_packet_cancellation_row_checks':full_rows,
+                      'partial_packet_counterexample':partial_counterexample,
                       'conditional_expectation_examples':examples,
                       'scope':'finite periodic words and two occupied sets per L,P; not an all-size proof'},indent=2))
 
