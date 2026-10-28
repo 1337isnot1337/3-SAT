@@ -58,3 +58,37 @@ recursion, bit cost and space remain open. The exact source convention for
 the h=1 test is documented in the merged scalar predecessor
 `research/sparse-oscillator-locality/PROOF.md`; the finite-characteristic
 pairing radical appears in `research/weighted-oscillator-rigidity/PROOF.md`.
+
+## Carry-aware source commutator and its vacuum radical
+
+The digit labels also permit a different operator choice. For each k, write
+`|n>_k` for the digit monomial encoding the ordinary occupation n, and set
+
+    R_k |n>_k = |n+1>_k,
+    L_k |n>_k = k(n mod p) |n-1>_k,  with L_k |0>_k = 0.
+
+R performs base-p carry; L performs borrow followed by the indicated field
+coefficient. These are linear operators on the digit-basis vector space,
+not the preceding multiplication/derivative operators. Their grade shifts
+are +k and -k, and, for every n,
+
+    (L_k R_k - R_k L_k)|n>_k = k |n>_k.
+
+Operators associated with distinct original k commute. Thus their h=1
+commutator sequence is the original linear `g(k)=k` over F_p, and the
+three-term second differences vanish at every shift. The action on the
+ordinary occupation basis is the standard creation/derivative action
+reduced modulo p, so implementing one such operator requires only a
+base-p increment or decrement and field multiplication.
+
+However, the vacuum pairing generated specifically by these operators is
+
+    <0| L_k^m R_k^n |0> = [m=n] k^n n!  (in F_p).
+
+It vanishes for every n>=p and also for positive n when p divides k. Thus
+the original source commutator and a nondegenerate digit pairing coexist on
+the same graded vector space only as **different operator interfaces**: the
+carry-based annihilators do not generate the full nondegenerate digit
+vacuum pairing. This is an exact component identity and does not rule out
+another operator construction linking them. It also does not establish the
+remaining source crossing, factorization, or cost contracts.

@@ -8,7 +8,7 @@
   "base_commit": "4ce0cb947bdb6837718c7061e45d3a723219d703",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Base-p digit oscillators restore a nondegenerate vacuum pairing with ordinary partition-number grade dimensions, but their naive unit-derivative operators fail the existing h=1 two-order identity at shift 1.",
+  "statement": "Base-p digit oscillators restore a nondegenerate vacuum pairing with ordinary partition-number grade dimensions, but their naive unit-derivative operators fail the existing h=1 two-order identity at shift 1. Carry-aware raising/lowering restores the k-weighted commutator but regenerates the factorial vacuum-pairing radical.",
   "improves_bound": false,
   "evidence": [
     "research/frobenius-digit-pairing/PROOF.md",

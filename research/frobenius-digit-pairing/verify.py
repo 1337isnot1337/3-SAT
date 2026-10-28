@@ -92,6 +92,21 @@ def main():
                     value += factor*(a[0]-b[0])
                 assert value % p == (1 if s == 1 else 0)
                 pairs += 1
+    carry_checks = 0
+    for p in (2, 3, 5, 17):
+        for k in range(1, 13):
+            for n in range(101):
+                lr = k*((n+1) % p) % p
+                rl = k*(n % p) % p
+                assert (lr-rl) % p == k % p
+                value = 1
+                for j in range(1, n+1):
+                    value = value*k*j % p
+                assert value == (pow(k, n, p)*factorial(n)) % p
+                if n >= p or (n and k % p == 0):
+                    assert value == 0
+                carry_checks += 1
+    print(f'PASS: {carry_checks} carry-operator commutators and vacuum pairing controls')
     print(f'PASS: {cases} grade bijections, {count} nonzero diagonal pairings, {pairs} direct h=1 operator comparisons')
 
 

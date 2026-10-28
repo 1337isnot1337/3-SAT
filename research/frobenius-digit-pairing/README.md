@@ -9,8 +9,11 @@ gives a nondegenerate vacuum pairing on every grade and an exact bijection to
 ordinary partitions. The dimension is therefore exactly P(E), with no
 state-count saving. A direct vacuum witness shows that the obvious unit
 creation/derivative operators fail the existing source h=1 two-order
-identity in every characteristic. The representation supplies neither a
-crossing construction nor an alternative complete SAT algorithm.
+identity in every characteristic. Carry-aware operators on the same digit
+labels recover the source commutator, but their generated vacuum pairing
+again has factorial radicals; that pairing is distinct from the full digit
+pairing. The representation supplies neither a crossing construction nor
+an alternative complete SAT algorithm.
 
 Reproduce with Python 3.11+ and the standard library:
 
@@ -21,7 +24,8 @@ make verify
 
 The finite replay checks 52 grade bijections through grade 12 over four prime
 fields, 1,088 nonzero diagonal pairings, and 15,219 direct operator
-comparisons across all three-mode digit states for p=2,3,5,17. These finite
+comparisons across all three-mode digit states for p=2,3,5,17, plus 4,848
+carry-commutator and pairing formula checks. These finite
 checks do not replace the written proof or verify any SAT algorithm.
 
 The local number of usable digit variables through grade E is at most 2E;
