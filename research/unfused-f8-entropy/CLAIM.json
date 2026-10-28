@@ -8,7 +8,7 @@
   "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "In the ten-class F8 Pauli coefficient model with type symmetry within each of o(R) labelled macro groups, a four-macro self-Fourier dual and entropy tensorization force some same summand to have both word supports at least 153664^sum_j floor(R_j/4) / product_j (R_j+1)^10, giving rho at least log2(153664)/24 > 1/sqrt(2) asymptotically. This is not a SAT lower bound or an improved SAT algorithm.",
+  "statement": "In the ten-class F8 Pauli coefficient model with type symmetry within each of o(R) labelled macro groups (or at most R/24000 groups), a four-macro self-Fourier dual and entropy tensorization force some same summand to have both word supports at least 153664^sum_j floor(R_j/4) / product_j (R_j+1)^10, giving rho at least log2(153664)/24 > 1/sqrt(2) when the group count is o(R), and a strict target-rate obstruction for at most R/24000 groups. This is not a SAT lower bound or an improved SAT algorithm.",
   "improves_bound": false,
   "evidence": [
     "research/unfused-f8-entropy/README.md",

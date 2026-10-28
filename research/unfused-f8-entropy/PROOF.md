@@ -168,14 +168,22 @@ log gives `sum log2(R_j+1) <= K log2(1+R/K)`, the bit-cost lower bound
 is `R log2(153664)/2 - O(K + K log(1+R/K))`. In particular, for *any*
 sequence of partitions with `K=o(R)`, the error is `o(R)` and the same
 strict asymptotic obstruction holds. This covers fixed numbers of groups
-and sublinearly many groups, without requiring equal sizes. It does not
-cover arbitrary functions with linearly many independent groups.
+and sublinearly many groups, without requiring equal sizes. It also yields
+a concrete linear-group allowance: if `K <= R/24000`, then the bit-cost
+lower bound is at least `(17/2 - 327/24000)R`, which is strictly greater
+than `6 sqrt(2) R`. Indeed `2^17 < 153664 < 2^18`,
+`log2(24001)<15`, and `6 sqrt(2) < 4243/500 < 17/2-327/24000`.
+The function `K log(1+R/K)` is increasing in K, so the same estimate
+holds for every smaller K. These comparisons are exact: `4243^2 > 72*500^2`
+and `17/2-327/24000 = 203673/24000 > 203664/24000 = 4243/500`.
+This does not cover arbitrary functions with unrestricted linearly many
+independent groups.
 
 ## Boundary and next premise
 
-The proof assumes type symmetry inside each of `o(R)` macro groups and
-constancy on the ten named local classes, and the Pauli-diagonal coefficient
-model. The one-group result is the globally symmetric special case. It
+The proof assumes type symmetry inside each of a common partition
+into `o(R)` macro groups (or at most `R/24000` groups) and constancy on
+the ten named local classes, and the Pauli-diagonal coefficient model. The one-group result is the globally symmetric special case. It
 allows arbitrary real coefficients, any finite number of summands and
 cancellation. It does not restrict general Pauli functions or arbitrary
 crossing tensors. A successor must change one of those premises. Any new
