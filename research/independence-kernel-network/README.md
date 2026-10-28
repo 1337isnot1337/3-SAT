@@ -18,6 +18,12 @@ then evaluates one point in polynomial space and
 `(s+L)^O(1) 2^O(s/sqrt(log s))` time, with `s=m+a+h` and field degree
 `O(log s)`. It is a component evaluation, not a full SAT algorithm.
 
+The polynomial identity extends to `F_q`-represented matroids when the
+coefficient field has characteristic p and `q=p^r`. For fixed `q=2^r`,
+the same accepted-contraction evaluation works after encoding each F_q
+symbol in r Boolean bits; the odd-characteristic case is an algebraic
+identity only.
+
 For `[I_b | I_b]` with separated copies, the network has O(b) wires while
 the ordered chain from PR #104 needs b² bond wires; an interleaved order
 avoids that separation. Thus the topology bypasses a fixed-order width cost,
@@ -34,7 +40,8 @@ make verify
 The checker compares the independent-set and kernel formulas on all 4,096
 binary 3-by-4 matrices and all 16 Boolean weight vectors, with explicit
 XOR-accumulator path counts and zeta coefficient checks, plus 2,000 seeded GF(8) weight vectors with
-grouped polynomial-lift controls. It also checks
+grouped polynomial-lift controls. The prime-power identity is checked
+exhaustively on 2-by-2 matrices over F3 and F4. It also checks
 32 paired-column width profiles. The [saved output](verification.json) pins
 the checker hash and seed. These are finite controls, not an independent
 review or an implementation of the accepted contraction solver.

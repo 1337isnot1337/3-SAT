@@ -118,3 +118,30 @@ sparsification branches, field and randomness costs, output recovery and
 space, and show a uniformly smaller total bound. Neither the identity, the
 finite checks, nor a cheap example establishes such a result. In particular,
 no lower bound on arbitrary SAT algorithms follows from the chain comparison.
+
+## Fixed prime-power extension
+
+Let A be represented over F_q with q=p^r, and let K be any field of
+characteristic p. The same coefficient count proves
+
+    I_A(z) = sum_(x in ker_Fq A)
+             product_(j:x_j!=0) z_j product_(j:x_j=0) (1+z_j) in K[z].
+
+Indeed, the coefficient of z_S is the image in K of
+q^(|S|-rank_Fq(A_S)), which is one for independent S and zero otherwise.
+This does not assert the identity when the coefficient characteristic
+differs from p.
+
+For fixed q=2^r and K=F_(2^e), encode each x_j by r Boolean bits in a
+fixed F_2 basis of F_q. Multiplication by each fixed matrix entry is an
+r-by-r binary linear map; row constraints become r systems of binary parity
+checks and can be implemented by degree-three XOR and equality tensors.
+Their total wires are O_q(m+a+h), with polynomial-time descriptions and
+entries. The local weight selects z_j if any of the r bits is nonzero and
+1+z_j otherwise. Group at most J=ceil(s^(1/5)) such weight factors as above,
+where s=m+a+h, and use the same field lift. For fixed q and e=O(log s),
+all wire, degree and ring hypotheses hold, giving the same accepted-theorem
+complexity up to q-dependent constants. For odd p the formal identity
+still holds, but the two-adic contraction application is not asserted.
+This is a general matroid-polynomial component and does not replace the
+binary sparse hashes in the SAT reduction.

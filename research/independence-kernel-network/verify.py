@@ -2,6 +2,7 @@
 """Check independent-set / kernel weight-enumerator identity over GF(8)."""
 import hashlib
 import json
+import itertools
 import random
 from pathlib import Path
 
@@ -87,6 +88,69 @@ def evaluate(cols, weights):
     assert lifted.bit_length() <= 5
 
 
+def small_add(a, b, q):
+    return (a+b) % 3 if q == 3 else a ^ b
+
+
+def small_mul(a, b, q):
+    if q == 3:
+        return a*b % 3
+    out = 0
+    while b:
+        if b & 1:
+            out ^= a
+        a <<= 1
+        if a & 4:
+            a ^= 7
+        b >>= 1
+    return out
+
+
+def small_rank(columns, q):
+    rows = [[col[i] for col in columns] for i in range(2)]
+    pivot = 0
+    for j in range(len(columns)):
+        r = next((r for r in range(pivot,2) if rows[r][j]), None)
+        if r is None:
+            continue
+        rows[pivot], rows[r] = rows[r], rows[pivot]
+        inverse = next(v for v in range(1,q) if small_mul(rows[pivot][j],v,q) == 1)
+        rows[pivot] = [small_mul(v,inverse,q) for v in rows[pivot]]
+        for r in range(pivot+1,2):
+            factor = rows[r][j]
+            if factor:
+                rows[r] = [small_add(x, small_mul(q-1 if q==3 else 1,
+                                  small_mul(factor,y,q),q),q)
+                           for x,y in zip(rows[r],rows[pivot])]
+        pivot += 1
+        if pivot == 2:
+            break
+    return pivot
+
+
+def general_identity(cols, weights, q):
+    left = right = 0
+    for mask in range(4):
+        chosen = [col for i,col in enumerate(cols) if mask >> i & 1]
+        if small_rank(chosen,q) == len(chosen):
+            term = 1
+            for i,z in enumerate(weights):
+                if mask >> i & 1:
+                    term = small_mul(term,z,q)
+            left = small_add(left,term,q)
+    for x in itertools.product(range(q), repeat=2):
+        syndrome = [0,0]
+        for j in range(2):
+            for i in range(2):
+                syndrome[i] = small_add(syndrome[i],small_mul(cols[j][i],x[j],q),q)
+        if syndrome == [0,0]:
+            term = 1
+            for j,z in enumerate(weights):
+                term = small_mul(term,z if x[j] else small_add(1,z,q),q)
+            right = small_add(right,term,q)
+    assert left == right
+
+
 def run():
     exhaustive = gate_cases = zeta_entries = 0
     for packed in range(8**4):
@@ -126,6 +190,15 @@ def run():
         cols = [rng.randrange(8) for _ in range(6)]
         weights = [rng.randrange(8) for _ in range(6)]
         evaluate(cols, weights)
+    general_cases = {}
+    for q in (3,4):
+        count = 0
+        for raw in itertools.product(range(q), repeat=4):
+            cols = [(raw[0],raw[1]), (raw[2],raw[3])]
+            for weights in itertools.product(range(q), repeat=2):
+                general_identity(cols,weights,q)
+                count += 1
+        general_cases[str(q)] = count
     # The pair family [I_b|I_b] has a triangular width profile of area b^2.
     controls = []
     for b in range(1, 33):
@@ -133,7 +206,8 @@ def run():
         assert sum(widths) == b*b
         controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
                          'ordered_width_sum': sum(widths)})
-    return {'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
+    return {'prime_power_identity_cases': general_cases,
+            'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
             'explicit_xor_gate_cases': gate_cases, 'zeta_coefficient_checks': zeta_entries,
             'GF8_weighted_and_group_lift_cases': 2000, 'seed': 25104,
             'paired_order_controls': controls,

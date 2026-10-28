@@ -8,7 +8,7 @@
   "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Over characteristic two, a binary-matroid independence polynomial is a weighted kernel sum at arbitrary field inputs; a nonlocal O(m+a+h)-wire network admits accepted-contraction evaluation. No SAT bound improvement is claimed.",
+  "statement": "Over matching characteristic, a finite-field matroid independence polynomial is a weighted kernel sum; binary and fixed characteristic-two prime-power inputs admit nonlocal sparse networks and accepted-contraction evaluation. No SAT improvement is claimed.",
   "improves_bound": false,
   "evidence": [
     "research/independence-kernel-network/PROOF.md",
