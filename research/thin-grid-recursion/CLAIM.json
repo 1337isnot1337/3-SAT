@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "thin-grid-recursion",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "limiting_thin_grid_minimax_recursion",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "e1e57cd165d9806b1bbf6500153ee1f37fedf093",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "In the specified ideal fixed-width limiting minimax recurrence, n times the squared coefficient tends to a positive constant.",
+  "improves_bound": false,
+  "evidence": [
+    "research/thin-grid-recursion/README.md",
+    "research/thin-grid-recursion/PROOF.md",
+    "research/thin-grid-recursion/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/thin-grid-recursion/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the asymptotic recurrence argument",
+    "Control finite-aspect-ratio errors and prove a feasible full rectangular recursion before claiming a runtime bound"
+  ]
+}
