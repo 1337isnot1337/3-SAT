@@ -29,6 +29,8 @@ Run the finite checks with:
 ```sh
 python3 -I -B research/extreme-shift-output-rank/verify.py > /tmp/extreme-shift.json
 cmp /tmp/extreme-shift.json research/extreme-shift-output-rank/verification.json
+python3 -I -B research/extreme-shift-output-rank/thresholds.py > /tmp/extreme-thresholds.json
+cmp /tmp/extreme-thresholds.json research/extreme-shift-output-rank/thresholds.json
 make verify
 ```
 
@@ -37,6 +39,14 @@ for four label pairs at each of grades 4 and 6, plus bounded endpoint scalar
 controls. They do not independently verify the all-size proof. The proof
 states the exact support and dimension conditions, the multiple-label-mixing
 limit, the partition asymptotics and the remaining obligations.
+
+An exact scan of the predecessor's selected grades through `h=2000` finds
+the first passing rank-budget inequalities at `(h, lambda)=(887,93)`,
+`(92,23)` and `(14,5)` for epsilon `1/4`, `1/2` and `3/4`, respectively.
+All later selected grades within that finite scan also pass. This records
+the conservative sufficient bound, not a sharp threshold or a proof of
+monotonicity beyond the scan; [thresholds.json](thresholds.json) gives the
+coverage.
 
 The source construction is [PR #11](../charged-operator-moments/PROOF.md),
 with the scalar-filter target and leading-capacity grade choice in

@@ -14,7 +14,9 @@
     "research/extreme-shift-output-rank/README.md",
     "research/extreme-shift-output-rank/PROOF.md",
     "research/extreme-shift-output-rank/verify.py",
-    "research/extreme-shift-output-rank/verification.json"
+    "research/extreme-shift-output-rank/verification.json",
+    "research/extreme-shift-output-rank/thresholds.py",
+    "research/extreme-shift-output-rank/thresholds.json"
   ],
   "reproduce": [
     "python3",
