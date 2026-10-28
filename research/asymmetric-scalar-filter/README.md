@@ -35,6 +35,15 @@ an `N` by `N` pairing matrix. The linear equations are solved over `Q`.
   vanish. Thus the grade-six conclusion cannot be extrapolated to all grades
   from these experiments alone.
 
+At `h=9`, `N=8`, five selected input pairs yield 315 necessary scalarity
+equations after setting the three central weights to zero. The 315 by 34
+integer matrix has rank 26 modulo 65537, so its rational rank is at least
+26 and the full scalar-filter solution space has dimension **at most 8**.
+This is a one-sided partial certificate: it does not show whether any of the
+remaining candidates satisfy all 64 input-pair constraints, yield nonzero
+pairings, or have rank 26 over the rationals. See
+[grade9-verification.json](grade9-verification.json).
+
 The full labels, exact rational weight bases and rank profiles are in
 [verification.json](verification.json). A rank of every displayed basis
 pairing is reported; an individual full-rank basis pairing certifies
@@ -47,6 +56,8 @@ rank from the individual basis ranks in other cases.
 ```sh
 python3 -I -B research/asymmetric-scalar-filter/verify.py > /tmp/scalar-filter.json
 cmp /tmp/scalar-filter.json research/asymmetric-scalar-filter/verification.json
+python3 -I -B research/asymmetric-scalar-filter/grade9.py > /tmp/grade9.json
+cmp /tmp/grade9.json research/asymmetric-scalar-filter/grade9-verification.json
 make verify
 ```
 

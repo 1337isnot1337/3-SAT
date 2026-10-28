@@ -8,12 +8,14 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For the fixed charge-one asymmetric predecessor codebooks, the grade-six N=4 scalar shift weights are exactly quadratic on shifts -12 through 12, and no nonzero scalar weight vanishes at -1, 0, and 1. At grade four N=2 a full-rank pairing survives that exclusion, while excluding -2 through 2 leaves only zero pairings. This is finite evidence, not an asymptotic SAT improvement.",
+  "statement": "For the fixed charge-one asymmetric predecessor codebooks, the grade-six N=4 scalar shift weights are exactly quadratic on shifts -12 through 12, and no nonzero scalar weight vanishes at -1, 0, and 1. At grade four N=2 a full-rank pairing survives that exclusion, while excluding -2 through 2 leaves only zero pairings. This is finite evidence, not an asymptotic SAT improvement. At h=9, five input pairs certify that the central-excluded scalar-weight space has rational dimension at most 8; existence remains open.",
   "improves_bound": false,
   "evidence": [
     "research/asymmetric-scalar-filter/README.md",
     "research/asymmetric-scalar-filter/verify.py",
-    "research/asymmetric-scalar-filter/verification.json"
+    "research/asymmetric-scalar-filter/verification.json",
+    "research/asymmetric-scalar-filter/grade9.py",
+    "research/asymmetric-scalar-filter/grade9-verification.json"
   ],
   "reproduce": [
     "python3",
