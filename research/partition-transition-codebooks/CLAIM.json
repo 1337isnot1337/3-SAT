@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "partition-transition-codebooks",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A uniformly constructed partition codebook simultaneously scalar-compresses all zero modes through logarithm-squared weight with leading partition capacity; an o(h) central interval can be filtered, with input pairing rank and SAT improvement unproved.",
+  "improves_bound": false,
+  "evidence": [
+    "research/partition-transition-codebooks/PROOF.md",
+    "research/partition-transition-codebooks/verify.py",
+    "research/partition-transition-codebooks/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/partition-transition-codebooks/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of codebook and predecessor moment arguments",
+    "Prove nonzero high-rank scalar input pairing and admissible normalization",
+    "Remove a fixed fraction of shifts and prove both directional rank bounds",
+    "Account for complete contraction, precision, transfer, and space"
+  ]
+}
