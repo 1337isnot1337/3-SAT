@@ -1,0 +1,9 @@
+{
+  "codewords": 4,
+  "row_outcomes": 64,
+  "nonempty_supports": 15,
+  "min_isolation_probability": "989/4096",
+  "max_encoded_collision": "5/8",
+  "unencoded_one_bit_collision": "25/32",
+  "status": "PASS"
+}
