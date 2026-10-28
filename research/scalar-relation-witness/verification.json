@@ -80,6 +80,7 @@
       ]
     }
   ],
+  "low_support_formula_cases": 171,
   "second_moment_input_states": 42,
   "mixed_moment_input_states": 76,
   "coverage_inequality_checked_h": [

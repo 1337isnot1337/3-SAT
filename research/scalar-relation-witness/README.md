@@ -9,8 +9,9 @@ with substantial OpenAI Codex assistance.
 The [proof](PROOF.md) gives an all-h lower bound 2h on the shift-span rank
 of full partition-space operator pieces using explicit symmetric and
 antisymmetric hook-partition entries and a moment-separated diagonal entry.
-A further low-support witness gives 2h+1 for h>=12 and h=6,9,10; its
-input state can be absent from the source codebook. The proof also shows
+Low-support witnesses strengthen this to
+`2h+floor((floor(h/2)-1)/2)`. Their input can be absent from the source
+codebook. The proof also shows
 that the fixed all-ones label slice has symmetric positive and negative
 shifts and at most 2h directions, using an exact second-moment identity on
 every energy space. The prior uncharged first-moment relation bounds full
@@ -37,7 +38,8 @@ python3 -I -B research/scalar-relation-witness/verify.py
 make verify
 ```
 
-The first command checks both families of endpoint formulas, the low-support witness at h=6,
+The first command checks both families of endpoint formulas, the low-support witness against the h=6 recurrence and
+a normal-order formula on a larger finite range,
 symmetry, support and exact integer entries for h=2,...,6, plus full-rank modular triangular minors; it
 also checks second moments for all-ones labels at h=1,...,4, and the mixed
 and diagonal identities at h=2,...,4, with E=0,...,h+1. It checks the

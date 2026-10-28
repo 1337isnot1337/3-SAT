@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Check extremal hook witnesses against the pinned operator implementation."""
+from collections import Counter, defaultdict
+from itertools import product
 import json
 import math
 import sys
@@ -24,6 +26,38 @@ def endpoint(h, length):
         second = math.comb(h, a) * (h - a) * math.factorial(h - length) // math.factorial(h - length - a)
         u = (2,) + (1,) * (h - 2)
     return y, u, first * second
+
+
+def low_support_normal_order(h, length):
+    """Laurent coefficients from normal ordering, for y=(h), x=v=(1^h)."""
+    output = (h - 2*(length - 1),) + (2,) * (length - 1)
+    multiplicities = Counter(output)
+    r = (length + 1) // 2
+    base = math.comb(h, r)**2 * math.factorial(h-r)
+    terms = defaultdict(int)
+    for choices in product(*(range(count + 1) for count in multiplicities.values())):
+        split = dict(zip(multiplicities, choices))
+        count_z = sum(choices)
+        denominator = math.prod(math.factorial(split[k]) * math.factorial(n-split[k])
+                                for k, n in multiplicities.items())
+        weight_z = sum(k * count for k, count in split.items())
+        numerator = h*r*math.factorial(r-1)*math.factorial(r)
+        if count_z == r-1:  # annihilation of t_h at z
+            terms[weight_z-r-h] += numerator // denominator
+        if count_z == r:    # annihilation of t_h at 1
+            terms[weight_z-r] += numerator // denominator
+    result = defaultdict(int)
+    for exponent, value in terms.items():
+        for j in range(2*r+1):
+            result[exponent+j] += base * value * math.comb(2*r, j) * (-1)**(2*r-j)
+    return output, {s: v for s, v in result.items() if v}
+
+
+def falling(value, degree):
+    result = 1
+    for i in range(degree):
+        result *= value-i
+    return result
 
 
 def run():
@@ -86,11 +120,6 @@ def run():
             assert all(low[shift+2*h] == 0
                        for shift in range(-2*h, 2*h+1) if abs(shift) > h)
             r = (h-t+1)//2
-            def falling(s, degree):
-                out = 1
-                for j in range(degree):
-                    out *= s-j
-                return out
             derivatives = [sum(falling(shift, degree) * low[shift+2*h]
                                for shift in range(-2*h, 2*h+1))
                            for degree in range(2*r+1)]
@@ -99,10 +128,26 @@ def run():
                         // (math.factorial(t)*math.factorial(h-2*t)))
             assert derivatives[:-1] == [0]*(2*r) and derivatives[-1] == expected
             assert modular_rank(full_rows + [low], 1000003) == 2*h+1
+            _, alternate = low_support_normal_order(h, 3)
+            assert {s: low[s+2*h] for s in range(-2*h, 2*h+1) if low[s+2*h]} == alternate
         report.append({'h': h, 'symmetric_rows': h, 'symmetric_rank': h,
                        'antisymmetric_rows': h - 1, 'antisymmetric_rank': h - 1,
                        'diagonal_moment_defect': defect, 'prime': 1000003,
                        'low_support_rank': 2*h+1 if h == 6 else None})
+    low_formula_cases = 0
+    for h in range(6, 41):
+        for length in range(3, h//2+1, 2):
+            output, values = low_support_normal_order(h, length)
+            r = (length+1)//2
+            assert all(abs(shift) <= h for shift in values)
+            assert all(values.get(-shift, 0) == value for shift, value in values.items())
+            derivatives = [sum(falling(shift, degree)*value for shift, value in values.items())
+                           for degree in range(2*r+1)]
+            m = Counter(output)
+            expected = (math.factorial(2*r)**2 * math.comb(h,r)**2
+                        * math.factorial(h-r)*h // math.prod(math.factorial(n) for n in m.values()))
+            assert derivatives[:-1] == [0]*(2*r) and derivatives[-1] == expected
+            low_formula_cases += 1
     codebooks = []
     for bits in range(1, 4):
         h = 2
@@ -167,6 +212,7 @@ def run():
         for h in groups.get(r, ()):
             assert partition_counts[h] - bounded[h] > partition_counts[h] - partition_counts[h-1]
     print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks,
+                      'low_support_formula_cases': low_formula_cases,
                       'second_moment_input_states': moment_cases,
                       'mixed_moment_input_states': mixed_moment_cases,
                       'coverage_inequality_checked_h': [11, 1000],

@@ -23,8 +23,8 @@ with one moment-separated diagonal entry they show that the full
 partition-space tensor family `(A_s)` has rank at least 2h. If a codebook
 contains e, d and exactly q of these y_l,
 the same argument certifies rank at least 2q in its encoded pieces.
-For h>=12, and h=6,9,10, an additional low-support full-space witness
-strengthens 2h to 2h+1. These statements do not assert the full rank.
+A family of low-support full-space witnesses strengthens 2h to
+`2h+floor((floor(h/2)-1)/2)`. These statements do not assert the full rank.
 The fixed x=v=e slice has at most 2h shift directions by itself.
 
 ## Symmetry
@@ -210,49 +210,50 @@ x=v=d, y=u=e entry it equals `-8h(h-1)h!`, which is nonzero. That
 entry is independent of all previous witnesses. It requires only e,d,
 so the rank bounds improve from 2h-1 and 2q-1 to 2h and 2q.
 
-## A low-support witness in the full space
+## Low-support witnesses in the full space
 
-For h>=12, choose the largest t<=floor(h/2) for which h-t is odd.
-Then `t >= (h-3)/2`, so `3t > h+1`. The same two inequalities hold
-for (h,t)=(6,3),(9,4),(10,5). Set y=(h) and
-`u=(2^t,1^(h-2t))`, and use labels x=v=e. This entry's Laurent
-polynomial W has support inside `[-h,h]` and is nonzero.
+For every odd integer ell with 3<=ell<=floor(h/2), choose y=(h) and
+`u_ell=(h-2(ell-1),2^(ell-1))`, and use labels x=v=e. All ell parts
+of u_ell are at least two. Its Laurent polynomial W_ell has support
+inside `[-h,h]` and is nonzero.
 
-To prove the support, b^e acts first on the one-part state y. At most
-one of its h fields can annihilate, so intermediate energy is at least
-h-1. Thus the positive shift is at most h+1. At s=h+1, only i=0 and
+To prove support, b^e acts first on the one-part state y. At most one
+of its h fields can annihilate, so intermediate energy is at least h-1.
+Thus the positive shift is at most h+1. At s=h+1, only i=0 and
 intermediate `t_1^(h-1)` can occur. If A of a^e's h fields annihilate
-and C=h-A create, the output has `(h-1)-A+C` parts. Matching u's
-h-t parts forces `C=(h-t+1)/2`. Each of its t parts of size two must
-be created, but `3t>h+1` makes t>C. Therefore the endpoint vanishes;
-symmetry gives the same bound on the negative end.
+and C=h-A create, the output has `(h-1)-A+C` parts. Matching u_ell's
+ell parts forces `C=(ell+1)/2`. Every one of its ell parts must be
+created because the intermediate parts are all ones, but ell>C for
+ell>=3. The endpoint therefore vanishes; symmetry gives the same bound
+on the negative end.
 
-For nonvanishing, let `r=(h-t+1)/2`. In the normal-ordered expansion,
-the state y can reach u only by annihilating its single part h and
-creating the h-t parts of u, requiring at least 2r uncontracted fields.
-At exactly 2r, the contribution at z=1 is strictly positive: one
-annihilation has coefficient h and all creation coefficients are one.
-The r uncontracted fields from each side can be chosen in
-`binom(h,r)^2` ways, and the rest paired in `(h-r)!` ways. Thus the
-coefficient of `(z-1)^(2r)` in W is
+For nonvanishing, let `r=(ell+1)/2` and let m_k be the multiplicity of
+k in u_ell. In the normal-ordered expansion, y can reach u_ell only by
+annihilating its single part h and creating the ell parts of u_ell,
+requiring exactly 2r uncontracted fields. At z=1, one annihilation has
+coefficient h and all creation coefficients are one. The r uncontracted
+fields from each side can be chosen in `binom(h,r)^2` ways, and the rest
+paired in `(h-r)!` ways. Thus the coefficient of `(z-1)^(2r)` is
 
 ```
-binom(h,r)^2 (h-r)! (2r)! h / [t! (h-2t)!] > 0.
+binom(h,r)^2 (h-r)! (2r)! h / product_k(m_k!) > 0.
 ```
 
-No smaller order can contribute and all higher orders vanish at that
-order, so W is nonzero. Its all-ones labels make the even functional L
-from the preceding section zero. Hence any relation involving W and the
-previous F_l, G_l and diagonal entry first has zero diagonal coefficient.
-At the largest remaining shift k=2h, the positive endpoint isolates
-F_h and the negative endpoint then isolates G_(h-1). Descending through
-k=h+2 similarly eliminates F_(k-h) and G_(k-h-1); finally the positive
-endpoint h+1 eliminates F_1. W has no support at any of those shifts,
-so it is independent. The full partition-space rank is therefore at least
-2h+1 for every h>=12, and also for h=6,9,10. This does not improve the
-encoded bound: the original codebook can omit y=(h). The checker tests
-all coefficients and the first nonzero derivative for h=6; the all-size
-nonvanishing and support are the written argument.
+No smaller order can contribute. As ell varies, these first nonzero
+orders ell+1 are distinct, proving the W_ell linearly independent.
+All have all-ones labels and hence the even functional L from the
+preceding section vanishes on them. Any relation involving the W_ell,
+the previous F_l, G_l and diagonal entry first has zero diagonal
+coefficient. At the largest remaining shift k=2h, the positive endpoint
+isolates F_h and the negative endpoint then isolates G_(h-1). Descending
+through k=h+2 similarly eliminates F_(k-h) and G_(k-h-1); finally the
+positive endpoint h+1 eliminates F_1. Every W_ell has no support at
+those shifts, and their independence finishes the argument. There are
+`floor((floor(h/2)-1)/2)` such rows, so the full partition-space rank
+is at least 2h plus that number for h>=2. This does not improve the
+encoded bound: the original codebook can omit y=(h). The checker compares
+a closed normal-order formula with the complete h=6 recurrence and
+checks a larger finite range; the all-size claim is the written argument.
 
 ## Coverage of the original lexicographic codebook
 
