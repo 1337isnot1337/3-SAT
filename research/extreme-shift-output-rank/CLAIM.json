@@ -20,7 +20,9 @@
     "research/extreme-shift-output-rank/central.py",
     "research/extreme-shift-output-rank/central.json",
     "research/extreme-shift-output-rank/triangular.py",
-    "research/extreme-shift-output-rank/triangular.json"
+    "research/extreme-shift-output-rank/triangular.json",
+    "research/extreme-shift-output-rank/charge_control.py",
+    "research/extreme-shift-output-rank/charge_control.json"
   ],
   "reproduce": [
     "python3",

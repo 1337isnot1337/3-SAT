@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "scope": "three grades and three charges; no all-size charge classification",
+  "profiles": [
+    {
+      "h": 4,
+      "N": 2,
+      "label_pair": [
+        1,
+        1
+      ],
+      "ranks": [
+        {
+          "charge": 0,
+          "shift": -4,
+          "rank": 0
+        },
+        {
+          "charge": 0,
+          "shift": 0,
+          "rank": 2
+        },
+        {
+          "charge": 0,
+          "shift": 4,
+          "rank": 2
+        },
+        {
+          "charge": 1,
+          "shift": -4,
+          "rank": 2
+        },
+        {
+          "charge": 1,
+          "shift": 0,
+          "rank": 2
+        },
+        {
+          "charge": 1,
+          "shift": 4,
+          "rank": 2
+        },
+        {
+          "charge": 2,
+          "shift": -4,
+          "rank": 2
+        },
+        {
+          "charge": 2,
+          "shift": 0,
+          "rank": 2
+        },
+        {
+          "charge": 2,
+          "shift": 4,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "h": 6,
+      "N": 4,
+      "label_pair": [
+        3,
+        3
+      ],
+      "ranks": [
+        {
+          "charge": 0,
+          "shift": -6,
+          "rank": 0
+        },
+        {
+          "charge": 0,
+          "shift": 0,
+          "rank": 4
+        },
+        {
+          "charge": 0,
+          "shift": 6,
+          "rank": 3
+        },
+        {
+          "charge": 1,
+          "shift": -6,
+          "rank": 4
+        },
+        {
+          "charge": 1,
+          "shift": 0,
+          "rank": 4
+        },
+        {
+          "charge": 1,
+          "shift": 6,
+          "rank": 4
+        },
+        {
+          "charge": 2,
+          "shift": -6,
+          "rank": 4
+        },
+        {
+          "charge": 2,
+          "shift": 0,
+          "rank": 4
+        },
+        {
+          "charge": 2,
+          "shift": 6,
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "h": 9,
+      "N": 8,
+      "label_pair": [
+        7,
+        7
+      ],
+      "ranks": [
+        {
+          "charge": 0,
+          "shift": -9,
+          "rank": 3
+        },
+        {
+          "charge": 0,
+          "shift": 0,
+          "rank": 6
+        },
+        {
+          "charge": 0,
+          "shift": 9,
+          "rank": 6
+        },
+        {
+          "charge": 1,
+          "shift": -9,
+          "rank": 8
+        },
+        {
+          "charge": 1,
+          "shift": 0,
+          "rank": 8
+        },
+        {
+          "charge": 1,
+          "shift": 9,
+          "rank": 8
+        },
+        {
+          "charge": 2,
+          "shift": -9,
+          "rank": 8
+        },
+        {
+          "charge": 2,
+          "shift": 0,
+          "rank": 8
+        },
+        {
+          "charge": 2,
+          "shift": 9,
+          "rank": 8
+        }
+      ]
+    }
+  ],
+  "verifier_sha256": "acbd26ef0674cd4ad03d7f0841eaa8d64507d400fbf85b2253a53f8133162e51"
+}

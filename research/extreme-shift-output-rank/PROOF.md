@@ -225,6 +225,12 @@ is `-6157022699520`. Because both are nonzero, no common permutation of the
 input and output basis can make this matrix triangular. A uniform argument
 would need a non-permutation basis change or a different structural invariant.
 
+The same sampled full-rank pattern also depends on charge. At `s=-h`, the
+last selected label pair has rank 0, 0 and 3 at grades 4, 6 and 9 when
+`q=0`, whereas the respective output dimensions are 2, 4 and 8. At those
+three grades, charges 1 and 2 have full rank at shifts `-h,0,h`. These are
+finite controls, not a classification of charge values or larger grades.
+
 ## Output-rate and mixing tradeoff
 
 The same rank argument quantifies a loss in the output-codebook exponent.

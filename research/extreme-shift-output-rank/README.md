@@ -53,6 +53,8 @@ python3 -I -B research/extreme-shift-output-rank/central.py > /tmp/extreme-centr
 cmp /tmp/extreme-central.json research/extreme-shift-output-rank/central.json
 python3 -I -B research/extreme-shift-output-rank/triangular.py > /tmp/extreme-triangular.json
 cmp /tmp/extreme-triangular.json research/extreme-shift-output-rank/triangular.json
+python3 -I -B research/extreme-shift-output-rank/charge_control.py > /tmp/extreme-charge.json
+cmp /tmp/extreme-charge.json research/extreme-shift-output-rank/charge_control.json
 make verify
 ```
 
@@ -78,6 +80,9 @@ order at grades 4, 6 and 9. At grade 12 it has a nonzero two-cycle, so no
 common permutation of input and output basis vectors makes it triangular.
 This rules out a simple permutation-based proof of the observed full ranks;
 it does not rule out a non-permutation basis or another proof.
+The sampled `s=-h` matrices also lose rank at charge zero in grades 4, 6
+and 9, so their full rank at charge one does not extend uniformly to all
+charges.
 
 An exact scan of the predecessor's selected grades through `h=2000` finds
 the first passing rank-budget inequalities at `(h, lambda)=(887,93)`,
