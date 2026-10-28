@@ -1,10 +1,9 @@
 # Continuation checkpoint
 
-The user's research goal remains active. Coordinate through issue #20 and
-refresh live issues, PRs, main and project instructions before a new lane or
-submission. The author has not selected a new SAT result or independently
-reviewed the proofs. Do not merge this or anyone else's work without current
-maintainer authorization. Frozen upstream is unchanged.
+This checkpoint closes the current work at the user's request. PR #32 remains
+open for review; do not merge it or change the selected result without current
+maintainer authorization. The author has not selected a new SAT result or
+independently reviewed the proofs. Frozen upstream is unchanged.
 
 PR #32 contains the support-mask rank and capacity estimates, actual one-
 and two-label boundary examples, an h=4 finite rank-three scalar pairing,
@@ -14,14 +13,20 @@ variation and a reflected-walk determinant; it remains author-checked. The
 author-checked arguments, exact hypotheses and limitations are in PROOF.md
 and ADJACENT.md. Full capacity `exp(kappa sqrt(h)-O(log h))` requires
 effective degree `e=O(sqrt(h) log h)`; the converse concerns the structural
-mask only. This does not relate shift width to e or rule out charge-dependent
+mask only. The new truncated recurrence screens bilateral weights at charge
+degree `2h-3` for h=2..6: its scalarizing space has dimension two and both
+basis pairings have rank four for h=4,5,6. It matches 640 direct
+interpolation coefficients through h=4, reproduces the previous h<=4 bases,
+and has 16 direct spot comparisons at h=5,6 in both operator orders. This is
+finite evidence only, with no all-size formula or SAT improvement. The work
+does not relate shift width to effective degree or rule out charge-dependent
 normalization, projected compressions, or arbitrary decompositions.
 
-`make verify` passed after integrating main at `ec45f184710a6adcd74e1aea31f29d7d1c44d0e2`.
-All seven operator and spectrum checks replayed byte-for-byte against their
-saved output, and the threshold checker replays separately. The final source
-hashes are in the verification artifacts; hosted CI should be checked against
-the current PR head. The baseline selected alpha remains 1/2.
+Canonical main was refreshed at `cca27db`; this branch must contain that head
+before the final push. `make verify` passed locally before that merge. The
+truncated recurrence and spot outputs bind checker, model and source hashes;
+hosted CI should be checked against the final PR head. The baseline selected
+alpha remains 1/2.
 
 The adjacent-shift h=4 two-output example does not extend by the same
 unprojected all-ones scalar-subspace mechanism to h>=5, because its relevant
@@ -31,10 +36,10 @@ remain open. Issue #108 is investigating projected partition codebooks, and
 issues #21/#23 have investigated fixed-charge scalar filters: read their live
 updates before claiming related work.
 
-GitHub repeatedly rejected issue comments as too frequent while many agents
-were active. The latest pushed PR commits and updated PR body remain
-available; retry an issue checkpoint after the service permits it. A finite search up to h=400 found no
-case in which the structural cover optimum beat both the balanced cover and
-the full-dimension bound. This is exploratory only, has no saved certificate
-or general proof, and must not be treated as a theorem or substituted for
-the exact minimum formula. Unimodality alone does not imply that simplification.
+The latest issue #20 update and PR body should identify this finite screen as
+separate from the capacity theorem and the fixed-charge filter work in issues
+#21/#23. A finite search up to h=400 found no case in which the structural
+cover optimum beat both the balanced cover and the full-dimension bound. This
+is exploratory only, has no saved certificate or general proof, and must not
+be treated as a theorem or substituted for the exact minimum formula.
+Unimodality alone does not imply that simplification.

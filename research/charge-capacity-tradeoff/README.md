@@ -50,8 +50,9 @@ with rank exactly three for h>=3. The same weights fail scalarity one
 charge degree lower already at h=2, and parity compression does not
 repair it at h=3. An exact full-output screen over all positive tail
 weights finds no nonzero scalarizing weight at h=3 or h=4. Allowing both
-tails gives finite scalar pairings, including rank four at h=4; neither
-screen establishes an all-size result. Other constructions remain open.
+tails gives finite scalar pairings. A truncated exact recurrence extends
+the bilateral screen through h=6, with rank-four basis pairings at h=4,5,6;
+these screens do not establish an all-size result. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -78,6 +79,8 @@ python3 -I -B research/charge-capacity-tradeoff/tail_filter.py
 python3 -I -B research/charge-capacity-tradeoff/tail_pairing.py
 python3 -I -B research/charge-capacity-tradeoff/tail_next.py
 python3 -I -B research/charge-capacity-tradeoff/tail_next_screen.py
+python3 -I -B research/charge-capacity-tradeoff/truncated_screen.py
+python3 -I -B research/charge-capacity-tradeoff/truncated_spot.py
 make verify
 ```
 
@@ -100,6 +103,9 @@ high-shift scalar coefficient checks; [tail-pairing-verification.json](tail-pair
 records the full-label checks; [tail-next-verification.json](tail-next-verification.json)
 records the next-degree counterexample; [tail-next-screen-verification.json](tail-next-screen-verification.json)
 records the finite full-output weight-space classification.
+[truncated-screen-verification.json](truncated-screen-verification.json) and
+[truncated-spot-verification.json](truncated-spot-verification.json) record
+the faster recurrence and the selected direct comparisons.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,

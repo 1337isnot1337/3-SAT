@@ -133,3 +133,33 @@ linear combinations of the displayed basis vectors is not classified.
 interpolation in both operator orders, computes rational nullspaces for both tail choices, and
 independently certifies the constraint ranks modulo 65537. Its output is
 hash-bound in `tail-next-screen-verification.json`.
+
+## Truncated recurrence extends the finite screen
+
+`truncated_model.py` keeps only terms with at most three nonzero-mode
+currents. Every monomial of labels mu,nu has exactly
+`length(mu)+length(nu)` currents, so for the q^(2h-3) coefficient the
+required count of nonzero modes is exactly
+`length(mu)+length(nu)-(2h-3)`. The recurrence discards all terms with
+larger count and tracks that count through both operator factors. Label
+pairs whose combined length is below 2h-3 contribute zero. This avoids
+repeated full polynomial interpolation without changing this coefficient.
+
+`truncated_screen.py` checks 640 individual forward-order coefficients
+against the predecessor's direct charge interpolation at h=2,3,4, and
+reproduces the earlier bilateral nullspace bases exactly. It then screens
+the full grade-h labels and output at h=5 and h=6. At each of these grades
+the bilateral scalarizing weight space has dimension 2, and both computed
+basis pairings have rank 4, attaining the mask bound. Constraint ranks are
+also certified modulo 65537. These are finite forward-recurrence results,
+not a proof that the pattern persists.
+
+`truncated_spot.py` separately compares four shifts for a selected label
+pair and output state at each of h=5 and h=6 against direct interpolation
+in both operator orders. This spot check is not a complete direct replay
+of the new grades. Hash-bound outputs are in
+`truncated-screen-verification.json` and `truncated-spot-verification.json`.
+An exploratory h=7 run was stopped before its first completed shift and
+provides no evidence. Any all-size construction still needs a uniform
+weight formula, scalarity for every output entry, input rank and all
+factorization and algorithm costs.
