@@ -22,7 +22,9 @@ coefficients through degree `floor(M/8)` also vanish exactly, so those jets
 do not suffice even at infinite precision. Under source active parameters,
 a refined construction selects `(1/4-o(1))M` rows simultaneously; that
 fraction is asymptotically sharp for the selected-row mechanism on full
-packets. Full
+packets. An explicit cycle of binary linear-character words attains its
+exact averaging upper bound when the number of full packets is divisible
+by `P-1`. Full
 packets admit an additional `a-u+1` bits per selected row when `a>u`
 through a Cauchy power-sum cancellation; this uniform row bound is sharp.
 A three-slot partial packet gives a counterexample to carrying that bound over unchanged. For partial packets,

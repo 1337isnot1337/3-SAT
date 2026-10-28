@@ -253,6 +253,44 @@ actual content of the full tensor polynomial or on other constructions.
 The finite checker verifies the averaging identity for every word at
 `P=2,4,8`.
 
+## Exact selected-row optimum on full packets
+
+For full packets the periodic selected-row bound can be attained exactly
+without conditional expectation. Let `P=2^u`, `h=L/P`, and identify
+residue labels with binary vectors in `F_2^u`. For each nonzero vector
+`v`, use the word `b_v(r)=v dot r` over `F_2`. For every nonzero modular
+shift `d`,
+
+```
+sum_{v != 0} #{r: b_v(r)=1 and b_v(r+d)=0} = P^2/4.
+```
+
+Indeed, for each `r`, the two binary residue labels `r` and `r+d mod P`
+are distinct. Exactly `P/2` vectors `v` distinguish them. Summing over
+`r` counts `P^2/2` disagreements. For each fixed word and cyclic shift,
+the number of `1 -> 0` changes equals the number of `0 -> 1` changes,
+so half of those disagreements are selected. The argument uses XOR only
+to compare binary labels; the shift remains addition modulo `P`.
+
+Cycle these `P-1` words over `Q` full packets. At every active node,
+there are at least
+
+```
+floor(Q/(P-1)) * h P^2/4
+```
+
+selected rows. If `P-1` divides `Q`, the count is exactly
+`M P/(4(P-1))` at every nonzero residue shift, attaining the preceding
+full-packet averaging upper bound simultaneously. Other complete cycles
+give the displayed lower bound; leftover packets cannot reduce it.
+This is an explicit polynomial-time construction. The source packing
+conditions imply `Q=M/L>=D_arr` for full packets, so the incomplete-cycle
+loss is negligible in the growing source regime. This exact optimum is
+only for the number of selected rows in the specified word mechanism;
+it does not upper-bound two-adic content or other tensor constructions.
+The finite checker covers `P=2,4,8,16`, several `h`, and complete and
+incomplete word cycles.
+
 ## An extra cancellation for full packets
 
 For the periodic construction, suppose additionally that every used

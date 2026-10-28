@@ -134,6 +134,22 @@ def main():
             k=sum(word)
             assert sum(mismatch([h]*p,word,d) for d in range(1,p))==h*k*(p-k)
             averaging_checks+=1
+    character_checks=0
+    for p in (2,4,8,16):
+        for h in (1,2,3):
+            words=[[((v & r).bit_count() & 1) for r in range(p)]
+                   for v in range(1,p)]
+            for d in range(1,p):
+                assert sum(mismatch([h]*p,word,d) for word in words)==h*p*p//4
+                character_checks+=1
+            for count in (p-1,p,2*(p-1)):
+                chosen=[words[j%(p-1)] for j in range(count)]
+                for d in range(1,p):
+                    actual=sum(mismatch([h]*p,word,d) for word in chosen)
+                    assert actual >= (count//(p-1))*(h*p*p//4)
+                    if count%(p-1)==0:
+                        assert actual==count*h*p*p//(4*(p-1))
+                    character_checks+=1
     sharpness=[]
     for length in (8,16,32):
         a=length.bit_length()-1
@@ -151,6 +167,7 @@ def main():
                       'full_packet_cancellation_row_checks':full_rows,
                       'partial_packet_counterexample':partial_counterexample,
                       'sharpness_family':sharpness,'word_averaging_checks':averaging_checks,
+                      'explicit_character_checks':character_checks,
                       'conditional_expectation_examples':examples,
                       'scope':'finite periodic words and two occupied sets per L,P; not an all-size proof'},indent=2))
 
