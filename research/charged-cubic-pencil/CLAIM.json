@@ -8,14 +8,16 @@
   "base_commit": "298c6603b07503fd8ccef68b39405de3e36b79a6",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For charge one and label grades h=6,7,8,9, exact rational polynomial-kernel and determinant certificates prove that the cubic affine-energy pairing has ranks 8,10,15,19 respectively for every nonnegative integer output energy, conditional on the predecessor affine-energy identity. No all-grade rank formula or SAT improvement is claimed. At E=h the columns indexed by partitions without a part 3 are independent in these four grades.",
+  "statement": "For charge one and label grades h=6,7,8,9, exact rational polynomial-kernel and determinant certificates prove that the cubic affine-energy pairing has ranks 8,10,15,19 respectively for every nonnegative integer output energy, conditional on the predecessor affine-energy identity. No all-grade rank formula or SAT improvement is claimed. At E=h the columns indexed by partitions without a part 3 are independent in these four grades. A separate energy-h grade-11 screen found 34 independent no-part-3 columns and full rank 34.",
   "improves_bound": false,
   "evidence": [
     "research/charged-cubic-pencil/README.md",
     "research/charged-cubic-pencil/verify.py",
     "research/charged-cubic-pencil/verification.json",
     "research/charged-cubic-pencil/audit.py",
-    "research/charged-cubic-pencil/audit-verification.json"
+    "research/charged-cubic-pencil/audit-verification.json",
+    "research/charged-cubic-pencil/grade11.py",
+    "research/charged-cubic-pencil/grade11-verification.json"
   ],
   "reproduce": [
     "python3",

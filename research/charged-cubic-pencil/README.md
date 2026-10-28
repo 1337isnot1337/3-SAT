@@ -43,7 +43,9 @@ At h=7 this does **not** assert the rank at every nonnegative real E.
 
 At E=h in all four grades, the columns indexed by partitions without a
 part of size 3 are linearly independent and span the full column space.
-There are exactly `p(h)-p(h-3)` such partitions. This offers a concrete
+There are exactly `p(h)-p(h-3)` such partitions. A separate E=h screen
+at h=11 found 34 independent no-part-3 columns and full matrix rank 34;
+this uses the same two-energy identity and was run once. This offers a concrete
 candidate for a uniform lower-bound proof, but we do not assert their
 independence at other energies or grades.
 
@@ -58,6 +60,9 @@ python3 -I -B research/charged-cubic-pencil/verify.py > /tmp/charged-pencil.json
 cmp /tmp/charged-pencil.json research/charged-cubic-pencil/verification.json
 python3 -I -B research/charged-cubic-pencil/audit.py > /tmp/charged-pencil-audit.json
 cmp /tmp/charged-pencil-audit.json research/charged-cubic-pencil/audit-verification.json
+# Optional longer grade-11 screen (author ran once):
+python3 -I -B research/charged-cubic-pencil/grade11.py > /tmp/cubic-grade11.json
+cmp /tmp/cubic-grade11.json research/charged-cubic-pencil/grade11-verification.json
 make verify
 ```
 

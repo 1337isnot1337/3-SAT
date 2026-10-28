@@ -1,0 +1,19 @@
+{
+  "grade": 11,
+  "dimension": 56,
+  "energy": 11,
+  "rank": 34,
+  "no_three_columns": 34,
+  "no_three_column_rank": 34,
+  "matrix_sha256": "45a810f1c397d3bc0dc8af57363e0e9b321c51d419b4a5c76a1ac4ad31bec4f9",
+  "scope": "Interpolated E=h pairing; identification uses the predecessor affine-energy proof",
+  "sha256": {
+    "research/charged-cubic-pencil/grade11.py": "d38b3627a0a2883e941f9941e9c484e58783b69c7ddba22a6ef41a9afe455fe9",
+    "research/charged-cubic-parity/verify.py": "7a4c7c00c069d27c80c6e59118000aa0c1422e7293896dc832a47b7ea78346b4",
+    "research/charged-cubic-parity/PROOF.md": "1d48472ae4b8958d5561a4c87d5b4ebb6f7b8cc1f1f2db9a1822e912e1e0767d",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
