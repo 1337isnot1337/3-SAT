@@ -1,0 +1,12 @@
+{
+  "check": "exact partition counts, greedy matching versus minimum threshold cover",
+  "max_grade": 35,
+  "sha256": {
+    "CLAIM.json": "ae815bae2d67fc8163b5de0a94a72c5e1f80f076d76a6bd7741b993adf2e4cb2",
+    "PROOF.md": "ffb56c0a3a1f6d3266955f040d67df200fd54d306d7876ed4f1eae97947787a0",
+    "README.md": "2ce8688f72b1b2eed4f801ece4617fe60e88c32426e0ccc9bd7eb9aab1219570",
+    "verify.py": "04da4d57cf55a5a3a961a2fd6b2542e8711d8803239624eb4acc650eca32d066"
+  },
+  "strict_improvements_over_predecessor_cover": 430,
+  "threshold_cases": 1330
+}

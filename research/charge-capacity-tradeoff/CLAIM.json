@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "charge-capacity-tradeoff",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "charge_degree_structural_rank_bound",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For a fixed raw q-degree with q-independent weights, the length support mask has exact structural rank equal to a minimum threshold cover. A positive limiting charge-degree fraction forces leading label-capacity loss and a quantified necessary grade increase; this is not a SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/charge-capacity-tradeoff/README.md",
+    "research/charge-capacity-tradeoff/PROOF.md",
+    "research/charge-capacity-tradeoff/verify.py",
+    "research/charge-capacity-tradeoff/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/charge-capacity-tradeoff/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the proof and asymptotics",
+    "Charge-dependent or multi-degree scalarization, output capacity and both crossing ranks remain open",
+    "Relate any filter to full algorithmic costs before claiming a SAT improvement"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent or formal review",
+  "selected_result_changed": false
+}

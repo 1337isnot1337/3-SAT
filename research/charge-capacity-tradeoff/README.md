@@ -1,0 +1,44 @@
+# Charge-degree capacity tradeoff
+
+Status: `scoped_checked`. No improved SAT bound or interval filter is
+claimed. The all-size argument is author-checked and awaits independent
+review. Contributor: Cinna Davis with substantial OpenAI Codex assistance.
+Task `contraction-schedule`; base `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`.
+
+For a single q-degree d extracted from the predecessor's raw charged
+pieces using q-independent weights, the length support mask has an exact
+structural rank given by a minimum threshold cover. This improves the
+predecessor's general cover in some finite cases; it need not be attainable
+by the actual operators. When d/h tends to a fixed positive delta, this
+implies a leading label-capacity loss. For delta in (0,2), retaining
+2^lambda label rank requires an asymptotic grade at least
+`1/(1-delta/2)` times the first-moment reference grade. The precise
+statement, proof, limiting cases and restrictions are in [PROOF.md](PROOF.md).
+
+This quantifies the charge-independent support lemma in
+[the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
+it does not close the charge-dependent or multi-degree continuation. The
+accepted OpenAI theorem remains a premise; the selected result and frozen
+upstream sources are unchanged. Complete algorithmic costs and the absence
+of an inferred SAT time bound are discussed in the proof.
+
+Reproduce the bounded independent matching check and repository checks:
+
+```sh
+python3 -I -B research/charge-capacity-tradeoff/verify.py
+make verify
+```
+
+[verification.json](verification.json) records the grade range, number of
+thresholds, strict finite improvements and SHA-256 hashes. These finite
+checks do not prove the all-size asymptotic argument or operator realizability.
+The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
+also used by the predecessor. The charged construction, first-moment rank,
+and earlier support lemma are credited to PRs 11 and 19. No priority,
+independent review or formal verification is asserted.
+
+Next, a route to an improved component must exhibit charge-dependent
+weights or controlled multiple-degree scalarization, then prove output and
+label capacity, directional rank bounds, and all generation costs. In
+particular, no relationship between shift interval width and d is proved
+here, so the grade inflation cannot by itself rule out an alpha improvement.
