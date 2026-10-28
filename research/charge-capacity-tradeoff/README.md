@@ -27,8 +27,10 @@ all-ones pair has a weighted number operator with a simple spectrum on
 grade-h outputs, so a scalar invariant output subspace has dimension at
 most one. At the adjacent shift a concrete grade-four collision produces
 a two-dimensional scalar eigenspace; all 25 label-pair operators preserve
-it and act scalarly, with rank-three label matrix. This is a finite
-component; growing codebooks and full costs remain open.
+it and act scalarly, with rank-three label matrix. The [adjacent-shift proof](ADJACENT.md)
+shows the analogous all-ones operator has simple spectrum for every h>=5,
+so this particular example cannot extend to larger grades using the same
+shift and unprojected scalar subspace. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -49,6 +51,7 @@ python3 -I -B research/charge-capacity-tradeoff/second_deficit.py
 python3 -I -B research/charge-capacity-tradeoff/spectrum.py
 python3 -I -B research/charge-capacity-tradeoff/adjacent_shift.py
 python3 -I -B research/charge-capacity-tradeoff/adjacent_pairing.py
+python3 -I -B research/charge-capacity-tradeoff/adjacent_spectrum.py
 make verify
 ```
 
@@ -63,6 +66,8 @@ records the next-coefficient operator checks; [spectrum-verification.json](spect
 records the bounded simple-spectrum checks. [adjacent-shift-verification.json](adjacent-shift-verification.json)
 records the finite collision. [adjacent-pairing-verification.json](adjacent-pairing-verification.json)
 records the full finite label pairing and leakage checks.
+[adjacent-spectrum-verification.json](adjacent-spectrum-verification.json)
+records the broader adjacent-shift checks.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,

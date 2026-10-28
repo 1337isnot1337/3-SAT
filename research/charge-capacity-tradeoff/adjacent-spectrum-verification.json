@@ -1,0 +1,31 @@
+{
+  "checker_sha256": "10eaf6b2c6541275959c1fa6b65efe221bc365c9ba89bb204e71be26f669b835",
+  "collisions": {
+    "4": [
+      [
+        [
+          4
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    ]
+  },
+  "operator_cases": 84,
+  "operator_grades": [
+    2,
+    5
+  ],
+  "partition_vectors": 540633,
+  "result": "PASS",
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  },
+  "spectral_grades": [
+    2,
+    45
+  ]
+}
