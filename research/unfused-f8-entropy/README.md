@@ -2,8 +2,9 @@
 
 A frozen four-macro self-Fourier dual and an entropy version of the
 predecessor's tensorization lemma yield an all-size obstruction for the
-unfused ten-class F8 macro-symmetric Pauli family. Some same crossing piece
-must have both word supports at least `153664^floor(R/4)/(R+1)^10`; its
+unfused ten-class F8 Pauli family, even when its macros are divided into
+any sublinear number of separately type-symmetric groups. Some same crossing piece
+must have both word supports at least `153664^floor(R/4)/(R+1)^10`; For one group its
 necessary piece-rate parameter is at least `log2(153664)/24`, about
 0.71789, exceeding the target `1/sqrt(2)`. See [PROOF.md](PROOF.md).
 

@@ -146,10 +146,36 @@ argument is stronger than simply multiplying the minimum finite-block
 type cardinality: the multinomial factor from global averaging is paid
 explicitly, with only a polynomial loss.
 
+## Extension to separate macro groups
+
+Partition the R macros into K nonempty, labelled groups of sizes
+`R_1,...,R_K`. Suppose each piece is constant on ten-class types *within
+each group*; different groups may have different type functions. Tensor
+one copy of the preceding H construction for each group. The resulting
+H is constant on the tuple of group types, has eigenvalue `8^R`, and has
+nonzero target pairing. Its supporting group-type tuples have cardinality
+at least the product of their respective group bounds. Therefore some
+same piece has both supports at least
+
+```math
+ B=\frac{153664^{\sum_j\lfloor R_j/4\rfloor}}
+          {\prod_j(R_j+1)^{10}}.
+```
+
+The argument again permits arbitrary real coefficients and any finite
+number of pieces. Since `sum floor(R_j/4) >= (R-3K)/4` and concavity of
+log gives `sum log2(R_j+1) <= K log2(1+R/K)`, the bit-cost lower bound
+is `R log2(153664)/2 - O(K + K log(1+R/K))`. In particular, for *any*
+sequence of partitions with `K=o(R)`, the error is `o(R)` and the same
+strict asymptotic obstruction holds. This covers fixed numbers of groups
+and sublinearly many groups, without requiring equal sizes. It does not
+cover arbitrary functions with linearly many independent groups.
+
 ## Boundary and next premise
 
-The proof assumes global macro permutation symmetry and constancy on the
-ten named local classes, and the Pauli-diagonal coefficient model. It
+The proof assumes type symmetry inside each of `o(R)` macro groups and
+constancy on the ten named local classes, and the Pauli-diagonal coefficient
+model. The one-group result is the globally symmetric special case. It
 allows arbitrary real coefficients, any finite number of summands and
 cancellation. It does not restrict general Pauli functions or arbitrary
 crossing tensors. A successor must change one of those premises. Any new
