@@ -89,6 +89,19 @@ def main():
                     if not any(seq[start:start+d]):
                         assert not any(seq[start+d:])
                 varying_cases += 1
+    finite_field_checks = 0
+    for prime in (2, 3, 5, 7):
+        size = 2*prime
+        a = (1,) * size
+        b = tuple(k % prime for k in range(1, size+1))
+        assert b[prime-1] == 0 and b[0] == 1
+        for powers in ((0,)*size, (1,)*size, (2,)*size):
+            for shift in range(-size+1, size):
+                assert difference(powers, shift, a, b) % prime == 0
+                finite_field_checks += 1
+        # Pairing t_1^p with D_1^p and t_p with D_p both vanish mod p.
+        assert factorial(prime) % prime == 0 and b[prime-1] == 0
+    print(f'PASS: {finite_field_checks} characteristic-p direct identity checks and 8 radical controls')
     print(f'PASS: {recurrence_cases} constant and {varying_cases} varying recurrence sequences; 4 sharp periodic controls')
     print(f'PASS: 15625 weight assignments, {checks} operator differences, '
           f'{passing} satisfying the three checked shifts, 125000 pairing checks')

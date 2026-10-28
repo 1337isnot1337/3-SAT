@@ -90,3 +90,16 @@ pairing, a leading coefficient that vanishes infinitely often, or a recurrence
 order growing with the instance size. Polynomial-coefficient recurrences over
 characteristic zero meet the leading-coefficient condition whenever that
 polynomial is not identically zero.
+
+## Characteristic-p control
+
+The characteristic-zero qualification cannot be dropped. Over `F_p`, set
+`a_k=1`, `b_k=k mod p` at every k. The commutator sequence is still the odd
+linear sequence `g(k)=k` in the field, so all h=1 second differences vanish
+and `c=1` is nonzero. Nevertheless `D_k=0` at every positive multiple of p,
+so whole annihilation modes are missing. In particular `t_p` pairs to zero
+with every annihilation word in the usual vacuum pairing. Also `t_1^p` pairs
+to zero, because repeated differentiation introduces the zero factor p. Thus
+neither the no-missing-index conclusion nor nondegeneracy of the usual Fock
+pairing extends to this characteristic-p example. This says nothing about
+other pairings or a complete finite-field crossing construction.

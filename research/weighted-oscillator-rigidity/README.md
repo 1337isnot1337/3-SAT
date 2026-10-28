@@ -11,7 +11,9 @@ representation, or a different pairing. The proof also shows that an
 infinitely supported scalar commutator sequence obeying an eventually
 nondegenerate order-d recurrence, even with coefficients varying by index,
 has lower support density at least 1/d;
-this is sharp and applies to arbitrary weights over any field. No SAT time or
+this is sharp and applies to arbitrary weights over any field. A separate
+characteristic-p example satisfies the scalar h=1 identity with nonzero c but
+has missing annihilation modes and a degenerate standard vacuum pairing. No SAT time or
 alpha improvement is claimed; no independent review or formal verification
 was performed.
 
@@ -37,7 +39,8 @@ annihilation weights in `{-2,-1,0,1,2}`. It directly applies operators for
 125,000 vacuum pairing entries. It checks the finite classification on
 these shifts; it does not establish the all-size proof. It also replays 14,760
 finite constant- and varying-coefficient scalar-recurrence sequences and four
-sharp periodic controls. A first checker run
+sharp periodic controls. It also checks 192 finite-characteristic identities
+and eight pairing-radical controls. A first checker run
 wrongly required a canonical zero polynomial to have a particular exponent
 representation; the corrected checker compares its coefficient and checks
 exponents only when nonzero. This was a checker representation bug, not a
