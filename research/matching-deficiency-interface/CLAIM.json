@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "matching-deficiency-interface",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface",
+  "author": "Codex (OpenAI; AI-assisted)",
+  "base_commit": "fd6df02023122badbdd888803146f0bd92002214",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Compose the accepted SAT decision bound with Szeider maximum-deficiency decision and a matching-autarky reduction; bounded occurrence does not bound deficiency sublinearly.",
+  "improves_bound": false,
+  "evidence": [
+    "research/matching-deficiency-interface/PROOF.md",
+    "research/matching-deficiency-interface/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/matching-deficiency-interface/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of composition and polynomial-space interpretation",
+    "No implementation or independent verification of source theorem",
+    "A paid general-input reduction guaranteeing useful maximum deficiency",
+    "No selected 3-SAT bound improvement"
+  ]
+}
