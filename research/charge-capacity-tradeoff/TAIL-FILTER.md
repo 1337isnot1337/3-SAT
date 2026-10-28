@@ -104,3 +104,20 @@ respective diagonal entries 414 and 738. The same checker verifies both
 states in both orders. These finite counterexamples do not exclude a
 different higher-capacity weight or codebook; they do not contradict the
 different cubic-moment compression of PR 89.
+
+## A bounded next-degree tail screen
+
+The preceding counterexample only rules out one weight vector. A wider
+exact screen lets every weight on the positive tail `s=h,...,2h` vary
+independently, extracts q^(2h-3), and imposes all scalarity equations for
+every full grade-h row label, column label and output basis state. At h=2
+the weight space is one-dimensional, spanned by `(1,4,10)` in shift
+order, and its scalar label pairing has rank 2. At h=3 and h=4 the only
+scalarizing weight is zero. These are exact finite statements; they do
+not cover negative shifts, restricted or compressed output spaces, other
+charge-degree combinations, or larger h.
+
+`tail_next_screen.py` constructs every constraint using exact charge
+interpolation in both operator orders, computes rational nullspaces, and
+independently certifies the constraint ranks modulo 65537. Its output is
+hash-bound in `tail-next-screen-verification.json`.

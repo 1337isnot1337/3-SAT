@@ -48,7 +48,9 @@ a sign-variation argument with a reflected-walk determinant. A separate
 [high-shift filter](TAIL-FILTER.md) obtains an exact full-label scalar pairing beyond that shift range,
 with rank exactly three for h>=3. The same weights fail scalarity one
 charge degree lower already at h=2, and parity compression does not
-repair it at h=3. Other constructions remain open.
+repair it at h=3. An exact full-output screen over all positive tail
+weights finds no nonzero scalarizing weight at h=3 or h=4, but does not
+establish an all-size obstruction. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -74,6 +76,7 @@ python3 -I -B research/charge-capacity-tradeoff/outer_filter.py
 python3 -I -B research/charge-capacity-tradeoff/tail_filter.py
 python3 -I -B research/charge-capacity-tradeoff/tail_pairing.py
 python3 -I -B research/charge-capacity-tradeoff/tail_next.py
+python3 -I -B research/charge-capacity-tradeoff/tail_next_screen.py
 make verify
 ```
 
@@ -94,7 +97,8 @@ records the weighted-shift formula and finite rank checks.
 [tail-filter-verification.json](tail-filter-verification.json) records the
 high-shift scalar coefficient checks; [tail-pairing-verification.json](tail-pairing-verification.json)
 records the full-label checks; [tail-next-verification.json](tail-next-verification.json)
-records the next-degree counterexample.
+records the next-degree counterexample; [tail-next-screen-verification.json](tail-next-screen-verification.json)
+records the finite full-output weight-space classification.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,

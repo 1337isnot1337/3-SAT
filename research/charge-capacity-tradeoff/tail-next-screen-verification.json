@@ -1,0 +1,59 @@
+{
+  "both_operator_orders": true,
+  "checker_sha256": "02117a113dfc25ad8fa77151aad3a0e447e968073d0866134932e8ced11cd6d5",
+  "prime": 65537,
+  "result": "PASS",
+  "results": [
+    {
+      "basis": [
+        [
+          "1/10",
+          "2/5",
+          "1"
+        ]
+      ],
+      "constraint_count": 12,
+      "h": 2,
+      "modular_rank": 2,
+      "pairing_ranks": [
+        2
+      ],
+      "shifts": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "basis": [],
+      "constraint_count": 72,
+      "h": 3,
+      "modular_rank": 4,
+      "pairing_ranks": [],
+      "shifts": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "basis": [],
+      "constraint_count": 600,
+      "h": 4,
+      "modular_rank": 5,
+      "pairing_ranks": [],
+      "shifts": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
