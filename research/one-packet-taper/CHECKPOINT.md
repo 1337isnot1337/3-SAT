@@ -6,7 +6,9 @@ entries; it does not show actual balanced packing, Boolean tables, or the
 generic precision scale at equal port count. PR #52's quadratic construction
 may beat independent one-packet copies for larger powers.
 
-For `u>1`, the same divided-difference proof provides only a smaller known
+For `u=a`, a coprime Hensel lift gives a one-packet finite-precision
+realization; `L=4` has no exact rational factorization in this model.
+For intermediate `u`, the same divided-difference proof provides only a smaller known
 power of `(z-1)` in the shift polynomial; a one-packet realization requires
 an additional factorization into two 2-integral polynomials of degree below
 `L`, with the constant normalized via the zero column. Check live issues

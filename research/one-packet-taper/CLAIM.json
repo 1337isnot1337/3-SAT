@@ -8,19 +8,21 @@
   "base_commit": "f64e1babba809276639257f37cd218ee18824257",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "The first tapered polynomial H_1 is exactly realizable on one prescribed packet over Z_(2), using affine row and zero-plus-one-hot column tensors; canonical integer lifts preserve complete local jets at any specified precision.",
+  "statement": "The first tapered polynomial H_1 is exactly realizable on one prescribed packet over Z_(2); the last level H_a is realizable at every prescribed finite precision by coprime Hensel lifting, using affine row and zero-plus-one-hot column tensors.",
   "improves_bound": false,
   "evidence": [
     "research/one-packet-taper/PROOF.md",
-    "research/one-packet-taper/verify.py"
+    "research/one-packet-taper/verify.py",
+    "research/one-packet-taper/last_level.py"
   ],
   "reproduce": [
     "python3 -I -B research/one-packet-taper/verify.py",
+    "python3 -I -B research/one-packet-taper/last_level.py",
     "make verify"
   ],
   "remaining_obligations": [
     "Independent proof review",
-    "One-packet factorization for general taper levels",
+    "One-packet factorization for intermediate taper levels",
     "Actual balanced packing and a generic-scale Boolean precision witness"
   ]
 }

@@ -133,3 +133,78 @@ two packets. Its `2L ceil(h/3)`-port construction can be better than the
 improves the packet count for the single factor, and has a different column
 support and affine row table; it is not a general improvement on that
 quadratic construction for arbitrary powers.
+
+## The last taper level via finite Hensel lifting
+
+The same one-packet interface works at `u=a` **modulo any requested power
+of two**, although its row and column coefficients need not have an exact
+rational factorization. Define
+
+```math
+ H_a(T)=\prod_{t=-L+1,\ t\ne0}^{L-1}\frac{T-t}{-t}.
+```
+
+Every grid value of `H_a` lies in `Z_(2)`: the values are zero at all
+nonzero grid points except `-L`, and both `H_a(0)` and `H_a(-L)` are units.
+Define `b_*`, `b_d`, and `P(z)` from these values exactly as above. They are
+2-integral, and the degree bound `deg H_a=2L-2` gives the interpolation
+identity `H_a=b_*+sum_d b_d W_d` and `P(1)=0`.
+
+At node `d`, reduction modulo two gives `b_d=0` if `d=0` and `b_d=1`
+otherwise. The leading coefficient is a unit. With `q=2^p`, normalize `P`
+to monic modulo `q`. Its reduction is
+
+```math
+ \bar P(z)=(z+1)^L(1+z+\cdots+z^{L-2}). \tag{2}
+```
+
+The factors are monic and coprime over `F_2`, since the second is one at
+`z=1`. Standard coprime polynomial Hensel lifting, implemented by
+[the exact checker](last_level.py), computes monic factors `E,D` modulo
+`q`, of degrees `L` and `L-2`, with the respective reductions in (2).
+Since `P(1)=0` and `D(1)` is a unit modulo `q`, one has `E(1)=0 mod q`.
+Synthetic division of `E` by `z-1` therefore produces a monic
+`R=E/(z-1)` modulo `q` of degree `L-1`. Taking `Q` to be the leading
+coefficient of the original `P` times `(z-1)D` gives a second polynomial of
+degree at most `L-1` satisfying `RQ=P mod q`.
+
+Use the same packet tables as above: the row coefficients are those of
+`R` in reverse slot order, the one-hot column coefficients are those of
+`Q`, and the zero-column entry makes their total one. Choose their
+canonical residues at creation precision `p`. Equality of the shift
+coefficients modulo `q`, together with shifted integrality of all Cauchy
+entries, makes the complete deformed packet jets agree with those of
+`H_a` modulo `q` at every grid node. The unshifted contraction is odd.
+The lift can be computed in polynomial time and space in `L,p`: start with
+the coprime factors in (2) and solve one linear correction over `F_2` per
+precision bit. The supplied checker implements that correction explicitly.
+
+For `h` copies, the predecessor's exact content formula gives, at node
+valuation `0<=i<a`, content `h(2(a-i)+1)` for `H_a^h`. Thus precision
+`p>=h(2a+1)` gives a simultaneous collision with the zero network at every
+nonzero active node; each level may instead be compared at its own stated
+precision. This is a prescribed-packet result with canonical integer table
+entries. It does not realize the full tapered product, whose other levels
+still require separate factors, and does not establish the generic scale at
+an equal actual port budget.
+
+### Exact rational factorization can fail
+
+For `L=4`, the shift polynomial for `H_a` is
+
+```math
+ P(z)=(z-1)(-z^5+6z^4-15z^3+21z^2-14z+7).
+```
+
+The quintic is primitive and, after scaling, reduces modulo three to
+`f(z)=z^5+2z+2`. It is irreducible over `F_3`: `z^(3^5)-z` is zero modulo
+`f`, while `gcd(f,z^3-z)=1`. The exact checker verifies both conditions.
+Since five is prime, the Frobenius criterion proves irreducibility; Gauss's
+lemma then proves irreducibility over `Q`. Hence this `P` has no factorization
+over `Q` into two degree-at-most-three polynomials. An exact single-packet
+realization with rational affine row and zero-plus-one-hot column tables
+would supply such a factorization, so it cannot exist. The finite-modulus
+construction above is not contradicted: its coefficients are computed in
+`Z/2^p`, and compatible lifts live in `Z_2`, which is larger than
+`Z_(2)`. This rational counterexample does not rule out unramified-extension
+coefficients or other packet tensor models.
