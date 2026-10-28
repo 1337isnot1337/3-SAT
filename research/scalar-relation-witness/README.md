@@ -8,11 +8,13 @@ with substantial OpenAI Codex assistance.
 
 The [proof](PROOF.md) gives an all-h lower bound 2h on the shift-span rank
 of full partition-space operator pieces using explicit symmetric and
-antisymmetric hook-partition entries and a moment-separated diagonal entry,
-while showing that the fixed all-ones label slice has symmetric
-positive and negative shifts and therefore at most 2h directions. This uses
-an exact second-moment identity on every energy space. The prior uncharged first-moment relation bounds full rank by 4h; the remaining
-gap is open. A binary codebook containing the two small reference states and
+antisymmetric hook-partition entries and a moment-separated diagonal entry.
+A further low-support witness gives 2h+1 for h>=12 and h=6,9,10; its
+input state can be absent from the source codebook. The proof also shows
+that the fixed all-ones label slice has symmetric positive and negative
+shifts and at most 2h directions, using an exact second-moment identity on
+every energy space. The prior uncharged first-moment relation bounds full
+rank by 4h; the remaining gap is open. A binary codebook containing the two small reference states and
 q of the specified hooks inherits rank at least 2q. The source's actual
 lexicographic codebook may omit hooks; do not substitute 2h for 2q there.
 For sufficiently large parameters it contains at least
@@ -35,8 +37,8 @@ python3 -I -B research/scalar-relation-witness/verify.py
 make verify
 ```
 
-The first command checks both families of endpoint formulas, symmetry, support
-and exact integer entries for h=2,...,6, plus full-rank modular triangular minors; it
+The first command checks both families of endpoint formulas, the low-support witness at h=6,
+symmetry, support and exact integer entries for h=2,...,6, plus full-rank modular triangular minors; it
 also checks second moments for all-ones labels at h=1,...,4, and the mixed
 and diagonal identities at h=2,...,4, with E=0,...,h+1. It checks the
 sufficient codebook inequalities through h=1000, including largest-part

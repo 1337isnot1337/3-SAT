@@ -7,7 +7,8 @@
       "antisymmetric_rows": 1,
       "antisymmetric_rank": 1,
       "diagonal_moment_defect": -32,
-      "prime": 1000003
+      "prime": 1000003,
+      "low_support_rank": null
     },
     {
       "h": 3,
@@ -16,7 +17,8 @@
       "antisymmetric_rows": 2,
       "antisymmetric_rank": 2,
       "diagonal_moment_defect": -288,
-      "prime": 1000003
+      "prime": 1000003,
+      "low_support_rank": null
     },
     {
       "h": 4,
@@ -25,7 +27,8 @@
       "antisymmetric_rows": 3,
       "antisymmetric_rank": 3,
       "diagonal_moment_defect": -2304,
-      "prime": 1000003
+      "prime": 1000003,
+      "low_support_rank": null
     },
     {
       "h": 5,
@@ -34,7 +37,8 @@
       "antisymmetric_rows": 4,
       "antisymmetric_rank": 4,
       "diagonal_moment_defect": -19200,
-      "prime": 1000003
+      "prime": 1000003,
+      "low_support_rank": null
     },
     {
       "h": 6,
@@ -43,7 +47,8 @@
       "antisymmetric_rows": 5,
       "antisymmetric_rank": 5,
       "diagonal_moment_defect": -172800,
-      "prime": 1000003
+      "prime": 1000003,
+      "low_support_rank": 13
     }
   ],
   "source_codebook_coverage": [

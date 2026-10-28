@@ -31,6 +31,7 @@ def run():
     for h in range(2, 7):
         one = (1,) * h
         matrix = []
+        full_rows = []
         for length in range(1, h + 1):
             y, u, expected = endpoint(h, length)
             values = [dict(piece_vector(one, one, y, s)).get(u, 0)
@@ -39,6 +40,7 @@ def run():
             assert all(v == 0 for v in values[3 * h + length + 1:])
             assert values == values[::-1]
             matrix.append([values[3 * h + j] for j in range(1, h + 1)])
+            full_rows.append(values)
         assert modular_rank(matrix, 1000003) == h
         asym_rows = []
         d = (2,) + (1,) * (h - 2)
@@ -66,6 +68,7 @@ def run():
                        for j in range(-2*h, 2*h + 1)) == 0
             assert all(values[2*h + j] == values[2*h - j] == 0
                        for j in range(bound + 1, 2*h + 1))
+            full_rows.append(values)
             asym_rows.append([values[2*h + j] - values[2*h - j]
                               for j in range(h + 2, 2*h + 1)])
         assert modular_rank(asym_rows, 1000003) == h - 1
@@ -74,9 +77,32 @@ def run():
         defect = sum((j*j - 4*h*h) * diagonal[j + 2*h]
                      for j in range(-2*h, 2*h + 1))
         assert defect == -8*h*(h-1)*math.factorial(h)
+        full_rows.append(diagonal)
+        if h == 6:
+            t = 3
+            u = (2,) * t + (1,) * (h - 2*t)
+            low = [dict(piece_vector(one, one, (h,), shift)).get(u, 0)
+                   for shift in range(-2*h, 2*h+1)]
+            assert all(low[shift+2*h] == 0
+                       for shift in range(-2*h, 2*h+1) if abs(shift) > h)
+            r = (h-t+1)//2
+            def falling(s, degree):
+                out = 1
+                for j in range(degree):
+                    out *= s-j
+                return out
+            derivatives = [sum(falling(shift, degree) * low[shift+2*h]
+                               for shift in range(-2*h, 2*h+1))
+                           for degree in range(2*r+1)]
+            expected = (math.factorial(2*r)**2 * math.comb(h, r)**2
+                        * math.factorial(h-r) * h
+                        // (math.factorial(t)*math.factorial(h-2*t)))
+            assert derivatives[:-1] == [0]*(2*r) and derivatives[-1] == expected
+            assert modular_rank(full_rows + [low], 1000003) == 2*h+1
         report.append({'h': h, 'symmetric_rows': h, 'symmetric_rank': h,
                        'antisymmetric_rows': h - 1, 'antisymmetric_rank': h - 1,
-                       'diagonal_moment_defect': defect, 'prime': 1000003})
+                       'diagonal_moment_defect': defect, 'prime': 1000003,
+                       'low_support_rank': 2*h+1 if h == 6 else None})
     codebooks = []
     for bits in range(1, 4):
         h = 2
