@@ -20,8 +20,8 @@ In particular, the all-ones label slice has exactly
 2h shift directions for h>=9, matching PR #59's upper bound. Two-part
 constructions in opposite label orders supply two independent
 one-sided low-support spaces, also independent of the symmetric space.
-Their antisymmetric projection has four exact moment constraints; for even
-h they characterize that constructed projection completely.
+Four exact moments characterize their antisymmetric projection for even h;
+for odd h a fifth moment is given by an explicit rational recurrence.
 
 The added input state `(h)` may be omitted by the original binary codebook.
 The previous encoded-codebook bound is unchanged. A rank obstruction for

@@ -7,6 +7,10 @@
   "complete_recurrence_row_comparisons": 6,
   "multiplicity_and_kernel_rank_cases": 37,
   "one_sided_rank_cases": 37,
+  "odd_recurrence_h_range": [
+    5,
+    39
+  ],
   "two_part_cases": 361,
   "two_part_recurrence_rows": 7,
   "reverse_recurrence_rows": 7,

@@ -2,6 +2,7 @@
 """Check the two-partition low-shift cancellation against exact operators."""
 from collections import Counter, defaultdict
 from itertools import product
+from fractions import Fraction
 import json
 import math
 from pathlib import Path
@@ -203,6 +204,24 @@ def g_one(h):
     return {s: v for s, v in result.items() if v}
 
 
+def odd_weights(h):
+    k = (h-1)//2
+    x = [Fraction(0)]*(h-2)
+    x[1] = 1
+    delta = Fraction(1)
+    for a in range(2, k+1):
+        delta *= Fraction(-(a-1), h-a-1)
+        x[a] = x[a-1]+delta
+    total = x[k-1]+x[k]
+    for a in range(2, k+1):
+        x[h-a-1] = total-x[a-1]
+    q = [Fraction(0)]*(h+1)
+    for t in range(h-2):
+        q[t+3] = x[t]+3*q[t+2]-3*q[t+1]+q[t]
+    assert x[0] == 0 and x[1] == 1 and x[2] != 2
+    return q
+
+
 def run():
     prime = 1000003
     formula_cases = 0
@@ -334,6 +353,7 @@ def run():
             two_part_recurrence_rows += 1
             reverse_recurrence_rows += 1
         one_sided_rows = []
+        q = odd_weights(h) if h % 2 and h >= 5 else None
         combined_positive = []
         combined_negative = []
         reverse_ref = closed_reverse_two(h, reference)
@@ -344,6 +364,8 @@ def run():
             assert all(0 <= shift <= h for shift in values)
             for degree in range(1, 5):
                 assert sum(value*shift**degree for shift, value in values.items() if shift) == 0
+            if q is not None:
+                assert sum(value*q[shift] for shift, value in values.items() if shift) == 0
             one_sided_rows.append([values.get(j, 0) for j in range(h+1)])
             combined_positive.append([values.get(j, 0) for j in range(-h, h+1)])
             reverse_values = closed_reverse_two(h, output)
@@ -353,6 +375,8 @@ def run():
             assert all(not value or -h <= j <= 0 for j, value in difference.items())
             for degree in range(1, 5):
                 assert sum(value*(-j)**degree for j, value in difference.items() if j) == 0
+            if q is not None:
+                assert sum(value*q[-j] for j, value in difference.items() if j and value) == 0
             combined_negative.append([difference.get(j, 0) for j in range(-h, h+1)])
             if h <= 6:
                 d = (2,) + (1,)*(h-2)
@@ -371,7 +395,8 @@ def run():
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
                       'multiplicity_and_kernel_rank_cases': 37,
-                      'one_sided_rank_cases': 37, 'two_part_cases': two_part_cases,
+                      'one_sided_rank_cases': 37, 'odd_recurrence_h_range': [5, 39],
+                      'two_part_cases': two_part_cases,
                       'two_part_recurrence_rows': two_part_recurrence_rows,
                       'reverse_recurrence_rows': reverse_recurrence_rows,
                       'diagonal_recurrence_rows': diagonal_recurrence_rows,

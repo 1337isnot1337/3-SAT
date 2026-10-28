@@ -385,10 +385,39 @@ The antisymmetric low-shift space has dimension h. The four moment
 functionals are independent there: their values on shifts 1,2,3,4 form a
 nonsingular Vandermonde-type matrix. Hence the antisymmetric projection
 of the two constructed spaces is **exactly** the joint kernel of M_1,...,M_4.
-For odd h the constructed dimension is h-5, so one further independent
-constraint remains; no formula for it is asserted here. These are
-statements about the constructed low-shift subspace, not universal moment
-relations for every crossing piece.
+For odd h>=5 there is one additional explicit moment. Put h=2k+1 and
+define rational numbers x_0,...,x_(h-3) as follows. Set x_0=0, x_1=1,
+y_1=1, and for 2<=a<=k set
+
+```
+y_a=-(a-1)y_(a-1)/(h-a-1),    x_a=x_(a-1)+y_a.
+```
+
+Put `K=x_(k-1)+x_k`, and for 2<=a<=k set
+`x_(h-a-1)=K-x_(a-1)`; the final assignment is consistent with x_k.
+Define q_0=q_1=q_2=0 and, for 0<=t<=h-3,
+`q_(t+3)=x_t+3q_(t+2)-3q_(t+1)+q_t`. Thus `Delta^3 q_t=x_t`.
+The fifth moment is
+
+```
+M_q(P)=sum_{s!=0} sign(s) q_|s| [z^s]P.
+```
+
+It vanishes on the constructed one-sided spaces. Indeed, their pairwise
+partitions require the sum over j=a,h-a of each of the two displayed
+finite-difference expressions to be constant in a. The recurrence gives
+`(h-a-1)(x_a-x_(a-1))=-(a-1)(x_(a-1)-x_(a-2))`, and reflection gives
+`x_(a-1)+x_(h-a-1)=K`. Substitution shows the positive expression sums
+to 2K and the reversed expression to `-2(h-2)K`, independently of
+2<=a<=k. Differences from the reference pair therefore vanish.
+
+M_q is independent of M_1,...,M_4. Otherwise its weights q_j would be a
+linear combination of j,j^2,j^3,j^4, whose third differences are affine
+in j. But x_0=0, x_1=1 and x_2=1-1/(h-3) are not affine. The constructed
+antisymmetric projection has dimension h-5 for odd h, so these five
+independent equations characterize it exactly. These are statements about
+the constructed low-shift subspace, not universal moment relations for
+every crossing piece.
 
 ## Independence from the predecessor witnesses
 
