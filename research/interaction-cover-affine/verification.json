@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "cnf_systems": 400,
+    "cover_certificates": 1600,
+    "fixed_branches": 1600,
+    "individual_polynomials": 128,
+    "invalid_cover_rejected": 1,
+    "matching_family": 6,
+    "random_systems": 1600
+  },
+  "seed": 991054,
+  "status": "pass"
+}
