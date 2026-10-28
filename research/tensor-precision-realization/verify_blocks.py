@@ -43,6 +43,7 @@ def main():
                     for t in range(-length,length):
                         if not t%p or word[(x+t)%p]: continue
                         shifted=full.prior.shift(form,t,2*length)
+                        assert shifted[0]==0
                         assert all(not c or full.prior.valuation(c)>=a+2-u+b+1 for c in shifted)
                         checks+=1
                 packets+=1

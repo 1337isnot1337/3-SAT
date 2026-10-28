@@ -111,6 +111,7 @@ def main():
                     selected=[x for x in forms if not word[(x+t)%p]]
                     for x in selected:
                         shifted=full.prior.shift(forms[x],t,2*length)
+                        assert shifted[0]==0
                         assert all(not c or full.prior.valuation(c)>=a+2-u for c in shifted)
                         rows+=1
                         if len(real)==length:
@@ -123,6 +124,7 @@ def main():
                                                         'word':list(word),'row':x,'t':t,
                                                         'content':content,'full_packet_bound':(2*(a-u)+3 if a>u else 2)}
                     shifted=full.prior.shift(polynomial,t,2*length)
+                    assert not any(shifted[:len(selected)])
                     assert all(not c or full.prior.valuation(c)>=len(selected)*(a+2-u) for c in shifted)
                     packet+=1
     sharpness=[]

@@ -186,9 +186,14 @@ Now let `t` be active, so `d=t mod P` is nonzero. For each counted row,
 all columns with bit 1 have `y-x` distinct from `t` modulo `P`. Hence
 `v_2(t-(y-x))<=u-1`. The Cauchy formula factors as in the next section
 and shows that every such `W_xy(t+alpha z)` is coefficientwise divisible
-by `2^(a+2-u)`. The whole constrained-row factor has the same divisibility.
-The other row factors are integral, so multiplying the more than `m`
-counted factors proves the stated bound at every active node at once.
+by `2^(a+2-u)`. The whole constrained-row factor has the same divisibility. It also
+vanishes exactly at `z=0`, since no selected column has `y-x=t` and
+every other Cauchy entry is exactly zero there. The other row factors
+are integral, so multiplying the more than `m` counted factors proves
+the stated bound at every active node at once. It also proves that every
+shifted coefficient of degree at most `m=floor(M/8)` is exactly zero.
+Thus even infinite coefficient precision cannot distinguish this input
+from the zero network if every retained jet stops at that degree.
 
 This is `Omega(M(a-u))` precision for the source's active-node recovery
 interface, stronger than the prior `Omega(M)` construction when `a-u`
@@ -304,8 +309,9 @@ For a selected row and a marked block, the `B` columns form a consecutive
 arithmetic progression of step `P`. Apply the preceding power-sum
 argument with `h` replaced by `B`, using the first column of that block as
 `y_0`. Its Cauchy sum is divisible by `2^(a+2-u+b+1)`; sum over marked
-blocks and multiply the selected-row factors. Other row factors are
-integral. The comparison zero network again gives identical active-node
+blocks and multiply the selected-row factors. Each selected factor also
+vanishes exactly at the node, giving zero coefficients through degree
+`floor(N/8)` regardless of precision. Other row factors are integral. The comparison zero network again gives identical active-node
 data at the stated precision and opposite origin parity.
 
 The bound is deliberately expressed in terms of `N`. A packet can have
@@ -382,9 +388,9 @@ uses a most-populated residue class to select at least `ceil(M/P)` rows and
 gives valuation-dependent divisibility `a+1-i` per row, plus a jet-order
 bound. The periodic random-word construction selects more rows under its
 size assumption but guarantees only `a+2-u` bits per selected row uniformly
-across active levels; its statement makes no corresponding jet-order claim.
-The two bounds have different parameter dependence and should be compared
-for the particular node. [PR 52](https://github.com/1337isnot1337/3-SAT/pull/52)
+across active levels, and its exact jets vanish through `floor(M/8)`
+under its size condition. The two bounds have different
+parameter dependence and should be compared for the particular node. [PR 52](https://github.com/1337isnot1337/3-SAT/pull/52)
 realizes the generic tapered polynomial over a broader coefficient ring,
 with different port-budget and Boolean-input limitations. Neither concurrent
 package has been independently reviewed here.
