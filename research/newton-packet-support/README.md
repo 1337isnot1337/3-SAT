@@ -18,13 +18,14 @@ The [proof and limits](PROOF.md) give a growing single-packet family with
 total degree at most `2q` has a nonzero rational summand; for positive
 clauses the exact support is degrees `q` through `3q`. This gives
 `binom(K+2q, 2q)` equality tuples, with `K>=3q`. The proof uses an explicit
-common-sign argument and includes all source-side Boolean moments. It does
-not construct a globally admissible packet embedding. A rational-height
-argument shows that every listed local summand survives the source
-child precision at `t=1`, conditional on such an embedding and an evaluation
-set containing `zeta=1`. This does not establish nonvanishing after other
-group tensors are included. For this family, a degree-`d` source moment has
-at least `K-d` powers of two; the proof combines this with the Newton row
+common-sign argument and includes all source-side Boolean moments. It gives
+a globally admissible root tensor-network family with an explicitly specified
+valid packing; it does not assert that the source default labeling returns this
+packing. A rational-height argument shows that every listed complete summand
+survives the prescribed child precision at `t=1` when the evaluation set
+contains `zeta=1`. In the global family, filler tensors multiply each listed
+term by a power of two that also survives this precision. For this family,
+a degree-`d` source moment has at least `K-d` powers of two; the proof combines this with the Newton row
 weights to give a precision-aware lower valuation bound. This uses the free
 unary column tensors and is not a general child-network invariant.
 
@@ -36,8 +37,8 @@ The same packet's zero-mode child has a packet vertex with table
 `(1-Y1)(1-Y2)(1-Y3)`, which is not an equality table. This exhibits failure
 of closure of the individual original table family under child creation;
 it does not rule out a broader invariant for the joint child network.
-The example obeys the local slot rule but is not itself a complete large
-instance satisfying every asymptotic packing condition.
+The three-port example checks a local slot rule; the separate growing
+construction satisfies the stated root packing conditions.
 
 There is no improved complete cost: reductions, tensor descriptions, entry
 work, mode enumeration, precision, recursion and recovery remain at their
@@ -52,6 +53,7 @@ From the repository root with standard-library Python 3.11 or newer:
 
 ```sh
 python3 -I -B research/newton-packet-support/verify.py
+python3 -I -B research/newton-packet-support/embedding.py
 make verify
 ```
 
@@ -59,8 +61,9 @@ make verify
 files by SHA-256. It checks nine kernel entries, both full 64-assignment
 contractions, their exact mode decompositions, six growing-family cases,
 510 Boolean equality cases, exact two-adic valuations, and the cubic child
-coefficient. These checks do not prove a global support
-bound or implement the full contraction. The frozen upstream source and
+coefficient. [embedding-verification.json](embedding-verification.json)
+records a small exact packing control, not the source asymptotic schedule.
+These checks do not review the all-size proof or implement the full contraction. The frozen upstream source and
 accepted theorem remain unchanged.
 
 ## Provenance

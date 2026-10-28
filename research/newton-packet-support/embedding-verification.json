@@ -1,0 +1,26 @@
+{
+  "group_load_max": 256,
+  "max_pair_load": 8,
+  "packets": 64,
+  "packing_checks": true,
+  "pair_classes": 64,
+  "precision_or_source_schedule_claimed_for_toy": false,
+  "real_edges": 507,
+  "sha256": {
+    "research/newton-packet-support/PROOF.md": "a25fc31b12bb565aa90827f5e2d9ff7bbc34eae054e82432d70c4094678e3bff",
+    "research/newton-packet-support/embedding.py": "cad65d033fe2c50f29607073e5b3966ccb83aac6240cc1b4a770fd178dd5b80b",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  },
+  "special_slots": [
+    0,
+    2,
+    4
+  ],
+  "toy_parameters": {
+    "B": 8,
+    "K": 3,
+    "L": 8,
+    "a": 3,
+    "r": 2
+  }
+}

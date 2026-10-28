@@ -132,8 +132,8 @@ also handles `beta=0`. The stars-and-bars count proves the displayed sizes.
 This is an all-size statement about a specified single-packet rational
 contraction and the **general** Newton expansion. In particular `K=3q`
 gives exponentially many nonzero tuples as `q` grows. The taper comparison
-below is conditional on the local packet being present; this construction
-does not itself embed it into a globally admissible packed recursive instance. It does not exclude cancellation
+below first treats a conditional local packet; a subsequent construction
+embeds it into a globally admissible root call with a specified valid packing. It does not exclude cancellation
 with other terms in the final contraction, establish a lower bound for a
 more efficient aggregation algorithm, or improve or refute a SAT bound.
 The bounded checker separately tests `(K,q)=(3,1),(4,1),(6,2)` for each
@@ -180,9 +180,8 @@ modulo the source-prescribed child precision at an active `t=1` call,
 provided the call contains this local packet and the evaluation set
 includes the binary-coordinate lift `zeta=1`. Both the equality and clause
 families use the general Newton expansion. This statement concerns the
-isolated packet summands: it does not construct a globally packed SAT
-instance with this packet or exclude cancellation or extra valuation from
-other group tensors.
+isolated packet summands; the global tensor-network construction below
+separately handles the other group tensors.
 
 Here is a deliberately loose uniform bound, included to avoid inferring
 modular nonvanishing from rational nonvanishing. Let `a=log2 L` and
@@ -229,6 +228,83 @@ points, or when this packet is combined with the rest of a child group.
 The finite checker verifies the height bound, weighted-budget comparison,
 and actual valuations for its registered cases; the general estimate is
 an author-checked argument awaiting independent review.
+
+### An explicitly packed global tensor-network family
+
+The local family can be embedded into an entire active root call using a
+**specified valid packing**. This packing is a deterministic alternative;
+we do not assert that the source's particular conditional-expectation
+labeling returns it. The input is a valid bounded-degree tensor network
+using the fixed-density reduction's equality and unary table types. It is
+easily simplified and no lower bound on arbitrary SAT algorithms or on an
+optimized contraction method follows.
+
+Let `s=2^N`, `lambda=N`, `u=floor(epsilon N)`, `a=2u`, `L=2^a`,
+`r=64`, `D_arr=r^(2a)=L^12`, and
+
+```
+B = L floor(s/(L D_arr)),  q = floor(L/6),  K = 3q.
+```
+
+Take `N` sufficiently large that `u>=1`, `B>=L`, and the inequalities
+below hold. For every ordered pair of vertex labels in `[r]^a`, reserve
+exactly `B` slots, and combine the slots into packets by the source's
+orientation rule. There are `B D_arr/L` packets. Choose the packet whose
+coordinate-zero unordered symbol pair is `{0,1}`, all other pairs are
+`{0,0}`, and whose packet index is the first. Keep only its slots
+`0,2,...,2(K-1)` real. Every slot in every other packet is real.
+
+On each real edge put a distinct unary `(1,1)` vertex on both sides,
+except that the `K=3q` row unary vertices of the selected packet are
+replaced by `q` ternary equality vertices, each incident to one disjoint
+triple. Each triple has one row label, since all its selected slots have
+the same coordinate-zero orientation and all other coordinates equal.
+The resulting bipartite network has maximum degree three and
+
+```
+M = B D_arr - (L-K) = s - O(L D_arr + L).
+```
+
+Its label class loads are `B` except that one class loses `L/2-K`
+slots and its reversed coordinate-zero class loses `L/2`. Therefore
+`max X_gamma=B`, `B` is a multiple of `L`, and
+`sum_gamma (X_gamma-M/D_arr)^2 <= L^2 <= 2M Delta`. At most
+`B D_arr/r <= 3M/r` row or column ports carry any given symbol in any
+coordinate. Packet count is `B D_arr/L <= 3M/L`, and all packet orientation
+rules hold by construction. Thus it satisfies the same explicit balance,
+collision-load, padding and packet conclusions as the source packing
+lemma, with a directly constructible labeling and slot allocation.
+
+For the source's root parameters, `L<=s^(2 epsilon)` and
+`D_arr^2<=s^(48 epsilon)`. Since `48 epsilon<1/10`, sufficiently large
+`N` gives `M>H`, `M>=2D_arr^2 ceil(s^(9/10))`, `M>=L D_arr`, and
+`2L<=ceil(s^(9/10))`. Hence this is an active, globally admissible root
+call with `M<=s` and the required degree bound. The graph and labeling
+are constructible in polynomial time in `s` by enumerating label classes,
+packets and slots. The toy [embedding checker](embedding.py) verifies the
+slot arithmetic and balance in a small `r=2` model; it does not pretend
+to realize the asymptotic root parameters.
+
+At `t=1` and `zeta=1`, set every mode outside the selected packet's even
+source tile to exponent zero. For every selected-tile tuple `beta` with
+`|beta|<=2q`, summing each filler row unary bit gives
+`l_0(z)+l_1(z)=1`, independently of its local and crossing forms. Each
+of the remaining `M-K` filler column unary bits then contributes a factor
+2. Consequently the **complete** child-product summand equals `2^(M-K)`
+times the specified nonzero local summand, exactly over the rationals.
+There are `binom(K+2q,2q)=2^Omega(L)` such distinct tuples. The same
+statement holds for the clause replacement and its stated degree interval,
+although the displayed all-equality family suffices.
+
+The source precision contains both `8hL` and `8M(a+1)`. The previous
+height estimate bounds the local summand's valuation by
+`200 L^4(a+2) < 8hL`, while `M-K < 8M(a+1)`. Thus each complete summand
+is nonzero modulo the prescribed `2^p_t`. Its mode tuple also lies inside
+the source weight budget. The result does not say that the sum of these
+summands is nonzero, that the particular default packing produces them,
+or that enumerating them is necessary; unary components can be simplified
+and the asymptotic support here is only `2^Omega(L)`, not a lower bound of
+the form `2^Omega(M/sqrt(u))`.
 
 ## 4. A child need not retain the input table family
 

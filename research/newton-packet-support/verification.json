@@ -200,7 +200,7 @@
   },
   "sha256": {
     "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
-    "research/newton-packet-support/PROOF.md": "d00bec6678531036f6a4e505a8ef3dce9262986f21b4288ff1529a48d1c33b84",
+    "research/newton-packet-support/PROOF.md": "a25fc31b12bb565aa90827f5e2d9ff7bbc34eae054e82432d70c4094678e3bff",
     "research/newton-packet-support/verify.py": "6ba8ca5264cc733626d3b77f10b7810a6035a42ee814f45ded10f9d31119d8eb",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
     "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
