@@ -29,8 +29,9 @@ codebook need not be invariant under the weighted operator.
 The 14 even and 16 odd output partitions both contain eight states.
 The actual direct checker below uses the eight named even states, not all
 possible eight-state codebooks. The predecessor's parity theorem supplies the scalar-compression identity
-used here. One output vector is checked directly; exhaustive direct tensor
-verification is running and has not yet been reported.
+used here. One output vector is checked directly. An exhaustive direct tensor replay was
+stopped after more than 15 minutes without completing its first input row;
+it produced no verification result.
 
 ## Relation to the grade-nine obstruction
 
@@ -56,8 +57,7 @@ The checker builds the exact pairing by the two-energy identity and checks
 its inverse. It directly computes one cubic weighted output vector and checks its eight
 projected entries; it verifies the exact 8-by-8 inverse identity. The full
 crossing statement relies on the predecessor's written parity and affine
-energy identities. An exhaustive direct check is running separately and
-is not counted as evidence here. The shared predecessor implementation is not an
+energy identities. The unfinished exhaustive direct check is not counted as evidence here. The shared predecessor implementation is not an
 independent operator oracle. The first-input-axis inverse preserves both
 source cut ranks, but this example does not prove any improved all-size
 rank envelope. Coefficient heights, uniform label/output selection, input
