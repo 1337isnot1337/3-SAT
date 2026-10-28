@@ -16,8 +16,8 @@ def tseitin(n, edges):
     return blocks, len(edges)
 
 
-def sat(clauses, n):
-    return any(all(any(bits[abs(x)-1] == (x > 0) for x in cl) for cl in clauses)
+def count(clauses, n):
+    return sum(all(any(bits[abs(x)-1] == (x > 0) for x in cl) for cl in clauses)
                for bits in product((False,True),repeat=n))
 
 
@@ -48,11 +48,11 @@ def check(n, edges):
     assert len(clauses) == len(set(clauses)) == 4*n
     assert all(sum(v in c for c in clauses)==4 and sum(-v in c for c in clauses)==4
                for v in range(1,nvars+1))
-    assert not sat(clauses, nvars)
+    assert count(clauses, nvars) == 0
     for v in range(n):
-        assert sat([c for i,block in enumerate(blocks) if i != v for c in block],nvars)
+        assert count([c for i,block in enumerate(blocks) if i != v for c in block],nvars) == 2**(nvars-n+1)
     for i in range(len(clauses)):
-        assert sat(clauses[:i] + clauses[i+1:], nvars)
+        assert count(clauses[:i] + clauses[i+1:], nvars) == 2**(nvars-n-1)
     for c,d in combinations(clauses,2):
         for lit in set(c) & {-x for x in d}:
             res = (set(c)-{lit}) | (set(d)-{-lit})
@@ -79,11 +79,13 @@ def main():
     bridge = sorted(tuple(sorted(e)) for e in edges).index((8,9)) + 1
     # Charge is at vertex 0, so the bridge must be 1. The removed clause
     # must be falsified by a wrong-parity assignment with bridge equal to 0.
-    removed = next(c for c in blocks[9] if bridge in c)
-    clauses = [c for block in blocks for c in block]
-    clauses.remove(removed)
-    assert not sat(clauses,nvars)
-    print('PASS articulation control: deleting one clause can leave UNSAT')
+    all_clauses = [c for block in blocks for c in block]
+    for removed in blocks[9]:
+        clauses = all_clauses.copy()
+        clauses.remove(removed)
+        expected = 0 if bridge in removed else 2**(nvars-10)
+        assert count(clauses,nvars) == expected
+    print('PASS articulation control: all four removal counts are 0 or 32 as predicted')
 
 
 if __name__ == '__main__':
