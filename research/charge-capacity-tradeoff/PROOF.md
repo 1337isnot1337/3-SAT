@@ -219,6 +219,26 @@ interpolation checker `second_deficit.py` verifies the formula for h=2,3,4,
 output grades E=0,...,h, and both operator orders. This is not an obstruction for other shifts, weighted combinations or
 projected output compressions, and it does not prove a SAT lower bound.
 
+## Adjacent-shift collision
+
+The simple-spectrum result is specific to the outer shift. At h=4 and
+s=3, the all-ones label pair has the following q^6 coefficient on a
+partition of output grade 4 with multiplicities m_1,...,m_4:
+
+    -768 + 16(1+29m_1-112m_2+210m_3-224m_4).                 (12)
+
+To derive it, the zero-mode alternating index i=1 contributes
+`-binom(8,1)*2*4*3*4=-768` from two nonzero currents in either factor.
+One nonzero current in each factor contributes the factor 16 times the
+parenthesized term. The two possible mode orders yield `m_j` and `m_j+1`;
+the relevant taper coefficients are binom(8,i), with alternating signs.
+There are no other contributions at degree 6. In particular `(4)` and
+`(2,2)` both have eigenvalue -4336, so their span is a two-dimensional
+scalar invariant subspace for this one output operator. This does not
+establish scalarity of other label-pair operators or a crossing identity.
+`adjacent_shift.py` verifies the diagonal formula for all five grade-four
+partitions, using exact interpolation in both operator orders.
+
 ## Limits and cost
 
 No relation between charge degree and the size of a removed shift interval
