@@ -112,9 +112,18 @@ for both one and two frames. The checker compresses the 4,096 word rows
 to 853 distinct pairs of original and transformed types; it verifies the
 four exact dependencies on every pair.
 
-This is a finite result for a specified alphabet, not a lower bound on
-arbitrary low-support linear combinations, other bases, larger R, or
-general two-frame pieces. In particular, cancellations inside a different
+The same exclusion also covers any number of pieces whose two supports
+are *certified* by pairs of prefixes in the common type order, provided
+the sum of the ceiling logs of the prefix cardinalities is at most 20.
+Indeed the predecessor's adapted-basis construction simultaneously
+adapts the two prefix flags: their intersection is spanned by those
+adapted vectors whose input index and output pivot lie in the respective
+prefixes. Each of these spanning vectors is itself among the checked
+20-bit atoms. The argument applies separately in either frame.
+
+This is a finite result for the specified atom and prefix-certified
+alphabets, not a lower bound on arbitrary low-support linear combinations,
+other bases, larger R, or general two-frame pieces. In particular, cancellations inside a different
 atom can change its support and are not covered by this screen.
 
 ## Open construction

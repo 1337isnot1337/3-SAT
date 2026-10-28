@@ -23,7 +23,8 @@ make verify
 The checker verifies 49 independent local rank-one maps, the commutator
 identity and all generated orbits on 4,096 and 262,144 labels. A second finite screen
 finds no two-frame gain for one specified adapted-basis atom alphabet at
-two macros; this does not exclude other pieces or larger sizes. Its
+two macros. The same exclusion covers pieces certified by pairs of type
+prefixes; it does not exclude other pieces or larger sizes. Its
 [outputs](verification.json) and [atom-screen output](two-frame-verification.json)
 pin their sources and checkers; finite checks do
 not substitute for the written all-size group proof. The predecessor's
