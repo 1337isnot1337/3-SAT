@@ -14,16 +14,19 @@ changing the equation row basis can avoid its coefficientwise support witness;
 the earlier witness has a sparse equivalent basis. This package gives a
 different, explicit low-load quadratic family in which **every invertible F2
 row basis** retains at least `2^Omega(n log log n)` surviving scalar-lift
-incidence coefficients before branching. In the predecessor's degree-array
-scheme, some array requires `Omega(n log log n)` bits for an injective
+incidence coefficients before branching. The same order survives on the
+all-zero branch of one source high-incidence step, even with row-basis
+changes before and after it. In the predecessor's degree-array scheme,
+some array on that branch requires `Omega(n log log n)` bits for an injective
 index of its nonzero valid assignments. The [proof](PROOF.md) states all
 parameters and the exact scope.
 
 This is an obstruction to the specific coefficientwise indexing interface,
 not a SAT lower bound or a new algorithm. The family has a trivial satisfying
 assignment, and neither aggregation nor non-invertible preprocessing is
-excluded. A dense basis may trigger the later high-incidence branching; no
-post-branch lower bound is claimed. There is no improvement to the selected
+excluded. A dense basis may trigger high-incidence branching; the new branch statement
+is confined to the all-zero branch of one step, and does not exclude
+structure-aware simplification or repeated branching. There is no improvement to the selected
 alpha or its general-density logarithmic factor.
 
 ## Evidence
@@ -39,7 +42,8 @@ make verify
 The [saved output](verification.json) records all 1,009 nonzero row
 combinations for n=3,...,9, with L=min(floor(log2 n), floor((n-1)/2));
 11,468 exact Mobius coefficient checks; all 20,160 invertible 4-by-4 binary
-matrices; 700 seeded invertible bases; and a duplicate-support cancellation
+matrices; 700 seeded invertible bases; all 504 zero-substitution masks for n=3,...,8
+with one generated residual basis each; and a duplicate-support cancellation
 control. It hash-binds the proof and checker. These finite controls do not
 mechanically prove the all-size pigeonhole argument, replay the accepted
 algorithm, or establish a full complexity bound.
@@ -47,8 +51,8 @@ algorithm, or establish a full complexity bound.
 ## Remaining work and credit
 
 A meaningful continuation needs a changed interface: aggregation of the
-incidence coefficients, a basis combined with high-incidence branching, or a
-construction whose post-branch behaviour can actually be accounted for. Such
+incidence coefficients, a basis combined with repeated high-incidence branching, or a
+construction whose complete post-branch behaviour can be accounted for. Such
 work must charge all reduction queries, branches, entry computation, modes,
 recursion, precision, recovery and space; this package supplies no such cost
 improvement. Issue #28 separately studies transfer aggregation for a different

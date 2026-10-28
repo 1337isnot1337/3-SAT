@@ -38,7 +38,8 @@ def projector_coefficient(edge_set, mask):
 def main():
     checks = {"systems": 0, "nonzero_row_combinations": 0,
               "mobius_edge_coefficients": 0, "exhaustive_invertible_4x4": 0,
-              "sampled_invertible_bases": 0, "negative_controls": 0}
+              "sampled_invertible_bases": 0, "zero_substitutions": 0,
+              "residual_bases": 0, "negative_controls": 0}
     rng = random.Random(20261027)
     for n in range(3, 10):
         length = min(n.bit_length() - 1, (n - 1) // 2)
@@ -56,6 +57,28 @@ def main():
                 checks["mobius_edge_coefficients"] += 1
             checks["nonzero_row_combinations"] += 1
         checks["systems"] += 1
+        # Every zero substitution for n<=8; sample residual bases on each.
+        if n <= 8:
+            for fixed in range(1 << n):
+                residual = [{e for e in row if not (e & fixed)} for row in rows]
+                live = [i for i, row in enumerate(residual) if row]
+                good = {i for i in live if 2 * len(residual[i]) >= length}
+                assert len(good) >= n - 4 * fixed.bit_count()
+                basis = [1 << i for i in live]
+                if len(basis) > 1:
+                    for _ in range(3 * len(basis)):
+                        i, j = rng.sample(range(len(basis)), 2)
+                        basis[i] ^= basis[j]
+                goodmask = sum(1 << i for i in good)
+                assert sum(bool(row & goodmask) for row in basis) >= len(good)
+                for row in basis:
+                    if row & goodmask:
+                        q = set().union(*(residual[i] for i in live if row >> i & 1))
+                        assert 2 * len(q) >= length
+                        for edge in q:
+                            assert projector_coefficient(q, edge) == -1
+                checks["zero_substitutions"] += 1
+                checks["residual_bases"] += 1
         for _ in range(100):
             basis = [1 << i for i in range(n)]
             for _ in range(6 * n):
