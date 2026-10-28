@@ -94,7 +94,7 @@
   ],
   "sha256": {
     "research/charged-single-current/band.py": "b55c6981bb369c765de1a1bfeb3a0907fb6e71edc2ffbe3f5bd45f9cf144685b",
-    "research/charged-single-current/LENGTH-BAND.md": "768f4782e62939bfa30639b9433492b5718926c428e3ea2f99fdd35a7889919f",
+    "research/charged-single-current/LENGTH-BAND.md": "4f57c5a34f5d0ab1a7e34f6e1ef46d842ff820a8d9993fa1517407428c229c22",
     "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
     "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
     "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",

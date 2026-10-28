@@ -27,6 +27,9 @@ pairs one first-side field with one second-side field. After any matching,
 at least `abs(ell-k)` fields remain uncontracted. Each has positive weight,
 so the total weight r of the uncontracted fields is at least that number.
 
+The earlier uncharged [field-count argument](../scalar-relation-witness/PROOF.md)
+uses this principle for a particular pair of labels and a second moment;
+here it is applied to arbitrary encoded label lengths and charged modes.
 The source's common Laurent polynomial carries `(w1-w2)^r` for that term;
 the charged zero mode adds only regular coefficients and does not change
 r. Its remaining normal-ordered matrix coefficient is regular at
