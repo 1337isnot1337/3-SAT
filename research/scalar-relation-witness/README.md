@@ -10,7 +10,7 @@ The [proof](PROOF.md) gives an all-h lower bound 2h on the shift-span rank
 of full partition-space operator pieces using explicit symmetric and
 antisymmetric hook-partition entries and a moment-separated diagonal entry.
 Low-support witnesses strengthen this to
-`2h+floor((floor(h/2)-1)/2)`. Their input can be absent from the source
+`2h+max(0,floor((floor((2h-3)/3)-1)/2))`. Their input can be absent from the source
 codebook. The proof also shows
 that the fixed all-ones label slice has symmetric positive and negative
 shifts and at most 2h directions, using an exact second-moment identity on

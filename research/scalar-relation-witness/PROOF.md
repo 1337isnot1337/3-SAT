@@ -24,7 +24,7 @@ partition-space tensor family `(A_s)` has rank at least 2h. If a codebook
 contains e, d and exactly q of these y_l,
 the same argument certifies rank at least 2q in its encoded pieces.
 A family of low-support full-space witnesses strengthens 2h to
-`2h+floor((floor(h/2)-1)/2)`. These statements do not assert the full rank.
+`2h+max(0,floor((floor((2h-3)/3)-1)/2))`. These statements do not assert the full rank.
 The fixed x=v=e slice has at most 2h shift directions by itself.
 
 ## Symmetry
@@ -212,20 +212,21 @@ so the rank bounds improve from 2h-1 and 2q-1 to 2h and 2q.
 
 ## Low-support witnesses in the full space
 
-For every odd integer ell with 3<=ell<=floor(h/2), choose y=(h) and
-`u_ell=(h-2(ell-1),2^(ell-1))`, and use labels x=v=e. All ell parts
-of u_ell are at least two. Its Laurent polynomial W_ell has support
-inside `[-h,h]` and is nonzero.
+For every odd integer ell with `3<=ell<=floor((2h-3)/3)`, put
+`k=(ell+3)/2` and `a=h-ell-k+2`. Choose y=(h) and
+`u_ell=(a,2^(k-1),1^(ell-k))`, and use labels x=v=e. The bound on ell
+gives a>=2, so u_ell has ell parts of which k are at least two. Its
+Laurent polynomial W_ell has support inside `[-h,h]` and is nonzero.
 
 To prove support, b^e acts first on the one-part state y. At most one
 of its h fields can annihilate, so intermediate energy is at least h-1.
 Thus the positive shift is at most h+1. At s=h+1, only i=0 and
 intermediate `t_1^(h-1)` can occur. If A of a^e's h fields annihilate
 and C=h-A create, the output has `(h-1)-A+C` parts. Matching u_ell's
-ell parts forces `C=(ell+1)/2`. Every one of its ell parts must be
-created because the intermediate parts are all ones, but ell>C for
-ell>=3. The endpoint therefore vanishes; symmetry gives the same bound
-on the negative end.
+ell parts forces `C=(ell+1)/2`. Every one of its k non-one parts must
+be created because the intermediate parts are all ones, but k=C+1. The
+endpoint therefore vanishes; symmetry gives the same bound on the
+negative end.
 
 For nonvanishing, let `r=(ell+1)/2` and let m_k be the multiplicity of
 k in u_ell. In the normal-ordered expansion, y can reach u_ell only by
@@ -249,8 +250,8 @@ isolates F_h and the negative endpoint then isolates G_(h-1). Descending
 through k=h+2 similarly eliminates F_(k-h) and G_(k-h-1); finally the
 positive endpoint h+1 eliminates F_1. Every W_ell has no support at
 those shifts, and their independence finishes the argument. There are
-`floor((floor(h/2)-1)/2)` such rows, so the full partition-space rank
-is at least 2h plus that number for h>=2. This does not improve the
+`max(0,floor((floor((2h-3)/3)-1)/2))` such rows, so the full
+partition-space rank is at least 2h plus that number for h>=2. This does not improve the
 encoded bound: the original codebook can omit y=(h). The checker compares
 a closed normal-order formula with the complete h=6 recurrence and
 checks a larger finite range; the all-size claim is the written argument.

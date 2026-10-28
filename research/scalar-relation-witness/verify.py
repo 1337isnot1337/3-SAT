@@ -30,7 +30,8 @@ def endpoint(h, length):
 
 def low_support_normal_order(h, length):
     """Laurent coefficients from normal ordering, for y=(h), x=v=(1^h)."""
-    output = (h - 2*(length - 1),) + (2,) * (length - 1)
+    k = (length + 3)//2
+    output = (h - length - k + 2,) + (2,) * (k - 1) + (1,) * (length - k)
     multiplicities = Counter(output)
     r = (length + 1) // 2
     base = math.comb(h, r)**2 * math.factorial(h-r)
@@ -136,7 +137,7 @@ def run():
                        'low_support_rank': 2*h+1 if h == 6 else None})
     low_formula_cases = 0
     for h in range(6, 41):
-        for length in range(3, h//2+1, 2):
+        for length in range(3, (2*h-3)//3+1, 2):
             output, values = low_support_normal_order(h, length)
             r = (length+1)//2
             assert all(abs(shift) <= h for shift in values)
