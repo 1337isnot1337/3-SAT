@@ -212,6 +212,49 @@ is `-6157022699520`. Because both are nonzero, no common permutation of the
 input and output basis can make this matrix triangular. A uniform argument
 would need a non-permutation basis change or a different structural invariant.
 
+## Output-rate and mixing tradeoff
+
+The same rank argument quantifies a loss in the output-codebook exponent.
+Write `kappa=pi sqrt(2/3)` and suppose, for fixed `0<theta<=1` and
+`0<=alpha<kappa theta`, that
+
+```math
+ \log D_h\ge\kappa\theta\sqrt h-o(\sqrt h),\qquad
+ \log L_h\le\alpha\sqrt h+o(\sqrt h).
+```
+
+Here L counts separable label-pair pieces in one scalar entry. A nonzero
+scalar entry then requires
+
+```math
+ \min_j |s_j|/h\le
+ 2-(\theta-\alpha/\kappa)^2+o(1).                         \tag{2}
+```
+
+Indeed, `D_h<=L_h(2h+1)p(t_max)` and the partition estimate imply
+`sqrt(t_max/h)>=theta-alpha/kappa-o(1)`. Equation (2) follows from
+`min |s_j|=2h-t_max`. Thus a fixed-fraction cutoff beyond the right-hand
+side forces a zero scalar entry under the stated capacity and mixing rates.
+For theta=1 and subexponential mixing this recovers `|s|/h<=1+o(1)`.
+
+As an accounting illustration, assume additionally that `D_h=N_h` satisfies
+`log N_h=kappa theta sqrt(h)+o(sqrt(h))`, mixing is subexponential, and the
+predecessor's *unchanged* term-count envelope is valid for the resulting
+pieces. The maximum normalized upper-bound expression over retained shifts is
+at least
+
+```math
+ \frac{\sqrt{4-\theta^2}+\theta}{4\theta}-o(1)
+ \ge \frac{\sqrt3+1}{4}-o(1).
+```
+
+The first inequality uses (2), the decreasing function `rho` above, and
+the changed relation between log N and sqrt(h); the second follows from
+`sqrt(4-theta^2)/theta>=sqrt(3)` for `0<theta<=1`. This is a limit on
+that particular support-only *upper-envelope
+calculation*. It is not a lower bound on actual ranks or on any SAT running
+time, and another rank bound may improve on the envelope.
+
 ## Reproduction and scope
 
 `python3 -I -B research/extreme-shift-output-rank/verify.py` performs exact

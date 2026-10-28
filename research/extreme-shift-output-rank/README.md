@@ -31,6 +31,12 @@ the shiftwise coefficient matrices in any chosen input-label bases.
 The proof also states a shift-location condition for unequal output energy E
 and label grade h, with the mixture size charged explicitly.
 
+An output-rate tradeoff covers codebooks whose partition exponent is only a
+fixed fraction theta of the full one. Under an explicitly conditional use of
+the predecessor's unchanged term-count envelope, losing that output rate does
+not lower the support-only envelope threshold. This is not an actual-rank or
+SAT-time lower bound.
+
 Run the finite checks with:
 
 ```sh
