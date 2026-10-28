@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'research/anthropic-operator-ranks'))
-from operators import partitions, piece_vector, modular_rank  # noqa: E402
+from operators import partitions, piece_vector, modular_rank, operator  # noqa: E402
 
 
 def endpoint(h, length):
@@ -78,7 +78,24 @@ def run():
         hooks = [length for length in range(1, h + 1) if endpoint(h, length)[0] in states]
         assert (1,) * h in states and (2,) + (1,) * (h-2) in states
         codebooks.append({'bits': bits, 'h': h, 'included_lengths': hooks})
-    print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks}, indent=2))
+    moment_cases = 0
+    for h in range(1, 5):
+        label = (1,) * h
+        for energy in range(h + 2):
+            for y in partitions(energy):
+                result = {}
+                for shift in range(-energy - h, energy + h + 1):
+                    for i in range(2*h + 1):
+                        scale = (shift**2 - 4*h*energy) * (-1)**i * math.comb(2*h, i)
+                        if not scale:
+                            continue
+                        for mid, v in operator(label, h - shift - i, y):
+                            for u, w in operator(label, shift - h + i, mid):
+                                result[u] = result.get(u, 0) + scale*v*w
+                assert not any(result.values())
+                moment_cases += 1
+    print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks,
+                      'second_moment_input_states': moment_cases}, indent=2))
 
 if __name__ == '__main__':
     run()

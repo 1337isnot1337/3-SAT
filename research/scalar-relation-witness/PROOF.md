@@ -23,7 +23,7 @@ they show that the full partition-space tensor family `(A_s)` has rank
 at least 2h-1. If a codebook contains e, d and exactly q of these y_l,
 the same argument certifies rank at least 2q-1 in its encoded pieces.
 These statements do not assert the full rank. The fixed x=v=e slice has
-at most 2h+1 shift directions by itself.
+at most 2h shift directions by itself.
 
 ## Symmetry
 
@@ -32,6 +32,51 @@ For homogeneous a=b=t_1^h, the coefficient a^{<i>} is
 then use the source's identity exchanging the two operator orders.
 The resulting expression is Q_s, because 2h is even. This holds as
 an operator on V_h, independently of y and u.
+
+## An exact second moment on arbitrary energy spaces
+
+More generally, for every h>=1 and E>=0 the same homogeneous operator
+family satisfies, on V_E,
+
+```
+sum_s Q_s = h! Id,             sum_s s^2 Q_s = 4hE h! Id.
+```
+
+The first equality is the source's crossing identity. For the second,
+set `w_1=z, w_2=1` in the source's normal-ordered Laurent polynomial
+for a=b=t_1^h, and take a matrix entry between weight-E monomials.
+Every contraction pairs one field from each copy, with coefficient
+`(w_1-w_2)^(-2)`. The term with all h pairs contracted contributes the
+constant h! times the identity. Terms with exactly one uncontracted
+field on either side cannot occur: contractions use the same number
+of fields from each side. The terms with one uncontracted field from
+each copy contribute, to second order at z=1,
+
+```
+h^2 (h-1)! (z-1)^2 < :J_1(z) J_1(1): >.
+```
+
+The coefficient h^2(h-1)! chooses one field from each copy and pairs
+the other h-1 fields. All other terms have at least four uncontracted
+fields and are divisible by `(z-1)^4` as Laurent polynomials. Any
+powers of z accompanying the displayed coefficient equal one at z=1
+and do not alter its second derivative.
+
+At z=1, project the normal-ordered product to V_E. Its two-creation
+and two-annihilation terms change energy; in the mixed terms only
+matching indices preserve energy. Thus
+
+```
+projection_V_E(:J_1(1) J_1(1):) = 2 sum_{k>=1} k t_k partial_{t_k}
+                                = 2E Id.
+```
+
+Hence F''(1)=4h^2(h-1)! E Id=4hE h! Id. Symmetry gives F'(1)=0,
+so F''(1)=sum_s s^2 Q_s, proving the identity. The argument is
+coefficientwise on finite-energy polynomials; no analytic convergence
+is assumed. At E=h, `(s^2-4h^2)` therefore gives a nonzero linear
+relation among the 2h+1 symmetric shift columns. The x=v=e slice has
+rank at most 2h, strengthening the elementary symmetry bound.
 
 ## Positive endpoint and triangular independence
 
@@ -68,8 +113,8 @@ columns greater than h+l and a nonzero entry in its h+l column, so the
 h-by-h submatrix is triangular with nonzero diagonal. If only some hooks
 occur in a codebook, select their corresponding rows and columns instead.
 All entries used are actual entries of the piece tensors, hence this is a
-characteristic-zero lower bound on their span rank. The involutive symmetry
-also puts every row in the 2h+1-dimensional symmetric Laurent subspace.
+characteristic-zero lower bound on their span rank. The involutive symmetry puts every row in the 2h+1-dimensional symmetric
+Laurent subspace; the second-moment relation further bounds its rank by 2h.
 
 ## Nonsymmetric witnesses
 
