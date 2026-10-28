@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "matrix-oscillator-rigidity",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Under the assumed all-colour-pairs h=1 two-order relation over characteristic zero, scalar commutator matrices satisfy C_k=kC for one symmetric C; the usual vacuum-pairing quotient has rank(C) oscillator colours at every positive grade.",
+  "improves_bound": false,
+  "evidence": [
+    "research/matrix-oscillator-rigidity/PROOF.md",
+    "research/matrix-oscillator-rigidity/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/matrix-oscillator-rigidity/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size arguments",
+    "All-pairs relation is a model assumption, not derived from the scalar source",
+    "Different identities, cross-grade couplings and other recovery pairings remain open",
+    "No complete SAT improvement is supplied"
+  ]
+}
