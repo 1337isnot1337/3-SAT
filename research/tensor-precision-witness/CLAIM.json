@@ -14,12 +14,14 @@
     "research/tensor-precision-witness/PROOF.md",
     "research/tensor-precision-witness/verify.py",
     "research/tensor-precision-witness/screen_one_packet.py",
-    "research/tensor-precision-witness/check_integer_lifts.py"
+    "research/tensor-precision-witness/check_integer_lifts.py",
+    "research/tensor-precision-witness/screen_two_packet_powers.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-witness/verify.py",
     "python3 -I -B research/tensor-precision-witness/screen_one_packet.py",
     "python3 -I -B research/tensor-precision-witness/check_integer_lifts.py",
+    "python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py",
     "make verify"
   ],
   "remaining_obligations": [

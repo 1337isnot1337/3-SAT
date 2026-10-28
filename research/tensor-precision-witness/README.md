@@ -49,6 +49,7 @@ Run from repository root with Python 3.11+ and the standard library:
 python3 -I -B research/tensor-precision-witness/verify.py
 python3 -I -B research/tensor-precision-witness/screen_one_packet.py
 python3 -I -B research/tensor-precision-witness/check_integer_lifts.py
+python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py
 make verify
 ```
 
@@ -63,6 +64,10 @@ may be arbitrary rationals. This finite screen does not rule out nonlinear row
 tensors, unfixed columns, or larger packet lengths. The third command
 explicitly sums all row assignments for five integer lifts at `L=2` and
 compares the full shifted polynomials at all four grid nodes.
+The fourth permits an arbitrary row table on all `2L` rows of the same two
+fixed-column packets. It constructs 2-integral realizations of `H_1^2` for
+`L=2` and `H_1^2,H_1^3` for `L=4`; `H_1^4` is outside this span even over
+the rationals. These are finite results and do not establish an all-size saving.
 
 The all-size argument is author-checked. Boolean realization and realization
 with the predecessor's multiplicity `h=Theta(M/u)` remain open. No complete
