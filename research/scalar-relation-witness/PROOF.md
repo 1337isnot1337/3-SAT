@@ -19,9 +19,9 @@ F_l(z) = sum_{s=-2h}^{2h} [t^u_l] Q_s t^y_l z^s.
 positive exponent greater than h+l, and the coefficient at h+l is
 positive. These h rows are independent. A second family of h-1 entries
 with x=d and v=e has independent antisymmetric projections. Together
-they show that the full partition-space tensor family `(A_s)` has rank
-at least 2h-1. If a codebook contains e, d and exactly q of these y_l,
-the same argument certifies rank at least 2q-1 in its encoded pieces.
+together with one moment-separated diagonal entry they show that the full
+partition-space tensor family `(A_s)` has rank at least 2h. If a codebook contains e, d and exactly q of these y_l,
+the same argument certifies rank at least 2q in its encoded pieces.
 These statements do not assert the full rank. The fixed x=v=e slice has
 at most 2h shift directions by itself.
 
@@ -159,6 +159,55 @@ coefficients vanish by the earlier triangular argument. For any codebook
 containing e and d, y_h=e is present. If q hook states are present, q
 of the F rows and q-1 of the G rows are available, proving rank >=2q-1.
 
+## One more independent direction from second moments
+
+Let `a^d=-(t_2+2t_1)t_1^(h-2)` and
+`b^d=c t_2 t_1^(h-2)`, where `c=h!/[2(h-2)!]`. The following
+operator identities hold on every V_E, for h>=2:
+
+```
+sum_s s^2 Q_s(a^d,b^e) = 0,
+sum_s s^2 Q_s(a^d,b^d) = -4E(h-2) h! Id.
+```
+
+For the first identity, each homogeneous component of a^d contains h-1
+fields, whereas b^e contains h. Contractions pair one field from each
+side. After projection to V_E, the only possible uncontracted term of
+weight below three has one t_1 field on the b side; its single current
+changes energy and vanishes on projection. Therefore its Laurent
+polynomial has zero second derivative at z=1. The general first-moment
+identity converts that derivative to the stated second moment. The
+zeroth crossing is also zero by the source's duality for d!=e.
+
+For the second identity, both sides have h-1 fields. The only
+uncontracted terms of total weight two leave one t_1 field on each side;
+a lone uncontracted t_2 would leave unequal numbers of fields for
+contraction. The contraction constants in the source's normal ordering
+are `Gamma_11=1, Gamma_12=2, Gamma_21=-2, Gamma_22=-6`. For h>=3, the
+coefficient of the resulting normal-ordered current pair is
+
+```
+-c (h-2)^2 [-(4h-6)(h-3)!]
+-2c (h-1)(h-2) [2(h-2)!]
+= -(h-2)h!.
+```
+
+The first term leaves a t_1 field from the t_2 t_1^(h-2) component;
+its two bracketed contributions pair the two t_2 fields together or
+cross-pair them with t_1 fields. The second term leaves a t_1 field
+from the 2t_1^(h-1) component. When h=2, b^d has no t_1 field and the
+coefficient is zero, agreeing with the same formula. As above, the
+normal-ordered current pair projects to 2E Id, and differentiation
+contributes a factor two. This gives the second identity.
+
+On V_h define the even moment functional
+`L(F)=sum_s (s^2-4h^2) [z^s]F`. The first and zeroth identities above
+show that L annihilates every G_l, while the all-ones second-moment
+identity shows it annihilates every F_l. In contrast, on the single
+x=v=d, y=u=e entry it equals `-8h(h-1)h!`, which is nonzero. That
+entry is independent of all previous witnesses. It requires only e,d,
+so the rank bounds improve from 2h-1 and 2q-1 to 2h and 2q.
+
 ## Coverage of the original lexicographic codebook
 
 Let p(j) count partitions, put kappa=pi*sqrt(2/3), and set
@@ -197,7 +246,7 @@ p(h-R-1)/p(h) = h^(-kappa/8+o(1)).
 Since kappa<4, this is eventually larger than the previous O(h^-1/2)
 term. Consequently the original codebook contains all R hooks with
 largest parts 1,...,R for all sufficiently large h. Together with e and
-d, its shift rank is at least 2R-1. The partition asymptotic and
+d, its shift rank is at least 2R. The partition asymptotic and
 minimality of h give sqrt(h)=Theta(lambda), yielding an
 Omega(lambda log lambda) lower bound for the actual codebook. This does
 not close the gap to 4h or bound any SAT runtime. The checker verifies

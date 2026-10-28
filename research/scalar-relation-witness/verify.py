@@ -7,7 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'research/anthropic-operator-ranks'))
-from operators import partitions, piece_vector, modular_rank, operator  # noqa: E402
+from operators import (partitions, piece_vector, modular_rank, operator,
+                       dual_operator, dual_scale)  # noqa: E402
 
 
 def endpoint(h, length):
@@ -61,14 +62,21 @@ def run():
             bound = h + length + 1
             assert values[2*h - bound] == first * second != 0
             assert values[2*h + bound] == 0
+            assert sum((j*j - 4*h*h) * values[j + 2*h]
+                       for j in range(-2*h, 2*h + 1)) == 0
             assert all(values[2*h + j] == values[2*h - j] == 0
                        for j in range(bound + 1, 2*h + 1))
             asym_rows.append([values[2*h + j] - values[2*h - j]
                               for j in range(h + 2, 2*h + 1)])
         assert modular_rank(asym_rows, 1000003) == h - 1
+        diagonal = [dict(piece_vector(d, d, one, shift)).get(one, 0)
+                    for shift in range(-2*h, 2*h + 1)]
+        defect = sum((j*j - 4*h*h) * diagonal[j + 2*h]
+                     for j in range(-2*h, 2*h + 1))
+        assert defect == -8*h*(h-1)*math.factorial(h)
         report.append({'h': h, 'symmetric_rows': h, 'symmetric_rank': h,
                        'antisymmetric_rows': h - 1, 'antisymmetric_rank': h - 1,
-                       'prime': 1000003})
+                       'diagonal_moment_defect': defect, 'prime': 1000003})
     codebooks = []
     for bits in range(1, 4):
         h = 2
@@ -94,6 +102,24 @@ def run():
                                 result[u] = result.get(u, 0) + scale*v*w
                 assert not any(result.values())
                 moment_cases += 1
+    mixed_moment_cases = 0
+    for h in range(2, 5):
+        e = (1,) * h
+        d = (2,) + (1,) * (h - 2)
+        for energy in range(h + 2):
+            for y in partitions(energy):
+                for label, expected in ((e, 0),
+                                        (d, -4*energy*(h-2)*math.factorial(h))):
+                    result = {}
+                    for shift in range(-energy-h, energy+h+1):
+                        for i in range(2*h+1):
+                            scale = shift**2 * (-1)**i * dual_scale(label)
+                            for mid, v in operator(label, h-shift-i, y):
+                                for u, w in dual_operator(d, i, shift-h+i, mid):
+                                    result[u] = result.get(u, 0) + scale*v*w
+                    assert all(v == expected*(u == y) for u, v in result.items())
+                    assert result.get(y, 0) == expected
+                    mixed_moment_cases += 1
     partition_counts = [1] + [0] * 1000
     for part in range(1, 1001):
         for n in range(part, 1001):
@@ -104,6 +130,7 @@ def run():
                     > partition_counts[h] - partition_counts[h - 1])
     print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks,
                       'second_moment_input_states': moment_cases,
+                      'mixed_moment_input_states': mixed_moment_cases,
                       'coverage_inequality_checked_h': [11, 1000]}, indent=2))
 
 if __name__ == '__main__':
