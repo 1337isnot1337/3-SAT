@@ -123,6 +123,79 @@ identically zero. Hence the difference is an information obstruction for
 local-data-only recovery, even with arbitrary nonlinear processing and all
 jet orders; a tensor-aware algorithm may read the descriptions directly.
 
+## Stronger simultaneous obstruction on retained levels
+
+There is a second Boolean unary family with a larger threshold at every
+active node `v_2(t)<u`. It is a separate input family from the all-nonzero-
+node witness above. Put `P=2^u`, `h=L/P`, assume `1<=u<=a`, and suppose
+
+```
+M/h >= 1280 ln(2P).
+```
+
+For any graph-only packing with at most `3M/L` packets, canonical Boolean
+unary tensors can be constructed deterministically in polynomial time so
+that their undeformed contraction is 1, but every complete shifted
+polynomial at an active node is divisible by
+
+```
+2^((floor(M/8)+1)*(a+2-u)).
+```
+
+The zero network gives identical residues and even origin parity. The
+source active parameters satisfy the displayed size condition: its packing
+condition `M >= L D_arr` gives `M/h >= P D_arr`, and `D_arr=r^(2a)`
+with `r=64` is more than enough for `a>=u>=1`. The degree, tensor entries,
+packing and coefficient ring remain those of the frozen source.
+
+For each packet `j`, independently choose a length-`P` binary word
+`b_j`. A real column `y` is fixed to `b_j[y mod P]`. A real row `x` is
+fixed to 1 if `b_j[x mod P]=1`, and is unrestricted otherwise. Its local
+factor is therefore either `sum_y W_xy(T)b_j[y mod P]` or 1. At the
+origin the contraction equals 1.
+
+For a residue shift `d` in `{1,...,P-1}`, define `N_d` as the number of
+real rows `x` with `b_j[x mod P]=1` and `b_j[(x+d) mod P]=0`. Each row
+is counted with probability 1/4, so `E N_d=M/4`. A word bit affects only
+rows in two residue classes, at most `2h` rows. There are at most
+`Q P <= (3M/L)P` word bits, so the sum of their squared bounded
+differences is at most `12 M h`.
+
+Set `eta=-ln(1-1/(64h))`, `q=exp(-eta)`, and `m=floor(M/8)`. Hoeffding's
+lemma applied to the bounded-differences martingale gives
+
+```
+E sum_{d=1}^{P-1} q^(N_d-m)
+  <= P exp(-eta M/8 + (3/2) eta^2 M h)
+  <= P exp(-M/(640h)) < 1.
+```
+
+For the second inequality use `1/(64h) <= eta <= 1/(63h)`; the final
+inequality follows from the displayed size condition. Fix all word bits
+by conditional expectation. The final sum is below 1, so `N_d>m` for
+every nonzero `d`. This construction is deterministic and polynomial in
+the network size. For a given `d`, the weighted interactions on a packet's
+residues are `n_r b_r(1-b_{r+d})`, where `n_r` counts real rows of residue
+`r`. The directed permutation `r -> r+d` decomposes into cycles. A two-state
+transfer computes each cycle's exact conditional expectation; multiply
+across cycles and packets. With rational `q=(64h-1)/(64h)`, intermediate
+integers have polynomial bit length. The finite cycle checker compares
+these expectations with brute force.
+
+Now let `t` be active, so `d=t mod P` is nonzero. For each counted row,
+all columns with bit 1 have `y-x` distinct from `t` modulo `P`. Hence
+`v_2(t-(y-x))<=u-1`. The Cauchy formula factors as in the next section
+and shows that every such `W_xy(t+alpha z)` is coefficientwise divisible
+by `2^(a+2-u)`. The whole constrained-row factor has the same divisibility.
+The other row factors are integral, so multiplying the more than `m`
+counted factors proves the stated bound at every active node at once.
+
+This is `Omega(M(a-u))` precision for the source's active-node recovery
+interface, stronger than the prior `Omega(M)` construction when `a-u`
+grows. It still does not match the generic `Theta(M D_i/u)` threshold,
+which can be exponentially larger in `a-i`, and does not imply any lower
+bound against a tensor-aware or different-deformation algorithm.
+
 ## Deformation calculation
 
 Let `C(T)=product_{s=-L}^{L-1}(T-s)` and `alpha=2L`. The source's
@@ -170,7 +243,9 @@ recursive calls, or recovery algorithm are replaced or claimed cheaper.
 
 The predecessor's actual-network witness gives about `M/L` times a node
 valuation factor; the construction gives at least `M/8` at every nonzero
-node for the source graph-only packing. For the accepted growing parameters and small valuation `i`,
+node for the source graph-only packing. The separate periodic construction
+gives `Omega(M(a-u))` simultaneously at active levels. For the accepted
+growing parameters and small valuation `i`,
 the generic taper witness has `Theta(M D_i/u)` content, potentially much
 larger than `M`; this result does not attain that scale. It does not show
 that the specific Section 5 polynomial is tensor-realizable, requires the specified packet-count bound and graph-only packing, and does
@@ -182,3 +257,15 @@ The source is the frozen OpenAI `quantitative-contraction.tex`, labels
 The predecessor is `research/parity-recovery-precision` at base
 `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`. The bounded-difference estimate
 and conditional expectation are standard; no novelty claim is made for them.
+
+Concurrent [PR 65](https://github.com/1337isnot1337/3-SAT/pull/65)
+uses a most-populated residue class to select at least `ceil(M/P)` rows and
+gives valuation-dependent divisibility `a+1-i` per row, plus a jet-order
+bound. The periodic random-word construction selects more rows under its
+size assumption but guarantees only `a+2-u` bits per selected row uniformly
+across active levels; its statement makes no corresponding jet-order claim.
+The two bounds have different parameter dependence and should be compared
+for the particular node. [PR 52](https://github.com/1337isnot1337/3-SAT/pull/52)
+realizes the generic tapered polynomial over a broader coefficient ring,
+with different port-budget and Boolean-input limitations. Neither concurrent
+package has been independently reviewed here.

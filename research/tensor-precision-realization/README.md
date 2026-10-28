@@ -14,12 +14,18 @@ the same method gives precision `ceil(M/8)` at every nonzero node once
 `L >= 6*128*ceil(log2(2L))`. The words are constructed deterministically
 in polynomial time by conditional expectation with path transfer matrices.
 
+A second construction uses periodic words to make every retained active
+node vanish modulo `2^((floor(M/8)+1)*(a+2-u))` under the source packing
+conditions. This is a separate input family from the all-nonzero-node
+witness and gives `Omega(M(a-u))` precision when `a-u` grows.
+
 This strengthens the earlier actual-network witness for growing packets,
 but it does not realize the generic tapered polynomial or match its
 `MD_i/u` scale. The partial-packet argument requires the source packet-count bound and
 entries chosen after the graph-only packing. Tensor-aware algorithms are
 not covered.
-The predecessor and frozen source pins appear in the proof. The selected
+The predecessor, concurrent PRs #52 and #65, and frozen source pins appear
+in the proof. The selected
 result remains unchanged.
 
 Reproduce with Python 3.11+ and the standard library:
@@ -27,6 +33,7 @@ Reproduce with Python 3.11+ and the standard library:
 ```
 python3 -I -B research/tensor-precision-realization/verify.py
 python3 -I -B research/tensor-precision-realization/verify_partial.py
+python3 -I -B research/tensor-precision-realization/verify_periodic.py
 make verify
 ```
 
@@ -35,6 +42,8 @@ checks all mismatched row factors for its displayed words of lengths 2, 4,
 8 and 16, and expands complete packet products at lengths 2, 4 and 8.
 The partial-packet checker exhausts all nonempty occupancy subsets at
 lengths 2 and 4, with 114 path-transfer and 114 complete-product checks.
-These finite checks do not prove the all-size construction. Next, investigate
+The periodic checker compares 66 cycle transfers with brute force and checks
+672 packet products and 924 selected row factors. These finite checks do
+not prove the all-size constructions. Next, investigate
 whether tensor-specific structure can reach the taper scale at low-valuation
 nodes without increasing wire count.
