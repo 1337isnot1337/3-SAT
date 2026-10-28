@@ -15,10 +15,12 @@ polynomial-root bound give at least `15/64` rejection probability for every
 violation vector satisfying the predecessor's support promise. An explicit
 whole-universe fallback handles `2P` larger than the padded universe. The
 original row count, width and tensor work still suffice. Random bits per row
-fall from `2P(log2 q+1)` to `O(log(q+1)+log(P+1))`, where q is the padded
-universe size. A matching order-of-magnitude lower bound on row width holds
+fall from `2P(log2 q+1)` to `O(log(m+1))`, where m is the original number
+of clauses and q is the padded universe size. A matching order-of-magnitude lower bound on row width holds
 when the guarantee must cover *all* supports meeting the size promise; it does
-not restrict formula-aware methods. [PROOF.md](PROOF.md) gives exact constants,
+not restrict formula-aware methods. A separate linear-algebra argument proves
+the logarithmic seed order is necessary for this universal guarantee when
+P>=2. [PROOF.md](PROOF.md) gives exact constants,
 complete wrapper cost, and limitations.
 
 Reproduce using Python 3.11+ and the standard library:

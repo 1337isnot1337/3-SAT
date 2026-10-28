@@ -5,6 +5,7 @@
     4,
     8
   ],
+  "kernel_row_families": 65812,
   "parameter_cases": 25,
   "qualifying_supports": 1069,
   "result": "pass",

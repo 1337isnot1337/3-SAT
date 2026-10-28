@@ -54,7 +54,7 @@ The preceding independent-coefficient construction gives rejection at least
 1/4. We can instead use logarithmically many coefficient seed bits while
 retaining the predecessor's row count and error target. Let l be the actual
 number of sampled occurrences: l=L in the affine case and l=q in the fallback.
-Choose an auxiliary field K of size Q, a power of two with 16L<=Q<32L, and
+Choose an auxiliary field K of size Q, a power of two with 16l<=Q<32l, and
 independent uniform X,Y in K. For positions i=0,...,l-1 set
 
     c_i = Tr_{K/F2}(Y X^i),
@@ -64,14 +64,14 @@ The auxiliary field is independent of the index field and of its seed.
 
 For any fixed nonempty set H of hitting occurrences, define the nonzero
 polynomial f_H(X)=sum_{i in H} X^i over K. Its degree is at most l-1<L,
-so it vanishes at fewer than L of the Q possible X values. For f_H(X)!=0,
+so it vanishes at at most l-1 of the Q possible X values. For f_H(X)!=0,
 Y*f_H(X) is uniform in K and its field trace is a uniform bit. To see the
 trace is nonzero, its polynomial z+z^2+...+z^(Q/2) has degree Q/2<Q and
 nonzero linear coefficient; hence it cannot vanish at all Q field elements.
 Its square equals itself because z^Q=z, so its values lie in F2. It is
 F2-linear and nonzero, so its fibers have equal size. Consequently
 
-    Pr_c[ XOR_{i in H} c_i = 1 ] >= (1-(L-1)/Q)/2 >= 15/32.
+    Pr_c[ XOR_{i in H} c_i = 1 ] >= (1-(l-1)/Q)/2 >= 15/32.
 
 This estimate holds for every fixed nonempty H, including the case of repeated
 indices. In the affine index case, combining it with the independent
@@ -81,8 +81,8 @@ holds. The output row is still assembled by XORing the occurrence bits at
 identical indices. Coefficients need not be mutually independent.
 
 Each affine row now uses exactly `2 log2 q + 2 log2 Q` random bits, with
-`Q<32L=64P`, and a fallback row uses only `2 log2 Q` bits. Thus the budget
-is O(log(m+1)+log(P+1)) per row, as opposed to the predecessor's
+`Q<32l`, and a fallback row uses only `2 log2 Q` bits. Since l<=q<=2m,
+the budget is O(log(m+1)) per row, as opposed to the predecessor's
 `2P(log2 q+1)`. For bounded P this may be only a constant-factor difference.
 
 ## A support-only lower bound on row width
@@ -115,6 +115,29 @@ Formula-aware distributions or a stronger structural promise can evade this
 obstruction, and it gives no lower bound on SAT algorithms or on the total
 width of a family with a different success criterion.
 
+## A support-only lower bound on seed length
+
+For P>=2, the logarithmic seed size is also optimal in order for the same
+universal support promise. Consider any fixed-bit random row generator whose
+outputs reject every vector of weight at least d=ceil(m/P) with positive
+probability. List its B distinct output rows as a binary B-by-m matrix H.
+Every vector in ker(H) has weight below d. If r=dim ker(H), then there are r
+coordinate positions on which the projection of ker(H) is onto F2^r: take
+pivot columns of a basis matrix for the kernel. A kernel vector can therefore
+be chosen to have ones at all r of those coordinates, so it has weight at
+least r. Consequently r<=d-1, and
+
+    B >= rank(H) = m-r >= m-d+1.
+
+If the generator uses at most b uniform random bits, it has at most 2^b
+outputs, and `b>=log2(m-d+1)`. For P>=2 this is Omega(log(m+1)), while the
+construction above uses O(log(m+1)). The argument permits any output-row
+width and arbitrarily correlated bits. It requires the same row distribution
+to cover every promised support; formula-aware sampling or a narrower class
+of realizable violation supports is outside its scope. For P=1 the promised
+nonzero vector is all ones and a deterministic singleton row already rejects
+it; the logarithmic lower bound does not apply.
+
 ## Uniform construction and all other costs
 
 For q>=2 construct an irreducible polynomial of degree log2 q over F2
@@ -126,7 +149,7 @@ field elements by their log2 q coefficient bits, and sample A,B directly;
 no rejection sampling is required. Generating all L indices and combining
 repetitions costs polynomial time and space. The explicit field construction
 is performed once per leaf (or reused for equal q). Construct the auxiliary
-field by the same deterministic search; Q<64P. All field setups, traces, row
+field by the same deterministic search; Q<32l<=64 min(P,m). All field setups, traces, row
 expansion, and seed generation cost polynomial time and space and are charged.
 Neither hash field needs to equal the fingerprint field.
 
@@ -163,7 +186,8 @@ fallback cases. It checks pairwise uniformity and the hit bound for each
 support and seed, and exhausts trace-coefficient hit patterns up to length 8
 with auxiliary fields of sizes 16 through 128. It separately checks the earlier
 independent-coefficient construction and exhausts support-intersection
-averages for m<=8. These checks do not establish the all-size proof or implement the accepted tensor contraction. The all-size
+averages for m<=8, plus the kernel-dimension bound for all row families with
+m<=4. These checks do not establish the all-size proof or implement the accepted tensor contraction. The all-size
 argument and inherited wrapper need independent review. A smaller seed or
 fewer hash rows would require a separately proved guarantee for every permitted
 support.

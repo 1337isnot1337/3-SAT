@@ -79,6 +79,31 @@ def check_support_averages():
     return checks
 
 
+def rank(rows):
+    basis = {}
+    for row in rows:
+        while row:
+            pivot = row.bit_length() - 1
+            if pivot not in basis:
+                basis[pivot] = row
+                break
+            row ^= basis[pivot]
+    return len(basis)
+
+
+def check_kernel_dimension():
+    families = 0
+    for m in range(1, 5):
+        possible_rows = list(range(1 << m))
+        for family in range(1 << (1 << m)):
+            rows = [row for row in possible_rows if family >> row & 1]
+            max_weight = max(v.bit_count() for v in range(1 << m)
+                             if all(parity(v & row) == 0 for row in rows))
+            assert max_weight >= m - rank(rows), (m, family, max_weight)
+            families += 1
+    return families
+
+
 def main():
     # A hit pattern describes the positions, including repeated indices, whose
     # violation bits are one. Exhaust all coefficient strings independently.
@@ -123,6 +148,7 @@ def main():
                       "fields": [2, 4, 8],
                       "trace_hit_patterns": check_trace_coefficients(),
                       "support_average_checks": check_support_averages(),
+                      "kernel_row_families": check_kernel_dimension(),
                       "result": "pass"}, indent=2, sort_keys=True))
 
 
