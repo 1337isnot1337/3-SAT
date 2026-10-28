@@ -1,0 +1,58 @@
+{
+  "hook_checks": [
+    {
+      "h": 2,
+      "hook_rows": 2,
+      "rank_mod_1000003": 2
+    },
+    {
+      "h": 3,
+      "hook_rows": 3,
+      "rank_mod_1000003": 3
+    },
+    {
+      "h": 4,
+      "hook_rows": 4,
+      "rank_mod_1000003": 4
+    },
+    {
+      "h": 5,
+      "hook_rows": 5,
+      "rank_mod_1000003": 5
+    },
+    {
+      "h": 6,
+      "hook_rows": 6,
+      "rank_mod_1000003": 6
+    }
+  ],
+  "source_codebook_coverage": [
+    {
+      "bits": 1,
+      "h": 2,
+      "included_lengths": [
+        1,
+        2
+      ]
+    },
+    {
+      "bits": 2,
+      "h": 4,
+      "included_lengths": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "bits": 3,
+      "h": 6,
+      "included_lengths": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ]
+}
