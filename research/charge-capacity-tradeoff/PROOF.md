@@ -97,13 +97,32 @@ particular a linear effective degree e cannot retain the full leading label
 capacity at the same grade. A full-capacity sequence necessarily has
 `e=o(h)`, provided the degree ratios are bounded; ratios above 2 are zero.
 
+## Exact fixed-deficit structural rank
+
+Let e=2h-k, with k>=0 and h>=max(1,2k). Define P(j)=sum_(i=0)^j p(i)
+for j>=0 and P(-1)=0. Then the exact mask rank is
+
+    C_h(2h-k) = P(floor(k/2)) + P(floor((k-1)/2)).            (7)
+
+Indeed, label a partition by its deficit i=h-length. A partition of h
+with deficit i corresponds, after removing one from each part, to a
+partition of i with at most h-i parts. For i<=k and h>=2k, there are
+exactly p(i) such labels. The support condition becomes i+j<=k;
+labels with deficit above k are isolated. Its threshold covers have sizes
+P(a)+P(k-a-1), for -1<=a<=k. The increments p(i) are nondecreasing,
+so moving a toward the middle cannot increase this sum. The minimum is
+therefore (7). For k=0,1,2,3,4 this gives ranks 1,2,3,4,6.
+This fixed-deficit formula establishes only structural-mask rank; the
+endpoint below realizes k=0 but no general operator attainment follows.
+The finite checker also verifies (7) for all covered grades through 35.
+
 ## Attaining the rank-one endpoint
 
 For the unweighted raw piece Q_s at any h>=1, the coefficient of q^(2h)
 is zero except at row and column label `(1,1,...,1)`. At those labels it
 is the following scalar operator on every output energy space:
 
-    [q^(2h)] Q_s = (-1)^(h-s) binom(2h,h-s) Id,  |s|<=h,       (7)
+    [q^(2h)] Q_s = (-1)^(h-s) binom(2h,h-s) Id,  |s|<=h,       (8)
 
 and zero outside this shift range. To prove this, degree 2h forces both
 partitions to have h parts, hence all ones, and forces every current to use

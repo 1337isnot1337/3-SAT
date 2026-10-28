@@ -15,6 +15,7 @@ for n in range(1, MAX_H + 1):
 
 cases = 0
 strict = 0
+fixed_deficit_cases = 0
 for h in range(1, MAX_H + 1):
     def long(t):
         return sum(p[h][max(0, t):]) if t <= h else 0
@@ -35,6 +36,13 @@ for h in range(1, MAX_H + 1):
                 cols[j] -= 1
                 matching += 1
         assert matching == cover, (h, d, matching, cover)
+        k = 2 * h - d
+        if 0 <= k <= h // 2:
+            def cumulative(n):
+                return sum(sum(p[i]) for i in range(n + 1))
+            expected = cumulative(k // 2) + cumulative((k - 1) // 2)
+            assert cover == expected, (h, k, cover, expected)
+            fixed_deficit_cases += 1
         if 0 <= d <= 2 * h:
             lower = sum(p[h - (d + 1) // 2])
             assert cover >= lower, (h, d, cover, lower)
@@ -49,8 +57,9 @@ for h in range(1, MAX_H + 1):
 result = {
     "max_grade": MAX_H,
     "threshold_cases": cases,
+    "fixed_deficit_cases": fixed_deficit_cases,
     "strict_improvements_over_predecessor_cover": strict,
-    "check": "exact partition counts, greedy matching versus minimum cover, and capacity sandwich",
+    "check": "exact partition counts, greedy matching versus minimum cover, capacity sandwich and fixed-deficit formula",
     "sha256": {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
                for name in ("README.md", "PROOF.md", "CLAIM.json", "verify.py")},
 }

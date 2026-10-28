@@ -16,7 +16,8 @@ unrestricted support mask, although actual operators may have smaller rank. For 
 2^lambda label rank requires an asymptotic grade at least
 `1/(1-delta/2)` times the first-moment reference grade. The precise
 statement, proof, limiting cases and restrictions are in [PROOF.md](PROOF.md).
-At e=2h the rank-one mask is actually attained: extracting q^(2h) from
+At fixed deficit e=2h-k, the exact structural rank stabilizes to a sum
+of cumulative partition numbers. At e=2h the rank-one mask is actually attained: extracting q^(2h) from
 an individual raw charged piece gives an explicit scalar identity on the
 all-ones row and column labels. This endpoint has only one label and does
 not establish a useful crossing family.
