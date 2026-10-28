@@ -85,6 +85,36 @@ Each affine row now uses exactly `2 log2 q + 2 log2 Q` random bits, with
 is O(log(m+1)+log(P+1)) per row, as opposed to the predecessor's
 `2P(log2 q+1)`. For bounded P this may be only a constant-factor difference.
 
+## A support-only lower bound on row width
+
+Suppose a distribution on binary rows, each with at most w nonzero coordinates
+among the original m positions, rejects every binary vector of weight at least
+m/P with probability at least c>0. This distribution may be arbitrary; its
+coefficients and random choices need not resemble the construction above.
+Put d=ceil(m/P) when P<=m, and d=1 when P>m, equivalently
+`d=max(1,ceil(m/P))`. Average over all d-subsets S of the m positions. For a
+fixed row of weight r, rejection is impossible unless S meets its support, and
+exactly a fraction
+
+    1 - binom(m-r,d)/binom(m,d) <= r*d/m
+
+of these subsets meet it (the binomial coefficient is zero if m-r<d). Averaging
+also over the row distribution shows that at least one weight-d vector has
+rejection probability at most w*d/m. Therefore the stipulated universal
+per-row guarantee forces
+
+    w >= c*m/d >= (c/2) min(P,m).
+
+The final inequality follows from `d<=m/P+1` and `d>=1`. In particular, a
+constant rejection guarantee on the entire support-promised class requires
+width Omega(min(P,m)); our width is O(min(P,m)) because q<=2m and the fallback
+uses all q padded coordinates when 2P>q. Thus the order of the width is sharp
+for this interface. This averaging does not prove that every such support can
+occur as a violation vector for a particular CNF leaf after its initial checks.
+Formula-aware distributions or a stronger structural promise can evade this
+obstruction, and it gives no lower bound on SAT algorithms or on the total
+width of a family with a different success criterion.
+
 ## Uniform construction and all other costs
 
 For q>=2 construct an irreducible polynomial of degree log2 q over F2
@@ -132,8 +162,8 @@ for padded universes of sizes 2, 4, and 8, including affine and whole-universe
 fallback cases. It checks pairwise uniformity and the hit bound for each
 support and seed, and exhausts trace-coefficient hit patterns up to length 8
 with auxiliary fields of sizes 16 through 128. It separately checks the earlier
-independent-coefficient construction. These checks do not establish the
-all-size proof or implement the accepted tensor contraction. The all-size
+independent-coefficient construction and exhausts support-intersection
+averages for m<=8. These checks do not establish the all-size proof or implement the accepted tensor contraction. The all-size
 argument and inherited wrapper need independent review. A smaller seed or
 fewer hash rows would require a separately proved guarantee for every permitted
 support.

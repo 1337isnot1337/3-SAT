@@ -9,5 +9,6 @@
   "qualifying_supports": 1069,
   "result": "pass",
   "seed_support_pairs": 45364,
+  "support_average_checks": 3586,
   "trace_hit_patterns": 502
 }

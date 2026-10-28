@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Exhaustive bounded checks of affine index sampling and row rejection."""
+import itertools
 import json
+import math
 
 
 def mul(a, b, modulus, q):
@@ -60,6 +62,23 @@ def check_trace_coefficients():
     return total
 
 
+def check_support_averages():
+    checks = 0
+    for m in range(1, 9):
+        for d in range(1, m + 1):
+            supports = [sum(1 << i for i in chosen)
+                        for chosen in itertools.combinations(range(m), d)]
+            for row in range(1 << m):
+                size = row.bit_count()
+                actual = sum(bool(row & support) for support in supports)
+                expected = math.comb(m, d) - (math.comb(m-size, d)
+                           if m-size >= d else 0)
+                assert actual == expected
+                assert actual * m <= len(supports) * size * d
+                checks += 1
+    return checks
+
+
 def main():
     # A hit pattern describes the positions, including repeated indices, whose
     # violation bits are one. Exhaust all coefficient strings independently.
@@ -103,6 +122,7 @@ def main():
                       "coefficient_hit_patterns": coefficient_patterns,
                       "fields": [2, 4, 8],
                       "trace_hit_patterns": check_trace_coefficients(),
+                      "support_average_checks": check_support_averages(),
                       "result": "pass"}, indent=2, sort_keys=True))
 
 
