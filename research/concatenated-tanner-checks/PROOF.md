@@ -153,7 +153,8 @@ The verifier checks 20,000 seeded integer schedules, directly exercises a
 positive-h parameter branch using a 65,537-bit integer, checks 2,000 exact
 inner-code entropy cases, checks two scaled
 conditional-expectation constructions, and enumerates all 32,767 nonzero
-words in a small GF(8)-outer, binary-inner concatenated code. The finite
+words in a small GF(8)-outer concatenated code whose binary inner encoder is
+selected from the checked conditional-expectation matrix. The finite
 checks do not verify the general proof, construct a source-scale q>1 Tanner
 graph, or implement the global SAT algorithm. The nontrivial inner-code
 conditional-expectation routine at source-scale ell remains unexecuted.

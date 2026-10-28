@@ -66,7 +66,7 @@ def make_check(ell, t, h):
             before = after
     assert before == 0
     assert all(any((v & row).bit_count() & 1 for row in rows) for v in bad)
-    return len(bad)
+    return len(bad), rows
 
 
 def mul8(a, b):
@@ -81,9 +81,32 @@ def mul8(a, b):
     return out
 
 
-def toy_concatenation():
-    # Outer GF(8) polynomial code N=7,k=5, inner binary [4,3,2] parity code.
-    minimum = 28
+def toy_concatenation(inner_rows):
+    # Outer GF(8) polynomial code N=7,k=5. The inner encoder is selected
+    # from the kernel of the conditional-expectation check matrix above.
+    basis = {}
+    chosen = []
+    for candidate in range(1, 256):
+        if any((candidate & row).bit_count() & 1 for row in inner_rows):
+            continue
+        v = candidate
+        while v:
+            pivot = v.bit_length()-1
+            if pivot not in basis:
+                basis[pivot] = v
+                chosen.append(candidate)
+                break
+            v ^= basis[pivot]
+        if len(chosen) == 3:
+            break
+    assert len(chosen) == 3
+    inner = [0]*8
+    for a in range(8):
+        for i in range(3):
+            if a >> i & 1:
+                inner[a] ^= chosen[i]
+    assert all(inner[a].bit_count() >= 2 for a in range(1, 8))
+    minimum = 56
     count = 0
     for coeff in itertools.product(range(8), repeat=5):
         if not any(coeff):
@@ -93,7 +116,7 @@ def toy_concatenation():
             value = 0
             for a in reversed(coeff):
                 value = mul8(value, x) ^ a
-            weight += value.bit_count() + (value.bit_count() & 1)
+            weight += inner[value].bit_count()
         minimum = min(minimum, weight)
         assert weight >= 6
         count += 1
@@ -151,8 +174,10 @@ def main():
             h0 = 0
         assert (h0+1)*40960*B0*(B0+1).bit_length() >= s0
         entropy_checks += 1
-    bad_words = make_check(8, 4, 1) + make_check(8, 7, 2)
-    codewords, minimum = toy_concatenation()
+    bad1, inner_rows = make_check(8, 4, 1)
+    bad2, _ = make_check(8, 7, 2)
+    bad_words = bad1 + bad2
+    codewords, minimum = toy_concatenation(inner_rows)
     print(json.dumps({'seed': 834211, 'parameter_cases': 20000, 'regimes': regimes,
                       'direct_positive_h': h, 'entropy_checks': entropy_checks,
                       'positive_entropy_cases': positive_entropy,
