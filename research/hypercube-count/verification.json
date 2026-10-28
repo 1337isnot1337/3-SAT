@@ -4,16 +4,18 @@
     "all_y_assignments": 65812,
     "basis_square_checks": 2046,
     "block_image_checks": 1364,
+    "contradictory_branches": 347,
     "formula_counts": {
       "1": "9",
       "2": "100",
       "3": "6561",
       "4": "59228416"
-    }
+    },
+    "odd_branch_cases": 881
   },
   "scope": "bounded exact controls; no independent proof review",
   "sha256": {
-    "PROOF.md": "9fb34e5bc96b9ab46accac3274e664d27ba04d30fefebbbb4b84ce904308d80d",
-    "verify.py": "fc6d934b4e38d41a571e25ec417b9c02a411f257667053998f45354de53bbe52"
+    "PROOF.md": "b9ac7cce0ed735eb6e97454e377ced6679075f8656820ea3aff814d7fae9577a",
+    "verify.py": "72aedf874b6dc4047e3ce531f13910cbd217d170e8268fae7ecb5b291df565b7"
   }
 }

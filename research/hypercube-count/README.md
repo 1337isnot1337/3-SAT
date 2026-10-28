@@ -21,13 +21,16 @@ exact weight-enumerator formula
 where A_(d-1) is the binary hypercube adjacency matrix. The formula gives a
 uniform polynomial-space `poly(m) 2^(m/2)` bit-time counter for even d.
 The count for d=1,2,3,4 is 9, 100, 6,561, and 59,228,416 respectively.
-It remains open here whether even d has a simpler closed form or faster count.
+For odd d, an exact character-sum formula also counts any prescribed fixed-bit
+branch in `poly(m) 2^b` bit time and polynomial space, where b is the number
+of fixed y variables. It remains open here whether even d has a simpler
+closed form or faster count.
 
 This is a computation for one family, not a general SAT time improvement.
 It illustrates that coefficientwise support entropy or a large supplied
 circular span does not by itself imply a counting-time lower bound. The
-result covers the unconditioned system; arbitrary fixed-bit branches require
-separate analysis.
+odd-d branch formula handles all fixed x and y bits, while even-d branches
+require separate analysis.
 
 ## Evidence and reproduction
 
@@ -39,7 +42,8 @@ make verify
 
 Standard-library checks cover the adjacency-square identity on 2,046 basis
 vectors for d=1,...,10, 1,364 block-image controls, all 65,808 x/y pairs for
-d=1,2,3, and all 65,812 y assignments for d=1,2,3,4. The independently
+d=1,2,3, all 65,812 y assignments for d=1,2,3,4, and 881 odd-d branch
+cases including 347 contradictions. The independently
 computed direct sums agree with the formulas. The [saved output](verification.json)
 hash-binds proof and verifier; bounded controls do not constitute an independent
 review or a proof of the asymptotic algorithm.
@@ -55,7 +59,7 @@ studies a different oriented single-cube system. The accepted upstream source
 is pinned by [SOURCES.json](../../SOURCES.json) at
 `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`.
 
-The proof does not count arbitrary branches or claim anything about general
+The proof does not count arbitrary even-d branches or claim anything about general
 query aggregation, selected alpha, human review, formal verification, or
 scientific priority. Future generalizations must charge all reduction queries,
 branches, descriptions, entry generation, recursion, precision and space.

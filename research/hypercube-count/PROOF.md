@@ -39,6 +39,35 @@ Consequently
 For example C_1=9 and C_2=100. Equation (3) is an exact weight-enumerator
 identity, not a claimed closed form or polynomial-time method for even d.
 
+## Arbitrary fixed-bit branches for odd d
+
+Suppose d is odd. Let X0 and X1 be the sets of fixed-zero and fixed-one
+x variables, F their free complement, and Y the set of fixed y variables,
+with prescribed values b_i. Put b=|Y|. Because A_d=A_d^-1, the change of
+variables z=A_d y makes y=A_d z. For each z_v, summing over the allowed
+x_v contributes a unary weight f_v(z_v):
+
+    x_v free:     f_v(0)=2, f_v(1)=1;
+    x_v fixed 0:  f_v(0)=1, f_v(1)=1;
+    x_v fixed 1:  f_v(0)=1, f_v(1)=0.
+
+For a in F2 write H_v(a)=sum_(t in F2) f_v(t)(-1)^(at). Thus H_v is
+(3,1), (2,0), or (1,1), respectively. The b constraints (A_d z)_i=b_i
+for i in Y can be expanded by character orthogonality. With 1_T the m-bit
+indicator of T subset Y, the branch count is exactly
+
+    2^(-b) sum_(T subset Y) (-1)^(sum_(i in T) b_i)
+                   product_v H_v((A_d 1_T)_v).                (4)
+
+This is an integer: it was obtained from the sum of exact Boolean indicator
+products, and the division is performed in the integers after summation.
+It also handles contradictory branches, for which the answer is zero.
+Evaluating (4) uses poly(m) 2^b bit operations and polynomial space; every
+intermediate numerator has O(m+b) bits. No field inverse or randomness is
+needed. When the source high-incidence step fixes B variables, b<=B, so
+this gives a per-branch cost poly(m) 2^B; it does not claim that a general
+sparse query has the same structure. Even d is not covered by (4).
+
 ## Uniform bit complexity and scope
 
 Read d or the explicit instance, compute m=2^d, and construct the hypercube
@@ -51,9 +80,10 @@ space; no randomness or hidden preprocessing is needed. A finite input can
 be handled directly, including d=1; there is no asymptotic parameter
 fallback or precision issue.
 
-This counts the unconditioned system as stated. Arbitrary fixed-bit branches,
-other private-edge systems, arbitrary row transformations as a representation
-of a different system, and general sparse queries require separate treatment.
+The branch formula covers arbitrary fixed x and y bits for odd d; fixed-bit
+branches for even d, other private-edge systems, arbitrary row transformations
+as a representation of a different system, and general sparse queries require
+separate treatment.
 Invertible row transformations of this exact system preserve its solution
 set and therefore its count. These formulas do not refute its coefficientwise
 support obstruction: an aggregate computation can avoid enumerating the
