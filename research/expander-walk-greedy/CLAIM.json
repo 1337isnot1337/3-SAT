@@ -17,7 +17,9 @@
     "research/expander-walk-greedy/verify_bias.py",
     "research/expander-walk-greedy/CONSTANT-DEGREE.md",
     "research/expander-walk-greedy/PAIRWISE.md",
-    "research/expander-walk-greedy/verify_pairwise.py"
+    "research/expander-walk-greedy/verify_pairwise.py",
+    "research/expander-walk-greedy/HANDOFF-64.md",
+    "research/expander-walk-greedy/verify_handoff.py"
   ],
   "reproduce": [
     "python3",
