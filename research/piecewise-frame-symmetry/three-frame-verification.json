@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "three-macro expanded fixed atom alphabet",
+  "atoms": 660,
+  "atoms_per_frame_through_25_bits": 65,
+  "type_pairs": 7092,
+  "annihilator_terms": 33,
+  "target_pairing": -240,
+  "bindings": {
+    "research/piecewise-frame-symmetry/three_frame_screen.py": "ba5a018f1dcb3bc72c90ef5e6e90cbd2f3e32093bf6d075a78786cd02e55998d",
+    "research/piecewise-frame-symmetry/three-frame-dual.json": "b6b6abeeb5b86f9a4aba55c6ce8b46e9dd03a51e18c1592b98e8f1bceb148d8c",
+    "research/piecewise-frame-symmetry/two_frame_screen.py": "aad2ce9867b41103ffc1e748c2fd05b51e6587cf404fce5d4767e38eced3e85c",
+    "research/piecewise-frame-symmetry/verify.py": "c96b3c61e5e791a5da59950524cfa014d6e6e30c4265e2169d0bd6753b20fa53",
+    "research/symmetric-walsh-pieces/walsh.py": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  }
+}

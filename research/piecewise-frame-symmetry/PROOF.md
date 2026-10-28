@@ -154,6 +154,22 @@ This does not cover unrestricted pieces, other bases, larger instances or
 an asymptotic crossing rate. The annihilator is verified directly over the
 rationals rather than inferred from modular non-membership.
 
+## Three-macro target-threshold control
+
+At R=3 the analogous expanded alphabet contains 660 atoms: 220 adapted
+basis functions, 220 type indicators and 220 Fourier transforms of type
+indicators. Exactly 65 atoms per frame cost at most 25 bits, the integer
+part of `2 sqrt(2) lambda` for `lambda=9`. The
+[three-macro checker](three_frame_screen.py) constructs the type matrix
+and 7,092 distinct pairs of original and conjugated types. A frozen
+[33-term exact annihilator](three-frame-dual.json) pairs to -240 with the
+target and to zero with all 130 qualifying atoms in the two frames.
+Thus no rational decomposition from this alphabet has maximum atom cost
+at most 25 bits. This is an exact finite control, not an asymptotic rate
+bound or an exclusion of arbitrary three-macro pieces. The additive
+`O(log lambda)` allowance in an asymptotic piece contract is not judged
+by this one finite threshold.
+
 ## Open construction
 
 Try a polynomial-size decomposition whose pieces use either the original
