@@ -366,6 +366,32 @@ complete embedding of Section 5's selected clause gadgets into the exact
 subdivided reduction. One must still allocate the selected gadgets and all
 remaining filler pairs simultaneously with consistent row and column labels.
 
+### Finite screen for filler pin moments
+
+The filler-pair calculation does not by itself show that attaching a
+subdivision pin gate preserves the leading unit after dividing by `2^3`.
+A relevant moment is
+
+```
+N_S = sum_X prod_x(1-z_x(X)) prod_{j in S} z_j(X),
+```
+
+where `z_x(X)=sum_y W_xy X_y`. For `|S|>=4`, `N_S=0 mod 16` follows
+pointwise: each of the distinct factors `z_j(1-z_j)` is even. The remaining
+cases `1<=|S|<=3` need another argument.
+
+An exact [finite screen](filler-moments.py) finds `N_S=0 mod 16` for all
+nonempty subsets of non-last rows of size at most three at `L=8,16`, and
+for all such subsets of the first four rows at `L=32,64`. The screen uses
+a complete modulo-16 expansion with at most three off-diagonal selections;
+for `L=8` it independently compares all 93 subsets, including the empty
+and boundary cases, with direct Boolean summation. **The last row is an
+essential exception:** its singleton moment equals 2 modulo 16 in each
+listed case. The broad non-last-row assertion is an unproved conjectural
+continuation, not part of the filler lemma or an end-to-end subdivision
+construction. A proof must handle the nonboundary sets uniformly, the
+selected pin pattern and the simultaneous label/slot allocation.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact

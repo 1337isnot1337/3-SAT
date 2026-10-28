@@ -13,7 +13,9 @@
   "evidence": [
     "research/odd-node-mode-support/PROOF.md",
     "research/odd-node-mode-support/verify.py",
-    "research/odd-node-mode-support/verification.json"
+    "research/odd-node-mode-support/verification.json",
+    "research/odd-node-mode-support/filler-moments.py",
+    "research/odd-node-mode-support/filler-moments-verification.json"
   ],
   "reproduce": [
     "python3",
