@@ -255,6 +255,24 @@ that particular support-only *upper-envelope
 calculation*. It is not a lower bound on actual ranks or on any SAT running
 time, and another rank bound may improve on the envelope.
 
+The same threshold survives the elementary cap `N_h^2` on each flattening
+rank. The resulting normalized upper-bound expression is
+
+```math
+ \rho_{\rm cap}(\theta,u)=\frac{1}{4}\left[
+ \min\!\left(2,\frac{\sqrt{2+u}}{\theta}\right)+
+ \min\!\left(2,\frac{\sqrt{2-u}}{\theta}\right)\right].
+```
+
+For fixed theta it is nonincreasing in u: before clipping the sum decreases;
+if the larger first term clips, the remaining second term decreases; and if
+the second term clips, both are clipped. At `u=2-theta^2`, it equals
+`[min(2,sqrt(4-theta^2)/theta)+1]/4`, which is at least
+`(sqrt(3)+1)/4` for `0<theta<=1`. Equation (2) therefore gives the same
+support-only threshold even after this dimension cap. This remains a
+statement about the evaluated upper-bound expression, not a lower bound on
+actual tensor ranks.
+
 ## Reproduction and scope
 
 `python3 -I -B research/extreme-shift-output-rank/verify.py` performs exact
