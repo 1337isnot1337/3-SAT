@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "unfused-f8-entropy",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "all_size_macro_symmetric_pauli_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "In the globally type-symmetric unfused ten-class F8 Pauli coefficient model, a four-macro self-Fourier dual and entropy tensorization force some same summand to have both word supports at least 153664^floor(R/4)/(R+1)^10, giving rho at least log2(153664)/24 > 1/sqrt(2). This is not a SAT lower bound or an improved SAT algorithm.",
+  "improves_bound": false,
+  "evidence": ["research/unfused-f8-entropy/README.md", "research/unfused-f8-entropy/PROOF.md", "research/unfused-f8-entropy/seed.json", "research/unfused-f8-entropy/verify.py", "research/unfused-f8-entropy/verification.json"],
+  "reproduce": ["python3", "-I", "-B", "research/unfused-f8-entropy/verify.py"],
+  "remaining_obligations": ["Independent review of the dual certificate and entropy tensorization proof", "A construction outside the stated local classes, global symmetry or Pauli-diagonal model", "Uniform piece generation and complete SAT cost accounting for any improved construction"],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent review claimed",
+  "selected_result_changed": false
+}
