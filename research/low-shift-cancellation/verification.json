@@ -12,5 +12,7 @@
   "reverse_recurrence_rows": 7,
   "diagonal_recurrence_rows": 3,
   "second_input_recurrence_rows": 2,
+  "second_diagonal_recurrence_rows": 1,
+  "general_input_recurrence_rows": 1,
   "prime": 1000003
 }

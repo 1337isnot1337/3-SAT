@@ -12,10 +12,10 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + [h>=4] + [h>=6].
+2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + [h>=4] + 2[h>=6] + [h>=9].
 ```
 
-For even h>=6 this is 4h-6, and for odd h>=7 it is 4h-7. This
+For even h>=10 this is 4h-4, and for odd h>=9 it is 4h-5. This
 strengthens PR #59's lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. The new witnesses use y=(h), which
 can be absent from the source's lexicographic binary codebook; no stronger
@@ -125,6 +125,90 @@ u contributes its part 2, while neither part of v does. In contrast,
 the three-partition low-shift space from (1) has no z^(h-1) term after
 this same division. The diagonal row cannot help because it is nonzero
 at z=1. Thus W adds a further independent symmetric direction for h>=6.
+
+## A third symmetric direction
+
+Continue with y=(h-1,1), u=(h-2,2), labels e,e, and h>=6. Write
+`D_y` for the diagonal row with output y, `P_(y,u)` for the row in (2),
+`D_h` for the diagonal row with input and output (h), and `P_ref` for the
+three-part row `(h-2,1,1)` with input (h). Let Z_u be u's multiplicity
+factor. The combination
+
+```
+V = (h-1)(D_y - Z_u P_(y,u) - D_h) + P_ref
+```
+
+is symmetric, supported in [-h,h], annihilated by L and zero at z=1.
+To see support, the four-uncontracted-field terms of D_y and Z_u P_(y,u)
+have the same extreme terms z^h and z^-h in (2), so they cancel. The
+remaining two-field diagonal terms have support in [-h,h]. The final
+`-(h-1)D_h+P_ref` is the negative of W_diag above.
+
+All terms in V have zero first moment; L(V)=0 and V(1)=0 give zero second
+moment. Symmetry then forces a zero of order at least four at z=1. Divide
+by `(z-1)^4 z^(-h-2)`. Its coefficient at z^h is
+
+```
+2h(h-1)^2(h-2) h! > 0.                                    (3)
+```
+
+Here is the coefficient calculation. D_h's constant cancels D_y's
+constant. D_y's two-field contribution is
+
+```
+h h! (z-1)^2 [(h-1)(z^(h-2)+z^(-h)) + 1+z^(-2)],
+```
+
+and D_h's is `h^2 h! (z-1)^2 (z^(h-1)+z^(-h-1))`. Using
+`(1-z)^(-2)=sum_{n>=0}(n+1)z^n`, their difference contributes
+`-2h(h-1)^2 h!` to the specified coefficient after the outer h-1
+factor. The four-field part of D_y contributes two central terms; with
+`K_h=h(h-1)^2 h!` from (2), this adds `2(h-1)K_h`. The other terms of
+`P_(y,u)` and P_ref have no central coefficient after division. Their sum
+is (3).
+
+The three-part low-shift space has no central coefficient after the same
+division, nor does the preceding second-input row: its residual exponents
+are h plus or minus a-1 or b-1, with a,b>=2. W_diag is nonzero at z=1,
+so it also cannot participate in a relation for V. Thus V adds another
+symmetric direction for every h>=6.
+
+## A fourth symmetric direction
+
+Assume h>=9. Take e,e labels, input y=(h-3,3), and outputs
+u=(h-2,2), v=(h-4,4). The two input parts are distinct, and neither
+output shares an input part. For a general such pair y=(h-p,p),
+u=(h-a,a), normal ordering gives
+
+```
+Z_u P_(y,u)(z) = K_(h,p) (z-1)^4 z^(-2) * [
+ z^(-h)+z^h+z^(a-p)+z^(p-a)+z^(h-p-a)+z^(-h+p+a) ],
+K_(h,p)=4p(h-p) binom(h,2)^2 (h-2)!.
+```
+
+All four input/output events must remain uncontracted; the input
+annihilation multipliers give p(h-p). The six choices of two events at z
+produce the displayed exponent sums, just as in (2). Subtract the two
+rows after multiplying each by its output multiplicity factor Z. The
+universal extreme terms cancel, and the remaining shifts are inside
+[-h,h]. This symmetric low-shift row W has L(W)=0 and W(1)=0.
+
+After division by `K_(h,3)(z-1)^4 z^(-h-2)`, its residual is exactly
+
+```
+z^5 + z^(2h-5) - z^7 - z^(2h-7).                           (4)
+```
+
+Since h>=9, its center and its z^(h-1) coefficient vanish. Therefore a
+relation with the earlier symmetric rows has zero coefficients on the
+central witness and the z^(h-1) witness; W_diag also has zero coefficient
+because W(1)=0. The remaining three-part low-shift space corresponds to
+vectors in the hyperplane `sum_j (3j-h)v_j=0`. The vector in (4) has
+v_5=1, v_7=-1 and all other lower-half coordinates zero, giving -6 under
+that functional. Thus W is outside the earlier symmetric space and adds
+one direction for h>=9. The case h=9 has a pair of repeated middle terms
+at j=7 only when j=h, which does not occur; the four displayed powers
+remain distinct.
 
 ## A one-sided space from two-part outputs
 
@@ -248,8 +332,8 @@ to zero. Hence the new negative-only space has dimension
 `max(0,floor(h/2)-2)`.
 
 It remains independent of the augmented symmetric low-support space,
-including W_diag and the second-input row, together with the previous
-positive-only space. If S is symmetric and P,N are the
+including W_diag, both second-input rows and the fourth-input row,
+together with the previous positive-only space. If S is symmetric and P,N are the
 positive- and negative-only rows with S+P+N=0, then
 `P(z)-N(1/z)` is both a polynomial in z and a polynomial in z^-1, hence
 constant. Both P and N vanish at z=1, so that constant is zero; the
@@ -277,7 +361,7 @@ Proceeding downward through h+2 successively eliminates F_l and G_(l-1);
 shift h+1 finally eliminates F_1. All three low-support spaces have no terms at those shifts and their
 sum is direct, so that sum meets the predecessor span only at zero.
 Their dimensions give rank at least
-`3h-3+2 max(0,floor(h/2)-2)+[h>=6]` for h>=4.
+`3h-3+2 max(0,floor(h/2)-2)+2[h>=6]+[h>=9]` for h>=4.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
 

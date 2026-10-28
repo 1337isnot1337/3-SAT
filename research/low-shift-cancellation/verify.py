@@ -83,6 +83,42 @@ def two_to_two(h, output):
     return {s: v for s, v in result.items() if v}
 
 
+def general_two_to_two(h, input_part, output_part):
+    p, a = input_part, output_part
+    y, u = (h-p, p), (h-a, a)
+    assert p != h-p and not set(y).intersection(u)
+    denom = math.prod(math.factorial(n) for n in Counter(u).values())
+    common = 4*p*(h-p)*math.comb(h,2)**2*math.factorial(h-2)
+    assert common % denom == 0
+    result = defaultdict(int)
+    for exponent in (-h, h, a-p, p-a, h-p-a, -h+p+a):
+        for j in range(5):
+            result[exponent-2+j] += (common//denom)*math.comb(4,j)*(-1)**j
+    return {s: v for s, v in result.items() if v}
+
+
+def second_input_diagonal(h):
+    result = defaultdict(int, two_to_two(h, (h-1, 1)))
+    result[0] += math.factorial(h)
+    factor = h*math.factorial(h)
+    for exponent, scalar in ((h-2, h-1), (-h, h-1), (0, 1), (-2, 1)):
+        for j in range(3):
+            result[exponent+j] += factor*scalar*math.comb(2,j)*(-1)**j
+    return {s: v for s, v in result.items() if v}
+
+
+def divide_four(values, h):
+    """Return z^(h+2)*values/(z-1)^4 and assert exact division."""
+    numerator = [values.get(i-(h+2), 0) for i in range(2*h+3)]
+    quotient = []
+    for i, value in enumerate(numerator):
+        for j in range(1, min(4, i)+1):
+            value -= (-1)**j * math.comb(4,j)*quotient[i-j]
+        quotient.append(value)
+    assert all(value == 0 for value in quotient[-4:])
+    return quotient[:-4]
+
+
 def closed_two(h, output):
     counts = Counter(output)
     denom = math.prod(math.factorial(n) for n in counts.values())
@@ -140,6 +176,8 @@ def run():
     reverse_recurrence_rows = 0
     diagonal_recurrence_rows = 0
     second_input_recurrence_rows = 0
+    second_diagonal_recurrence_rows = 0
+    general_input_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
         symmetric_polynomials = []
@@ -183,6 +221,15 @@ def run():
             assert all(not value or abs(j) <= h for j, value in row.items())
             assert sum(row.values()) == 0
             symmetric_low.append([row.get(j, 0) for j in range(-h, h+1)])
+            ydiag = second_input_diagonal(h)
+            center = {j: (h-1)*(ydiag.get(j, 0)-zu*pu.get(j, 0)-diagonal.get(j, 0))
+                           + ref_raw.get(j, 0)
+                      for j in set(ydiag)|set(pu)|set(diagonal)|set(ref_raw)}
+            assert all(not value or abs(j) <= h for j, value in center.items())
+            assert sum(center.values()) == 0
+            quotient = divide_four(center, h)
+            assert quotient[h] == 2*h*(h-1)**2*(h-2)*math.factorial(h)
+            symmetric_low.append([center.get(j, 0) for j in range(-h, h+1)])
             if h == 6:
                 y = (h-1, 1)
                 for state, expected in ((u, pu), (v, pv)):
@@ -190,11 +237,33 @@ def run():
                               for shift in range(-2*h, 2*h+1)}
                     assert {j: value for j, value in direct.items() if value} == expected
                     second_input_recurrence_rows += 1
+                direct = {shift: dict(piece_vector(one, one, y, shift)).get(y, 0)
+                          for shift in range(-2*h, 2*h+1)}
+                assert {j: value for j, value in direct.items() if value} == ydiag
+                second_diagonal_recurrence_rows += 1
         if h <= 6:
             direct = {shift: dict(piece_vector(one, one, (h,), shift)).get((h,), 0)
                       for shift in range(-2*h, 2*h+1)}
             assert {s: value for s, value in direct.items() if value} == diagonal
             diagonal_recurrence_rows += 1
+        if h >= 9:
+            u, v = (h-2, 2), (h-4, 4)
+            pu, pv = general_two_to_two(h, 3, 2), general_two_to_two(h, 3, 4)
+            zu = math.prod(math.factorial(n) for n in Counter(u).values())
+            zv = math.prod(math.factorial(n) for n in Counter(v).values())
+            row = {j: zu*pu.get(j, 0)-zv*pv.get(j, 0) for j in set(pu)|set(pv)}
+            assert all(not value or abs(j) <= h for j, value in row.items())
+            quotient = divide_four(row, h)
+            common = 12*(h-3)*math.comb(h,2)**2*math.factorial(h-2)
+            expected = {5: common, 2*h-5: common, 7: -common, 2*h-7: -common}
+            assert {j: value for j, value in enumerate(quotient) if value} == expected
+            symmetric_low.append([row.get(j, 0) for j in range(-h, h+1)])
+        if h == 7:
+            y, u = (5, 2), (4, 3)
+            direct = {shift: dict(piece_vector(one, one, y, shift)).get(u, 0)
+                      for shift in range(-2*h, 2*h+1)}
+            assert {j: value for j, value in direct.items() if value} == general_two_to_two(h, 2, 3)
+            general_input_recurrence_rows += 1
         reference = (h-2, 2)
         if h <= 6:
             d = (2,) + (1,)*(h-2)
@@ -237,7 +306,7 @@ def run():
             two_part_cases += 1
         assert modular_rank(one_sided_rows, prime) == max(0, h//2-2)
         assert modular_rank(symmetric_low + combined_positive + combined_negative, prime) == (
-            h-3 + 2*max(0, h//2-2) + (h >= 6))
+            h-3 + 2*max(0, h//2-2) + 2*(h >= 6) + (h >= 9))
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
                       'multiplicity_and_kernel_rank_cases': 37,
@@ -245,7 +314,10 @@ def run():
                       'two_part_recurrence_rows': two_part_recurrence_rows,
                       'reverse_recurrence_rows': reverse_recurrence_rows,
                       'diagonal_recurrence_rows': diagonal_recurrence_rows,
-                      'second_input_recurrence_rows': second_input_recurrence_rows, 'prime': prime}, indent=2))
+                      'second_input_recurrence_rows': second_input_recurrence_rows,
+                      'second_diagonal_recurrence_rows': second_diagonal_recurrence_rows,
+                      'general_input_recurrence_rows': general_input_recurrence_rows,
+                      'prime': prime}, indent=2))
 
 
 if __name__ == '__main__':
