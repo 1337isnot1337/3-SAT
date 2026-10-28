@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "interval-product-queries",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "parameterized_exact_counting",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "4ce0cb947bdb6837718c7061e45d3a723219d703",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For arbitrary explicit affine binary systems A m=b on cyclic adjacent products m_i=x_i x_(i+1), a deterministic polynomial-space exact count takes poly(n+a) 2^(d-r) lambda^r bit operations, where d is nullity, r is the maximum length of a cyclic interval of independent kernel coordinate functionals, and lambda=1.754877666.... A consistent family has d=n/2 and r=2. No general SAT improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/interval-product-queries/PROOF.md",
+    "research/interval-product-queries/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/interval-product-queries/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size proof and costs",
+    "Establish any needed r bound for actual all-input outer queries",
+    "Account for reductions, all candidate queries and decoding before any SAT claim"
+  ]
+}
