@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exact small Margulis graph, powering, port and padding controls."""
+import itertools
 import json
 import math
 
@@ -51,6 +52,24 @@ def check_mixing(A, exponent):
     return cases
 
 
+def check_port_inverses():
+    inverse = (4, 5, 6, 7, 0, 1, 2, 3)
+    cases = 0
+    for n in (2, 3):
+        for k in (1, 2, 3):
+            for word in itertools.product(range(8), repeat=k):
+                for x in range(n):
+                    for y in range(n):
+                        v = (x, y)
+                        for port in word:
+                            v = moves(v, n)[port]
+                        for port in reversed(word):
+                            v = moves(v, n)[inverse[port]]
+                        assert v == (x, y)
+                        cases += 1
+    return cases
+
+
 def main():
     cases = 0
     for n in (2, 3):
@@ -86,7 +105,8 @@ def main():
             schedules += 1
     print(json.dumps({'result':'pass', 'mixing_subset_pairs':cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
-                      'powers':[1,2,3]}, indent=2, sort_keys=True))
+                      'powers':[1,2,3], 'port_inverse_cases':check_port_inverses()},
+                     indent=2, sort_keys=True))
 
 
 if __name__ == '__main__':

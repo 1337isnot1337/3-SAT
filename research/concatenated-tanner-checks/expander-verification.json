@@ -5,6 +5,7 @@
   ],
   "mixing_subset_pairs": 787200,
   "padding_schedules": 700,
+  "port_inverse_cases": 7592,
   "powers": [
     1,
     2,

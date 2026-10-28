@@ -92,7 +92,7 @@ but may be much worse than the earlier constructions; no practical gain is
 asserted.
 
 `verify_expander.py` checks the eight port permutations, symmetry, and exact
-rational mixing inequalities for every pair of vertex subsets on sides t=2,3
+forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
 and powers 1,2,3, plus 700 integer padding/row-budget schedules. It does not
 prove the cited all-size spectral theorem, construct its huge required power,
 run a source-scale Tanner instance, or independently review the concatenated
