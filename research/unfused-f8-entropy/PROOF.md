@@ -213,19 +213,19 @@ number of pieces. Put `L=log2(196036848)`. Since
 
 For any sequence of partitions with `K=o(R)`, its error term is `o(R)`
 and the asymptotic bound in the statement holds. It also yields a concrete
-linear-group allowance. If `K <= R/450`, then the bit cost is at least
-`(9-68/135)R`, strictly above `6 sqrt(2) R`. Indeed
-`2^27 < 196036848 < 2^28`, `log2(451)<9`, and
-`6 sqrt(2) < 4243/500 < 9-68/135`. The function
+linear-group allowance. If `K <= R/340`, then the bit cost is at least
+`(17/2)R`, strictly above `6 sqrt(2) R`. Indeed
+`2^(55/2) < 196036848 < 2^28` and `log2(341)<9`, so the lower bound is
+at least `(55/6 - (140/3+180)/340)R = (17/2)R`. The function
 `K log(1+R/K)` increases in K, so this also holds for every smaller K.
-The final comparisons are exact: `4243^2 > 72*500^2` and
-`9-68/135 = 1147/135 > 4243/500`. This does not cover arbitrary functions
-with unrestricted linearly many independent groups.
+The comparisons are exact: `196036848^2 > 2^55` and `17^2 > 288`.
+This does not cover arbitrary functions with unrestricted linearly many
+independent groups.
 
 ## Boundary and next premise
 
 The proof assumes type symmetry inside each of a common partition
-into `o(R)` macro groups (or at most `R/450` groups) and constancy on
+into `o(R)` macro groups (or at most `R/340` groups) and constancy on
 the ten named local classes, and the Pauli-diagonal coefficient model. The
 one-group result is the globally symmetric special case. It allows arbitrary real coefficients, any finite number of summands and
 cancellation. It does not restrict general Pauli functions or arbitrary

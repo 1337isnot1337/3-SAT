@@ -8,7 +8,7 @@ both word supports at least `196036848^floor(R/6)/(R+1)^10` for one group;
 its necessary piece-rate parameter is at least `log2(196036848)/36`, about
 0.76518, exceeding `1/sqrt(2)`. The asymptotic bound persists for any
 sublinear group count, and a strict obstruction also holds for up to
-`R/450` groups. See [PROOF.md](PROOF.md).
+`R/340` groups. See [PROOF.md](PROOF.md).
 
 This is a scoped representation obstruction, not a general SAT lower
 bound or a faster algorithm. The argument is author-checked with substantial
