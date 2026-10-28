@@ -39,7 +39,36 @@ def run():
             assert values == values[::-1]
             matrix.append([values[3 * h + j] for j in range(1, h + 1)])
         assert modular_rank(matrix, 1000003) == h
-        report.append({'h': h, 'hook_rows': h, 'rank_mod_1000003': h})
+        asym_rows = []
+        d = (2,) + (1,) * (h - 2)
+        for length in range(1, h):
+            y = (h - length + 1,) + (1,) * (length - 1)
+            intermediate = h - length - 1
+            first = (math.factorial(h - 2) * (h - length + 1) * (h + length)
+                     // math.factorial(intermediate))
+            if intermediate % 2 == 0:
+                u = one
+                a = intermediate // 2
+                second = (math.comb(h, a) * math.factorial(intermediate)
+                          // math.factorial(intermediate - a))
+            else:
+                u = d
+                a = (intermediate + 1) // 2
+                second = (math.comb(h, a) * (h - a) * math.factorial(intermediate)
+                          // math.factorial(intermediate - a))
+            values = [dict(piece_vector(d, one, y, s)).get(u, 0)
+                      for s in range(-2 * h, 2 * h + 1)]
+            bound = h + length + 1
+            assert values[2*h - bound] == first * second != 0
+            assert values[2*h + bound] == 0
+            assert all(values[2*h + j] == values[2*h - j] == 0
+                       for j in range(bound + 1, 2*h + 1))
+            asym_rows.append([values[2*h + j] - values[2*h - j]
+                              for j in range(h + 2, 2*h + 1)])
+        assert modular_rank(asym_rows, 1000003) == h - 1
+        report.append({'h': h, 'symmetric_rows': h, 'symmetric_rank': h,
+                       'antisymmetric_rows': h - 1, 'antisymmetric_rank': h - 1,
+                       'prime': 1000003})
     codebooks = []
     for bits in range(1, 4):
         h = 2

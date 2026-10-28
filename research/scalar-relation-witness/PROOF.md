@@ -17,12 +17,13 @@ F_l(z) = sum_{s=-2h}^{2h} [t^u_l] Q_s t^y_l z^s.
 
 **Claim.** Each F_l is symmetric under z -> 1/z; it has no term of
 positive exponent greater than h+l, and the coefficient at h+l is
-positive. Consequently the F_l are linearly independent, and the full
-partition-space tensor family `(A_s)_{s=-2h}^{2h}` has rank at least h
-on the entries with its x and v legs both e. Those entries themselves span
-at most 2h+1 shift directions. If a codebook contains e, d and exactly q
-of these y_l, the same argument certifies rank at least q in the encoded
-piece family. These statements do not say that h or q is the full rank.
+positive. These h rows are independent. A second family of h-1 entries
+with x=d and v=e has independent antisymmetric projections. Together
+they show that the full partition-space tensor family `(A_s)` has rank
+at least 2h-1. If a codebook contains e, d and exactly q of these y_l,
+the same argument certifies rank at least 2q-1 in its encoded pieces.
+These statements do not assert the full rank. The fixed x=v=e slice has
+at most 2h+1 shift directions by itself.
 
 ## Symmetry
 
@@ -70,14 +71,56 @@ All entries used are actual entries of the piece tensors, hence this is a
 characteristic-zero lower bound on their span rank. The involutive symmetry
 also puts every row in the 2h+1-dimensional symmetric Laurent subspace.
 
+## Nonsymmetric witnesses
+
+For each 1 <= l < h use labels x=d and v=e, input y_l, and output
+u=e when h-l-1 is even, otherwise u=d. Write G_l(z) for the resulting
+shift polynomial. Its antisymmetric projection is G_l(z)-G_l(1/z).
+We show that its largest positive exponent is exactly h+l+1.
+
+In the first operator order b=t_1^h acts on y_l first. The preceding
+energy argument bounds its positive shift support by h+l, regardless of
+which a and u are used. In the exchanged order a^d acts first. Explicitly
+
+a^d = -(t_2 + 2t_1)t_1^(h-2).
+
+Both homogeneous components have h-1 fields. After acting on the l-part
+y_l, their intermediate energy is at least h-l-1. In the exchanged
+order this energy is s+i with i <= 2h, so s >= -(h+l+1). At equality
+s=-(h+l+1), only i=2h survives, and the degree-(h-1) term has binomial
+coefficient zero. Thus the first action is exactly by -t_2 t_1^(h-2).
+Equality requires annihilating all l input parts and creating h-l-1
+parts of size one. The t_2 field must annihilate a part m; its coefficient
+is `binom(-m-1,1)=-(m+1)`, and the leading minus sign cancels it.
+All contributions have the same positive sign. Summing over the l possible
+parts, `sum(m+1)=h+l`, gives the coefficient
+
+```
+C_l = (h-2)! (h-l+1)(h+l)/(h-l-1)! > 0.
+```
+
+The subsequent b action maps the intermediate state to the chosen u:
+use the same creation/annihilation count as in the previous section,
+with h-l replaced by h-l-1. Its coefficient is positive. Thus G_l has
+a positive coefficient at -(h+l+1), no term at +(h+l+1), and neither
+sign occurs beyond that magnitude. Its antisymmetric projection therefore
+has a nonzero coefficient at +(h+l+1), with all higher coefficients
+zero. The h-1 projected rows are triangular and independent.
+
+The h previously constructed F_l are symmetric, so they have zero
+antisymmetric projection. Applying the projection to a linear combination
+of F and G first forces all G coefficients to vanish; then the F
+coefficients vanish by the earlier triangular argument. For any codebook
+containing e and d, y_h=e is present. If q hook states are present, q
+of the F rows and q-1 of the G rows are available, proving rank >=2q-1.
+
 ## Boundary
 
 The original binary codebook consists of the lexicographically first
 2^lambda partitions at its minimum h. It need not contain every hook:
 the checker reports actual coverage for lambda 1,2,3. The conditional q
 bound is valid for that codebook without changing its encoding. Full-space
-h is not automatically an original-codebook bound. The first-moment
+2h-1 is not automatically an original-codebook bound. The first-moment
 relation from PR #10 gives an independent upper bound 4h on the full
-piece-family rank. Closing the remaining gap requires additional witnesses
-outside the fixed x=v=e slice, because that slice is symmetric. No
+piece-family rank. Closing the remaining gap requires further witnesses or relations. No
 asymptotic SAT improvement or new scalar-reweighting optimality is claimed.

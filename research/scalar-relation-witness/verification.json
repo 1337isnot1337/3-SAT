@@ -2,28 +2,43 @@
   "hook_checks": [
     {
       "h": 2,
-      "hook_rows": 2,
-      "rank_mod_1000003": 2
+      "symmetric_rows": 2,
+      "symmetric_rank": 2,
+      "antisymmetric_rows": 1,
+      "antisymmetric_rank": 1,
+      "prime": 1000003
     },
     {
       "h": 3,
-      "hook_rows": 3,
-      "rank_mod_1000003": 3
+      "symmetric_rows": 3,
+      "symmetric_rank": 3,
+      "antisymmetric_rows": 2,
+      "antisymmetric_rank": 2,
+      "prime": 1000003
     },
     {
       "h": 4,
-      "hook_rows": 4,
-      "rank_mod_1000003": 4
+      "symmetric_rows": 4,
+      "symmetric_rank": 4,
+      "antisymmetric_rows": 3,
+      "antisymmetric_rank": 3,
+      "prime": 1000003
     },
     {
       "h": 5,
-      "hook_rows": 5,
-      "rank_mod_1000003": 5
+      "symmetric_rows": 5,
+      "symmetric_rank": 5,
+      "antisymmetric_rows": 4,
+      "antisymmetric_rank": 4,
+      "prime": 1000003
     },
     {
       "h": 6,
-      "hook_rows": 6,
-      "rank_mod_1000003": 6
+      "symmetric_rows": 6,
+      "symmetric_rank": 6,
+      "antisymmetric_rows": 5,
+      "antisymmetric_rank": 5,
+      "prime": 1000003
     }
   ],
   "source_codebook_coverage": [

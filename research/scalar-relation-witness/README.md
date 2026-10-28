@@ -6,14 +6,14 @@ result is claimed. Task: `contraction-schedule`; base
 `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`. Contributor: Cinna Davis
 with substantial OpenAI Codex assistance.
 
-The [proof](PROOF.md) gives an all-h lower bound h on the shift-span rank
-of full partition-space operator pieces using explicit hook-partition
-entries, while showing that the fixed all-ones label slice has symmetric
+The [proof](PROOF.md) gives an all-h lower bound 2h-1 on the shift-span rank
+of full partition-space operator pieces using explicit symmetric and
+antisymmetric hook-partition entries, while showing that the fixed all-ones label slice has symmetric
 positive and negative shifts and therefore at most 2h+1 directions. The
 prior uncharged first-moment relation bounds full rank by 4h; the remaining
 gap is open. A binary codebook containing the two small reference states and
-q of the specified hooks inherits rank at least q. The source's actual
-lexicographic codebook may omit hooks; do not substitute h for q there.
+q of the specified hooks inherits rank at least 2q-1. The source's actual
+lexicographic codebook may omit hooks; do not substitute 2h-1 for 2q-1 there.
 
 The hook construction is a partial answer to the all-size question raised
 by [PR #10](https://github.com/1337isnot1337/3-SAT/pull/10), which proved
@@ -30,8 +30,8 @@ python3 -I -B research/scalar-relation-witness/verify.py
 make verify
 ```
 
-The first command checks endpoint formulas, symmetry, support and exact
-integer entries for h=2,...,6, plus a full-rank modular triangular minor;
+The first command checks both families of endpoint formulas, symmetry, support and exact
+integer entries for h=2,...,6, plus full-rank modular triangular minors;
 it reports actual codebook coverage for lambda=1,2,3. The all-size
 conclusion is the written argument, not an extrapolation from the finite
 screen. The [saved output](verification.json) can be compared byte-for-byte
@@ -41,6 +41,6 @@ independent implementation, formal proof or full SAT replay.
 This is a rank lower bound and a screen limitation, not a new algorithm;
 there is no claimed reduction to cost, precision, recursion, amplification
 or output recovery. A genuine improvement would need a realizable crossing
-family and all those costs. The next question is whether nonsymmetric
-label choices can give a second triangular family or whether additional
-relations survive in the original lexicographic codebook.
+family and all those costs. The next question is whether additional label choices can close the gap to
+4h, or whether additional relations survive in the original lexicographic
+codebook.

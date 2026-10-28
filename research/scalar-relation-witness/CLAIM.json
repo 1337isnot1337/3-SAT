@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For every h >= 2, explicit hook entries of the full partition-space uncharged crossing family yield shift-span rank at least h; a codebook containing the reference states and q hooks inherits rank at least q. The all-ones label slice is shift symmetric.",
+  "statement": "For every h >= 2, explicit symmetric and antisymmetric hook entries of the full partition-space uncharged crossing family yield shift-span rank at least 2h-1; a codebook containing the reference states and q hooks inherits rank at least 2q-1. The all-ones label slice is shift symmetric.",
   "improves_bound": false,
   "evidence": [
     "research/scalar-relation-witness/PROOF.md",
