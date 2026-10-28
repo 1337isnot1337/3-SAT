@@ -190,3 +190,19 @@ program checks every generated kernel vector against the original rows
 and directly exhausts every x-assignment at n=16,17,18. The enumeration
 is exponential in d by design; the bound on d does not make it
 polynomial for arbitrary n.
+
+The kernel enumeration is exponentially large on an explicit infinite
+subsequence. For each integer L>=3 take n=5(2^L-1). Then
+`floor(log2 n)-2=L`, and `2^L-1` divides n. Dividing the telescoping
+identity by Y gives the exact factorization
+
+    (g(Y)/Y) (g(Y)+1) = Y^(2^L-1)+1.
+
+Consequently g/Y divides Y^n-1. Since Y does not divide Y^n-1,
+`gcd(g,Y^n-1)=g/Y`, and the actual dimension is
+
+    d = 2^(L-1)-1 = (n-5)/10.
+
+Thus this enumeration uses `2^((n-5)/10)` kernel iterations on that
+subsequence. This is a cost of the stated algorithm, not a lower bound
+on every possible representation or counting algorithm.

@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Explicit low-load quadratic sparse-query systems require n(L-1) binary XOR gates under disjoint-support sharing for the given rows; L=floor(log2 n)-2. This is not a SAT lower bound or an improved SAT algorithm. For power-of-two n, an exact row-space reduction counts the same family in polynomial time via a cycle independent-set formula. For arbitrary n, a kernel-parameterized exact algorithm uses poly(n) 2^d time and polynomial space, with d bounded by gcd(n_odd, 2^L-1).",
+  "statement": "Explicit low-load quadratic sparse-query systems require n(L-1) binary XOR gates under disjoint-support sharing for the given rows; L=floor(log2 n)-2. This is not a SAT lower bound or an improved SAT algorithm. For power-of-two n, an exact row-space reduction counts the same family in polynomial time via a cycle independent-set formula. For arbitrary n, a kernel-parameterized exact algorithm uses poly(n) 2^d time and polynomial space, with d bounded by gcd(n_odd, 2^L-1). This enumeration has d=(n-5)/10 on an explicit infinite subsequence.",
   "improves_bound": false,
   "evidence": [
     "research/sidon-parity-circuits/PROOF.md",

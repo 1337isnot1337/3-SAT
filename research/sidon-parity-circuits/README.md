@@ -26,7 +26,8 @@ outside the restricted circuit model. More generally, the same family at
 arbitrary n has a deterministic polynomial-space exact count in time
 `poly(n) 2^d`, where `d=deg gcd(g,Y^n-1)` and `d` is at most
 `gcd(n_odd,2^L-1)`. This is polynomial only under an explicit parameter
-condition, such as `d=O(log n)`.
+condition, such as `d=O(log n)`. In fact, the infinite subsequence
+`n=5(2^L-1)` has `d=(n-5)/10`; this enumeration is exponential there.
 
 The question was whether simple gate-level parity sharing uniformly gives
 O(n) wires for low-load sparse queries. Success is a rigorous obstruction
@@ -51,7 +52,9 @@ and 9,504 quadratic scope assignments. It also checks the binary matrix rank
 at five power-of-two sizes and exhausts all 65,536 original assignments at
 n=16, obtaining 2,208 solutions. The arbitrary-size checker verifies the
 full kernel enumeration at 14 sizes, including d=7, and exhausts the
-original Boolean assignments at n=16,17,18. These finite checks do not mechanically
+original Boolean assignments at n=16,17,18. Six additional exact gcd
+checks cover the linear-kernel subsequence without enumerating it. These
+finite checks do not mechanically
 prove the all-size statement. No external dependency or heavy check is added
 to default CI.
 

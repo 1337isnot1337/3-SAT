@@ -95,6 +95,12 @@ def main():
         if n in (16, 17, 18):
             assert answer == brute(n)
         print(n, length, d, bound, answer)
+    for length in range(3, 9):
+        n = 5 * ((1 << length) - 1)
+        actual_length, d, _ = kernel(n)
+        assert actual_length == length
+        assert d == (1 << (length - 1)) - 1 == (n - 5) // 10
+        print('linear_kernel', n, d)
     print('Exhaustive original x assignments checked at n=16,17,18; all checks passed.')
 
 
