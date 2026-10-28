@@ -1,0 +1,46 @@
+{
+  "audits": [
+    {
+      "grade": 6,
+      "basis_vectors": 3,
+      "evaluated_rank_mod_prime": 3,
+      "prime": 1000003,
+      "minor_determinant_points": 9,
+      "no_three_column_rank_mod_prime": 8
+    },
+    {
+      "grade": 7,
+      "basis_vectors": 5,
+      "evaluated_rank_mod_prime": 5,
+      "prime": 1000003,
+      "minor_determinant_points": 11,
+      "no_three_column_rank_mod_prime": 10
+    },
+    {
+      "grade": 8,
+      "basis_vectors": 7,
+      "evaluated_rank_mod_prime": 7,
+      "prime": 1000003,
+      "minor_determinant_points": 16,
+      "no_three_column_rank_mod_prime": 15
+    },
+    {
+      "grade": 9,
+      "basis_vectors": 14,
+      "evaluated_rank_mod_prime": 11,
+      "prime": 1000003,
+      "minor_determinant_points": 20,
+      "no_three_column_rank_mod_prime": 19
+    }
+  ],
+  "sha256": {
+    "research/charged-cubic-pencil/audit.py": "9c6bad3d4f51801c17d4ec52b9aed6570c7877124f167cba182c844d1b91babb",
+    "research/charged-cubic-pencil/verification.json": "95b5b30cbc88b4439fa5bc7cfd70115857d7e6fc3c8d277c763d11caa6e6ee94",
+    "research/charged-cubic-parity/verify.py": "7a4c7c00c069d27c80c6e59118000aa0c1422e7293896dc832a47b7ea78346b4",
+    "research/charged-cubic-parity/PROOF.md": "1d48472ae4b8958d5561a4c87d5b4ebb6f7b8cc1f1f2db9a1822e912e1e0767d",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

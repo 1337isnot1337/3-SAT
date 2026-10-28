@@ -56,6 +56,8 @@ low-weight/affine-energy identity. The rank data match
 ```sh
 python3 -I -B research/charged-cubic-pencil/verify.py > /tmp/charged-pencil.json
 cmp /tmp/charged-pencil.json research/charged-cubic-pencil/verification.json
+python3 -I -B research/charged-cubic-pencil/audit.py > /tmp/charged-pencil-audit.json
+cmp /tmp/charged-pencil-audit.json research/charged-cubic-pencil/audit-verification.json
 make verify
 ```
 
@@ -67,7 +69,10 @@ full matrix rank there. The saved report includes all degree-two basis
 vectors, selected minor rows and columns, exact determinant coefficients,
 and source hashes. Interpolation uses r+1 integer evaluations for an
 r-by-r minor, whose degree is at most r; a further evaluation checks the
-interpolated polynomial. These are finite computations relying on shared
+interpolated polynomial. A separate audit reads the saved bases, checks their coefficient identities,
+certifies their specialized ranks and the no-part-3 column ranks modulo a
+prime, and independently recomputes every displayed minor value by rational
+Gaussian elimination. These are finite computations relying on shared
 predecessor operator code, not a formal proof or an independent oracle.
 
 ## Remaining gap and credit

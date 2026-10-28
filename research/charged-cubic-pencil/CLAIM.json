@@ -13,7 +13,9 @@
   "evidence": [
     "research/charged-cubic-pencil/README.md",
     "research/charged-cubic-pencil/verify.py",
-    "research/charged-cubic-pencil/verification.json"
+    "research/charged-cubic-pencil/verification.json",
+    "research/charged-cubic-pencil/audit.py",
+    "research/charged-cubic-pencil/audit-verification.json"
   ],
   "reproduce": [
     "python3",
