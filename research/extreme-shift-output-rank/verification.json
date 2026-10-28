@@ -41,5 +41,47 @@
       "endpoint_scalar_weight_checks": 100
     }
   ],
+  "unequal_energy_controls": [
+    {
+      "h": 4,
+      "E": 0,
+      "output_dimension": 1,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 1,
+      "output_dimension": 1,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 3,
+      "output_dimension": 3,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    },
+    {
+      "h": 4,
+      "E": 5,
+      "output_dimension": 7,
+      "charges": [
+        1,
+        2
+      ],
+      "two_order_and_rank_checks": 10
+    }
+  ],
   "model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
 }

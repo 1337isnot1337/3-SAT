@@ -177,6 +177,8 @@ selected bound, or implementation.
 finite checks of both operator orders and output-matrix ranks for four label
 pairs at each of grades 4 and 6, including the two endpoint shifts. It also
 checks bounded integer endpoint weights against the scalar-zero implication.
+Further checks use grade 4 at output energies 0, 1, 3 and 5 with charges 1
+and 2, comparing both orders and the unequal-energy rank bound.
 These checks test the implementation and finite consequences; the all-size
 argument above is not established by those examples. The predecessor code
 and its source/attribution pins remain unchanged. `make verify` checks

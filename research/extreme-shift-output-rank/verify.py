@@ -26,6 +26,35 @@ def budget(h, shift):
     return sum(model.partition_count(k) for k in range(max(0, t-2*h), t+1))
 
 
+def unequal_energy_controls():
+    data = model.construct(1)
+    h = data['h']
+    profiles = []
+    for energy in (0, 1, 3, 5):
+        states = model.predecessor.partitions(energy)
+        checked = 0
+        for charge in (1, 2):
+            for shift in sorted({-energy-h, -energy-h+1, 0, energy+h-1, energy+h}):
+                columns = []
+                for arg in states:
+                    args = (data['row_labels'][0], data['column_labels'][0], arg, shift, charge)
+                    result = model.charged.piece_vector(*args, reverse=(shift < 0))
+                    if result != model.charged.piece_vector(*args, reverse=not (shift < 0)):
+                        raise ValueError('Unequal-energy operator orders disagree')
+                    columns.append(dict(result))
+                mat = [[columns[y].get(out, 0) for y in range(len(states))] for out in states]
+                t = energy+h-abs(shift)
+                upper = sum(model.partition_count(k) for k in range(max(0, t-2*h), t+1))
+                if model.predecessor.exact_rank(mat) > upper:
+                    raise ValueError('Unequal-energy rank exceeds bound')
+                checked += 1
+        profiles.append({'h': h, 'E': energy, 'output_dimension': len(states),
+                         'charges': [1, 2], 'two_order_and_rank_checks': checked})
+        model.charged.operator.cache_clear()
+        model.charged.dual_operator.cache_clear()
+    return profiles
+
+
 def main():
     profiles = []
     for bits in (1, 2):
@@ -69,7 +98,8 @@ def main():
         model.charged.operator.cache_clear()
         model.charged.dual_operator.cache_clear()
     print(json.dumps({'status': 'PASS', 'scope': 'finite fixed-label compressed operator controls; all-size argument is in PROOF.md',
-                      'profiles': profiles, 'model_sha256': sha256(MODEL.read_bytes()).hexdigest()}, indent=2))
+                      'profiles': profiles, 'unequal_energy_controls': unequal_energy_controls(),
+                      'model_sha256': sha256(MODEL.read_bytes()).hexdigest()}, indent=2))
 
 
 if __name__ == '__main__':

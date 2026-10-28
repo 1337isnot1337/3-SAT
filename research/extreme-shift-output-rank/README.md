@@ -38,9 +38,11 @@ make verify
 
 The finite checks cover both operator orders and compressed operator ranks
 for four label pairs at each of grades 4 and 6, plus bounded endpoint scalar
-controls. They do not independently verify the all-size proof. The proof
-states the exact support and dimension conditions, the multiple-label-mixing
-limit, the partition asymptotics and the remaining obligations.
+controls. Additional full-space checks cover grade 4 at output energies
+0, 1, 3 and 5 and charges 1 and 2. They do not independently verify the
+all-size proof. The proof states the exact support and dimension conditions,
+the multiple-label-mixing limit, the partition asymptotics and the remaining
+obligations.
 
 An exact scan of the predecessor's selected grades through `h=2000` finds
 the first passing rank-budget inequalities at `(h, lambda)=(887,93)`,
