@@ -201,6 +201,58 @@ grows. It still does not match the generic `Theta(M D_i/u)` threshold,
 which can be exponentially larger in `a-i`, and does not imply any lower
 bound against a tensor-aware or different-deformation algorithm.
 
+## Near-optimal selected-row count for periodic words
+
+The fraction `1/8` above is convenient rather than optimal. For any rational
+`0<theta<=1/4`, if
+
+```
+M/h >= 12 theta^(-2) ln(2P),
+```
+
+the same deterministic construction gives, at every active node, more
+than `floor((1/4-theta)M)` selected rows. Consequently all active jets
+through that degree are exactly zero, and the entire shifted polynomial is
+divisible by `2^((floor((1/4-theta)M)+1)(a+2-u))`. The construction and
+comparison network are the same Boolean unary inputs as above.
+
+To prove the claim, let `n_{j,r}` be the number of real slots in packet `j`
+and residue `r`. Then `n_{j,r}<=h`, `sum n_{j,r}=M`, and the sum of
+squared bounded differences is at most `4hM`, as in the block argument
+below. Set `q=1-theta/(4h)`, `eta=-ln(q)` and
+`m=floor((1/4-theta)M)`. Since `theta/(4h)<=eta<=theta/(3h)`,
+
+```
+E sum_{d=1}^{P-1} q^(N_d-m)
+ <= P exp(-eta theta M + eta^2 h M/2)
+ <= P exp(-7 theta^2 M/(36h)) < 1.
+```
+
+The stated size condition gives the strict final inequality. The same exact
+cycle transfer and conditional-expectation rule chooses the words in
+polynomial time in the input size and bit length of `theta`. For source
+active parameters with `u>=8`, `theta=1/u` meets the condition because
+`M/h>=P D_arr` and `D_arr=64^(2a)` with `a>=u`. Thus the selected-row
+count is `(1/4-o(1))M` uniformly over active shifts as `u` grows. The
+full-packet and marked-block cancellation results below apply to this
+stronger selected count whenever their respective assumptions hold.
+
+The fraction `1/4` is asymptotically sharp for this **particular periodic
+word mechanism** on full packets. If a packet's word has `k` ones, the
+sum of selected-row counts over all `P-1` nonzero residue shifts equals
+`h k(P-k)`. Hence for any choices of words across full packets, some
+nonzero shift selects at most
+
+```
+M P / (4(P-1))
+```
+
+rows. The same shift occurs at an active node. This is an upper bound on
+the number of rows selected by this mechanism, not an upper bound on the
+actual content of the full tensor polynomial or on other constructions.
+The finite checker verifies the averaging identity for every word at
+`P=2,4,8`.
+
 ## An extra cancellation for full packets
 
 For the periodic construction, suppose additionally that every used

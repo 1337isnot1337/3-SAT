@@ -127,6 +127,13 @@ def main():
                     assert not any(shifted[:len(selected)])
                     assert all(not c or full.prior.valuation(c)>=len(selected)*(a+2-u) for c in shifted)
                     packet+=1
+    averaging_checks=0
+    for p in (2,4,8):
+        h=3
+        for word in product((0,1),repeat=p):
+            k=sum(word)
+            assert sum(mismatch([h]*p,word,d) for d in range(1,p))==h*k*(p-k)
+            averaging_checks+=1
     sharpness=[]
     for length in (8,16,32):
         a=length.bit_length()-1
@@ -143,7 +150,7 @@ def main():
                       'periodic_packet_product_checks':packet,'selected_row_checks':rows,
                       'full_packet_cancellation_row_checks':full_rows,
                       'partial_packet_counterexample':partial_counterexample,
-                      'sharpness_family':sharpness,
+                      'sharpness_family':sharpness,'word_averaging_checks':averaging_checks,
                       'conditional_expectation_examples':examples,
                       'scope':'finite periodic words and two occupied sets per L,P; not an all-size proof'},indent=2))
 

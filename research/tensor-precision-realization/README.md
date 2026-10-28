@@ -19,7 +19,10 @@ node vanish modulo `2^((floor(M/8)+1)*(a+2-u))` under the source packing
 conditions. This is a separate input family from the all-nonzero-node
 witness and gives `Omega(M(a-u))` precision when `a-u` grows. Its shifted
 coefficients through degree `floor(M/8)` also vanish exactly, so those jets
-do not suffice even at infinite precision. Full
+do not suffice even at infinite precision. Under source active parameters,
+a refined construction selects `(1/4-o(1))M` rows simultaneously; that
+fraction is asymptotically sharp for the selected-row mechanism on full
+packets. Full
 packets admit an additional `a-u+1` bits per selected row when `a>u`
 through a Cauchy power-sum cancellation; this uniform row bound is sharp.
 A three-slot partial packet gives a counterexample to carrying that bound over unchanged. For partial packets,
