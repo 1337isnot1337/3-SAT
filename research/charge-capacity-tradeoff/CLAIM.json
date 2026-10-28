@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For raw charged pieces with polynomial shift weights of degree at most b, any linear extraction annihilating q-degrees below d has length support threshold e=d-b and exact structural rank given by a minimum threshold cover. Positive limiting e/h forces leading label-capacity loss and a quantified necessary grade increase; this is not a SAT bound. At the maximum effective degree 2h, a raw charged piece attains the rank-one mask via an explicit scalar output on the all-ones labels. At degree 2h-1, an outer-shift raw piece realizes a nonsingular scalar two-label pairing. One degree lower, the all-ones pair at the same shift is a non-scalar weighted number operator on the full grade-h output space.",
+  "statement": "For raw charged pieces with polynomial shift weights of degree at most b, any linear extraction annihilating q-degrees below d has length support threshold e=d-b and exact structural rank given by a minimum threshold cover. Positive limiting e/h forces leading label-capacity loss and a quantified necessary grade increase; this is not a SAT bound. At the maximum effective degree 2h, a raw charged piece attains the rank-one mask via an explicit scalar output on the all-ones labels. At degree 2h-1, an outer-shift raw piece realizes a nonsingular scalar two-label pairing. One degree lower, the all-ones pair at the same shift is a weighted number operator with simple spectrum on the grade-h output space, so scalar invariant subspaces have dimension at most one.",
   "improves_bound": false,
   "evidence": [
     "research/charge-capacity-tradeoff/README.md",
@@ -20,7 +20,9 @@
     "research/charge-capacity-tradeoff/near_endpoint.py",
     "research/charge-capacity-tradeoff/near-endpoint-verification.json",
     "research/charge-capacity-tradeoff/second_deficit.py",
-    "research/charge-capacity-tradeoff/second-deficit-verification.json"
+    "research/charge-capacity-tradeoff/second-deficit-verification.json",
+    "research/charge-capacity-tradeoff/spectrum.py",
+    "research/charge-capacity-tradeoff/spectrum-verification.json"
   ],
   "reproduce": [
     "python3",

@@ -189,11 +189,35 @@ more generally the sum stops at min(E,2h).
 On the full grade-h output space, compare partitions `(1^h)` and `(h)`.
 Their first terms agree but their second terms differ: after removing the
 common factor h^3 the values are `-2h` and `(-1)^h binom(2h,h)`,
-which are unequal for all h>=2. Thus (10) is not scalar there. The
+which are unequal for all h>=2. In fact its spectrum is simple. Divide
+the nonconstant term by 2h^3 and write
+
+    S(mu)=sum_i (-1)^i binom(2h-1,i-1) m_i(mu).              (11)
+
+For distinct partitions mu,nu of h, let i be their largest differing part
+size. Cancel their common parts, including their common copies of i. One
+remaining partition has at least one part i, the other has none, and each
+remaining weight is at most h. Thus the total weight of parts below i in
+both is at most 2h-i. Put w_j=binom(2h-1,j-1). For 1<=j<i<=h,
+w_j/j is nondecreasing, because `(w_(j+1)/(j+1))/(w_j/j)=(2h-j)/(j+1)>=1`.
+For i>=2, the absolute contribution from all smaller parts to the
+difference S(mu)-S(nu) is therefore at most
+
+    (2h-i) w_(i-1)/(i-1) < w_i,
+
+since `w_i=(2h-i+1)w_(i-1)/(i-1)`. The nonzero contribution from size i
+cannot be canceled. For i=1 there are no smaller parts. Hence all S(mu)
+are distinct, and (10) has one-dimensional eigenspaces over Q (or any
+characteristic-zero field). Every subspace on which this operator acts as
+a scalar has dimension at most one. This holds for any subspace, not only
+one spanned by output partitions, provided the operator acts on it as a
+scalar; a separate output projection/compression is not covered.
+
+`spectrum.py` checks pairwise distinct exact values for all partitions of
+grades 2 through 45. This is a bounded check, not the proof. The
 interpolation checker `second_deficit.py` verifies the formula for h=2,3,4,
-output grades E=0,...,h, and both operator orders. This is not an
-obstruction for a restricted output codebook, other shifts or weighted
-combinations, and it does not prove a rank or SAT lower bound.
+output grades E=0,...,h, and both operator orders. This is not an obstruction for other shifts, weighted combinations or
+projected output compressions, and it does not prove a SAT lower bound.
 
 ## Limits and cost
 
