@@ -12,11 +12,11 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4) + max(0,floor(h/2)-2).
+2h + max(0,h-4) + 2 max(0,floor(h/2)-2).
 ```
 
-For h>=4 this is `3h-4+max(0,floor(h/2)-2)`, strengthening PR #59's
-lower bound of roughly 7h/3.
+For even h>=4 this is 4h-8, and for odd h>=5 it is 4h-9. This
+strengthens PR #59's lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. The new witnesses use y=(h), which
 can be absent from the source's lexicographic binary codebook; no stronger
 binary-codebook bound, SAT algorithm, or time improvement is asserted.
@@ -131,6 +131,86 @@ symmetric low-support space only at zero: a polynomial both symmetric
 under z -> 1/z and supported on nonnegative shifts is constant, while
 (3) is divisible by `(z-1)^3` and therefore vanishes at z=1.
 
+## A second one-sided space and its independence
+
+Reverse the labels: x=e, v=d, still with y=(h), and put
+`c=h!/[2(h-2)!]`. For a two-part output u, normal ordering gives
+
+```
+Q^rev_u(z) = c h h!/Z_u * (z-1)^3 * [
+  2(h-2) z^(h-2) -(h+1)(z-1) z^(h-2)
+  + 2(h-2) sum_j m_j(u) z^(j-h-2)
+  + (z-1) sum_j m_j(u)(j-1) z^(-j-2) ].                    (4)
+```
+
+Here `b^d=c t_2 t_1^(h-2)` and `a^e=t_1^h`. Three uncontracted
+fields consist of two from a and one from b. If b's t_2 is contracted,
+`Gamma_12=2` and its partner can be chosen in h-2 ways; if t_2 remains
+uncontracted it carries one extra factor z-1. Between t_h and t^u the
+resulting normal-ordered entries are
+
+```
+2h/Z_u [z^(h-2) + sum_j m_j(u) z^(j-h-2)],
+2h/Z_u [-(h+1)z^(h-2) + sum_j m_j(u)(j-1) z^(-j-2)].
+```
+
+The common contraction factor is `c binom(h,2)(h-2)!=c h!/2`, giving
+(4). For the same u_a as in the previous section, normalize by
+`Z_(u_a)/(c h h!)` and subtract the normalized u_2 row. The first two
+terms in (4) cancel. Since each remaining part j satisfies 2<=j<=h-2,
+the resulting rows have only nonpositive shifts and are supported in
+[-h,h]. Their normalized multiplicity differences are independent, as
+shown above. To see that (4) maps them injectively, its first sum supplies
+an extreme negative exponent `j-h-2` with nonzero coefficient for the
+smallest j in a nonzero vector; the second sum may overlap it, so a
+separate algebraic argument below proves injectivity together with the
+stronger independence statement.
+
+Let V be the space of coefficient vectors v with v_j=v_(h-j), supported
+on 2<=j<=h-2. Every difference of the pair multiplicity vectors belongs
+to V. Its associated polynomial
+`U_v(z)=sum_j v_j z^(j-1)` obeys `U_v(z)=z^(h-2)U_v(1/z)` and
+`U_v(0)=0`. After factoring out `(z-1)^3`, the positive-only rows from
+(3) have the form
+
+```
+(z-1) U_v'(z)+2U_v(z),
+```
+
+and the reversed negative-only rows, after z -> 1/z, have the form
+
+```
+(z-1) U_w'(z)-2(h-2)U_w(z).
+```
+
+We prove these two images have zero intersection. Suppose they agree,
+put D=U_v-U_w and n=h-2, and rearrange to
+
+```
+2(h-1) U_w = -[(z-1)D'+2D].                              (5)
+```
+
+D and U_w are reciprocal of degree n. Thus the bracket in (5) is also
+reciprocal. Comparing it with its reciprocal and cancelling the nonzero
+factor z-1 gives `(z-1)D'=nD`. The only polynomial solutions are
+`D=C(z-1)^n`; since D(0)=0, C=0. Equation (5) then gives U_w=U_v=0.
+This also proves each image map injective, by setting the other input
+to zero. Hence the new negative-only space has dimension
+`max(0,floor(h/2)-2)`.
+
+It remains independent of the symmetric low-support space together with
+the previous positive-only space. If S is symmetric and P,N are the
+positive- and negative-only rows with S+P+N=0, then
+`P(z)-N(1/z)` is both a polynomial in z and a polynomial in z^-1, hence
+constant. Both P and N vanish at z=1, so that constant is zero; the
+zero-intersection result forces P=N=0 and then S=0. All these rows are
+annihilated by L: the symmetric slice and the x=d,v=e slice were handled
+above, while PR #59's all-ones second-moment proof uses only field counts
+and likewise makes the x=e,v=d zeroth and second moments zero. For the
+latter, b^d has h-1 fields and a^e has h; a weight-two uncontracted
+term cannot leave equal numbers for contraction, while the only weight-one
+term is an energy-changing current. Duality gives the zero zeroth moment.
+
 ## Independence from the predecessor witnesses
 
 PR #59 constructs h symmetric rows F_l with nonzero endpoints at +/-(h+l),
@@ -144,9 +224,9 @@ In a relation between that space and the predecessor rows, L first forces
 the coefficient of H to zero. At shift +2h only F_h remains among the
 other rows, so its coefficient is zero; then shift -2h isolates G_(h-1).
 Proceeding downward through h+2 successively eliminates F_l and G_(l-1);
-shift h+1 finally eliminates F_1. Both low-support spaces have no terms at those shifts and meet each
-other only at zero, so their sum meets the predecessor span only at zero.
-Their dimensions give rank at least `3h-4+max(0,floor(h/2)-2)` for h>=4.
+shift h+1 finally eliminates F_1. All three low-support spaces have no terms at those shifts and their
+sum is direct, so that sum meets the predecessor span only at zero.
+Their dimensions give rank at least `3h-4+2 max(0,floor(h/2)-2)` for h>=4.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
 

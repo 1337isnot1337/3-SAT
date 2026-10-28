@@ -8,7 +8,7 @@
   "base_commit": "f1c4ec3a48b823ab749f93cfe8f81dfe8ca0336f",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For every h >= 2, a three-partition multiplicity-vector kernel and the predecessor witnesses give uncharged full partition-space shift rank at least 2h+max(0,h-4)+max(0,floor(h/2)-2). The result does not improve the original binary-codebook bound or a SAT time bound.",
+  "statement": "For every h >= 2, a three-partition multiplicity-vector kernel and the predecessor witnesses give uncharged full partition-space shift rank at least 2h+max(0,h-4)+2 max(0,floor(h/2)-2). The result does not improve the original binary-codebook bound or a SAT time bound.",
   "improves_bound": false,
   "evidence": [
     "research/low-shift-cancellation/PROOF.md",

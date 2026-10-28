@@ -78,6 +78,24 @@ def closed_two(h, output):
     return {s: v for s, v in result.items() if v}
 
 
+def closed_reverse_two(h, output):
+    counts = Counter(output)
+    denom = math.prod(math.factorial(n) for n in counts.values())
+    c = h*(h-1)//2
+    assert c*h*math.factorial(h) % denom == 0
+    factor = c*h*math.factorial(h)//denom
+    result = defaultdict(int)
+    def add(exponent, value, degree):
+        for j in range(degree+1):
+            result[exponent+j] += factor*value*math.comb(degree,j)*(-1)**(degree-j)
+    add(h-2, 2*(h-2), 3)
+    add(h-2, -(h+1), 4)
+    for part, count in counts.items():
+        add(part-h-2, 2*(h-2)*count, 3)
+        add(-part-2, (part-1)*count, 4)
+    return {s: v for s, v in result.items() if v}
+
+
 def one_sided(output, reference):
     difference = Counter(output)
     difference.subtract(reference)
@@ -96,13 +114,17 @@ def run():
     recurrence_rows = 0
     two_part_cases = 0
     two_part_recurrence_rows = 0
+    reverse_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
+        symmetric_polynomials = []
         one = (1,)*h
         for output in three_partitions(h):
             vector = [output.count(j) for j in range(1, h-1)]
             rows.append(vector)
             expected = closed_three(h, output)
+            denom = math.prod(math.factorial(n) for n in Counter(output).values())
+            symmetric_polynomials.append((vector[0], {s: denom*v for s, v in expected.items()}))
             enumerated, _ = normal_order(h, output)
             assert expected == enumerated
             assert all(expected.get(-shift, 0) == value for shift, value in expected.items())
@@ -117,6 +139,9 @@ def run():
                      for value, base in zip(row, reference)] for row in rows]
         assert modular_rank(rows, prime) == h-3
         assert modular_rank(low_rows, prime) == h-4
+        ref_count, ref_poly = next((n, v) for n, v in symmetric_polynomials if n)
+        symmetric_low = [[ref_count*poly.get(j, 0)-n*ref_poly.get(j, 0)
+                          for j in range(-h, h+1)] for n, poly in symmetric_polynomials]
         reference = (h-2, 2)
         if h <= 6:
             d = (2,) + (1,)*(h-2)
@@ -124,26 +149,48 @@ def run():
             direct = {shift: dict(piece_vector(d, one, (h,), shift)).get(output, 0)
                       for shift in range(-2*h, 2*h+1)}
             assert {s: value for s, value in direct.items() if value} == closed_two(h, output)
+            reverse = {shift: dict(piece_vector(one, d, (h,), shift)).get(output, 0)
+                       for shift in range(-2*h, 2*h+1)}
+            assert {s: value for s, value in reverse.items() if value} == closed_reverse_two(h, output)
             two_part_recurrence_rows += 1
+            reverse_recurrence_rows += 1
         one_sided_rows = []
+        combined_positive = []
+        combined_negative = []
+        reverse_ref = closed_reverse_two(h, reference)
+        ref_denom = math.prod(math.factorial(n) for n in Counter(reference).values())
         for a in range(2, h//2+1):
             output = (h-a, a)
             values = one_sided(output, reference)
             assert all(0 <= shift <= h for shift in values)
             one_sided_rows.append([values.get(j, 0) for j in range(h+1)])
+            combined_positive.append([values.get(j, 0) for j in range(-h, h+1)])
+            reverse_values = closed_reverse_two(h, output)
+            denom = math.prod(math.factorial(n) for n in Counter(output).values())
+            difference = {j: denom*reverse_values.get(j, 0)-ref_denom*reverse_ref.get(j, 0)
+                          for j in set(reverse_values)|set(reverse_ref)}
+            assert all(not value or -h <= j <= 0 for j, value in difference.items())
+            combined_negative.append([difference.get(j, 0) for j in range(-h, h+1)])
             if h <= 6:
                 d = (2,) + (1,)*(h-2)
                 direct = {shift: dict(piece_vector(d, one, (h,), shift)).get(output, 0)
                           for shift in range(-2*h, 2*h+1)}
                 assert {s: value for s, value in direct.items() if value} == closed_two(h, output)
+                reverse = {shift: dict(piece_vector(one, d, (h,), shift)).get(output, 0)
+                           for shift in range(-2*h, 2*h+1)}
+                assert {s: value for s, value in reverse.items() if value} == reverse_values
                 two_part_recurrence_rows += 1
+                reverse_recurrence_rows += 1
             two_part_cases += 1
         assert modular_rank(one_sided_rows, prime) == max(0, h//2-2)
+        assert modular_rank(symmetric_low + combined_positive + combined_negative, prime) == (
+            h-4 + 2*max(0, h//2-2))
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
                       'multiplicity_and_kernel_rank_cases': 37,
                       'one_sided_rank_cases': 37, 'two_part_cases': two_part_cases,
-                      'two_part_recurrence_rows': two_part_recurrence_rows, 'prime': prime}, indent=2))
+                      'two_part_recurrence_rows': two_part_recurrence_rows,
+                      'reverse_recurrence_rows': reverse_recurrence_rows, 'prime': prime}, indent=2))
 
 
 if __name__ == '__main__':
