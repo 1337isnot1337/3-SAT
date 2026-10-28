@@ -3,9 +3,9 @@
   "fixed_deficit_cases": 341,
   "max_grade": 35,
   "sha256": {
-    "CLAIM.json": "55b3ec3a9b8dbea8d9aff7ffc65b76c63ad96b7f1a8cbcca7485449534aa0739",
-    "PROOF.md": "34fbf80ff740fc14db989daaca8f70297f956ab0bb9888984d3a7d246a789a34",
-    "README.md": "3bca6f10b178688ef688e3905ceaf3d81efb6aed9919fe9cfd42bac3e3e8a1f5",
+    "CLAIM.json": "cda8c6f25c5bd5b18ff1dfb673f74d7d50f1f29e3ed484e3ec83bec2ba962d0f",
+    "PROOF.md": "2d8604b276d6376e71ade6dabb15a1d66d04287caa81b03793e443a94b3ab1cd",
+    "README.md": "d2f8bb9be76ba53983915052fb7b1ef8c5ee109ec85b58519e6ba9116074b3d0",
     "verify.py": "073a5b695bca46564b97431d0d0a78dec9f82fdc5b6655ca324469197940d40e"
   },
   "strict_improvements_over_predecessor_cover": 430,

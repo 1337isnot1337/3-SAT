@@ -1,0 +1,16 @@
+{
+  "checker_sha256": "2b8aca541e938cf9297873196bbed3a0d10bdca77f6e831a329515d74243cd43",
+  "label_pairs": 25,
+  "operator_cases": 100,
+  "output_states": [
+    "(4)",
+    "(2,2)"
+  ],
+  "rank": 3,
+  "rank_three_minor_determinant": 3456,
+  "result": "PASS",
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

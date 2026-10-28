@@ -239,6 +239,32 @@ establish scalarity of other label-pair operators or a crossing identity.
 `adjacent_shift.py` verifies the diagonal formula for all five grade-four
 partitions, using exact interpolation in both operator orders.
 
+## A finite full-label pairing on the collision space
+
+An exact finite calculation improves the preceding single-entry example.
+For h=4, s=3, extraction of q^6, let W be the span of `(4)` and `(2,2)`.
+In the label order `(1^4),(2,1,1),(2,2),(3,1),(4)`, all 25 resulting
+operators preserve W and act on it by the scalar entries of
+
+    G = [[-4336,  0, -24, -64, 0],
+         [    0,-36,   0,   0, 0],
+         [   -4,  0,   0,   0, 0],
+         [   -5,  0,   0,   0, 0],
+         [    0,  0,   0,   0, 0]].
+
+The first three rows and columns form a minor of determinant 3456, and
+G has rank 3, attaining the structural mask bound at h=4 and e=6. An
+inverse of that minor gives a scalar identity on those three asymmetric
+label coordinates and both output states. This is an exact finite
+component, not a construction with growing label or output capacity.
+
+`adjacent_pairing.py` verifies all 25 label pairs on each of the two output
+states, including absence of leakage, in both operator orders, by exact
+interpolation at nine charges. It checks the matrix, determinant and rank.
+This finite computation is the evidence for the statement; it has not
+been extended to an all-size family or complete crossing-factorization
+and SAT cost accounting.
+
 ## Limits and cost
 
 No relation between charge degree and the size of a removed shift interval

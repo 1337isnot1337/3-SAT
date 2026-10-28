@@ -26,8 +26,9 @@ matrix; this remains constant label capacity. One degree lower again, the
 all-ones pair has a weighted number operator with a simple spectrum on
 grade-h outputs, so a scalar invariant output subspace has dimension at
 most one. At the adjacent shift a concrete grade-four collision produces
-a two-dimensional scalar eigenspace for that one label pair. Other label
-pairs, combinations and projected compressions stay open.
+a two-dimensional scalar eigenspace; all 25 label-pair operators preserve
+it and act scalarly, with rank-three label matrix. This is a finite
+component; growing codebooks and full costs remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -47,6 +48,7 @@ python3 -I -B research/charge-capacity-tradeoff/near_endpoint.py
 python3 -I -B research/charge-capacity-tradeoff/second_deficit.py
 python3 -I -B research/charge-capacity-tradeoff/spectrum.py
 python3 -I -B research/charge-capacity-tradeoff/adjacent_shift.py
+python3 -I -B research/charge-capacity-tradeoff/adjacent_pairing.py
 make verify
 ```
 
@@ -59,7 +61,8 @@ records rational interpolation checks of the two-label case. Both include
 predecessor module hashes. [second-deficit-verification.json](second-deficit-verification.json)
 records the next-coefficient operator checks; [spectrum-verification.json](spectrum-verification.json)
 records the bounded simple-spectrum checks. [adjacent-shift-verification.json](adjacent-shift-verification.json)
-records the finite collision.
+records the finite collision. [adjacent-pairing-verification.json](adjacent-pairing-verification.json)
+records the full finite label pairing and leakage checks.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,
