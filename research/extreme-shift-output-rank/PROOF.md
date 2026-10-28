@@ -144,8 +144,9 @@ For example, support restricted to `|s|>=7h/4` requires at least
 `N^{1/2-o(1)}` raw summands for a nonzero scalar entry.
 
 For the predecessor's unchanged directional term-count envelope, this also
-limits what a support-only calculation can certify. Its normalized envelope
-at `u=|s|/h` is
+limits what a support-only calculation can certify, provided the proposed
+construction has separately justified using that envelope after its label
+mixing. Its normalized envelope at `u=|s|/h` is
 
 ```math
  \rho(u)=\frac{\sqrt{2+u}+\sqrt{2-u}}4,\qquad 0\le u\le2.
