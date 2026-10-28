@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "tensor-precision-witness",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis (with OpenAI Codex assistance)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The u=1 tapered witness has a prescribed Cauchy-packet realization over Z_(2), with M=hL(2L-1) ports and degree 2L-1.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tensor-precision-witness/PROOF.md",
+    "research/tensor-precision-witness/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/tensor-precision-witness/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Realize matching h=Theta(M) with bounded-degree tensors and a valid packing, or prove an obstruction.",
+    "Determine whether an odd-normalized witness has a Boolean realization."
+  ]
+}
