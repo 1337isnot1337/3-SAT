@@ -4,10 +4,12 @@
     5
   ],
   "GF8_weighted_polynomial_controls": 200,
-  "checker_sha256": "705c6064fb4b2bce5cc68c001e54ce94fccdac3c480e2ea0070b37d35d6d75bd",
+  "checker_sha256": "c45a92ccfccb5bcfe0fe44ad2dce060b94d63785570106035efbba0709fd6db2",
   "cut_rank_checks_F2": 20480,
+  "grouped_lift_controls": 200,
   "matrices_3x4": 4096,
   "selected_subsets": 65536,
   "state_entry_checks": 378960,
-  "weighted_seed": 25174
+  "weighted_seed": 25174,
+  "width_lipschitz_and_area_checks": 4096
 }

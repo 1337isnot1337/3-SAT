@@ -103,3 +103,52 @@ ordering, the full sparse-query representation, input construction and
 entry cost, coefficient ring embedding, contraction precision and recursion,
 recovery, branches, queries, space and randomness. No exponent, selected
 result or full SAT algorithm is changed.
+
+## Accepted-contraction evaluation of the weighted chain
+
+The selected-contraction theorem can evaluate the independent-set polynomial
+for field weights when e=O(log s), with the chain's complete wire count s
+as its size parameter. Let
+
+    s = m + sum_(i=1)^(m-1) b_i,
+
+and assume s>=2; tiny cases are directly enumerated. Consecutive frontier
+widths differ by at most one, since
+
+    b_i = rank(U_i)+rank(F_i)-rank(A)
+
+and advancing a column changes the two ranks by at most +1 and -1,
+respectively. As b_0=b_m=0, if B=max_i b_i, the width at a position at
+distance d from a maximum is at least B-d while d<=B. These two triangular
+ramps lie within the sequence and give sum_i b_i>=B^2. Thus each transition
+has at most 2B+1<=2 sqrt(s)+1 ports, eventually below s^(9/10).
+
+To evaluate the polynomial at supplied weights in F_(2^e), expose each of
+the m Boolean selection bits and connect it to its transition tensor and
+to one of q<=J=ceil(s^(1/5)) weight-group tensors. A group tensor returns
+product z_i^(selection_i) over its group, in the field. Groups have at most
+ceil(m/J) ports, so their degree is O(s^(4/5)+1). This adds O(m) wires.
+If m<J, use m singleton groups. Subdivide every edge with a binary equality
+tensor to make the graph bipartite; this multiplies the wire count by two
+and leaves maximum degree in the theorem's range. All transition and
+equality entries are 0/1 and computed by binary linear algebra; group
+entries are computable in polynomial time and space from the supplied field
+and weights. The full description has polynomial size in the original
+matrix, field description and weights.
+
+Use the PR #2 field lift with P_0=1 and
+ell=q(e-1)+1 in F_2[V]/(V^ell). Only the q group tensors carry nonconstant
+polynomial entries, each of degree below e. Each complete summand therefore
+has degree at most q(e-1), so truncation is exact and reduction modulo the
+field polynomial gives the required field value. Here ell=O(s^(1/5) log s)
+is O(s). Apply the accepted theorem to get deterministic time
+
+    (s+L)^O(1) 2^O(s/sqrt(log s))
+
+and polynomial space for this evaluation, where L is the total description
+length. If the field polynomial must be constructed, deterministic exhaustive
+irreducibility search is polynomial for e=O(log s). This is a parameterized
+matroid-polynomial evaluator, not a whole SAT solver. In particular s can
+be quadratic or larger in the number of variables after composing reductions;
+all input preparation, many evaluations, branches, precision and probability
+costs remain to be paid before any SAT conclusion.

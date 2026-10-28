@@ -18,7 +18,13 @@ For every cut, the independence table has rank exactly `2^b_i` over such a
 field, so the state-bit count is optimal for this ordered-chain interface.
 A two-dimensional binary example has rank 4 over F2 but 5 over F3; no
 corresponding odd-characteristic or rational upper bound is claimed.
-The total width lower bound of PR #55 still applies. For relevant sparse
+Since frontier width changes by at most one per step, the maximum width B
+satisfies `B^2 <= sum_i b_i`. Consequently, after grouping field weights,
+the accepted contraction theorem can evaluate this polynomial in polynomial
+space and `2^O(s/sqrt(log s))` time up to description factors, for
+`s=m+sum_i b_i` and field degree `O(log s)`. The proof charges field lifting,
+vertex degree, entries and bipartite conversion. This is not a whole SAT
+algorithm. The total width lower bound of PR #55 still applies. For relevant sparse
 checks it can make the ordered chain much larger than the nonlocal row
 network in PR #83. None of these bounds rules out another topology or a
 faster SAT algorithm.
@@ -32,7 +38,8 @@ make verify
 
 The standard-library checker covers all 4,096 binary 3-by-4 matrices and
 65,536 selected subsets, verifies each frontier-state entry and all 20,480
-F2 cut ranks, checks the F2/F3 separation, and compares 200 GF(8) weighted polynomial cases with direct enumeration. The
+F2 cut ranks, checks the F2/F3 separation, and compares 200 GF(8) weighted polynomial and grouped-lift cases with
+direct enumeration. It also checks the width Lipschitz and area bounds. The
 [hash-bound output](verification.json) records exact counts. Finite controls
 are not an independent review or an implementation of the accepted solver.
 

@@ -69,6 +69,22 @@ def gf8_mul(a, b):
     return out
 
 
+def carryless_mul(a, b):
+    out = 0
+    while b:
+        if b & 1:
+            out ^= a
+        a <<= 1
+        b >>= 1
+    return out
+
+
+def reduce_gf8(a):
+    while a.bit_length() > 3:
+        a ^= 11 << (a.bit_length()-4)
+    return a
+
+
 def run():
     transition_checks = cut_checks = inputs = 0
     for packed in range(8**4):
@@ -76,6 +92,9 @@ def run():
         prefixes = [span(cols[:i]) for i in range(5)]
         futures = [span(cols[i:]) for i in range(5)]
         frontiers = [prefixes[i] & futures[i] for i in range(5)]
+        widths = [len(e).bit_length()-1 for e in frontiers]
+        assert all(abs(x-y) <= 1 for x,y in zip(widths, widths[1:]))
+        assert sum(widths) >= max(widths)**2
         for mask in range(16):
             states = {0: 1}
             selected = []
@@ -122,7 +141,7 @@ def run():
             states = {u: states.get(u, 0) ^ gf8_mul(weights[i],
                       states.get(u, 0) ^ states.get(u ^ v, 0))
                       for u in frontier}
-        direct = 0
+        direct = lifted = 0
         for mask in range(1 << len(cols)):
             chosen = [v for i,v in enumerate(cols) if mask >> i & 1]
             if rank(chosen) == len(chosen):
@@ -131,10 +150,20 @@ def run():
                     if mask >> i & 1:
                         term = gf8_mul(term, w)
                 direct ^= term
-        assert states[0] == direct
+                group_values = []
+                for indices in (range(3), range(3, 6)):
+                    group = 1
+                    for i in indices:
+                        if mask >> i & 1:
+                            group = gf8_mul(group, weights[i])
+                    group_values.append(group)
+                lifted ^= carryless_mul(*group_values)
+        assert states[0] == direct == reduce_gf8(lifted)
+        assert lifted.bit_length() <= 2*(3-1)+1
         weighted_controls += 1
     return {'GF8_weighted_polynomial_controls': weighted_controls,
-            'weighted_seed': 25174, 'matrices_3x4': 4096, 'selected_subsets': inputs,
+            'weighted_seed': 25174, 'width_lipschitz_and_area_checks': 4096,
+            'grouped_lift_controls': weighted_controls, 'matrices_3x4': 4096, 'selected_subsets': inputs,
             'state_entry_checks': transition_checks, 'cut_rank_checks_F2': cut_checks,
             'F2_F3_witness_ranks': [4,5],
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
