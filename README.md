@@ -57,6 +57,10 @@ reproduction commands and limits recorded separately.
 | [Newton Cauchy modes](research/cauchy-newton-modes/README.md) | Stronger coefficient valuations reduce the leading constants in the mode-count envelope, including a stronger odd-node case. The square-root-logarithmic saving remains. |
 | [Anthropic operator pieces](research/anthropic-operator-ranks/README.md) | An exact first-moment relation removes one crossing piece while preserving both factorization costs. It does not reduce the dominant piece-cost ratio. |
 | [Weighted decision fingerprints](research/characteristic-two-decision/README.md) | A characteristic-two decision interface avoids cancellation of the unweighted parity count. The current degree and wire-entropy costs remain. |
+| [Asymmetric charged crossings](research/charged-asymmetric-crossing/README.md) | A uniform rational construction removes the central shift while retaining both rank bounds. The supplied factorization ratio is unchanged. Fixed-codebook screens at [grades four and six](research/asymmetric-scalar-filter/README.md) and [grade nine](research/grade-nine-filter/README.md) do not resolve other codebooks or all grades. |
+| [Sparse-support detection](research/sparse-support-deterministic/README.md) | A deterministic fingerprint test works under a promised support bound. Its conditional SAT composition retains the accepted time envelope; it does not provide a general speedup. |
+| [Separator hierarchies](research/separator-hierarchy/README.md) | A supplied hierarchy can be composed with the accepted counting algorithm. Bounded occurrence alone does not guarantee the small separators needed for a general improvement. |
+| [Clause-polynomial rank](research/clause-polynomial-rank/README.md) | Linear relations among original clause polynomials alone cannot generally remove the density dependence. The result does not exclude nonlinear or formula-aware preprocessing. |
 
 The obstruction packages narrow specific routes:
 [formal mode counts, tapering and local bases](research/mode-taper-obstructions/README.md),
