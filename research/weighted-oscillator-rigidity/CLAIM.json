@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Scalar creation and annihilation weights preserve the existing h=1 two-order identity at all shifts exactly when their products are c k; in characteristic zero, nonzero c forces all indices and zero c makes the standard positive-grade vacuum pairing degenerate.",
+  "statement": "Scalar creation and annihilation weights preserve the existing h=1 two-order identity at all shifts exactly when their products are c k; in characteristic zero, nonzero c forces all indices and zero c makes the standard positive-grade vacuum pairing degenerate. Any infinitely supported scalar sequence with a fixed order-d recurrence has support lower density at least 1/d, over any field; this is sharp.",
   "improves_bound": false,
   "evidence": [
     "research/weighted-oscillator-rigidity/PROOF.md",
@@ -23,6 +23,7 @@
   "remaining_obligations": [
     "Independent review of the written argument",
     "Changed identities or coupled operators and non-vacuum pairing remain open",
-    "No complete SAT improvement is supplied"
+    "No complete SAT improvement is supplied",
+    "Fixed-order recurrence is only a necessary scalar locality condition; nonconstant or growing-order recurrences remain open"
   ]
 }

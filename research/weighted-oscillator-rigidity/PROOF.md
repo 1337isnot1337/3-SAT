@@ -57,3 +57,32 @@ queries, description sizes, finite exceptions, and space remain at the
 accepted baseline because no replacement algorithm is proposed. A genuinely
 new identity, non-scalar or coupled oscillators, or a different pairing is
 outside the classification and is a meaningful changed premise.
+
+## Beyond second differences: any finite scalar recurrence
+
+A more general changed premise is a fixed finite-order scalar locality
+relation. Let `(g_n)_{n>=0}` be a sequence over any field, and suppose
+that for all n sufficiently large,
+
+    p_0 g_n + p_1 g_{n-1} + ... + p_d g_{n-d} = 0,   p_0 != 0.   (2)
+
+Here `d>=1` is a fixed upper bound on the number of lags; coefficients may
+vanish. If `d` consecutive terms vanish sufficiently far out, (2) forces
+all subsequent terms to vanish inductively. Consequently, if the sequence
+has infinitely many nonzero terms, **every** sufficiently late block of d
+consecutive indices contains a nonzero term. Its support therefore has lower
+asymptotic density at least `1/d`. Equivalently, an infinite support with
+arbitrarily long gaps, in particular an infinite zero-density support, is
+incompatible with every such finite-order recurrence.
+
+The density constant is sharp: `g_n=[n divisible by d]` satisfies
+`g_n-g_{n-d}=0` and has density `1/d`. This is an elementary necessary
+condition, independent of the actual values of nonzero terms and of field
+characteristic. If a finite polynomial `P(z)` with nonzero constant term
+makes `P(z) sum_n g_n z^n` a polynomial, its coefficients give (2). Thus no
+such scalar polynomial locality relation can hold for an infinitely supported
+weighted commutator sequence with arbitrarily long gaps. This strengthens the
+predecessor's nonrational-series observation for its special `g_n=n[n in S]`
+to arbitrary weights; it does not assert that any finite recurrence suffices
+for the crossing identity, nor does it rule out non-scalar locality, a changed
+pairing, or a recurrence order growing with the instance size.

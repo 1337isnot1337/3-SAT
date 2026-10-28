@@ -7,8 +7,10 @@ their products must be `c k`; if `c` is nonzero every oscillator is present
 and the operators reduce to the standard family by coordinate and common
 scalar changes. If `c=0`, the usual vacuum-derivative pairing vanishes on
 all positive grades. Neither case excludes a different identity, a coupled
-representation, or a different pairing. No SAT time or alpha improvement is
-claimed; no independent review or formal verification was performed.
+representation, or a different pairing. The proof also shows that an infinitely supported scalar commutator
+sequence obeying a fixed order-d recurrence has support density at least 1/d;
+this is sharp and applies to arbitrary weights over any field. No SAT time or
+alpha improvement is claimed; no independent review or formal verification was performed.
 
 This extends the exact missing-index obstruction of
 [the predecessor](../sparse-oscillator-locality/PROOF.md) to arbitrary scalar
@@ -30,7 +32,8 @@ The first command tests all 15,625 choices of three creation and three
 annihilation weights in `{-2,-1,0,1,2}`. It directly applies operators for
 375,000 differences at shifts 0, 1, 2 on eight basis monomials, and checks
 125,000 vacuum pairing entries. It checks the finite classification on
-these shifts; it does not establish the all-size proof. A first checker run
+these shifts; it does not establish the all-size proof. It also replays 7,380
+finite scalar-recurrence sequences and four sharp periodic controls. A first checker run
 wrongly required a canonical zero polynomial to have a particular exponent
 representation; the corrected checker compares its coefficient and checks
 exponents only when nonzero. This was a checker representation bug, not a
@@ -38,8 +41,9 @@ mathematical counterexample.
 
 Success for this round was a precise all-size necessary condition with a
 finite direct replay. The stopping condition is reached for scalar weighting
-of the unchanged h=1 identity. The complete global cost remains open: the
+of the unchanged h=1 identity and fixed-order scalar locality. The complete global cost remains open: the
 result does not supply an encoding, piece construction, recovery, recursive
 schedule, or entry bounds. A useful continuation would specify a changed
-operator identity or a non-scalar coupled representation and prove both
+operator identity with non-scalar or nonconstant locality, growing recurrence
+order, or a coupled representation and prove both
 factorization orders and label recovery before evaluating cost.
