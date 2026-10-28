@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "asymmetric-scalar-filter",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "finite_exact_scalar_filter_classification",
+  "author": "OpenAI Codex",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For the fixed charge-one asymmetric predecessor codebooks, the grade-six N=4 scalar shift weights are exactly quadratic on shifts -12 through 12, and no nonzero scalar weight vanishes at -1, 0, and 1. At grade four N=2 a full-rank pairing survives that exclusion, while excluding -2 through 2 leaves only zero pairings. This is finite evidence, not an asymptotic SAT improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/asymmetric-scalar-filter/README.md",
+    "research/asymmetric-scalar-filter/verify.py",
+    "research/asymmetric-scalar-filter/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/asymmetric-scalar-filter/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of finite tensor construction and classification",
+    "Other codebooks, larger grades, charge-dependent weights, and non-scalar filters are not classified",
+    "An all-size capacity-preserving construction and complete SAT cost accounting remain open"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}
