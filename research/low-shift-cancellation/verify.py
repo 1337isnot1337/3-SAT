@@ -71,6 +71,18 @@ def closed_diagonal(h):
     return {s: v for s, v in result.items() if v}
 
 
+def two_to_two(h, output):
+    a, b = output
+    denom = math.prod(math.factorial(n) for n in Counter(output).values())
+    common = 4*(h-1)*math.comb(h,2)**2*math.factorial(h-2)
+    assert common % denom == 0
+    result = defaultdict(int)
+    for exponent in (-h, h, 1-a, a-1, 1-b, b-1):
+        for j in range(5):
+            result[exponent-2+j] += (common//denom)*math.comb(4,j)*(-1)**j
+    return {s: v for s, v in result.items() if v}
+
+
 def closed_two(h, output):
     counts = Counter(output)
     denom = math.prod(math.factorial(n) for n in counts.values())
@@ -127,6 +139,7 @@ def run():
     two_part_recurrence_rows = 0
     reverse_recurrence_rows = 0
     diagonal_recurrence_rows = 0
+    second_input_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
         symmetric_polynomials = []
@@ -161,6 +174,22 @@ def run():
         assert all(not value or abs(j) <= h for j, value in diag_low.items())
         assert sum(diag_low.values()) == (h-1)*math.factorial(h)
         symmetric_low.append([diag_low.get(j, 0) for j in range(-h, h+1)])
+        if h >= 6:
+            u, v = (h-2, 2), (h-3, 3)
+            pu, pv = two_to_two(h, u), two_to_two(h, v)
+            zu = math.prod(math.factorial(n) for n in Counter(u).values())
+            zv = math.prod(math.factorial(n) for n in Counter(v).values())
+            row = {j: zu*pu.get(j, 0)-zv*pv.get(j, 0) for j in set(pu)|set(pv)}
+            assert all(not value or abs(j) <= h for j, value in row.items())
+            assert sum(row.values()) == 0
+            symmetric_low.append([row.get(j, 0) for j in range(-h, h+1)])
+            if h == 6:
+                y = (h-1, 1)
+                for state, expected in ((u, pu), (v, pv)):
+                    direct = {shift: dict(piece_vector(one, one, y, shift)).get(state, 0)
+                              for shift in range(-2*h, 2*h+1)}
+                    assert {j: value for j, value in direct.items() if value} == expected
+                    second_input_recurrence_rows += 1
         if h <= 6:
             direct = {shift: dict(piece_vector(one, one, (h,), shift)).get((h,), 0)
                       for shift in range(-2*h, 2*h+1)}
@@ -208,14 +237,15 @@ def run():
             two_part_cases += 1
         assert modular_rank(one_sided_rows, prime) == max(0, h//2-2)
         assert modular_rank(symmetric_low + combined_positive + combined_negative, prime) == (
-            h-3 + 2*max(0, h//2-2))
+            h-3 + 2*max(0, h//2-2) + (h >= 6))
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
                       'multiplicity_and_kernel_rank_cases': 37,
                       'one_sided_rank_cases': 37, 'two_part_cases': two_part_cases,
                       'two_part_recurrence_rows': two_part_recurrence_rows,
                       'reverse_recurrence_rows': reverse_recurrence_rows,
-                      'diagonal_recurrence_rows': diagonal_recurrence_rows, 'prime': prime}, indent=2))
+                      'diagonal_recurrence_rows': diagonal_recurrence_rows,
+                      'second_input_recurrence_rows': second_input_recurrence_rows, 'prime': prime}, indent=2))
 
 
 if __name__ == '__main__':
