@@ -20,7 +20,10 @@ clauses the exact support is degrees `q` through `3q`. This gives
 `binom(K+2q, 2q)` equality tuples, with `K>=3q`. The proof uses an explicit
 common-sign argument and includes all source-side Boolean moments. It does
 not establish nonvanishing at a particular two-adic precision, or global
-packing admissibility.
+packing admissibility. For this family, a degree-`d` source moment has
+at least `K-d` powers of two; the proof combines this with the Newton row
+weights to give a precision-aware lower valuation bound. This uses the free
+unary column tensors and is not a general child-network invariant.
 
 A three-port example illustrates the result:
 all 10 degree-at-most-two Newton tuples occur for equality and all 19
@@ -52,7 +55,8 @@ make verify
 [verification.json](verification.json) binds the checker, proof and source
 files by SHA-256. It checks nine kernel entries, both full 64-assignment
 contractions, their exact mode decompositions, six growing-family cases,
-510 Boolean equality cases, and the cubic child coefficient. These checks do not prove a global support
+510 Boolean equality cases, exact two-adic valuations, and the cubic child
+coefficient. These checks do not prove a global support
 bound or implement the full contraction. The frozen upstream source and
 accepted theorem remain unchanged.
 

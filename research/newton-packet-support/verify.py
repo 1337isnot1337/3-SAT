@@ -33,6 +33,17 @@ def add(p, q, scale=1):
     return {k: v for k, v in out.items() if v}
 
 
+def v2_integer(n):
+    n = abs(n)
+    assert n
+    return (n & -n).bit_length() - 1
+
+
+def v2_fraction(x):
+    assert x
+    return v2_integer(x.numerator) - v2_integer(x.denominator)
+
+
 def bounded_tuples(n, limit):
     if n == 0:
         yield ()
@@ -103,9 +114,24 @@ def family(K, q, kind):
         direct += val
     assert all(moments.values())
     assert sum((v*moments[e] for e, v in p.items()), start=F(0)) == direct
+    A = L.bit_length()
+    weights = [A+k+2*sum(k//2**j for j in range(1, k.bit_length()+1))
+               for k in range(K)]
+    valuations = {}
+    margins = []
+    for e, v in p.items():
+        d = sum(e)
+        assert v2_fraction(moments[e]) >= K-d
+        lower = K-d+sum(weights[k]*e[k] for k in range(K))
+        valuations[e] = v2_fraction(v*moments[e])
+        margins.append(valuations[e]-lower)
+        assert margins[-1] >= 0
     return {'K': K, 'q': q, 'kind': kind, 'L': L, 'nonzero_tuples': len(p),
             'source_assignments': 2**K, 'all_moments_nonzero': True,
-            'exact_sum': True}
+            'exact_sum': True, 'min_bound_margin': min(margins),
+            'summand_valuation_range': [min(valuations.values()), max(valuations.values())],
+            'nonzero_mod_2_to_p': {str(p): sum(v < p for v in valuations.values())
+                                   for p in (8, 16, 32, 64, 128)}}
 
 
 def main():

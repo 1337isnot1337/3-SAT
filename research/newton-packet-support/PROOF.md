@@ -140,6 +140,40 @@ more efficient aggregation algorithm, or improve or refute a SAT bound.
 The bounded checker separately tests `(K,q)=(3,1),(4,1),(6,2)` for each
 family, including source moments and exact contractions.
 
+### A precision-aware bound for this family
+
+Let `d=|beta|` and write `R=Z_(2)`, the rationals with odd denominator.
+The source moment is a sum over all `K` Boolean column assignments of a
+product of `d` linear forms with coefficients in `R`. Reduce each power
+`X_j^m` to `X_j` on Boolean inputs. The result is a multilinear polynomial
+of degree at most `d`, and a monomial on `s` distinct variables sums to
+`2^(K-s)` over all assignments. Hence, for `d<=K`, the source moment is
+divisible in `R` by `2^(K-d)`.
+
+Put `A=log2(L)+1` and `w_k=A+k+2 v2(k!)`, the general Newton weights.
+The accepted-point integrality and row coefficient bound from PR #4 give
+`v2(a_xk)>=w_k`. Every term of the row coefficient for `beta` has one
+such factor for each mode occurrence. Consequently the full rational
+summand has valuation at least
+
+```
+K - |beta| + sum_k w_k beta_k.                         (3)
+```
+
+For either family the degree range ensures `|beta|<=K`. A summand is zero
+modulo `2^p` whenever the right side is at least `p`. This is a bound for
+the specified free-unary source group; it cannot be applied to a general
+child tensor, where the source bits may have a nonconstant weight. It is
+also not an algorithmic pruning gain without a way to establish and use the
+bound under the actual recursive packing and recovery costs.
+
+The checker measures actual rational valuations as well as proving the
+finite instances satisfy (3). For `K=6, q=2`, 47 of 210 equality terms and
+39 of 917 clause terms survive modulo `2^32`; at precision 128 all of
+these listed terms survive. These are specified test precisions, not an
+assertion that the source's actual taper chooses either value. A surviving
+summand does not preclude cancellation in the final sum.
+
 ## 4. A child need not retain the input table family
 
 In the same packet, choose `beta=0` for all crossing modes. By the source
