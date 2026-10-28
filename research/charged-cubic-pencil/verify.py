@@ -111,12 +111,16 @@ def calc(h):
     eval_rank=v.rank(evaluation)
     matrix_h=[[x+h*y for x,y in zip(a,b)] for a,b in zip(A,B)]
     matrix_rank=v.rank(matrix_h)
+    no_three=[j for j,label in enumerate(labels) if 3 not in label]
+    restricted_rank=v.rank([[row[j] for j in no_three] for row in matrix_h])
+    assert restricted_rank==len(no_three)==matrix_rank
     assert eval_rank==n-matrix_rank
     assert all(sum(x*y for x,y in zip(row,b))==0 for row in matrix_h for b in evaluation)
     encoded=json.dumps([[[str(x) for x in b] for b in base] for base in bases],separators=(',',':'))
     minor=minor_certificate(A,B,h,matrix_h,matrix_rank)
     return {'grade':h,'dimension':n,'polynomial_nullities_degree_0_1_2':[len(x) for x in bases],
             'specialization_energy':h,'evaluated_kernel_rank':eval_rank,'matrix_rank_at_specialization':matrix_rank,
+            'columns_without_part_three':len(no_three),'restricted_column_rank_at_specialization':restricted_rank,
             'basis_sha256':sha256(encoded.encode()).hexdigest(),
             'degree_two_basis':[[str(x) for x in vector] for vector in bases[2]],'minor':minor}
 

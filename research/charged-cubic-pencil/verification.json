@@ -12,6 +12,8 @@
       "specialization_energy": 6,
       "evaluated_kernel_rank": 3,
       "matrix_rank_at_specialization": 8,
+      "columns_without_part_three": 8,
+      "restricted_column_rank_at_specialization": 8,
       "basis_sha256": "5aaa9f3e9334407a5b32d613501d42859bc9100c2a240800857be98e2f7ba4e7",
       "degree_two_basis": [
         [
@@ -166,6 +168,8 @@
       "specialization_energy": 7,
       "evaluated_kernel_rank": 5,
       "matrix_rank_at_specialization": 10,
+      "columns_without_part_three": 10,
+      "restricted_column_rank_at_specialization": 10,
       "basis_sha256": "2cf2a00c09aa05b022b48871356d000752534e95068adff8bb70165849a9291f",
       "degree_two_basis": [
         [
@@ -456,6 +460,8 @@
       "specialization_energy": 8,
       "evaluated_kernel_rank": 7,
       "matrix_rank_at_specialization": 15,
+      "columns_without_part_three": 15,
+      "restricted_column_rank_at_specialization": 15,
       "basis_sha256": "94e446834b60f2cc7e6019fc128af7aa0ee5deafd51d383c0da31ab3084c4c8f",
       "degree_two_basis": [
         [
@@ -1002,6 +1008,8 @@
       "specialization_energy": 9,
       "evaluated_kernel_rank": 11,
       "matrix_rank_at_specialization": 19,
+      "columns_without_part_three": 19,
+      "restricted_column_rank_at_specialization": 19,
       "basis_sha256": "1b66d1244564707e0cce93a930f31c35f9b24a672602d7a73cb3654cea66f376",
       "degree_two_basis": [
         [
@@ -2363,7 +2371,7 @@
     }
   ],
   "sha256": {
-    "research/charged-cubic-pencil/verify.py": "4e747311dcb95045b0dd1f6ff08cd23dcf4ee216887b4c75d1148aa95dafdff8",
+    "research/charged-cubic-pencil/verify.py": "099ce11e4c2005b6657721f1367a8c8b24072f6413466ea97ee6c1fa4edb6cf1",
     "research/charged-cubic-parity/kernel_control.py": "68c6bb44e1d9092ad14c758970f389c9bc3543557776de377c4deb66692da98f",
     "research/charged-cubic-parity/verify.py": "7a4c7c00c069d27c80c6e59118000aa0c1422e7293896dc832a47b7ea78346b4",
     "research/charged-cubic-parity/PROOF.md": "1d48472ae4b8958d5561a4c87d5b4ebb6f7b8cc1f1f2db9a1822e912e1e0767d",

@@ -41,6 +41,12 @@ nonzero at every nonnegative integer. Combined with the polynomial-kernel
 upper bounds, the four stated ranks hold at all such output energies.
 At h=7 this does **not** assert the rank at every nonnegative real E.
 
+At E=h in all four grades, the columns indexed by partitions without a
+part of size 3 are linearly independent and span the full column space.
+There are exactly `p(h)-p(h-3)` such partitions. This offers a concrete
+candidate for a uniform lower-bound proof, but we do not assert their
+independence at other energies or grades.
+
 All statements about the cubic operator depend on PR #89's written
 low-weight/affine-energy identity. The rank data match
 `p(h)-p(h-3)` at these four grades, but extrapolation to all h is open.
