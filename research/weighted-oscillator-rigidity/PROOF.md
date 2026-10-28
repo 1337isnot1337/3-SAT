@@ -123,14 +123,16 @@ For the lower bound take B=floor(sqrt(E)), and all subsets of indices
 1,...,B not divisible by p, with occupancy one. Every subset has total grade
 at most B(B+1)/2<=E for E>=1, and the distinct quotient basis monomials
 number `2^(B-floor(B/p)) >= 2^(B/2)`, uniformly in p. For the upper bound,
-this quotient's cumulative dimension is at most the number of unrestricted partitions of all grades up
-to E. The standard generating-function estimate gives `exp(O(sqrt(E)))`:
+this quotient's cumulative dimension is at most the number of unrestricted
+partitions of all grades up to E. The standard generating-function estimate gives `exp(O(sqrt(E)))`:
 for `0<t<=1`, `prod_k (1-exp(-tk))^-1 <= exp(C/t)` by expanding the
 logarithm and bounding its geometric series; take t=1/sqrt(E).
 
 Thus this natural finite-characteristic radical quotient retains square-root
-*cumulative* grade growth, even when p is allowed to vary with E. The next section strengthens this to an individual-grade bound; neither
-result rules out another pairing, a new identity, or a different contraction. No resulting SAT time is claimed.
+*cumulative* grade growth, even when p is allowed to vary with E. The next
+section strengthens this to an individual-grade bound; neither result rules
+out another pairing, a new identity, or a different contraction. No resulting
+SAT time is claimed.
 
 ## Uniform lower bound at every large grade
 

@@ -14,9 +14,9 @@ has lower support density at least 1/d;
 this is sharp and applies to arbitrary weights over any field. A separate
 characteristic-p example satisfies the scalar h=1 identity with nonzero c but
 has missing annihilation modes and a degenerate standard vacuum pairing.
-Uniformly in p, its nondegenerate quotient still has `exp(Theta(sqrt(E)))`
-both individual-grade and cumulative dimension `exp(Theta(sqrt(E)))` for
-large E, using absolute constants. No SAT time or
+Uniformly in p, its nondegenerate quotient has both individual-grade and
+cumulative dimension `exp(Theta(sqrt(E)))` for large E, with absolute
+constants. No SAT time or
 alpha improvement is claimed; no independent review or formal verification
 was performed.
 
