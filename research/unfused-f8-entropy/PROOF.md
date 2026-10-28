@@ -223,11 +223,34 @@ The comparisons are exact: `196036848^2 > 2^55`, `321^2 < 2^17` and
 This does not cover arbitrary functions with unrestricted linearly many
 independent groups.
 
+## Common quadratic-isometric relabelings
+
+The obstruction survives a common, possibly nonlocal change of Pauli
+labels. On all `6R` label bits write `Q(a,b)=a dot b` and let L be any
+invertible binary linear map satisfying `Q(Lv)=Q(v)`. Polarization gives
+`B(Lu,Lv)=B(u,v)` for the symplectic Walsh form B. If a decomposition
+`q_R=sum_i f_i` becomes group-type-symmetric after the common pullback
+`g_i(v)=f_i(Lv)`, then `sum_i g_i=q_R`. Furthermore
+
+```math
+ |supp(g_i)|=|supp(f_i)|,\qquad
+ \widehat{g_i}(v)=\widehat{f_i}(Lv),
+```
+
+where the second identity follows by the substitution `w=Lu` in the
+Walsh sum. Thus both supports of every piece are unchanged and the same
+one-group and grouped bounds apply. L may vary with R, mix different
+macros and be chosen without any efficiency restriction; it must be
+common to all pieces. This covers any per-macro Q-isometric relabelings
+as a special case, without requiring the resulting pieces to be type
+symmetric in the original coordinates.
+
 ## Boundary and next premise
 
 The proof assumes type symmetry inside each of a common partition
-into `o(R)` macro groups (or at most `R/320` groups) and constancy on
-the ten named local classes, and the Pauli-diagonal coefficient model. The
+into `o(R)` macro groups (or at most `R/320` groups), possibly after one
+common Q-isometric linear relabeling, and constancy on the ten named local
+classes, within the Pauli-diagonal coefficient model. The
 one-group result is the globally symmetric special case. It allows arbitrary real coefficients, any finite number of summands and
 cancellation. It does not restrict general Pauli functions or arbitrary
 crossing tensors. A successor must change one of those premises. Any new
