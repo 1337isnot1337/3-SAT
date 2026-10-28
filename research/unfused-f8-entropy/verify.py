@@ -3,6 +3,7 @@ from collections import defaultdict
 from hashlib import sha256
 import importlib.util
 import json
+from itertools import combinations
 from math import factorial, prod
 from pathlib import Path
 
@@ -117,6 +118,42 @@ assert sum(x * prod(y ** a for y, a in zip(q, alpha)) for alpha, x in power.item
 assert all(8 ** 8 * 7 ** (8 - a[0]) >= 153664 ** 2 * prod(x ** x for x in a if x)
            for a in power)
 
+# A strictly larger four-macro entropy floor permits only four distinct
+# nonzero classes. Eliminate the invariant system exactly modulo a prime.
+distinct = {tuple(int(i in choice) for i in range(10))
+            for choice in combinations(range(1, 10), 4)}
+distinct_orbits = []
+while distinct:
+    a = min(distinct)
+    group = orbit(a)
+    assert group <= distinct
+    distinct_orbits.append(group)
+    distinct.difference_update(group)
+assert len(distinct_orbits) == 33
+columns = []
+for group in distinct_orbits:
+    column = defaultdict(int)
+    for alpha in group:
+        for beta, value in transform_monomial(alpha).items():
+            column[beta] += value
+        column[alpha] -= 8 ** 4
+    columns.append(column)
+rows = sorted(set().union(*(column.keys() for column in columns)))
+prime = 65521
+assert all(prime % k for k in range(2, 256))
+basis = {}
+for row in rows:
+    v = [column.get(row, 0) % prime for column in columns]
+    for pivot, r in basis.items():
+        if v[pivot]:
+            factor = v[pivot]
+            v = [(x - factor * y) % prime for x, y in zip(v, r)]
+    pivot = next((i for i, x in enumerate(v) if x), None)
+    if pivot is not None:
+        inverse = pow(v[pivot], -1, prime)
+        basis[pivot] = [x * inverse % prime for x in v]
+assert len(basis) == len(distinct_orbits)
+
 # Wrong normalization is a negative control for the weighted polynomial.
 wrong = defaultdict(int)
 for alpha, coefficient in P.items():
@@ -129,5 +166,6 @@ files = [HERE / 'verify.py', HERE / 'seed.json', reference]
 print(json.dumps({'status': 'PASS', 'scope': 'frozen four-macro integer dual and entropy profiles',
                   'seed_orbits': len(seed), 'nonzero_types': len(P), 'pairing': pairing,
                   'two_seed_nonzero_types': len(power),
+                  'distinct_only_orbit_rank': len(basis), 'rank_prime': prime,
                   'minimum_entropy_fourth_power': entropy_min_power,
                   'bindings': {str(path.relative_to(ROOT)): sha256(path.read_bytes()).hexdigest() for path in files}}, indent=2))

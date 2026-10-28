@@ -58,6 +58,22 @@ values h(alpha); the verifier includes an intentionally incorrect
 normalization as a negative control. The seed was found by exact rational
 linear algebra after a modular screen; the replay does not run that search.
 
+## Optimal floor for this four-macro seed method
+
+The same verifier checks that the seed's entropy floor is best possible
+among positive-eigenvalue four-macro seeds with nonzero target pairing.
+A type containing the size-one zero class has `2^(4F) <= 4^4*7^3 = 87808`.
+If no zero class occurs, the only pattern with larger entropy than the
+seed floor 153664 is four distinct nonzero classes. These 126 types form
+33 orbits under Frobenius and axis swap. The verifier constructs their
+33 orbit-sum columns of `T-8^4 I` and finds full column rank modulo the
+prime 65,521. Thus no nonzero invariant positive-eigenvector is supported
+there. Averaging any hypothetical target-pairing seed over the group
+preserves its pairing, support condition and eigenidentity, so it would
+produce such a nonzero invariant vector. This optimality statement is
+specific to four-macro seeds and this minimum-entropy proof; it does not
+bound stronger seeds at other block sizes or other proof methods.
+
 ## Entropy tensorization
 
 For a type fraction p on k classes of local sizes `w_i`, define

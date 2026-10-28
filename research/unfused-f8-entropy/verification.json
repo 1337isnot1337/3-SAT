@@ -5,9 +5,11 @@
   "nonzero_types": 140,
   "pairing": 192,
   "two_seed_nonzero_types": 2135,
+  "distinct_only_orbit_rank": 33,
+  "rank_prime": 65521,
   "minimum_entropy_fourth_power": 153664,
   "bindings": {
-    "research/unfused-f8-entropy/verify.py": "ba46a614e88c77a4c9954163ea3e6327a9d0950f9dd3c645b9cb953111ad219c",
+    "research/unfused-f8-entropy/verify.py": "ab2ef1ced91b634bdf4812be930812928bf63eb347b4cd37fbb8691ca5a32d7f",
     "research/unfused-f8-entropy/seed.json": "c5f2ab1a980cdc663991dec0a6dc6e6a3bd8751cb8af8ea9e37d242a0d8bbf3e",
     "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
   }

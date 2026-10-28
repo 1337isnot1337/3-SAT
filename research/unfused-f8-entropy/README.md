@@ -22,7 +22,8 @@ make verify
 The checker rebuilds the local character table, expands the frozen 48-orbit
 seed, verifies all Fourier equations and target pairing, checks its entropy
 profiles, all 2,135 nonzero types in the two-seed product, and a normalization
-negative control. The saved
+negative control; it also proves optimality of the minimum entropy floor
+within this four-macro seed method by a modular rank check. The saved
 [verification](verification.json) pins the script, seed and predecessor
 scheme. The entropy tensorization proof is written in the proof, rather
 than being inferred from finite runs.
