@@ -144,5 +144,17 @@ where s=m+a+h, and use the same field lift. For fixed q and e=O(log s),
 all wire, degree and ring hypotheses hold, giving the same accepted-theorem
 complexity up to q-dependent constants. For odd p the formal identity
 still holds, but the two-adic contraction application is not asserted.
+For a left/right cut, the q-ary kernel truth table H has rank exactly
+q^b over any coefficient field, where b is the intersection dimension of
+the two represented spans: its common-syndrome blocks are disjoint and
+nonempty. In characteristic p the coefficient table is
+
+    C[S,T]=sum_(support(x) subset S, support(y) subset T) H[x,y].
+
+This is a rectangular support-aggregation transform of H. When q=2 it is
+the invertible Boolean zeta transform above; when q>2 it need not preserve
+rank. For A=[1 1] over F_3, the kernel table is a 3-by-3 permutation matrix
+of rank 3 over F_3, while the 2-by-2 independence table has rank 2.
+
 This is a general matroid-polynomial component and does not replace the
 binary sparse hashes in the SAT reduction.

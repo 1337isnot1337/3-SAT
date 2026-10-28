@@ -22,7 +22,9 @@ The polynomial identity extends to `F_q`-represented matroids when the
 coefficient field has characteristic p and `q=p^r`. For fixed `q=2^r`,
 the same accepted-contraction evaluation works after encoding each F_q
 symbol in r Boolean bits; the odd-characteristic case is an algebraic
-identity only.
+identity only. For q>2 the support-aggregation map is rectangular and can
+lower cut rank; an F3 parallel-pair control has kernel rank 3 and
+independence rank 2.
 
 For `[I_b | I_b]` with separated copies, the network has O(b) wires while
 the ordered chain from PR #104 needs b² bond wires; an interleaved order

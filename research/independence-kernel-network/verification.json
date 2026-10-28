@@ -1,7 +1,11 @@
 {
+  "F3_kernel_and_coefficient_rank_control": [
+    3,
+    2
+  ],
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "7722f80410a0cade0e60fe2b00c09887bec36a41436fb9432d8279a1bb7769a4",
+  "checker_sha256": "227617c33140135c82d3b881082ed52872ac6f007055c5a0b37aff24951cf9a9",
   "encoded_F4_row_checks": 8192,
   "explicit_xor_gate_cases": 65536,
   "matrices_3x4": 4096,
