@@ -119,9 +119,14 @@ The predecessor's isolation argument therefore still applies with
 `O_L(log n)` sampled coordinates per isolation row. Its subsequent queries,
 error budget, sparse hashing, tensor encoding and contraction remain charged.
 For each fixed L this is a near-rate-one encoding with constants depending on
-L; allowing L to grow with n requires a new cost analysis. This does not
-claim a smaller SAT exponent or an improved hidden leading constant in the
-accepted bound.
+L; allowing L to grow with n requires a new cost analysis. The L dependence is necessary in principle: puncturing any d_min-1
+coordinates of a binary length-N dimension-n linear code is injective, so
+`d_min<=N-n+1=ceil(n/L)+1` (the Singleton bound). Thus a guaranteed relative
+distance 1/P must satisfy `P>=N/(ceil(n/L)+1)`. In particular, if L grows
+while n/L grows, this lower bound on P grows on the order of L; a fixed
+positive relative distance cannot be carried through such a limit. This is a
+coding bound, not a SAT lower bound. We do not claim a smaller SAT exponent
+or an improved hidden leading constant in the accepted bound.
 
 ## Linear-size hashed fingerprint network at fixed density
 

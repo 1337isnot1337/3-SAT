@@ -218,6 +218,7 @@ def check_information_sets():
             for n in range(1, dim+1):
                 fixed = [w for w in words if all((w >> i) & 1 == 0 for i in info[n:])]
                 assert len(fixed) == 1 << n
+                assert min(w.bit_count() for w in fixed if w) <= N-n+1
                 assert len({sum(((w >> i) & 1) << j for j, i in enumerate(info[:n]))
                             for w in fixed}) == 1 << n
                 assert len(selected)+dim-n == N-n
