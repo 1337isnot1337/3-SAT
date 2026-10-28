@@ -94,7 +94,7 @@
       "J": 4096,
       "log2_J": 12.0,
       "degree_lower": 9.969209968386869e+35,
-      "nominal_wires": 4.083388403642035e+39,
+      "nominal_wires": 4.0833884030512616e+39,
       "leaf_scale": 3.559734113522919e+38,
       "degree_lower_over_leaf_scale": 0.002800549043962377,
       "active_degree_edge_floor": 2.1267647932558654e+37
