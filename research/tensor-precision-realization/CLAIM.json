@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "tensor-precision-realization",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Full Boolean unary packets give local-data parity collisions at precision ceil(M/4) for all nonzero nodes; author-checked, no independent review.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tensor-precision-realization/PROOF.md",
+    "research/tensor-precision-realization/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/tensor-precision-realization/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size argument",
+    "Extend to partially filled packets or realize tapered precision scale"
+  ]
+}
