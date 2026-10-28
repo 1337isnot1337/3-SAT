@@ -204,6 +204,24 @@ def g_one(h):
     return {s: v for s, v in result.items() if v}
 
 
+def de_three(h, output):
+    """Five-event normal-order formula for d,e labels and input (h-1,1)."""
+    events = (-(h-1), -1) + tuple(output)
+    denom = math.prod(math.factorial(n) for n in Counter(output).values())
+    factor = -(h-2)*(h-1)*math.factorial(h)
+    assert factor % denom == 0
+    factor //= denom
+    result = defaultdict(int)
+    for i in range(5):
+        for j in range(i+1, 5):
+            t = events[i]+events[j]
+            for k in range(6):
+                value = factor*math.comb(5,k)*(-1)**(5-k)
+                result[t-2+k] += value*(t+2)
+                result[t-3+k] -= value*(t-2)
+    return {s: v for s, v in result.items() if v}
+
+
 def odd_weights(h):
     k = (h-1)//2
     x = [Fraction(0)]*(h-2)
@@ -234,6 +252,8 @@ def run():
     second_diagonal_recurrence_rows = 0
     general_input_recurrence_rows = 0
     high_recurrence_rows = 0
+    odd_break_recurrence_rows = 0
+    odd_break_cases = 0
     for h in range(4, 41):
         rows = []
         symmetric_polynomials = []
@@ -335,6 +355,29 @@ def run():
             assert {j: value for j, value in enumerate(quotient) if value} == expected
             symmetric_low.append([row.get(j, 0) for j in range(-h, h+1)])
         if h == 7:
+            y, u = (h-1, 1), (3, 2, 2)
+            direct = {shift: dict(piece_vector(d, one, y, shift)).get(u, 0)
+                      for shift in range(-2*h, 2*h+1)}
+            assert {j: value for j, value in direct.items() if value} == de_three(h, u)
+            odd_break_recurrence_rows += 1
+        if h >= 11 and h % 2:
+            q = odd_weights(h)
+            u, v = (h-6, 3, 3), (h-7, 4, 3)
+            pu, pv = de_three(h, u), de_three(h, v)
+            zu = math.prod(math.factorial(n) for n in Counter(u).values())
+            zv = math.prod(math.factorial(n) for n in Counter(v).values())
+            row = {j: zu*pu.get(j, 0)-zv*pv.get(j, 0) for j in set(pu)|set(pv)}
+            assert all(not value or abs(j) <= h for j, value in row.items())
+            assert sum(row.values()) == 0
+            assert sum(value*j*j for j, value in row.items()) == 0
+            moment = sum((q[j] if j > 0 else -q[-j])*value
+                         for j, value in row.items() if j and value)
+            numerator = -(h-2)*(6*h**4-182*h**3+2042*h**2-9986*h+18024)
+            denominator = math.prod(h-j for j in range(5,10))
+            factor = -(h-2)*(h-1)*math.factorial(h)
+            assert moment == factor*Fraction(numerator, denominator) and moment
+            odd_break_cases += 1
+        if h == 7:
             y, u = (5, 2), (4, 3)
             direct = {shift: dict(piece_vector(one, one, y, shift)).get(u, 0)
                       for shift in range(-2*h, 2*h+1)}
@@ -404,6 +447,8 @@ def run():
                       'second_diagonal_recurrence_rows': second_diagonal_recurrence_rows,
                       'general_input_recurrence_rows': general_input_recurrence_rows,
                       'high_recurrence_rows': high_recurrence_rows,
+                      'odd_break_cases': odd_break_cases,
+                      'odd_break_recurrence_rows': odd_break_recurrence_rows,
                       'prime': prime}, indent=2))
 
 

@@ -19,5 +19,7 @@
   "second_diagonal_recurrence_rows": 1,
   "general_input_recurrence_rows": 1,
   "high_recurrence_rows": 6,
+  "odd_break_cases": 15,
+  "odd_break_recurrence_rows": 1,
   "prime": 1000003
 }

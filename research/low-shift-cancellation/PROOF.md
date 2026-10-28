@@ -12,10 +12,10 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + 2[h>=4] + 2[h>=6] + [h>=9].
+2h + max(0,h-4) + 2 max(0,floor(h/2)-2) + 2[h>=4] + 2[h>=6] + [h>=9] + [h>=11 and h odd].
 ```
 
-For even h>=10 this is 4h-3, and for odd h>=9 it is 4h-4. This
+For every h>=10 this is 4h-3; at h=9 it is 4h-4. This
 strengthens PR #59's lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. Moreover, for h>=9 the fixed
 all-ones label slice has shift-span rank exactly 2h: the symmetric
@@ -419,6 +419,82 @@ independent equations characterize it exactly. These are statements about
 the constructed low-shift subspace, not universal moment relations for
 every crossing piece.
 
+## Breaking the odd fifth moment
+
+For odd h>=11, take labels x=d,v=e, input y=(h-1,1), and outputs
+u=(h-6,3,3), v=(h-7,4,3). Neither output shares an input part, and
+both have all parts at least 3. Put `W=Z_u P_u-Z_v P_v`.
+
+Here exactly two fields on the a side and three on the b side remain
+uncontracted. Let
+
+```
+D=-(h-2)h!/6,       C=6(h-1)D=-(h-2)(h-1)h!.
+```
+
+Normal ordering gives the following explicit formula. Let the five signed
+events be `-(h-1), -1` and the three positive parts of the output. For an
+unordered pair of events with sum t, write
+`B_t(z)=z^(t-3)[(t+2)z-(t-2)]`. Then
+
+```
+Z_w P_w(z) = C (z-1)^5 sum_{event pairs} B_t(z).             (8)
+```
+
+To derive it, the coefficient of
+`:J_1(z)^2 J_1(1)^3:` is 2D and that of
+`(z-1):J_2(z)J_1(z)J_1(1)^3:` is D. The input annihilation factor is
+h-1. Choosing two events at z gives 2!3! orderings in the first term;
+in the second, choosing which of the two is the J_2 event contributes
+the sum of its signed event weights minus two. This yields (8), including
+repeated output parts.
+
+In W the pair of negative input events cancels. For an output part j,
+the remaining pair sums are `h-j`, `j-1`, and `j-h+1`. Because every
+output part lies in [3,h-6], the surviving terms have support inside
+[-h,h]. Duality and the mixed second-moment identity give L(W)=0.
+Let q be the odd-grade weights from the preceding section and define
+`B_s=sign(s)q_|s|`, B_0=0. For an integer t, put
+
+```
+H(t)=(t+2) Delta^5 B_(t-2) - (t-2) Delta^5 B_(t-3).
+```
+
+Oddness of B implies H(-t)=H(t). Formula (8), and the output-multiplicity
+difference `e_(h-6)+e_3-e_(h-7)-e_4`, give
+
+```
+M_q(W)/C = H(5)-H(7)+H(2)-H(3)
+           +H(h-3)-H(h-5)+H(h-7)-H(h-8).                  (9)
+```
+
+For odd h>=13 the recurrence for q has the closed difference form
+
+```
+Delta^2 x_t = (-1)^(t+1) [1/binom(h-3,t+1)+1/binom(h-3,t)]
+```
+
+through the indices used here, and reflection gives
+`x_(h-t-2)=K-x_t`. Substitution into (9) simplifies to
+
+```
+M_q(W)/C = -(h-2)(6h^4-182h^3+2042h^2-9986h+18024)
+           / [(h-5)(h-6)(h-7)(h-8)(h-9)].                  (10)
+```
+
+The quartic is strictly positive for h>=9: with t=h-9 it is
+`6t^4+34t^3+44t^2+40t+240`. For h=11, direct rational evaluation of
+(9) gives -54/5, so the same nonvanishing holds. The exact checker tests
+(10) for odd h=11,...,39, but the recurrence calculation is the all-size
+argument.
+
+W is independent of all previous rows. L first removes the diagonal high
+row; the independent high-shift R and triangular hook rows are then forced
+to zero because W is low-supported. The remaining constructed low space
+is annihilated by M_q, but W is not. Therefore W adds one full-space rank
+direction for odd h>=11. Its input and outputs need not lie in the binary
+codebook.
+
 ## Independence from the predecessor witnesses
 
 PR #59 constructs h symmetric rows F_l with nonzero endpoints at +/-(h+l),
@@ -435,7 +511,8 @@ Proceeding downward through h+2 successively eliminates F_l and G_(l-1);
 shift h+1 finally eliminates F_1. All three low-support spaces have no terms at those shifts and their
 sum is direct, so that sum meets the predecessor span only at zero.
 Their dimensions give rank at least
-`3h-3+2 max(0,floor(h/2)-2)+2[h>=6]+[h>=9]` for h>=4.
+`3h-3+2 max(0,floor(h/2)-2)+2[h>=6]+[h>=9]` for h>=4; the later
+high-shift and odd-moment sections add their stated directions.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
 

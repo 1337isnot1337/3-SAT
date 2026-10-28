@@ -8,8 +8,8 @@ OpenAI Codex assistance.
 
 The [proof](PROOF.md) improves PR #59's uncharged **full partition-space**
 shift-rank lower bound to
-`2h+max(0,h-4)+2 max(0,floor(h/2)-2)+2[h>=4]+2[h>=6]+[h>=9]`:
-4h-3 for even h>=10 and 4h-4 for odd h>=9. An explicit normal-order
+`2h+max(0,h-4)+2 max(0,floor(h/2)-2)+2[h>=4]+2[h>=6]+[h>=9]+[h>=11 and h odd]`:
+4h-3 for every h>=10. An explicit normal-order
 formula identifies three-part output rows with their partition multiplicity
 vectors. Their span has dimension h-3; its h-4-dimensional kernel at the
 one-part coordinate gives low-support rows independent of PR #59's hook and
@@ -21,7 +21,8 @@ In particular, the all-ones label slice has exactly
 constructions in opposite label orders supply two independent
 one-sided low-support spaces, also independent of the symmetric space.
 Four exact moments characterize their antisymmetric projection for even h;
-for odd h a fifth moment is given by an explicit rational recurrence.
+for odd h a fifth moment is given by an explicit rational recurrence. An
+additional odd-grade row breaks that fifth moment.
 
 The added input state `(h)` may be omitted by the original binary codebook.
 The previous encoded-codebook bound is unchanged. A rank obstruction for
