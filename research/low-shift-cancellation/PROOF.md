@@ -17,9 +17,13 @@ has rank at least
 
 For even h>=10 this is 4h-4, and for odd h>=9 it is 4h-5. This
 strengthens PR #59's lower bound of roughly 7h/3.
-Both remain below its 4h upper bound. The new witnesses use y=(h), which
-can be absent from the source's lexicographic binary codebook; no stronger
-binary-codebook bound, SAT algorithm, or time improvement is asserted.
+Both remain below its 4h upper bound. Moreover, for h>=9 the fixed
+all-ones label slice has shift-span rank exactly 2h: the symmetric
+low-support witnesses below have dimension h, the predecessor's h
+high-support F_l rows are independent of them, and PR #59 gives the
+matching upper bound. The new witnesses use y=(h), which can be absent
+from the source's lexicographic binary codebook; no stronger binary-codebook
+bound, SAT algorithm, or time improvement is asserted.
 
 ## The three-partition formula
 

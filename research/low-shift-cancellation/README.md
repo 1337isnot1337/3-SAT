@@ -15,7 +15,8 @@ vectors. Their span has dimension h-3; its h-4-dimensional kernel at the
 one-part coordinate gives low-support rows independent of PR #59's hook and
 moment witnesses. A diagonal low-support row adds one further symmetric
 direction, another two-part input adds two for h>=6, and a further input
-adds one for h>=9. Two-part
+adds one for h>=9. In particular, the all-ones label slice has exactly
+2h shift directions for h>=9, matching PR #59's upper bound. Two-part
 constructions in opposite label orders supply two independent
 one-sided low-support spaces, also independent of the symmetric space.
 
