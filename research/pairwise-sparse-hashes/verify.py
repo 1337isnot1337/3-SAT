@@ -19,6 +19,47 @@ def parity(x):
     return x.bit_count() & 1
 
 
+def trace(value, q, modulus):
+    acc = 0
+    term = value
+    for _ in range(q.bit_length() - 1):
+        acc ^= term
+        term = mul(term, term, modulus, q)
+    assert acc in (0, 1)
+    return acc
+
+
+def check_trace_coefficients():
+    total = 0
+    for length, q, modulus in [(1, 16, 0b10011), (2, 32, 0b100101),
+                                (3, 64, 0b1000011), (4, 64, 0b1000011),
+                                (5, 128, 0b10000011), (6, 128, 0b10000011),
+                                (7, 128, 0b10000011), (8, 128, 0b10000011)]:
+        assert q >= 16 * length
+        # For each nonzero field multiplier, check that the trace functional
+        # takes each bit value exactly q/2 times over all seeds a.
+        for value in range(1, q):
+            assert sum(trace(mul(a, value, modulus, q), q, modulus)
+                       for a in range(q)) == q // 2
+        powers = []
+        for x in range(q):
+            row = [1]
+            for _ in range(1, length):
+                row.append(mul(row[-1], x, modulus, q))
+            powers.append(row)
+        for hit in range(1, 1 << length):
+            nonzero = 0
+            for row in powers:
+                value = 0
+                for i in range(length):
+                    if hit >> i & 1:
+                        value ^= row[i]
+                nonzero += value != 0
+            assert 16 * nonzero >= 15 * q, (length, hit, nonzero)
+            total += 1
+    return total
+
+
 def main():
     # A hit pattern describes the positions, including repeated indices, whose
     # violation bits are one. Exhaust all coefficient strings independently.
@@ -60,7 +101,9 @@ def main():
     print(json.dumps({"parameter_cases": cases, "qualifying_supports": supports,
                       "seed_support_pairs": seed_supports,
                       "coefficient_hit_patterns": coefficient_patterns,
-                      "fields": [2, 4, 8], "result": "pass"}, indent=2, sort_keys=True))
+                      "fields": [2, 4, 8],
+                      "trace_hit_patterns": check_trace_coefficients(),
+                      "result": "pass"}, indent=2, sort_keys=True))
 
 
 if __name__ == "__main__":

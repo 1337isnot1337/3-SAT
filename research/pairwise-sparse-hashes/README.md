@@ -8,15 +8,15 @@ alpha is claimed.
 
 The predecessor randomized decision wrapper uses `2P` independently sampled
 indices and `2P` independent coefficient bits for each extra sparse check.
-This package generates the indices as `A*a_i+B` over the padded index field,
-using two independent field elements, while retaining independent coefficient
-bits. A second-moment argument preserves at least `1/4` rejection probability
-for every violation vector satisfying the predecessor's support promise.
-An explicit whole-universe fallback handles `2P` larger than the padded
-universe. The row still has at most `2P` nonzero coordinates and the same
-number of rows and tensor work are charged. Random bits per row fall from
-`2P(log2 q+1)` to at most `2 log2 q+2P` for padded size q, with a smaller
-fallback budget. [PROOF.md](PROOF.md) gives the conditions, complete wrapper
+Generate indices as `A*a_i+B` over the padded index field, using two uniform
+field elements. Generate coefficients with a separate logarithmic-size seed
+using traces of powers over an auxiliary field. A second-moment bound and a
+polynomial-root bound give at least `15/64` rejection probability for every
+violation vector satisfying the predecessor's support promise. An explicit
+whole-universe fallback handles `2P` larger than the padded universe. The
+original row count, width and tensor work still suffice. Random bits per row
+fall from `2P(log2 q+1)` to `O(log(q+1)+log(P+1))`, where q is the padded
+universe size. [PROOF.md](PROOF.md) gives exact constants, complete wrapper
 cost, and limitations.
 
 Reproduce using Python 3.11+ and the standard library:
@@ -27,7 +27,7 @@ make verify
 ```
 
 The [saved finite output](verification.json) checks all qualifying small
-supports, affine index seeds and coefficient patterns in the stated range.
+supports, affine index seeds and trace-coefficient patterns in the stated range.
 It does not implement the accepted contraction or verify the all-size proof.
 The immediate predecessor is
 [characteristic-two decision](../characteristic-two-decision/README.md),

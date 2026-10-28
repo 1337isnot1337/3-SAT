@@ -48,6 +48,43 @@ construction uses 2P(log2 q+1) bits for each row. The new bound is
 O(P+log m) instead of O(P log(m+1)) per row; when a parameter is bounded there
 need not be an asymptotic reduction. This is not a reduction in row width.
 
+## Compress the coefficient bits as well
+
+The preceding independent-coefficient construction gives rejection at least
+1/4. We can instead use logarithmically many coefficient seed bits while
+retaining the predecessor's row count and error target. Let l be the actual
+number of sampled occurrences: l=L in the affine case and l=q in the fallback.
+Choose an auxiliary field K of size Q, a power of two with 16L<=Q<32L, and
+independent uniform X,Y in K. For positions i=0,...,l-1 set
+
+    c_i = Tr_{K/F2}(Y X^i),
+
+where X^0=1 even at X=0. The coefficient seed uses exactly 2 log2 Q bits.
+The auxiliary field is independent of the index field and of its seed.
+
+For any fixed nonempty set H of hitting occurrences, define the nonzero
+polynomial f_H(X)=sum_{i in H} X^i over K. Its degree is at most l-1<L,
+so it vanishes at fewer than L of the Q possible X values. For f_H(X)!=0,
+Y*f_H(X) is uniform in K and its field trace is a uniform bit. To see the
+trace is nonzero, its polynomial z+z^2+...+z^(Q/2) has degree Q/2<Q and
+nonzero linear coefficient; hence it cannot vanish at all Q field elements.
+Its square equals itself because z^Q=z, so its values lie in F2. It is
+F2-linear and nonzero, so its fibers have equal size. Consequently
+
+    Pr_c[ XOR_{i in H} c_i = 1 ] >= (1-(L-1)/Q)/2 >= 15/32.
+
+This estimate holds for every fixed nonempty H, including the case of repeated
+indices. In the affine index case, combining it with the independent
+index-seed hit probability >=1/2 yields rejection at least 15/64. In the
+whole-universe fallback the hit probability is one, so the same lower bound
+holds. The output row is still assembled by XORing the occurrence bits at
+identical indices. Coefficients need not be mutually independent.
+
+Each affine row now uses exactly `2 log2 q + 2 log2 Q` random bits, with
+`Q<32L=64P`, and a fallback row uses only `2 log2 Q` bits. Thus the budget
+is O(log(m+1)+log(P+1)) per row, as opposed to the predecessor's
+`2P(log2 q+1)`. For bounded P this may be only a constant-factor difference.
+
 ## Uniform construction and all other costs
 
 For q>=2 construct an irreducible polynomial of degree log2 q over F2
@@ -58,8 +95,10 @@ divisors, so the deterministic bit work is polynomial in q<=2m. Represent
 field elements by their log2 q coefficient bits, and sample A,B directly;
 no rejection sampling is required. Generating all L indices and combining
 repetitions costs polynomial time and space. The explicit field construction
-is performed once per leaf (or reused for equal q) and its polynomial cost is
-charged; it does not depend on the fingerprint field.
+is performed once per leaf (or reused for equal q). Construct the auxiliary
+field by the same deterministic search; Q<64P. All field setups, traces, row
+expansion, and seed generation cost polynomial time and space and are charged.
+Neither hash field needs to equal the fingerprint field.
 
 Use independently seeded rows and the predecessor's unchanged count
 
@@ -67,8 +106,8 @@ Use independently seeded rows and the predecessor's unchanged count
 
 for leaf j. For each false assignment that survives the initial checks, its
 violation vector meets the support promise; the chance it survives all rows
-is at most (3/4)^t_j. The same union bound over at most 2^n assignments and
-all sparsification leaves gives the predecessor's false-positive error below
+is at most (49/64)^t_j. Since (49/64)^8<1/8, the same union bound over at
+most 2^n assignments and all sparsification leaves gives the predecessor's false-positive error below
 1/32. True assignments always survive. The separate weighted-fingerprint
 false-negative probability is at most 1/6, conditional on the hashes, with its
 own independent field weights. Replacing the extra rows therefore preserves the
@@ -91,8 +130,10 @@ the time exponent, alpha, or the selected bound.
 The bounded verifier exhausts every support meeting the promised threshold
 for padded universes of sizes 2, 4, and 8, including affine and whole-universe
 fallback cases. It checks pairwise uniformity and the hit bound for each
-support and seed, and separately exhausts coefficient hit patterns up to
-length 8. These checks do not establish the all-size proof or implement the
-accepted tensor contraction. The all-size argument and inherited wrapper need
-independent review. A smaller seed, fewer coefficient bits, or fewer hash
-rows would require a separately proved guarantee for every permitted support.
+support and seed, and exhausts trace-coefficient hit patterns up to length 8
+with auxiliary fields of sizes 16 through 128. It separately checks the earlier
+independent-coefficient construction. These checks do not establish the
+all-size proof or implement the accepted tensor contraction. The all-size
+argument and inherited wrapper need independent review. A smaller seed or
+fewer hash rows would require a separately proved guarantee for every permitted
+support.
