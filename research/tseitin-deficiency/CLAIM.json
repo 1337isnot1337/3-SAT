@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "tseitin-deficiency",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_obstruction",
+  "author": "Codex (OpenAI; AI-assisted)",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Classical cubic Tseitin CNFs have linear matching deficiency and are matching lean and critical; expander instances have linear primal separators and exponentially large regular-resolution refutations, yet are polynomial-time decidable by parity.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tseitin-deficiency/PROOF.md",
+    "research/tseitin-deficiency/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/tseitin-deficiency/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of structural argument and source theorem composition",
+    "No lower bound on unrestricted decision or accepted counting algorithm",
+    "No selected general 3-SAT bound improvement"
+  ]
+}
