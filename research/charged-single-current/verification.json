@@ -1,0 +1,163 @@
+{
+  "binomial_contraction_checks": 210,
+  "results": [
+    {
+      "grade": 1,
+      "energies": [
+        0,
+        1,
+        2
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 16,
+      "piece_calls": 88,
+      "next_moment_witness": [
+        [
+          [
+            1
+          ],
+          6
+        ]
+      ],
+      "sharpness_formula_value": 6
+    },
+    {
+      "grade": 2,
+      "energies": [
+        0,
+        1,
+        2
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 64,
+      "piece_calls": 240,
+      "next_moment_witness": [
+        [
+          [
+            2
+          ],
+          60
+        ]
+      ],
+      "sharpness_formula_value": 60
+    },
+    {
+      "grade": 3,
+      "energies": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 252,
+      "piece_calls": 924,
+      "next_moment_witness": [
+        [
+          [
+            3
+          ],
+          4896
+        ]
+      ],
+      "sharpness_formula_value": 4896
+    },
+    {
+      "grade": 4,
+      "energies": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 720,
+      "piece_calls": 2620,
+      "next_moment_witness": [
+        [
+          [
+            4
+          ],
+          394560
+        ]
+      ],
+      "sharpness_formula_value": 394560
+    },
+    {
+      "grade": 5,
+      "energies": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_identities": 770,
+      "piece_calls": 2814,
+      "next_moment_witness": [
+        [
+          [
+            5
+          ],
+          54950400
+        ]
+      ],
+      "sharpness_formula_value": 54950400
+    },
+    {
+      "grade": 6,
+      "energies": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_identities": 1980,
+      "piece_calls": 7414,
+      "next_moment_witness": [
+        [
+          [
+            6
+          ],
+          10040889600
+        ]
+      ],
+      "sharpness_formula_value": 10040889600
+    }
+  ],
+  "sha256": {
+    "research/charged-single-current/verify.py": "32d00c9593ece602cbd216fb91eda7bfc4d6a6ce3056b7f6686c671b37e7cfce",
+    "research/charged-single-current/PROOF.md": "61e6f7e65ce0a4c02e6da92709b572913f3f7be50dbbf00b0b080ab89c6e5cba",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
