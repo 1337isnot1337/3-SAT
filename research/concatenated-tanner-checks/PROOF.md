@@ -129,6 +129,21 @@ edge coordinates preserves this. At q>1, d=D>=8B and c<=d/(4B), giving
 local checks, shifts, shortening and output all have polynomial time and
 space in n,m and numeric B.
 
+## Cayley graph degree obstruction
+
+Within the source's XOR-Cayley graph mechanism, logarithmic port degree is
+necessary whenever the nontrivial Walsh eigenvalues are required to be at
+most epsilon d with epsilon<1. Indeed, the d shifts must span F2^log2(q):
+otherwise a nonzero binary character annihilates every shift and has
+Walsh eigenvalue d. Hence d>=log2 q. As qd>=m,
+
+    log2 m <= log2 q + log2 d <= d + log2 d <= 2d.
+
+Thus d>=log2(m)/2. This matches the new O(log m) port-degree order for fixed
+B. It is a lower bound for this Cayley mixing mechanism, not for the row
+weight of an arbitrary check matrix: local rows may touch fewer than d ports,
+and other graph constructions or non-Tanner methods are not covered.
+
 ## Composition and limits
 
 For fixed B, the accepted sparse-code isolation construction in
@@ -151,7 +166,7 @@ iterated logarithm or increase alpha.
 
 The verifier checks 20,000 seeded integer schedules, directly exercises a
 positive-h parameter branch using a 65,537-bit integer, checks 2,000 exact
-inner-code entropy cases, checks two scaled
+inner-code entropy cases, exhausts small Walsh shift lists, checks two scaled
 conditional-expectation constructions, and enumerates all 32,767 nonzero
 words in a small GF(8)-outer concatenated code whose binary inner encoder is
 selected from the checked conditional-expectation matrix. The finite

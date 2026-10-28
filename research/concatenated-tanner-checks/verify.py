@@ -123,6 +123,19 @@ def toy_concatenation(inner_rows):
     return count, minimum
 
 
+def check_shift_span():
+    cases = 0
+    for q in (2, 4, 8):
+        for degree in (1, 2, 3):
+            for shifts in itertools.product(range(q), repeat=degree):
+                signs = [abs(sum(1 if (v & b).bit_count() % 2 == 0 else -1
+                                 for v in shifts)) for b in range(1, q)]
+                if max(signs) < degree:
+                    assert degree >= q.bit_length()-1
+                cases += 1
+    return cases
+
+
 def main():
     rng = random.Random(834211)
     regimes = {'q1': 0, 'q_gt_1': 0, 'local_fallback': 0, 'local_construct': 0,
@@ -181,6 +194,7 @@ def main():
     print(json.dumps({'seed': 834211, 'parameter_cases': 20000, 'regimes': regimes,
                       'direct_positive_h': h, 'entropy_checks': entropy_checks,
                       'positive_entropy_cases': positive_entropy,
+                      'shift_list_cases': check_shift_span(),
                       'toy_low_weight_words': bad_words, 'toy_codewords': codewords,
                       'toy_min_distance': minimum, 'result': 'pass'}, indent=2, sort_keys=True))
 

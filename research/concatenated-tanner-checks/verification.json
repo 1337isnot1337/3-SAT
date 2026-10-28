@@ -12,6 +12,7 @@
   },
   "result": "pass",
   "seed": 834211,
+  "shift_list_cases": 682,
   "toy_codewords": 32767,
   "toy_low_weight_words": 44,
   "toy_min_distance": 6
