@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "charged-grade9-parity",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "finite_grade9_parity_crossing",
+  "author": "Cinna Davis (with OpenAI Codex)",
+  "base_commit": "298c6603b07503fd8ccef68b39405de3e36b79a6",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "At grade h=9 with the existing eight asymmetric input labels, replacing the output codebook by eight even-length partitions yields an invertible cubic-weighted scalar pairing and an exact eight-label crossing with shifts -1,0,1 omitted. This is a finite changed-codebook result and does not improve the SAT bound. The complete crossing identity depends on the predecessor parity and affine-energy proof; one output vector is checked directly.",
+  "improves_bound": false,
+  "evidence": [
+    "research/charged-grade9-parity/README.md",
+    "research/charged-grade9-parity/fast.py",
+    "research/charged-grade9-parity/fast-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/charged-grade9-parity/fast.py"
+  ],
+  "remaining_obligations": [
+    "Uniform high-rank input pairings and codebook selection for all grades",
+    "Independent review of shared operator construction and parity proof",
+    "An asymptotic directional-rank gain and complete SAT cost accounting"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}
