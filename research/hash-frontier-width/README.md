@@ -9,7 +9,7 @@ substantial OpenAI Codex assistance. Apache-2.0.
 [PROOF.md](PROOF.md) shows that an m-column binary matrix with kernel dimension
 k and minimum nonzero kernel weight at least D>=2 has maximum ordered
 prefix/suffix frontier width at least `k/ceil(m/(D-1))`, for **every** ordering.
-The stronger sum over regularly spaced cuts is proved as well. The reasoning
+Stronger bounds control both regularly spaced cuts and the sum of widths over all cuts: `sum_i b_i >= k(D-1)`. The reasoning
 partitions columns into independent short blocks and bounds nullity gained in
 each block by its preceding frontier width.
 
@@ -21,7 +21,7 @@ positive. In a conditional linear-nullity regime it prevents the proposed
 frontier method of PR #37 from obtaining uniformly small width by reordering.
 It does not establish that this regime occurs for every leaf, that the full
 state upper bound is attained, or that arbitrary SAT algorithms are slow.
-A direct sum of long independent circuits has large distance but width one,
+The all-cut sum also makes the explicit squared-width state encoding costly in the same conditional regime; it is not a lower bound on arbitrary state representations. A direct sum of long independent circuits attains the all-cut bound and has large distance but width one,
 showing why nullity is needed.
 
 ## Reproduction and evidence
@@ -33,7 +33,7 @@ make verify
 
 The checker exhausts 4,096 binary 3-by-4 matrices, checking all 24 column
 permutations whenever the minimum kernel weight is at least two, including
-the stronger block-sum inequality. It also tests direct sums of circuits in
+the stronger block-sum and all-cut inequalities. It also tests direct sums of circuits in
 20 parameter cases, with brute-force distance checks when the total length
 is at most 18. The [hash-bound output](verification.json) records exact
 counts. The finite controls do not independently review the proof.

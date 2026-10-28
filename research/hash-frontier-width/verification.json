@@ -1,6 +1,6 @@
 {
   "block_sum_checks": 57624,
-  "checker_sha256": "0dfe24eece161de5279ad103bf7b92681ab3561d3ed149c89394449845a76efd",
+  "checker_sha256": "63cc4b0fef745082ceea1b78aafe3ee9cd1bb9db70cb3c4942371ee4737b23ed",
   "direct_sum_circuit_controls": [
     {
       "block_length": 2,
@@ -125,5 +125,6 @@
   ],
   "matrices": 4096,
   "matrices_with_distance_at_least_2": 2401,
-  "permutation_checks": 57624
+  "permutation_checks": 57624,
+  "width_area_checks": 57624
 }

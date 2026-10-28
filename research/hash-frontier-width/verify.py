@@ -39,7 +39,7 @@ def widths(columns):
 
 
 def run():
-    cases = orderings = useful = width_sum_checks = 0
+    cases = orderings = useful = width_sum_checks = area_checks = 0
     for packed in range(8**4):
         cols = tuple((packed >> (3*j)) & 7 for j in range(4))
         k = 4-rank(cols)
@@ -52,6 +52,8 @@ def run():
         for ordered in itertools.permutations(cols):
             ws = widths(ordered)
             assert k <= q * max(ws)
+            assert sum(ws) >= k * (d-1)
+            area_checks += 1
             # Sharper bound: nullity gained in each short block is at most
             # the width immediately before that block.
             start = 0
@@ -73,6 +75,7 @@ def run():
             assert 0 not in cols
             ws = widths(cols)
             assert max(ws) == 1
+            assert sum(ws) == blocks * (block_length-1)
             assert len(cols)-rank(cols) == blocks
             # Each block is one circuit, and supports are disjoint, so the
             # all-size distance equals block_length; tiny cases also brute force.
@@ -82,6 +85,7 @@ def run():
                                 'max_width': max(ws), 'kernel_dimension': blocks})
     return {'matrices': cases, 'matrices_with_distance_at_least_2': useful,
             'permutation_checks': orderings, 'block_sum_checks': width_sum_checks,
+            'width_area_checks': area_checks,
             'direct_sum_circuit_controls': repetitions,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 
