@@ -1,0 +1,26 @@
+{
+  "cases": [
+    {
+      "L": 8,
+      "all_nontrivial_moments_zero_mod_16": true,
+      "arbitrary_pin_gate_patterns": 64,
+      "b": 3,
+      "gate_matrix_is_8_identity_mod_16": true,
+      "mixed_removed_pin_moments": 26
+    },
+    {
+      "L": 16,
+      "all_nontrivial_moments_zero_mod_16": true,
+      "arbitrary_pin_gate_patterns": 64,
+      "b": 3,
+      "gate_matrix_is_8_identity_mod_16": true,
+      "mixed_removed_pin_moments": 26
+    }
+  ],
+  "scope": "finite direct Boolean sums, not an independent proof",
+  "sha256": {
+    "research/odd-node-mode-support/PROOF.md": "6c625599e346fb26ea59ae83cbe4bba9ebc9617cb29c170a48e87a5242c4674c",
+    "research/odd-node-mode-support/mixed-pin-screen.py": "a052d0803026f8b1c29c45f3947e2681e09ad2e78585d3ebc11645b97523dcfa",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  }
+}

@@ -30,7 +30,7 @@ def v2_int(n):
     return (n & -n).bit_length()-1
 
 
-def gadget(L, b):
+def gadget(L, b, contradictory=False):
     assert b <= L//4 and b & (b-1) == 0
     T, a, K = 2*L+1, L.bit_length()-1, L//2
     common = F(prod(T-j for j in range(-L, L)),
@@ -55,7 +55,7 @@ def gadget(L, b):
     variable_count = 0
     for x in range(L):
         if x in selected:
-            clauses.extend(((variable_count, 0), (variable_count, 0)))
+            clauses.extend(((variable_count, 0), (variable_count, int(contradictory))))
             variable_count += 1
         else:
             clauses.append((variable_count, int(x == pinrow)))
@@ -68,7 +68,7 @@ def gadget(L, b):
         by_variable.setdefault(var, []).append(value)
     assert len(by_variable) == variable_count
     assert sum(len(v) == 2 for v in by_variable.values()) == b
-    assert all(len(set(v)) == 1 for v in by_variable.values())
+    assert sum(len(set(v)) == 2 for v in by_variable.values()) == (b if contradictory else 0)
 
     # The selected variable has its two row ports in T' and H at the same
     # slot and hence the same label for any shared packet type/orientation.
@@ -99,12 +99,15 @@ def gadget(L, b):
     helper_totals = [0]*(1<<b)
     for bits in range(1<<L):
         z = [sum(W[x][y] for y in range(L) if bits >> y & 1) % 16 for x in range(L)]
-        pins = prod(1-v for v in z) % 16
+        pins = prod((z[x] if contradictory and x in selected else 1-z[x])
+                    for x in range(L)) % 16
         for t in range(1<<b):
             gates = prod((1-((t>>j)&1)-z[x]+2*((t>>j)&1)*z[x]
                           for j, x in enumerate(selected)))
             helper_totals[t] = (helper_totals[t]+pins*gates) % 16
-    assert helper_totals == [8]+[0]*((1<<b)-1)
+    expected_helper = [0]*(1<<b)
+    expected_helper[(1<<b)-1 if contradictory else 0] = 8
+    assert helper_totals == expected_helper
 
     weights = [a+1+2*k+2*v2_int(factorial(k)) for k in range(b)]
     matrix = []
@@ -118,7 +121,7 @@ def gadget(L, b):
         matrix.append(vals)
     poly = {(0,)*b: 1}
     for vals in matrix:
-        nxt = poly.copy()
+        nxt = {} if contradictory else poly.copy()
         for e in poly:
             for k, val in enumerate(vals):
                 if val:
@@ -140,7 +143,8 @@ def gadget(L, b):
     accepted = 0
     for X in range(1<<L):
         z = [sum(W[x][y] for y in range(L) if X>>y&1) % 2 for x in range(L)]
-        if any(z[x] != int(x == pinrow) for x in range(L-1)):
+        if any(z[x] != int(x == pinrow or (contradictory and x in selected))
+               for x in range(L-1)):
             continue
         accepted += 1
         modes = [sum(sigma[k][j]*((X>>(2*j))&1) for j in range(K)) % 2
@@ -150,7 +154,7 @@ def gadget(L, b):
     assert accepted == 2 and all(v == 1 for v in parity.values())
     return {'L': L, 'b': b, 'physical_slot_pairs': 2*L,
             'selected_degree_two_variables': b, 'formula_variables': variable_count,
-            'formula_clauses': len(clauses), 'all_unit_constraints_consistent': True,
+            'formula_clauses': len(clauses), 'contradictory_units': contradictory,
             'row_label_checks': label_checks,
             'helper_totals_mod_16': helper_totals,
             'mode_support_witnesses_containing_zero': len(witness),
@@ -162,7 +166,8 @@ def main():
     paths = [HERE/'reduction-gadget.py', HERE/'PROOF.md',
              ROOT/'upstream/openai-eth-2026/build/quantitative-contraction.tex',
              ROOT/'upstream/openai-eth-2026/build/quantitative-reduction.tex']
-    return {'cases': [gadget(8, 2), gadget(16, 4)],
+    return {'cases': [gadget(8, 2), gadget(16, 4),
+                      gadget(8, 2, True), gadget(16, 4, True)],
             'scope': 'bounded gadget checks; all-size proof remains author-checked',
             'sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in paths}}

@@ -16,12 +16,11 @@ are inside the source's weighted budget and nonzero modulo its prescribed
 precision. This matches the order of the formal enumeration envelope for
 this specific representation and call.
 
-The proof gives three constructions. The strongest starts with fixed-density
-CNF containing only unit clauses, including repeated identical clauses, and
-uses the source's literal per-edge subdivision. Four packets per gadget,
-together with an even-row pinning lemma, preserve the support scale. The
-formula is disconnected and easily simplified; removing duplicate clauses
-changes this particular input network. The source's
+The proof gives fixed-density unit-CNF constructions using the source's
+literal per-edge subdivision. One has repeated identical clauses; a second
+has no duplicates but contains opposing unit clauses and is immediately
+unsatisfiable. Four packets per gadget and an even-row pinning lemma preserve
+the support scale. Both inputs are easily simplified. The source's
 default labeling need not select this packing, and nonzero summands can
 cancel or be aggregated. The result does not establish a SAT lower bound,
 an algorithmic time lower bound, or a speedup.
@@ -44,6 +43,7 @@ Reproduce using Python 3.11+ and the standard library:
 python3 -I -B research/odd-node-mode-support/verify.py
 python3 -I -B research/odd-node-mode-support/filler-moments.py
 python3 -I -B research/odd-node-mode-support/reduction-gadget.py
+python3 -I -B research/odd-node-mode-support/mixed-pin-screen.py
 make verify
 ```
 
@@ -61,7 +61,8 @@ two; its modulo-16 expansion is checked through `L=64`. An all-size moment
 lemma then proves simultaneous pinning on even rows after removing that
 factor; a finite screen finds a last-row exception, and the broader
 nonboundary generalization remains unproved. The separate reduction-gadget
-checker verifies bounded four-packet instances and the boundary bit. These
+checker verifies both bounded four-packet variants and the boundary bit;
+the mixed-pin screen checks arbitrary pin/gate patterns for three rows. These
 finite checks do not review the all-size proof or implement the full recursion.
 
 Issue [#22](https://github.com/1337isnot1337/3-SAT/issues/22) coordinates

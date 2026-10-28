@@ -451,6 +451,59 @@ suggested by the screen, and the last-row exception remains real. It also
 does not supply the complete global arrangement of subdivision and pin
 packets.
 
+### Arbitrary even-row pin patterns
+
+The preceding argument extends to simultaneous **arbitrary** pin values.
+For disjoint sets `R,S` of even rows, with `R union S` nonempty, define
+
+```
+B_(R,S)=sum_X prod_{x notin R}(1-z_x) prod_{j in S} z_j.
+```
+
+Then `B_(R,S)=0 mod 16` for all powers of two `L>=8`. In particular `R`
+may remove pin factors while `S` inserts moments at different rows.
+
+The proof uses the same split by `X_0` as the even-row moment lemma. Put
+`d=|S|` and let `H` omit the pin rows in `R` while retaining the `d`
+factors `z_j(1-z_j)`. If `d>=1`, the first line of the split is divisible
+by `2^(d+3)` as before. If `d=0`, `R` is nonempty: modulo 16, the bracket
+in that line is a multiple of `8 X_(L/2)`. Every `j in R` is even, so its
+omitted row leaves the distinct odd-indexed bit `X_(j+1)` free; the other
+row factors modulo two do not depend on it. Summing that bit gives an
+additional factor two.
+
+For the difference `H(1)-H(0)`, even rows contribute no change modulo 16;
+the exceptional odd row `m=L/2-1` has column-zero valuation two and all
+other non-last rows have valuation at least three. With `d>=1`, changes
+outside `m` vanish pointwise, and the `m` term vanishes pointwise for
+`d>=2`. For `d=1`, the same free-bit pairing at `X_(m+1)` used above
+applies, since `m` is not in the even set `S`. With `d=0`, any valuation-
+three change has a free bit from `R`, while the valuation-two change at
+`m` leaves at least two free bits, one from `R` and `X_(m+1)`. Modulo four
+all non-last rows have only their shifted diagonal and the last-row factor
+is constant, so summing those two bits gives a factor four. Products of two
+column-zero changes are already divisible by 16. This proves the mixed
+moment assertion.
+
+Consequently, for a set `J` of even rows and any Boolean pattern `c` on `J`,
+let `p_0(z)=1-z`, `p_1(z)=z`. The helper with those unit-clause pins obeys
+
+```
+sum_X [prod_(j in J) p_cj(z_j)] [prod_(x notin J)(1-z_x)]
+      * prod_(j in J) E(t_j,z_j)
+ = 8 prod_(j in J) p_cj(t_j) mod 16.                    (7)
+```
+
+Here the integral external forms `t_j` are independent of the filler bits.
+For each row, `p_c(z) E(t,z)` equals `p_c(t) p_c(z)` plus a multiple of
+`z(1-z)`. Expanding every positive pin as `z=1-(1-z)` reduces each error
+to a mixed moment with nonempty `R union S`; it vanishes. The main pin
+scalar is congruent to `(-1)^|{j:c_j=1}| S_L=8 mod 16`, since every term
+with a removed pin vanishes. This proves (7). The direct
+[mixed-pin screen](mixed-pin-screen.py) checks every disjoint removed-pin/
+moment pattern and every pin/gate pattern for `L=8,16` with three selected
+even rows. Its hash-bound output is finite evidence, not independent review.
+
 ## 8. An explicit subdivided unit-clause family
 
 The even-row pinning lemma closes the subdivision step for a specified valid
@@ -575,6 +628,45 @@ conclusion concerns a specified valid packing and the specified odd-node
 expansion, not every packing, a lower bound against preprocessing or
 aggregation, or an improved SAT algorithm.
 
+## 9. A version without repeated clauses
+
+Equation (7) removes the repeated-clause requirement at the cost of making
+the already trivial input explicitly contradictory. Keep the four-packet
+construction of Section 8 but replace the `H'` unit clause at each selected
+even row by a **positive** unit clause. Its variable's other incident
+clause, in `T`, remains negative. Each selected degree-two variable therefore
+appears once positively and once negatively; every other variable appears in
+one unit clause. There are no duplicate clauses. The input is unsatisfiable
+by immediate unit propagation, and a solver can detect this before using the
+tensor contraction.
+
+The helper now pins each selected `T'` row form to one modulo two after
+removing its factor `2^3`. Since `W mod 2` is the shifted identity, the
+selected target rows have local value one. Their negative unit clauses
+therefore contribute the normalized homogeneous product
+
+```
+prod_r (sum_k V[r,k] Z_k)  mod 2.                        (8)
+```
+
+The invertible matrix `V` has first column all ones. On Boolean inputs,
+(8) is one exactly when `Vz` is the all-ones vector, whose unique solution
+is `z=e_0`. Its Boolean-quotient representative is
+`Z_0 prod_(k>=1)(1+Z_k)`. Thus every mode support containing 0 again has
+an odd original coefficient. The boundary source bit is handled exactly
+as in Section 8: mode 0 suppresses the `X_0=1` assignment. All selected
+tuples have degree at most `b`; in fact they are homogeneous of degree `b`.
+Equation (7), the filler factors, packing and precision estimates are
+unchanged. This gives the same scoped `exp(Omega(M/sqrt(u)))` conclusion
+for a no-duplicate, fixed-density unit-CNF family and its literal per-edge
+subdivision, still under the specified valid packing.
+
+The [four-packet checker](reduction-gadget.py) tests both the repeated-clause
+and contradictory no-duplicate variants at `(L,b)=(8,2),(16,4)`, including
+all helper pin patterns needed, original coefficient witnesses and the free
+boundary bit. The result is emphatically not a lower bound on SAT,
+preprocessing, the source's default labeling, or arbitrary aggregation.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact
@@ -588,7 +680,8 @@ implement the full recursion. The frozen source labels are
 `eq:tensor-recursion-identity`; root `SOURCES.json` supplies hashes and
 licenses.
 
-The unit-clause family gives a specified valid packing of the literal
-per-edge subdivision, provided the repeated input clauses are retained.
-The source default packing, preprocessing, and aggregation remain separate. An algorithmic lower bound would separately need to rule out
+Both unit-clause families give specified valid packings of the literal
+per-edge subdivision; one retains duplicate clauses and the other has
+opposing unit clauses. Default packing, preprocessing and aggregation
+remain separate. An algorithmic lower bound would separately need to rule out
 simplification, aggregation and alternate packing. No such claim is made.

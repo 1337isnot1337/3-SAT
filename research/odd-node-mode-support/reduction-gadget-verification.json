@@ -2,8 +2,8 @@
   "cases": [
     {
       "L": 8,
-      "all_unit_constraints_consistent": true,
       "b": 2,
+      "contradictory_units": false,
       "every_complete_normalized_witness_odd": true,
       "formula_clauses": 16,
       "formula_variables": 14,
@@ -21,8 +21,8 @@
     },
     {
       "L": 16,
-      "all_unit_constraints_consistent": true,
       "b": 4,
+      "contradictory_units": false,
       "every_complete_normalized_witness_odd": true,
       "formula_clauses": 32,
       "formula_variables": 28,
@@ -49,12 +49,62 @@
       "row_label_checks": 972,
       "selected_degree_two_variables": 4,
       "target_assignments_after_pins": 2
+    },
+    {
+      "L": 8,
+      "b": 2,
+      "contradictory_units": true,
+      "every_complete_normalized_witness_odd": true,
+      "formula_clauses": 16,
+      "formula_variables": 14,
+      "helper_totals_mod_16": [
+        0,
+        0,
+        0,
+        8
+      ],
+      "mode_support_witnesses_containing_zero": 2,
+      "physical_slot_pairs": 16,
+      "row_label_checks": 162,
+      "selected_degree_two_variables": 2,
+      "target_assignments_after_pins": 2
+    },
+    {
+      "L": 16,
+      "b": 4,
+      "contradictory_units": true,
+      "every_complete_normalized_witness_odd": true,
+      "formula_clauses": 32,
+      "formula_variables": 28,
+      "helper_totals_mod_16": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8
+      ],
+      "mode_support_witnesses_containing_zero": 8,
+      "physical_slot_pairs": 32,
+      "row_label_checks": 972,
+      "selected_degree_two_variables": 4,
+      "target_assignments_after_pins": 2
     }
   ],
   "scope": "bounded gadget checks; all-size proof remains author-checked",
   "sha256": {
-    "research/odd-node-mode-support/PROOF.md": "3df751c124e4ac96b927d9d4fc8db8c019e7b40546a6a351499c96ead7323329",
-    "research/odd-node-mode-support/reduction-gadget.py": "3c72610471210744293091648afce20a31052be5d24647dd955c9c52f16fd135",
+    "research/odd-node-mode-support/PROOF.md": "6c625599e346fb26ea59ae83cbe4bba9ebc9617cb29c170a48e87a5242c4674c",
+    "research/odd-node-mode-support/reduction-gadget.py": "ef888e4c0334592274d2bbe2579f2b8ff92772419a48d04190d1b17357ee5ee8",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
     "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
   }

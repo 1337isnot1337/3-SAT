@@ -42,7 +42,7 @@
   ],
   "sha256": {
     "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
-    "research/odd-node-mode-support/PROOF.md": "3df751c124e4ac96b927d9d4fc8db8c019e7b40546a6a351499c96ead7323329",
+    "research/odd-node-mode-support/PROOF.md": "6c625599e346fb26ea59ae83cbe4bba9ebc9617cb29c170a48e87a5242c4674c",
     "research/odd-node-mode-support/verify.py": "b0b89b7cacca2e12cd02aa184537074c00049f995d7bda5abdc97ef4c3e78701",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
   },
