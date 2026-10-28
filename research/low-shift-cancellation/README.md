@@ -7,11 +7,13 @@ task `contraction-schedule`; contributor Cinna Davis with substantial
 OpenAI Codex assistance.
 
 The [proof](PROOF.md) improves PR #59's uncharged **full partition-space**
-shift-rank lower bound to `2h+max(0,h-4)`. An explicit normal-order
+shift-rank lower bound to
+`2h+max(0,h-4)+max(0,floor(h/2)-2)`. An explicit normal-order
 formula identifies three-part output rows with their partition multiplicity
 vectors. Their span has dimension h-3; its h-4-dimensional kernel at the
 one-part coordinate gives low-support rows independent of PR #59's hook and
-moment witnesses.
+moment witnesses. A separate two-part construction supplies one-sided
+low-support rows that are independent of the symmetric space.
 
 The added input state `(h)` may be omitted by the original binary codebook.
 The previous encoded-codebook bound is unchanged. A rank obstruction for
@@ -26,9 +28,10 @@ make verify
 ```
 
 The checker compares the three-part normal-order formula with the original
-PR #10 recurrence for all three-part outputs at h=4,5,6. For h=4,...,40 it
-checks the formula against an independently enumerated normal-order sum
-and verifies the h-3 and h-4 multiplicity-vector ranks modulo a prime.
+PR #10 recurrence for all three- and two-part outputs at h=4,5,6. For
+h=4,...,40 it checks the three-part formula against an independently
+enumerated normal-order sum and verifies the h-3, h-4 and one-sided
+multiplicity-vector ranks modulo a prime.
 The saved [output](verification.json) can be compared byte-for-byte. The
 modular ranks are finite lower bounds; the upper bounds and all-size claim
 are the written argument, not an independent or formal verification.

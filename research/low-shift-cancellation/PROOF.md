@@ -12,10 +12,11 @@ For every h>=2, the shift span of the full uncharged crossing-piece family
 has rank at least
 
 ```
-2h + max(0,h-4).
+2h + max(0,h-4) + max(0,floor(h/2)-2).
 ```
 
-For h>=4 this is 3h-4, strengthening PR #59's lower bound of roughly 7h/3.
+For h>=4 this is `3h-4+max(0,floor(h/2)-2)`, strengthening PR #59's
+lower bound of roughly 7h/3.
 Both remain below its 4h upper bound. The new witnesses use y=(h), which
 can be absent from the source's lexicographic binary codebook; no stronger
 binary-codebook bound, SAT algorithm, or time improvement is asserted.
@@ -76,6 +77,60 @@ entries supported entirely in `[-h,h]`: m_1=0 cancels both endpoint
 coefficients. Multiplicity-vector embedding ensures no nonzero vector in
 this kernel maps to the zero Laurent polynomial.
 
+## A one-sided space from two-part outputs
+
+Set d=(2,1^(h-2)), with x=d, v=e and y=(h). For a two-part partition u,
+let `Z_u=product_j m_j(u)!` and let Q_u(z) be its shift polynomial. The
+normal-order expansion gives, for h>=4,
+
+```
+Q_u(z) = -h h!/Z_u * (z-1)^3 z^(-h-2) * [
+    (h+1)-(h-1)z
+    + sum_j m_j(u) z^(h+j) ((j+1)z-(j-1)) ].                 (2)
+```
+
+For completeness, here is the contraction count. With
+`a^d=-(t_2+2t_1)t_1^(h-2)` and `b^e=t_1^h`, reaching two output parts
+from t_h requires one annihilation and two creations, hence three fields
+remain uncontracted: one from a and two from b. Let
+`D=-binom(h,2)(h-2)!=-h!/2`. Using the source's contraction constants
+`Gamma_11=1` and `Gamma_21=-2`, the component where the t_2 field is
+contracted combines with the lower homogeneous component to give `2D`
+times `:J_1(z)J_1(1)^2:`. The component where t_2 remains uncontracted
+gives D times `(z-1):J_2(z)J_1(1)^2:`. The remaining factors are
+`(z-1)^3`. Between t_h and t^u, the two normal-ordered entries are
+
+```
+2h/Z_u [z^(-h-1) + sum_j m_j(u) z^(j-1)],
+2h/Z_u [-(h+1) z^(-h-2) + sum_j m_j(u)(j-1) z^(j-2)],
+```
+
+respectively. Substitution gives (2), including repeated parts.
+
+For each `2<=a<=floor(h/2)` let u_a=(h-a,a), and normalize
+`R_a=-Z_(u_a) Q_(u_a)/(h h!)`. Subtract R_2. Equation (2) cancels the
+common negative-power term and gives
+
+```
+R_a-R_2 = (z-1)^3 sum_j [m_j(u_a)-m_j(u_2)]
+          z^(j-2) ((j+1)z-(j-1)).                            (3)
+```
+
+Every j in (3) lies between 2 and h-2. Thus these polynomials have no
+negative shifts and no shifts greater than h. The multiplicity vectors
+of u_a are independent: each unordered pair `{a,h-a}` is disjoint from
+every other such pair, with a repeated middle part handled by its
+multiplicity. Their differences from u_2 are consequently independent.
+The polynomials `z^(j-2)((j+1)z-(j-1))` have distinct degrees and
+nonzero leading coefficients, so (3) maps those vectors injectively.
+There are `max(0,floor(h/2)-2)` independent differences.
+
+PR #59 proves that every x=d, v=e entry has zeroth and second moments
+zero, so L annihilates this one-sided space. It meets the previous
+symmetric low-support space only at zero: a polynomial both symmetric
+under z -> 1/z and supported on nonnegative shifts is constant, while
+(3) is divisible by `(z-1)^3` and therefore vanishes at z=1.
+
 ## Independence from the predecessor witnesses
 
 PR #59 constructs h symmetric rows F_l with nonzero endpoints at +/-(h+l),
@@ -89,9 +144,9 @@ In a relation between that space and the predecessor rows, L first forces
 the coefficient of H to zero. At shift +2h only F_h remains among the
 other rows, so its coefficient is zero; then shift -2h isolates G_(h-1).
 Proceeding downward through h+2 successively eliminates F_l and G_(l-1);
-shift h+1 finally eliminates F_1. The low-support space has no terms at
-those shifts, so it meets the predecessor span only at zero. Its h-4
-additional independent directions give rank at least 3h-4 for h>=4.
+shift h+1 finally eliminates F_1. Both low-support spaces have no terms at those shifts and meet each
+other only at zero, so their sum meets the predecessor span only at zero.
+Their dimensions give rank at least `3h-4+max(0,floor(h/2)-2)` for h>=4.
 For h=2,3 the predecessor's 2h bound applies. The previous PR's
 low-support witnesses are not counted again.
 

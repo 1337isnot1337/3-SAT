@@ -60,10 +60,42 @@ def closed_three(h, output):
     return {s: v for s, v in coefficients.items() if v}
 
 
+def closed_two(h, output):
+    counts = Counter(output)
+    denom = math.prod(math.factorial(n) for n in counts.values())
+    assert h*math.factorial(h) % denom == 0
+    factor = -h*math.factorial(h)//denom
+    terms = defaultdict(int)
+    terms[-h-2] += h+1
+    terms[-h-1] -= h-1
+    for part, count in counts.items():
+        terms[part-2] -= count*(part-1)
+        terms[part-1] += count*(part+1)
+    result = defaultdict(int)
+    for exponent, value in terms.items():
+        for j in range(4):
+            result[exponent+j] += factor*value*math.comb(3,j)*(-1)**(3-j)
+    return {s: v for s, v in result.items() if v}
+
+
+def one_sided(output, reference):
+    difference = Counter(output)
+    difference.subtract(reference)
+    result = defaultdict(int)
+    for part, count in difference.items():
+        for j in range(4):
+            value = count*math.comb(3,j)*(-1)**(3-j)
+            result[part-2+j] -= value*(part-1)
+            result[part-1+j] += value*(part+1)
+    return {s: v for s, v in result.items() if v}
+
+
 def run():
     prime = 1000003
     formula_cases = 0
     recurrence_rows = 0
+    two_part_cases = 0
+    two_part_recurrence_rows = 0
     for h in range(4, 41):
         rows = []
         one = (1,)*h
@@ -85,9 +117,33 @@ def run():
                      for value, base in zip(row, reference)] for row in rows]
         assert modular_rank(rows, prime) == h-3
         assert modular_rank(low_rows, prime) == h-4
+        reference = (h-2, 2)
+        if h <= 6:
+            d = (2,) + (1,)*(h-2)
+            output = (h-1, 1)
+            direct = {shift: dict(piece_vector(d, one, (h,), shift)).get(output, 0)
+                      for shift in range(-2*h, 2*h+1)}
+            assert {s: value for s, value in direct.items() if value} == closed_two(h, output)
+            two_part_recurrence_rows += 1
+        one_sided_rows = []
+        for a in range(2, h//2+1):
+            output = (h-a, a)
+            values = one_sided(output, reference)
+            assert all(0 <= shift <= h for shift in values)
+            one_sided_rows.append([values.get(j, 0) for j in range(h+1)])
+            if h <= 6:
+                d = (2,) + (1,)*(h-2)
+                direct = {shift: dict(piece_vector(d, one, (h,), shift)).get(output, 0)
+                          for shift in range(-2*h, 2*h+1)}
+                assert {s: value for s, value in direct.items() if value} == closed_two(h, output)
+                two_part_recurrence_rows += 1
+            two_part_cases += 1
+        assert modular_rank(one_sided_rows, prime) == max(0, h//2-2)
     print(json.dumps({'h_range': [4, 40], 'three_partition_formula_cases': formula_cases,
                       'complete_recurrence_row_comparisons': recurrence_rows,
-                      'multiplicity_and_kernel_rank_cases': 37, 'prime': prime}, indent=2))
+                      'multiplicity_and_kernel_rank_cases': 37,
+                      'one_sided_rank_cases': 37, 'two_part_cases': two_part_cases,
+                      'two_part_recurrence_rows': two_part_recurrence_rows, 'prime': prime}, indent=2))
 
 
 if __name__ == '__main__':

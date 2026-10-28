@@ -6,5 +6,8 @@
   "three_partition_formula_cases": 1840,
   "complete_recurrence_row_comparisons": 6,
   "multiplicity_and_kernel_rank_cases": 37,
+  "one_sided_rank_cases": 37,
+  "two_part_cases": 361,
+  "two_part_recurrence_rows": 7,
   "prime": 1000003
 }
