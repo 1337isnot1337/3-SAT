@@ -123,15 +123,23 @@ Conversely, if e=O(sqrt(h) log h), the lower side of (4), together with
 `C_h(e) >= exp(kappa sqrt(h)-O(log h))`. The cases e=0,1 have the same
 conclusion directly. Hence (8) is necessary and sufficient for retaining
 that capacity *in the unrestricted structural mask*. Sufficiency is not
-an actual charged-operator construction or scalar-output proof. No relation
-between e and the width of a central shift interval is asserted.
+an actual charged-operator construction or scalar-output proof. In
+particular, a family extracting degree d with polynomial weights of maximum
+degree b must have
+
+    b >= d - O(sqrt(h) log h)                                  (9)
+
+if it meets that label-capacity target. This also covers b>=d trivially;
+it does not imply that storing or evaluating the weights costs exponential
+time, since a high-degree polynomial can be sparse. No relation between e
+and the width of a central shift interval is asserted.
 
 ## Exact fixed-deficit structural rank
 
 Let e=2h-k, with k>=0 and h>=max(1,2k). Define P(j)=sum_(i=0)^j p(i)
 for j>=0 and P(-1)=0. Then the exact mask rank is
 
-    C_h(2h-k) = P(floor(k/2)) + P(floor((k-1)/2)).            (9)
+    C_h(2h-k) = P(floor(k/2)) + P(floor((k-1)/2)).            (10)
 
 Indeed, label a partition by its deficit i=h-length. A partition of h
 with deficit i corresponds, after removing one from each part, to a
@@ -140,10 +148,10 @@ exactly p(i) such labels. The support condition becomes i+j<=k;
 labels with deficit above k are isolated. Its threshold covers have sizes
 P(a)+P(k-a-1), for -1<=a<=k. The increments p(i) are nondecreasing,
 so moving a toward the middle cannot increase this sum. The minimum is
-therefore (9). For k=0,1,2,3,4 this gives ranks 1,2,3,4,6.
+therefore (10). For k=0,1,2,3,4 this gives ranks 1,2,3,4,6.
 This fixed-deficit formula establishes only structural-mask rank; the
 examples below realize k=0 and k=1, but no general attainment follows.
-The finite checker also verifies (9) for all covered grades through 35.
+The finite checker also verifies (10) for all covered grades through 35.
 
 ## Attaining the rank-one endpoint
 
@@ -151,7 +159,7 @@ For the unweighted raw piece Q_s at any h>=1, the coefficient of q^(2h)
 is zero except at row and column label `(1,1,...,1)`. At those labels it
 is the following scalar operator on every output energy space:
 
-    [q^(2h)] Q_s = (-1)^(h-s) binom(2h,h-s) Id,  |s|<=h,      (10)
+    [q^(2h)] Q_s = (-1)^(h-s) binom(2h,h-s) Id,  |s|<=h,      (11)
 
 and zero outside this shift range. To prove this, degree 2h forces both
 partitions to have h parts, hence all ones, and forces every current to use
@@ -176,7 +184,7 @@ For h>=2 use row and column labels `a=(1^h)` and `b=(2,1^(h-2))`.
 Extract q^(2h-1) from the individual raw piece Q_h. On every output grade,
 the resulting operator matrix in the order (a,b) is
 
-    [[0, -h(h-1)/2], [-1, 0]] tensor Id.                      (11)
+    [[0, -h(h-1)/2], [-1, 0]] tensor Id.                      (12)
 
 Its determinant is `-h(h-1)/2`, nonzero over the rationals, so the
 structural mask rank 2 for k=1 is attained with a scalar output. This
@@ -189,7 +197,7 @@ For each off-diagonal pair, attaining degree 2h-1 forces every current
 into its zero mode. At s=h that also forces the alternating index i=0.
 The column scale for b is h(h-1)/2 and its zero-mode coefficient is -1.
 For the b row, its dual factor `-y_2=-2t_1-t_2` contributes -2+1=-1
-on zero modes; its other factors contribute one. These give (11). The same
+on zero modes; its other factors contribute one. These give (12). The same
 mode argument works in either operator order and for every output grade.
 
 `near_endpoint.py` checks all four entries in both orders on output grades
@@ -204,7 +212,7 @@ the multiplicity of part i in an output partition of grade E. Direct
 normal ordering gives, on that output basis vector,
 
     [q^(2h-2)] Q_h(a,a)
-      = 2h(h-1) E + h^2 sum_(i=1)^E (-1)^i binom(2h,i) i m_i.  (12)
+      = 2h(h-1) E + h^2 sum_(i=1)^E (-1)^i binom(2h,i) i m_i.  (13)
 
 The first summand comes from two nonzero currents in either single factor
 at alternating index zero. Each ordered pair contributes the number
@@ -221,7 +229,7 @@ common factor h^3 the values are `-2h` and `(-1)^h binom(2h,h)`,
 which are unequal for all h>=2. In fact its spectrum is simple. Divide
 the nonconstant term by 2h^3 and write
 
-    S(mu)=sum_i (-1)^i binom(2h-1,i-1) m_i(mu).              (13)
+    S(mu)=sum_i (-1)^i binom(2h-1,i-1) m_i(mu).              (14)
 
 For distinct partitions mu,nu of h, let i be their largest differing part
 size. Cancel their common parts, including their common copies of i. One
@@ -236,7 +244,7 @@ difference S(mu)-S(nu) is therefore at most
 
 since `w_i=(2h-i+1)w_(i-1)/(i-1)`. The nonzero contribution from size i
 cannot be canceled. For i=1 there are no smaller parts. Hence all S(mu)
-are distinct, and (12) has one-dimensional eigenspaces over Q (or any
+are distinct, and (13) has one-dimensional eigenspaces over Q (or any
 characteristic-zero field). Every subspace on which this operator acts as
 a scalar has dimension at most one. This holds for any subspace, not only
 one spanned by output partitions, provided the operator acts on it as a
@@ -254,7 +262,7 @@ The simple-spectrum result is specific to the outer shift. At h=4 and
 s=3, the all-ones label pair has the following q^6 coefficient on a
 partition of output grade 4 with multiplicities m_1,...,m_4:
 
-    -768 + 16(1+29m_1-112m_2+210m_3-224m_4).                 (14)
+    -768 + 16(1+29m_1-112m_2+210m_3-224m_4).                 (15)
 
 To derive it, the zero-mode alternating index i=1 contributes
 `-binom(8,1)*2*4*3*4=-768` from two nonzero currents in either factor.
