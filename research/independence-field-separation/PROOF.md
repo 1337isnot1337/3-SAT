@@ -139,5 +139,8 @@ k=floor(b/2); as j moves away from k, floor(b^2/4)-j(b-j) is at least
 
 The displayed constant depends only on q. In particular, the binary
 odd-characteristic and rational rank is exactly 2^(floor(b^2/4)+O(1)),
-while its characteristic-two rank is exactly 2^b. This quantitative
-sharpening does not change the fixed-cut or no-SAT-lower-bound scope.
+while its characteristic-two rank is exactly 2^b. Writing the binary example's number of columns as m=2(2^b-1), its
+characteristic-two rank is exactly m/2+1, whereas its rational and odd-field
+rank is 2^((log_2(m/2+1))^2/4+O(1)). This compares the ranks for the same
+explicit table and same split. It does not change the fixed-cut or
+no-SAT-lower-bound scope.

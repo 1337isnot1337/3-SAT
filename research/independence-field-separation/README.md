@@ -9,7 +9,9 @@ Contributor: Cinna Davis, with substantial OpenAI Codex assistance. Apache-2.0.
 `F2^b` split one per side, the binary independence table has rank exactly
 `N_b`, the number of subspaces, over Q and every odd-characteristic field,
 but rank exactly `2^b` over characteristic two. Here
-`N_b=Theta(2^floor(b²/4))`. A general cut of intersection
+`N_b=Theta(2^floor(b²/4))`. On the same example with `m=2(2^b-1)`
+columns, the characteristic-two rank is `m/2+1` while the rational and odd
+field ranks are `2^((log2(m/2+1))²/4+O(1))`. A general cut of intersection
 dimension b has rank at most `N_b` over any field.
 
 More generally, for matrices represented over `F_q` with `q=p^r`, the full
