@@ -104,7 +104,7 @@ def periodic_witness(n, k):
 
 
 def main():
-    checks = {'all_local_polynomials': 0, 'random_systems': 0, 'cyclic_witnesses': 0, 'tree_orders': 0, 'periodic_witnesses': 0, 'coprime_formula': 0}
+    checks = {'all_local_polynomials': 0, 'random_systems': 0, 'cyclic_witnesses': 0, 'tree_orders': 0, 'periodic_witnesses': 0, 'coprime_formula': 0, 'private_edge_branches': 0}
     # Every Boolean polynomial on each length-at-most-three arc, including
     # constants and the zero polynomial. Cyclic arcs exercise the cut.
     for n in range(1, 6):
@@ -149,6 +149,24 @@ def main():
                                   for x in range(1 << n))
                     assert periodic == no_runs + (1 if (n.bit_length() - 1) % 2 == 0 else 0)
                     checks['coprime_formula'] += 1
+    # PR #44's quadratic private-edge family, with random fixed-bit branches.
+    # Unary equations preserve the original local presentation.
+    for n in range(5, 12):
+        length = n.bit_length() - 1
+        if 2 * length >= n:
+            continue
+        base = [(i, length + 1, tuple((i, (i + j) % n)
+                                      for j in range(1, length + 1)))
+                for i in range(n)]
+        for _ in range(30):
+            tests = list(base)
+            for v in range(n):
+                fix = rng.randrange(3)
+                if fix < 2:
+                    poly = ((v,), ()) if fix else ((v,),)
+                    tests.append((v, 1, poly))
+            assert transfer(n, length + 1, tests) == brute(n, tests)
+            checks['private_edge_branches'] += 1
     # All circular orderings of the seven-vertex binary tree: verify the
     # diameter-based minimum-span bound without assuming a good ordering.
     n, h = 7, 2

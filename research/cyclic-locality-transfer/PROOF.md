@@ -122,6 +122,31 @@ length `n`, because its preceding `k-1` bits determine each state uniquely.
 The computation includes the circular boundary and integer arithmetic; it is
 not merely a finite-state heuristic.
 
+## A second support witness and its fixed-bit branches
+
+PR #44 at `f1f9b094cc76c11532a854b4246f72ce5b859aed` studies the distinct
+quadratic private-edge family
+
+```
+Q_i = XOR_{j=1}^{t} x_i x_{i+j mod n},  t=floor(log_2 n),  2t<n.
+```
+
+Its original `i`-th equation has cyclic span `t+1`, so the transfer theorem
+counts all its solutions in `poly(n) 2^(2t)=n^O(1)` time and polynomial space.
+The same holds on any one prescribed branch fixing an arbitrary collection of
+variables to arbitrary bits: retain the original equations and add one unary
+equation for each fixed value. This counts the compatible full assignments,
+which are in bijection with assignments to the remaining variables. An
+invertible row-basis change leaves the solution set unchanged, so the original
+local presentation can still be used to count it. Counting exponentially
+many separate branches is not included in the per-branch polynomial bound.
+
+This does not challenge PR #44's stated coefficientwise support result, even
+on its all-zero branch: the local transfer is a different representation that
+aggregates assignments. It adds no general all-input guarantee. The quadratic
+witness and its row-basis and post-branch claims are credited to PR #44; this
+package does not independently validate those claims.
+
 ## Locality is not automatic
 
 For every `h >= 1` take the complete binary tree of height `h` with

@@ -4,6 +4,7 @@
     "coprime_formula": 9,
     "cyclic_witnesses": 15,
     "periodic_witnesses": 15,
+    "private_edge_branches": 210,
     "random_systems": 1200,
     "tree_orders": 5040
   },

@@ -16,6 +16,11 @@ a span-`k` transfer gives time `poly(n,k) 2^(g+2(k-1))` and space
 strings with no `k` consecutive ones, plus one exactly when `floor(log2 n)`
 is even. This is an additional special-family result, not a universal bound.
 
+The same local transfer applies to the separate quadratic private-edge
+witness of [PR #44](https://github.com/1337isnot1337/3-SAT/pull/44), including
+any one prescribed fixed-bit branch; its row-basis-resistant coefficient
+support obstruction remains intact.
+
 [PROOF.md](PROOF.md) proves an exact transfer interface for explicitly listed
 polynomial systems with a supplied cyclic order and span `L`: time
 `poly(n+B) 2^(2(L-1))` and space `poly(n+B) 2^(L-1)` bits. It also proves
@@ -33,7 +38,8 @@ make verify
 The exact checker compares the transfer implementation with independent
 brute-force enumeration for 3,356 local polynomials, 1,200 seeded systems,
 and 15 cyclic-witness instances; a second periodic-pattern algorithm is
-checked on those 15 instances and the coprime formula on nine. It checks all 5,040 circular orderings of
+checked on those 15 instances and the coprime formula on nine; 210 seeded
+fixed-bit private-edge branches are checked. It checks all 5,040 circular orderings of
 the seven-vertex tree. Saved output is [verification.json](verification.json).
 These finite tests do not establish the all-size proof. No native fast SAT
 solver, independent review, or formal verification is claimed.
