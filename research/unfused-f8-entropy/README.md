@@ -1,37 +1,40 @@
 # Unfused F8 macro-Walsh entropy barrier
 
-A frozen four-macro self-Fourier dual and an entropy version of the
-predecessor's tensorization lemma yield an all-size obstruction for the
-unfused ten-class F8 Pauli family, even when its macros are divided into
-any sublinear number of separately type-symmetric groups (and even up to
-`R/24000` such groups). Some same crossing piece
-must have both word supports at least `153664^floor(R/4)/(R+1)^10`; For one group its
-necessary piece-rate parameter is at least `log2(153664)/24`, about
-0.71789, exceeding the target `1/sqrt(2)`. See [PROOF.md](PROOF.md).
+Frozen four- and six-macro self-Fourier duals and an entropy version of
+the predecessor's tensorization lemma yield an all-size obstruction for
+the unfused ten-class F8 Pauli family, even when its macros are divided
+into separately type-symmetric groups. Some same crossing piece must have
+both word supports at least `196036848^floor(R/6)/(R+1)^10` for one group;
+its necessary piece-rate parameter is at least `log2(196036848)/36`, about
+0.76518, exceeding `1/sqrt(2)`. The asymptotic bound persists for any
+sublinear group count, and a strict obstruction also holds for up to
+`R/450` groups. See [PROOF.md](PROOF.md).
 
 This is a scoped representation obstruction, not a general SAT lower
 bound or a faster algorithm. The argument is author-checked with substantial
 OpenAI Codex assistance; it has not received independent or formal review.
 The selected result is unchanged.
 
-Reproduce with standard Python, offline, from the repository root:
+Reproduce offline from the repository root (the last research check also
+requires a C++17 compiler):
 
 ```sh
 python3 -I -B research/unfused-f8-entropy/verify.py
 python3 -I -B research/unfused-f8-entropy/five.py
+python3 -I -B research/unfused-f8-entropy/six.py
 make verify
 ```
 
-The checker rebuilds the local character table, expands the frozen 48-orbit
-seed, verifies all Fourier equations and target pairing, checks its entropy
-profiles, all 2,135 nonzero types in the two-seed product, and a normalization
-negative control; it also proves optimality of the minimum entropy floor
-within this four-macro seed method by a modular rank check. The five-macro
-comparison checks a frozen exact rational row relation, excluding a strictly
-stronger floor for that block size as well. The saved
-[verification](verification.json) and [five-block replay](five-verification.json)
-pin the scripts, seed, relation and predecessor scheme. The entropy tensorization proof is written in the proof, rather
-than being inferred from finite runs.
+The first checker rebuilds the local character table and verifies the
+48-orbit seed, target pairing, entropy profiles, 2,135 two-seed types,
+a normalization negative control and a 33-column modular rank check. The
+five-macro comparison checks a rational row relation excluding a strictly
+stronger floor for that block size. The six-macro replay checks the
+stronger seed, with 20 direct entry controls. The saved
+[four-block replay](verification.json), [five-block replay](five-verification.json),
+and [six-block replay](six-verification.json) pin the relevant scripts,
+seeds, relation and predecessor scheme. The all-size entropy tensorization
+argument is written in the proof, rather than inferred from finite runs.
 
 This changes the premise of [PR #47](https://github.com/1337isnot1337/3-SAT/pull/47),
 which studied finite-block minimum cardinalities: the present argument pays

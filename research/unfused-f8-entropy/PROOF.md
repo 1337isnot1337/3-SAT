@@ -18,18 +18,18 @@ the unnormalized symplectic transform on the `64^R` labels.
 For some same summand, both `|supp(f_i)|` and `|supp(hat f_i)|` are at least
 
 ```math
- \frac{153664^{\lfloor R/4\rfloor}}{(R+1)^{10}}.
+ \frac{196036848^{\lfloor R/6\rfloor}}{(R+1)^{10}}.
 ```
 
 Consequently its combined support-bit cost is at least
 
 ```math
- \tfrac R2\log_2(153664)-O(\log R).
+ \tfrac R3\log_2(196036848)-O(\log R).
 ```
 
 In the predecessor's convention `lambda=3R` and
 `c_row+c_col <= 4 rho lambda+O(log lambda)`, any such decomposition
-requires `rho >= log2(153664)/24 = 0.71789... > 1/sqrt(2)`. Thus this
+requires `rho >= log2(196036848)/36 = 0.76518... > 1/sqrt(2)`. Thus this
 family cannot improve the target crossing-piece rate. It remains possible
 that a less symmetric or non-Pauli construction succeeds; this is not a
 SAT lower bound or an improvement of the selected SAT algorithm.
@@ -134,8 +134,9 @@ For every seed type alpha, `p=alpha/4` has
 
 By concavity, and using `F>=0` for the remainder, every supporting global
 type has `R F(p_global) >= t log2(153664)`. With k=10, (1) gives the
-claimed lower bound on its size. Since H is constant on global types, if
-f has fewer supporting words it has zero pairing with H. The same holds
+four-macro lower bound `153664^t/(R+1)^10` on its size. Since H is
+constant on global types, if f has fewer supporting words it has zero
+pairing with H. The same holds
 if hat f has fewer, by self-adjointness of the Walsh transform and
 `hat H=8^R H`. Some summand must pair nontrivially with H, proving the
 simultaneous two-support bound for that same summand.
@@ -145,6 +146,38 @@ Finally, `153664 > 2^17` and `17^2>288` imply
 argument is stronger than simply multiplying the minimum finite-block
 type cardinality: the multinomial factor from global averaging is paid
 explicitly, with only a polynomial loss.
+
+## Stronger six-macro seed
+
+A second [frozen seed](six-seed.json) strengthens the same argument. It is
+an integer weighted type polynomial with 467 nonzero Frobenius/swap orbit
+coefficients. Its exact target pairing is `4,601,640,960`, and its Walsh
+eigenvalue is `8^6`. Every supporting type alpha satisfies
+
+```math
+ 2^{6 F(\alpha/6)} = 6^6 7^{6-\alpha_0} / \prod_i \alpha_i^{\alpha_i}
+ \ge 196036848.
+```
+
+The separate [six.py](six.py) replay constructs the 10-class character
+table from the underlying labels, enumerates all 5,005 types, and generates
+the integer self-Fourier constraints in 1,234 output orbits. The C++17
+builder checks character-table equivariance under the six-element group;
+its columns are orbit sums, so one representative per output orbit suffices.
+The replay checks every output-orbit equation and the target pairing in
+arbitrary-precision Python arithmetic, and compares 20 matrix entries with
+a separate target-pruned coefficient recurrence. The six-macro search was
+modular followed by an exact rational reconstruction; the certificate replay
+does not assume that search.
+
+The builder's intermediate coefficients fit signed 64 bits: every local
+row has absolute coefficient sum at most 64, so a six-fold polynomial
+coefficient is bounded by `64^6`, and an orbit sum by six times that plus
+`8^6`. The seed multiplication is done in Python integers. Substituting
+this seed into the same tensorization proof, with `R=6t+s`, gives the
+stronger bound in the statement. Strictness follows from
+`196036848 > 2^27` and `27^2>648`, so its logarithm exceeds `18 sqrt(2)`.
+No optimality of this six-macro floor is claimed.
 
 ## Extension to separate macro groups
 
@@ -158,33 +191,36 @@ at least the product of their respective group bounds. Therefore some
 same piece has both supports at least
 
 ```math
- B=\frac{153664^{\sum_j\lfloor R_j/4\rfloor}}
+ B=\frac{196036848^{\sum_j\lfloor R_j/6\rfloor}}
           {\prod_j(R_j+1)^{10}}.
 ```
 
 The argument again permits arbitrary real coefficients and any finite
-number of pieces. Since `sum floor(R_j/4) >= (R-3K)/4` and concavity of
-log gives `sum log2(R_j+1) <= K log2(1+R/K)`, the bit-cost lower bound
-is `R log2(153664)/2 - O(K + K log(1+R/K))`. In particular, for *any*
-sequence of partitions with `K=o(R)`, the error is `o(R)` and the same
-strict asymptotic obstruction holds. This covers fixed numbers of groups
-and sublinearly many groups, without requiring equal sizes. It also yields
-a concrete linear-group allowance: if `K <= R/24000`, then the bit-cost
-lower bound is at least `(17/2 - 327/24000)R`, which is strictly greater
-than `6 sqrt(2) R`. Indeed `2^17 < 153664 < 2^18`,
-`log2(24001)<15`, and `6 sqrt(2) < 4243/500 < 17/2-327/24000`.
-The function `K log(1+R/K)` is increasing in K, so the same estimate
-holds for every smaller K. These comparisons are exact: `4243^2 > 72*500^2`
-and `17/2-327/24000 = 203673/24000 > 203664/24000 = 4243/500`.
-This does not cover arbitrary functions with unrestricted linearly many
-independent groups.
+number of pieces. Put `L=log2(196036848)`. Since
+`sum floor(R_j/6) >= (R-5K)/6` and concavity of log gives
+`sum log2(R_j+1) <= K log2(1+R/K)`, the bit-cost lower bound is
+
+```math
+ (L/3)R - (5L/3)K - 20K log_2(1+R/K).
+```
+
+For any sequence of partitions with `K=o(R)`, its error term is `o(R)`
+and the asymptotic bound in the statement holds. It also yields a concrete
+linear-group allowance. If `K <= R/450`, then the bit cost is at least
+`(9-68/135)R`, strictly above `6 sqrt(2) R`. Indeed
+`2^27 < 196036848 < 2^28`, `log2(451)<9`, and
+`6 sqrt(2) < 4243/500 < 9-68/135`. The function
+`K log(1+R/K)` increases in K, so this also holds for every smaller K.
+The final comparisons are exact: `4243^2 > 72*500^2` and
+`9-68/135 = 1147/135 > 4243/500`. This does not cover arbitrary functions
+with unrestricted linearly many independent groups.
 
 ## Boundary and next premise
 
 The proof assumes type symmetry inside each of a common partition
-into `o(R)` macro groups (or at most `R/24000` groups) and constancy on
-the ten named local classes, and the Pauli-diagonal coefficient model. The one-group result is the globally symmetric special case. It
-allows arbitrary real coefficients, any finite number of summands and
+into `o(R)` macro groups (or at most `R/450` groups) and constancy on
+the ten named local classes, and the Pauli-diagonal coefficient model. The
+one-group result is the globally symmetric special case. It allows arbitrary real coefficients, any finite number of summands and
 cancellation. It does not restrict general Pauli functions or arbitrary
 crossing tensors. A successor must change one of those premises. Any new
 construction must still provide uniform pieces, both cut factorizations,
