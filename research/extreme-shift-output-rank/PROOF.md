@@ -9,8 +9,9 @@ interface, not a SAT lower bound or a bound improvement.
 ## Exact finite statement
 
 Let `V_k` be the partition space of energy k over the rational field, with
-dimension `p(k)` and `p(0)=1`. Fix label grade `h`, output energy `E`, charge
-`q`, and a fixed pair of input labels in the charged predecessor construction.
+dimension `p(k)` and `p(0)=1`. Fix label grade `h`, output energy `E`, an
+integer charge `q`, and a fixed pair of input labels in the charged
+predecessor construction.
 Each label may itself be an arbitrary linear combination of the predecessor's
 labels, using their common grade-h mode convention.
 For the raw piece `Q_s` with `|s|<=E+h`, put
