@@ -80,17 +80,46 @@ algorithm with polynomial space and time
 This application is conditional on the written, not independently reviewed,
 predecessor evaluator and the owner-accepted contraction theorem. It is not
 a better bound: the accepted exact-counting algorithm already works
-without a solution-count promise in the same envelope. The fingerprint test
-cannot be inserted into the general-density sparse-hash wrapper merely from a
-promise on the original formula, since a hash system may retain additional
-non-solutions and violate the support bound. All sparsification, hash,
-reduction, recursion, precision, entries and space costs must be paid for any
-new unrestricted use. No such use or alpha improvement is claimed here.
+without a solution-count promise in the same envelope. The arbitrary-density application below uses an additional high-probability
+event. All sparsification, hash, reduction, recursion, precision, entries and
+space costs must be paid for any new unrestricted use. No unrestricted use or
+alpha improvement is claimed here.
+
+## General-density composition with random hashes
+
+Assume the original k-CNF has either zero or at most S<=n^c solutions. Use the
+sparsification and random sparse-hash wrapper of the predecessor, Section 5,
+but replace its random fingerprint evaluation by the deterministic test above
+on each resulting polynomial system. The predecessor proves that, with
+probability at least 31/32 over all hash choices, no non-satisfying assignment
+survives in any leaf. Every satisfying assignment in a leaf always survives.
+On that good event the support at a leaf is exactly the leaf's solution set,
+so it has at most S elements. A satisfiable formula has a satisfiable leaf,
+and the new test accepts that leaf. On an unsatisfiable formula acceptance
+requires a false assignment to survive in some leaf, since the new test never
+accepts an empty support. Thus both error probabilities are at most 1/32.
+
+This conclusion does not assert a support bound for every hash outcome. On a
+bad outcome the test's support promise may fail and a false negative is
+possible. It also does not derandomize the sparse checks: it removes only the
+additional independent random field weights under the promised solution bound.
+The number of fingerprint calls per leaf is poly(n,S), and for fixed c this
+is polynomial in n; each uses a field with O(log n) bits. With the predecessor's
+O(n) equations and polylogarithmic monomial budget, its field embedding and
+evaluator apply with the same time and polynomial space. The existing
+sparsification branches, initial code, random rows, degree arrays, recursion,
+precision and leaf costs are unchanged. Hence the predecessor's
+`poly(input) * 2^O_k(n log log n/sqrt(log n))` general-density envelope and
+worst-outcome time are retained. The accepted deterministic exact counter
+already has this envelope without the promise, so this is an interface and
+randomness reduction only, not a selected improvement. The composition relies
+on the author-checked predecessor wrapper and evaluator, not an independent
+implementation or review of them.
 
 ## Reopening questions
 
-Can a sparse-support guarantee be certified or enforced for actual hash
-queries without paying for isolation or introducing a false-negative promise?
+Can sparse-support be guaranteed deterministically for actual hash queries
+without a solution-count promise or the cost of isolation?
 Can structured source equations yield a comparable deterministic test with
 support exponential in n but substantially fewer than poly(S) calls? The
 present proof alone answers neither question.

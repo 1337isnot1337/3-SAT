@@ -8,7 +8,7 @@
   "base_commit": "db5193ec0072ad1f36bf3dcaf2d5fd313c3edb08",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Deterministic poly(n,S)-evaluation test for nonempty characteristic-two fingerprints with support at most S; conditional fixed-density application retains the accepted exponent and requires a solution-count promise.",
+  "statement": "Deterministic poly(n,S)-evaluation test for nonempty characteristic-two fingerprints with support at most S; under polynomial solution promise, removes random fingerprint weights from the predecessor random-hash wrapper with its same time envelope.",
   "improves_bound": false,
   "evidence": [
     "research/sparse-support-deterministic/PROOF.md",
@@ -22,8 +22,8 @@
     "research/sparse-support-deterministic/verify.py"
   ],
   "remaining_obligations": [
-    "Independent review of the all-size proof and predecessor evaluator",
+    "Independent review of the all-size proof and predecessor evaluator and wrapper",
     "No contraction implementation or unconditional SAT improvement",
-    "Control support of intermediate sparse-hash systems before general-density use"
+    "Eliminate the support promise or control all hash outcomes deterministically"
   ]
 }

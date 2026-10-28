@@ -19,10 +19,13 @@ accepted `2^O(n/sqrt(log n))` envelope and polynomial space, relying on the
 written predecessor evaluator. Exact counting already gives the same envelope
 without the promise, so this is an interface construction, not a time gain.
 
-The arbitrary-density randomized hash wrapper can introduce extra survivors;
-a solution-count promise on the original formula does not give the necessary
-support bound on its intermediate system. The new construction does not
-remove that gap or certify a smaller selected result. Issue
+The arbitrary-density hash wrapper can introduce extra survivors on a bad hash
+outcome. The proof separately composes the new test with the predecessor
+wrapper: with probability at least 31/32 no false leaf assignment survives,
+so a promised solution bound transfers on that event. This removes the
+separate random fingerprint weights while retaining random hashes and the
+accepted general-density envelope. It does not certify a smaller selected
+result. Issue
 [#66](https://github.com/1337isnot1337/3-SAT/issues/66) records this lane;
 [#26](https://github.com/1337isnot1337/3-SAT/issues/26) concerns random field
 amplification, and [#45](https://github.com/1337isnot1337/3-SAT/issues/45)
