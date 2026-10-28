@@ -40,9 +40,40 @@ Removing a $\log\log n$ factor is also useful progress, with the same
 $\alpha=1/2$. Decision-only and randomized approaches are welcome under the
 [problem's rules](docs/PROBLEM.md).
 
-**Current status:** the OpenAI theorem is the accepted baseline. No local bound
-improvement has been selected. The
+**Current status:** the accepted alpha is still $1/2$. No local package claims
+a better complete SAT time envelope or removal of the general-density
+$\log\log n$ factor. The
 [selected-result record](certificates/selected-result.json) tracks that state.
+
+## Research progress
+
+The merged work now includes constructive component changes as well as scoped
+obstructions. These are author-checked research packages, with their proof,
+reproduction commands and limits recorded separately.
+
+| Component | Result and remaining limit |
+| --- | --- |
+| [Scalar parity encoding](research/newton-parity-compression/README.md), with [separate cross-checks](research/scalar-parity-lift/README.md) | A smaller retained-degree bound and scalar coefficient ring for exact counting. Actual nonzero support still has enough entropy to require the same wire order in this encoding. |
+| [Newton Cauchy modes](research/cauchy-newton-modes/README.md) | Stronger coefficient valuations reduce the leading constants in the mode-count envelope, including a stronger odd-node case. The square-root-logarithmic saving remains. |
+| [Anthropic operator pieces](research/anthropic-operator-ranks/README.md) | An exact first-moment relation removes one crossing piece while preserving both factorization costs. It does not reduce the dominant piece-cost ratio. |
+| [Weighted decision fingerprints](research/characteristic-two-decision/README.md) | A characteristic-two decision interface avoids cancellation of the unweighted parity count. The current degree and wire-entropy costs remain. |
+
+The obstruction packages narrow specific routes:
+[formal mode counts, tapering and local bases](research/mode-taper-obstructions/README.md),
+[generic recovery precision, even for parity](research/parity-recovery-precision/README.md),
+and [sparse oscillator indices in the unchanged operator identity](research/sparse-oscillator-locality/README.md).
+They do not rule out every contraction or decision algorithm.
+
+The [primary-source comparison](research/recent-breakthrough-scan/METHODS.md)
+adds Anthropic's independently developed operator/partition construction as a
+second mechanism to improve. Its stated alpha is also $1/2$. A smaller feasible
+two-direction factorization cost, or aggregation that removes a dominant
+enumeration cost, would be a substantive next step. Improving a finite rank,
+one direction alone, or an unchanged polynomial subroutine is insufficient.
+
+Merging a package archives its stated result; it does not independently review
+the proof or select a new SAT bound. Check live PRs before starting another
+attempt, and read the package handoffs before repeating a tested route.
 
 ## Quick start
 
@@ -75,7 +106,7 @@ The SAT counter is an exhaustive reference for small experiments, with a default
 | Direction | Starting question |
 | --- | --- |
 | [Weighted modes](docs/RESEARCH.md#weighted-modes) | Can the actual mode structure reduce enumeration? |
-| [Contraction schedule](docs/RESEARCH.md#contraction-schedule) | Can packing, precision, and recursion be changed together? |
+| [Contraction schedule](docs/RESEARCH.md#contraction-schedule) | Can packing and recovery, or the alternative operator pieces, lower the dominant cost? |
 | [General-density encoding](docs/RESEARCH.md#general-density-encoding) | Can sparse queries use fewer wires? |
 | [Decision-only algorithms](docs/RESEARCH.md#decision-only-algorithms) | Can SAT decision avoid the cost of exact counting? |
 | [Complete cost accounting](docs/RESEARCH.md#complete-cost-accounting) | Does a proposed gain survive every other cost? |
@@ -125,8 +156,14 @@ The starting theorem is OpenAI, *The Exponential Time Hypothesis is False*,
 revised October 25, 2026 ([frozen source](upstream/openai-eth-2026/README.md)).
 See [CITATION.cff](CITATION.cff) for citation metadata.
 
+Anthropic's [*A $2^{o(n)}$ Time Algorithm for 3-SAT*](https://hexagonmath.org/2610.00577v1)
+is pinned and compared in the [source scan](research/recent-breakthrough-scan/README.md).
+The paper supplies another construction with the same stated exponent; its
+Lean-development claims and the checks actually run here are distinguished
+in the package. Its own license and attribution are retained with the source.
+
 The research workflow draws on
 [CrocSwap/integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds);
 [docs/WORKFLOW.md](docs/WORKFLOW.md) records what was carried over.
-Original material is [Apache-2.0](LICENSE). Upstream attribution is preserved
+Original repository contributions are [Apache-2.0](LICENSE). Upstream attribution is preserved
 in [NOTICE](NOTICE). This repository was prepared with OpenAI Codex assistance.

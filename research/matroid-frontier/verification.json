@@ -1,0 +1,52 @@
+{
+  "checker_sha256": "dfeeeee21ca323882d8ae35f6f4873321db3bb9fb37a45d7d0d31f33fc1b2355",
+  "kernel_identity_evaluations": 65536,
+  "live_transitions": 231296,
+  "matrices": 4096,
+  "paired_cut_ranks": [
+    {
+      "cut_rank": 1,
+      "width": 0
+    },
+    {
+      "cut_rank": 2,
+      "width": 1
+    },
+    {
+      "cut_rank": 4,
+      "width": 2
+    },
+    {
+      "cut_rank": 8,
+      "width": 3
+    },
+    {
+      "cut_rank": 16,
+      "width": 4
+    },
+    {
+      "cut_rank": 32,
+      "width": 5
+    },
+    {
+      "cut_rank": 64,
+      "width": 6
+    },
+    {
+      "cut_rank": 128,
+      "width": 7
+    },
+    {
+      "cut_rank": 256,
+      "width": 8
+    }
+  ],
+  "selected_subsets": 65536,
+  "subspace_counts_dimensions_0_to_4": [
+    1,
+    2,
+    5,
+    16,
+    67
+  ]
+}

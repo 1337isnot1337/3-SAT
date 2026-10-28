@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "matroid-cut-rank",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The independence table of a binary matroid has cut rank at least 2^b over characteristic-two fields and Q, where b is the intersection dimension of the two column spans; conditional distance/nullity bounds imply costs for exact ordered chains. No SAT bound is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/matroid-cut-rank/PROOF.md",
+    "research/matroid-cut-rank/verify.py",
+    "research/matroid-cut-rank/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/matroid-cut-rank/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the quotient and compound-matrix proof",
+    "Evaluate alternatives to the exact ordered independence chain, including cancellation after summing",
+    "Supply a complete algorithm and cost analysis before claiming a SAT improvement"
+  ]
+}
