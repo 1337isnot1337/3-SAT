@@ -98,6 +98,36 @@ def general_subspaces(q, b):
     return sorted(spaces, key=lambda x: (len(x), tuple(sorted(x))))
 
 
+def general_rank(vectors, q):
+    if not vectors:
+        return 0
+    pivots = {}
+    for vector in vectors:
+        v = list(vector)
+        for bit in range(len(v)):
+            if v[bit] == 0:
+                continue
+            if bit not in pivots:
+                inverse = next(c for c in range(1,q) if small_field_mul(v[bit],c,q) == 1)
+                pivots[bit] = [small_field_mul(x,inverse,q) for x in v]
+                break
+            coefficient = v[bit]
+            minus = 2 if q == 3 else 1
+            v = [small_field_add(x,small_field_mul(minus,
+                    small_field_mul(coefficient,y,q),q),q)
+                 for x,y in zip(v,pivots[bit])]
+    return len(pivots)
+
+
+def full_general_projective_table(q, b):
+    columns = [v for v in itertools.product(range(q), repeat=b)
+               if any(v) and next(x for x in v if x) == 1]
+    subsets = [[v for i,v in enumerate(columns) if mask >> i & 1]
+               for mask in range(1 << len(columns))]
+    return [[int(general_rank(left+right,q) == len(left)+len(right))
+             for right in subsets] for left in subsets]
+
+
 def run():
     results = []
     factor_checks = 0
@@ -154,7 +184,13 @@ def run():
         for p in (2,3,5):
             expected = 1 + (q**b-1)//(q-1) if p == characteristic else len(spaces)
             assert ranks[str(p)] == expected
-        general_controls.append({'q': q, 'dimension': b, 'subspaces': len(spaces), 'ranks': ranks})
+        control = {'q': q, 'dimension': b, 'subspaces': len(spaces), 'ranks': ranks}
+        if b <= 2:
+            full = full_general_projective_table(q,b)
+            actual = {str(p): field_rank(full,p) for p in (2,3,5)}
+            assert actual == ranks
+            control['full_table_order'] = len(full)
+        general_controls.append(control)
     return {'general_prime_power_controls': general_controls,
             'dimensions_0_to_4': results, 'full_projective_table_ranks': full_ranks,
             'exact_factorization_entries': factor_checks,

@@ -1,5 +1,5 @@
 {
-  "checker_sha256": "fdf5ce4af2e66798de917425a29527a39bffba9c62f163c693d1b7c7683483c8",
+  "checker_sha256": "4e9c377ff830fb464cce00b5530407265fab6171a2fbe3e2b1a024ecccdf7c68",
   "dimensions_0_to_4": [
     {
       "dimension": 0,
@@ -80,6 +80,7 @@
   "general_prime_power_controls": [
     {
       "dimension": 1,
+      "full_table_order": 2,
       "q": 3,
       "ranks": {
         "2": 2,
@@ -90,6 +91,7 @@
     },
     {
       "dimension": 2,
+      "full_table_order": 16,
       "q": 3,
       "ranks": {
         "2": 6,
@@ -110,6 +112,7 @@
     },
     {
       "dimension": 1,
+      "full_table_order": 2,
       "q": 4,
       "ranks": {
         "2": 2,
@@ -120,6 +123,7 @@
     },
     {
       "dimension": 2,
+      "full_table_order": 32,
       "q": 4,
       "ranks": {
         "2": 6,
