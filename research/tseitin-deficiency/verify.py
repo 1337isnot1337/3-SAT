@@ -72,6 +72,18 @@ def check(n, edges):
 def main():
     check(4, combinations(range(4),2))
     check(8, ((u,v) for u,v in combinations(range(8),2) if (u^v).bit_count()==1))
+    edges = [e for e in combinations(range(4),2) if e != (0,1)]
+    edges += [(a+4,b+4) for a,b in combinations(range(4),2) if (a,b) != (0,1)]
+    edges += [(0,8),(1,8),(4,9),(5,9),(8,9)]
+    blocks, nvars = tseitin(10, edges)
+    bridge = sorted(tuple(sorted(e)) for e in edges).index((8,9)) + 1
+    # Charge is at vertex 0, so the bridge must be 1. The removed clause
+    # must be falsified by a wrong-parity assignment with bridge equal to 0.
+    removed = next(c for c in blocks[9] if bridge in c)
+    clauses = [c for block in blocks for c in block]
+    clauses.remove(removed)
+    assert not sat(clauses,nvars)
+    print('PASS articulation control: deleting one clause can leave UNSAT')
 
 
 if __name__ == '__main__':

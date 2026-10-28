@@ -9,4 +9,4 @@ python3 -I -B research/tseitin-deficiency/verify.py
 make verify
 ```
 
-The first command verifies K4 and cube instances exhaustively for the stated finite properties. The published expansion, criticality and regular-resolution results are cited black boxes; the all-size composition has not been independently reviewed.
+The first command verifies K4 and cube instances exhaustively for the stated finite properties and checks an articulation counterexample to unconditional minimality. The published expansion, criticality and regular-resolution results are cited black boxes; the all-size composition has not been independently reviewed.
