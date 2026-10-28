@@ -70,6 +70,13 @@ def packet(L, q, b):
         for i, j in ((0, 1), (0, 2), (1, 2)):
             f = add(f, mul(forms[3*t+i], forms[3*t+j]))
         polynomial = mul(polynomial, f)
+    e0 = (1,) + (0,)*(K-1)
+    e1 = (0, 1) + (0,)*(K-2)
+    emix = (1, 1) + (0,)*(K-2)
+    mixed = (sum((row[e0] for row in forms), start=F(0))
+             * sum((row[e1] for row in forms), start=F(0))
+             - sum((row[e0]*row[e1] for row in forms), start=F(0)))
+    assert polynomial[emix] == mixed
     source = [phi(F(K-1), k) for k in range(K)]
     assert all(valuation(v) == 0 for v in source)
     assert all(comb(K-1, k) % 2 == 1 for k in range(K))
@@ -93,7 +100,7 @@ def packet(L, q, b):
             'selected_summand_max_v2': max(map(valuation, values)),
             'all_source_modes_units': True, 'odd_common_denominator_bound': True,
             'direct_row_assignments': 2**(3*q),
-            'exact_contraction_identity': True}
+            'exact_contraction_identity': True, 'mixed_coefficient_identity': True}
 
 
 def first_mode(a):
@@ -121,10 +128,16 @@ def first_mode(a):
     assert sums == [formula1, 7*common*bracket]
     assert valuation(sums[0]) == a+2+(0 if a % 2 else 1)
     assert valuation(sums[1]) == a+5
+    f = [F(1, T+2*r) for r in range(n)]
+    g = [-2*F(1, (T+2*r)*(T+2*r-2)) for r in range(n)]
+    mixed = common**2*(sum(f, F(0))*sum(g, F(0))
+                       - sum((x*y for x, y in zip(f, g)), F(0)))
+    assert valuation(mixed) == 2*a+(4 if a % 2 else 6)
+    assert sum(pow(z*z*(z-2), -1, 16) for z in range(1, 16, 2)) % 16 == 0
     return {'a': a, 'L': L, 'q': q, 'common_v2': valuation(common),
             'first_mode_excess_v2': extra, 'complete_pairing_v2': valuation(complete),
             'mode_1_v2': valuation(sums[0]), 'mode_2_v2': valuation(sums[1]),
-            'telescoping_identities': True}
+            'telescoping_identities': True, 'mixed_0_1_v2': valuation(mixed)}
 
 
 def packing():

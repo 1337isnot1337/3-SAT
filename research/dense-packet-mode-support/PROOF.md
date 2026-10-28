@@ -220,6 +220,39 @@ Newton coefficients and compares the telescoping expressions for
 `a=3,...,9`. These are three separate degree-one mode monomials, not a
 bound on arbitrary mixed-mode coefficients.
 
+### An exact mixed-mode coefficient
+
+The same placement also has one exactly controlled mixed coefficient.
+The coefficient of `Z_0 Z_1` after summing the equality row bits has
+valuation `2a+4` for odd `a` and `2a+6` for even `a`, for every `a>=3`.
+
+Indeed each equality extension agrees through degree two with the product
+of its three factors `(1-z_i)`. Thus for `b_r=T+2r`, `0<=r<n`, define
+
+```
+S_0=sum 1/b_r,  S_1=sum 1/[b_r(b_r-2)],
+S_2=sum 1/[b_r^2(b_r-2)].
+```
+
+Using `a_r0=G/b_r` and `a_r1=-2G/[b_r(b_r-2)]`, the mixed coefficient
+is `-2G^2 (S_0 S_1-S_2)`. For `a>=5`, the complete sums over `K=L/2`
+rows satisfy `S_0=0 mod 16` by reciprocal pairing and `S_1=0 mod 16` by
+the first-mode telescoping formula. The summand of `S_2` has period eight
+modulo 16, and for the eight odd residues its values are
+`15,9,3,13,7,1,11,5`, whose sum is zero modulo 16. As `K` is a multiple of
+eight, the complete `S_2` is also zero modulo 16.
+
+For odd `a`, the one omitted endpoint has denominator `-1 mod 16`;
+the omitted contributions to `(S_0,S_1,S_2)` are `(15,11,5) mod 16`.
+Therefore `S_0 S_1-S_2 = 15*11+5 = 10 mod 16`, of valuation one.
+For even `a`, the two omitted denominators are `-3,-1 mod 16`; their
+combined contributions are `(4,10,0) mod 16`, so the expression is
+`4*10+0 = 8 mod 16`, of valuation three. Multiplying by `-2G^2` and
+using `v2(G)=a+1` yields the claimed valuations. The two small cases
+`a=3,4` are checked directly by the exact checker, which also tests
+`a=5,...,9` and the residue table. This controls one mixed pair, not
+arbitrary many-mode coefficients.
+
 ## 4. Exponent count and the source precision
 
 Choose
