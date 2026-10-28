@@ -110,6 +110,31 @@ def main():
                     assert total == expected, (h,x,v,y,total,expected)
                     for p in (2,3,5,7):
                         assert {k:v%p for k,v in total.items() if v%p} == {k:v%p for k,v in expected.items() if v%p}
+    restricted = 0
+    for h in (2,3):
+        labels = list(partitions(h))
+        for p in (2,3,5):
+            codebook = [mu for mu in labels if all(k % p and mu.count(k)<p for k in set(mu))]
+            for x in codebook:
+                a = source_a(x)
+                for v in codebook:
+                    mult = Counter(v)
+                    z = 1
+                    for k,m in mult.items():
+                        z *= k**m * factorial(m)
+                    inverse = pow(z,-1,p)
+                    for y in labels:
+                        total = defaultdict(int)
+                        for shift in range(-2*h,2*h+1):
+                            q = qs(a,{v:1},h,shift,y)
+                            assert q == qs(a,{v:1},h,shift,y,True)
+                            for t,c in q.items():
+                                total[t] += c
+                        actual = {t:c*inverse%p for t,c in total.items() if c*inverse%p}
+                        expected = {y:1} if x == v else {}
+                        assert actual == expected
+                        restricted += 1
+    print(f'PASS: {restricted} restricted-codebook summed source identities')
     print(f'PASS: {cases} source-piece operator-order cases, exact summed identity and four prime reductions')
 
 

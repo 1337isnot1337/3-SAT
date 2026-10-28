@@ -23,7 +23,7 @@ def compositions(n, length):
             yield (x,) + tail
 
 
-def source_pairing(mu, nu):
+def source_pairing(mu, nu, normalized=True):
     h = sum(mu)
     mult = Counter(nu)
     z = 1
@@ -46,7 +46,7 @@ def source_pairing(mu, nu):
                 value *= (-1)**(j-1)*comb(k+j-1,j-1)*k*remaining[k]
                 remaining[k] -= 1
             total += value
-    return total * (factorial(h)//z)
+    return total * (factorial(h)//z if normalized else 1)
 
 
 def main():
@@ -64,6 +64,28 @@ def main():
         for p in (2, 3, 5, 7, 11):
             assert (factorial(h) % p != 0) == (p > h)
             threshold += 1
+    restricted = 0
+    surviving_below = 0
+    for h in range(2, 8):
+        labels = list(partitions(h))
+        for p in (2, 3, 5, 7, 11):
+            codebook = []
+            for mu in labels:
+                mult = Counter(mu)
+                z = 1
+                for k, m in mult.items():
+                    z *= k**m * factorial(m)
+                admissible = all(k % p and m < p for k, m in mult.items())
+                assert admissible == bool(z % p)
+                if admissible:
+                    codebook.append((mu, pow(z, -1, p)))
+            if p <= h and codebook:
+                surviving_below += 1
+            for mu, _ in codebook:
+                for nu, inverse in codebook:
+                    assert (source_pairing(mu, nu, False)*inverse) % p == int(mu == nu)
+                    restricted += 1
+    print(f'PASS: {restricted} restricted-codebook pairings, {surviving_below} surviving p<=h controls')
     print(f'PASS: {checks} direct source pairing reductions, {threshold} normalizer threshold controls')
 
 
