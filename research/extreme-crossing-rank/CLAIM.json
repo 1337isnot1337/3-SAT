@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "extreme-crossing-rank",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "all_size_endpoint_crossing_ranks",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The endpoint crossing pieces have rank profiles (1,d\u00b2) and (d\u00b2,1) for any distinct partition codebook; in a 2-row grid their rank patterns realize arbitrary graphs.",
+  "improves_bound": false,
+  "evidence": [
+    "research/extreme-crossing-rank/README.md",
+    "research/extreme-crossing-rank/PROOF.md",
+    "research/extreme-crossing-rank/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/extreme-crossing-rank/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the positive-definite partition pairing and grouped-factor application",
+    "Determine whether another grouping direction or alternative representation avoids the interface obstruction"
+  ]
+}
