@@ -69,6 +69,40 @@ def information_set(n, basis):
     return best, chosen, coord
 
 
+
+def triple_information_set(n, coord, d):
+    selected, used, pivots, triples = [], set(), {}, 0
+    # Nonwrapping disjoint triples. Rejected candidates never modify pivots.
+    for start in range(max(0, n - 2)):
+        positions = [start, start + 1, start + 2]
+        if any(i in used for i in positions):
+            continue
+        trial = pivots.copy()
+        if all(add_to_basis(trial, coord[i]) for i in positions):
+            pivots = trial
+            selected.extend(positions)
+            used.update(positions)
+            triples += 1
+    for i in range(n):
+        if len(selected) == d:
+            break
+        if add_to_basis(pivots, coord[i]):
+            selected.append(i)
+    assert len(selected) == d
+    return triples, selected
+
+
+def triple_words(t):
+    stack = [(0, 0)]
+    while stack:
+        word, size = stack.pop()
+        if size == t:
+            yield word
+            continue
+        for value in range(8):
+            if value != 5:
+                stack.append((word | (value << (3 * size)), size + 1))
+
 def inverse(rows):
     d = len(rows)
     augmented = [row | (1 << (d + i)) for i, row in enumerate(rows)]
@@ -118,7 +152,7 @@ def weight(n, word):
     return count
 
 
-def count(n, equations):
+def count(n, equations, force=None):
     solution = affine_space(n, equations)
     if solution is None:
         return 0, None, None, 0
@@ -126,12 +160,26 @@ def count(n, equations):
     d = len(basis)
     block, chosen, coord = information_set(n, basis)
     r = len(block)
+    triples, triple_chosen = triple_information_set(n, coord, d)
+    counts = [1, 2, 4]
+    for _ in range(3, r + 1):
+        counts.append(2 * counts[-1] - counts[-2] + counts[-3])
+    prefix_count = counts[r]
+    single_cost = (1 << (d-r)) * prefix_count
+    triple_cost = (1 << (d-3*triples)) * 7**triples
+    use_triples = force == 'triple' or (force is None and triple_cost < single_cost)
+    if use_triples:
+        chosen, width = triple_chosen, 3*triples
+        words = triple_words(triples)
+    else:
+        width = r
+        words = prefixes(r)
     invert = inverse([coord[i] for i in chosen])
     shift = sum(((origin >> i) & 1) << j for j, i in enumerate(chosen))
     total = candidates = 0
-    for prefix in prefixes(r):
-        for tail in range(1 << (d-r)):
-            target = (prefix | (tail << r)) ^ shift
+    for prefix in words:
+        for tail in range(1 << (d-width)):
+            target = (prefix | (tail << width)) ^ shift
             z = sum(((row & target).bit_count() % 2) << j for j, row in enumerate(invert))
             m = origin
             for j in range(d):
@@ -161,6 +209,7 @@ def main():
             rows = [((matrix >> (i*n)) & ((1 << n)-1), (rhs >> i) & 1) for i in range(n)]
             answer, d, r, _ = count(n, rows)
             assert answer == brute(n, rows)
+            assert count(n, rows, force='triple')[0] == answer
             checked += 1
             unsat += d is None
             if d is not None:
@@ -171,6 +220,7 @@ def main():
             rows = [(rng.randrange(1 << n), rng.randrange(2)) for _ in range(rng.randrange(n+3))]
             answer, d, r, _ = count(n, rows)
             assert answer == brute(n, rows)
+            assert count(n, rows, force='triple')[0] == answer
             checked += 1
             unsat += d is None
             if d is not None:
@@ -180,8 +230,16 @@ def main():
     rows = [((1 << (2*i)) | (1 << (2*i+1)), 0) for i in range(4)]
     answer, d, r, candidates = count(n, rows)
     assert (d, r) == (4, 2) and answer == brute(n, rows)
+    duplicate = (n, d, r, candidates, answer)
+    n = 12
+    rows = [((1 << (4*i+2)) | (1 << (4*i+3)), 0) for i in range(3)]
+    answer, d, r, candidates = count(n, rows, force='triple')
+    assert (d, r, candidates) == (9, 4, 343)
+    assert count(n, rows, force='single')[3] == 384
+    assert answer == brute(n, rows)
+    print('fragmented_control', 'n', n, 'd', d, 'r', r, 'triple_candidates', candidates)
     print('systems', checked, 'inconsistent', unsat, 'dimension_pairs', len(dimensions))
-    print('duplicate_pair_control', 'n', n, 'd', d, 'r', r, 'candidates', candidates, 'count', answer)
+    print('duplicate_pair_control', 'n', duplicate[0], 'd', duplicate[1], 'r', duplicate[2], 'candidates', duplicate[3], 'count', duplicate[4])
     print('All direct Boolean comparisons passed.')
 
 

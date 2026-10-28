@@ -12,6 +12,10 @@ independent. [PROOF.md](PROOF.md) gives a deterministic exact algorithm
 using `poly(n+a) 2^(d-r) lambda^r` bit operations and polynomial space,
 where lambda=1.754877666.... Inconsistency is detected in polynomial time.
 The algorithm finds r rather than assuming it; it also handles r=0.
+Jointly independent disjoint intervals give a complementary bound; in
+particular, t greedily selected independent triples require at most
+`poly(n+a) 2^(d-3t) 7^t` bit operations. The implementation chooses the
+smaller of the single-interval and triple candidate counts.
 
 For n=2d, constraints m_(2j)=m_(2j+1) give d independent coordinates
 but only r=2, so this bound has only a constant-factor saving in the
@@ -29,7 +33,10 @@ make verify
 
 The first command checks 5,296 exact Boolean counts, including all
 4,096 three-by-three affine systems, 1,766 linear inconsistencies, and
-the short-block control. It is bounded evidence, not a proof checker.
+the short-block control. It also checks both enumerators on all systems
+and verifies a fragmented n=12 example where triples use 343 candidates
+versus 384 for the single interval. It is bounded evidence, not a proof
+checker.
 The written all-size argument and costs await independent review.
 
 This continues the cyclic prefix method and run weights in
@@ -39,7 +46,8 @@ issue #25 studies shared-hash independence and issue #28 bounded-span
 transfer, neither of which is a dependency. Contributor: Cinna Davis,
 with substantial OpenAI Codex assistance; original material Apache-2.0.
 
-A useful next question is whether an actual family of sparse queries has
-large r after every necessary preprocessing step, while retaining all
+A useful next question is whether actual sparse queries supply large
+independent intervals or many independent triples after every necessary
+preprocessing step, while retaining all
 outer query, entry and reduction costs. The duplicate-coordinate family
 shows that such a condition cannot be assumed for arbitrary matrices.

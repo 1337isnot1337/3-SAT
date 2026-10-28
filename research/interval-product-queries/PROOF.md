@@ -109,3 +109,45 @@ is fixed by `certificates/selected-result.json`; source labels include
 `lem:tensor-sparse-query` and `thm:tensor-contraction`. The present
 work neither audits nor changes that theorem. Substantial AI assistance;
 no independent or formal review claimed.
+
+## Several independent intervals
+
+The same algorithm permits information scattered across disjoint cyclic
+intervals I_1,...,I_t, provided that **all** their coordinate functionals
+together are linearly independent. Let their lengths be ell_j and put
+s=sum ell_j. Extend their ordered coordinates to an information set,
+enumerate a 101-free word on each interval, and enumerate the remaining
+d-s bits. After reconstructing m, test all cyclic adjacencies, including
+boundaries between intervals and their complements. No realizable word
+is lost, and each is counted once. This gives
+
+    poly(n+a) 2^(d-s) product_j a_(ell_j)
+
+bit operations and polynomial space. The product counts candidates,
+not a claim that local constraints alone guarantee realizability.
+When one interval of maximum length is used, this recovers the earlier
+bound. Given any supplied intervals, joint independence and disjointness
+can be checked in polynomial time.
+
+A simple uniform choice needs no optimization oracle: scan the
+nonwrapping consecutive triples in order, accepting a triple if it is
+disjoint from all accepted ones and its three functionals extend their
+joint linear independence. This takes polynomial time. For t accepted
+triples, s=3t and a_3=7, giving `2^(d-3t) 7^t` candidates. Compute this
+integer and the single-block count `2^(d-r) a_r` in polynomial bit time,
+then use the smaller enumeration; a_r is obtained from its three-term
+recurrence, not by enumerating all prefixes. This construction does not
+claim the greedy choice is optimal.
+
+The two approaches can differ exponentially. For any t>=2, take n=4t
+and impose `m_(4j+2)=m_(4j+3)` for all j. The kernel dimension is 3t;
+its coordinate functionals are t blocks of four, with the last two in
+each block equal and all others distinct. The largest independent
+consecutive interval has length 4, while the first three coordinates in
+each four-block form t disjoint, jointly independent triples. The
+single-interval count is `12*2^(3t-4)`, while the triple count is `7^t`.
+Their ratio tends to zero exponentially as t grows. This compares the
+two candidate enumerations, not the underlying counting problem or SAT
+complexity. At t=3, the checker confirms 343 versus 384 candidates and
+verifies the resulting exact count by all 4,096 original assignments.
+All 5,296 earlier systems are also evaluated using the triple method.
