@@ -19,7 +19,9 @@
     "research/expander-walk-greedy/PAIRWISE.md",
     "research/expander-walk-greedy/verify_pairwise.py",
     "research/expander-walk-greedy/HANDOFF-64.md",
-    "research/expander-walk-greedy/verify_handoff.py"
+    "research/expander-walk-greedy/verify_handoff.py",
+    "research/expander-walk-greedy/NEAR-ONE.md",
+    "research/expander-walk-greedy/verify_near_one.py"
   ],
   "reproduce": [
     "python3",
@@ -28,6 +30,7 @@
     "research/expander-walk-greedy/verify.py"
   ],
   "remaining_obligations": [
+    "Independent review of near-one equation accounting, source initial-row bound, and full sparse-query contract",
     "Independent review of the pairwise-index proof and complete oracle composition",
     "Independent review of the all-size construction, coefficient family and oracle cost composition",
     "Implement and independently replay the cited constant-degree expander construction and rational spectral checker",
