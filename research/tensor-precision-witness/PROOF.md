@@ -90,3 +90,27 @@ integers. At `L=4`, `u=h=1`, multiplication over odd roots gives
 `H(-4)=35/3`. This excludes literal equality in that narrower class, while
 multiplication by 3 removes this specific obstruction and leaves the origin
 odd.
+
+## Finite-precision integer lifts
+
+Fix any positive precision `P`. For every entry of each affine row tensor,
+replace its `Z_(2)` value by the unique integer in `[0,2^P)` congruent to it
+modulo `2^P`. Keep the unary zero/one tensors unchanged. The replacement is
+an entrywise congruence, even though the integer-valued row tensor need no
+longer be affine as a function of its Boolean arguments. Its entry oracle
+still uses `O(L)` modular additions and odd-denominator inversions with
+`P`-bit arithmetic.
+
+At every grid node, the accepted `lem:tensor-integrality` says all entries of
+`W(t+2Lz)` have coefficients in `Z_(2)`. Hence every affine bit factor in the
+deformed contraction is integral coefficientwise. Expanding the finite sum
+shows that replacing tensor entries by congruent integers preserves the
+entire shifted polynomial modulo `2^P`, simultaneously at all nodes. At
+`T=0` the contraction is congruent to `H(0)=1` modulo `2^P`. If every active
+node is read at precision at most both `P` and the predecessor's content
+bound for this `h`, the lifted network and the zero network have identical
+complete active-node jets at those precisions and opposite origin parities.
+The same finite-precision realization holds for arbitrarily large `P`, with
+`P`-bit entries and their computation charged. It does not give literal
+polynomial equality over the rationals, canonical Boolean tensors, a better
+precision scale, or compatibility with arbitrary packetization.

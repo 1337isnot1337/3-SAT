@@ -36,6 +36,10 @@ contraction value there is an integer. At `L=4`, `u=h=1`, the literal
 `H(-4)=35/3`; it is therefore not an integer-entry contraction. Multiplying
 by an odd denominator removes this particular obstruction while preserving
 2-adic parity and precision, so it does not rule out a Boolean replacement.
+More generally, for any precision `P`, reducing every row-tensor entry to a
+nonnegative integer modulo `2^P` preserves all shifted jets modulo `2^P`
+and origin parity. This gives integer-entry collisions at the same scoped
+precision, with `P`-bit entries; it is not a Boolean realization.
 
 ## Reproduction and limits
 
@@ -44,6 +48,7 @@ Run from repository root with Python 3.11+ and the standard library:
 ```
 python3 -I -B research/tensor-precision-witness/verify.py
 python3 -I -B research/tensor-precision-witness/screen_one_packet.py
+python3 -I -B research/tensor-precision-witness/check_integer_lifts.py
 make verify
 ```
 
@@ -55,7 +60,9 @@ The second command exhausts all fixed Boolean column assignments for one full
 packet at `L=2,4,8`. Exact rational linear algebra finds no realization of the
 `u=1,h=1` witness with a single affine row tensor, even when its coefficients
 may be arbitrary rationals. This finite screen does not rule out nonlinear row
-tensors, unfixed columns, or larger packet lengths.
+tensors, unfixed columns, or larger packet lengths. The third command
+explicitly sums all row assignments for five integer lifts at `L=2` and
+compares the full shifted polynomials at all four grid nodes.
 
 The all-size argument is author-checked. Boolean realization and realization
 with the predecessor's multiplicity `h=Theta(M/u)` remain open. No complete
