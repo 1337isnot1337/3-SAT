@@ -295,6 +295,57 @@ it does not upper-bound two-adic content or other tensor constructions.
 The finite checker covers `P=2,4,8,16`, several `h`, and complete and
 incomplete word cycles.
 
+## Linear jet order at every nonzero node
+
+A virtual period gives the near-quarter jet-order bound simultaneously
+at **all** nonzero grid nodes, including inactive levels. Let
+`P_*=2L` and let `0<theta<=1/4` be rational. Suppose
+
+```
+M >= 12 theta^(-2) ln(4L).
+```
+
+For any graph-only packing with at most `3M/L` packets, there are
+deterministically constructible Boolean unary tensors such that the
+original contraction is 1 and, at every nonzero node, all shifted
+coefficients through degree `m=floor((1/4-theta)M)` are exactly zero.
+The entire shifted polynomial is also divisible by `2^(m+1)`. The zero
+network has the same data and opposite origin parity.
+
+Each packet gets an independent binary word indexed by residues modulo
+`P_*`; only indices `0,...,L-1` correspond to real or padded slots.
+At each real column `x`, fix the bit to its word value. Fix a real row
+to 1 when its word bit is 1, and leave it unrestricted otherwise. For
+each nonzero `t` in the source grid, mark a real row `x` when its bit is
+1 and the word bit at `(x+t) mod P_*` is 0. Even if the latter residue
+has no real port, this is a valid sufficient condition.
+
+Every marked row has probability `1/4` under independent uniform word
+bits, since `t` is nonzero modulo `2L`. Each residue contains at most one
+real row in a packet. As before the sum of squared bounded differences
+is at most `4M`. Set `q=1-theta/4` and use the potential
+`sum_(t!=0) q^(N_t-m)`. The same martingale calculation as in the
+near-quarter lemma, with `h=1` and fewer than `P_*` shifts, bounds its
+expectation by `P_* exp(-7 theta^2 M/36)<1`. Exact conditional
+expectation is computed by the same cycle transfer on residues modulo
+`2L`. The number of virtual word bits is at most
+`2L*(3M/L)=6M`, and all arithmetic has polynomial bit length. Thus more
+than `m` rows are marked simultaneously for every nonzero node.
+
+For a marked row, no 1-column has `y-x=t`: a real matching column would
+be the virtual target residue, whose bit is zero. Every other Cauchy
+entry vanishes exactly at `t`, and its complete shifted polynomial is
+coefficientwise even because `v_2(t-(y-x))<=a`. Each marked row factor
+therefore contributes one exact root and one bit of content. All other
+factors are integral. Their product proves both claims.
+
+In the source active regime, `theta=1/a` for `a>=8` meets the size
+condition because `M>=L D_arr` and `D_arr=64^(2a)`. The jet order and
+content are thus at least `(1/4-o(1))M` at every nonzero node. This is a
+separate input family from the active-node construction with its larger
+`a+2-u` bits per selected row. The virtual-word checker exercises real
+and absent target slots, but the all-size proof remains author-checked.
+
 ## An extra cancellation for full packets
 
 For the periodic construction, suppose additionally that every used

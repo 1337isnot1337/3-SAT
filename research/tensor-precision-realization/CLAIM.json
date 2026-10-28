@@ -8,20 +8,22 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For the source graph-only packing, two Boolean unary families force local-data parity collisions at precision ceil(M/8) on all nonzero nodes and (floor(M/8)+1)(a+2-u) on all active nodes; author-checked, no independent review.",
+  "statement": "Boolean unary inputs on source graph-only packets force all-nonzero-node jet-order and precision collisions at (1/4-o(1))M, and a separate family forces stronger active-node precision; author-checked, no independent review.",
   "improves_bound": false,
   "evidence": [
     "research/tensor-precision-realization/PROOF.md",
     "research/tensor-precision-realization/verify.py",
     "research/tensor-precision-realization/verify_partial.py",
     "research/tensor-precision-realization/verify_periodic.py",
-    "research/tensor-precision-realization/verify_blocks.py"
+    "research/tensor-precision-realization/verify_blocks.py",
+    "research/tensor-precision-realization/verify_all_nodes.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-realization/verify.py",
     "python3 -I -B research/tensor-precision-realization/verify_partial.py",
     "python3 -I -B research/tensor-precision-realization/verify_periodic.py",
     "python3 -I -B research/tensor-precision-realization/verify_blocks.py",
+    "python3 -I -B research/tensor-precision-realization/verify_all_nodes.py",
     "make verify"
   ],
   "remaining_obligations": [
