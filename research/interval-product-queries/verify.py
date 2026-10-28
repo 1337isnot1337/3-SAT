@@ -240,6 +240,16 @@ def main():
     print('fragmented_control', 'n', n, 'd', d, 'r', r, 'triple_candidates', candidates)
     print('systems', checked, 'inconsistent', unsat, 'dimension_pairs', len(dimensions))
     print('duplicate_pair_control', 'n', duplicate[0], 'd', duplicate[1], 'r', duplicate[2], 'candidates', duplicate[3], 'count', duplicate[4])
+    rhs_checks = 0
+    for width in range(2, 7):
+        n = 2 * width
+        for rhs in range(1 << width):
+            rows = [((1 << (2*i)) | (1 << (2*i+1)), (rhs >> i) & 1)
+                    for i in range(width)]
+            ones = rhs.bit_count()
+            assert brute(n, rows) == 3**(width-ones) + (-1)**ones
+            rhs_checks += 1
+    print('duplicate_pair_affine_rhs_checks', rhs_checks, 'd=2..6')
     print('All direct Boolean comparisons passed.')
 
 

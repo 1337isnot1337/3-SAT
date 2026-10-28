@@ -151,3 +151,27 @@ two candidate enumerations, not the underlying counting problem or SAT
 complexity. At t=3, the checker confirms 343 versus 384 candidates and
 verifies the resulting exact count by all 4,096 original assignments.
 All 5,296 earlier systems are also evaluated using the triple method.
+
+## Exact count of the short-interval control
+
+The duplicate-pair family above is easy for a different representation.
+More generally impose `m_(2j)+m_(2j+1)=b_j` for j=0,...,d-1, with
+n=2d and d>=2. Put y_j=x_(2j) and z_j=x_(2j+1). The jth equation is
+`z_j (y_j+y_(j+1))=b_j` over F_2. After summing z_j, its transfer
+matrix on successive y bits is
+
+    T_0 = [[2,1],[1,2]],       T_1 = [[0,1],[1,0]].
+
+The count is the trace of their cyclic product. Both matrices have the
+common eigenvectors (1,1) and (1,-1), with respective eigenvalues
+(3,1) for T_0 and (1,-1) for T_1. Writing w=|b| gives the exact count
+
+    3^(d-w) + (-1)^w.
+
+This is computable in polynomial bit time and space, and for b=0 yields
+`3^d+1` (82 when d=4). Thus the small-r example limits the information
+set bound, not the complexity of the instance. This is a direct
+application of the bounded-span transfer idea in
+[PR #48](https://github.com/1337isnot1337/3-SAT/pull/48); no novelty or
+priority is claimed for the technique. The checker exhausts all 124
+right-hand sides for d=2,...,6 against the original Boolean equations.
