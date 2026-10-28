@@ -1,5 +1,5 @@
 {
-  "checker_sha256": "87cc089822c0f50b519a083bd18dcb448fa3ee92958cf0764de519de18a44cee",
+  "checker_sha256": "342ee47cfa8df1ecb4efcc923a21745cb44f6adead55c710d7ec13398dd6e0b5",
   "dimensions_0_to_4": [
     {
       "dimension": 0,
@@ -47,5 +47,34 @@
       "subspaces": 67
     }
   ],
-  "exact_factorization_entries": 4775
+  "exact_factorization_entries": 4775,
+  "full_projective_table_ranks": [
+    {
+      "dimension": 1,
+      "ranks": {
+        "2": 2,
+        "3": 2,
+        "5": 2
+      },
+      "table_order": 2
+    },
+    {
+      "dimension": 2,
+      "ranks": {
+        "2": 4,
+        "3": 5,
+        "5": 5
+      },
+      "table_order": 8
+    },
+    {
+      "dimension": 3,
+      "ranks": {
+        "2": 8,
+        "3": 16,
+        "5": 16
+      },
+      "table_order": 128
+    }
+  ]
 }

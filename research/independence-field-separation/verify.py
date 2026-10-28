@@ -39,6 +39,27 @@ def field_rank(matrix, prime):
     return pivot
 
 
+def binary_rank(vectors):
+    pivots = {}
+    for x in vectors:
+        while x:
+            bit = x.bit_length()-1
+            if bit not in pivots:
+                pivots[bit] = x
+                break
+            x ^= pivots[bit]
+    return len(pivots)
+
+
+def full_projective_table(b):
+    columns = list(range(1, 1 << b))
+    n = len(columns)
+    subsets = [[v for i,v in enumerate(columns) if mask >> i & 1]
+               for mask in range(1 << n)]
+    return [[int(binary_rank(left+right) == len(left)+len(right))
+             for right in subsets] for left in subsets]
+
+
 def run():
     results = []
     factor_checks = 0
@@ -63,7 +84,14 @@ def run():
         assert ranks['3'] == ranks['5'] == len(spaces)
         results.append({'dimension': b, 'subspaces': len(spaces), 'ranks': ranks})
     assert [r['subspaces'] for r in results] == [1,2,5,16,67]
-    return {'dimensions_0_to_4': results, 'exact_factorization_entries': factor_checks,
+    full_ranks = []
+    for b in range(1, 4):
+        full = full_projective_table(b)
+        observed = {str(p): field_rank(full, p) for p in (2,3,5)}
+        assert observed == results[b]['ranks']
+        full_ranks.append({'dimension': b, 'table_order': len(full), 'ranks': observed})
+    return {'dimensions_0_to_4': results, 'full_projective_table_ranks': full_ranks,
+            'exact_factorization_entries': factor_checks,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 
 

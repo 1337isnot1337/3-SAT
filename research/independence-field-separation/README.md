@@ -30,7 +30,8 @@ make verify
 
 The checker enumerates all binary subspaces through dimension four, checks
 every entry of the integer factorization and calculates the matrix ranks
-over F2, F3 and F5. The [hash-bound output](verification.json) records exact
+over F2, F3 and F5. It also constructs the full independent-set tables
+through dimension three and checks their ranks over those fields. The [hash-bound output](verification.json) records exact
 counts. Finite checks do not constitute independent review of the proof.
 
 ## Credit and limits
