@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "sparsification-cost-law",
+  "task": "complete-cost",
+  "status": "scoped_checked",
+  "kind": "conditional_cost_model",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "572a226d56cf5fe38a80197dadf89cf300eeef39",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A fixed-coefficient sparsification/width envelope has a unique optimizer asymptotic to a constant divided by sqrt(lambda); its minimum retains a log(lambda)/sqrt(lambda) term. This is a model optimization, not a SAT runtime lower bound or improved alpha.",
+  "improves_bound": false,
+  "evidence": [
+    "research/sparsification-cost-law/PROOF.md",
+    "research/sparsification-cost-law/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/sparsification-cost-law/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the model optimization and the source-correspondence boundary",
+    "Establish an actual uniform algorithm and charge all overheads before claiming a bound change",
+    "No lower bound on arbitrary SAT algorithms or larger alpha is claimed"
+  ]
+}
