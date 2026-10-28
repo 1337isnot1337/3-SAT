@@ -168,6 +168,33 @@ mode argument works in either operator order and for every output grade.
 samples enough charges to remove the possible degree-2h contribution;
 it does not infer a general family or prove the all-size argument.
 
+## The next coefficient is not scalar on the full output grade
+
+For the all-ones label pair `(a,a)` and outer shift s=h, let m_i be
+the multiplicity of part i in an output partition of grade E. Direct
+normal ordering gives, on that output basis vector,
+
+    [q^(2h-2)] Q_h(a,a)
+      = 2h(h-1) E + h^2 sum_(i=1)^E (-1)^i binom(2h,i) i m_i.  (10)
+
+The first summand comes from two nonzero currents in either single factor
+at alternating index zero. Each ordered pair contributes the number
+operator `D_-i D_i=i m_i`; summing i gives E. The second comes from one
+nonzero current in each factor: their modes force the alternating index
+to be i, giving sign `(-1)^i`, taper `binom(2h,i)`, and h choices in
+each factor. No other terms can have q-degree 2h-2. All terms preserve
+the output basis vector. The output energy bound E<=h suffices here;
+more generally the sum stops at min(E,2h).
+
+On the full grade-h output space, compare partitions `(1^h)` and `(h)`.
+Their first terms agree but their second terms differ: after removing the
+common factor h^3 the values are `-2h` and `(-1)^h binom(2h,h)`,
+which are unequal for all h>=2. Thus (10) is not scalar there. The
+interpolation checker `second_deficit.py` verifies the formula for h=2,3,4,
+output grades E=0,...,h, and both operator orders. This is not an
+obstruction for a restricted output codebook, other shifts or weighted
+combinations, and it does not prove a rank or SAT lower bound.
+
 ## Limits and cost
 
 No relation between charge degree and the size of a removed shift interval
