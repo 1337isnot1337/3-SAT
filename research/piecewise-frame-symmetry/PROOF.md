@@ -126,6 +126,26 @@ alphabets, not a lower bound on arbitrary low-support linear combinations,
 other bases, larger R, or general two-frame pieces. In particular, cancellations inside a different
 atom can change its support and are not covered by this screen.
 
+## Adding type and Fourier-type atoms
+
+The adapted-basis alphabet is not optimal even in this finite example.
+Add the 55 type-indicator functions and their 55 Fourier transforms to the
+55 adapted vectors. [expanded_screen.py](expanded_screen.py) checks the
+resulting 165-atom alphabet in the original and L frames. At a maximum
+cost of 18 bits there are 69 qualifying atoms per frame. A frozen
+[33-term exact rational annihilator](expanded-dual.json) pairs to -16 with
+the target and to zero with all 138 atoms, excluding any decomposition
+using them. At cost 19 the 146 qualifying original-frame atoms span the
+entire 55-dimensional type space: full row rank modulo 65,521 certifies
+full rational rank. Hence the minimum maximum atom cost is 19 bits in
+both one and two frames for this expanded alphabet.
+
+This is a real finite improvement over the 21-bit adapted-only alphabet,
+but it comes from enlarging the atom family, not from the second frame.
+It says nothing about unrestricted pieces, other bases, larger instances or
+an asymptotic crossing rate. The annihilator is verified directly over the
+rationals rather than inferred from modular non-membership.
+
 ## Open construction
 
 Try a polynomial-size decomposition whose pieces use either the original

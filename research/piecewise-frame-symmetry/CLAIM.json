@@ -16,7 +16,10 @@
     "research/piecewise-frame-symmetry/verify.py",
     "research/piecewise-frame-symmetry/verification.json",
     "research/piecewise-frame-symmetry/two_frame_screen.py",
-    "research/piecewise-frame-symmetry/two-frame-verification.json"
+    "research/piecewise-frame-symmetry/two-frame-verification.json",
+    "research/piecewise-frame-symmetry/expanded_screen.py",
+    "research/piecewise-frame-symmetry/expanded-dual.json",
+    "research/piecewise-frame-symmetry/expanded-verification.json"
   ],
   "reproduce": [
     "python3",

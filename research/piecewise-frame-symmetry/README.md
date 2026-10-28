@@ -17,6 +17,7 @@ From the repository root, offline, with standard Python:
 ```sh
 python3 -I -B research/piecewise-frame-symmetry/verify.py
 python3 -I -B research/piecewise-frame-symmetry/two_frame_screen.py
+python3 -I -B research/piecewise-frame-symmetry/expanded_screen.py
 make verify
 ```
 
@@ -24,8 +25,11 @@ The checker verifies 49 independent local rank-one maps, the commutator
 identity and all generated orbits on 4,096 and 262,144 labels. A second finite screen
 finds no two-frame gain for one specified adapted-basis atom alphabet at
 two macros. The same exclusion covers pieces certified by pairs of type
-prefixes; it does not exclude other pieces or larger sizes. Its
-[outputs](verification.json) and [atom-screen output](two-frame-verification.json)
+prefixes; it does not exclude other pieces or larger sizes. Adding type and
+Fourier-type atoms improves the finite optimum from 21 to 19 bits in both
+frames; an exact annihilator excludes 18 bits within that expanded alphabet. Its
+[outputs](verification.json), [atom-screen output](two-frame-verification.json),
+and [expanded screen](expanded-verification.json)
 pin their sources and checkers; finite checks do
 not substitute for the written all-size group proof. The predecessor's
 F8 scheme, Pauli ranks and source attribution are credited in
