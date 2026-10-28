@@ -89,3 +89,13 @@ for h=2,3,4. The saved outputs bind checker and predecessor module hashes. An
 exploratory h=5 operator run was stopped before completion; it supplies no
 evidence. `make verify` checks repository integrity, not this all-size
 argument.
+
+## The next coefficient is not automatically scalar
+
+Reusing the same weights one degree lower does not preserve the result.
+At h=2 the filter is Q_2-10 Q_4. Extracting q^1 on the all-ones label
+pair, its grade-two output operator maps `(1,1)` to `-48(2)` and `(2)`
+to `-48(1,1)`. Thus it is not scalar even before considering the other
+label pairs. `tail_next.py` checks all four state/order cases by exact
+charge interpolation. This finite counterexample does not exclude a
+different higher-capacity weight or codebook.
