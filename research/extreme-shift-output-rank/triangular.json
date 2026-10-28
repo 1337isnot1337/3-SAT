@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "scope": "fixed sampled pieces; simultaneous row/column permutations",
+  "profiles": [
+    {
+      "bits": 1,
+      "h": 4,
+      "N": 2,
+      "shift": -4,
+      "label_pair": [
+        1,
+        1
+      ],
+      "nonzero_entries_above_diagonal": 0,
+      "first_upper_witness": null,
+      "two_cycles": 0,
+      "first_two_cycle": null
+    },
+    {
+      "bits": 2,
+      "h": 6,
+      "N": 4,
+      "shift": -6,
+      "label_pair": [
+        3,
+        3
+      ],
+      "nonzero_entries_above_diagonal": 0,
+      "first_upper_witness": null,
+      "two_cycles": 0,
+      "first_two_cycle": null
+    },
+    {
+      "bits": 3,
+      "h": 9,
+      "N": 8,
+      "shift": -9,
+      "label_pair": [
+        7,
+        7
+      ],
+      "nonzero_entries_above_diagonal": 0,
+      "first_upper_witness": null,
+      "two_cycles": 0,
+      "first_two_cycle": null
+    },
+    {
+      "bits": 4,
+      "h": 12,
+      "N": 16,
+      "shift": -12,
+      "label_pair": [
+        15,
+        15
+      ],
+      "nonzero_entries_above_diagonal": 19,
+      "first_upper_witness": [
+        2,
+        7,
+        -34488115200
+      ],
+      "two_cycles": 19,
+      "first_two_cycle": [
+        2,
+        7,
+        -34488115200,
+        -6157022699520
+      ]
+    }
+  ],
+  "verifier_sha256": "acbd26ef0674cd4ad03d7f0841eaa8d64507d400fbf85b2253a53f8133162e51"
+}

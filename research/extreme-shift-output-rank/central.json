@@ -1,0 +1,327 @@
+{
+  "status": "PASS",
+  "scope": "one fixed input-label pair at each of four grades; no scalarity or all-size claim",
+  "profiles": [
+    {
+      "bits": 1,
+      "h": 4,
+      "N": 2,
+      "label_pair": [
+        1,
+        1
+      ],
+      "ranks": [
+        {
+          "shift": -4,
+          "rank": 2
+        },
+        {
+          "shift": -3,
+          "rank": 2
+        },
+        {
+          "shift": -2,
+          "rank": 2
+        },
+        {
+          "shift": -1,
+          "rank": 2
+        },
+        {
+          "shift": 0,
+          "rank": 2
+        },
+        {
+          "shift": 1,
+          "rank": 2
+        },
+        {
+          "shift": 2,
+          "rank": 2
+        },
+        {
+          "shift": 3,
+          "rank": 2
+        },
+        {
+          "shift": 4,
+          "rank": 2
+        }
+      ],
+      "upper_nonzero_at_shift_minus_h": 0,
+      "first_upper_witness": null
+    },
+    {
+      "bits": 2,
+      "h": 6,
+      "N": 4,
+      "label_pair": [
+        3,
+        3
+      ],
+      "ranks": [
+        {
+          "shift": -6,
+          "rank": 4
+        },
+        {
+          "shift": -5,
+          "rank": 4
+        },
+        {
+          "shift": -4,
+          "rank": 4
+        },
+        {
+          "shift": -3,
+          "rank": 4
+        },
+        {
+          "shift": -2,
+          "rank": 4
+        },
+        {
+          "shift": -1,
+          "rank": 4
+        },
+        {
+          "shift": 0,
+          "rank": 4
+        },
+        {
+          "shift": 1,
+          "rank": 4
+        },
+        {
+          "shift": 2,
+          "rank": 4
+        },
+        {
+          "shift": 3,
+          "rank": 4
+        },
+        {
+          "shift": 4,
+          "rank": 4
+        },
+        {
+          "shift": 5,
+          "rank": 4
+        },
+        {
+          "shift": 6,
+          "rank": 4
+        }
+      ],
+      "upper_nonzero_at_shift_minus_h": 0,
+      "first_upper_witness": null
+    },
+    {
+      "bits": 3,
+      "h": 9,
+      "N": 8,
+      "label_pair": [
+        7,
+        7
+      ],
+      "ranks": [
+        {
+          "shift": -9,
+          "rank": 8
+        },
+        {
+          "shift": -8,
+          "rank": 8
+        },
+        {
+          "shift": -7,
+          "rank": 8
+        },
+        {
+          "shift": -6,
+          "rank": 8
+        },
+        {
+          "shift": -5,
+          "rank": 8
+        },
+        {
+          "shift": -4,
+          "rank": 8
+        },
+        {
+          "shift": -3,
+          "rank": 8
+        },
+        {
+          "shift": -2,
+          "rank": 8
+        },
+        {
+          "shift": -1,
+          "rank": 8
+        },
+        {
+          "shift": 0,
+          "rank": 8
+        },
+        {
+          "shift": 1,
+          "rank": 8
+        },
+        {
+          "shift": 2,
+          "rank": 8
+        },
+        {
+          "shift": 3,
+          "rank": 8
+        },
+        {
+          "shift": 4,
+          "rank": 8
+        },
+        {
+          "shift": 5,
+          "rank": 8
+        },
+        {
+          "shift": 6,
+          "rank": 8
+        },
+        {
+          "shift": 7,
+          "rank": 8
+        },
+        {
+          "shift": 8,
+          "rank": 8
+        },
+        {
+          "shift": 9,
+          "rank": 8
+        }
+      ],
+      "upper_nonzero_at_shift_minus_h": 0,
+      "first_upper_witness": null
+    },
+    {
+      "bits": 4,
+      "h": 12,
+      "N": 16,
+      "label_pair": [
+        15,
+        15
+      ],
+      "ranks": [
+        {
+          "shift": -12,
+          "rank": 16
+        },
+        {
+          "shift": -11,
+          "rank": 16
+        },
+        {
+          "shift": -10,
+          "rank": 16
+        },
+        {
+          "shift": -9,
+          "rank": 16
+        },
+        {
+          "shift": -8,
+          "rank": 16
+        },
+        {
+          "shift": -7,
+          "rank": 16
+        },
+        {
+          "shift": -6,
+          "rank": 16
+        },
+        {
+          "shift": -5,
+          "rank": 16
+        },
+        {
+          "shift": -4,
+          "rank": 16
+        },
+        {
+          "shift": -3,
+          "rank": 16
+        },
+        {
+          "shift": -2,
+          "rank": 16
+        },
+        {
+          "shift": -1,
+          "rank": 16
+        },
+        {
+          "shift": 0,
+          "rank": 16
+        },
+        {
+          "shift": 1,
+          "rank": 16
+        },
+        {
+          "shift": 2,
+          "rank": 16
+        },
+        {
+          "shift": 3,
+          "rank": 16
+        },
+        {
+          "shift": 4,
+          "rank": 16
+        },
+        {
+          "shift": 5,
+          "rank": 16
+        },
+        {
+          "shift": 6,
+          "rank": 16
+        },
+        {
+          "shift": 7,
+          "rank": 16
+        },
+        {
+          "shift": 8,
+          "rank": 16
+        },
+        {
+          "shift": 9,
+          "rank": 16
+        },
+        {
+          "shift": 10,
+          "rank": 16
+        },
+        {
+          "shift": 11,
+          "rank": 16
+        },
+        {
+          "shift": 12,
+          "rank": 16
+        }
+      ],
+      "upper_nonzero_at_shift_minus_h": 19,
+      "first_upper_witness": [
+        2,
+        7,
+        -34488115200
+      ]
+    }
+  ],
+  "verifier_sha256": "acbd26ef0674cd4ad03d7f0841eaa8d64507d400fbf85b2253a53f8133162e51"
+}
