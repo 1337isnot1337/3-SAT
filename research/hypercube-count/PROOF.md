@@ -39,6 +39,32 @@ Consequently
 For example C_1=9 and C_2=100. Equation (3) is an exact weight-enumerator
 identity, not a claimed closed form or polynomial-time method for even d.
 
+## Even-d code structure and a count congruence
+
+For even d, C=im(A_d) is a binary self-dual code: A_d is symmetric and
+A_d^2=0, so C is self-orthogonal; its rank m/2 proves C=C^perp. Also
+A_d 1=0, so the all-ones vector lies in C=ker(A_d).
+
+If a_i is column i of A_d, then wt(a_i)=d and every pair of distinct
+columns has even overlap because a_i dot a_j=(A_d^2)_(ij)=0 in F2. Expanding
+the weight of a binary sum modulo four gives
+
+    wt(A_d y) = d wt(y) (mod 4).                              (4)
+
+In particular C is doubly even when d is divisible by four, and otherwise
+is even but contains weight d=2 (mod 4) columns.
+
+Self-duality supplies a second exact count expression. For z in F2^m,
+character orthogonality gives 1_C(z)=2^(-m/2) sum_(c in C) (-1)^(c dot z).
+Substituting in (1) and summing coordinatewise yields
+
+    C_d = sum_(c in C) 3^(m-wt(c)).                           (5)
+
+The all-ones codeword contributes exactly one. Every other exponent is
+positive and even, hence C_d=1 (mod 9). If 4 divides d, every other exponent
+is a positive multiple of four, so C_d=1 (mod 81). These congruences are
+checks on this exact family, not a faster weight-enumerator algorithm.
+
 ## Arbitrary fixed-bit branches for odd d
 
 Suppose d is odd. Let X0 and X1 be the sets of fixed-zero and fixed-one
@@ -57,23 +83,23 @@ for i in Y can be expanded by character orthogonality. With 1_T the m-bit
 indicator of T subset Y, the branch count is exactly
 
     2^(-b) sum_(T subset Y) (-1)^(sum_(i in T) b_i)
-                   product_v H_v((A_d 1_T)_v).                (4)
+                   product_v H_v((A_d 1_T)_v).                (6)
 
 This is an integer: it was obtained from the sum of exact Boolean indicator
 products, and the division is performed in the integers after summation.
 It also handles contradictory branches, for which the answer is zero.
-Evaluating (4) uses poly(m) 2^b bit operations and polynomial space; every
+Evaluating (6) uses poly(m) 2^b bit operations and polynomial space; every
 intermediate numerator has O(m+b) bits. No field inverse or randomness is
 needed. When the source high-incidence step fixes B variables, b<=B, so
 this gives a per-branch cost poly(m) 2^B; it does not claim that a general
-sparse query has the same structure. Even d is not covered by (4).
+sparse query has the same structure. Even d is not covered by (6).
 
 ## Arbitrary fixed-bit branches for even d
 
 Let d be even, q=m/2 and B=A_(d-1), and split y into two q-bit halves.
 For each image vector z=(w,Bw), all of its preimages are
 
-    y=(u,w+Bu),    u in F2^q.                                 (5)
+    y=(u,w+Bu),    u in F2^q.                                 (7)
 
 Indeed the first image half is Bu+(w+Bu)=w and the second is u+B(w+Bu)=Bw.
 For prescribed y bits, the low-half restrictions are equations u_i=b_i;

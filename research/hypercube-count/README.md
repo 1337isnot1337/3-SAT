@@ -25,7 +25,10 @@ For odd d, an exact character-sum formula also counts any prescribed fixed-bit
 branch in `poly(m) 2^b` bit time and polynomial space, where b is the number
 of fixed y variables. For even d, linear elimination extends the same
 `poly(m) 2^(m/2)` bound to every prescribed fixed-bit branch. It remains open
-here whether even d has a simpler closed form or faster count.
+here whether even d has a simpler closed form or faster count. The even-d
+image is a self-dual binary code, giving a second weight-enumerator identity
+and count congruences `C_d=1 mod 9`, strengthened to `C_d=1 mod 81` when
+4 divides d.
 
 This is a computation for one family, not a general SAT time improvement.
 It illustrates that coefficientwise support entropy or a large supplied
@@ -44,7 +47,8 @@ Standard-library checks cover the adjacency-square identity on 2,046 basis
 vectors for d=1,...,10, 1,364 block-image controls, all 65,808 x/y pairs for
 d=1,2,3, all 65,812 y assignments for d=1,2,3,4, 881 odd-d branch
 cases, and 6,661 even-d branch cases; 1,915 of the branch cases are
-contradictory. The independently
+contradictory. There are also 34,782 column-overlap checks, 4,000 seeded
+codeword-weight controls and two dual-enumerator comparisons. The independently
 computed direct sums agree with the formulas. The [saved output](verification.json)
 hash-binds proof and verifier; bounded controls do not constitute an independent
 review or a proof of the asymptotic algorithm.

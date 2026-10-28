@@ -4,7 +4,10 @@
     "all_y_assignments": 65812,
     "basis_square_checks": 2046,
     "block_image_checks": 1364,
+    "codeword_weight_controls": 4000,
+    "column_overlap_checks": 34782,
     "contradictory_branches": 1915,
+    "dual_enumerator_checks": 2,
     "even_branch_cases": 6661,
     "formula_counts": {
       "1": "9",
@@ -16,7 +19,7 @@
   },
   "scope": "bounded exact controls; no independent proof review",
   "sha256": {
-    "PROOF.md": "5572cb8d88f0c870d6cfdebb3d9293f01ad112f2a877e6ce1fce301a3bb1fda4",
-    "verify.py": "ebae5b32937eb0a55982f20697e62f6f1a356b7efbb6414dc663db0c214989a0"
+    "PROOF.md": "d40a5652270f009c73ee54081e2032752722757bb92a3da75c5542e340664322",
+    "verify.py": "5f72db825df2bf95c3309163cc2370bfa61e2553f6343560475e416024524fa2"
   }
 }

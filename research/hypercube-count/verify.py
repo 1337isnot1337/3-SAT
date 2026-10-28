@@ -115,7 +115,8 @@ def main():
     checks = {'basis_square_checks': 0, 'block_image_checks': 0,
               'all_xy_assignments': 0, 'all_y_assignments': 0,
               'formula_counts': {}, 'odd_branch_cases': 0, 'even_branch_cases': 0,
-              'contradictory_branches': 0}
+              'contradictory_branches': 0, 'codeword_weight_controls': 0,
+              'column_overlap_checks': 0, 'dual_enumerator_checks': 0}
     for d in range(1, 11):
         m = 1 << d
         for v in range(m):
@@ -139,6 +140,25 @@ def main():
             checks['all_xy_assignments'] += 1 << (2 * (1 << d))
         checks['formula_counts'][str(d)] = str(actual)
     assert formula(1) == 9 and formula(2) == 100
+    code_rng = random.Random(9102026)
+    for d in (2, 4, 6, 8):
+        m = 1 << d
+        columns = [adjacency(d, 1 << i) for i in range(m)]
+        for i, column in enumerate(columns):
+            assert column.bit_count() == d
+            for other in columns[i+1:]:
+                assert not (column & other).bit_count() % 2
+                checks['column_overlap_checks'] += 1
+        for _ in range(1000):
+            y = code_rng.getrandbits(m)
+            assert (adjacency(d, y).bit_count() - d * y.bit_count()) % 4 == 0
+            checks['codeword_weight_controls'] += 1
+        if d <= 4:
+            code = {adjacency(d, y) for y in range(1 << m)}
+            assert len(code) == 1 << (m // 2)
+            assert sum(3 ** (m - c.bit_count()) for c in code) == formula(d)
+            assert formula(d) % (81 if d % 4 == 0 else 9) == 1
+            checks['dual_enumerator_checks'] += 1
     rng = random.Random(20261028)
     for d in (1, 3):
         m = 1 << d
