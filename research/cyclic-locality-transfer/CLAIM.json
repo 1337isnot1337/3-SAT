@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "cyclic-locality-transfer",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "bounded_span_exact_counting",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "An exact cyclic-span transfer algorithm counts the predecessor cyclic nonlinear support witness in polynomial time for fixed k; sparse quadratic tree systems can require Omega(n/log n) cyclic span in every order. No general SAT bound improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/cyclic-locality-transfer/PROOF.md",
+    "research/cyclic-locality-transfer/verify.py",
+    "research/cyclic-locality-transfer/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/cyclic-locality-transfer/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size proof",
+    "No uniform locality for all sparse queries or greedy candidates",
+    "No improved all-input SAT algorithm or alpha"
+  ]
+}

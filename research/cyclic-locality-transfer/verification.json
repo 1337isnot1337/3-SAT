@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "all_local_polynomials": 3356,
+    "cyclic_witnesses": 15,
+    "random_systems": 1200,
+    "tree_orders": 5040
+  },
+  "seed": 284761,
+  "seven_vertex_tree_minimum_span": 3,
+  "status": "pass"
+}
