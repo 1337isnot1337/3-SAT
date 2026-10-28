@@ -162,7 +162,7 @@ def main():
     paths = [HERE/'reduction-gadget.py', HERE/'PROOF.md',
              ROOT/'upstream/openai-eth-2026/build/quantitative-contraction.tex',
              ROOT/'upstream/openai-eth-2026/build/quantitative-reduction.tex']
-    return {'cases': [gadget(8, 2), gadget(16, 2)],
+    return {'cases': [gadget(8, 2), gadget(16, 4)],
             'scope': 'bounded gadget checks; all-size proof remains author-checked',
             'sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in paths}}

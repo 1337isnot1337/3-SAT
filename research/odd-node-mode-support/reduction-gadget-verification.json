@@ -22,27 +22,39 @@
     {
       "L": 16,
       "all_unit_constraints_consistent": true,
-      "b": 2,
+      "b": 4,
       "every_complete_normalized_witness_odd": true,
       "formula_clauses": 32,
-      "formula_variables": 30,
+      "formula_variables": 28,
       "helper_totals_mod_16": [
         8,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "mode_support_witnesses_containing_zero": 2,
+      "mode_support_witnesses_containing_zero": 8,
       "physical_slot_pairs": 32,
-      "row_label_checks": 918,
-      "selected_degree_two_variables": 2,
+      "row_label_checks": 972,
+      "selected_degree_two_variables": 4,
       "target_assignments_after_pins": 2
     }
   ],
   "scope": "bounded gadget checks; all-size proof remains author-checked",
   "sha256": {
-    "research/odd-node-mode-support/PROOF.md": "85cb8a4b6e21ac71f564d83e53c784297006e6c1f1b62a25c01f8cb68808ecc6",
-    "research/odd-node-mode-support/reduction-gadget.py": "b75fee838c5bf993141ac5b547d51bf27762f1e2aaa5067e4eeb9650576908cb",
+    "research/odd-node-mode-support/PROOF.md": "3df751c124e4ac96b927d9d4fc8db8c019e7b40546a6a351499c96ead7323329",
+    "research/odd-node-mode-support/reduction-gadget.py": "3c72610471210744293091648afce20a31052be5d24647dd955c9c52f16fd135",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
     "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
   }

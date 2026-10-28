@@ -569,7 +569,7 @@ complete surviving tuples is at least
 The [reduction-gadget checker](reduction-gadget.py) explicitly checks the
 four-packet endpoint types and labels, sums the helper equality gates modulo
 16, enumerates target assignments including the boundary bit, and checks all
-support witnesses containing mode 0 for `(L,b)=(8,2),(16,2)`. These bounded
+support witnesses containing mode 0 for `(L,b)=(8,2),(16,4)`. These bounded
 checks do not independently review the all-size proof. In particular the
 conclusion concerns a specified valid packing and the specified odd-node
 expansion, not every packing, a lower bound against preprocessing or
