@@ -10,9 +10,27 @@
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
   "statement": "In the globally type-symmetric unfused ten-class F8 Pauli coefficient model, a four-macro self-Fourier dual and entropy tensorization force some same summand to have both word supports at least 153664^floor(R/4)/(R+1)^10, giving rho at least log2(153664)/24 > 1/sqrt(2). This is not a SAT lower bound or an improved SAT algorithm.",
   "improves_bound": false,
-  "evidence": ["research/unfused-f8-entropy/README.md", "research/unfused-f8-entropy/PROOF.md", "research/unfused-f8-entropy/seed.json", "research/unfused-f8-entropy/verify.py", "research/unfused-f8-entropy/verification.json"],
-  "reproduce": ["python3", "-I", "-B", "research/unfused-f8-entropy/verify.py"],
-  "remaining_obligations": ["Independent review of the dual certificate and entropy tensorization proof", "A construction outside the stated local classes, global symmetry or Pauli-diagonal model", "Uniform piece generation and complete SAT cost accounting for any improved construction"],
+  "evidence": [
+    "research/unfused-f8-entropy/README.md",
+    "research/unfused-f8-entropy/PROOF.md",
+    "research/unfused-f8-entropy/seed.json",
+    "research/unfused-f8-entropy/verify.py",
+    "research/unfused-f8-entropy/verification.json",
+    "research/unfused-f8-entropy/five.py",
+    "research/unfused-f8-entropy/five-relation.json",
+    "research/unfused-f8-entropy/five-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/unfused-f8-entropy/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the dual certificate and entropy tensorization proof",
+    "A construction outside the stated local classes, global symmetry or Pauli-diagonal model",
+    "Uniform piece generation and complete SAT cost accounting for any improved construction"
+  ],
   "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent review claimed",
   "selected_result_changed": false
 }

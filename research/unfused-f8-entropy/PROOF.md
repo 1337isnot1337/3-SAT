@@ -74,6 +74,29 @@ produce such a nonzero invariant vector. This optimality statement is
 specific to four-macro seeds and this minimum-entropy proof; it does not
 bound stronger seeds at other block sizes or other proof methods.
 
+## Five-macro comparison
+
+The same minimum-entropy method cannot improve the above floor using a
+five-macro target-pairing seed. For a five-type alpha, compare its entropy
+to the four-macro floor by the exact rational test
+
+```math
+ \left(5^5 7^{5-\alpha_0}/\prod_i\alpha_i^{\alpha_i}\right)^4
+ > 153664^5.
+```
+
+There are exactly 1,008 qualifying types, forming 245 symmetry orbits.
+On their orbit-sum columns of `T-8^5 I`, the target-pairing row is an
+explicit rational combination of 225 output rows. The frozen relation
+[five-relation.json](five-relation.json) stores these coefficients as
+integers over a common positive denominator. [five.py](five.py) constructs
+the character polynomials afresh and verifies every one of the 245 exact
+integer equations; it does not rely on the modular search used to find the
+relation. Thus every invariant eigenvector supported on the qualifying
+types has zero target pairing. Averaging rules out any target-pairing
+seed with a larger minimum entropy, as above. This comparison covers
+five-macro seeds for this method, not other block sizes or methods.
+
 ## Entropy tensorization
 
 For a type fraction p on k classes of local sizes `w_i`, define

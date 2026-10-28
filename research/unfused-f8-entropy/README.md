@@ -16,6 +16,7 @@ Reproduce with standard Python, offline, from the repository root:
 
 ```sh
 python3 -I -B research/unfused-f8-entropy/verify.py
+python3 -I -B research/unfused-f8-entropy/five.py
 make verify
 ```
 
@@ -23,9 +24,11 @@ The checker rebuilds the local character table, expands the frozen 48-orbit
 seed, verifies all Fourier equations and target pairing, checks its entropy
 profiles, all 2,135 nonzero types in the two-seed product, and a normalization
 negative control; it also proves optimality of the minimum entropy floor
-within this four-macro seed method by a modular rank check. The saved
-[verification](verification.json) pins the script, seed and predecessor
-scheme. The entropy tensorization proof is written in the proof, rather
+within this four-macro seed method by a modular rank check. The five-macro
+comparison checks a frozen exact rational row relation, excluding a strictly
+stronger floor for that block size as well. The saved
+[verification](verification.json) and [five-block replay](five-verification.json)
+pin the scripts, seed, relation and predecessor scheme. The entropy tensorization proof is written in the proof, rather
 than being inferred from finite runs.
 
 This changes the premise of [PR #47](https://github.com/1337isnot1337/3-SAT/pull/47),
