@@ -1,0 +1,94 @@
+{
+  "hook_checks": [
+    {
+      "h": 2,
+      "symmetric_rows": 2,
+      "symmetric_rank": 2,
+      "antisymmetric_rows": 1,
+      "antisymmetric_rank": 1,
+      "diagonal_moment_defect": -32,
+      "prime": 1000003,
+      "low_support_rank": null
+    },
+    {
+      "h": 3,
+      "symmetric_rows": 3,
+      "symmetric_rank": 3,
+      "antisymmetric_rows": 2,
+      "antisymmetric_rank": 2,
+      "diagonal_moment_defect": -288,
+      "prime": 1000003,
+      "low_support_rank": null
+    },
+    {
+      "h": 4,
+      "symmetric_rows": 4,
+      "symmetric_rank": 4,
+      "antisymmetric_rows": 3,
+      "antisymmetric_rank": 3,
+      "diagonal_moment_defect": -2304,
+      "prime": 1000003,
+      "low_support_rank": null
+    },
+    {
+      "h": 5,
+      "symmetric_rows": 5,
+      "symmetric_rank": 5,
+      "antisymmetric_rows": 4,
+      "antisymmetric_rank": 4,
+      "diagonal_moment_defect": -19200,
+      "prime": 1000003,
+      "low_support_rank": null
+    },
+    {
+      "h": 6,
+      "symmetric_rows": 6,
+      "symmetric_rank": 6,
+      "antisymmetric_rows": 5,
+      "antisymmetric_rank": 5,
+      "diagonal_moment_defect": -172800,
+      "prime": 1000003,
+      "low_support_rank": 13
+    }
+  ],
+  "source_codebook_coverage": [
+    {
+      "bits": 1,
+      "h": 2,
+      "included_lengths": [
+        1,
+        2
+      ]
+    },
+    {
+      "bits": 2,
+      "h": 4,
+      "included_lengths": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "bits": 3,
+      "h": 6,
+      "included_lengths": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "low_support_formula_cases": 222,
+  "second_moment_input_states": 42,
+  "mixed_moment_input_states": 76,
+  "coverage_inequality_checked_h": [
+    11,
+    1000
+  ],
+  "largest_part_tail_c_half_checked_h": [
+    11,
+    1000
+  ]
+}

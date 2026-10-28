@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "matroid-frontier",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "An exact ordered frontier network computes binary-matroid independence using at most 2^(floor(b^2/4)+b) subspaces per layer and O(m b^2) state-bit incidences; a sparse paired-column family has cut rank 2^b in a specified order. No SAT bound improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/matroid-frontier/PROOF.md",
+    "research/matroid-frontier/verify.py",
+    "research/matroid-frontier/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/matroid-frontier/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size construction and cut-rank argument",
+    "Prove efficiently constructible low-width orderings for the actual sparse hash matrices",
+    "Integrate clause-violation tensors and characteristic-two semantics with a full contraction and complete costs",
+    "No improved 3-SAT bound or alpha is claimed"
+  ]
+}
