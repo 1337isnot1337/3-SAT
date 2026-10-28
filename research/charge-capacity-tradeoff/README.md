@@ -12,7 +12,10 @@ threshold cover. This improves the
 predecessor's general cover in some finite cases; it need not be attainable
 by the actual operators. When e/h tends to a fixed positive delta, this
 implies a leading label-capacity loss; that leading rate is sharp for the
-unrestricted support mask, although actual operators may have smaller rank. For delta in (0,2), retaining
+unrestricted support mask, although actual operators may have smaller rank.
+The predecessor target exp(kappa sqrt(h)-O(log h)) additionally requires
+e=O(sqrt(h) log h); this is also sufficient for that capacity in the mask,
+without establishing a realizable scalar pairing. For delta in (0,2), retaining
 2^lambda label rank requires an asymptotic grade at least
 `1/(1-delta/2)` times the first-moment reference grade. The precise
 statement, proof, limiting cases and restrictions are in [PROOF.md](PROOF.md).
