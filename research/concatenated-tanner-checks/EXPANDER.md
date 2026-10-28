@@ -115,9 +115,9 @@ must not be used.
 
 ## A limitation of the inherited isolation sampler
 
-The isolation wrapper samples K coordinates independently with uniform
+The isolation wrapper samples J coordinates independently with uniform
 coefficient bits and requires each pairwise collision bias to be at most
-`eta=(2n)^(-4)`. For this particular sampling rule, K=Omega(log n) is
+`eta=(2n)^(-4)`. For this particular sampling rule, J=Omega(log n) is
 necessary even if the code has constant relative distance. Indeed, any
 binary linear code of dimension r>=2 on N coordinates has a nonzero word of
 weight at most 2N/3: at each nonzero coordinate exactly 2^(r-1) of its 2^r
@@ -126,13 +126,13 @@ Apply this to the dimension-n subcode of encoded assignments, for n>=2.
 
 Let w be the weight of that nonzero difference and R>=N the padded size.
 One sampled occurrence with an independent uniform coefficient has parity
-sign expectation `1-w/R`; K independent occurrences give collision bias
-exactly `(1-w/R)^K >= 3^(-K)`, even when repeated coordinates cancel.
+sign expectation `1-w/R`; J independent occurrences give collision bias
+exactly `(1-w/R)^J >= 3^(-J)`, even when repeated coordinates cancel.
 Thus the stated universal pairwise-bias requirement forces
 
-    K >= 4 log(2n)/log 3.
+    J >= 4 log(2n)/log 3.
 
-Our fixed-B substitution has P constant, so the predecessor's K=O(P log n)
+Our fixed-B substitution has P constant, so the predecessor's J=O(P log n)
 sampling length matches this lower bound in order. This is a bound on the
 number of sampled occurrences for this particular independent sampler and its
 pairwise-bias target. It is not a lower bound on the final row support, on
