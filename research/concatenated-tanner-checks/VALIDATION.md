@@ -22,3 +22,12 @@ byte comparison, and `make verify`; all passed. The checker SHA-256 was
 and the output SHA-256 was
 `2561b52c041974661c30daf56efede875f56f6a3360e5343098de42ff46609a6`.
 This is again an author replay with the same scope limitations.
+
+At commit `9d2d57a`, the detached worktree replayed both `verify.py` and
+`verify_expander.py`, byte-compared each output to its saved JSON, and ran
+`make verify`; all passed. The expander checker SHA-256 was
+`09aa95adef84c7344f8c7f084d4693721e860a5f5767a723e2f1cfcd303fa06e`
+and its output SHA-256 was
+`ec2047efcb94cd031540e1527f96517e135a1fdf7b8c9332822c2fc19d1e9ea2`.
+The source-scale and external-theorem limits above remain; this replay does
+not establish the cited spectral theorem.
