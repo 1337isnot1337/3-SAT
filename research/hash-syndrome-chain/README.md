@@ -37,7 +37,9 @@ make verify
 
 The checker covers all 4,096 binary 3-by-4 matrices, 65,536 syndrome inputs,
 and 20,480 cut tables over each of F2 and F3. It also compares 1,000 seeded
-GF(8) weighted clause fixtures with their syndrome-chain evaluation, and 27 cyclic implication fixtures for the leaf-family properties. The
+GF(8) weighted clause fixtures with their syndrome-chain and grouped
+polynomial-lift evaluations, and 27 cyclic implication fixtures for the
+leaf-family properties. The
 [hash-bound output](verification.json) records counts and seed. The tests
 are finite controls; no accepted contraction solver is implemented.
 
@@ -53,3 +55,12 @@ parity factors, equality trees and matrix rank are used; no priority claim is
 made. Before an algorithmic improvement one must satisfy the full ring,
 degree, precision, recursion, recovery, all-leaf and randomness contracts.
 The accepted theorem and selected result remain unchanged.
+
+A grouped-weight version of the sparse-row network also fits the accepted
+contraction ring in the source parameter regime: only J=ceil(n^(1/5))
+weight tensors have nonconstant polynomial entries, so truncation length
+`J(e-1)+1` suffices for a degree-e field. A bipartite conversion and all
+factor degrees are accounted for in the proof. The theorem evaluates one
+hashed weighted fingerprint in `(s+L)^O(1) 2^O(s/sqrt(log s))` time and
+polynomial space for `s=n+km+a+h`. This remains an `n polylog(n)` size
+interface and does not assert an improved total SAT exponent.

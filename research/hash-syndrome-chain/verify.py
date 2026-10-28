@@ -66,6 +66,22 @@ def gf8_mul(a, b):
     return out
 
 
+def carryless_mul(a, b):
+    out = 0
+    while b:
+        if b & 1:
+            out ^= a
+        a <<= 1
+        b >>= 1
+    return out
+
+
+def reduce_gf8(a):
+    while a.bit_length() > 3:
+        a ^= 11 << (a.bit_length()-4)
+    return a
+
+
 def run():
     inputs = cuts = 0
     for packed in range(8**4):
@@ -90,7 +106,7 @@ def run():
                    for _ in range(4)]
         cols = [rng.randrange(8) for _ in range(4)]
         weights = [rng.randrange(8) for _ in range(3)]
-        direct = via_chain = 0
+        direct = via_chain = lifted = 0
         for x in range(8):
             violations = 0
             for j, clause in enumerate(clauses):
@@ -102,9 +118,18 @@ def run():
                     weight = gf8_mul(weight, weights[i])
             if syndrome(cols, violations) == 0:
                 direct ^= weight
+                groups = []
+                for indexes in ((0, 1), (2,)):
+                    term = 1
+                    for i in indexes:
+                        if x >> i & 1:
+                            term = gf8_mul(term, weights[i])
+                    groups.append(term)
+                lifted ^= carryless_mul(*groups)
             if chain(cols, violations):
                 via_chain ^= weight
-        assert direct == via_chain
+        assert direct == via_chain == reduce_gf8(lifted)
+        assert lifted.bit_length() <= 2*(3-1)+1
         fingerprints += 1
     cyclic_fixtures = 0
     for n in range(4, 13):
@@ -122,7 +147,8 @@ def run():
             cyclic_fixtures += 1
     return {'cyclic_clause_fixtures': cyclic_fixtures, 'matrices_3x4': 4096, 'syndrome_inputs': inputs,
             'cut_ranks_in_each_of_F2_and_F3': cuts,
-            'GF8_weighted_clause_fixtures': fingerprints, 'seed': 25137,
+            'GF8_weighted_clause_fixtures': fingerprints,
+            'GF8_grouped_lift_fixtures': fingerprints, 'seed': 25137,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 
 

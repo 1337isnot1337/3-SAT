@@ -1,6 +1,7 @@
 {
+  "GF8_grouped_lift_fixtures": 1000,
   "GF8_weighted_clause_fixtures": 1000,
-  "checker_sha256": "5140582d167fbd5f49229030efbc7b31c3ca995be0d4b416baf3b27fc4fa89a0",
+  "checker_sha256": "e29775ad3def971751595a11a5793df96d57b14c2a2eeba93ebdcbc0218912d3",
   "cut_ranks_in_each_of_F2_and_F3": 20480,
   "cyclic_clause_fixtures": 27,
   "matrices_3x4": 4096,

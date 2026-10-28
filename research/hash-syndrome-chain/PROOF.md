@@ -144,3 +144,56 @@ restricted, and simplifying the formula or using an alternative encoding can
 avoid this representation. The example does not give an input or time lower
 bound, does not preclude a faster algorithm, and does not assert that the
 source code's particular output matrix is unique.
+
+## Fitting grouped field weights into the accepted ring
+
+For the sparse-row network, the accepted contraction theorem can be applied
+under explicit source-regime parameters; the following is a cost accounting
+for one hashed leaf, not a faster SAT bound. Take n>=2, fixed k, m<=Bn,
+B=polylog(n), a<=3n+t with t=O(n), initial row weights at most D_0=polylog(n)
+and extra row weights at most 2P=polylog(n). Let
+
+    s = n+km+a+h,  h = number of ones of A.
+
+Construct the Boolean network above, but group the n fingerprint weights
+into J=ceil(n^(1/5)) groups, each of size at most ceil(n/J). A group tensor
+on those variable bits has entry product_i w_i^(x_i), evaluated in a field
+F of size 2^e>=6n with e=O(log n). The original variable bits reach their
+clause gates and exactly one group tensor through equality trees. All other
+tensors have entries in {0,1}. This adds only O(n) wires and has group
+arity O(n^(4/5)); the row, clause and equality arities are respectively
+polylog(n), k+1 and 3. Since s>=n, all degrees are eventually at most
+ceil(s^(9/10)). Insert a binary equality tensor on every network edge to
+make the graph bipartite, doubling the edge count and leaving these arity
+bounds unchanged. Isolated scalars can be multiplied separately.
+
+Choose a monic binary irreducible polynomial f of degree e, as in PR #2.
+It and field operations are deterministically constructible in polynomial
+bit time at this e. Evaluate each group entry in F, then use its canonical
+degree-less-than-e polynomial representative as the tensor entry in
+
+    B = F_2[V]/(V^ell),    ell=J(e-1)+1,    P_0=1.
+
+Every term in the contraction contains exactly J group entries and all
+other factors are constants 0 or 1. Its polynomial degree is at most
+J(e-1), so truncation loses no information. Sum in B and reduce modulo f
+at the end; evaluation of all group entries followed by this reduction is
+the exact F-valued fingerprint. In particular no claim is made that the
+canonical representative map itself is a field homomorphism. Since
+J(e-1)+1=O(n^(1/5) log n)=O(s), the accepted theorem's ell<=Cs condition
+holds. Descriptions are polynomial in the matrix and weight input, all
+entries are computed in polynomial time and space, and the graph has O(s)
+edges and polynomially many vertices. The theorem yields deterministic
+exact evaluation of the one weighted hashed fingerprint in
+
+    (s+L)^O(1) 2^O(s/sqrt(log s)) bit operations
+
+and polynomial space, where L is its description length. For the source
+rows h<=3nD_0+2Pt and s=n polylog(n). Finite exceptional n or parameter
+cases can use direct enumeration. Computing A and the t random rows, all
+random-bit costs, every sparsification leaf, the false-positive and
+fingerprint errors, and the leaf traversal still belong to the outer
+algorithm; the predecessor wrapper supplies these separately. This
+construction does not claim a better total bound, since s=n polylog(n)
+can exceed n log log n and the input-incidence example above prevents a
+uniform O(n log log n) bound for this particular free-input network.
