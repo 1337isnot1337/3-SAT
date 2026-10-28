@@ -97,5 +97,10 @@ At h=2 the filter is Q_2-10 Q_4. Extracting q^1 on the all-ones label
 pair, its grade-two output operator maps `(1,1)` to `-48(2)` and `(2)`
 to `-48(1,1)`. Thus it is not scalar even before considering the other
 label pairs. `tail_next.py` checks all four state/order cases by exact
-charge interpolation. This finite counterexample does not exclude a
-different higher-capacity weight or codebook.
+charge interpolation. Nor does parity compression repair this weight:
+at h=3, projecting the odd-length output sector `span{(1,1,1),(3)}`
+and using row `(1,1,1)` and column `(2,1)`, the q^3 coefficient has
+respective diagonal entries 414 and 738. The same checker verifies both
+states in both orders. These finite counterexamples do not exclude a
+different higher-capacity weight or codebook; they do not contradict the
+different cubic-moment compression of PR 89.

@@ -44,7 +44,8 @@ the all-ones output operator on the full grade-h space. The proof combines
 a sign-variation argument with a reflected-walk determinant. A separate
 [high-shift filter](TAIL-FILTER.md) obtains an exact full-label scalar pairing beyond that shift range,
 with rank exactly three for h>=3. The same weights fail scalarity one
-charge degree lower already at h=2. Other constructions remain open.
+charge degree lower already at h=2, and parity compression does not
+repair it at h=3. Other constructions remain open.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;

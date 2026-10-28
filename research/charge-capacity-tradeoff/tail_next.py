@@ -36,7 +36,18 @@ for state,target in (((1,1),(2,)),((2,),(1,1))):
                     out[result]=out.get(result,Fraction(0))+multiplier*w*value
         out={k:v for k,v in out.items() if v}
         assert out=={target:-48},(state,reverse,out)
-print(json.dumps({'result':'PASS','h':2,'charge_degree':1,'operator_cases':4,
+coeff=interpolation_weights(6,3)
+for state,expected in (((1,1,1),414),((3,),738)):
+    for reverse in (False,True):
+        out={}
+        for shift,multiplier in ((3,1),(5,-21),(6,-112)):
+            for q,w in enumerate(coeff):
+                for result,value in charged.piece_vector((1,1,1),(2,1),state,shift,q,reverse):
+                    if len(result)%2==1:
+                        out[result]=out.get(result,Fraction(0))+multiplier*w*value
+        out={k:v for k,v in out.items() if v}
+        assert out=={state:expected},(state,reverse,out)
+print(json.dumps({'result':'PASS','grades':[2,3],'charge_degrees':[1,3],'operator_cases':8,
                   'source_hashes':{name:sha256((SOURCE/name).read_bytes()).hexdigest()
                                    for name in ('charged.py','predecessor.py')},
                   'checker_sha256':sha256(Path(__file__).read_bytes()).hexdigest()},

@@ -1,8 +1,14 @@
 {
-  "charge_degree": 1,
-  "checker_sha256": "b9493719355e5a7acb573a1e36be64ec5eaaad5ab234fa23d04dbf713779f895",
-  "h": 2,
-  "operator_cases": 4,
+  "charge_degrees": [
+    1,
+    3
+  ],
+  "checker_sha256": "824a122d8074072802e83c527e84f3c43e15f15047af2f06fdfad29be30ff4e1",
+  "grades": [
+    2,
+    3
+  ],
+  "operator_cases": 8,
   "result": "PASS",
   "source_hashes": {
     "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
