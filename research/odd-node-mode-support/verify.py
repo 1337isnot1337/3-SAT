@@ -132,6 +132,26 @@ def case(L, b):
             assert v2(collected[exp]) == 0
             clause_exact += 1
 
+    # Local subdivision/pin gate: two deformed inputs to a binary
+    # equality row, followed by a pin row through a third local block.
+    # This checks the scalar gate only, not a globally packed reduction.
+    subdivision_checks = 0
+    if b <= 4:
+        pin = tuple(int(i == b-1) for i in range(b))
+        for target in product((0, 1), repeat=b):
+            total = F(0)
+            u = [sum((aux[i][j]*target[j] for j in range(b)), start=F(0))
+                 for i in range(b)]
+            for internal in product((0, 1), repeat=b):
+                v = [sum((aux[i][j]*internal[j] for j in range(b)), start=F(0))
+                     for i in range(b)]
+                total += prod(((1-u[i]-v[i]+2*u[i]*v[i])
+                               *(v[i] if pin[i] else 1-v[i])
+                               for i in range(b)), start=F(1))
+            assert total.denominator % 2 == 1
+            assert total.numerator % 2 == int(target == pin)
+            subdivision_checks += 1
+
     # Full K-mode kernel identity and full local tensor contraction.
     W = lambda r: common/(T-2*(K-1)+2*r)
     for r in range(b):
@@ -159,7 +179,8 @@ def case(L, b):
             'exact_rational_witness_checks': exact_checks,
             'source_units': True, 'full_kernel_and_contraction_match': True,
             'auxiliary_block_identity_mod_2': True,
-            'clause_exact_witness_checks': clause_exact}
+            'clause_exact_witness_checks': clause_exact,
+            'local_subdivision_pin_checks': subdivision_checks}
 
 
 def toy_pairing():

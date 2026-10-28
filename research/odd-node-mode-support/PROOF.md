@@ -260,6 +260,39 @@ it separately checks the clause table identity. These checks do not replace
 independent review of the all-size pairing or establish that the source's
 specific subdivision and default packing select this instance.
 
+## 6. A local gate for subdivision wires
+
+A conditional local calculation supports, but does not complete, a bridge
+to the source's subdivided SAT network. Suppose three local packet blocks
+transmit the same `b` Boolean column bits to their selected row ports by
+integral matrices congruent to the identity modulo 2; all other columns
+are fixed to zero or have no modulo-two effect on those rows. Join the first
+two row ports at each index by an original binary equality vertex and put a
+unit clause pin on the third. Suppose subdivision equality tensors tie the
+second and third column-bit vectors, while the first is the external vector
+`X`. Let the required pin pattern be `c`.
+
+The binary equality table has multilinear extension
+`E(z,w)=(1-z)(1-w)+zw=1-z-w+2zw`. Modulo two on Boolean arguments this is
+`1+z+w`, the indicator that the arguments agree. The unit clause has
+extension `z` for a one pin or `1-z` for a zero pin. Summing the shared
+internal Boolean vector `V` therefore gives, modulo two,
+
+```
+sum_V prod_i (1+X_i+V_i) pin_{c_i}(V_i) = [X=c].
+```
+
+The selected Cauchy blocks constructed in Section 5 have the required
+identity reduction. Thus, **if** a globally valid arrangement supplies the
+three blocks and the specified equality connections without additional
+interference, the extra equality and pin chain can transmit the pinned
+column pattern needed in Section 5 modulo two. The checker uses the actual
+rational Cauchy block to check every external vector for `b=2,4` and a
+one-hot pin pattern. This calculation is only a local gate: it does not
+construct the needed packets and filler vertices as an exact output of the
+source reduction, prove its global balance, or establish an end-to-end
+summand count for that output.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact

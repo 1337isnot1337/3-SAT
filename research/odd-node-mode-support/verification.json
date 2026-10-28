@@ -9,6 +9,7 @@
       "distinct_support_witnesses": 4,
       "exact_rational_witness_checks": 4,
       "full_kernel_and_contraction_match": true,
+      "local_subdivision_pin_checks": 4,
       "max_witness_degree": 2,
       "source_units": true
     },
@@ -21,6 +22,7 @@
       "distinct_support_witnesses": 16,
       "exact_rational_witness_checks": 16,
       "full_kernel_and_contraction_match": true,
+      "local_subdivision_pin_checks": 16,
       "max_witness_degree": 4,
       "source_units": true
     },
@@ -33,14 +35,15 @@
       "distinct_support_witnesses": 256,
       "exact_rational_witness_checks": 0,
       "full_kernel_and_contraction_match": true,
+      "local_subdivision_pin_checks": 0,
       "max_witness_degree": 8,
       "source_units": true
     }
   ],
   "sha256": {
     "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
-    "research/odd-node-mode-support/PROOF.md": "c6db9b3fe6d8a3bb61cdf5438e06879287c7f834d9ece9536e4b50ba43ad5060",
-    "research/odd-node-mode-support/verify.py": "08ec9301ac613e23360d894c816f931767d2591747d1a65f3fc7bce7af0609b8",
+    "research/odd-node-mode-support/PROOF.md": "08faf1fce483100dfce5128a5cb45eba3a1fce2602417bf2d304e98e16a2cb31",
+    "research/odd-node-mode-support/verify.py": "cfb89d759abc97cf25275eedb9c736c1441891f536602b4dfa4448e493228d0d",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
   },
   "toy_packet_pairing": {

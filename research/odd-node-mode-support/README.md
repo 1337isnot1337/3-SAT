@@ -49,7 +49,9 @@ checks verify the residue permutation, binary matrix rank, original
 exponent-tuple witnesses for all supports, source units, full kernel
 identities and local contractions. They also check the auxiliary Cauchy
 block modulo two and toy packet-pair labels. For `b<=4`, weighted-unary and
-Boolean-clause selected coefficients are recomputed as exact rationals. These finite checks do
+Boolean-clause selected coefficients are recomputed as exact rationals, and
+a conditional local subdivision/pin gate is checked for every external bit
+vector. The gate is not a globally packed SAT-reduction construction. These finite checks do
 not review the all-size proof or implement the full recursion.
 
 Issue [#22](https://github.com/1337isnot1337/3-SAT/issues/22) coordinates
