@@ -128,10 +128,23 @@ def run():
         for r in (math.isqrt(h), math.floor(math.sqrt(h) * math.log(h) / 4)):
             assert (partition_counts[h - r - 1]
                     > partition_counts[h] - partition_counts[h - 1])
+    # Count partitions with largest part <= r independently by the standard
+    # bounded-part generating function.  The complementary tail is exact.
+    groups = {}
+    for h in range(11, 1001):
+        r = math.floor(math.sqrt(h) * math.log(h) / 2)
+        groups.setdefault(r, []).append(h)
+    bounded = [1] + [0] * 1000
+    for r in range(1, max(groups) + 1):
+        for n in range(r, 1001):
+            bounded[n] += bounded[n-r]
+        for h in groups.get(r, ()):
+            assert partition_counts[h] - bounded[h] > partition_counts[h] - partition_counts[h-1]
     print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks,
                       'second_moment_input_states': moment_cases,
                       'mixed_moment_input_states': mixed_moment_cases,
-                      'coverage_inequality_checked_h': [11, 1000]}, indent=2))
+                      'coverage_inequality_checked_h': [11, 1000],
+                      'largest_part_tail_c_half_checked_h': [11, 1000]}, indent=2))
 
 if __name__ == '__main__':
     run()

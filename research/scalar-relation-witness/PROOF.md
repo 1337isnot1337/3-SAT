@@ -210,48 +210,64 @@ so the rank bounds improve from 2h-1 and 2q-1 to 2h and 2q.
 
 ## Coverage of the original lexicographic codebook
 
-Let p(j) count partitions, put kappa=pi*sqrt(2/3), and set
-`R=floor(sqrt(h) log(h)/4)`. The source chooses the minimum h with
-p(h)>=2^lambda, so `2^lambda > p(h-1)`. For a hook y with largest
-part r<=R, each partition of h-r-1 maps injectively to a partition of
-h by adding a part r+1. Every image has largest part at least r+1 and
-therefore occurs lexicographically after y. Thus the number of states
-later than y is at least p(h-r-1), which is at least p(h-R-1). If
-
-```
-p(h-R-1) > p(h)-p(h-1),
-```
-
-then y's zero-based index is strictly less than p(h-1), and y belongs
+Let p(j) count partitions and put kappa=pi*sqrt(2/3). The source chooses
+the minimum h with p(h)>=2^lambda, so `2^lambda > p(h-1)`. For a hook
+y with largest part r, every partition whose largest part exceeds r is
+lexicographically later than y. If the number of those partitions exceeds
+`p(h)-p(h-1)`, y's zero-based index is less than p(h-1), and y belongs
 to the original codebook.
 
-To prove the inequality asymptotically, write d_j=p(j)-p(j-1), the
-number of partitions of j with no part one. For j>=2, increasing a
-largest part by one injects these partitions into those of j+1 with no
-part one. Thus d_j is nondecreasing. Every partition consists of some
-ones and a partition without ones, so p(n)=sum_{j=0}^n d_j. With
-k=floor(sqrt(h)), this gives `p(h+k) >= k d_h`. The Hardy–Ramanujan
-asymptotic quoted in the pinned source makes p(h+k)/p(h) bounded, hence
+Write d_j=p(j)-p(j-1), the number of partitions of j with no part one.
+For j>=2, increasing a largest part by one injects these partitions into
+those of j+1 with no part one. Thus d_j is nondecreasing. Every partition
+consists of some ones and a partition without ones, so p(n)=sum_{j=0}^n
+d_j. With k=floor(sqrt(h)), this gives `p(h+k) >= k d_h`. The
+Hardy–Ramanujan asymptotic quoted in the pinned source makes
+p(h+k)/p(h) bounded, hence
 
 ```
-[p(h)-p(h-1)]/p(h) = O(h^(-1/2)).
+[p(h)-p(h-1)]/p(h) = O(h^(-1/2)).                         (1)
 ```
 
-The same asymptotic, with R=(sqrt(h) log h)/4+O(1), gives
+We next show that, for every fixed c with `1/kappa < c < 2/kappa`,
+all hooks of largest part at most `R=floor(c sqrt(h) log h)` are in
+the codebook for sufficiently large h. Put L=floor(sqrt(h)). For each
+j=R+1,...,R+L, the number of partitions of h with largest part exactly
+j equals the number of partitions of h-j whose parts are all <=j: remove
+one largest part j, or append it in the reverse direction.
+
+For n large and j=c sqrt(n) log n+O(sqrt(n)), the fraction of partitions
+of n containing a part >j tends to zero. Indeed, a union bound gives at
+most `sum_{k>j} p(n-k)` such partitions. The partition asymptotic implies,
+uniformly for k<=n/2,
 
 ```
-p(h-R-1)/p(h) = h^(-kappa/8+o(1)).
+p(n-k)/p(n) <= C exp(-kappa k/(2 sqrt(n))),
 ```
 
-Since kappa<4, this is eventually larger than the previous O(h^-1/2)
-term. Consequently the original codebook contains all R hooks with
-largest parts 1,...,R for all sufficiently large h. Together with e and
-d, its shift rank is at least 2R. The partition asymptotic and
-minimality of h give sqrt(h)=Theta(lambda), yielding an
-Omega(lambda log lambda) lower bound for the actual codebook. This does
-not close the gap to 4h or bound any SAT runtime. The checker verifies
-sufficient inequalities through h=1000, including the stronger R; that
-finite range is not the asymptotic proof.
+for a constant C; the remaining at most n terms contribute an exponentially
+small fraction, since each is at most p(n/2). The sum is therefore at most
+`O(sqrt(n) exp(-kappa j/(2 sqrt(n))))+o(1)=o(1)` because c>1/kappa.
+This bound is uniform for the stated interval of j, with n=h-j.
+Consequently each of the L disjoint largest-part classes above has at
+least `(1-o(1)) p(h-j)` members. The tail after every hook with r<=R
+therefore has at least
+
+```
+(1-o(1)) L p(h-R-L)
+  = p(h) h^(1/2-kappa c/2+o(1)).
+```
+
+As c<2/kappa, this is larger than the O(p(h) h^-1/2) bound in (1).
+Thus these R hooks all occur in the source codebook eventually. Since c
+can approach 2/kappa from below, the codebook has
+`q >= (2/kappa-o(1)) sqrt(h) log h` witness hooks. Together with e and
+d, its shift rank is at least 2q. Minimality of h and the same partition
+asymptotic imply `sqrt(h)~(log 2/kappa) lambda`; hence this is at least
+`(8 log 2/kappa^2-o(1)) lambda log lambda`. This does not close the gap
+to 4h or bound any SAT runtime. The checker verifies a sufficient
+largest-part inequality at c=1/2 for 11<=h<=1000; this finite range is
+not the asymptotic proof.
 
 ## Boundary
 

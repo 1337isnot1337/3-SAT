@@ -16,8 +16,9 @@ gap is open. A binary codebook containing the two small reference states and
 q of the specified hooks inherits rank at least 2q. The source's actual
 lexicographic codebook may omit hooks; do not substitute 2h for 2q there.
 For sufficiently large parameters it contains at least
-`R=floor(sqrt(h) log(h)/4)` of these hooks, so its rank is at least
-2R = Omega(lambda log lambda).
+`(2/kappa-o(1)) sqrt(h) log(h)` hooks, with `kappa=pi sqrt(2/3)`.
+Consequently its rank is at least
+`(8 log(2)/kappa^2-o(1)) lambda log(lambda)`.
 
 The hook construction is a partial answer to the all-size question raised
 by [PR #10](https://github.com/1337isnot1337/3-SAT/pull/10), which proved
@@ -38,7 +39,8 @@ The first command checks both families of endpoint formulas, symmetry, support
 and exact integer entries for h=2,...,6, plus full-rank modular triangular minors; it
 also checks second moments for all-ones labels at h=1,...,4, and the mixed
 and diagonal identities at h=2,...,4, with E=0,...,h+1. It checks the
-sufficient codebook inequalities for 11<=h<=1000 and reports actual codebook coverage for lambda=1,2,3. The all-size
+sufficient codebook inequalities through h=1000, including largest-part
+counts with coefficient c=1/2 for 11<=h<=1000 and reports actual codebook coverage for lambda=1,2,3. The all-size
 conclusion is the written argument, not an extrapolation from the finite
 screen. The [saved output](verification.json) can be compared byte-for-byte
 with a fresh run. The checker invokes the predecessor's recurrence and is
