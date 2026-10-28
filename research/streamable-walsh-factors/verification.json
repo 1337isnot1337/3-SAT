@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "scope": "finite factor entries, not full recursion or asymptotic support unranking",
+  "base": 3,
+  "n": 8,
+  "pieces": 4,
+  "primes": [
+    23,
+    47
+  ],
+  "factor_entry_comparisons": 65536,
+  "invalid_binary_code_slots": 12,
+  "support_profiles": [
+    {
+      "prime": 23,
+      "row_support": 64,
+      "col_support": 1
+    },
+    {
+      "prime": 23,
+      "row_support": 29,
+      "col_support": 8
+    },
+    {
+      "prime": 23,
+      "row_support": 8,
+      "col_support": 29
+    },
+    {
+      "prime": 23,
+      "row_support": 1,
+      "col_support": 64
+    },
+    {
+      "prime": 47,
+      "row_support": 64,
+      "col_support": 1
+    },
+    {
+      "prime": 47,
+      "row_support": 29,
+      "col_support": 8
+    },
+    {
+      "prime": 47,
+      "row_support": 8,
+      "col_support": 29
+    },
+    {
+      "prime": 47,
+      "row_support": 1,
+      "col_support": 64
+    }
+  ],
+  "sha256": {
+    "research/streamable-walsh-factors/PROOF.md": "df2d647dfabde718707a98017404ed993030e39ddff7afa66ec7ea82e2521eda",
+    "research/streamable-walsh-factors/verify.py": "bc201d636ff3d8d3e60aee2cf5e4db6daf2d8008233fab672ee5ebdc6864bfad",
+    "research/three-bit-macro-walsh/refined.py": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb",
+    "research/odd-prime-rank-transfer/field.py": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba"
+  }
+}

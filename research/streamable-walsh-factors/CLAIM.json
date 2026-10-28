@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "streamable-walsh-factors",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "streamable_structured_cyclic_walsh_factors",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "b22894ba86b2def490f6c53cbc9b056360c77b8f",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Under explicit polynomial-workspace coefficient and rational-support unranking contracts, each entry of both Pauli/Bell factors after cyclic conjugation can be computed in polynomial workspace and 2^O(lambda) poly(log p) time over good prime fields, without materializing exponential matrices. No full recursive polynomial-space SAT algorithm or improved rho or alpha is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/streamable-walsh-factors/PROOF.md",
+    "research/streamable-walsh-factors/verify.py",
+    "research/streamable-walsh-factors/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/streamable-walsh-factors/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the explicit factor and support-unranking arguments",
+    "Complete space accounting across recursive tensor descriptions, enumeration, CRT and outer reduction",
+    "A cheaper crossing family satisfying both rank bounds and all uniformity conditions"
+  ]
+}
