@@ -160,6 +160,32 @@ that the source high-incidence procedure selects exactly those vertices,
 nor that the remaining equations admit small cyclic span: it only shows
 that this particular cut argument cannot establish span at that scale.
 
+Nevertheless this particular deletion set still has large span, by a
+different argument. Let `C` be the lower Hamming ball of vertices of weight
+strictly below `d/2`; its size is `M=(n-B)/2`. Any two vertices of C can be
+joined within C by first clearing their noncommon one-bits and then setting
+the target's noncommon one-bits. The path length is their Hamming distance,
+at most d, and its intermediate weights never exceed the larger endpoint
+weight. Hence C is connected with diameter at most d in the surviving cube.
+
+In any cyclic order of all `n-B=2M` survivors, choose two vertices of C
+separated by `floor(M/2)` C-vertices in the cyclic list. Each direction around
+the full circle crosses at least `floor(M/2)` gaps, so their circular
+distance is at least `floor(M/2)`. Along their surviving path of length at
+most d, every edge is a quadratic monomial in at least one residual spanning
+row. Therefore every circular order and every residual spanning collection
+has
+
+```
+d(s-1) >= floor(M/2),  hence  s=Omega(n/d).
+```
+
+This holds for arbitrary fixed values on the middle layer and even for a
+branch that is inconsistent, but still does not prove a span bound for every
+other allowed deletion set. The high-incidence rule is not shown to select
+this specific layer. The example demonstrates that a failed balanced-cut
+argument is not itself evidence of a successful small-span encoding.
+
 ## A different exact count by bipartite linear algebra
 
 The cube is bipartite, with color classes `A` and `B` of size `n/2`.

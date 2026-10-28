@@ -6,6 +6,7 @@
     "deleted_vertex_orders": 65530,
     "invertible_4_by_4_bases": 20160,
     "middle_layer_controls": 10,
+    "middle_layer_orders": 300,
     "mobius_coefficients": 56060,
     "row_combinations": 1015,
     "seeded_bases": 200

@@ -103,7 +103,7 @@ def main():
     rng = random.Random(670104)
     checks = {'cube_edges': 0, 'row_combinations': 0, 'mobius_coefficients': 0,
               'invertible_4_by_4_bases': 0, 'seeded_bases': 0,
-              'cyclic_orders': 0, 'bipartite_fixed_branches': 0, 'deleted_vertex_orders': 0, 'middle_layer_controls': 0}
+              'cyclic_orders': 0, 'bipartite_fixed_branches': 0, 'deleted_vertex_orders': 0, 'middle_layer_controls': 0, 'middle_layer_orders': 0}
     for d in (2, 4, 6):
         rows = construction(d)
         n, ell = len(rows), d // 2
@@ -198,6 +198,21 @@ def main():
                     assert not (u.bit_count() < d // 2 < v.bit_count() or
                                 v.bit_count() < d // 2 < u.bit_count())
         checks['middle_layer_controls'] += 1
+    order_rng = random.Random(670105)
+    for d in (4, 6, 8):
+        rows = construction(d)
+        low = [v for v in range(1 << d) if v.bit_count() < d // 2]
+        survivors = [v for v in range(1 << d) if v.bit_count() != d // 2]
+        low_edges = [edge for v in low for edge in rows[v] if all(u in low for u in edge)]
+        # Some low-to-low edges are oriented from another low vertex; all tails are included.
+        for _ in range(100):
+            order_rng.shuffle(survivors)
+            pos = {v: i for i, v in enumerate(survivors)}
+            f = len(survivors)
+            width = max(min((pos[u] - pos[v]) % f, (pos[v] - pos[u]) % f)
+                        for u, v in low_edges)
+            assert d * width >= len(low) // 2
+            checks['middle_layer_orders'] += 1
     print(json.dumps({'seed': 670104, 'checks': checks, 'status': 'pass'}, indent=2, sort_keys=True))
 
 
