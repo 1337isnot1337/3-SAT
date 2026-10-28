@@ -35,6 +35,12 @@ for h in range(1, MAX_H + 1):
                 cols[j] -= 1
                 matching += 1
         assert matching == cover, (h, d, matching, cover)
+        if 0 <= d <= 2 * h:
+            lower = sum(p[h - (d + 1) // 2])
+            assert cover >= lower, (h, d, cover, lower)
+            if d >= 2:
+                upper = 2 * (h + 1) * sum(p[h - d // 2])
+                assert cover <= upper, (h, d, cover, upper)
         old = min(sum(p[h]), 2 * long((d + 1) // 2))
         assert cover <= old
         strict += cover < old
@@ -44,7 +50,7 @@ result = {
     "max_grade": MAX_H,
     "threshold_cases": cases,
     "strict_improvements_over_predecessor_cover": strict,
-    "check": "exact partition counts, greedy matching versus minimum threshold cover",
+    "check": "exact partition counts, greedy matching versus minimum cover, and capacity sandwich",
     "sha256": {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
                for name in ("README.md", "PROOF.md", "CLAIM.json", "verify.py")},
 }

@@ -60,26 +60,37 @@ partitions of integers at most h-t. Hence
 
     L_h(t) <= sum_{j=0}^{h-t} p(j) <= (h+1) p(h-t).          (3)
 
+Conversely, adding t parts of size one injects partitions of h-t into
+partitions of h with at least t parts, so L_h(t)>=p(h-t) for 0<=t<=h.
+In every cover expression in (2), at least one threshold is at most
+ceil(e/2). Therefore, for 2<=e<=2h,
+
+    p(h-ceil(e/2)) <= C_h(e) <= 2(h+1)p(h-floor(e/2)).       (4)
+
+The upper bound uses the balanced cover; the lower bound works for *every*
+threshold. Thus the leading exponential loss below is sharp for the
+unrestricted support mask. It may be weaker than the actual operator loss.
+
 Write kappa=pi sqrt(2/3). The Hardy--Ramanujan logarithmic estimate
 `log p(n)=kappa sqrt(n)+O(log(n+1))` is used in the predecessor proof.
-For a fixed 0<delta<=2 and e/h -> delta, choose t=floor(e/2)
-(the same conclusion follows at delta=2 by (3)). Equations (2)-(3) yield
+For a fixed 0<delta<=2 and e/h -> delta with e<=2h, equation (4) yields
+the mask asymptotic
 
-    log rank A <= kappa sqrt(h) sqrt(1-delta/2) + o(sqrt(h)).  (4)
+    log C_h(e) = kappa sqrt(h) sqrt(1-delta/2) + o(sqrt(h)),
+    rank A <= C_h(e).                                         (5)
 
-A zero matrix is included by interpreting (4) as the equivalent exponential
-upper bound. For delta=2 the right side is o(sqrt(h)). At delta>2 the
-extracted pairing is identically zero because no two partitions have more than
+For delta=2 the right side is o(sqrt(h)); if e>2h, the pairing is zero.
+At delta>2 the extracted pairing is eventually identically zero because no two partitions have more than
 2h parts.
 
 Consequently a scalar pairing with rank at least N=2^lambda and
 lambda -> infinity along e/h -> delta in (0,2) must satisfy
 
-    h >= (1-o(1)) (lambda log 2)^2 / [kappa^2(1-delta/2)]. (5)
+    h >= (1-o(1)) (lambda log 2)^2 / [kappa^2(1-delta/2)]. (6)
 
 The first-moment predecessor has full leading label capacity and its
 minimal grade is `(1+o(1))(lambda log 2/kappa)^2`; the factor
-`1/(1-delta/2)` in (5) is thus a necessary grade inflation relative to
+`1/(1-delta/2)` in (6) is thus a necessary grade inflation relative to
 that reference, not a sufficient construction. For delta=2, log rank is
 only o(sqrt(h)), so h/lambda^2 tends to infinity if N is attained. In
 particular a linear effective degree e cannot retain the full leading label
