@@ -183,6 +183,56 @@ def case(L, b):
             'local_subdivision_pin_checks': subdivision_checks}
 
 
+def filler_case(L):
+    # Exact mod-16 expansion of a pair of fully occupied packets tied
+    # by subdivision equalities, with unit clauses in the first packet.
+    T = 2*L+1
+    common = F(prod(T-j for j in range(-L, L)),
+               prod(-j for j in range(-L, L) if j))
+    W = [[(common/F(T-y+x)).numerator *
+          pow((common/F(T-y+x)).denominator, -1, 16) % 16
+          for y in range(L)] for x in range(L)]
+    diag = [W[x][x+1] for x in range(L-1)]
+    assert len(set(diag)) == 1
+    U = diag[0]
+    assert U % 8 == 3
+    assert comb(3*L+1, L+1) % 8 == 7
+    assert (comb(2*L, L)//2) % 8 == 3
+    edges = [[(y, W[x][y]) for y in range(L)
+              if y != x+1 and W[x][y] % 16] for x in range(L)]
+    result = 0
+    contributing = []
+    def evaluate(chosen, ys, weight):
+        nonlocal result
+        value = weight * (-1)**len(chosen)
+        for y in range(L):
+            baseline = y > 0 and y-1 not in chosen
+            if ys >> y & 1:
+                if baseline:
+                    value *= 1-diag[y-1]
+            else:
+                value *= 2-diag[y-1] if baseline else 2
+            value %= 16
+            if not value:
+                return
+        result = (result+value) % 16
+        contributing.append((chosen, ys))
+    def visit(start, chosen, ys, weight):
+        evaluate(chosen, ys, weight)
+        if len(chosen) == 3:
+            return
+        for x in range(start, L):
+            for y, w in edges[x]:
+                new_weight = weight*w % 16
+                if new_weight:
+                    visit(x+1, chosen+(x,), ys | (1<<y), new_weight)
+    visit(0, (), 0, 1)
+    assert result == 8
+    assert set(contributing) == {((), 0), ((L//2-1,), 1), ((L-1,), 1)}
+    return {'L': L, 'scalar_mod_16': result, 'valuation': 3,
+            'unit_diagonal_mod_8': U % 8, 'surviving_expansion_terms': len(contributing)}
+
+
 def toy_pairing():
     # Exact packet count and paired-row labels for r=2, a=3, B_pad=L.
     # This is a packing control, not the source asymptotic schedule.
@@ -215,6 +265,7 @@ def main():
              ROOT/'upstream/openai-eth-2026/build/quantitative-contraction.tex']
     return {'cases': [case(16, 2), case(32, 4), case(64, 8)],
             'toy_packet_pairing': toy_pairing(),
+            'subdivided_filler_cases': [filler_case(L) for L in (4,8,16,32,64)],
             'sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in paths}}
 

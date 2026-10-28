@@ -293,6 +293,79 @@ construct the needed packets and filler vertices as an exact output of the
 source reduction, prove its global balance, or establish an end-to-end
 summand count for that output.
 
+## 7. A complete pair of subdivided filler packets
+
+The following all-size filler is compatible with the *local vertex types*
+of the source's subdivision. Take two full packets of the same unordered
+pair-label type and pair their corresponding column ports into binary
+equality vertices. On every row port of the first packet put the unit clause
+`(1,0)`; on every row port of the second put the free variable table
+`(1,1)`. Thus each subdivision equality connects one unit-clause endpoint
+and one degree-one variable endpoint. Pairing corresponding slots also
+matches each column vertex's complete label.
+
+At `t=1,zeta=1`, summing the second packet's row bits gives one, and the
+column equality vertices tie the two packets' column vectors. The scalar
+contribution of this isolated pair is
+
+```
+S_L = sum_{X in {0,1}^L} prod_{x=0}^{L-1}(1-sum_y W_xy X_y).
+```
+
+For every power of two `L>=4`, this scalar has **exact valuation three**.
+In particular each such pair contributes `2^3` times a two-adic unit; an
+arbitrary number of disjoint pairs does not unexpectedly annihilate a
+summand at the source precision.
+
+To prove this, put `U=G/(2L)`, an odd two-adic rational. In `W`, the
+entries `(x,x+1)` for `0<=x<L-1` equal `U`; every other entry is even.
+The only off-diagonal entry of valuation one is
+`W_(L-1,0)=2U/3`; every other off-diagonal entry has valuation at least two.
+To see this, write the denominator as `2L+(x+1-y)`. For the bounded slot
+range, valuation `a` occurs only for `x=L-1,y=0`; all other nonzero
+shifts have valuation at most `a-1`.
+
+Expand `S_L` modulo 16 around the `L-1` diagonal row factors
+`1-U X_(x+1)`. Four off-diagonal selections vanish automatically. Two or
+three selections also vanish: without the unique valuation-one entry their
+product is divisible by 16; with it, a second selection has valuation at
+least two and its removed diagonal leaves an unselected Boolean variable,
+whose sum contributes another factor two. For one selection, the Boolean
+sums vanish modulo 16 unless its column is 0 and its row is either
+`L/2-1` or `L-1`. Indeed any other selected column leaves the unselected
+column 0 free, and either removes another free diagonal variable or gives
+an even factor `1-U` at the selected column. The only valuation-two entry
+in column 0 before the last row is `W_(L/2-1,0)=4U/5`.
+
+The three surviving contributions are therefore
+
+```
+2(2-U)^(L-1)
+- 2(4U/5)(2-U)^(L-2)
+- (2U/3)(2-U)^(L-1).                                  (5)
+```
+
+It remains to show `U=3 mod 8`. From the definition of `C`,
+
+```
+U = - 1/2 * binom(3L+1,L+1) * binom(2L,L).
+```
+
+For `L>=8`, let `O(n)` be the product modulo 8 of all odd integers at
+most `n`, and let `F(n)` be the odd part of `n!` modulo 8. The recursion
+`F(n)=O(n)F(floor(n/2))`, together with `O(8m)=1`, gives
+`F(L)=F(L+1)=F(2L)=3` and `F(3L+1)=7`. Thus
+`binom(3L+1,L+1)=7 mod 8` and `binom(2L,L)/2=3 mod 8`, proving
+`U=-7*3=3 mod 8`. The case `L=4` is a direct calculation. In (5) the first
+and last terms combine to a multiple of 16, while the middle term is 8
+modulo 16. Hence `S_L=8 mod 16`, as claimed.
+
+The checker independently expands modulo 16, recording the three surviving
+terms, for `L=4,8,16,32,64`. This is a complete filler-pair lemma, not a
+complete embedding of Section 5's selected clause gadgets into the exact
+subdivided reduction. One must still allocate the selected gadgets and all
+remaining filler pairs simultaneously with consistent row and column labels.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact
