@@ -1,0 +1,44 @@
+{
+  "packet_cases": [
+    {
+      "L": 8,
+      "all_source_modes_units": true,
+      "chosen_modes": 2,
+      "direct_row_assignments": 8,
+      "exact_contraction_identity": true,
+      "modes_K": 4,
+      "odd_common_denominator_bound": true,
+      "q": 1,
+      "selected_subsets": 4,
+      "selected_summand_max_v2": 10
+    },
+    {
+      "L": 16,
+      "all_source_modes_units": true,
+      "chosen_modes": 3,
+      "direct_row_assignments": 64,
+      "exact_contraction_identity": true,
+      "modes_K": 8,
+      "odd_common_denominator_bound": true,
+      "q": 2,
+      "selected_subsets": 8,
+      "selected_summand_max_v2": 21
+    }
+  ],
+  "sha256": {
+    "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
+    "research/dense-packet-mode-support/PROOF.md": "2c7b4d38a4cbd81c4f81f0051afed96e6b59ecce6abaa515be74409a4e1c7d74",
+    "research/dense-packet-mode-support/verify.py": "ae32fd911fb8bb2ee0ad8d4384f48b461493ed6a9a4c97be42437acb63d5adc5",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  },
+  "toy_packing": {
+    "L": 8,
+    "a": 3,
+    "all_pair_loads_equal": 8,
+    "asymptotic_schedule_claimed_for_toy": false,
+    "eligible_packets": 8,
+    "eligible_target_rows_grouped_by_label": true,
+    "packets": 64,
+    "r": 2
+  }
+}
