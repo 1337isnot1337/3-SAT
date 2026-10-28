@@ -1,9 +1,10 @@
 {
   "checks": {
+    "bipartite_fixed_branches": 202,
     "cube_edges": 228,
     "cyclic_orders": 424,
     "invertible_4_by_4_bases": 20160,
-    "mobius_coefficients": 56516,
+    "mobius_coefficients": 56060,
     "row_combinations": 1015,
     "seeded_bases": 200
   },

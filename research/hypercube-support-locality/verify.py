@@ -53,11 +53,56 @@ def check_order(rows, order, d):
     assert d * max_edge_distance >= n // 2
 
 
+def affine_count(nvars, equations):
+    """Number of solutions of binary masks with augmented right sides."""
+    pivots = {}
+    for mask, rhs in equations:
+        while mask:
+            bit = mask.bit_length() - 1
+            if bit in pivots:
+                oldmask, oldrhs = pivots[bit]
+                mask ^= oldmask
+                rhs ^= oldrhs
+            else:
+                pivots[bit] = (mask, rhs)
+                break
+        if not mask and rhs:
+            return 0
+    return 1 << (nvars - len(pivots))
+
+
+def bipartite_count(rows, fixed):
+    n = len(rows)
+    left = [v for v in range(n) if v.bit_count() % 2 == 0]
+    right = [v for v in range(n) if v.bit_count() % 2 == 1]
+    right_index = {v: i for i, v in enumerate(right)}
+    free_left = [v for v in left if v not in fixed]
+    total = 0
+    for subset in range(1 << len(free_left)):
+        value = {v: fixed[v] for v in left if v in fixed}
+        value.update({v: (subset >> i) & 1 for i, v in enumerate(free_left)})
+        equations = []
+        for v in left:
+            if value[v]:
+                mask = sum(1 << right_index[u if u != v else w]
+                           for u, w in rows[v])
+                equations.append((mask, 0))
+        for v in right:
+            active_parity = sum(value[u if u != v else w]
+                                for u, w in rows[v]) % 2
+            if active_parity:
+                equations.append((1 << right_index[v], 0))
+            if v in fixed:
+                equations.append((1 << right_index[v], fixed[v]))
+        total += affine_count(len(right), equations)
+    return total
+
+
 def main():
     rng = random.Random(670104)
     checks = {'cube_edges': 0, 'row_combinations': 0, 'mobius_coefficients': 0,
               'invertible_4_by_4_bases': 0, 'seeded_bases': 0,
-              'cyclic_orders': 0}
+              'cyclic_orders': 0, 'bipartite_fixed_branches': 0}
     for d in (2, 4, 6):
         rows = construction(d)
         n, ell = len(rows), d // 2
@@ -88,6 +133,24 @@ def main():
         for order in orders:
             check_order(rows, order, d)
             checks['cyclic_orders'] += 1
+        if n <= 16:
+            # Independent exhaustive full assignments, then test restrictions.
+            solutions = [x for x in range(1 << n)
+                         if all(eval_row(row, x) == 0 for row in rows)]
+            branches = []
+            if n == 4:
+                for choice in itertools.product(range(3), repeat=n):
+                    branches.append({v: c - 1 for v, c in enumerate(choice) if c})
+            else:
+                for _ in range(120):
+                    choices = [rng.randrange(3) for _ in range(n)]
+                    branches.append({v: c - 1 for v, c in enumerate(choices) if c})
+                branches.append({})
+            for fixed in branches:
+                expected = sum(all((x >> v) & 1 == b for v, b in fixed.items())
+                               for x in solutions)
+                assert bipartite_count(rows, fixed) == expected
+                checks['bipartite_fixed_branches'] += 1
         if n == 4:
             for basis in itertools.product(range(1 << n), repeat=n):
                 if rank(basis) == n:

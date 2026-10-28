@@ -11,6 +11,11 @@ zero-indicator lift. As in [PR #44](https://github.com/1337isnot1337/3-SAT/pull/
 its injective coefficientwise indexing requires `Omega(n log log n)` bits
 in some degree array.
 
+As a second scope control, fixing one color class leaves linear equations on
+the other. Summing their exact solution counts gives a `2^(n/2) poly(n)` time,
+polynomial-space algorithm, including any prescribed fixed-bit branch. It is
+asymptotically slower than the accepted general bound and gives no SAT speedup.
+
 The new boundary: every cyclic order and every invertible row basis has an
 equation with cyclic span at least `1+n/(2d)`. This blocks the logarithmic
 cyclic-span premise of [PR #48](https://github.com/1337isnot1337/3-SAT/pull/48)
@@ -27,9 +32,9 @@ make verify
 ```
 
 Saved [verification.json](verification.json) covers dimensions 2, 4 and 6:
-228 edges, 1,015 combinations, 56,516 integer Mobius coefficients, all
-20,160 invertible 4-by-4 bases, 200 seeded larger bases, and 424 cyclic
-orders. Finite checks do not prove the asymptotic statements. The written
+228 edges, 1,015 combinations, 56,060 integer Mobius coefficients, all
+20,160 invertible 4-by-4 bases, 200 seeded larger bases, 424 cyclic orders, and 202 fixed-bit branches
+checked against exhaustive counts. Finite checks do not prove the asymptotic statements. The written
 proof awaits independent review.
 
 Sources: canonical main `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`;

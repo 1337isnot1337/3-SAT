@@ -96,9 +96,40 @@ problem-specific algorithms, or changes of coefficient representation are
 not excluded. Large circular span alone does not establish computational
 hardness.
 
+## A different exact count by bipartite linear algebra
+
+The cube is bipartite, with color classes `A` and `B` of size `n/2`.
+More generally, let any bipartite graph be oriented arbitrarily and use
+one equation `x_v * (XOR_{v->u} x_u) = 0` at each vertex. Fix an assignment on
+`A`. For each `a in A` with `x_a=1`, its equation is the homogeneous linear
+condition `XOR_{a->b} x_b=0`; if `x_a=0`, it is automatically satisfied.
+For each `b in B`, its equation is `x_b c_b=0`, where
+`c_b=XOR_{b->a} x_a` is now known. If `c_b=1`, add the linear condition
+`x_b=0`; otherwise there is no condition. Thus all remaining constraints are
+a linear system over F2 in the `B` variables. Gaussian elimination gives
+zero if inconsistent and otherwise `2^(|B|-rank)` solutions.
+
+Enumerate all `2^|A|` assignments and add those counts. For a prescribed
+fixed-bit branch, enumerate only compatible assignments on `A` and add the
+corresponding affine unary equations on `B`; the same elimination handles
+conflicting conditions exactly. Both variants run in `2^(n/2) poly(n)` bit
+operations and polynomial space, using serial enumeration and counts of at
+most `n+1` bits. This exact count works for the oriented cube and any one
+fixed-bit branch without any cyclic order. It is asymptotically slower than
+the accepted general counting theorem and is not a SAT improvement. It also
+illustrates why the cyclic-span obstruction cannot be interpreted as a
+counting lower bound.
+
+As a simple separate control, every assignment supported entirely in `A`
+or entirely in `B` satisfies all equations. There are at least
+`2^(n/2+1)-1` satisfying assignments, including all-zero only once. Neither
+this lower bound nor the linear-algebra count establishes the exact formula
+count without the stated summation.
+
 ## Costs and evidence boundary
 
-No new SAT algorithm is supplied. Neither the coefficientwise obstruction
+The bipartite enumeration is a scoped exact-counting algorithm for this
+family, not a faster general SAT algorithm. Neither the coefficientwise obstruction
 nor the circular-span bound establishes the cost of the entire dense
 reduction, its branches and queries, tensor entries, contractions,
 precision, recovery, or space. The accepted bound and alpha remain unchanged.
