@@ -12,10 +12,12 @@
   "improves_bound": false,
   "evidence": [
     "research/tensor-precision-witness/PROOF.md",
-    "research/tensor-precision-witness/verify.py"
+    "research/tensor-precision-witness/verify.py",
+    "research/tensor-precision-witness/screen_one_packet.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-witness/verify.py",
+    "python3 -I -B research/tensor-precision-witness/screen_one_packet.py",
     "make verify"
   ],
   "remaining_obligations": [

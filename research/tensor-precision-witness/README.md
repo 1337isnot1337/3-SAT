@@ -40,6 +40,7 @@ Run from repository root with Python 3.11+ and the standard library:
 
 ```
 python3 -I -B research/tensor-precision-witness/verify.py
+python3 -I -B research/tensor-precision-witness/screen_one_packet.py
 make verify
 ```
 
@@ -47,6 +48,11 @@ The first command checks all 56 Cauchy entries and exact polynomial
 identities for `L=2,4,8,16`, together with 2-adic integrality of the
 interpolation coefficients. It is a finite check of the construction, not
 independent review or a run of the accepted contraction algorithm.
+The second command exhausts all fixed Boolean column assignments for one full
+packet at `L=2,4,8`. Exact rational linear algebra finds no realization with
+a single affine row tensor, even when its coefficients may be arbitrary
+rationals. This finite screen does not rule out nonlinear row tensors,
+unfixed columns, or larger packet lengths.
 
 The all-size argument is author-checked. Boolean or bounded-degree realization
 with the predecessor's full `h=Theta(M)` for `u=1` remains open. No complete
