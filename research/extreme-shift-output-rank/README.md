@@ -23,6 +23,8 @@ scalar entry on those extreme shifts needs at least
 `N^(1-sqrt(1-epsilon)-o(1))` raw summands at the predecessor's selected
 dimension N. Generic exponential-size label normalization is not
 automatically covered, and a summand bound is not a general runtime bound.
+The proof also states a shift-location condition for unequal output energy E
+and label grade h, with the mixture size charged explicitly.
 
 Run the finite checks with:
 

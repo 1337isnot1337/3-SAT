@@ -60,6 +60,32 @@ label-pair pieces at the *same* shift must charge each additional summand.
 It does not automatically survive arbitrary mixing of label axes, and it
 does not assert that the upper bound K_s is attained.
 
+## Unequal output and label energies
+
+The rank bound also gives a location condition without assuming `E=h`.
+Let E tend to infinity, let the output dimension satisfy
+`D_E>=p(E)/E^C`, and form a nonzero scalar entry from L raw summands of
+common grade h and output energy E. Set
+`t_max=max_j(E+h-|s_j|)`. If `t_max>=E`, one supported shift already has
+`|s_j|<=h`. Otherwise, rank subadditivity gives
+
+```math
+ p(t_{\max})\ge\frac{p(E)}{E^C L(2h+1)}.
+```
+
+Applying the same partition estimate as below, uniformly for
+`0<=t_max<E`, gives
+
+```math
+ \min_j|s_j|\le h+O_C\!\left(\sqrt E\,[\log(E+1)+\log L+\log(2h+1)]\right).
+```
+
+For example, if h and L are polynomially bounded in E, the additive term
+is `O(sqrt(E) log E)`. If `log(2h+1)+log L=o(sqrt E)`, then for every
+fixed epsilon>0 a nonzero scalar entry cannot use only shifts
+`|s_j|>=h+epsilon E`. For larger mixtures the displayed bound may be too
+weak to restrict the shift range; no stronger conclusion is implied.
+
 ## Large-capacity consequence
 
 Now set `E=h` and suppose the output codebook dimension satisfies
