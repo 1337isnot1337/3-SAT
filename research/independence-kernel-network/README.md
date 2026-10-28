@@ -37,7 +37,10 @@ verified in polynomial time and the original input length retained in the
 description cost. A minimum-weight basis among the supplied rows and the
 reduced row-echelon basis are inexpensive candidates. An explicit dense
 `[B | B]` example reduces from quadratic to linear nonzeros, though it is
-itself easy and proves no uniform SAT gain.
+itself easy and proves no uniform SAT gain. Conversely, when the source
+check distance is greater than one, every equivalent matrix has at least one
+nonzero per original clause coordinate; row operations alone cannot remove
+the explicit-input bottleneck in PR #83's root-leaf family.
 
 For matrices with `a+h=O(m)`, the bound is
 `poly(m) 2^O(m/sqrt(log m))` with polynomial space. Evaluating at `m+1`

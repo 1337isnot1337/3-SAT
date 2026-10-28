@@ -6,7 +6,7 @@
   "GF8_size_parity_interpolations": 200,
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "fda58e0bf7ce345b393bcc58cfe801d599ff505388c29f995bccfe4e5af5f9f5",
+  "checker_sha256": "940e79277ab0c39ae1b78567c9ba5e713e3d289f88b8ae57253bc5c154c3ce3d",
   "dense_rowspace_controls": [
     {
       "n": 2,
@@ -96,6 +96,7 @@
     0,
     2
   ],
+  "nonzero_column_rowspace_cases": 2401,
   "paired_order_controls": [
     {
       "b": 1,

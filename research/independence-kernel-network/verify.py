@@ -235,7 +235,7 @@ def run():
         cols = [rng.randrange(8) for _ in range(6)]
         weights = [rng.randrange(8) for _ in range(6)]
         evaluate(cols, weights)
-    row_basis_cases = 0
+    row_basis_cases = nonzero_column_cases = 0
     for rows in itertools.product(range(16), repeat=3):
         full_rank = rank(rows)
         greedy = greedy_row_basis(rows)
@@ -248,6 +248,10 @@ def run():
             if len(chosen) == full_rank and rank(chosen) == full_rank:
                 costs.append(sum(v.bit_count() for v in chosen))
         assert sum(v.bit_count() for v in greedy) == min(costs)
+        if all(any(v >> j & 1 for v in rows) for j in range(4)):
+            assert all(any(v >> j & 1 for v in canonical) for j in range(4))
+            assert sum(v.bit_count() for v in canonical) >= 4
+            nonzero_column_cases += 1
         row_basis_cases += 1
     dense_controls = []
     for n in range(2, 33, 2):
@@ -327,7 +331,9 @@ def run():
     unmatched_independence = (1+1+1) % 3
     unmatched_kernel = ((1+1)**2+1) % 3
     assert unmatched_independence == 0 and unmatched_kernel == 2
-    return {'row_basis_cases': row_basis_cases, 'dense_rowspace_controls': dense_controls,
+    return {'row_basis_cases': row_basis_cases,
+            'nonzero_column_rowspace_cases': nonzero_column_cases,
+            'dense_rowspace_controls': dense_controls,
             'GF8_size_parity_interpolations': parity_interpolations,
             'F3_kernel_and_coefficient_rank_control': [3,2],
             'mismatched_characteristic_control_F3': [unmatched_independence, unmatched_kernel],

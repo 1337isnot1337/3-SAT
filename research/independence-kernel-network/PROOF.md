@@ -214,3 +214,14 @@ an unrestricted SAT improvement or a guarantee for source hash matrices.
 A genuinely smaller complete SAT bound would require proving a uniformly
 small equivalent representation for the relevant checks while paying all
 clause, branch and query costs.
+
+The source checks also impose a limit on this preprocessing. If m>P, the
+initial sparse-check distance is greater than one, so every column of A is
+nonzero; adding rows preserves this property. For any B with the same kernel,
+B e_j is nonzero for every j, hence B has at least m nonzero entries. No row
+basis or equivalent check representation can evade this bound. Applied to
+the source-sparsifier root-leaf family in PR #83 with
+m=n floor((ceil(log_2 n))^(1/4)) and m>P, every equivalent free-violation-bit
+check matrix has h(B)>=m=omega(n log log n). The underlying formulas are
+easy, and a formula-aware simplification or different encoding can avoid the
+free-coordinate interface; this is not a SAT lower bound.
