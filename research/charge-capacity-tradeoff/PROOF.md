@@ -97,6 +97,31 @@ particular a linear effective degree e cannot retain the full leading label
 capacity at the same grade. A full-capacity sequence necessarily has
 `e=o(h)`, provided the degree ratios are bounded; ratios above 2 are zero.
 
+## Attaining the rank-one endpoint
+
+For the unweighted raw piece Q_s at any h>=1, the coefficient of q^(2h)
+is zero except at row and column label `(1,1,...,1)`. At those labels it
+is the following scalar operator on every output energy space:
+
+    [q^(2h)] Q_s = (-1)^(h-s) binom(2h,h-s) Id,  |s|<=h,       (7)
+
+and zero outside this shift range. To prove this, degree 2h forces both
+partitions to have h parts, hence all ones, and forces every current to use
+its zero mode. Each factor then acts as q Id with mode zero. For these
+labels the dual polynomial is t_1^h and the column scale is one. In the
+predecessor's alternating piece formula, zero mode in both factors forces
+summation index i=h-s, and the dual taper contributes binom(2h,i), with
+sign (-1)^i. These identities hold at every output grade, and the same
+argument applies to either operator order. Thus each |s|<=h attains the
+mask's rank-one upper bound in characteristic zero, including the outer
+shift s=h. It does not retain exponentially many labels or give the two
+factorization costs of a new crossing family.
+
+`endpoint.py` checks this coefficient by exact finite differences of the
+actual predecessor operators at h=1,2,3, all label pairs, output grades
+0,1,2, and shifts from -h-1 through h+1 in both operator orders. This is
+a finite check of the formula, not independent verification of the proof.
+
 ## Limits and cost
 
 No relation between charge degree and the size of a removed shift interval

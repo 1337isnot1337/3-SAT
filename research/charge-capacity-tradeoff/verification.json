@@ -2,9 +2,9 @@
   "check": "exact partition counts, greedy matching versus minimum cover, and capacity sandwich",
   "max_grade": 35,
   "sha256": {
-    "CLAIM.json": "b61d92b127314d7bab80cdb436f6397b1b9ce9ff6b3cca1d1937c8c855dbeb16",
-    "PROOF.md": "30afd6bc4d3b7a98b6b96b5e23b98abaca1e1c8c8099fa88733e974a8deb075c",
-    "README.md": "08a5f3132f8ea833ea088115f4a2f14c57dde729920d906b39eccc37fe7cfef1",
+    "CLAIM.json": "f2509eb3acf66fc7e55271da80a639e5e8dcbf9cf249d7dad891386707fc3822",
+    "PROOF.md": "a8b2e4399b799435c547aafd51bf1baf8a6ea157dad9ba621fe69234a3036ac7",
+    "README.md": "082ca4ae8818bf979416e9469eb94733258b27419bdabeb1acb70709947a5dc6",
     "verify.py": "4e19bba1fcf2181079c747fd2af1d85bd84d20289d6b81c04a8f0ffbd21ce64e"
   },
   "strict_improvements_over_predecessor_cover": 430,

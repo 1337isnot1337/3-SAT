@@ -16,6 +16,10 @@ unrestricted support mask, although actual operators may have smaller rank. For 
 2^lambda label rank requires an asymptotic grade at least
 `1/(1-delta/2)` times the first-moment reference grade. The precise
 statement, proof, limiting cases and restrictions are in [PROOF.md](PROOF.md).
+At e=2h the rank-one mask is actually attained: extracting q^(2h) from
+an individual raw charged piece gives an explicit scalar identity on the
+all-ones row and column labels. This endpoint has only one label and does
+not establish a useful crossing family.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -30,12 +34,15 @@ Reproduce the bounded independent matching check and repository checks:
 
 ```sh
 python3 -I -B research/charge-capacity-tradeoff/verify.py
+python3 -I -B research/charge-capacity-tradeoff/endpoint.py
 make verify
 ```
 
 [verification.json](verification.json) records the grade range, number of
 thresholds, strict finite improvements and SHA-256 hashes. These finite
-checks do not prove the all-size asymptotic argument or operator realizability.
+checks do not prove the all-size arguments or general operator realizability.
+[endpoint-verification.json](endpoint-verification.json) records the exact
+finite-difference endpoint checks and predecessor module hashes.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,

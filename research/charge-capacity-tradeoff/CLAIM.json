@@ -8,13 +8,15 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For raw charged pieces with polynomial shift weights of degree at most b, any linear extraction annihilating q-degrees below d has length support threshold e=d-b and exact structural rank given by a minimum threshold cover. Positive limiting e/h forces leading label-capacity loss and a quantified necessary grade increase; this is not a SAT bound.",
+  "statement": "For raw charged pieces with polynomial shift weights of degree at most b, any linear extraction annihilating q-degrees below d has length support threshold e=d-b and exact structural rank given by a minimum threshold cover. Positive limiting e/h forces leading label-capacity loss and a quantified necessary grade increase; this is not a SAT bound. At the maximum effective degree 2h, a raw charged piece attains the rank-one mask via an explicit scalar output on the all-ones labels.",
   "improves_bound": false,
   "evidence": [
     "research/charge-capacity-tradeoff/README.md",
     "research/charge-capacity-tradeoff/PROOF.md",
     "research/charge-capacity-tradeoff/verify.py",
-    "research/charge-capacity-tradeoff/verification.json"
+    "research/charge-capacity-tradeoff/verification.json",
+    "research/charge-capacity-tradeoff/endpoint.py",
+    "research/charge-capacity-tradeoff/endpoint-verification.json"
   ],
   "reproduce": [
     "python3",
