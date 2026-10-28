@@ -40,5 +40,9 @@ accepted OpenAI source `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`,
 `93dd174db3c354d3548bce4b291af30a6964977f`; locality predecessor
 [PR #48](https://github.com/1337isnot1337/3-SAT/pull/48). The private-edge
 support argument is credited to PR #44; this package changes the graph and
-proves its cyclic-span boundary. Contributor: 1337isnot1337, with substantial
+proves its cyclic-span boundary. Before issue #67 was opened, a concurrent
+[issue #29 continuation](https://github.com/1337isnot1337/3-SAT/issues/29#issuecomment-6459412498)
+independently proposed the same private-edge hypercube/nonlocality objective
+using a bipartite double cover; its later branch analysis is not claimed here.
+Contributor: 1337isnot1337, with substantial
 OpenAI Codex assistance. New material is Apache-2.0.
