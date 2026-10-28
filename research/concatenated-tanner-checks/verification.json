@@ -1,0 +1,16 @@
+{
+  "direct_positive_h": 2,
+  "parameter_cases": 20000,
+  "regimes": {
+    "local_construct": 19919,
+    "local_fallback": 81,
+    "positive_h": 0,
+    "q1": 181,
+    "q_gt_1": 19819
+  },
+  "result": "pass",
+  "seed": 834211,
+  "toy_codewords": 32767,
+  "toy_low_weight_words": 44,
+  "toy_min_distance": 6
+}
