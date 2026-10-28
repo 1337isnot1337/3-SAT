@@ -9,6 +9,13 @@ so a direct exact transfer computation counts its satisfying assignments in
 `n^O(k)` time and polynomial space for fixed `k`. The result bypasses that
 particular incidence representation; it does not contradict its lower bound.
 
+A stronger witness-specific identity forces the degree-`k` monomial values
+to have period `g=gcd(n,k floor(log2 n))`. Enumerating that pattern and using
+a span-`k` transfer gives time `poly(n,k) 2^(g+2(k-1))` and space
+`poly(n,k) 2^(k-1)`. When `g=1`, the count is the number of cyclic binary
+strings with no `k` consecutive ones, plus one exactly when `floor(log2 n)`
+is even. This is an additional special-family result, not a universal bound.
+
 [PROOF.md](PROOF.md) proves an exact transfer interface for explicitly listed
 polynomial systems with a supplied cyclic order and span `L`: time
 `poly(n+B) 2^(2(L-1))` and space `poly(n+B) 2^(L-1)` bits. It also proves
@@ -25,7 +32,8 @@ make verify
 
 The exact checker compares the transfer implementation with independent
 brute-force enumeration for 3,356 local polynomials, 1,200 seeded systems,
-and 15 cyclic-witness instances. It checks all 5,040 circular orderings of
+and 15 cyclic-witness instances; a second periodic-pattern algorithm is
+checked on those 15 instances and the coprime formula on nine. It checks all 5,040 circular orderings of
 the seven-vertex tree. Saved output is [verification.json](verification.json).
 These finite tests do not establish the all-size proof. No native fast SAT
 solver, independent review, or formal verification is claimed.

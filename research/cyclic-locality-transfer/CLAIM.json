@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "An exact cyclic-span transfer algorithm counts the predecessor cyclic nonlinear support witness in polynomial time for fixed k; sparse quadratic tree systems can require Omega(n/log n) cyclic span in every order. No general SAT bound improvement.",
+  "statement": "An exact cyclic-span transfer algorithm counts the predecessor cyclic nonlinear support witness in polynomial time for fixed k; a gcd-periodic monomial pattern yields a smaller witness-specific transfer and coprime formula. Sparse quadratic tree systems can require Omega(n/log n) cyclic span in every order. No general SAT bound improvement.",
   "improves_bound": false,
   "evidence": [
     "research/cyclic-locality-transfer/PROOF.md",
