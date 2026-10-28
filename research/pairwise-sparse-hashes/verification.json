@@ -1,0 +1,12 @@
+{
+  "coefficient_hit_patterns": 510,
+  "fields": [
+    2,
+    4,
+    8
+  ],
+  "parameter_cases": 25,
+  "qualifying_supports": 1069,
+  "result": "pass",
+  "seed_support_pairs": 45364
+}
