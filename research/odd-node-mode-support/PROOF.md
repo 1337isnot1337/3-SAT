@@ -451,6 +451,130 @@ suggested by the screen, and the last-row exception remains real. It also
 does not supply the complete global arrangement of subdivision and pin
 packets.
 
+## 8. An explicit subdivided unit-clause family
+
+The even-row pinning lemma closes the subdivision step for a specified valid
+packing. More precisely, for arbitrarily large sizes there are fixed-density
+CNF inputs consisting solely of unit clauses, including repeated identical
+clauses, whose **per-edge subdivided clause/variable tensor network** admits
+a specified valid root packing with `exp(Omega(M/sqrt(u)))` retained
+odd-node child-product summands nonzero at the prescribed precision, at
+`t=1` with `zeta=1` in the evaluation set. The source's particular default
+labeling need not choose this packing, and a preprocessor that removes the
+repeated unit clauses changes the input network. The formula is trivially
+simplifiable; this is not a SAT or algorithmic time lower bound.
+
+### Network and actual reduction size
+
+Let `S_0=2^N`, `u=floor(epsilon N)`, `a=2u`, `L=2^a`, `r=64`, and
+`D_arr=L^12`. Set
+
+```
+B_pad = 4L floor(S_0/(4L D_arr)),  M = B_pad D_arr.
+```
+
+Allocate `B_pad` real edges to every ordered pair of vertex labels and form
+full packets by the source orientation rule. The number of packets of each
+unordered pair-label type is a multiple of four. Partition each type's
+packets into quartets `(T,T',H,H')`, using identical slot-orientation
+conventions within each quartet. Select every quartet whose coordinate-zero
+pair is unequal. Their number is
+
+```
+P = (r-1) M/(4r L) = Theta(M/L).
+```
+
+Choose `b` as in Section 1, and let `J={0,2,...,2(b-1)}` be the selected
+even row slots. For each selected quartet, define its old row vertices:
+
+* At each slot `x in J`, `T` has a negative unit clause, `H'` has a
+  negative unit clause, and the ports at `T'` and `H` belong to the same
+  binary variable-equality vertex.
+* At each other slot, `T` and `H` have degree-one variable vertices, while
+  `T'` and `H'` have unit clauses. All those clauses are negative except
+  the clause at slot `L-3` of `T'`, which is positive.
+
+The two ports of each binary variable vertex have identical complete row
+labels, because the packet copies have the same unordered type, orientation
+and slot. At every slot, join the corresponding **column** ports of `T`
+and `T'` into a binary subdivision equality, and do the same for `H` and
+`H'`. Column labels match for the same reason. Each such subdivision vertex
+connects a clause endpoint to a variable endpoint. Thus these are exactly
+the row/column types of the source's fixed-density per-edge subdivision.
+The two clauses incident to each selected degree-two variable are repeated
+negative unit clauses.
+
+For each unselected quartet, use two disjoint filler pairs from Section 7.
+Every packet remains full, every ordered label-pair class has load `B_pad`,
+the collision variance is zero and each symbol has `M/r` ports on each
+side in every coordinate. All vertices and assignments are constructible in
+time polynomial in `S_0`.
+
+There is one degree-two variable vertex per selected row, so the number of
+old clause and variable vertices, and hence the reduction's own size
+parameter, is `s=n+m=M-Pb`. Since `b=O(L/sqrt(u))` and `M=S_0-O(L D_arr)`,
+we have `s/S_0 -> 1`; in particular `2^(N-1)<s<2^N` for large `N` and
+`ceil(log2 s)=N`. Thus the source really chooses the displayed `u,a,L` for
+this input. Also `M<=2s`, `M>H`, the source degree and packing inequalities
+hold, and `m/n` is bounded. This accounting does not treat `S_0` as the
+reduction's exact size when it is not.
+
+### Coefficients after the helper and target pins
+
+At the selected node, the `H/H'` pair is the filler-pinning construction of
+Section 7 with equality gates attached at the even rows `J`. Divide its
+contribution by `2^3`. Equation (6) says that, modulo two, it pins the
+corresponding external `T'` row forms to zero. All other `T'` rows are unit
+clauses: they pin their row forms to zero, except row `L-3`, which pins one.
+The Cauchy matrix modulo two is the shifted identity `W_xy=[y=x+1]`.
+Consequently, after summing the tied column bits of `T/T'`, every target
+column bit except `X_0` is fixed modulo two: the sole one is
+`X_(L-2)=1`. All local columns of selected even target rows are zero.
+
+Select only mode tuples whose support contains mode 0. Their exponent
+`beta_0` is positive. In the even source tile, the mode-0 value is
+`X_0+1` modulo two; for every `k>=1`, the value is the unit
+`sigma_k(K-1)` because `sigma_k(0)=0`. Thus, in the source-mode product,
+the free boundary assignment `X_0=1` contributes zero and `X_0=0`
+contributes one. No unsupported division by a boundary factor is used.
+
+The selected `T` rows are negative unit clauses. After dividing each
+crossing coefficient by its odd-node weight and reducing modulo two, their
+product is the same invertible-Pascal polynomial (2), with minus signs
+irrelevant in `F_2`. The Boolean-quotient argument therefore supplies an
+odd normalized original coefficient for every support containing mode 0:
+`2^(b-1)` distinct tuples per selected quartet, each of total degree at
+most `b`. The source-mode values for that tuple are units at the sole
+surviving boundary assignment.
+
+### Actual precision and count
+
+Every selected `H/H'` pair contributes `2^3` times the pin polynomial
+modulo the next bit; every unselected filler pair contributes `2^3` times
+a unit by Section 7. Let `F` be the number of unselected filler pairs.
+The normalized complete coefficient of every selected global tuple is odd,
+so its valuation is exactly `3(P+F)` plus its source mode weight. Since
+`P+F<=M/(2L)`, the extra precision cost is at most `3M/(2L)`.
+
+The total mode weight is at most `P b(a+1+4b)` and hence `o(ML/u)` plus a
+small fixed fraction of `ML/u`, exactly as in Section 4. The prescribed
+`p_t>=24ML/u` therefore exceeds the valuation and the weight for large
+`N`. With `P=Theta(M/L)` and `b=Theta(L/sqrt(u))`, the number of distinct
+complete surviving tuples is at least
+
+```
+2^(P(b-1)) = exp(Omega(M/sqrt(u))).
+```
+
+The [reduction-gadget checker](reduction-gadget.py) explicitly checks the
+four-packet endpoint types and labels, sums the helper equality gates modulo
+16, enumerates target assignments including the boundary bit, and checks all
+support witnesses containing mode 0 for `(L,b)=(8,2),(16,2)`. These bounded
+checks do not independently review the all-size proof. In particular the
+conclusion concerns a specified valid packing and the specified odd-node
+expansion, not every packing, a lower bound against preprocessing or
+aggregation, or an improved SAT algorithm.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact
@@ -464,7 +588,7 @@ implement the full recursion. The frozen source labels are
 `eq:tensor-recursion-identity`; root `SOURCES.json` supplies hashes and
 licenses.
 
-The Boolean-clause family uses clause, pin and unary tables, but a result
-for the exact subdivided SAT-reduction output still needs its additional
-equality wires placed and analyzed through the deformation. An algorithmic lower bound would separately need to rule out
+The unit-clause family gives a specified valid packing of the literal
+per-edge subdivision, provided the repeated input clauses are retained.
+The source default packing, preprocessing, and aggregation remain separate. An algorithmic lower bound would separately need to rule out
 simplification, aggregation and alternate packing. No such claim is made.

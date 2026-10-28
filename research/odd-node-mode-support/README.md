@@ -7,19 +7,21 @@ is claimed.
 Task: `weighted-modes`; base `1dfac844cbb1e570c99579ecf48c1007d72da7c9`.
 Contributor: Cinna Davis, with substantial OpenAI Codex assistance.
 
-The [proof](PROOF.md) constructs a bounded-degree weighted tensor network
-and a specified valid, exactly balanced root packing. For the odd-node
+The [proof](PROOF.md) constructs fixed-density unit-clause CNF inputs
+whose subdivided tensor networks admit specified, exactly balanced root
+packings. For the odd-node
 Newton expansion at `t=1`, with `zeta=1` included in the evaluation set,
 at least `exp(Omega(M/sqrt(u)))` distinct complete child-product summands
 are inside the source's weighted budget and nonzero modulo its prescribed
 precision. This matches the order of the formal enumeration envelope for
 this specific representation and call.
 
-The first construction uses the unary tensor `(1,2)`. A paired-packet
-construction replaces it with Boolean two-literal clauses, unary pins and
-free unary tensors while preserving the support scale. Neither is claimed to
-be the literal subdivided SAT-reduction output. The network is disconnected
-and easily simplified; the source's
+The proof gives three constructions. The strongest starts with fixed-density
+CNF containing only unit clauses, including repeated identical clauses, and
+uses the source's literal per-edge subdivision. Four packets per gadget,
+together with an even-row pinning lemma, preserve the support scale. The
+formula is disconnected and easily simplified; removing duplicate clauses
+changes this particular input network. The source's
 default labeling need not select this packing, and nonzero summands can
 cancel or be aggregated. The result does not establish a SAT lower bound,
 an algorithmic time lower bound, or a speedup.
@@ -41,6 +43,7 @@ Reproduce using Python 3.11+ and the standard library:
 ```sh
 python3 -I -B research/odd-node-mode-support/verify.py
 python3 -I -B research/odd-node-mode-support/filler-moments.py
+python3 -I -B research/odd-node-mode-support/reduction-gadget.py
 make verify
 ```
 
@@ -54,10 +57,12 @@ Boolean-clause selected coefficients are recomputed as exact rationals, and
 a conditional local subdivision/pin gate is checked for every external bit
 vector. A separate all-size filler lemma proves that a paired unit-clause
 and free-variable subdivision packet contributes exactly three powers of
-two; its modulo-16 expansion is checked through `L=64`. An all-size moment lemma then proves simultaneous pinning on even rows
-after removing that factor; a finite screen finds a last-row exception, and
-the broader nonboundary generalization remains unproved. Neither result is a globally packed SAT-reduction construction. These finite checks do
-not review the all-size proof or implement the full recursion.
+two; its modulo-16 expansion is checked through `L=64`. An all-size moment
+lemma then proves simultaneous pinning on even rows after removing that
+factor; a finite screen finds a last-row exception, and the broader
+nonboundary generalization remains unproved. The separate reduction-gadget
+checker verifies bounded four-packet instances and the boundary bit. These
+finite checks do not review the all-size proof or implement the full recursion.
 
 Issue [#22](https://github.com/1337isnot1337/3-SAT/issues/22) coordinates
 this lane. The accepted theorem, selected result and frozen upstream are

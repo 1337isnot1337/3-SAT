@@ -27,7 +27,7 @@
   ],
   "scope": "finite modulo-16 screen; nonboundary generalization unproved",
   "sha256": {
-    "research/odd-node-mode-support/PROOF.md": "7985d69d8c0e389811bb17620f4acd237db3abfe6d4f795866582ae49a0863dd",
+    "research/odd-node-mode-support/PROOF.md": "85cb8a4b6e21ac71f564d83e53c784297006e6c1f1b62a25c01f8cb68808ecc6",
     "research/odd-node-mode-support/filler-moments.py": "f1dcefc1c3487ae11b04f31a99acaf41f6a606545e3c676f2cd29dbd64db805f",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
   }
