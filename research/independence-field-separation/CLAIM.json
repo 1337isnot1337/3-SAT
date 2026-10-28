@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "independence-field-separation",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "1dfac844cbb1e570c99579ecf48c1007d72da7c9",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A two-copy binary projective configuration has independence cut rank equal to the number of binary subspaces over Q and odd characteristic, but 2^b in characteristic two; no SAT bound is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/independence-field-separation/PROOF.md",
+    "research/independence-field-separation/verify.py",
+    "research/independence-field-separation/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/independence-field-separation/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size lattice factorization and rank bounds",
+    "Determine whether any field-dependent interface yields an improved complete algorithm",
+    "No general SAT lower bound or alpha improvement is claimed"
+  ]
+}
