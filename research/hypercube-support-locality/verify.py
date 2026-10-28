@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+"""Bounded exact controls for the oriented-hypercube support witness."""
+import itertools
+import json
+import random
+
+
+def construction(d):
+    assert d > 0 and d % 2 == 0
+    n = 1 << d
+    rows = []
+    for v in range(n):
+        row = []
+        for j in range(0, d, 2):
+            a, b = (v >> j) & 1, (v >> (j + 1)) & 1
+            u = v ^ (1 << (j if a == b else j + 1))
+            row.append(tuple(sorted((u, v))))
+        rows.append(set(row))
+    return rows
+
+
+def rank(vectors):
+    pivots = {}
+    for x in vectors:
+        while x:
+            bit = x.bit_length() - 1
+            if bit in pivots:
+                x ^= pivots[bit]
+            else:
+                pivots[bit] = x
+                break
+    return len(pivots)
+
+
+def combination(rows, mask):
+    edges = set()
+    for i, row in enumerate(rows):
+        if mask >> i & 1:
+            edges.symmetric_difference_update(row)
+    return edges
+
+
+def eval_row(edges, x):
+    return sum(((x >> a) & 1) * ((x >> b) & 1) for a, b in edges) % 2
+
+
+def check_order(rows, order, d):
+    n = len(rows)
+    position = {v: i for i, v in enumerate(order)}
+    max_edge_distance = max(min((position[u] - position[v]) % n,
+                                (position[v] - position[u]) % n)
+                            for row in rows for u, v in row)
+    assert d * max_edge_distance >= n // 2
+
+
+def main():
+    rng = random.Random(670104)
+    checks = {'cube_edges': 0, 'row_combinations': 0, 'mobius_coefficients': 0,
+              'invertible_4_by_4_bases': 0, 'seeded_bases': 0,
+              'cyclic_orders': 0}
+    for d in (2, 4, 6):
+        rows = construction(d)
+        n, ell = len(rows), d // 2
+        all_edges = [edge for row in rows for edge in row]
+        assert len(set(all_edges)) == n * ell
+        assert len(all_edges) == n * d // 2
+        assert all(len(row) == ell for row in rows)
+        assert all(sum(v in edge for edge in all_edges) == d for v in range(n))
+        assert all(sum(any(v in edge for edge in row) for row in rows) == ell + 1
+                   for v in range(n))
+        checks['cube_edges'] += len(all_edges)
+        masks = range(1, 1 << n) if n == 4 else [rng.randrange(1, 1 << n) for _ in range(500)]
+        for mask in masks:
+            edges = combination(rows, mask)
+            assert len(edges) == ell * mask.bit_count()
+            checks['row_combinations'] += 1
+            for u, v in edges:
+                # Coefficient of x_u x_v in integer zero-indicator 1-P(x).
+                coef = sum((-1 if ((3 ^ subset).bit_count() & 1) else 1)
+                           * (1 - eval_row(edges, ((subset & 1) << u) | (((subset >> 1) & 1) << v)))
+                           for subset in range(4))
+                assert coef == -1
+                checks['mobius_coefficients'] += 1
+        orders = list(itertools.permutations(range(n))) if n == 4 else []
+        if n != 4:
+            for _ in range(200):
+                order = list(range(n)); rng.shuffle(order); orders.append(order)
+        for order in orders:
+            check_order(rows, order, d)
+            checks['cyclic_orders'] += 1
+        if n == 4:
+            for basis in itertools.product(range(1 << n), repeat=n):
+                if rank(basis) == n:
+                    assert all(len(combination(rows, mask)) >= ell for mask in basis)
+                    checks['invertible_4_by_4_bases'] += 1
+        else:
+            for _ in range(100):
+                basis = [1 << i for i in range(n)]
+                for _ in range(4 * n):
+                    a, b = rng.sample(range(n), 2)
+                    basis[a] ^= basis[b]
+                assert rank(basis) == n
+                assert all(len(combination(rows, mask)) >= ell for mask in basis)
+                checks['seeded_bases'] += 1
+    print(json.dumps({'seed': 670104, 'checks': checks, 'status': 'pass'}, indent=2, sort_keys=True))
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "hypercube-support-locality",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "coefficientwise_and_cyclic_span_obstruction",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Explicit even-dimensional oriented hypercube sparse quadratic systems retain Omega(n log log n) injective scalar-lift index bits under invertible row bases, and every such basis and cyclic order has span Omega(n/log n). This is not a SAT lower bound or improved algorithm.",
+  "improves_bound": false,
+  "evidence": [
+    "research/hypercube-support-locality/PROOF.md",
+    "research/hypercube-support-locality/verify.py",
+    "research/hypercube-support-locality/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/hypercube-support-locality/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written all-size argument",
+    "Substitution and repeated branching not covered",
+    "General aggregation and alternative algorithms not excluded",
+    "No improved all-input SAT bound or alpha"
+  ]
+}

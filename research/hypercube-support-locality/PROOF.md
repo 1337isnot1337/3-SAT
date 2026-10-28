@@ -1,0 +1,112 @@
+# Row-basis support with nonlocal original variables
+
+This is a scoped extension of the private-edge construction in
+[PR #44](https://github.com/1337isnot1337/3-SAT/pull/44), head
+`93dd174db3c354d3548bce4b291af30a6964977f`. It combines that support
+mechanism with an obstruction to the bounded-cyclic-span interface in
+[PR #48](https://github.com/1337isnot1337/3-SAT/pull/48). The argument is
+about a specified representation and is not a SAT lower bound.
+
+## Explicit sparse systems
+
+Let `d >= 2` be even, `n=2^d`, `L=d/2`, and label the variables by vertices
+of the d-dimensional hypercube. Pair the coordinate positions as
+`(0,1),(2,3),...`. In every square corresponding to a coordinate pair,
+orient its four edges cyclically `00 -> 10 -> 11 -> 01 -> 00` with the
+other coordinates held fixed. These squares partition all edges: each edge
+belongs to the unique pair containing its flipped coordinate. Consequently
+this gives an explicit, deterministic orientation with exactly `L` outgoing
+and `L` incoming edges at each vertex. It is constructible in `O(nd)` steps.
+
+For each vertex v define a polynomial equation
+
+```
+P_v(x) = XOR_{v -> u} x_v x_u = 0.
+```
+
+Each row has exactly `L` distinct quadratic monomials and `L+1` variables.
+Every undirected cube edge occurs in exactly one row. Each variable occurs
+in its own row and in exactly `L` incoming neighbors' rows, so its scope load
+is `L+1`, and `N0=n(L+1)`. With `lambda=ceil(log2 n)=d`, the accepted
+sparse-query high-incidence threshold `(L+1) ceil(sqrt(d))` is no smaller
+than this load, so this original presentation triggers no such branch.
+There are `n` equations, `L <= lambda` monomials per row, and degree 2;
+these satisfy the source's sparse-query interface. The all-zero assignment
+satisfies every equation, so the family has a trivial decision witness.
+
+## Row-basis-resistant support
+
+Write `E_v` for the set of edges assigned to row v. The sets `E_v` are
+pairwise disjoint. For a nonzero binary row vector `a`, the normalized
+polynomial `Q_a = XOR_v a_v P_v` contains exactly `L wt(a)` distinct
+quadratic monomials. Hence the original polynomials are linearly independent,
+and every row of every invertible binary basis change has at least `L`
+monomials. This count is exact and there are no linear or constant terms.
+A dense basis change can exceed the sparse-query input length or trigger
+subsequent high-incidence preprocessing; the following is a pre-branch
+statement about its scalar-lift representation, not a claim that the
+transformed query remains inside the original sparse-query promise.
+
+Give each transformed row its own incidence variables. In the integer
+zero-indicator lift `E_Q(z)=1-(Q(z) mod 2)` on Boolean inputs, the coefficient
+of a present degree-two monomial `z_u z_v` equals `-1`: its subset Mobius
+formula has values 1 at the empty and two singleton inputs and 0 at `{u,v}`.
+Selecting independently one of at least `L` such monomials in each row gives
+at least `L^n` distinct incidence monomials of degree `2n` and coefficient
+`(-1)^n` in the product lift. They survive modulo `2^(n+1)` and fit the
+scalar predecessor's degree cutoff `2(a+p-1)=4n` at `a=n`, `p=n+1`.
+Different incidence monomials can still cancel after identifying variables
+or summing; no claim is made that their total contribution is nonzero.
+
+For the predecessor's `J=ceil(n^(1/4))` groups per side, there are at most
+`(2n+1)^(J^2)` degree arrays relevant to these degree-`2n` choices. Some
+array therefore contains at least `L^n/(2n+1)^(J^2)` such monomials. Any
+injective binary code for each of them within that array has at least
+
+```
+n log2 L - J^2 log2(2n+1) = Omega(n log log n)
+```
+
+bits for the growing even-d sequence. This extends the mechanism of PR #44
+to this graph; it is not a lower bound for an aggregate or alternative code.
+
+## Every circular ordering has large span
+
+Consider any cyclic order of the variables and any invertible row basis.
+Suppose every transformed equation's variable scope is contained in a cyclic
+interval of at most `s` variables. Since every original edge belongs to a
+unique original row and the basis matrix is invertible, the corresponding
+column of that matrix is nonzero: the edge appears in at least one
+transformed equation. Its two endpoints therefore have circular distance
+at most `s-1`.
+
+Choose two vertices at opposite locations in the order, circular distance
+`n/2`. Their hypercube graph distance is at most its diameter `d`. Apply
+the circular metric triangle inequality along a cube path between them:
+
+```
+n/2 <= d(s-1),  so  s >= 1 + n/(2d) = Omega(n/log n).
+```
+
+Thus neither the original equations nor any invertible row basis admits
+the logarithmic cyclic span needed for the polynomial-time transfer in
+PR #48. This is an ordering-interface obstruction only. Other decompositions,
+nonlinear transformations, variable elimination, tree decompositions,
+problem-specific algorithms, or changes of coefficient representation are
+not excluded. Large circular span alone does not establish computational
+hardness.
+
+## Costs and evidence boundary
+
+No new SAT algorithm is supplied. Neither the coefficientwise obstruction
+nor the circular-span bound establishes the cost of the entire dense
+reduction, its branches and queries, tensor entries, contractions,
+precision, recovery, or space. The accepted bound and alpha remain unchanged.
+In particular, a local per-branch observation from PR #44 is not imported
+here as a proved claim; arbitrary substitutions require separate accounting.
+
+`verify.py` checks explicit small cubes, all invertible four-row bases,
+seeded larger bases, exact integer subset-Mobius coefficients, and circular
+orderings. The saved finite output supports regression testing, not the
+all-size claims. Those arguments are author-checked, substantially AI-assisted,
+and have not received independent human or formal review.

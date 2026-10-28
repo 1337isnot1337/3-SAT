@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "cube_edges": 228,
+    "cyclic_orders": 424,
+    "invertible_4_by_4_bases": 20160,
+    "mobius_coefficients": 56516,
+    "row_combinations": 1015,
+    "seeded_bases": 200
+  },
+  "seed": 670104,
+  "status": "pass"
+}
