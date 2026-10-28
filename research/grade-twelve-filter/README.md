@@ -20,6 +20,17 @@ This is one finite codebook. Other codebooks, charge-dependent filters,
 non-scalar output identities and all-size behavior are not classified; this
 is not a general 3-SAT lower bound.
 
+There is also a conditional full classification. The weight-at-most-two
+moment argument in [PR #89 at head 431477e](https://github.com/1337isnot1337/3-SAT/blob/431477efe926c611e693804f323c50ac76969192/research/charged-cubic-parity/PROOF.md)
+asserts that the weights `1`, `s` and `s^2` each act scalarly on every fixed
+output-energy space. Assuming that author-checked argument, the scalar-weight
+space for this grade is exactly the quadratic polynomials restricted to
+the shifts. Indeed, subtract the unique quadratic interpolating any scalar
+weight at `-1,0,1`; the remainder is scalar and vanishes at those shifts, so
+the finite certificate below makes it zero. The three quadratic sequences are
+independent. The same deduction applies at grade nine by PR #97. This
+conditional corollary is not an all-grade rigidity claim.
+
 ## Certificate and proof
 
 Off-diagonal zero conditions alone give integer linear equations in the 46
