@@ -18,8 +18,10 @@ space V_E and for every integer charge q,
 Consequently every polynomial shift weight f of degree at most h acts on
 this input row as the constant weight f(0); if f(0)=0, the entire filtered
 operator row is zero. This is an equality on the **whole output space**,
-not only a compressed codebook. It does not imply the other input labels
-have low rank or that a high-capacity asymmetric label minor is impossible.
+not only a compressed codebook. Any full p(h)-by-p(h) scalar pairing for
+such a filter has rank at most p(h)-1 because its `(h)` row is zero. This
+does not imply the remaining input labels have low rank or that a
+high-capacity asymmetric label minor is impossible.
 
 The cutoff is sharp at every h>=1. For every integer charge q and the source's single-part
 second label b^(h), the next moment has a positive explicit diagonal entry:
