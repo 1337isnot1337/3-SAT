@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "streamed-clique-space",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "conditional_streamed_field_clique_space",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "46f471b22e1f696b08b3ab49fc6cad5dfa0df932",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Given the source master rank/recurrence contracts and uniformly polynomial-workspace root and crossing-factor evaluators with their time costs charged, the field-clique recursion has a depth-first nonmemoizing executor using polynomial workspace and the source master time envelope up to charged polynomial factors. Sequential CRT preserves this query-level space under its own polynomial-workspace hypotheses. No full SAT space guarantee or improved exponent is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/streamed-clique-space/PROOF.md",
+    "research/streamed-clique-space/verify.py",
+    "research/streamed-clique-space/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/streamed-clique-space/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size query workspace and time argument",
+    "Complete workspace analysis of fixed- and general-density reductions including sparsification",
+    "A better crossing family satisfying both rank and streamability contracts"
+  ]
+}

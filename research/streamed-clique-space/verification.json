@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "bounded lazy grouping/CRT, not full master recursion",
+  "instances": 256,
+  "field_query_comparisons": 768,
+  "signed_negative_queries": 154,
+  "primes": [
+    101,
+    103,
+    107
+  ],
+  "maximum_nested_frames": 3,
+  "maximum_frame_calls_per_query": 25,
+  "sha256": {
+    "research/streamed-clique-space/PROOF.md": "8dcf4e12df26333eeba799196919dd0d2e141562f939eb8a2d14a934b3957c09",
+    "research/streamed-clique-space/verify.py": "86b4e05b0346faf451b253c1c0aed607be8a530e007b2fd281653cc7b372545b",
+    "research/deterministic-crt-transfer/verify.py": "f22639017e8c259144354d78f0d74a05024d011a40fd55bb8d9469d067bca6a7"
+  }
+}
