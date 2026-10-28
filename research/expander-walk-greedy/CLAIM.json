@@ -8,14 +8,16 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Deterministic expander walks and polynomial-evaluation small-bias coefficients give q d^(P-1) h^2 candidate rows per round, q < 2m, d=O(log(m+2)), h < 4P; each support of size at least m/P is rejected with probability at least 1/40, enabling 28n greedy rounds under the source counting oracle. This compresses preprocessing but does not improve the selected SAT bound.",
+  "statement": "An enumerated pairwise-independent finite-field index family and polynomial-evaluation coefficient family give fewer than 64 max(q,P)^2 P^2 candidate rows per round, q < 2m; each support of size at least m/P is rejected with probability at least 1/12, enabling 8n greedy rounds under the source counting oracle. This compresses preprocessing but does not improve the selected SAT bound.",
   "improves_bound": false,
   "evidence": [
     "research/expander-walk-greedy/PROOF.md",
     "research/expander-walk-greedy/verify.py",
     "research/expander-walk-greedy/SMALL-BIAS.md",
     "research/expander-walk-greedy/verify_bias.py",
-    "research/expander-walk-greedy/CONSTANT-DEGREE.md"
+    "research/expander-walk-greedy/CONSTANT-DEGREE.md",
+    "research/expander-walk-greedy/PAIRWISE.md",
+    "research/expander-walk-greedy/verify_pairwise.py"
   ],
   "reproduce": [
     "python3",
@@ -24,6 +26,7 @@
     "research/expander-walk-greedy/verify.py"
   ],
   "remaining_obligations": [
+    "Independent review of the pairwise-index proof and complete oracle composition",
     "Independent review of the all-size construction, coefficient family and oracle cost composition",
     "Implement and independently replay the cited constant-degree expander construction and rational spectral checker",
     "Find a changed contraction or preprocessing contract where candidate compression affects a dominant term",
