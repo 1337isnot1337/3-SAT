@@ -199,6 +199,20 @@ def run():
                 general_identity(cols,weights,q)
                 count += 1
         general_cases[str(q)] = count
+    encoded_q4_checks = 0
+    for raw in itertools.product(range(4), repeat=4):
+        cols = [(raw[0],raw[1]), (raw[2],raw[3])]
+        for x in itertools.product(range(4), repeat=2):
+            for row in range(2):
+                direct = encoded = 0
+                for j in range(2):
+                    coefficient = cols[j][row]
+                    direct ^= small_mul(coefficient,x[j],4)
+                    for bit in range(2):
+                        if x[j] >> bit & 1:
+                            encoded ^= small_mul(coefficient,1 << bit,4)
+                assert direct == encoded
+                encoded_q4_checks += 1
     # The pair family [I_b|I_b] has a triangular width profile of area b^2.
     controls = []
     for b in range(1, 33):
@@ -207,6 +221,7 @@ def run():
         controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
                          'ordered_width_sum': sum(widths)})
     return {'prime_power_identity_cases': general_cases,
+            'encoded_F4_row_checks': encoded_q4_checks,
             'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
             'explicit_xor_gate_cases': gate_cases, 'zeta_coefficient_checks': zeta_entries,
             'GF8_weighted_and_group_lift_cases': 2000, 'seed': 25104,

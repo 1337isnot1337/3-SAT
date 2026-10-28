@@ -41,7 +41,8 @@ The checker compares the independent-set and kernel formulas on all 4,096
 binary 3-by-4 matrices and all 16 Boolean weight vectors, with explicit
 XOR-accumulator path counts and zeta coefficient checks, plus 2,000 seeded GF(8) weight vectors with
 grouped polynomial-lift controls. The prime-power identity is checked
-exhaustively on 2-by-2 matrices over F3 and F4. It also checks
+exhaustively on 2-by-2 matrices over F3 and F4, including explicit binary
+linear-map controls for the F4 row checks. It also checks
 32 paired-column width profiles. The [saved output](verification.json) pins
 the checker hash and seed. These are finite controls, not an independent
 review or an implementation of the accepted contraction solver.

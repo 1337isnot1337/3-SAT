@@ -1,7 +1,8 @@
 {
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "51f3b60702f8d9a7fe548ab82afa85f349635b26bc2f2f7d89b016baa4e22f9c",
+  "checker_sha256": "7b2044a7cdd0257cf97400c8cc7d2bcf91c6b102ce08d0a6ab9d0d7f074f2ad0",
+  "encoded_F4_row_checks": 8192,
   "explicit_xor_gate_cases": 65536,
   "matrices_3x4": 4096,
   "paired_order_controls": [
