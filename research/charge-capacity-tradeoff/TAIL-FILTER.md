@@ -1,8 +1,8 @@
 # A scalar high-shift filter for one label pair
 
-This construction is for the raw charged pieces of the predecessor and
-the single label pair a=(1^h). It is not a full scalar crossing family
-and does not improve the SAT bound. The written argument is author-checked
+This construction is for the raw charged pieces of the predecessor. It
+produces an exact full-label scalar pairing of rank three for h>=3, but
+does not preserve growing input-label capacity or improve the SAT bound. The written argument is author-checked
 and awaits independent review.
 
 For h>=2 and k=0,...,h define
@@ -10,6 +10,7 @@ For h>=2 and k=0,...,h define
     w_k=(1-k) binom(2h+k-1,k),
     T_h(q)=sum_(k=0)^h w_k Q_(h+k)^(q)(a,a).                (1)
 
+The displayed T_h is the all-ones entry of a full-label construction below.
 The k=1 weight is zero. Thus the support is the single shift h and the
 shifts h+2,...,2h: all shifts with |s|<h are absent. On every output
 energy E=0,...,h,
@@ -47,20 +48,44 @@ for j<=E is -2h. Since `sum j m_j=E`, the total is
 weights are integers with O(h) bits, uniformly computable in polynomial
 bit time in h, and there are h+1 formal terms.
 
-## Capacity and evidence boundary
+## The complete scalar label pairing
 
-The effective charge degree here is e=2h-2 with q-independent weights.
-The parent support theorem bounds the rank of every scalar label pairing
-obtained from this coefficient by 3 for h>=4; for h=2,3 the entire label
-dimension is at most 3. This remains true after a fixed output projection.
-Thus the central interval removal in (1) does not preserve the growing
-input-label capacity needed by the intended construction. Other charge
-combinations, polynomial q-dependent weights, label normalization, both
-required directional ranks, and full SAT costs remain open.
+Use the same weights for every label pair mu,nu, and write
+`delta_mu=h-length(mu)`, `delta_nu=h-length(nu)`. On every output grade
+E<=h the extracted operator is `G_E(mu,nu) Id`, where
+
+    G_E(mu,nu) = -2h(h^2-h+1)E            if delta_mu+delta_nu=0,
+                 h! / z_nu                  if delta_mu+delta_nu=2,
+                 0                          otherwise,                  (4)
+
+and `z_nu=product_i i^(m_i(nu)) m_i(nu)!`. To see this, the total number
+of currents is `2h-delta_mu-delta_nu`. If the deficit sum exceeds two,
+the coefficient vanishes. If it equals one, producing the requested
+charge degree uses exactly one nonzero-mode current; its mode cannot sum
+to zero, so the coefficient vanishes. If it equals two, all currents use
+zero mode, which forces the alternating index zero and shift s=h. The
+row dual monomial has zero-mode coefficient `(-1)^delta_mu`, and the
+column monomial has coefficient `(-1)^delta_nu h!/z_nu`. Their signs
+multiply to +1. Deficit sum zero is the all-ones pair treated in (2).
+This proves scalarity, including absence of output leakage, for every
+label pair and all E<=h.
+
+For h>=3 this scalar matrix has **rank exactly 3**, attaining the parent
+structural bound. A deficit-one label has diagonal entry h(h-1)/2, a
+deficit-two row has a nonzero all-ones column, and the all-ones row has
+a nonzero deficit-two column. These give rank at least three; the support
+bound gives at most three. For h=2 the rank is two at E>0 and one at E=0.
+A nonprincipal rank-three minor can be normalized on a label axis, but
+its constant dimension does not retain the input-label capacity needed
+by the intended construction. Fixed output projections cannot increase
+this scalar label rank. Other charge combinations, polynomial q-dependent
+weights, both directional ranks, and full SAT costs remain open.
 
 `tail_filter.py` checks (2) by exact charge interpolation for all output
 partitions at energies 0,...,h and both operator orders for h=2,3,4.
-The saved output binds the checker and predecessor module hashes. An
+`tail_pairing.py` additionally checks every label pair, all output
+partitions at energies 0,...,h, both operator orders and the exact ranks
+for h=2,3,4. The saved outputs bind checker and predecessor module hashes. An
 exploratory h=5 operator run was stopped before completion; it supplies no
 evidence. `make verify` checks repository integrity, not this all-size
 argument.
