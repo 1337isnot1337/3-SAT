@@ -175,3 +175,62 @@ application of the bounded-span transfer idea in
 [PR #48](https://github.com/1337isnot1337/3-SAT/pull/48); no novelty or
 priority is claimed for the technique. The checker exhausts all 124
 right-hand sides for d=2,...,6 against the original Boolean equations.
+
+## The general class can encode 3-SAT decision
+
+Deciding whether `A m=b` has a Boolean preimage `m_i=x_i x_(i+1)` is
+NP-complete, even when every row of A has at most two nonzero entries.
+This is a polynomial-time decision reduction, not an exponential-time
+lower bound and not a parsimonious counting reduction. It explains why
+the arbitrary-A class should not be treated as uniformly easy.
+
+Take a 3-CNF formula with v declared variables and c clauses, each
+listed with exactly three literals; repetitions and both signs are
+allowed. If v+c>0, create a cyclic product word with the following
+blocks, in order:
+
+- for each original variable, a reference coordinate u followed by 00;
+- for each clause with literal truth values L_1,L_2,L_3, the three
+  coordinates `(1+L_1,L_2,1+L_3)` followed by 00.
+
+All additions here are in F_2. Each reference coordinate is free. Fix
+every separator to zero by a one-coordinate equation. Express each
+clause coordinate as its reference variable or its complement by a
+two-coordinate affine equation. The resulting matrix has n=3v+5c
+columns and a=2v+5c rows, each of weight at most two. Its affine
+solution space is nonempty and has nullity exactly v: every assignment
+to the references determines every other coordinate uniquely. If v=c=0,
+use a three-coordinate all-zero product word as a fixed special case.
+
+The only possible 101 occurrences lie entirely inside a clause gadget:
+every block ends in 00, including the last block across the cyclic
+boundary, and a reference block has only one nonseparator coordinate.
+Inside a clause gadget the pattern is 101 exactly when all three
+literals are false. Hence an original assignment satisfies all clauses
+if and only if its unique affine product word avoids cyclic 101. By the
+preimage characterization above, a cyclic word avoids 101 if and only
+if it equals the adjacent-product word of at least one Boolean x. Thus
+the source formula is satisfiable precisely when the constructed query
+is. The mapping and sparse matrix are built in polynomial time; an x
+witness verifies a query in polynomial time, establishing membership in
+NP and hence NP-completeness under the usual polynomial reductions.
+Unused declared variables are retained as free references. Any ordinary
+width-at-most-three clause can be padded by repeating a literal; empty
+clauses are immediate unsatisfiable inputs.
+
+The reduction does not preserve the number of solutions: a product
+word can have several x-preimages. For example, the empty formula with
+one declared variable has two assignments, while its constructed query
+has five x-solutions (the product words 000 and 100 have four and one
+preimages). No #P-hardness or counting-preserving reduction is claimed.
+An NP-completeness statement alone says nothing about whether an
+algorithm has a particular exponential or subexponential time bound.
+
+`reduction.py` checks all 4,160 one- and two-clause formulas over two
+variables, including repeated and negated literals, for all 16,640
+source assignments. It verifies affine nullity and row weight, compares
+the candidate product word's 101 predicate to source satisfaction,
+and checks the exact query counter's decision. It also enumerates x
+directly for ten selected formulas, including a contradictory pair,
+and tests both empty-formula controls. This finite evidence is not a
+substitute for the all-size reduction above.

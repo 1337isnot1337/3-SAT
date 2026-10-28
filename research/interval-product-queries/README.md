@@ -22,9 +22,11 @@ but only r=2, so this bound has only a constant-factor saving in the
 worst case. In fact, that family is polynomial-time countable by a
 two-state transfer: with w right-hand-side ones its count is
 `3^(d-w)+(-1)^w`. This applies the bounded-span method from
-[PR #48](https://github.com/1337isnot1337/3-SAT/pull/48). The result is a
-restricted quadratic-query algorithm, not a new all-input SAT algorithm or
-lower bound. The original accepted
+[PR #48](https://github.com/1337isnot1337/3-SAT/pull/48). The decision problem for this quadratic-query class is NP-complete even
+when every matrix row has weight at most two: the package supplies a
+3-SAT reduction using separated 101 gadgets. This is not a time lower
+bound or a counting-preserving reduction. The result is not a new
+all-input SAT algorithm. The original accepted
 contraction theorem is a premise and the selected record is unchanged.
 No unmerged code is needed.
 
@@ -32,6 +34,7 @@ Reproduce with Python 3.11+ and the standard library:
 
 ```sh
 python3 -I -B research/interval-product-queries/verify.py
+python3 -I -B research/interval-product-queries/reduction.py
 make verify
 ```
 
@@ -41,7 +44,9 @@ the short-block control. It also checks both enumerators on all systems
 and verifies a fragmented n=12 example where triples use 343 candidates
 versus 384 for the single interval. It is bounded evidence, not a proof
 checker. It also checks all 124 right-hand sides of the transfer formula
-for d=2,...,6. The written all-size argument and costs await independent review.
+for d=2,...,6. The reduction checker covers 4,160 small formulas, all
+16,640 source assignments, and ten direct Boolean x enumerations.
+The written all-size argument and costs await independent review.
 
 This continues the cyclic prefix method and run weights in
 [PR #54](https://github.com/1337isnot1337/3-SAT/pull/54), but is
