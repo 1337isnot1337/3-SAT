@@ -31,7 +31,7 @@ obstruction to `2 sqrt(2) lambda + O(log lambda)` requires
  W > 2^{3b\sqrt 2}.
 ```
 
-We show that no such certificate exists for `1 <= b <= 6`. This is only a
+We show that no such target-pairing certificate exists for `1 <= b <= 7`. This is only a
 necessary condition for a strict obstruction *using this single-seed floor
 argument*; it is not a necessary condition for any other kind of proof.
 
@@ -65,14 +65,37 @@ rationals and reals, so the kernel is zero. Therefore there is no nonzero
 positive-eigenvalue dual supported only on those 84 types; in particular
 none has a nonzero target pairing.
 
-This establishes the stated b<=6 limit, including arbitrary real
+## Seven-macro symmetry reduction
+
+For b=7, exact enumeration gives 1,800 eligible types. The largest
+ineligible and smallest eligible type sizes are respectively `840*7^7`
+and `1260*7^7`. The checker compares these with the threshold using
+`(840*7^7)^2 < 2^59`, `59/2 < 21 sqrt(2) < 149/5`, and
+`(1260*7^7)^5 > 2^149`. Thus no type is ambiguously classified.
+
+Frobenius `(A,B) -> (A^2,B^2)` and swap `(A,B) -> (B,A)` preserve the
+trace symplectic form, the target and the cardinality of every type. They
+commute and generate a six-element group. Therefore if a real
+self-Fourier seed supported on eligible types has nonzero target pairing,
+its group average is another such seed and has the same nonzero pairing.
+It suffices to rule out group-invariant seeds. The eligible types form 399
+group orbits. The checker constructs the 399 orbit-sum polynomial columns
+and `T-8^7 I`, checks that the output rows agree on each orbit, and keeps
+one representative of each of 2,714 output orbits. The resulting integer
+matrix has column rank 399 modulo the prime 65,521. Thus no nonzero
+invariant seed exists over the reals, and averaging excludes any seed with
+nonzero target pairing, even without an invariance assumption. NumPy is used
+only for exact signed 64-bit modular arithmetic, whose products stay below
+`2^63`; the script checks this bound and primality.
+
+This establishes the stated b<=7 limit, including arbitrary real
 coefficients. It neither constrains negative-eigenvalue or asymmetric
-certificates, nor certificates without a uniform type floor, nor b>=7.
+certificates, nor certificates without a uniform type floor, nor b>=8.
 The computation is a bounded exact rank check, not a proof by extrapolation.
 
 ## Next work and cost boundary
 
-Explore b>=7 with a structural or symmetry-reduced exact linear system;
+Explore b>=8 with a structural or symmetry-reduced exact linear system;
 first establish feasible time and memory before materializing all types.
 Alternatively change the support-dual method or exhibit actual pieces with
 proved two-sided support bounds. A successful finite dual would still need

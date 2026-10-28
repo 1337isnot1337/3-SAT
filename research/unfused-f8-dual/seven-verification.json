@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "seven-macro high-floor invariant dual rank",
+  "all_types": 11440,
+  "eligible_types": 1800,
+  "input_orbits": 399,
+  "output_orbits": 2714,
+  "prime": 65521,
+  "rank": 399,
+  "max_excluded": 691776120,
+  "min_included": 1037664180,
+  "bindings": {
+    "research/unfused-f8-dual/seven.py": "4a68ba44b9f0b210cdaea8ad392ed3b68de88a7de169af0eb04ac7d6b7bbf145",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  }
+}
