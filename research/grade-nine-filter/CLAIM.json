@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "grade-nine-filter",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "finite_exact_scalar_filter_obstruction",
+  "author": "OpenAI Codex",
+  "base_commit": "f2a153bac5f73c5dc2d77abe229655fb1fd954ec",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For the deterministic charge-one grade-nine N=8 asymmetric codebooks, every rational scalar-output shift weight vanishing at -1, 0, 1 is zero. Two exact integer constraint blocks have full column rank modulo 65537, with the first block also reproducing the predecessor matrix hash. This is a finite fixed-codebook result and does not improve a SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/grade-nine-filter/README.md",
+    "research/grade-nine-filter/verify.py",
+    "research/grade-nine-filter/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/grade-nine-filter/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of operator implementation and finite certificate",
+    "Other codebooks and charges, larger grades, and non-scalar filters remain open",
+    "A uniform capacity-preserving construction and full SAT cost accounting remain open"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}
