@@ -3,6 +3,7 @@
 import importlib.util
 import itertools
 from pathlib import Path
+from fractions import Fraction
 import json
 import math
 
@@ -52,6 +53,29 @@ def check_mixing(A, exponent):
                 81**exponent * degree**2 * q**2 * weights[left] * weights[right])
             cases += 1
     return cases
+
+
+def check_spectral_psd():
+    # Certify |lambda| <= 0.9*8 on the nonconstant subspace exactly.
+    # C=q*A-8J annihilates constants and has eigenvalue q*lambda otherwise.
+    for n in range(2, 7):
+        A = graph(n)
+        q = n*n
+        C = [[q*A[i][j]-8 for j in range(q)] for i in range(q)]
+        M = [[Fraction(81*64*q*(q*int(i == j)-1) -
+                       100*sum(C[i][k]*C[k][j] for k in range(q)))
+              for j in range(q)] for i in range(q)]
+        for k in range(q):
+            pivot = M[k][k]
+            assert pivot >= 0, (n, k, pivot)
+            if pivot == 0:
+                assert all(M[k][j] == 0 for j in range(k+1, q))
+                continue
+            for i in range(k+1, q):
+                for j in range(i, q):
+                    M[i][j] -= M[i][k]*M[k][j]/pivot
+                    M[j][i] = M[i][j]
+    return 5
 
 
 def check_port_inverses():
@@ -242,6 +266,7 @@ def main():
                       'subcodes_checked':subcodes, 'sampler_bias_cases':sampler_cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
                       'powers':[1,2,3], 'port_inverse_cases':check_port_inverses(),
+                      'spectral_psd_certificates':check_spectral_psd(),
                       'tanner_fixture':check_tanner_fixture(),
                       'near_rate_inequalities':check_near_rate(),
                       'information_set_matrices':information_cases,

@@ -184,7 +184,8 @@ asserted.
 
 `verify_expander.py` checks the eight port permutations, symmetry, and exact
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
-and powers 1,2,3, plus 700 integer padding/row-budget schedules. It also
+and powers 1,2,3; exact rational PSD checks of the weaker 9/10 spectral
+bound for sides t=2,...,6; and 700 integer padding/row-budget schedules. It also
 checks the two-dimensional subcode averaging bound, small exact sampler
 biases, finite near-rate row-count inequalities, and all binary check-row
 families on up to three coordinates for the information-set construction,
