@@ -76,10 +76,46 @@ def branch_fourier(d, xmask, xones, ymask, yones):
     assert total % divisor == 0
     return total // divisor
 
+def linear_solutions(rows, width):
+    pivots = {}
+    for coefficient, rhs in rows:
+        while coefficient:
+            pivot = coefficient.bit_length() - 1
+            if pivot not in pivots:
+                pivots[pivot] = (coefficient, rhs)
+                break
+            prior, prior_rhs = pivots[pivot]
+            coefficient ^= prior
+            rhs ^= prior_rhs
+        if not coefficient and rhs:
+            return 0
+    return 1 << (width - len(pivots))
+
+def branch_even(d, xmask, xones, ymask, yones):
+    m = 1 << d
+    q = m // 2
+    allbits = (1 << m) - 1
+    matrix = [sum(1 << (i ^ (1 << j)) for j in range(d-1)) for i in range(q)]
+    count = 0
+    for w in range(1 << q):
+        z = w | (adjacency(d-1, w) << q)
+        if z & xones:
+            continue
+        equations = []
+        for i in range(q):
+            if ymask >> i & 1:
+                equations.append((1 << i, (yones >> i) & 1))
+            if ymask >> (q+i) & 1:
+                equations.append((matrix[i], ((yones >> (q+i)) ^ (w >> i)) & 1))
+        ways = linear_solutions(equations, q)
+        count += ways * (1 << ((~xmask & ~z & allbits).bit_count()))
+    return count
+
 def main():
     checks = {'basis_square_checks': 0, 'block_image_checks': 0,
               'all_xy_assignments': 0, 'all_y_assignments': 0,
-              'formula_counts': {}, 'odd_branch_cases': 0, 'contradictory_branches': 0}
+              'formula_counts': {}, 'odd_branch_cases': 0, 'even_branch_cases': 0,
+              'contradictory_branches': 0}
     for d in range(1, 11):
         m = 1 << d
         for v in range(m):
@@ -116,6 +152,19 @@ def main():
             expected = branch_direct(d, xmask, xones, ymask, yones)
             assert branch_fourier(d, xmask, xones, ymask, yones) == expected
             checks['odd_branch_cases'] += 1
+            checks['contradictory_branches'] += expected == 0
+    for d in (2, 4):
+        m = 1 << d
+        assignments = itertools.product(range(3), repeat=2*m) if d == 2 else (
+            tuple(rng.randrange(3) for _ in range(2*m)) for _ in range(100))
+        for digits in assignments:
+            xmask = sum(1 << i for i, z in enumerate(digits[:m]) if z)
+            xones = sum(1 << i for i, z in enumerate(digits[:m]) if z == 2)
+            ymask = sum(1 << i for i, z in enumerate(digits[m:]) if z)
+            yones = sum(1 << i for i, z in enumerate(digits[m:]) if z == 2)
+            expected = branch_direct(d, xmask, xones, ymask, yones)
+            assert branch_even(d, xmask, xones, ymask, yones) == expected
+            checks['even_branch_cases'] += 1
             checks['contradictory_branches'] += expected == 0
     print(json.dumps({'scope': 'bounded exact controls; no independent proof review',
                       'checks': checks,

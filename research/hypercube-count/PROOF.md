@@ -68,6 +68,29 @@ needed. When the source high-incidence step fixes B variables, b<=B, so
 this gives a per-branch cost poly(m) 2^B; it does not claim that a general
 sparse query has the same structure. Even d is not covered by (4).
 
+## Arbitrary fixed-bit branches for even d
+
+Let d be even, q=m/2 and B=A_(d-1), and split y into two q-bit halves.
+For each image vector z=(w,Bw), all of its preimages are
+
+    y=(u,w+Bu),    u in F2^q.                                 (5)
+
+Indeed the first image half is Bu+(w+Bu)=w and the second is u+B(w+Bu)=Bw.
+For prescribed y bits, the low-half restrictions are equations u_i=b_i;
+the high-half restrictions are (Bu)_i=b_(q+i)+w_i. Solve this binary
+linear system for u using Gaussian elimination. It has either zero or
+2^(q-r) solutions, where r is its coefficient rank. The coefficient matrix
+is independent of w, although recomputing elimination for each w is already
+within the stated time.
+
+For each w, reject it if any x fixed to one has corresponding z_v=1.
+Otherwise each free x at a coordinate z_v=0 contributes a factor two; fixed
+x=0 contributes one. Multiply this weight by the number of compatible u,
+and sum over all 2^q choices of w. This handles all prescribed x/y bits,
+including inconsistent branches, in poly(m) 2^(m/2) bit time and polynomial
+space. With no fixed variables it reduces to (3). It does not provide a
+faster even-d exponent or an algorithm for general sparse queries.
+
 ## Uniform bit complexity and scope
 
 Read d or the explicit instance, compute m=2^d, and construct the hypercube
@@ -80,10 +103,9 @@ space; no randomness or hidden preprocessing is needed. A finite input can
 be handled directly, including d=1; there is no asymptotic parameter
 fallback or precision issue.
 
-The branch formula covers arbitrary fixed x and y bits for odd d; fixed-bit
-branches for even d, other private-edge systems, arbitrary row transformations
-as a representation of a different system, and general sparse queries require
-separate treatment.
+The branch formulas cover arbitrary fixed x and y bits in this family;
+other private-edge systems, arbitrary row transformations as a representation
+of a different system, and general sparse queries require separate treatment.
 Invertible row transformations of this exact system preserve its solution
 set and therefore its count. These formulas do not refute its coefficientwise
 support obstruction: an aggregate computation can avoid enumerating the

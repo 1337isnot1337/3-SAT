@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "The bipartite hypercube quadratic system has exact count 3^(2^d) for odd d, with arbitrary fixed-bit branch counts in poly(m)2^b time, and an explicit half-dimension weight-enumerator formula and poly(m)2^(m/2)-time polynomial-space algorithm for even d.",
+  "statement": "The bipartite hypercube quadratic system has exact count 3^(2^d) for odd d; arbitrary fixed-bit branches take poly(m)2^b time for odd d and poly(m)2^(m/2) time for even d, both in polynomial space.",
   "improves_bound": false,
   "evidence": [
     "research/hypercube-count/PROOF.md",
@@ -22,6 +22,6 @@
   ],
   "remaining_obligations": [
     "Independent review of the all-size argument",
-    "Determine whether even d has a simpler count or efficient branch restrictions"
+    "Determine whether even d has a simpler count or faster branch restrictions"
   ]
 }
