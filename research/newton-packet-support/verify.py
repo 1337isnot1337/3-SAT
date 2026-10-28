@@ -33,6 +33,81 @@ def add(p, q, scale=1):
     return {k: v for k, v in out.items() if v}
 
 
+def bounded_tuples(n, limit):
+    if n == 0:
+        yield ()
+        return
+    for first in range(limit+1):
+        for rest in bounded_tuples(n-1, limit-first):
+            yield (first,) + rest
+
+
+def family(K, q, kind):
+    # K matched even slots, q triples, and K-3q unary row vertices.
+    assert K >= 3*q
+    L = 1
+    while L < 2*K:
+        L *= 2
+    T = 2*L+1
+    slots = tuple(2*j for j in range(K))
+    common = F(prod(T-j for j in range(-L, L)),
+               prod(-j for j in range(-L, L) if j))
+    basis = [[phi(F(j), k) for j in range(K)] for k in range(K)]
+    zero = (0,)*K
+    one = {zero: F(1)}
+    rows = []
+    for x in slots[:3*q]:
+        z = F(1, T+x)
+        rows.append({tuple(int(i == k) for i in range(K)):
+                     common / (T+x) * 2**k * factorial(k)**2 * (1-2*k*k) * phi(z, k)
+                     for k in range(K)})
+    p = one
+    for b in range(q):
+        triple = rows[3*b:3*b+3]
+        if kind == 'equality':
+            factor = one.copy()
+            for a in triple:
+                factor = add(factor, a, -1)
+            for i, j in ((0, 1), (0, 2), (1, 2)):
+                factor = add(factor, mul(triple[i], triple[j]))
+        else:
+            factor = one
+            for a in triple:
+                factor = mul(factor, add(one, a, -1))
+            factor = add(one, factor, -1)
+        p = mul(p, factor)
+    limit = 2*q if kind == 'equality' else 3*q
+    expected = {e for e in bounded_tuples(K, limit)
+                if kind == 'equality' or sum(e) >= q}
+    assert set(p) == expected
+    # Sign pattern is independent of the choice of contributing rows.
+    for e, value in p.items():
+        sign_exp = sum(k*e[k] for k in range(K)) + (q if kind == 'clause' else 0)
+        assert value * (-1)**sign_exp > 0
+    moments = {}
+    direct = F(0)
+    for X in product((0, 1), repeat=K):
+        forms = [sum((basis[k][j]*X[j] for j in range(K)), start=F(0))
+                 for k in range(K)]
+        for e in p:
+            moments[e] = moments.get(e, F(0)) + prod((forms[k]**e[k]
+                                                       for k in range(K)), start=F(1))
+        val = F(1)
+        for b in range(q):
+            zs = [sum((rows[3*b+i][tuple(int(h == k) for h in range(K))]*forms[k]
+                       for k in range(K)), start=F(0)) for i in range(3)]
+            if kind == 'equality':
+                val *= prod(zs) + prod((1-z for z in zs), start=F(1))
+            else:
+                val *= 1-prod((1-z for z in zs), start=F(1))
+        direct += val
+    assert all(moments.values())
+    assert sum((v*moments[e] for e, v in p.items()), start=F(0)) == direct
+    return {'K': K, 'q': q, 'kind': kind, 'L': L, 'nonzero_tuples': len(p),
+            'source_assignments': 2**K, 'all_moments_nonzero': True,
+            'exact_sum': True}
+
+
 def main():
     # One source packet: L=8, i=0, t=1, alpha=16, zeta=1.
     L, T = 8, 17
@@ -118,6 +193,8 @@ def main():
                        "row_and_column_slots": list(slots),
                        "kernel_entry_identities": 9, "inactive_mode": 3},
             "cases": results,
+            "family": [family(K, q, kind) for K, q in ((3, 1), (4, 1), (6, 2))
+                       for kind in ("equality", "clause")],
             "zero_mode_child": {"table": "product(1-Y_i)",
                                 "nonzero_boolean_entries": 1, "cubic_coefficient": cubic},
             "equality_boolean_identity_checks": identity_checks,

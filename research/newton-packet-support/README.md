@@ -13,7 +13,16 @@ a single row equality vertex has total crossing-mode degree at most two
 after its row bits are summed. A three-literal clause can have degree three.
 This is a local identity, not a bound on the full group's mode enumeration.
 
-The [proof and limits](PROOF.md) give an exact three-port packet example:
+The [proof and limits](PROOF.md) give a growing single-packet family with
+`K` active Newton modes and `q` disjoint ternary equalities. Every tuple of
+total degree at most `2q` has a nonzero rational summand; for positive
+clauses the exact support is degrees `q` through `3q`. This gives
+`binom(K+2q, 2q)` equality tuples, with `K>=3q`. The proof uses an explicit
+common-sign argument and includes all source-side Boolean moments. It does
+not establish nonvanishing at a particular two-adic precision, or global
+packing admissibility.
+
+A three-port example illustrates the result:
 all 10 degree-at-most-two Newton tuples occur for equality and all 19
 positive-degree-at-most-three tuples occur for a positive clause. Actual
 source moments and the direct contraction are checked over the rationals.
@@ -42,8 +51,8 @@ make verify
 
 [verification.json](verification.json) binds the checker, proof and source
 files by SHA-256. It checks nine kernel entries, both full 64-assignment
-contractions, their exact mode decompositions, 510 Boolean equality cases,
-and the cubic child coefficient. These checks do not prove a global support
+contractions, their exact mode decompositions, six growing-family cases,
+510 Boolean equality cases, and the cubic child coefficient. These checks do not prove a global support
 bound or implement the full contraction. The frozen upstream source and
 accepted theorem remain unchanged.
 

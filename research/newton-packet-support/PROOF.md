@@ -74,7 +74,73 @@ precision; some may vanish at a particular two-adic precision. This is a
 bounded illustration of the absence of further support holes in this one
 packet, not a claim for every input, interpolation point, or packing.
 
-## 3. A child need not retain the input table family
+## 3. A growing rational family with full degree-feasible support
+
+For every `q>=1` and `K>=3q`, choose a power of two `L>=2K`, put
+`i=0`, `t=1`, `alpha=2L`, and `T=2L+1` (`zeta=1`). Use one packet
+with matched real row and column slots `0,2,...,2(K-1)`. All row ports
+belong to one group and all column ports to the other. On the row side
+put `q` trivalent equalities on disjoint triples and `K-3q` unary `(1,1)`
+vertices. On the column side put `K` unary `(1,1)` vertices. Summing a
+row unary vertex produces 1. There are `K` nonzero general-Newton source
+modes, indexed by `0,...,K-1`; modes at higher indices vanish on the real
+columns. If the `q` equalities are replaced by positive 3-clauses, retain
+the same port arrangement.
+
+For the equality family, after summing row and column bits, the rational
+summand associated with **every** `beta in N^K` with `|beta|<=2q` is
+nonzero; all others are zero. For the clause family, the same holds exactly
+for `q<=|beta|<=3q`. Thus the two respective support sizes are
+
+```
+  binom(K+2q, 2q),
+  binom(K+3q, 3q) - binom(K+q-1, q-1).
+```
+
+**Proof.** For `x` a real row slot, set `z=1/(T+x)`. The Newton row
+coefficient of mode `k` is
+
+```
+a_xk = [C(T)/(C'(0)(T+x))] c_k phi_k(z).
+```
+
+Here `C(T)>0`, `C'(0)<0` because even `L` gives `L-1` negative factors,
+`0<z<1`, and every factor in the denominator of `phi_k(z)` is positive.
+For `k>=1`, the falling factorial in `phi_k(z)` has sign `(-1)^(k-1)`
+and `c_k<0`; the formula also covers `k=0`. Consequently
+`sign(a_xk)=(-1)^(k+1)` and no such coefficient is zero. This sign is
+independent of `x`.
+
+For one equality, the degree-zero, one and two terms in (1) have coefficient
+sign `(-1)^(sum k beta_k)`, with every tuple of that degree present. For
+one positive clause, the degree-one through degree-three terms have sign
+`(-1)^(sum k beta_k+1)`, again with every tuple present. In the product
+of `q` vertices, all contributions to a fixed tuple have the same sign;
+none cancel. A tuple of size at most `2q` can be distributed among the
+`q` equality factors with at most two indices per factor. A tuple of size
+between `q` and `3q` can be distributed among clause factors with one to
+three indices each. This gives the stated row support and no larger degree.
+
+For a real column `j>=k`, `phi_k(j)` has sign `(-1)^k` and is nonzero;
+it is zero for `j<k`. Thus the source form for mode `k` is `(-1)^k` times
+a nonnegative sum on Boolean columns, positive when all columns are one.
+For any `beta`, every summand in its source moment has the same weak sign
+`(-1)^(sum k beta_k)`, and the all-ones column assignment is nonzero.
+Every row coefficient therefore remains nonzero after the source sum. This
+also handles `beta=0`. The stars-and-bars count proves the displayed sizes.
+
+This is an all-size statement about a specified single-packet rational
+contraction and the **general** Newton expansion. In particular `K=3q`
+gives exponentially many nonzero tuples as `q` grows. It does not show
+that those terms survive a given precision, lie below the actual taper's
+weighted budget, or persist after embedding the packet into a globally
+admissible packed recursive instance. It does not exclude cancellation
+with other terms in the final contraction, establish a lower bound for a
+more efficient aggregation algorithm, or improve or refute a SAT bound.
+The bounded checker separately tests `(K,q)=(3,1),(4,1),(6,2)` for each
+family, including source moments and exact contractions.
+
+## 4. A child need not retain the input table family
 
 In the same packet, choose `beta=0` for all crossing modes. By the source
 child construction, the packet vertex on the row group is the coefficient
@@ -96,7 +162,7 @@ closure of the *individual input table family* under the specified child
 construction. A successor may find a broader invariant using their joint
 structure.
 
-## 4. Cost and unresolved obligations
+## 5. Cost and unresolved obligations
 
 No new algorithm, asymptotic mode count, or SAT bound follows from (1) or
 (2). The total number of group vertices can grow with the input, and the

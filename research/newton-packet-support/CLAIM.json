@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Ternary equality has local mode degree at most two, while a source-style zero-mode child packet need not be an equality table; the specified rational packet has full degree-feasible support.",
+  "statement": "Ternary equality has local mode degree at most two. A growing single-packet family realizes every degree-feasible Newton mode tuple over the rationals, and a source-style zero-mode child packet need not be an equality table.",
   "improves_bound": false,
   "evidence": [
     "research/newton-packet-support/PROOF.md",

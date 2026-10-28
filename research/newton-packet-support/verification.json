@@ -26,6 +26,68 @@
     }
   },
   "equality_boolean_identity_checks": 510,
+  "family": [
+    {
+      "K": 3,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "equality",
+      "nonzero_tuples": 10,
+      "q": 1,
+      "source_assignments": 8
+    },
+    {
+      "K": 3,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "clause",
+      "nonzero_tuples": 19,
+      "q": 1,
+      "source_assignments": 8
+    },
+    {
+      "K": 4,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "equality",
+      "nonzero_tuples": 15,
+      "q": 1,
+      "source_assignments": 16
+    },
+    {
+      "K": 4,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "clause",
+      "nonzero_tuples": 34,
+      "q": 1,
+      "source_assignments": 16
+    },
+    {
+      "K": 6,
+      "L": 16,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "equality",
+      "nonzero_tuples": 210,
+      "q": 2,
+      "source_assignments": 64
+    },
+    {
+      "K": 6,
+      "L": 16,
+      "all_moments_nonzero": true,
+      "exact_sum": true,
+      "kind": "clause",
+      "nonzero_tuples": 917,
+      "q": 2,
+      "source_assignments": 64
+    }
+  ],
   "packet": {
     "L": 8,
     "T": 17,
@@ -42,8 +104,8 @@
   },
   "sha256": {
     "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
-    "research/newton-packet-support/PROOF.md": "6b779bcfd89a429405a980f1e43b8f5b936101261c12705bea38edc87dba910c",
-    "research/newton-packet-support/verify.py": "b4eeec51fb1bdcfba97b8d5837f6543e46575a3c7120b4b08547e59d4e01d2c5",
+    "research/newton-packet-support/PROOF.md": "d46c3c6044b419cb764fe239077ca2d08993b722f6c46778c27a7939c2f6694a",
+    "research/newton-packet-support/verify.py": "c667de9f7fc08cebb84a3ebc0dac7287cbf798b22a0e0bef8d4a38afd0e3fdb7",
     "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
     "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
   },
