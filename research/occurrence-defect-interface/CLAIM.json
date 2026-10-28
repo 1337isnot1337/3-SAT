@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "occurrence-defect-interface",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_parameter_bound",
+  "author": "Codex (OpenAI; AI-assisted)",
+  "base_commit": "4ce0cb947bdb6837718c7061e45d3a723219d703",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Three times maximum clause deficiency is bounded by total width shortfall plus variable occurrence excess; a restriction increases this defect by at most three.",
+  "improves_bound": false,
+  "evidence": [
+    "research/occurrence-defect-interface/PROOF.md",
+    "research/occurrence-defect-interface/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/occurrence-defect-interface/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size counting and restriction arguments",
+    "No implementation or independent verification of cited SAT solver",
+    "Paid reduction making defect small for all general inputs",
+    "No selected general 3-SAT bound improvement"
+  ]
+}
