@@ -72,9 +72,16 @@ The Hardy-Ramanujan partition estimate gives
 `o(p(h)/h^C)`. For all sufficiently large h it is strictly below D_h.
 Consequently every scalar pairing formed in this raw-piece manner from
 only those extreme shifts is zero, irrespective of input-label rank.
-Equivalently, any sequence of nonzero scalar pairings under the stated
-capacity condition must have at least one supported shift with
-`|s| <= (1+o(1))h`; the shift need not lie close to zero.
+More quantitatively, every nonzero scalar pairing under this capacity
+condition has at least one supported shift with
+`|s| <= h+O_C(sqrt(h) log h)`. To see this, let
+`t_max=max_s(2h-|s|)`. If `t_max>=h`, the bound is immediate. Otherwise,
+the rank condition and the same polynomial envelope imply
+`p(t_max)>=p(h)/h^{C+O(1)}`. The partition estimate then gives
+`sqrt(h)-sqrt(t_max)=O_C(log h)`, and hence
+`h-t_max=O_C(sqrt(h) log h)`. Since the smallest supported absolute shift
+equals `2h-t_max`, the stated bound follows. This shift need not lie close
+to zero.
 
 In particular, the grade choice in PR #19 has `D_h=N=2^lambda` and
 `p(h)<h^2 N`, so its output dimension meets this condition with C=2.

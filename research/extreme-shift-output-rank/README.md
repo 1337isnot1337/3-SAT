@@ -9,11 +9,12 @@ output pairing must be zero.
 For output energy `h` and dimension at least `p(h)/poly(h)`, this excludes
 nonzero scalar pairings supported *only* on shifts
 `|s| >= (1+epsilon)h`, for each fixed `0<epsilon<1` and all sufficiently
-large h. The result is independent of the label-pairing rank and applies to
-non-coordinate output spaces. It is a scoped, author-checked all-size
-argument, substantially AI-assisted and not independently or formally
-reviewed. It does not rule out the open central-gap target, improve a SAT
-bound, or change the selected result.
+large h. More sharply, any nonzero scalar pairing must use a shift with
+`|s| <= h+O(sqrt(h) log h)`. The result is independent of the label-pairing
+rank and applies to non-coordinate output spaces. It is a scoped,
+author-checked all-size argument, substantially AI-assisted and not
+independently or formally reviewed. It does not rule out the open central-gap
+target, improve a SAT bound, or change the selected result.
 
 Run the finite checks with:
 
