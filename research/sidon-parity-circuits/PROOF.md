@@ -206,3 +206,33 @@ Consequently g/Y divides Y^n-1. Since Y does not divide Y^n-1,
 Thus this enumeration uses `2^((n-5)/10)` kernel iterations on that
 subsequence. This is a cost of the stated algorithm, not a lower bound
 on every possible representation or counting algorithm.
+
+## Filtering the kernel by realizable product patterns
+
+There is an exact local characterization of vectors m that actually
+come from adjacent products. For any cyclic binary word of length
+n>=3, such a preimage exists if and only if m avoids the cyclic
+substring 101. If m is all zero, its number of preimages is the Lucas
+number above. If m contains a 1 and its maximal zero runs have lengths
+r_1,...,r_k, then its number of preimages is
+
+    product_i F_(r_i-1),
+
+with the empty product equal to 1. Indeed, each 1 edge forces both its
+endpoints to 1. A zero run of length r is an r-edge path with its two
+endpoints forced to 1 and no adjacent pair of ones. It has F_(r-1)
+valid assignments, and distinct runs have disjoint interiors. A
+one-edge zero run has F_0=0 and is exactly a cyclic occurrence of 101;
+all longer runs have a positive factor. The all-zero case has no
+forced boundary and is counted separately.
+
+This gives a linear-time predicate and explicit weight for each
+candidate kernel word; it does not avoid generating 2^d candidates.
+On the linear-kernel subsequence, exact enumeration finds respectively
+1, 20 and 435 realizable vectors among 8, 128 and 32768 kernel words
+at n=35,75,155. These are finite observations, not an asymptotic
+estimate. A new algorithm would need to enumerate or aggregate only
+realizable codewords efficiently, and its all-input costs would still
+need to be paid. `runs.py` exhausts all 2,040 cyclic words at lengths
+3 through 10 against both direct Boolean preimage counts and the
+independent matrix routine, then reproduces the three finite screens.

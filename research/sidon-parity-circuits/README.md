@@ -42,6 +42,7 @@ From the repository root, with Python 3.11+ and only the standard library:
 ```sh
 python3 -I -B research/sidon-parity-circuits/verify.py
 python3 -I -B research/sidon-parity-circuits/arbitrary.py
+python3 -I -B research/sidon-parity-circuits/runs.py
 make verify
 ```
 
@@ -53,8 +54,9 @@ at five power-of-two sizes and exhausts all 65,536 original assignments at
 n=16, obtaining 2,208 solutions. The arbitrary-size checker verifies the
 full kernel enumeration at 14 sizes, including d=7, and exhausts the
 original Boolean assignments at n=16,17,18. Six additional exact gcd
-checks cover the linear-kernel subsequence without enumerating it. These
-finite checks do not mechanically
+checks cover the linear-kernel subsequence without enumerating it.
+The run checker exhausts 2,040 short product patterns and screens three
+linear-kernel cases. These finite checks do not mechanically
 prove the all-size statement. No external dependency or heavy check is added
 to default CI.
 
