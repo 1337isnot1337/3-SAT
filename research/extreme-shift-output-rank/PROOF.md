@@ -185,6 +185,13 @@ that target, alternative operator families, sufficiently large nonseparable
 label mixtures, or a different full SAT algorithm. It supplies no improved
 rho, alpha, selected bound, or implementation.
 
+Indeed, for `E=h`, an embedded output space has `D<=p(h)`. If even one
+retained shift satisfies `|s|<=h`, its intermediate range contains h, so
+`K_s>=p(h)>=D`; the criterion `sum K_s<D` is then already false. Thus the
+rank-budget method by itself cannot exclude any support containing such a
+shift. Sharper restricted-operator ranks or additional structural equations
+would be needed to address that part of the central-gap target.
+
 ## Reproduction and scope
 
 `python3 -I -B research/extreme-shift-output-rank/verify.py` performs exact
