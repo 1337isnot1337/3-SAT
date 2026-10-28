@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "asymmetric-split-energy",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "ideal_minimax_cost_identity",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "In the continuous quarter-circle minimax split model, reciprocal-square capacities add over leaves; tree shape does not change the root coefficient.",
+  "improves_bound": false,
+  "evidence": [
+    "research/asymmetric-split-energy/README.md",
+    "research/asymmetric-split-energy/PROOF.md",
+    "research/asymmetric-split-energy/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/asymmetric-split-energy/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the algebra and explicit scope",
+    "Prove an actual unequal-grid recursion and pay straight edges, balancing, descriptions, precision, entry costs, recovery, and reductions before any SAT runtime claim"
+  ]
+}
