@@ -30,7 +30,8 @@ The first checker rebuilds the local character table and verifies the
 a normalization negative control and a 33-column modular rank check. The
 five-macro comparison checks a rational row relation excluding a strictly
 stronger floor for that block size. The six-macro replay checks the
-stronger seed, with 20 direct entry controls. The saved
+stronger seed, with 20 direct entry controls and an exact relation proving
+its floor optimal for six-macro seeds in this method. The saved
 [four-block replay](verification.json), [five-block replay](five-verification.json),
 and [six-block replay](six-verification.json) pin the relevant scripts,
 seeds, relation and predecessor scheme. The all-size entropy tensorization

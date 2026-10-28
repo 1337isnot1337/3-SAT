@@ -22,7 +22,8 @@
     "research/unfused-f8-entropy/six.py",
     "research/unfused-f8-entropy/six-builder.cpp",
     "research/unfused-f8-entropy/six-seed.json",
-    "research/unfused-f8-entropy/six-verification.json"
+    "research/unfused-f8-entropy/six-verification.json",
+    "research/unfused-f8-entropy/six-relation.json"
   ],
   "reproduce": [
     "python3",

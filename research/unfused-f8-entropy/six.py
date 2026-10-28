@@ -104,6 +104,20 @@ with tempfile.TemporaryDirectory(prefix='f8-six-') as directory:
     for row in range(1235):
         value = sum(int(matrix[row * 625 + col]) * c for col, c in selected.items())
         assert value == (denominator if row == 1234 else 0)
+    # A rational output-row combination equals the target row on every
+    # orbit with a strictly higher entropy floor than this seed.
+    relation = json.loads((HERE / 'six-relation.json').read_text())
+    relation_terms = relation['terms']
+    relation_denominator = relation['denominator']
+    assert isinstance(relation_denominator, int) and relation_denominator > 0
+    assert len(relation_terms) == len({row for row, _ in relation_terms}) == 477
+    assert all(isinstance(row, int) and 0 <= row < 1234 and isinstance(c, int) and c
+               for row, c in relation_terms)
+    higher = [i for i, group in enumerate(orbits) if entropy_power(min(group)) > 196036848]
+    assert len(higher) == 485
+    for col in higher:
+        value = sum(int(matrix[row * 625 + col]) * c for row, c in relation_terms)
+        assert value == relation_denominator * int(matrix[1234 * 625 + col])
     controls = 0
     for ri in (0, 50, 600, 1233):
         for ci in (0, 123, 300, 500, 624):
@@ -112,10 +126,11 @@ with tempfile.TemporaryDirectory(prefix='f8-six-') as directory:
             assert value == matrix[ri * 625 + ci]
             controls += 1
 
-files = [HERE / 'six.py', HERE / 'six-builder.cpp', HERE / 'six-seed.json', HERE / 'verify.py',
+files = [HERE / 'six.py', HERE / 'six-builder.cpp', HERE / 'six-seed.json', HERE / 'six-relation.json', HERE / 'verify.py',
          HERE / 'seed.json', ROOT / 'research/three-bit-macro-walsh/schemes.py']
 print(json.dumps({'status': 'PASS', 'scope': 'six-macro rational dual and entropy floor',
                   'seed_orbits': len(terms), 'eligible_orbits': len(orbits), 'output_orbits': len(row_representatives),
                   'pairing': pairing, 'minimum_entropy_sixth_power': 196036848,
-                  'direct_entry_controls': controls,
+                  'direct_entry_controls': controls, 'higher_entropy_orbits': len(higher),
+                  'row_relation_terms': len(relation_terms),
                   'bindings': {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files}}, indent=2))

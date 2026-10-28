@@ -177,7 +177,14 @@ coefficient is bounded by `64^6`, and an orbit sum by six times that plus
 this seed into the same tensorization proof, with `R=6t+s`, gives the
 stronger bound in the statement. Strictness follows from
 `196036848 > 2^27` and `27^2>648`, so its logarithm exceeds `18 sqrt(2)`.
-No optimality of this six-macro floor is claimed.
+The floor is optimal among six-macro target-pairing seeds for this
+minimum-entropy method. The types with strictly greater entropy form 485
+input orbits. The replay checks an explicit exact rational combination of
+477 output rows equal to the target-pairing row on every one of those
+orbits; see [six-relation.json](six-relation.json). Therefore an invariant
+seed supported there must pair to zero, and the group-average argument
+extends the conclusion to arbitrary seeds. This is a six-macro statement,
+not optimality among other block sizes or other proof methods.
 
 ## Extension to separate macro groups
 
