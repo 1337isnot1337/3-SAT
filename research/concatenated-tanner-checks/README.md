@@ -48,5 +48,8 @@ Apache-2.0.
 The [non-Cayley follow-up](EXPANDER.md) replaces the logarithmic-degree graph
 by a powered published Margulis--Gabber--Galil expander. Subject to that cited
 spectral theorem, fixed B gives constant-weight checks and constant relative
-distance; B-dependent constants are much larger. Its exact small-graph checks
+distance; B-dependent constants are much larger. Fixed-density expander-code
+existence is classical (Sipser and Spielman, 1996); the package records a
+source-compatible quantitative interface rather than claiming that existence
+result as new. Its exact small-graph checks
 are reproduced with `python3 -I -B research/concatenated-tanner-checks/verify_expander.py`.

@@ -3,7 +3,14 @@
 This follow-up composes the local code in [PROOF.md](PROOF.md) with a
 published expander theorem. It is an author-checked argument, not independent
 review. Unlike the preceding XOR-Cayley construction, this is a non-Cayley
-port graph. No SAT exponent improvement is claimed.
+port graph. Explicit asymptotically good sparse-check expander codes are
+classical; see [Sipser and Spielman, *Expander Codes*](https://www.cs.yale.edu/homes/spielman/PAPERS/expandersIT.pdf),
+IEEE Transactions on Information Theory 42 (1996), 1710--1722, SHA-256
+`2b2d441b6c23aceb7288c221c4f2640d0ec3d92c1b1797b4500e2ad8f7e6415f`.
+We do not claim novelty for their fixed-density existence result. The scoped
+contribution here is an explicit B-dependent row/distance ledger and its
+interface with this repository's reduction. No SAT exponent improvement is
+claimed.
 
 ## External theorem and source pin
 
