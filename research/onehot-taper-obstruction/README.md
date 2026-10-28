@@ -11,7 +11,8 @@ zero column input is allowed.
 
 The counterexample is itself a canonical Boolean packet: a row parity table
 and a column table supported on zero and one-hot inputs match the `u=1` taper
-node values and complete jets modulo two. It only covers precision one.
+node values and complete jets modulo two. At node `t=1` its exact value is
+`2(L+1)`, so it fails already at precision two.
 Neither result rules out nonlinear rows or general columns, proves a
 higher-precision barrier, constrains balanced packet choices, or implies a
 SAT time bound.
@@ -27,8 +28,8 @@ make verify
 
 The exact finite checks cover `L=2,4,8` and all `u<=a`, 98,568 one-hot
 binary row/column candidates satisfying the necessary nonzero total, six
-polynomial factorizations, 308 rational Cauchy-node jets, and 28 Boolean
-escape node checks. The all-size argument is separate and has not been
+polynomial factorizations, 308 rational Cauchy-node jets, 28 Boolean
+escape node checks, and three exact precision-two controls. The all-size argument is separate and has not been
 independently reviewed.
 
 ## Source and credit

@@ -43,7 +43,8 @@ def poly_mul_binary(a,b):
 
 def main():
     counts={'exact_kernel_jets':0,'onehot_candidates':0,
-            'escape_node_checks':0,'polynomial_factor_checks':0}
+            'escape_node_checks':0,'polynomial_factor_checks':0,
+            'escape_exact_precision_controls':0}
     for a in range(1,4):
         L=1<<a
         W={d:kernel(L,d) for d in range(-L+1,L)}
@@ -68,6 +69,12 @@ def main():
                     rev=sum(((row>>x)&1)<<(L-1-x) for x in range(L))
                     assert poly_mul_binary(rev,col) != target
                     counts['onehot_candidates']+=1
+        # Exact t=1 value of the zero-plus-one-hot Boolean escape.
+        w = shift(W[1], 1, 2*L)[0]
+        assert w == F(-(L+1), L-1)
+        value = 2 + (L-1)*(1-w)
+        assert value == 2*(L+1) and v2(value)==1
+        counts['escape_exact_precision_controls'] += 1
         # A(Y)=1+sum Y mod 2, B=1 on the all-zero and one-hot inputs.
         for t in range(-L,L):
             result=1  # all-zero column input gives Y=0

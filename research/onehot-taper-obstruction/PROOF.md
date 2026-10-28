@@ -117,3 +117,26 @@ therefore has constant reduction modulo two throughout its full shifted jet.
 Thus the example's odd-node jets vanish at precision one. No claim is made
 about the exact content beyond one, all-node high-precision recovery, actual
 balanced packing, or a general single-packet lower bound.
+
+### This particular escape fails at precision two
+
+At `t=1`, every nonzero Cauchy entry has value
+
+```math
+ \frac{C'(1)}{C'(0)}=-\frac{L+1}{L-1}.
+```
+
+The all-zero column and the one-hot column at `y=0` each contribute one.
+Each of the remaining `L-1` one-hot columns has exactly one nonzero row
+coordinate, with value `w=-(L+1)/(L-1)`. The probability polynomial for
+our Boolean even-parity row table then evaluates to `1-w`. Therefore
+
+```math
+ F(1)=2+(L-1)(1-w)=2(L+1).
+```
+
+Because `L` is even, `v_2(F(1))=1`. The complete shifted jet at node one
+thus has exact content one: it is divisible by two coefficientwise, but its
+constant coefficient is not divisible by four. This is an all-size
+precision-two failure for this particular Boolean escape, not an obstruction
+to other row or column tables.
