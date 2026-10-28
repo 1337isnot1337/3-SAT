@@ -27,7 +27,8 @@ make verify
 
 The checker uses the existing PR 10 operator implementation and verifies
 exact positive-definite blocks through energy 10 plus all endpoint entries
-for lambda 1,2,3. It does not independently prove the all-size argument,
+for lambda 1,2,3, and checks a concrete 8-column grouping pattern over all
+105 pair partitions. It does not independently prove the all-size argument,
 provide formal verification, or produce the nonconstructive graphs. The
 selected OpenAI baseline is unchanged.
 

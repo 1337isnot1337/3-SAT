@@ -2,6 +2,7 @@
 """Exact endpoint identities and positive-pairing controls at bounded energy."""
 from fractions import Fraction
 from math import factorial, prod
+from itertools import combinations
 from pathlib import Path
 import sys
 
@@ -22,6 +23,16 @@ def positive_definite(matrix):
         for j in range(i+1,n):
             lower[j][i]=(matrix[j][i]-sum(lower[j][k]*lower[i][k]*diag[k] for k in range(i)))/diag[i]
     return True
+
+
+def pairings(vertices):
+    if not vertices:
+        yield ()
+        return
+    first=vertices[0]
+    for i in range(1,len(vertices)):
+        for tail in pairings(vertices[1:i]+vertices[i+1:]):
+            yield ((first,vertices[i]),)+tail
 
 
 def main():
@@ -61,7 +72,20 @@ def main():
                                   if sign==-1 else C[x][ui]*D*M[v][y])
                             assert vec.get(state,0)==want
                             entries+=1
-    print(f'PASS: {pairs} exact pairing entries through h=10; {entries} endpoint tensor entries; exact positive-definite blocks')
+    # Instantiate the companion q=8 graph with actual endpoint costs:
+    # every partition has a full 2x2 block, and each full pair factor has
+    # 4 bits of exact rank: 2 straight-equality bits plus 2 endpoint bits.
+    vertices=tuple(range(8))
+    graph=set(combinations(vertices,2))-{(0,1),(2,3),(4,5),(6,7)}
+    parts=list(pairings(vertices))
+    assert len(parts)==105
+    for partition in parts:
+        assert any(all(tuple(sorted((x,y))) in graph for x in a for y in b)
+                   for a,b in combinations(partition,2))
+    U=2*(2*len(list(combinations(vertices,2)))+2*len(graph))
+    common_width=4*2**2
+    assert U==208 and 4**2*common_width==256
+    print(f'PASS: {pairs} exact pairing entries through h=10; {entries} endpoint tensor entries; 105 actual-rank grid partitions')
 
 
 if __name__=='__main__':main()

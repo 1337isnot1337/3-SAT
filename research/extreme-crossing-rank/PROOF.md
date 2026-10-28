@@ -117,5 +117,8 @@ It is a lower bound for the **uncontracted grouped pair factor** under this
 specific equal-size, common-width column interface; a different direction,
 nonuniform representation, changed crossing decomposition or global
 algorithm may evade it. It does not prove a 3-SAT lower bound or a new alpha.
-The existential graph proof is nonconstructive and has not been converted
-into an explicit instance generator. The accepted OpenAI result is unchanged.
+The asymptotic graph proof is nonconstructive. As a finite control, at
+lambda=1 the graph on eight columns obtained by deleting a perfect matching
+has 24 edges; all 105 pair partitions contain a full block. Its exact
+ungrouped ordered pair cost is U=208, while common-width padding costs at
+least K²L=256, a ratio of 16/13. The accepted OpenAI result is unchanged.
