@@ -128,7 +128,9 @@ asserted.
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
 and powers 1,2,3, plus 700 integer padding/row-budget schedules. It also
 checks the two-dimensional subcode averaging bound and small exact sampler
-biases. It does not
+biases, plus complete full and shortened kernels of a scaled 32-edge
+Tanner fixture using the tested inner checks. That fixture does not meet the
+large source parameters. The verifier does not
 prove the cited all-size spectral theorem, construct its huge required power,
 run a source-scale Tanner instance, or independently review the concatenated
 local code or SAT composition. Those remain explicit limitations.

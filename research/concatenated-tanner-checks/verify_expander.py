@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Exact small Margulis graph, powering, port and padding controls."""
+import importlib.util
 import itertools
+from pathlib import Path
 import json
 import math
 
@@ -92,6 +94,61 @@ def check_sampler_bias():
     return subcodes, cases
 
 
+def check_tanner_fixture():
+    path = Path(__file__).with_name('verify.py')
+    spec = importlib.util.spec_from_file_location('inner_fixture', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    _, local = mod.make_check(8, 7, 2)
+    inverse = (4, 5, 6, 7, 0, 1, 2, 3)
+    def kernel(m):
+        rows = []
+        for side in (0, 1):
+            for vertex in range(4):
+                xy = divmod(vertex, 2)
+                for check in local:
+                    row = 0
+                    for port in range(8):
+                        if check >> port & 1:
+                            x, y = moves(xy, 2)[inverse[port]] if side else xy
+                            edge = (2*x+y)*8+port
+                            if edge < m:
+                                row |= 1 << edge
+                    rows.append(row)
+        pivots = {}
+        for row in rows:
+            while row:
+                pivot = row.bit_length()-1
+                if pivot not in pivots:
+                    pivots[pivot] = row
+                    break
+                row ^= pivots[pivot]
+        basis = []
+        for free in range(m):
+            if free in pivots:
+                continue
+            word = 1 << free
+            for pivot in sorted(pivots):
+                if (pivots[pivot] & word).bit_count() & 1:
+                    word ^= 1 << pivot
+            assert all((row & word).bit_count() % 2 == 0 for row in rows)
+            basis.append(word)
+        assert len(basis) <= 20
+        words = {0}
+        for b in basis:
+            words |= {w ^ b for w in words}
+        assert all(all((row & word).bit_count() % 2 == 0 for row in rows)
+                   for word in words)
+        return words, len(rows)
+    full, rows = kernel(32)
+    short, short_rows = kernel(25)
+    assert short == {word for word in full if word >> 25 == 0}
+    return {'full_words':len(full), 'short_words':len(short), 'rows':rows,
+            'short_rows':short_rows,
+            'full_minimum_weight':min(w.bit_count() for w in full if w),
+            'short_minimum_weight':min(w.bit_count() for w in short if w)}
+
+
 def main():
     cases = 0
     for n in (2, 3):
@@ -130,7 +187,8 @@ def main():
     print(json.dumps({'result':'pass', 'mixing_subset_pairs':cases,
                       'subcodes_checked':subcodes, 'sampler_bias_cases':sampler_cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
-                      'powers':[1,2,3], 'port_inverse_cases':check_port_inverses()},
+                      'powers':[1,2,3], 'port_inverse_cases':check_port_inverses(),
+                      'tanner_fixture':check_tanner_fixture()},
                      indent=2, sort_keys=True))
 
 

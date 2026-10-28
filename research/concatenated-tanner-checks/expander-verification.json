@@ -13,5 +13,13 @@
   ],
   "result": "pass",
   "sampler_bias_cases": 12,
-  "subcodes_checked": 129
+  "subcodes_checked": 129,
+  "tanner_fixture": {
+    "full_minimum_weight": 4,
+    "full_words": 2048,
+    "rows": 56,
+    "short_minimum_weight": 4,
+    "short_rows": 56,
+    "short_words": 128
+  }
 }
