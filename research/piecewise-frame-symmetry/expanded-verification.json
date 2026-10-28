@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "two-macro expanded fixed atom alphabet",
+  "atoms": 165,
+  "atoms_per_frame_through_18_bits": 69,
+  "annihilator_terms": 33,
+  "target_pairing": -16,
+  "atoms_through_19_bits": 146,
+  "one_frame_modular_rank": 55,
+  "prime": 65521,
+  "bindings": {
+    "research/piecewise-frame-symmetry/expanded_screen.py": "91bf36f973efbf356d81cdc062c60c2e7177f7a4075bb00daa42cac9e5a17bd6",
+    "research/piecewise-frame-symmetry/expanded-dual.json": "b0681d12062f9faadef3d099fd91d17452263db9db6204a8100b847028dbab22",
+    "research/piecewise-frame-symmetry/two_frame_screen.py": "aad2ce9867b41103ffc1e748c2fd05b51e6587cf404fce5d4767e38eced3e85c",
+    "research/piecewise-frame-symmetry/verify.py": "c96b3c61e5e791a5da59950524cfa014d6e6e30c4265e2169d0bd6753b20fa53",
+    "research/symmetric-walsh-pieces/walsh.py": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  }
+}

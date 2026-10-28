@@ -1,0 +1,25 @@
+{
+  "h_range": [
+    4,
+    40
+  ],
+  "three_partition_formula_cases": 1840,
+  "complete_recurrence_row_comparisons": 6,
+  "multiplicity_and_kernel_rank_cases": 37,
+  "one_sided_rank_cases": 37,
+  "odd_recurrence_h_range": [
+    5,
+    39
+  ],
+  "two_part_cases": 361,
+  "two_part_recurrence_rows": 7,
+  "reverse_recurrence_rows": 7,
+  "diagonal_recurrence_rows": 3,
+  "second_input_recurrence_rows": 2,
+  "second_diagonal_recurrence_rows": 1,
+  "general_input_recurrence_rows": 1,
+  "high_recurrence_rows": 6,
+  "odd_break_cases": 15,
+  "odd_break_recurrence_rows": 1,
+  "prime": 1000003
+}

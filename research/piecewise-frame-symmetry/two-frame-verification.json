@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "two-macro fixed adapted-basis atom alphabet",
+  "type_pairs": 853,
+  "prime": 65521,
+  "exact_independent_dependencies": 4,
+  "checks": [
+    {
+      "threshold_bits": 20,
+      "two_frames": false,
+      "basis_atoms_per_frame": 48,
+      "rank": 48,
+      "augmented_rank": 49
+    },
+    {
+      "threshold_bits": 20,
+      "two_frames": true,
+      "basis_atoms_per_frame": 48,
+      "rank": 92,
+      "augmented_rank": 93
+    },
+    {
+      "threshold_bits": 21,
+      "two_frames": false,
+      "basis_atoms_per_frame": 55,
+      "rank": 55,
+      "augmented_rank": 55
+    },
+    {
+      "threshold_bits": 21,
+      "two_frames": true,
+      "basis_atoms_per_frame": 55,
+      "rank": 105,
+      "augmented_rank": 105
+    }
+  ],
+  "bindings": {
+    "research/piecewise-frame-symmetry/two_frame_screen.py": "aad2ce9867b41103ffc1e748c2fd05b51e6587cf404fce5d4767e38eced3e85c",
+    "research/piecewise-frame-symmetry/verify.py": "c96b3c61e5e791a5da59950524cfa014d6e6e30c4265e2169d0bd6753b20fa53",
+    "research/symmetric-walsh-pieces/walsh.py": "a26c763362252f1efac1d7763d7df55f54e28c1e2c8c9c7ffb414962c699db63",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  }
+}

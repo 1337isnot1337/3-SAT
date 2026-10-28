@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "source-pieces-finite-field",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The Appendix B integer pieces normalize modulo p with h! exactly when p>h. For any p, individual z_mu normalization gives equality on the uniformly indexable codebook of partitions with no p-divisible part and multiplicity below p. For p=2, the listed uncompressed source-factor length certificate has asymptotic rho at least sqrt(2).",
+  "improves_bound": false,
+  "evidence": [
+    "research/source-pieces-finite-field/PROOF.md",
+    "research/source-pieces-finite-field/verify.py",
+    "research/source-pieces-finite-field/pieces.py",
+    "research/source-pieces-finite-field/codebook.py",
+    "research/source-pieces-finite-field/rank_screen.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/source-pieces-finite-field/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all written arguments",
+    "Field-rank compression or alternative factors for restricted codebooks",
+    "Exact integer-query recovery or a complete decision guarantee remains separate",
+    "No improved global SAT algorithm or alpha is claimed"
+  ]
+}

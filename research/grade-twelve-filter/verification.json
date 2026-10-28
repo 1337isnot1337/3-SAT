@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "h": 12,
+  "N": 16,
+  "charge": 1,
+  "prime": 65537,
+  "excluded_shifts": [
+    -1,
+    0,
+    1
+  ],
+  "first_requests": [
+    [
+      15,
+      15,
+      [
+        15,
+        14,
+        13,
+        12
+      ]
+    ],
+    [
+      14,
+      15,
+      [
+        15,
+        14,
+        13,
+        12
+      ]
+    ],
+    [
+      15,
+      14,
+      [
+        15,
+        14,
+        13,
+        12
+      ]
+    ],
+    [
+      13,
+      15,
+      [
+        15,
+        14,
+        13,
+        12
+      ]
+    ],
+    [
+      15,
+      13,
+      [
+        15,
+        14,
+        13,
+        12
+      ]
+    ],
+    [
+      11,
+      15,
+      [
+        15
+      ]
+    ],
+    [
+      15,
+      12,
+      [
+        15,
+        14
+      ]
+    ],
+    [
+      10,
+      15,
+      [
+        15
+      ]
+    ]
+  ],
+  "first_matrix_shape": [
+    360,
+    46
+  ],
+  "first_matrix_sha256": "5c998691931f812c64463cf5c170b73d586d6a49635fdd84ee673ee687a83725",
+  "first_rank_mod_prime": 37,
+  "first_inner_rank_mod_prime": 36,
+  "first_edge_shifts": [
+    -24,
+    -23,
+    -22,
+    -21,
+    -20,
+    -19,
+    -18,
+    22,
+    23,
+    24
+  ],
+  "first_edge_exact_rational_rank": 1,
+  "second_requests": [
+    [
+      0,
+      0,
+      [
+        15
+      ]
+    ],
+    [
+      0,
+      1,
+      [
+        15
+      ]
+    ]
+  ],
+  "second_matrix_shape": [
+    30,
+    10
+  ],
+  "second_matrix_sha256": "4349afa977b90f58962c7baba907715c6d9dcd51a279c520b3469cab813139e3",
+  "combined_edge_rank_mod_prime": 10,
+  "conclusion": "The full rational scalarity system has only zero weight with shifts -1,0,1 excluded.",
+  "predecessor_model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
+}

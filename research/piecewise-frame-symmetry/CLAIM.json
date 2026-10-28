@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "piecewise-frame-symmetry",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "all_size_shared_dual_method_boundary",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "88b5f35432f8707a005c51d346e4c4c4cf6e416c",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For R at least 2, the original unfused F8 type symmetry and its conjugate by one cross-macro quadratic-isometric CNOT generate contragredient GL(3R,2). Any common invariant dual has a supporting type of entropy at most log2(14) per macro, below the 3 sqrt(2) floor used by a specified entropy certificate method. This neither constructs crossing pieces nor proves a SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/piecewise-frame-symmetry/README.md",
+    "research/piecewise-frame-symmetry/PROOF.md",
+    "research/piecewise-frame-symmetry/verify.py",
+    "research/piecewise-frame-symmetry/verification.json",
+    "research/piecewise-frame-symmetry/two_frame_screen.py",
+    "research/piecewise-frame-symmetry/two-frame-verification.json",
+    "research/piecewise-frame-symmetry/expanded_screen.py",
+    "research/piecewise-frame-symmetry/expanded-dual.json",
+    "research/piecewise-frame-symmetry/expanded-verification.json",
+    "research/piecewise-frame-symmetry/three_frame_screen.py",
+    "research/piecewise-frame-symmetry/three-frame-dual.json",
+    "research/piecewise-frame-symmetry/three-frame-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/piecewise-frame-symmetry/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the group-generation proof and finite orbit controls",
+    "Construct or refute a polynomial-size two-frame crossing decomposition with both cut costs paid",
+    "Full uniform factor generation and SAT cost accounting for any constructive successor"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; author-checked, no independent review claimed",
+  "selected_result_changed": false
+}

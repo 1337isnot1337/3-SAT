@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "scope": "rank-one generator controls and finite frame orbits",
+  "rank_one_cross_maps": 49,
+  "screens": [
+    {
+      "macros": 2,
+      "labels": 4096,
+      "orbits": [
+        {
+          "q": 0,
+          "size": 1,
+          "count": 1
+        },
+        {
+          "q": 0,
+          "size": 63,
+          "count": 2
+        },
+        {
+          "q": 0,
+          "size": 1953,
+          "count": 1
+        },
+        {
+          "q": 1,
+          "size": 2016,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "macros": 3,
+      "labels": 262144,
+      "orbits": [
+        {
+          "q": 0,
+          "size": 1,
+          "count": 1
+        },
+        {
+          "q": 0,
+          "size": 511,
+          "count": 2
+        },
+        {
+          "q": 0,
+          "size": 130305,
+          "count": 1
+        },
+        {
+          "q": 1,
+          "size": 130816,
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "bindings": {
+    "research/piecewise-frame-symmetry/verify.py": "c96b3c61e5e791a5da59950524cfa014d6e6e30c4265e2169d0bd6753b20fa53",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
+  }
+}
