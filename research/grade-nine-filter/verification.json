@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "h": 9,
+  "N": 8,
+  "charge": 1,
+  "prime": 65537,
+  "excluded_shifts": [
+    -1,
+    0,
+    1
+  ],
+  "first_pairs": [
+    [
+      7,
+      7
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      5
+    ]
+  ],
+  "first_matrix_shape": [
+    315,
+    34
+  ],
+  "first_matrix_sha256": "d56cc826b87de5831c7cc4fecf3045c11c0b5199097c3f6fb03225dd0d09baed",
+  "first_middle_rank": 26,
+  "first_extreme_columns_identically_zero": [
+    -18,
+    -17,
+    -16,
+    -15,
+    -14,
+    -13,
+    17,
+    18
+  ],
+  "second_full_pair": [
+    0,
+    0
+  ],
+  "second_partial_pair": [
+    0,
+    1
+  ],
+  "second_partial_output_y": 7,
+  "second_matrix_shape": [
+    70,
+    8
+  ],
+  "second_matrix_sha256": "98d13e463dbd25a782abda9e4a74c034d8152320fd09b5cf48309182e9ebf130",
+  "second_modular_rank": 8,
+  "conclusion": "The full rational scalarity system has only zero weight with shifts -1,0,1 excluded.",
+  "predecessor_model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+  "predecessor_report_sha256": "28742bb571c3ac58db7c897894a09f28db046b4697f12b306a61eab06494f396"
+}

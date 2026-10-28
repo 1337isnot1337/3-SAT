@@ -1,0 +1,32 @@
+{
+  "exhaustive_rank_checks": 8704,
+  "satisfiable_families": 2492,
+  "sharp_family": [
+    {
+      "n": 3,
+      "clauses": 7,
+      "rank": 7
+    },
+    {
+      "n": 4,
+      "clauses": 28,
+      "rank": 14
+    },
+    {
+      "n": 5,
+      "clauses": 70,
+      "rank": 25
+    },
+    {
+      "n": 6,
+      "clauses": 140,
+      "rank": 41
+    },
+    {
+      "n": 7,
+      "clauses": 245,
+      "rank": 63
+    }
+  ],
+  "status": "PASS"
+}
