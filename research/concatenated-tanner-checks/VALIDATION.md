@@ -45,3 +45,10 @@ SHA-256 was `c0a53b43c61e0b45d845553fa7c86db36e337653d14dd5089f5600c536891937`
 and its output SHA-256 was
 `4d81a8beb15488748660805e6b0c5a8fef206fa56a6affe157c3a3973bef334e`.
 This adds finite information-set checks and remains an author replay.
+
+At commit `f5dc3e6`, both scoped checkers and byte comparisons were repeated
+in the detached worktree, and `make verify` passed. The expander checker
+SHA-256 was `e7e23dbe76f89a9518051324d73f4cde73165ad656a27cb7984cf17b406397f8`
+and its output SHA-256 was
+`efcdc2a2a15622e13ffa0af7dcfc9bfe2ee691925812a99951b70ffe923b5118`.
+This includes exact finite spectral PSD certificates; it remains author replay.
