@@ -26,6 +26,8 @@ scalar entry on those extreme shifts needs at least
 `N^(1-sqrt(1-epsilon)-o(1))` separable label-pair summands at the predecessor's
 selected dimension N. Arbitrary nonseparable joint label mixing must be
 charged, and a summand bound is not a general runtime bound.
+For a fixed charge, the same lower bound applies to the sum of the ranks of
+the shiftwise coefficient matrices in any chosen input-label bases.
 The proof also states a shift-location condition for unequal output energy E
 and label grade h, with the mixture size charged explicitly.
 
@@ -47,7 +49,8 @@ The finite checks cover both operator orders and compressed operator ranks
 for four label pairs at each of grades 4 and 6, separable mixtures of those
 labels, and bounded endpoint scalar controls. Additional full-space checks
 cover grade 4 at output energies
-0, 1, 3 and 5 and charges 1 and 2. They do not independently verify the
+0, 1, 3 and 5 and charges 1 and 2, plus a non-coordinate output embedding
+with a non-orthogonal left inverse. They do not independently verify the
 all-size proof. The proof states the exact support and dimension conditions,
 the multiple-label-mixing limit, the partition asymptotics and the remaining
 obligations.

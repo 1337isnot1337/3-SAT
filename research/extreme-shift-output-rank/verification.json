@@ -177,5 +177,18 @@
       "two_order_and_rank_checks": 10
     }
   ],
+  "noncoordinate_control": {
+    "h": 6,
+    "D": 4,
+    "ambient_dimension": 11,
+    "shifts": [
+      -12,
+      -11,
+      11,
+      12
+    ],
+    "rank_checks": 4,
+    "endpoint_weight_checks": 25
+  },
   "model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
 }

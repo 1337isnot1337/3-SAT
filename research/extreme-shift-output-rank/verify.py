@@ -55,6 +55,35 @@ def unequal_energy_controls():
     return profiles
 
 
+def noncoordinate_control():
+    data = model.construct(2)
+    h, n = data['h'], data['N']
+    states = model.predecessor.partitions(h)
+    matrices = {}
+    # I(e_j)=e_j+e_(j+n); P selects the first n coordinates, so PI=Id.
+    for shift in (-2*h, -2*h+1, 2*h-1, 2*h):
+        cols = []
+        for j in range(n):
+            vectors = [dict(model.charged.piece_vector(data['row_labels'][0], data['column_labels'][0],
+                                                        states[k], shift, 1, reverse=(shift < 0)))
+                       for k in (j, j+n)]
+            cols.append([sum(v.get(states[u], 0) for v in vectors) for u in range(n)])
+        mat = [[cols[j][u] for j in range(n)] for u in range(n)]
+        if model.predecessor.exact_rank(mat) > budget(h, shift):
+            raise ValueError('Noncoordinate compression exceeds rank bound')
+        matrices[shift] = mat
+    checks = 0
+    for a in range(-2, 3):
+        for b in range(-2, 3):
+            mat = [[a*matrices[-2*h][i][j]+b*matrices[2*h][i][j] for j in range(n)] for i in range(n)]
+            scalar = all(mat[i][j] == (mat[0][0] if i == j else 0) for i in range(n) for j in range(n))
+            if scalar and mat[0][0] != 0:
+                raise ValueError('Noncoordinate compression gives forbidden scalar')
+            checks += 1
+    return {'h': h, 'D': n, 'ambient_dimension': len(states),
+            'shifts': list(matrices), 'rank_checks': len(matrices), 'endpoint_weight_checks': checks}
+
+
 def main():
     profiles = []
     for bits in (1, 2):
@@ -120,6 +149,7 @@ def main():
         model.charged.dual_operator.cache_clear()
     print(json.dumps({'status': 'PASS', 'scope': 'finite fixed-label compressed operator controls; all-size argument is in PROOF.md',
                       'profiles': profiles, 'unequal_energy_controls': unequal_energy_controls(),
+                      'noncoordinate_control': noncoordinate_control(),
                       'model_sha256': sha256(MODEL.read_bytes()).hexdigest()}, indent=2))
 
 

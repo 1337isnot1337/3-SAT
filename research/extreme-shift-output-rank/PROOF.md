@@ -150,6 +150,12 @@ assumption. For PR #19's selected dimension this is
 count, not a runtime lower bound for every possible representation or algorithm.
 For example, support restricted to `|s|>=7h/4` requires at least
 `N^{1/2-o(1)}` separable label-pair summands for a nonzero scalar entry.
+When charge is fixed and a shift-s term is written in fixed label bases
+with coefficient matrix `C_s`, rational matrix-rank factorization writes it
+as `rank(C_s)` separable pairs. Thus the same lower bound applies to
+`sum_s rank(C_s)`, for every such representation of a nonzero scalar entry.
+This is a statement about coefficient representations; it does not imply
+that expanding or evaluating every summand separately is unavoidable.
 
 For the predecessor's unchanged directional term-count envelope, this also
 limits what a support-only calculation can certify, provided the proposed
@@ -214,7 +220,9 @@ pairs at each of grades 4 and 6, including the two endpoint shifts. It also
 checks separable mixtures of those labels against the single-piece bound and
 bounded integer endpoint weights against the scalar-zero implication.
 Further checks use grade 4 at output energies 0, 1, 3 and 5 with charges 1
-and 2, comparing both orders and the unequal-energy rank bound.
+and 2, comparing both orders and the unequal-energy rank bound. A grade-6
+control also uses a non-coordinate output embedding and a non-orthogonal
+left inverse.
 These checks test the implementation and finite consequences; the all-size
 argument above is not established by those examples. The predecessor code
 and its source/attribution pins remain unchanged. `make verify` checks
