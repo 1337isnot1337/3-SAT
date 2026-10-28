@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "fingerprint-hitting-sets",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Formula-independent characteristic-two fingerprint hitting sets for perfect-matching XOR 2-CNF require exp(Omega(n/q)) points for q=o(n); a matching probabilistic upper bound holds up to logarithmic factors.",
+  "improves_bound": false,
+  "evidence": [
+    "research/fingerprint-hitting-sets/PROOF.md",
+    "research/fingerprint-hitting-sets/verify.py",
+    "research/fingerprint-hitting-sets/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/fingerprint-hitting-sets/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument",
+    "Formula-aware methods and polynomial-size fields remain open",
+    "No full SAT algorithm or selected bound improvement"
+  ]
+}

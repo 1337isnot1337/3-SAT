@@ -1,0 +1,94 @@
+{
+  "scope": "necessary scalarity equations for five input-label pairs at h=9, N=8, charge=1; shifts -1,0,1 excluded",
+  "input_pairs": [
+    [
+      7,
+      7
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      5
+    ]
+  ],
+  "remaining_shifts": [
+    -18,
+    -17,
+    -16,
+    -15,
+    -14,
+    -13,
+    -12,
+    -11,
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "constraint_rows": 315,
+  "prime": 65537,
+  "modular_rank": 26,
+  "pivot_shifts": [
+    -12,
+    -11,
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "rational_solution_dimension_at_most": 8,
+  "integer_matrix_sha256": "d56cc826b87de5831c7cc4fecf3045c11c0b5199097c3f6fb03225dd0d09baed"
+}
