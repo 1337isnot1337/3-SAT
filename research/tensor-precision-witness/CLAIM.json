@@ -15,13 +15,15 @@
     "research/tensor-precision-witness/verify.py",
     "research/tensor-precision-witness/screen_one_packet.py",
     "research/tensor-precision-witness/check_integer_lifts.py",
-    "research/tensor-precision-witness/screen_two_packet_powers.py"
+    "research/tensor-precision-witness/screen_two_packet_powers.py",
+    "research/tensor-precision-witness/screen_one_packet_nonlinear.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-witness/verify.py",
     "python3 -I -B research/tensor-precision-witness/screen_one_packet.py",
     "python3 -I -B research/tensor-precision-witness/check_integer_lifts.py",
     "python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py",
+    "python3 -I -B research/tensor-precision-witness/screen_one_packet_nonlinear.py",
     "make verify"
   ],
   "remaining_obligations": [

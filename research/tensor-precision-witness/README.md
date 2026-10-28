@@ -50,6 +50,7 @@ python3 -I -B research/tensor-precision-witness/verify.py
 python3 -I -B research/tensor-precision-witness/screen_one_packet.py
 python3 -I -B research/tensor-precision-witness/check_integer_lifts.py
 python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py
+python3 -I -B research/tensor-precision-witness/screen_one_packet_nonlinear.py
 make verify
 ```
 
@@ -67,7 +68,10 @@ compares the full shifted polynomials at all four grid nodes.
 The fourth permits an arbitrary row table on all `2L` rows of the same two
 fixed-column packets. It constructs 2-integral realizations of `H_1^2` for
 `L=2` and `H_1^2,H_1^3` for `L=4`; `H_1^4` is outside this span even over
-the rationals. These are finite results and do not establish an all-size saving.
+the rationals. A fifth screen exhausts fixed Boolean columns at `L=2,4`
+and permits an arbitrary row tensor: no power `H_1^k` for `1<=k<=L` is in
+that one-packet rational span. These are finite results and do not establish
+an all-size saving or obstruction.
 
 The all-size argument is author-checked. Boolean realization and realization
 with the predecessor's multiplicity `h=Theta(M/u)` remain open. No complete
