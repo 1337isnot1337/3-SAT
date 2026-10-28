@@ -57,6 +57,28 @@ of G on the first label axis yields a valid *finite* four-label crossing
 on this output codebook. A local invertible axis change preserves both
 flattening ranks; this finite fact does not show improved asymptotic ranks.
 
+## Maximal coordinate codebooks for the cubic filter
+
+For the same grade and input labels, build a graph on all 11 output
+partitions. Join distinct states y,u exactly when all 16 off-diagonal
+compressed entries in both directions vanish and all 16 diagonal entries
+at y equal those at u. The cliques are precisely the coordinate codebooks
+on which this cubic moment has the required scalar compression. Singleton
+codebooks satisfy scalarity automatically. The graph has 38 edges. Its 17 nonedges are exactly the pairs of partitions
+related by merging two parts, so each same-length-parity class is a clique.
+Exhaustive
+enumeration yields 11, 38, 54, 34, 9 and 1 cliques of sizes 1 through 6,
+respectively, and none larger. All of their input-label pairings have rank 4.
+The unique six-state example is
+
+```text
+(1,1,1,1,1,1), (2,2,1,1), (3,1,1,1), (3,3), (4,2), (5,1).
+```
+
+The [graph report](cubic-graph.json) includes the complete edges and maximal
+cliques. Its six-state maximum is for the cubic weight and these input
+labels, not a bound for arbitrary linear codebooks or another grade.
+
 ## Reproduction and evidence
 
 From repository root, offline with Python 3.11+ and only the standard library:
@@ -64,6 +86,8 @@ From repository root, offline with Python 3.11+ and only the standard library:
 ```sh
 python3 -I -B research/charged-scalar-filter/codebooks.py > /tmp/charged-codebooks.json
 cmp /tmp/charged-codebooks.json research/charged-scalar-filter/verification.json
+python3 -I -B research/charged-scalar-filter/cubic_graph.py > /tmp/charged-cubic-graph.json
+cmp /tmp/charged-cubic-graph.json research/charged-scalar-filter/cubic-graph.json
 make verify
 ```
 

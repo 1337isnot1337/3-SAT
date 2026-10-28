@@ -8,13 +8,15 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "At h=6 with the PR 19 four asymmetric input labels, among all 330 four-partition output codebooks, 296 have zero rational scalar-filter space after shifts -1,0,1 are excluded; each of the remaining 34 has the one-dimensional cubic weight space and an invertible 4-by-4 pairing. No tested codebook admits a nonzero filter with -2,-1,0,1,2 all excluded. This is finite evidence only.",
+  "statement": "At h=6 with the PR 19 four asymmetric input labels, among all 330 four-partition output codebooks, 296 have zero rational scalar-filter space after shifts -1,0,1 are excluded; each of the remaining 34 has the one-dimensional cubic weight space and an invertible 4-by-4 pairing. No tested codebook admits a nonzero filter with -2,-1,0,1,2 all excluded. This is finite evidence only. For the cubic weight, the exhaustive output compatibility graph has maximum coordinate-codebook size 6; all cliques have full-rank input pairing.",
   "improves_bound": false,
   "evidence": [
     "research/charged-scalar-filter/README.md",
     "research/charged-scalar-filter/codebooks.py",
     "research/charged-scalar-filter/linear.py",
-    "research/charged-scalar-filter/verification.json"
+    "research/charged-scalar-filter/verification.json",
+    "research/charged-scalar-filter/cubic_graph.py",
+    "research/charged-scalar-filter/cubic-graph.json"
   ],
   "reproduce": [
     "python3",
