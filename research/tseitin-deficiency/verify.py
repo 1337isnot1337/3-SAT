@@ -51,6 +51,8 @@ def check(n, edges):
     assert not sat(clauses, nvars)
     for v in range(n):
         assert sat([c for i,block in enumerate(blocks) if i != v for c in block],nvars)
+    for i in range(len(clauses)):
+        assert sat(clauses[:i] + clauses[i+1:], nvars)
     for c,d in combinations(clauses,2):
         for lit in set(c) & {-x for x in d}:
             res = (set(c)-{lit}) | (set(d)-{-lit})
@@ -64,7 +66,7 @@ def check(n, edges):
     surplus = min(sum(bool(mask & c) for c in masks)-mask.bit_count() for mask in range(1,1 << nvars))
     assert surplus >= 2
     print(f'PASS graph {n} vertices: {nvars} variables, {len(clauses)} clauses, '
-          f'deficiency {k}, surplus {surplus}, block-removal and resolvent checks')
+          f'deficiency {k}, surplus {surplus}, single-clause removal, block-removal and resolvent checks')
 
 
 def main():
