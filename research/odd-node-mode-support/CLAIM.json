@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "odd-node-mode-support",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "1dfac844cbb1e570c99579ecf48c1007d72da7c9",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A specified balanced root packing of an explicit weighted unary tensor-network family has exp(Omega(M/sqrt(u))) distinct retained odd-node Newton child-product summands nonzero modulo the source child precision, at t=1 and zeta=1.",
+  "improves_bound": false,
+  "evidence": [
+    "research/odd-node-mode-support/PROOF.md",
+    "research/odd-node-mode-support/verify.py",
+    "research/odd-node-mode-support/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/odd-node-mode-support/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the two-adic Pascal matrix, Boolean quotient, packing and precision argument",
+    "This uses a weighted unary tensor outside the stated SAT-reduction tables",
+    "No claim for default labeling or lower bound against simplification and aggregation",
+    "A SAT improvement requires a uniform algorithm and complete cost analysis"
+  ]
+}
