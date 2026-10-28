@@ -1,0 +1,38 @@
+{
+  "all_sets": [
+    {
+      "field_size": 2,
+      "minimum_nonzero_points": 1,
+      "nonempty_sets": 65535,
+      "points_per_set": 16,
+      "variables": 4
+    },
+    {
+      "field_size": 4,
+      "minimum_nonzero_points": 27,
+      "nonempty_sets": 255,
+      "points_per_set": 64,
+      "variables": 3
+    }
+  ],
+  "equality_families": [
+    {
+      "field_size": 2,
+      "nonzero_points": 27,
+      "pairs": 3,
+      "total_points": 64
+    },
+    {
+      "field_size": 4,
+      "nonzero_points": 169,
+      "pairs": 2,
+      "total_points": 256
+    },
+    {
+      "field_size": 8,
+      "nonzero_points": 3249,
+      "pairs": 2,
+      "total_points": 4096
+    }
+  ]
+}

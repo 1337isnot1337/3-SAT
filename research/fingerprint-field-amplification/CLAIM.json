@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "fingerprint-field-amplification",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "1337isnot1337 with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Sharp worst-case uniform multilinear fingerprint success and constrained equality-family amplification; a polylogarithmic field retains the predecessor general-density bound when repetitions are fully charged. No improved exponent.",
+  "improves_bound": false,
+  "evidence": [
+    "research/fingerprint-field-amplification/PROOF.md",
+    "research/fingerprint-field-amplification/verify.py",
+    "research/fingerprint-field-amplification/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/fingerprint-field-amplification/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument and complete cost",
+    "Any gain requires a changed interface or sampling mechanism with all costs charged"
+  ]
+}
