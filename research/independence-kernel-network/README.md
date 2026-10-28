@@ -8,7 +8,10 @@ Contributor: Cinna Davis, with substantial OpenAI Codex assistance. Apache-2.0.
 [PROOF.md](PROOF.md) rewrites the binary-matroid independence polynomial
 at **arbitrary** characteristic-two field values as a weighted sum over
 `ker(A)`, using the Boolean interpolation factors `z_j` and `1+z_j`.
-An exact nonlocal network uses sparse row parity constraints, equality
+The same identity also gives an invertible Boolean zeta transform from the
+kernel truth table to the independence coefficient table; it recovers the
+exact `2^b` characteristic-two cut rank from PR #104. An exact nonlocal
+network uses sparse row parity constraints, equality
 trees and `O(m+a+h)` wires for an a-by-m binary matrix with h ones.
 Grouping field weights and applying the owner-accepted contraction theorem
 then evaluates one point in polynomial space and
@@ -30,7 +33,7 @@ make verify
 
 The checker compares the independent-set and kernel formulas on all 4,096
 binary 3-by-4 matrices and all 16 Boolean weight vectors, with explicit
-XOR-accumulator path counts, plus 2,000 seeded GF(8) weight vectors with
+XOR-accumulator path counts and zeta coefficient checks, plus 2,000 seeded GF(8) weight vectors with
 grouped polynomial-lift controls. It also checks
 32 paired-column width profiles. The [saved output](verification.json) pins
 the checker hash and seed. These are finite controls, not an independent

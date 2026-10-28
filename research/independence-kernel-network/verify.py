@@ -88,9 +88,26 @@ def evaluate(cols, weights):
 
 
 def run():
-    exhaustive = gate_cases = 0
+    exhaustive = gate_cases = zeta_entries = 0
     for packed in range(8**4):
         cols = [(packed >> (3*j)) & 7 for j in range(4)]
+        # In characteristic two, the coefficient table is the Boolean
+        # inclusion-zeta transform of the kernel truth table.
+        for selected in range(16):
+            coefficient = 0
+            sub = selected
+            while True:
+                syndrome = 0
+                for j, col in enumerate(cols):
+                    if sub >> j & 1:
+                        syndrome ^= col
+                coefficient ^= (syndrome == 0)
+                if sub == 0:
+                    break
+                sub = (sub-1) & selected
+            chosen = [col for j,col in enumerate(cols) if selected >> j & 1]
+            assert coefficient == (rank(chosen) == len(chosen))
+            zeta_entries += 1
         for mask in range(16):
             paths = 1
             for row in range(3):
@@ -117,7 +134,7 @@ def run():
         controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
                          'ordered_width_sum': sum(widths)})
     return {'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
-            'explicit_xor_gate_cases': gate_cases,
+            'explicit_xor_gate_cases': gate_cases, 'zeta_coefficient_checks': zeta_entries,
             'GF8_weighted_and_group_lift_cases': 2000, 'seed': 25104,
             'paired_order_controls': controls,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

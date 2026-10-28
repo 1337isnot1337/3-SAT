@@ -24,6 +24,25 @@ and 0 otherwise. This proves equality as a formal multilinear polynomial,
 not merely at Boolean points. The identity is a rearrangement of the shared
 independent-set / kernel-indicator relation in PR #2; no priority is claimed.
 
+## Equality of the two cut ranks in characteristic two
+
+At any cut, index the kernel predicate truth table H by left and right
+Boolean bit vectors, and the independence table C by the corresponding
+selected sets. The coefficient argument above gives
+
+    C[S,T] = sum_(x subset S, y subset T) H[x,y] in K.
+
+Thus C=Z_L H Z_R^T, where each Z is the Boolean subset-inclusion matrix.
+Ordered by inclusion, these matrices are triangular with diagonal one and
+therefore invertible over K. The kernel table has rank exactly 2^b, where b
+is the intersection dimension of the two column spans: equal prefix and
+suffix syndromes yield 2^b disjoint rank-one blocks, each nonempty. Hence
+C also has rank exactly 2^b. This is an independent derivation of PR #104's
+characteristic-two cut-rank identity from the kernel predicate; the Boolean
+zeta transform is invertible, not a rank-losing substitution. The identity
+uses characteristic two when converting the kernel truth values to
+independence coefficients, and is not an odd-characteristic claim.
+
 ## A sparse nonlocal tensor network
 
 For each input bit x_j use a bounded-degree equality tree to distribute it
