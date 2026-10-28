@@ -96,6 +96,23 @@ def packet(L, q, b):
             'exact_contraction_identity': True}
 
 
+def first_mode(a):
+    L = 2**a
+    K, q, T = L//2, (L//2)//3, 2*L+1
+    common = F(prod(T-j for j in range(-L, L)),
+               prod(-j for j in range(-L, L) if j))
+    complete = sum((F(1, T+2*r) for r in range(K)), start=F(0))
+    partial = sum((F(1, T+2*r) for r in range(3*q)), start=F(0))
+    assert valuation(common) == a+1
+    assert complete == sum((F(5*L, (T+2*r)*(T+2*(K-1-r)))
+                            for r in range(K//2)), start=F(0))
+    assert valuation(complete) >= a
+    extra = valuation(partial)
+    assert extra == (0 if a % 2 else 2)
+    return {'a': a, 'L': L, 'q': q, 'common_v2': valuation(common),
+            'first_mode_excess_v2': extra, 'complete_pairing_v2': valuation(complete)}
+
+
 def packing():
     # Full packet control: r=2, a=3; not the source's asymptotic schedule.
     r, a, L = 2, 3, 8
@@ -137,6 +154,7 @@ def main():
              ROOT/'upstream/openai-eth-2026/build/quantitative-contraction.tex']
     return {'packet_cases': [packet(8, 1, 2), packet(16, 2, 3)],
             'toy_packing': packing(),
+            'first_mode_cases': [first_mode(a) for a in range(3, 10)],
             'sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in paths}}
 

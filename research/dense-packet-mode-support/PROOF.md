@@ -148,6 +148,39 @@ zero gives the value one. Unlike a lower valuation bound, (2) ensures that
 these particular nonzero rational terms remain visible at sufficiently
 large precision.
 
+### Exact excess for the first mode in one placement
+
+For a packet with all other coordinate pairs equal, group the first
+`3q` even-slot rows into consecutive triples, with `K=L/2` and
+`q=floor(K/3)`, leaving the remaining zero, one or two rows unary. This
+is one permitted placement within the construction, not a claim about
+all eligible packets. For `L=2^a` with `a>=3`, the coefficient of the
+first Newton mode has **exact** valuation
+
+```
+a+1                  if a is odd,
+a+3                  if a is even.                       (3)
+```
+
+The source factor is one for this mode. To prove (3), set
+`G=C(2L+1)/C'(0)`. Since `v2(n!)=n-s_2(n)`, direct evaluation of
+`C(2L+1)=(3L+1)!/(L+1)!` and `|C'(0)|=L!(L-1)!` gives
+`v2(G)=a+1`. The relevant coefficient is `-G S`, with
+
+```
+S = sum_{r=0}^{3q-1} 1/(2L+1+2r).
+```
+
+In the sum `S_full` over all `0<=r<K`, pair `r` with `K-1-r`.
+The two odd denominators add to `5L`, so every pair is divisible by
+`2^a` in `Z_(2)`. If `a` is odd, `K=1 mod 3`: one final reciprocal
+is removed from `S_full`, making `S` odd. If `a` is even, `K=2 mod 3`:
+the two removed denominators are `3L-3` and `3L-1`, and their reciprocal
+sum has numerator `6L-4` of valuation exactly two. Here `a>=4`, so
+subtracting it from the multiple of `2^a` leaves valuation exactly two.
+This proves (3). The checker verifies `a=3,...,9`. The result bounds only
+this one coefficient and does not establish the many-mode precision scale.
+
 ## 4. Exponent count and the source precision
 
 Choose
@@ -165,12 +198,12 @@ noneligible packets contribute a power of two from their free unary
 columns. Thus each complete summand has valuation at most
 
 ```
-M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (3)
+M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (4)
 ```
 
 The source's actual precision at `t=1` is
 `p_t=p+8 ceil(3M/u)L+8M(a+1)`, hence `p_t>=24ML/u`. For large `N`, the
-right side of (3) is strictly below `p_t`. All complete summands are
+right side of (4) is strictly below `p_t`. All complete summands are
 therefore nonzero modulo `2^p_t`.
 
 The Newton mode weight satisfies `w_k<=a+1+3k`. The total weight of every
