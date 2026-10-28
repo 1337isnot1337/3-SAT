@@ -392,6 +392,65 @@ continuation, not part of the filler lemma or an end-to-end subdivision
 construction. A proof must handle the nonboundary sets uniformly, the
 selected pin pattern and the simultaneous label/slot allocation.
 
+### An all-size even-row pinning lemma
+
+For every power of two `L>=8` and every nonempty set `S` of even row
+indices, the moment `N_S` above is divisible by 16. Thus, for arbitrary integral external forms `t_j` independent of the
+filler bits `X`, attaching an equality row gate at each
+`j in S` gives the modulo-16 identity
+
+```
+sum_X prod_x(1-z_x) prod_{j in S} E(t_j,z_j)
+    = 8 prod_{j in S}(1-t_j) mod 16.                      (6)
+```
+
+Indeed `E(t,z)=(1-t)+(2t-1)z`: expand in subsets and use `N_empty=8`
+and the stated moment divisibility. After division by 8, (6) supplies
+simultaneous zero pins modulo two. The restriction to even rows is essential
+to the proof and is sufficient for the selected slots in Section 5.
+
+To prove the moment statement, write `d=|S|` and split the sum by `X_0`.
+For fixed remaining bits, let
+
+```
+H(X_0)=prod_{x<L-1}(1-z_x) prod_{j in S} z_j.
+```
+
+Each `z_j(1-z_j)` is even, so `H(X_0)` is divisible by `2^d`. The only
+valuation-one off-diagonal entry is `W_(L-1,0)=2U/3`; hence with `X_0=0`
+the last-row form is divisible by four. Using `U=3 mod 8`, the combined
+contribution for `X_0=0,1` is
+
+```
+H(0)[2-2 z_(L-1)(0)-W_(L-1,0)]
+ + [H(1)-H(0)] [1-z_(L-1)(0)-W_(L-1,0)].
+```
+
+The bracket in the first line is divisible by eight, so that line vanishes
+modulo 16 for `d>=1`. For the second line, every selected even row `j` has
+`W_j0` divisible by `2^(a+1)`, hence by 16. Among the other non-last rows,
+only `m=L/2-1` has `v2(W_m0)=2`; all others have valuation at least three.
+Changes at selected rows or at rows other than `m` therefore vanish modulo
+16, and the `m` contribution vanishes when `d>=2` because of the `d` even
+factors.
+
+It remains to consider `d=1`, say `S={j}`. Since `j` is even, `j!=m`.
+Divide the `m` contribution by eight and reduce modulo two. For any
+non-last row, its only odd Cauchy entry is its shifted diagonal. Thus
+`z_j(1-z_j)/2 mod 2` depends only on `X_(j+1)` (because all off-diagonal
+entries in that row are divisible by four), and every remaining
+`(1-z_x) mod 2` depends only on `X_(x+1)`. The factor at row `m` was
+removed by the change, so this reduced summand is independent of
+`X_(m+1)`. Summing over that free bit gives zero modulo two. This proves
+`N_S=0 mod 16` for all nonempty even `S`.
+
+The finite moment checker includes all even-row subsets up to size three
+at `L=8,16` and selected subsets at `L=32,64`; four or more vanish
+pointwise. The proof does not claim the stronger non-last-row statement
+suggested by the screen, and the last-row exception remains real. It also
+does not supply the complete global arrangement of subdivision and pin
+packets.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact

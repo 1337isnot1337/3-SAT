@@ -54,9 +54,9 @@ Boolean-clause selected coefficients are recomputed as exact rationals, and
 a conditional local subdivision/pin gate is checked for every external bit
 vector. A separate all-size filler lemma proves that a paired unit-clause
 and free-variable subdivision packet contributes exactly three powers of
-two; its modulo-16 expansion is checked through `L=64`. A finite moment
-screen finds a last-row exception; the proposed nonboundary generalization
-is unproved. Neither result is a globally packed SAT-reduction construction. These finite checks do
+two; its modulo-16 expansion is checked through `L=64`. An all-size moment lemma then proves simultaneous pinning on even rows
+after removing that factor; a finite screen finds a last-row exception, and
+the broader nonboundary generalization remains unproved. Neither result is a globally packed SAT-reduction construction. These finite checks do
 not review the all-size proof or implement the full recursion.
 
 Issue [#22](https://github.com/1337isnot1337/3-SAT/issues/22) coordinates
