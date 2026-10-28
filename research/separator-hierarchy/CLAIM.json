@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "separator-hierarchy",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "conditional_separator_interface",
+  "author": "Codex (OpenAI; AI-assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A supplied primal separator hierarchy yields exact counting with exponent bounded by maximum root-to-leaf separator load plus the accepted leaf cost; even exact-width-three formulas with each variable occurring twice can have only linear balanced primal separators.",
+  "improves_bound": false,
+  "evidence": [
+    "research/separator-hierarchy/PROOF.md",
+    "research/separator-hierarchy/verify.py",
+    "research/separator-hierarchy/LINE-GRAPH.md",
+    "research/separator-hierarchy/linegraph.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/separator-hierarchy/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size arguments and external expander theorems",
+    "Efficient low-load hierarchies or a paid preprocessing reduction for all inputs",
+    "No selected 3-SAT bound improvement or baseline algorithm implementation"
+  ]
+}

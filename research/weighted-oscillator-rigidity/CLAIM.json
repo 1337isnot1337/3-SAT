@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "weighted-oscillator-rigidity",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Scalar creation and annihilation weights preserve the existing h=1 two-order identity at all shifts exactly when their products are c k; in characteristic zero, nonzero c forces all indices and zero c makes the standard positive-grade vacuum pairing degenerate. Any infinitely supported scalar sequence with a eventually nondegenerate order-d recurrence with coefficients varying by index has support lower density at least 1/d, over any field; this is sharp. A characteristic-p example has nonzero c, missing annihilation modes, and degenerate standard vacuum pairing despite satisfying h=1. Uniformly over all primes p, its vacuum-pairing quotient has exp(Theta(sqrt(E))) individual-grade and cumulative grade dimensions.",
+  "improves_bound": false,
+  "evidence": [
+    "research/weighted-oscillator-rigidity/PROOF.md",
+    "research/weighted-oscillator-rigidity/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/weighted-oscillator-rigidity/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written argument",
+    "Changed identities or coupled operators and non-vacuum pairing remain open",
+    "No complete SAT improvement is supplied",
+    "Bounded-order recurrence is only a necessary scalar locality condition; vanishing leading coefficients or growing order remain open"
+  ]
+}

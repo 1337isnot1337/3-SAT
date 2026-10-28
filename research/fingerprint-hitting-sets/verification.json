@@ -1,0 +1,68 @@
+{
+  "cases": [
+    {
+      "n": 2,
+      "q": 2,
+      "matchings": 1,
+      "colorings": 4,
+      "max_good": 1,
+      "bound": "1",
+      "mean_good_probability": "1/2"
+    },
+    {
+      "n": 4,
+      "q": 2,
+      "matchings": 3,
+      "colorings": 16,
+      "max_good": 2,
+      "bound": "3/4",
+      "mean_good_probability": "1/4"
+    },
+    {
+      "n": 6,
+      "q": 2,
+      "matchings": 15,
+      "colorings": 64,
+      "max_good": 6,
+      "bound": "9/16",
+      "mean_good_probability": "1/8"
+    },
+    {
+      "n": 8,
+      "q": 2,
+      "matchings": 105,
+      "colorings": 256,
+      "max_good": 24,
+      "bound": "27/64",
+      "mean_good_probability": "1/16"
+    },
+    {
+      "n": 4,
+      "q": 4,
+      "matchings": 3,
+      "colorings": 256,
+      "max_good": 3,
+      "bound": "1",
+      "mean_good_probability": "9/16"
+    },
+    {
+      "n": 6,
+      "q": 4,
+      "matchings": 15,
+      "colorings": 4096,
+      "max_good": 10,
+      "bound": "1",
+      "mean_good_probability": "27/64"
+    },
+    {
+      "n": 8,
+      "q": 4,
+      "matchings": 105,
+      "colorings": 65536,
+      "max_good": 60,
+      "bound": "7/8",
+      "mean_good_probability": "81/256"
+    }
+  ],
+  "status": "PASS"
+}

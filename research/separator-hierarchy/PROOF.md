@@ -1,0 +1,39 @@
+# Separator hierarchy composition
+
+Status: author-checked, substantially AI-assisted; no independent review.
+
+## Interface
+
+Let F be a k-CNF on n named variables, with input length N, fixed k, and primal graph G: distinct variables are adjacent when they occur in a common clause. The hierarchy is a rooted tree of disjoint vertex sets. Each internal node u has a separator S_u and child subtrees whose unions V_1,...,V_t partition V_u minus S_u; no edge of G joins two distinct V_i. Each leaf owns its remaining set V_u, including isolated variables. Sets on the path to u and in V_u partition all variables relevant to u. Require a polynomial-size hierarchy, supplied or found in polynomial time and checked against F. Empty internal separators are allowed only with at least two nonempty children; a nonempty separator removes at least one variable. This prevents redundant unary nodes. Leaves have at most b variables.
+
+Define L as the maximum, over root-to-leaf paths, of the sum of the sizes of internal separators on that path. The hierarchy may be highly unbalanced; its validity does not require a small separator at every node. For n=0 handle the formula directly.
+
+**Claim.** Given the hierarchy, exact counting and decision take deterministic time
+
+    poly(N) * 2^(L + O_k(b log log(b+4)/sqrt(log(b+4))))
+
+and polynomial space. Under the stronger assumption that every leaf, after every ancestor restriction, has at most D times its variable count in clauses for fixed D, replace the leaf term by O_k,D(b/sqrt(log(b+4))). A uniform bound on variable occurrences in the original formula implies this leaf-density assumption; merely m <= Dn globally need not. This uses the accepted exact-counting theorem as a black box and makes no claim to implement it.
+
+## Proof and cost
+
+At an internal node enumerate all assignments to S_u. Simplify the current formula. If an empty clause appears, that assignment contributes zero. Every surviving clause is either already true or contains variables in a single child: a clause cannot meet two child sets without creating a primal edge between them. Recursively count each child, multiply its counts, and sum over the separator assignments. A variable that appears nowhere remains in its assigned child or separator and contributes its two values. Multiplication and addition involve integers at most 2^n and take polynomial time. This gives exactly the count by partitioning the global assignments; decision can test whether it is nonzero.
+
+Each tree node has at most 2 to the power of its ancestor separator load copies. Its own enumeration adds its separator size. Therefore all executions, including failed branches and local simplifications, are bounded by a polynomial in N and tree size times 2^L. Each leaf is invoked at most 2^L times and has at most b variables. The accepted general theorem supplies the displayed leaf factor, with its polynomial input-size factor absorbed in poly(N); b bounded is handled by brute force. The fixed-density form requires the stated local density, since global density alone can concentrate clauses in a tiny leaf. No randomization, approximation, query amplification, or recovery is needed. The tree, partial assignments, restricted clauses, and n-bit partial counts fit polynomial space in a depth-first evaluation; the accepted leaf algorithm is polynomial-space. No tensor modes or precision are introduced by the wrapper.
+
+A straightforward special case stops at constant-size leaves. If each node of size x has children of size at most a fixed qx, q<1, and has separator size at most C x/(log(x+4))^gamma with gamma>0, then L=O(n/(log(n+4))^gamma). To see this, along any path the sizes are at most q^j n. Split levels at j ≈ (log n)/(2 log(1/q)): for the first part the denominator is Omega(log n) and the geometric numerator sums to O(n); the tail has total size O(sqrt(n)). Small n is absorbed in the constant. Thus gamma > 1/2 gives a larger log-saving exponent on this promised class, provided the hierarchy can be supplied or found and verified in polynomial time. The construction of such a hierarchy for arbitrary 3-CNF is not established. For separators C x^beta, 0<beta<1, L=O(n^beta). Both are standard separator-branching consequences, not claims of novelty.
+
+## Bounded occurrence is insufficient
+
+Use the explicit bounded-degree expander family G_r on (Z/rZ)^2 in James R. Lee, *On expanders from the action of GL(2,Z)*, arXiv:1301.6296v4, pp. 1–2 (https://arxiv.org/abs/1301.6296v4). An edge connects (x,y) to each of (x+1,y), (x,y+1), (x+y,y), (x,y+x), modulo r. The cited source proves expansion and degree at most eight; loops and parallel copies may be discarded. Let h>0 be a uniform edge-expansion constant and d<=8 a degree bound after this simplification. Create one variable x_v per vertex and one 2-clause (x_u OR x_v) for each simple edge. It is a 3-CNF in the at-most-three-literals convention, with at most four clauses per variable on average, at most eight occurrences per variable, and a primal graph exactly G_r. It is trivially satisfiable by the all-true assignment; it is a geometric counterexample, not a hard SAT instance.
+
+For any separator S whose remaining connected components each have size at most 2n/3, either |S|>=n/3 or one can combine components into A with n/3<=|A|<=2n/3: select a component already in that range, or accumulate components smaller than n/3 until reaching n/3. Every crossing edge between A and its complement goes to S. Edge expansion on the smaller of A and its complement gives at least h n/3 crossing edges, while at most d|S| touch S. Hence |S|>=min(1/3,h/(3d)) n. Thus bounded occurrence and linear clause count alone cannot guarantee sublinear balanced primal separators, even before considering their discovery cost. The obstruction also holds for exact-width-three clauses after unit propagation and pure-literal elimination. For each simple expander edge {u,v}, orient it by a fixed vertex order, and choose a neighbor w of u distinct from v. Such a w exists because the construction has at least the two distinct coordinate neighbors for r>=2. Add the two clauses
+
+    (x_u OR x_v OR NOT x_w) AND (NOT x_u OR NOT x_v OR x_w).
+
+Every clause has three distinct variables; every variable appears in both polarities, since each incident edge contributes a complementary pair. There are no units, tautologies, or pure literals. All-true and all-false satisfy the formula. Each vertex occurs as an edge endpoint at most d times and as the chosen w at most d^2 times: any edge selecting it has an oriented endpoint among its at most d neighbors, with at most d choices of edge. Each edge adds two clauses, so variable occurrence is at most 2(d+d^2), and the clause count is at most dn. The new primal graph contains G_r on the same n vertices, so every balanced separator of the new graph also separates G_r and retains the same linear lower bound. Thus these two simplifications alone cannot guarantee the hierarchy, even for exact-width-three formulas.
+
+These examples are deliberately easy. The exact-width-three pair resolves to binary clauses, and stronger preprocessing or an explicit search for the all-true assignment can solve them. This says nothing about a different algorithm or changed encoding, and is not a lower bound on 3-SAT running time.
+
+## Sources
+
+The accepted OpenAI theorem is pinned by `SOURCES.json` at commit `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`, Theorem 1.1 and Appendix D. The expander argument depends on the cited Lee v4 result; the PDF fetched 2026-10-28 from `https://arxiv.org/pdf/1301.6296v4` had SHA-256 `8305e48090964f372bfb1bd771daeab092cc088bca731ec83e5cb334c059f9a9`. No external source is vendored. The finite checker uses the graph definition, not a finite screen as a proof of expansion.
