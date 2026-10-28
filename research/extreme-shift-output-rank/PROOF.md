@@ -198,6 +198,18 @@ rank-budget method by itself cannot exclude any support containing such a
 shift. Sharper restricted-operator ranks or additional structural equations
 would be needed to address that part of the central-gap target.
 
+This limitation is exact for a relaxed model that retains only the channel
+dimensions and allows their maps to be chosen independently. Let one
+intermediate space `U_(s,i)` of dimension `p(k)` be given for every
+nonnegative intermediate energy k, and put `B=sum_s K_s`. If `B>=D`, embed a
+D-dimensional W into the direct sum of the U spaces and choose a left
+inverse. Writing the identity as the sum of its coordinate-channel
+compositions gives an abstract scalar crossing supported on S. If `B<D`,
+the rank proof above excludes it. Thus `B<D` is the exact threshold in
+this relaxed factor-through-spaces model. The real charged operators have
+coupled, explicitly specified mode maps; the relaxed construction is not a
+charged crossing and says nothing about its realizability or SAT costs.
+
 Finite checkers also give a direct control: at grades 4, 6, 9 and 12, the
 last selected row/column label pair has full output rank D on the
 predecessor codebook for every integer shift `|s|<=h`. This is stronger than

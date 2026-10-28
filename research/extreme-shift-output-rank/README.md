@@ -37,6 +37,11 @@ the predecessor's unchanged term-count envelope, losing that output rate does
 not lower the support-only envelope threshold, even after the trivial `N^2`
 rank cap. This is not an actual-rank or SAT-time lower bound.
 
+The rank-budget criterion is sharp in a relaxed model with independent
+intermediate-channel maps: once their total dimension reaches the output
+dimension, such maps can sum to the identity. The actual charged modes are
+coupled, so this relaxation does not establish a realizable crossing.
+
 Run the finite checks with:
 
 ```sh
