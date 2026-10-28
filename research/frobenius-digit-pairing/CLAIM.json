@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "frobenius-digit-pairing",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "4ce0cb947bdb6837718c7061e45d3a723219d703",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Base-p digit oscillators restore a nondegenerate vacuum pairing with ordinary partition-number grade dimensions, but their naive unit-derivative operators fail the existing h=1 two-order identity at shift 1.",
+  "improves_bound": false,
+  "evidence": [
+    "research/frobenius-digit-pairing/PROOF.md",
+    "research/frobenius-digit-pairing/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/frobenius-digit-pairing/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument",
+    "A valid crossing identity and two-direction factorizations",
+    "Uniform entry, recursion, recovery, field and full global costs",
+    "No new SAT bound is claimed"
+  ]
+}
