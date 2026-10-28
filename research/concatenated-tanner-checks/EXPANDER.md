@@ -124,8 +124,16 @@ coordinates of a binary length-N dimension-n linear code is injective, so
 `d_min<=N-n+1=ceil(n/L)+1` (the Singleton bound). Thus a guaranteed relative
 distance 1/P must satisfy `P>=N/(ceil(n/L)+1)`. In particular, if L grows
 while n/L grows, this lower bound on P grows on the order of L; a fixed
-positive relative distance cannot be carried through such a limit. This is a
-coding bound, not a SAT lower bound. We do not claim a smaller SAT exponent
+positive relative distance cannot be carried through such a limit. The Hamming
+packing bound sharpens this: put r=N-n and t=floor((d_min-1)/2). Disjoint
+radius-t balls give `sum_{i=0}^t binom(N,i) <= 2^r`. For t>0,
+`binom(N,t)>=(N/t)^t`, and t<=N/2. Hence t<=r and then
+
+    t <= r / log2(N/r),
+    d_min/N <= 2r/(N log2(N/r)) + 2/N.
+
+In particular P=Omega(L log L) when L and n/(L log L) both tend to infinity.
+These are coding bounds, not SAT lower bounds. We do not claim a smaller SAT exponent
 or an improved hidden leading constant in the accepted bound.
 
 ## Linear-size hashed fingerprint network at fixed density
