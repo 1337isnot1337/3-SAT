@@ -4,8 +4,8 @@
   "max_grade": 35,
   "sha256": {
     "CLAIM.json": "ba4254a9be34e0df167e4afd9b876387d2f217852032b897163fa2bc271346e6",
-    "PROOF.md": "886771f79abc5c633bdfd746c5a5327d6475c2ada77557a3135928db1d07b024",
-    "README.md": "2fd5695b748fe68936a24f9868cc9329bdbc24bb3fb233ddc3d760d7e59fd5ee",
+    "PROOF.md": "4e4d4ce9e1e1bf0c041d8ce96b1c64cf0c8ca23750a33874532e1934f469eb26",
+    "README.md": "15bd1173783a24938b1e3855758778d55cac13092eefca701b9e801fbbc259a6",
     "verify.py": "073a5b695bca46564b97431d0d0a78dec9f82fdc5b6655ca324469197940d40e"
   },
   "strict_improvements_over_predecessor_cover": 430,

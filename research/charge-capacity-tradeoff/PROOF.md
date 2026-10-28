@@ -73,6 +73,13 @@ unrestricted support mask. It may be weaker than the actual operator loss.
 
 Write kappa=pi sqrt(2/3). The Hardy--Ramanujan logarithmic estimate
 `log p(n)=kappa sqrt(n)+O(log(n+1))` is used in the predecessor proof.
+Applying it to both sides of (4), with p(0)=1, gives the uniform estimate
+
+    log C_h(e) = kappa sqrt(h-e/2) + O(log(h+1)),  0<=e<=2h.
+
+The rounding error changes a square root by at most one. The cases e=0,1
+are full masks and satisfy the same estimate. Unlike a fixed-ratio limit,
+this also controls intermediate sublinear and near-endpoint degrees.
 For a fixed 0<delta<=2 and e/h -> delta with e<=2h, equation (4) yields
 the mask asymptotic
 

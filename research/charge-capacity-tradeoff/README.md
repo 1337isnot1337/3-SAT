@@ -13,6 +13,7 @@ predecessor's general cover in some finite cases; it need not be attainable
 by the actual operators. When e/h tends to a fixed positive delta, this
 implies a leading label-capacity loss; that leading rate is sharp for the
 unrestricted support mask, although actual operators may have smaller rank.
+A uniform log-rank estimate covers all effective degrees up to 2h.
 The predecessor target exp(kappa sqrt(h)-O(log h)) additionally requires
 e=O(sqrt(h) log h); this is also sufficient for that capacity in the mask,
 without establishing a realizable scalar pairing. In particular a weight
