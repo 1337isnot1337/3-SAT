@@ -193,7 +193,12 @@ terms. The full accepted contraction still incurs its stated general-density
 exponent; the fixed-density counter and selected alpha remain unchanged. For
 polylogarithmic B the very high-degree polynomial D(B) is still polylogarithmic,
 but may be much worse than the earlier constructions; no practical gain is
-asserted.
+asserted. As a separate cost-model observation,
+[PR #114](https://github.com/1337isnot1337/3-SAT/pull/114) studies an
+explicit positive-coefficient sparsification/width proxy. Its c=0 case still
+has a log(lambda)/sqrt(lambda) optimized term when a positive multiple of
+log B is charged. This supports the stated limitation only within that
+proxy; it is not a lower bound on actual leaf density or SAT runtime.
 
 `verify_expander.py` checks the eight port permutations, symmetry, and exact
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
