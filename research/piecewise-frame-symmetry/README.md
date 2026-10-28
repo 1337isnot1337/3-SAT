@@ -40,7 +40,7 @@ pin their sources and checkers; finite checks do
 not substitute for the written all-size group proof. The predecessor's
 F8 scheme, Pauli ranks and source attribution are credited in
 [three-bit-macro-walsh](../three-bit-macro-walsh/README.md). The entropy
-floor mechanism is developed in the pending branch
-`research/unfused-f8-entropy` and coordinated in issue #27; this package
-is independent of that unmerged source. Starting main was
+floor mechanism is developed in [the unfused F8 entropy result](https://github.com/1337isnot1337/3-SAT/pull/120)
+and coordinated in issue #27; this package is independent of that result.
+Starting main was
 `88b5f35432f8707a005c51d346e4c4c4cf6e416c`. New work is Apache-2.0.
