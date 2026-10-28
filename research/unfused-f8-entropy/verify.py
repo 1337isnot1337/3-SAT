@@ -154,6 +154,33 @@ for row in rows:
         basis[pivot] = [x * inverse % prime for x in v]
 assert len(basis) == len(distinct_orbits)
 
+# A nonlocal quadratic-isometric relabeling on two three-bit macros.
+# The controlled-X uses bit 0 of one macro and bit 3 of the other.
+def relabel(a, b):
+    return a ^ ((a & 1) << 3), b ^ ((b >> 3) & 1)
+
+
+def sign(a, b):
+    return (-1) ** ((a & b).bit_count() % 2)
+
+
+def sample_function(a, b):
+    return (17 * a + 29 * b) % 7 - 3
+
+
+for a in range(64):
+    for b in range(64):
+        aa, bb = relabel(a, b)
+        assert sign(a, b) == sign(aa, bb)
+        assert relabel(aa, bb) == (a, b)
+for x, y in ((0, 0), (1, 8), (7, 19), (63, 47), (40, 3)):
+    lx, ly = relabel(x, y)
+    pulled_hat = sum(sample_function(*relabel(a, b)) * sign(b, x) * sign(a, y)
+                     for a in range(64) for b in range(64))
+    original_hat = sum(sample_function(a, b) * sign(b, lx) * sign(a, ly)
+                       for a in range(64) for b in range(64))
+    assert pulled_hat == original_hat
+
 # Wrong normalization is a negative control for the weighted polynomial.
 wrong = defaultdict(int)
 for alpha, coefficient in P.items():
@@ -167,5 +194,6 @@ print(json.dumps({'status': 'PASS', 'scope': 'frozen four-macro integer dual and
                   'seed_orbits': len(seed), 'nonzero_types': len(P), 'pairing': pairing,
                   'two_seed_nonzero_types': len(power),
                   'distinct_only_orbit_rank': len(basis), 'rank_prime': prime,
+                  'nonlocal_relabel_labels': 4096, 'fourier_controls': 5,
                   'minimum_entropy_fourth_power': entropy_min_power,
                   'bindings': {str(path.relative_to(ROOT)): sha256(path.read_bytes()).hexdigest() for path in files}}, indent=2))

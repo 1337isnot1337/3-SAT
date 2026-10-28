@@ -14,7 +14,7 @@
     "research/unfused-f8-entropy/six-builder.cpp": "2d1b690aa29bea05bf9199c077e7d34030abd27cd08e49f5b1ac1e0fd53b83f3",
     "research/unfused-f8-entropy/six-seed.json": "1a0b181957e832aa8ce2c55dc0e37e9c1fe3acd954dad016e8c8c8b92b28edfb",
     "research/unfused-f8-entropy/six-relation.json": "9b9d0835105161a1eafa41356d210827915c61a5570349e298223a4222c32257",
-    "research/unfused-f8-entropy/verify.py": "ab2ef1ced91b634bdf4812be930812928bf63eb347b4cd37fbb8691ca5a32d7f",
+    "research/unfused-f8-entropy/verify.py": "0a0aa1592eefb647b4b26e5ec2d2f104153907cc525d6c7fcbe435954026a7be",
     "research/unfused-f8-entropy/seed.json": "c5f2ab1a980cdc663991dec0a6dc6e6a3bd8751cb8af8ea9e37d242a0d8bbf3e",
     "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
   }

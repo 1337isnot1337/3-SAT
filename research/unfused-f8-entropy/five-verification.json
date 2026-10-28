@@ -9,7 +9,7 @@
   "bindings": {
     "research/unfused-f8-entropy/five.py": "9e862533885ab6fd40ccbb7887cee655e8450596bed4fdea54095a9382391614",
     "research/unfused-f8-entropy/five-relation.json": "3a0a609a83a6c2e1ad80603b6cef77838809958a6a96e7460aac4648994679a4",
-    "research/unfused-f8-entropy/verify.py": "ab2ef1ced91b634bdf4812be930812928bf63eb347b4cd37fbb8691ca5a32d7f",
+    "research/unfused-f8-entropy/verify.py": "0a0aa1592eefb647b4b26e5ec2d2f104153907cc525d6c7fcbe435954026a7be",
     "research/unfused-f8-entropy/seed.json": "c5f2ab1a980cdc663991dec0a6dc6e6a3bd8751cb8af8ea9e37d242a0d8bbf3e",
     "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235"
   }

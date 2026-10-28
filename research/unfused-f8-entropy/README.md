@@ -28,7 +28,8 @@ make verify
 
 The first checker rebuilds the local character table and verifies the
 48-orbit seed, target pairing, entropy profiles, 2,135 two-seed types,
-a normalization negative control and a 33-column modular rank check. The
+a normalization negative control, a nonlocal relabeling control and a
+33-column modular rank check. The
 five-macro comparison checks a rational row relation excluding a strictly
 stronger floor for that block size. The six-macro replay checks the
 stronger seed, with 20 direct entry controls and an exact relation proving
