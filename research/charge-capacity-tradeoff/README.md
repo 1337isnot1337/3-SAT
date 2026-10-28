@@ -30,7 +30,9 @@ piece also attains the two-label structural rank via a scalar operator
 matrix; this remains constant label capacity. One degree lower again, the
 all-ones pair has a weighted number operator with a simple spectrum on
 grade-h outputs, so a scalar invariant output subspace has dimension at
-most one. At the adjacent shift a concrete grade-four collision produces
+most one. A single simple-spectrum operator nevertheless has a rational
+two-sided scalar compression of dimension floor(N/2); simultaneous label
+pairing scalarity and factor costs are separate. At the adjacent shift a concrete grade-four collision produces
 a two-dimensional scalar eigenspace; all 25 label-pair operators preserve
 it and act scalarly, with rank-three label matrix. The [adjacent-shift proof](ADJACENT.md)
 shows the analogous all-ones operator has simple spectrum for every h>=5,

@@ -248,7 +248,17 @@ are distinct, and (13) has one-dimensional eigenspaces over Q (or any
 characteristic-zero field). Every subspace on which this operator acts as
 a scalar has dimension at most one. This holds for any subspace, not only
 one spanned by output partitions, provided the operator acts on it as a
-scalar; a separate output projection/compression is not covered.
+scalar; a separate output projection/compression is not covered. In fact,
+for any diagonal N-by-N rational operator with distinct eigenvalues, a
+single operator always admits two-sided scalar compression of dimension
+floor(N/2). Pair its eigenvectors with eigenvalues a,b and choose any
+rational c. For each pair define Q(e)=e_a+e_b and define P by
+`P(e_a)=(c-b)/(a-b)` and `P(e_b)=(a-c)/(a-b)`, with the result in the
+corresponding compressed coordinate. Across disjoint pairs, `PQ=I` and
+`PAQ=cI`. These maps may be nonorthogonal; they do not simultaneously
+scalarize the other label-pair operators or provide the necessary crossing
+factor costs. Thus simple spectrum alone says nothing comparable about
+that two-sided compression interface.
 
 `spectrum.py` checks pairwise distinct exact values for all partitions of
 grades 2 through 45. This is a bounded check, not the proof. The
