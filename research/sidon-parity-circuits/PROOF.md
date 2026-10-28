@@ -236,3 +236,48 @@ realizable codewords efficiently, and its all-input costs would still
 need to be paid. `runs.py` exhausts all 2,040 cyclic words at lengths
 3 through 10 against both direct Boolean preimage counts and the
 independent matrix routine, then reproduces the three finite screens.
+
+## Enumerating only 101-free prefixes
+
+The local characterization yields a provably smaller enumeration for
+this specific family, for **every** n>=16. Let q be the quotient above,
+using whichever orientation matches the original rows. Its constant
+coefficient is 1 because both Y^n-1 and the gcd have constant coefficient
+1. If v=sum_(i<d) v_i Y^i and m=qv, then
+
+    m_i = v_i + sum_(j<i) q_(i-j) v_j  (mod 2),   0<=i<d.
+
+This unit-triangular map is a bijection from selectors v to the first d
+bits of m. In particular, every realizable m has a 101-free prefix.
+Generate exactly those prefixes, recover v by forward substitution,
+construct the remaining bits of m=qv, check the **entire cyclic** word
+for 101, and use the zero-run formula above for its weight. Every
+realizable kernel vector appears once, and no nonrealizable vector is
+counted. For d=0 the unique empty prefix is included.
+
+Let a_d be the number of binary words of length d avoiding 101. Tracking
+the longest suffix that is a prefix of 101 gives the nonnegative
+transition matrix
+
+    [[1,1,0], [0,1,1], [1,0,0]].
+
+It is primitive, with characteristic polynomial
+`z^3-2z^2+z-1`. By its Perron root lambda,
+`a_d=Theta(lambda^d)`, where lambda=1.754877666... and
+log2(lambda)=0.811370462.... Equivalently, `a_0=1`, `a_1=2`,
+`a_2=4`, and `a_d=2a_(d-1)-a_(d-2)+a_(d-3)` for d>=3.
+Depth-first prefix generation, binary-polynomial arithmetic, cyclic
+filtering and exact integer weights use `poly(n) lambda^d` bit time
+and polynomial space. The polynomial factor includes all prefix-tree
+nodes, reconstruction, and output bit lengths. This strictly improves
+the prior 2^d enumeration at the stated interface. On the infinite
+linear-d subsequence the new worst-case upper bound remains exponential
+in n; no improvement to the accepted all-input SAT bound follows.
+
+`prefix.py` checks the recurrence against generated prefixes through
+d=15, compares with full kernel enumeration at all registered sizes
+with d<=7 and direct Boolean exhaustion at n=16,17,18, and reproduces
+the independently enumerated n=155 count at d=15. There it visits
+5,842 prefixes rather than 32,768 kernel words; 435 pass the full
+cyclic filter. These counts do not prove a stronger asymptotic bound
+on the filtered set.

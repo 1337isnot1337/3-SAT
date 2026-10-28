@@ -26,7 +26,10 @@ outside the restricted circuit model. More generally, the same family at
 arbitrary n has a deterministic polynomial-space exact count in time
 `poly(n) 2^d`, where `d=deg gcd(g,Y^n-1)` and `d` is at most
 `gcd(n_odd,2^L-1)`. This is polynomial only under an explicit parameter
-condition, such as `d=O(log n)`. In fact, the infinite subsequence
+condition, such as `d=O(log n)`. Using the triangular prefix map and
+the 101-free realizability condition improves this particular upper bound
+to `poly(n) lambda^d`, where lambda=1.754877666..., in polynomial space.
+In fact, the infinite subsequence
 `n=5(2^L-1)` has `d=(n-5)/10`; this enumeration is exponential there.
 
 The question was whether simple gate-level parity sharing uniformly gives
@@ -43,6 +46,7 @@ From the repository root, with Python 3.11+ and only the standard library:
 python3 -I -B research/sidon-parity-circuits/verify.py
 python3 -I -B research/sidon-parity-circuits/arbitrary.py
 python3 -I -B research/sidon-parity-circuits/runs.py
+python3 -I -B research/sidon-parity-circuits/prefix.py
 make verify
 ```
 
@@ -56,7 +60,9 @@ full kernel enumeration at 14 sizes, including d=7, and exhausts the
 original Boolean assignments at n=16,17,18. Six additional exact gcd
 checks cover the linear-kernel subsequence without enumerating it.
 The run checker exhausts 2,040 short product patterns and screens three
-linear-kernel cases. These finite checks do not mechanically
+linear-kernel cases. The prefix checker compares its output against brute
+force and full kernel enumeration, including n=155 at d=15. These finite
+checks do not mechanically
 prove the all-size statement. No external dependency or heavy check is added
 to default CI.
 
