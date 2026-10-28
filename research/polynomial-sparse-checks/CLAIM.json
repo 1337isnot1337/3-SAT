@@ -18,7 +18,9 @@
     "research/polynomial-sparse-checks/COMPOSITION.md",
     "research/polynomial-sparse-checks/ROW-COUNT.md",
     "research/polynomial-sparse-checks/RETUNED.md",
-    "research/polynomial-sparse-checks/verify_retuned.py"
+    "research/polynomial-sparse-checks/verify_retuned.py",
+    "research/polynomial-sparse-checks/REDUNDANCY.md",
+    "research/polynomial-sparse-checks/verify_redundancy.py"
   ],
   "reproduce": [
     "python3",
