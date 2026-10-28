@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "sidon-parity-circuits",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "representation_obstruction",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Explicit low-load quadratic sparse-query systems require n(L-1) binary XOR gates under disjoint-support sharing for the given rows; L=floor(log2 n)-2. This is not a SAT lower bound or an improved SAT algorithm.",
+  "improves_bound": false,
+  "evidence": [
+    "research/sidon-parity-circuits/PROOF.md",
+    "research/sidon-parity-circuits/verify.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/sidon-parity-circuits/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument",
+    "Analyze cancellation, row changes and aggregate representations before broader claims",
+    "A complete all-input algorithm and cost for any SAT improvement"
+  ]
+}
