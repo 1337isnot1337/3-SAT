@@ -92,3 +92,30 @@ carry-based annihilators do not generate the full nondegenerate digit
 vacuum pairing. This is an exact component identity and does not rule out
 another operator construction linking them. It also does not establish the
 remaining source crossing, factorization, or cost contracts.
+
+## General vacuum-pairing obstruction
+
+The preceding factorial radical is not special to base-p carries. Let V be
+a vector space over a field of characteristic p, with operators L,R and a
+nonzero vacuum v satisfying `L v=0` and `[L,R]=c Id`. Let a linear vacuum
+functional omega obey `omega(v)=1` and `omega(R w)=0` for every w; a
+projection to degree zero has this property when R raises a positive grade.
+The elementary commutator induction gives
+
+    L R^n v = n c R^(n-1) v,
+    omega(L^m R^n v) = [m=n] c^n n!.
+
+These formulas hold in every characteristic. At n=p the second expression
+vanishes for every m. Consequently either `R^p v=0`, losing that state in
+the R-generated sector, or the nonzero state `R^p v` lies in the right
+radical of its pairing with the L-generated vacuum functionals. In
+particular, a nondegenerate pairing between all distinct R-generated states
+and the L-generated dual states cannot coexist with the scalar commutator
+in characteristic p. If c=0, the defect occurs already at n=1.
+
+This theorem applies to arbitrary representations with these stated vacuum
+and commutator conditions, not only the carry example. It does not prevent
+additional annihilators or a different functional from detecting `R^p v`,
+nor does it rule out an altered commutator or a different crossing identity.
+The nondegenerate digit pairing uses exactly such extra digit operators, and
+there is no claimed full source identity tying them to the carry operators.

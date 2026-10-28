@@ -12,7 +12,9 @@ creation/derivative operators fail the existing source h=1 two-order
 identity in every characteristic. Carry-aware operators on the same digit
 labels recover the source commutator, but their generated vacuum pairing
 again has factorial radicals; that pairing is distinct from the full digit
-pairing. The representation supplies neither a crossing construction nor
+pairing. The factorial obstruction follows for any operators with a scalar
+commutator and the stated vacuum conditions, whenever the p-th raised state
+is nonzero; extra annihilators remain possible. The representation supplies neither a crossing construction nor
 an alternative complete SAT algorithm.
 
 Reproduce with Python 3.11+ and the standard library:
