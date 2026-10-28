@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "The u=1 tapered witness has a prescribed two-packet realization per copy over Z_(2), with M=2hL ports and degree 2L-1.",
+  "statement": "The generic tapered witness has a prescribed Cauchy-packet realization over Z_(2), with M=2huL ports and degree 2L-1.",
   "improves_bound": false,
   "evidence": [
     "research/tensor-precision-witness/PROOF.md",
@@ -21,7 +21,7 @@
     "make verify"
   ],
   "remaining_obligations": [
-    "Realize matching h=Theta(M) with bounded-degree tensors and a valid packing, or prove an obstruction.",
+    "Realize matching h=Theta(M/u) with the source packing, or prove an obstruction.",
     "Determine whether an odd-normalized witness has a Boolean realization."
   ]
 }

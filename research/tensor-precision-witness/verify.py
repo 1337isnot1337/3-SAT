@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact rational check of interpolation realization; no external dependencies."""
+"""Exact rational checks of all taper factors and their packet interpolation."""
 from fractions import Fraction as Q
 from math import factorial
 
@@ -33,37 +33,45 @@ def v2(q):
 
 
 def main():
-    cases = 0
+    factors = entries = 0
     for L in (2, 4, 8, 16):
-        # One fixed column in each of two full packets covers every shift.
+        a = L.bit_length() - 1
         shifts = {L - 1 - x for x in range(L)} | {-x for x in range(1, L)}
         assert shifts == set(range(-L + 1, L))
         grid = range(-L, L)
-        C = [Q(1)]
-        H = [Q(1)]
-        for t in grid:
-            C = mul(C, [Q(-t), Q(1)])
-            if t and t % 2:
-                H = mul(H, [Q(1), Q(-1, t)])
         den = Q((-1)**(L-1) * factorial(L) * factorial(L-1))
-        c0 = value(H, -L)
-        assert v2(c0) >= 0
-        result = [c0]
-        for d in range(-L+1, L):
+        ws = {}
+        for d in shifts:
             W = [Q(1)]
             for t in grid:
                 if t != d: W = mul(W, [Q(-t), Q(1)])
-            W = [c / den for c in W]
-            wd = value(W, d)
-            assert v2(wd) == 0
-            coeff = (value(H, d) - c0) / wd
-            assert not coeff or v2(coeff) >= 0
-            result = add(result, [coeff * c for c in W])
-            cases += 1
-        assert result == H
-        assert value(H, 0) == 1
-        if L == 4:
-            assert value(H, -L) == Q(35, 3)
-    print(f'PASS: {cases} exact Cauchy entries; 4 full polynomial identities and 2-adic coefficient checks')
+            ws[d] = [c / den for c in W]
+            assert v2(value(ws[d], d)) == 0
+            entries += 1
+        product = [Q(1)]
+        for j in range(a):
+            P = [Q(1)]
+            for t in grid:
+                if t and v2(Q(t)) <= j:
+                    P = mul(P, [Q(1), Q(-1, t)])
+            assert len(P) - 1 == 2 * L - L // 2**j
+            c0 = value(P, -L)
+            assert v2(c0) >= 0
+            result = [c0]
+            for d in sorted(shifts):
+                coeff = (value(P, d) - c0) / value(ws[d], d)
+                assert not coeff or v2(coeff) >= 0
+                result = add(result, [coeff * c for c in ws[d]])
+            assert result == P and value(P, 0) == 1
+            product = mul(product, P)
+            direct = [Q(1)]
+            for t in grid:
+                if t:
+                    for _ in range(max(0, j + 1 - v2(Q(t)))):
+                        direct = mul(direct, [Q(1), Q(-1, t)])
+            assert product == direct
+            if L == 4 and j == 0: assert c0 == Q(35, 3)
+            factors += 1
+    print(f'PASS: {entries} Cauchy entries, {factors} factor identities and taper factorizations')
 
 if __name__ == '__main__': main()
