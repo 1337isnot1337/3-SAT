@@ -64,6 +64,7 @@ def main():
         count = 0
         endpoint_scalar_checks = 0
         maximum = 0
+        all_matrices = {}
         for x in (0, n-1):
             for v in (0, n-1):
                 matrices = {}
@@ -76,6 +77,7 @@ def main():
                     if rank > budget(h, shift):
                         raise ValueError('Rank exceeds intermediate-space bound')
                     matrices[shift] = mat
+                    all_matrices[(x, v, shift)] = mat
                     maximum = max(maximum, rank)
                     count += 1
                 # For N>2, two endpoint operators have total rank at most 2<N.
@@ -90,8 +92,19 @@ def main():
                             if scalar and mat[0][0] != 0:
                                 raise ValueError('Nonzero scalar below rank threshold')
                             endpoint_scalar_checks += 1
+        # A separable mixture of two row and two column labels remains one
+        # piece by bilinearity; its rank is bounded by K, not four times K.
+        mixed_checks = 0
+        for shift in shifts:
+            mat = [[sum(all_matrices[(x, v, shift)][u][y]
+                        for x in (0, n-1) for v in (0, n-1))
+                    for y in range(n)] for u in range(n)]
+            if model.predecessor.exact_rank(mat) > budget(h, shift):
+                raise ValueError('Separable label mixture exceeds single-piece bound')
+            mixed_checks += 1
         profiles.append({'bits': bits, 'h': h, 'N': n, 'fixed_label_pairs': 4,
                          'shifts': shifts, 'two_order_and_rank_checks': count,
+                         'separable_label_mixture_checks': mixed_checks,
                          'max_observed_compressed_rank': maximum,
                          'endpoint_pair_budget': budget(h,-2*h)+budget(h,2*h),
                          'endpoint_scalar_weight_checks': endpoint_scalar_checks})

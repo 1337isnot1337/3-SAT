@@ -10,7 +10,9 @@ interface, not a SAT lower bound or a bound improvement.
 
 Let `V_k` be the partition space of energy k over the rational field, with
 dimension `p(k)` and `p(0)=1`. Fix label grade `h`, output energy `E`, charge
-`q`, and a fixed input-label pair in the charged predecessor construction.
+`q`, and a fixed pair of input labels in the charged predecessor construction.
+Each label may itself be an arbitrary linear combination of the predecessor's
+labels, using their common grade-h mode convention.
 For the raw piece `Q_s` with `|s|<=E+h`, put
 
 ```math
@@ -33,10 +35,11 @@ a single predecessor piece. Applying it to every entry of a scalar pairing
 matrix makes that entire pairing zero. The choice of W need not be a
 coordinate subspace, and P need not be an orthogonal projection.
 
-More generally, for a sum of L raw pieces with independently chosen shifts,
-labels and charges, the same rank bound holds with one `K_s` for each
-summand, including repeated shifts. Thus bounded label mixing is covered
-without assuming a common pair of input labels.
+More generally, for a sum of L pieces with independently chosen shifts,
+separable label pairs and charges, the same rank bound holds with one `K_s`
+for each summand, including repeated shifts. Each of those labels may be an
+arbitrary linear combination; L counts separable pairs, not the number of
+basis labels used to write them.
 
 ## Proof
 
@@ -55,10 +58,14 @@ cannot increase rank, and rank is subadditive across shifts, proving (1).
 A nonzero scalar multiple of `Id_W` has rank D, giving the final claim.
 No unproved generic-rank or noncancellation assumption is used.
 
-The bound is per raw piece. A construction that sums several different
-label-pair pieces at the *same* shift must charge each additional summand.
-It does not automatically survive arbitrary mixing of label axes, and it
-does not assert that the upper bound K_s is attained.
+The predecessor's `Q_s(a,b)` is bilinear in its labels. In particular,
+mixing any number of row labels on one axis with the other label fixed is
+exactly one piece with the mixed row label; simultaneous separate linear
+mixing on both axes is also one piece. This includes the local inverse used
+in PR #19, even though its coordinate expansion can have N terms. An
+arbitrary joint mixture need not be separable: it must be decomposed into
+separable label pairs and each pair charged once. The bound does not assert
+that K_s is attained.
 
 ## Unequal output and label energies
 
@@ -124,9 +131,10 @@ generally, the fixed-epsilon extreme-support exclusion still holds when
  < \pi\sqrt{2/3}\,(1-\sqrt{1-\epsilon}).
 ```
 
-This includes `log L_h=o(sqrt(h))`. The generic local normalization in PR #19 may mix
-`N=exp(Theta(sqrt(h)))` label entries, so it is not covered by that
-subexponential-mixing condition without a sharper argument.
+This includes `log L_h=o(sqrt(h))`. The local normalization of PR #19 is
+covered as one separable pair per shift, regardless of the number of basis
+labels in its expansion. An arbitrary nonseparable joint normalization may
+require many separable pairs and must be charged accordingly.
 
 Conversely, a nonzero scalar entry supported on those extreme shifts needs
 at least
@@ -138,10 +146,10 @@ at least
 
 where the exponential expression is a lower bound under the stated capacity
 assumption. For PR #19's selected dimension this is
-`L_h >= N^{1-sqrt(1-epsilon)-o(1)}`. This is a necessary raw-summand count,
-not a runtime lower bound for every possible representation or algorithm.
+`L_h >= N^{1-sqrt(1-epsilon)-o(1)}`. This is a necessary separable-piece
+count, not a runtime lower bound for every possible representation or algorithm.
 For example, support restricted to `|s|>=7h/4` requires at least
-`N^{1/2-o(1)}` raw summands for a nonzero scalar entry.
+`N^{1/2-o(1)}` separable label-pair summands for a nonzero scalar entry.
 
 For the predecessor's unchanged directional term-count envelope, this also
 limits what a support-only calculation can certify, provided the proposed
@@ -162,22 +170,28 @@ mixed summands, or a different decomposition are not excluded.
 
 In particular, the grade choice in PR #19 has `D_h=N=2^lambda` and
 `p(h)<h^2 N`, so its output dimension meets this condition with C=2.
+Its locally normalized piece has, for each fixed x and v, the form
+`s Q_s(a'_x,b_v)` for the mixed label
+`a'_x=sum_a (M^-1)_(x,a) a_a`. Hence a crossing identity supported only on
+the stated extreme shifts is impossible even after that normalization:
+taking x=v would give the forbidden nonzero scalar output identity.
 The estimate is asymptotic and does not provide a numerical threshold here.
 It also applies to other output spaces with the stated dimension bound.
 
 This excludes a *more restrictive* support choice than the open target in
 [NEXT.md](../charged-asymmetric-crossing/NEXT.md): excluding only
 `|s|<epsilon h` still allows many intermediate shifts. It does not rule out
-that target, alternative operator families, multiple paid label mixtures,
-or a different full SAT algorithm. It supplies no improved rho, alpha,
-selected bound, or implementation.
+that target, alternative operator families, sufficiently large nonseparable
+label mixtures, or a different full SAT algorithm. It supplies no improved
+rho, alpha, selected bound, or implementation.
 
 ## Reproduction and scope
 
 `python3 -I -B research/extreme-shift-output-rank/verify.py` performs exact
 finite checks of both operator orders and output-matrix ranks for four label
 pairs at each of grades 4 and 6, including the two endpoint shifts. It also
-checks bounded integer endpoint weights against the scalar-zero implication.
+checks separable mixtures of those labels against the single-piece bound and
+bounded integer endpoint weights against the scalar-zero implication.
 Further checks use grade 4 at output energies 0, 1, 3 and 5 with charges 1
 and 2, comparing both orders and the unequal-energy rank bound.
 These checks test the implementation and finite consequences; the all-size

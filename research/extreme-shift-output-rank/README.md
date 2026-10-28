@@ -16,13 +16,16 @@ author-checked all-size argument, substantially AI-assisted and not
 independently or formally reviewed. It does not rule out the open central-gap
 target, improve a SAT bound, or change the selected result.
 
-The proof also charges sums of multiple raw pieces. Polynomially many mixed
-pieces retain the quantitative shift requirement; a stated exponential-rate
-condition suffices for the fixed-epsilon exclusion. Conversely, any nonzero
+Each input label may be an arbitrary linear combination, so the local inverse
+normalization of PR #19 preserves the obstruction without paying for its
+individual coordinate terms. The proof also charges sums of multiple
+separable label-pair pieces. Polynomially many retain the quantitative
+shift requirement; a stated exponential-rate condition suffices for the
+fixed-epsilon exclusion. Conversely, any nonzero
 scalar entry on those extreme shifts needs at least
-`N^(1-sqrt(1-epsilon)-o(1))` raw summands at the predecessor's selected
-dimension N. Generic exponential-size label normalization is not
-automatically covered, and a summand bound is not a general runtime bound.
+`N^(1-sqrt(1-epsilon)-o(1))` separable label-pair summands at the predecessor's
+selected dimension N. Arbitrary nonseparable joint label mixing must be
+charged, and a summand bound is not a general runtime bound.
 The proof also states a shift-location condition for unequal output energy E
 and label grade h, with the mixture size charged explicitly.
 
@@ -37,8 +40,9 @@ make verify
 ```
 
 The finite checks cover both operator orders and compressed operator ranks
-for four label pairs at each of grades 4 and 6, plus bounded endpoint scalar
-controls. Additional full-space checks cover grade 4 at output energies
+for four label pairs at each of grades 4 and 6, separable mixtures of those
+labels, and bounded endpoint scalar controls. Additional full-space checks
+cover grade 4 at output energies
 0, 1, 3 and 5 and charges 1 and 2. They do not independently verify the
 all-size proof. The proof states the exact support and dimension conditions,
 the multiple-label-mixing limit, the partition asymptotics and the remaining
