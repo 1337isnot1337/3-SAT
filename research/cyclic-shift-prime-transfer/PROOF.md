@@ -97,3 +97,47 @@ certificate or the cyclic denominator form; this does not derandomize that
 full contract. For a genuinely cheaper crossing family one must prove the
 crossing identity, two simultaneous rate bounds, uniform generation and an
 appropriate good-prime supply, and charge the full outer reduction.
+
+## Extension to a fixed finite set of integer bases
+
+The same mechanism covers every fixed finite collection of integers
+`a_1,...,a_t >= 2`. Set `q=8 lcm(a_1,...,a_t)` and take primes
+`p = -1 mod q`. Such p is 7 modulo 8 and is greater than every `a_j+1`.
+For each odd prime factor ell of any a_j, quadratic reciprocity gives
+
+```math
+ (ell/p) = (p/ell) (-1)^((ell-1)/2) = 1,
+```
+
+since `p=-1 mod ell` and `p=3 mod 4`. Also `(2/p)=1` because `p=7 mod 8`.
+Thus each `(a_j/p)=1`, so Euler's criterion shows that the multiplicative
+order of a_j modulo p divides the odd number `(p-1)/2`. It exceeds one
+because `1<a_j<p-1`. Therefore no such prime divides any
+`a_j^(2^lambda)-1`. The conjugation is
+
+```math
+ (a_j I-C)^-1 = (a_j^(2^lambda)-1)^-1
+                 sum_(r=0)^(2^lambda-1) a_j^(2^lambda-1-r) C^r.
+```
+
+For this explicit version assume the **fixed** modulus `q<=100000`, so the
+same cited progression estimate applies. For `K=B+2+Q` choose
+
+```math
+ X = max(8*10^9, 2^(2q), [4q(K+1)]^2).
+```
+
+The explicit error bound implies `theta(X;q,q-1)>X/(2 phi(q))`: indeed
+`log X >= 2q log 2`, making `1/(160 log X) < 1/(2q) <= 1/(2 phi(q))`.
+There are therefore more than `X/(2q log X) >= sqrt(X)/(2q) >= 2(K+1)`
+primes in this progression. Sieve and remove the at most Q base-bad primes
+as before. Because q is fixed, the threshold `2^(2q)` is an enormous
+constant, and X is polynomial in B and Q. This does **not** give polynomial
+time uniform in a growing modulus or a growing list of arbitrary bases.
+
+Uniformly generated compositions of such conjugations fit if their entry
+bit-time remains `2^O(lambda)` and every base-family denominator and
+normalizer is covered by D(S). The finite replay now uses base 3 on the
+actual six-class crossing, as well as independent modular controls for six
+finite base sets. The result does not prove that their raw large denominators
+lack compact radical certificates, nor does it improve their rank profiles.

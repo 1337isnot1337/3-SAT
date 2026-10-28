@@ -3,7 +3,7 @@ from fractions import Fraction as F
 from hashlib import sha256
 import importlib.util
 import json
-from math import gcd, isqrt
+from math import gcd, isqrt, lcm
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -48,10 +48,21 @@ def main():
     require(all(pow(2, 2, p) == 1 for p in (3,)), 'Ordinary odd prime negative control')
     require(pow(2, 4, 5) == 1, 'Second ordinary prime negative control')
     require(gcd(7, 7) != 1, 'Base denominator must still be checked')
+    general_checks = 0
+    for factors in ((2,), (3,), (4,), (2, 3), (5, 7), (2, 3, 5)):
+        modulus = 8 * lcm(*factors)
+        eligible = [p for p in primes if p % modulus == modulus - 1]
+        require(eligible, 'No small progression example')
+        for p in eligible:
+            for base in factors:
+                for lam in range(10):
+                    require(pow(base, 1 << lam, p) != 1, 'General denominator')
+                    general_checks += 1
     data = refined.construct(1)
     n = 8
-    denominator = (1 << n) - 1
-    chosen = [p for p in safe if gcd(p, data['denominator']) == 1][:5]
+    base = 3
+    denominator = base**n - 1
+    chosen = [p for p in primes if p % 24 == 23 and gcd(p, data['denominator']) == 1][:5]
     indices = {alpha: j for j, alpha in enumerate(data['types'])}
     classes = refined.SCHEME['classes']
     sums = [[F(0)]*(n*n) for _ in range(n*n)]
@@ -71,10 +82,10 @@ def main():
                 for u in range(n):
                     for v in range(n):
                         value = F(0)
-                        for a, coef in ((x, 2), ((x+1)%n, -1)):
+                        for a, coef in ((x, base), ((x+1)%n, -1)):
                             b = a ^ y ^ u
                             t = (v-b) % n
-                            value += coef * original(a,y,u,b) * F(1 << (n-1-t), denominator)
+                            value += coef * original(a,y,u,b) * F(base**(n-1-t), denominator)
                         rows[x*n+y][u*n+v] = value
                         cols[x*n+u][y*n+v] = value
                         sums[x*n+y][u*n+v] += value
@@ -116,6 +127,7 @@ def main():
              ROOT/'odd-prime-rank-transfer'/'field.py', ROOT/'three-bit-macro-walsh'/'refined.py']
     print(json.dumps({'status':'PASS','scope':'finite good-prime and actual cyclic crossing controls',
                       'primes_up_to_10000':len(safe),'good_prime_length_checks':prime_checks,
+                      'general_progression_checks':general_checks, 'cyclic_base':base,
                       'negative_controls':3,'cyclic_dimension':n,'cyclic_denominator':denominator,
                       'crossing_primes':chosen,'pieces':len(data['pieces']),'factorizations':facts,
                       'crossing_entries':n**4,'predicate_counts':256,'max_entry_denominator_bits':max_denom_bits,

@@ -4,12 +4,12 @@ Status: `scoped_checked`; author-checked, substantially Codex-assisted and
 not independently reviewed. No improved rho, selected SAT bound, or
 polynomial-space result is claimed. This package is stacked on PR #60.
 
-A cyclic conjugation `B=2I-C` at dimension `N=2^lambda` creates exact inverse
-coefficients with denominator `2^N-1`, whose bit length is exponential in
-lambda. Every prime congruent to 7 modulo 8 avoids every such denominator,
-since 2 has odd order greater than one modulo those primes. A published
-explicit progression estimate supplies polynomially many of them by a
-deterministic sieve. Given a compact base-family bad-prime certificate, use
+A cyclic conjugation `B=aI-C` at dimension `N=2^lambda` creates exact inverse
+coefficients with denominator `a^N-1`, whose bit length is exponential in
+lambda. For any fixed finite set of integer bases `a>=2`, every prime in the
+progression `-1 mod 8*lcm(a)` avoids all these denominators at every length.
+The explicit progression bound used here covers fixed moduli up to 100,000,
+and supplies polynomially many primes via a deterministic sieve. Given a compact base-family bad-prime certificate, use
 those primes and the PR #60 CRT interface to reconstruct each signed network
 query before the outer reduction. The proof does not require factoring or
 constructing the large denominator to select primes.
@@ -28,9 +28,9 @@ python3 -I -B research/cyclic-shift-prime-transfer/verify.py
 make verify
 ```
 
-[verification.json](verification.json) records 4,004 good-prime/length
+[verification.json](verification.json) records 4,004 binary and 6,040 general good-prime/length
 checks, three negative controls, the exact 4,096 entries of the actual
-six-class R=1 cyclic-conjugated crossing sum, both flattening factorizations
+six-class R=1 base-3 cyclic-conjugated crossing sum, both flattening factorizations
 across five primes, and all 256 predicate counts recovered by CRT. It does not
 run the large explicit sieve or implement the full master algorithm. The
 all-size proof is not mechanically verified.
