@@ -186,7 +186,9 @@ asserted.
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
 and powers 1,2,3, plus 700 integer padding/row-budget schedules. It also
 checks the two-dimensional subcode averaging bound, small exact sampler
-biases, and finite near-rate row-count inequalities, plus complete full and shortened kernels of a scaled 32-edge
+biases, finite near-rate row-count inequalities, and all binary check-row
+families on up to three coordinates for the information-set construction,
+plus complete full and shortened kernels of a scaled 32-edge
 Tanner fixture using the tested inner checks. That fixture does not meet the
 large source parameters. The verifier does not
 prove the cited all-size spectral theorem, construct its huge required power,

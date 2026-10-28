@@ -162,6 +162,46 @@ def check_near_rate():
     return cases
 
 
+def check_information_sets():
+    cases = projections = 0
+    for N in range(1, 4):
+        for family in range(1 << (1 << N)):
+            rows = [r for r in range(1 << N) if family >> r & 1]
+            pivots = {}
+            selected = []
+            for original in rows:
+                row = original
+                while row:
+                    pivot = row.bit_length()-1
+                    if pivot not in pivots:
+                        pivots[pivot] = row
+                        selected.append(original)
+                        break
+                    row ^= pivots[pivot]
+            words = [v for v in range(1 << N)
+                     if all((v & row).bit_count() % 2 == 0 for row in rows)]
+            assert words == [v for v in range(1 << N)
+                             if all((v & row).bit_count() % 2 == 0 for row in selected)]
+            dim = N-len(selected)
+            assert len(words) == 1 << dim
+            for info in itertools.combinations(range(N), dim):
+                encoded = {sum(((w >> i) & 1) << j for j, i in enumerate(info))
+                           for w in words}
+                if len(encoded) == len(words):
+                    break
+            else:
+                raise AssertionError((N, family, dim))
+            for n in range(1, dim+1):
+                fixed = [w for w in words if all((w >> i) & 1 == 0 for i in info[n:])]
+                assert len(fixed) == 1 << n
+                assert len({sum(((w >> i) & 1) << j for j, i in enumerate(info[:n]))
+                            for w in fixed}) == 1 << n
+                assert len(selected)+dim-n == N-n
+                projections += 1
+            cases += 1
+    return cases, projections
+
+
 def main():
     cases = 0
     for n in (2, 3):
@@ -197,12 +237,15 @@ def main():
             assert 2*q*c <= 3*n
             schedules += 1
     subcodes, sampler_cases = check_sampler_bias()
+    information_cases, projections = check_information_sets()
     print(json.dumps({'result':'pass', 'mixing_subset_pairs':cases,
                       'subcodes_checked':subcodes, 'sampler_bias_cases':sampler_cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
                       'powers':[1,2,3], 'port_inverse_cases':check_port_inverses(),
                       'tanner_fixture':check_tanner_fixture(),
-                      'near_rate_inequalities':check_near_rate()},
+                      'near_rate_inequalities':check_near_rate(),
+                      'information_set_matrices':information_cases,
+                      'information_set_projections':projections},
                      indent=2, sort_keys=True))
 
 

@@ -3,6 +3,8 @@
     2,
     3
   ],
+  "information_set_matrices": 276,
+  "information_set_projections": 102,
   "mixing_subset_pairs": 787200,
   "near_rate_inequalities": 1312,
   "padding_schedules": 700,
