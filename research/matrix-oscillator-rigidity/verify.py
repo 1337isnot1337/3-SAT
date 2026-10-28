@@ -69,6 +69,21 @@ def main():
                 assert all(v == (expected if mon == powers else 0) for mon,v in coeffs.items())
                 assert coeffs.get(powers, 0) == expected
                 comparisons += 1
+    # A_k=I, B_k=kI+k^2J: every diagonal test passes but mixed test fails.
+    diagonal_checks = 0
+    for x in product(range(-3, 4), repeat=2):
+        def scalar(k):
+            if k == 0:
+                return 0
+            t = abs(k)
+            c = ((t, t*t), (-t*t, t))
+            value = sum(x[i]*c[i][j]*x[j] for i in range(2) for j in range(2))
+            return value if k > 0 else -value
+        for shift in range(-8, 9):
+            assert scalar(shift-1)-2*scalar(shift)+scalar(shift+1) == 0
+            diagonal_checks += 1
+    assert 4-2*1 == 2  # off-diagonal C_2[0,1]-2*C_1[0,1]
+    assert all(k*k + k**4 != 0 for k in range(1, 21))
     words = ((0, 0), (0, 1), (1, 1))
     for entries in product(range(-1, 2), repeat=4):
         c = [entries[:2], entries[2:]]
@@ -76,7 +91,7 @@ def main():
                  for v in words] for u in words]
         r = rank(c)
         assert rank(gram) == r*(r+1)//2
-    print(f'PASS: {cases} three-grade binary matrix cases, 81 scaled controls, {comparisons} direct commutators, 81 degree-two pairing ranks')
+    print(f'PASS: {cases} three-grade binary matrix cases, 81 scaled controls, {comparisons} direct commutators, 81 degree-two pairing ranks, {diagonal_checks} diagonal counterexample checks')
 
 
 if __name__ == '__main__':

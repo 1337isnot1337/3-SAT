@@ -62,3 +62,31 @@ recursion and global cost. This package supplies no SAT algorithm, runtime
 lower bound, or alpha improvement. It builds on the pinned Anthropic Appendix B
 source and `research/sparse-oscillator-locality/PROOF.md`, and independently
 extends the one-colour weighted screen in PR #43 (issue #30).
+
+## Diagonal testing does not imply the all-pairs condition
+
+The all-pairs hypothesis in (1) cannot be replaced merely by checking the
+identity for the same arbitrary colour vector in both slots. For q=2 over Q,
+let
+
+    J = [[0,1],[-1,0]],  C_k = k I + k^2 J  (k>0).
+
+Realize these matrices with A_k=I, B_k=C_k. Every C_k is nonsingular, since
+its determinant is `k^2+k^4`. For any colour vector x, the scalar
+commutator is `x^T C_k x = k x^T x`, because `x^T J x=0`; at negative k
+it is the odd extension. Its second differences vanish, so the same-vector
+h=1 relation holds for every x and every integer shift.
+
+Nevertheless `C_2-2C_1=2J` is nonzero, so the mixed-pair relation already
+fails at shift s=1. This is a concrete oscillator realization, not merely
+an abstract matrix sequence. At each grade its usual vacuum pairing is
+nondegenerate, yet the all-pairs two-order identity fails. No full crossing
+or SAT algorithm follows from the diagonal checks.
+
+More generally, over characteristic different from 2, diagonal tests see
+only `S_k=(C_k+C_k^T)/2`: they hold for all colour vectors and all shifts
+exactly when `S_k=k S_1` for k>0. The skew part can vary freely with k.
+The equivalence follows from scalar second-difference rigidity applied to
+`x^T C_k x` and polarization of quadratic forms. This precisely identifies
+what the diagonal test omits; neither this relaxation nor the counterexample
+establishes the remaining crossing and recovery identities.

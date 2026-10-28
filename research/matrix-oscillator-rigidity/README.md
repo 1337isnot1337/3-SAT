@@ -10,8 +10,10 @@ symmetric matrix C. For the usual vacuum-derivative pairing, its nondegenerate
 quotient has `rank(C)` oscillator colours at every grade; a positive rank
 retains ordinary partition growth. A different identity, cross-grade coupling,
 or different pairing remains open. The all-pairs relation is not derived from
-the scalar source identity. This is neither a complete crossing construction
-nor a lower bound on SAT algorithms.
+the scalar source identity. A concrete nonsingular two-colour family passes
+the h=1 relation for every same-vector test but fails a mixed-pair test: the
+diagonal tests see only symmetric commutator parts. This is neither a complete
+crossing construction nor a lower bound on SAT algorithms.
 
 From the repository root, using Python 3.11+ and the standard library:
 
@@ -22,7 +24,8 @@ make verify
 
 The exact finite checker enumerates 4,096 three-grade binary matrix cases,
 81 scaled matrices including nonzero controls, 236,196 direct polynomial
-commutators, and 81 exact degree-two pairing ranks. These checks do not prove
+commutators, 81 exact degree-two pairing ranks, and 833 diagonal tests of the
+nondegenerate mixed-pair counterexample. These checks do not prove
 the all-size classification or the Hilbert series.
 
 The question and stopping condition were to determine whether scalar mixing

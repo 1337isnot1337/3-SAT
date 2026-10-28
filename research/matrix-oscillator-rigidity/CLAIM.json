@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Under the assumed all-colour-pairs h=1 two-order relation over characteristic zero, scalar commutator matrices satisfy C_k=kC for one symmetric C; the usual vacuum-pairing quotient has rank(C) oscillator colours at every positive grade.",
+  "statement": "Under the assumed all-colour-pairs h=1 two-order relation over characteristic zero, scalar commutator matrices satisfy C_k=kC for one symmetric C; the usual vacuum-pairing quotient has rank(C) oscillator colours at every positive grade. Same-vector tests alone leave arbitrary skew parts unconstrained; a nonsingular two-colour family passes every such test but fails a mixed-pair test.",
   "improves_bound": false,
   "evidence": [
     "research/matrix-oscillator-rigidity/PROOF.md",
