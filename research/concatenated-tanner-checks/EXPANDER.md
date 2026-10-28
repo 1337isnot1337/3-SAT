@@ -27,11 +27,12 @@ asserted.
 Let n,m,B be positive integers with m<=Bn. Set B'=4B and
 
     L = ceil(log2(B'+2)),       K = 2^24 (B')^2 L,
-    a = ceil(log2(2K)),         k = 10a,
+    a = ceil(log2(2K)),         k = 6a,
     D = 8^k,                    P = 2K^2,    d = min(m,D).
 
-Since `(9/10)^10 < 1/2`, `(9/10)^k <= 1/(2K)`. Also
-`D=8^(10 ceil(log2(2K))) <= (4K)^30`, so D and P are polynomial in numeric B,
+Since `(5 sqrt(2)/8)^6=(25/32)^3 < 1/2`, the normalized spectral
+radius raised to k is at most `1/(2K)`. Also
+`D=8^(6 ceil(log2(2K))) <= (4K)^18`, so D and P are polynomial in numeric B,
 independent of m. Their constants and polynomial degree are extremely large.
 
 If m<=D, use one vertex per side and d=m parallel edges. Otherwise d=D; put
@@ -45,7 +46,7 @@ permutations. At a left vertex follow that word; at a right vertex the same
 port identifies the unique inverse-word predecessor. Thus every vertex on
 both sides has one incident edge of each port even with loops, parallel edges,
 and repeated endpoints. The normalized nonconstant spectral radius is at
-most `(9/10)^k <= 1/(2K)`; the bipartite incidence matrix therefore has
+most `(5 sqrt(2)/8)^k <= 1/(2K)`; the bipartite incidence matrix therefore has
 the source mixing bound with epsilon=1/(2K). This is a bound on its
 nonconstant singular values, not on the double cover's trivial +/-d spectrum.
 

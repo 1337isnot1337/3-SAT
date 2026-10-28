@@ -81,11 +81,12 @@ def main():
     # Exact integer attenuation and padding/row-count checks, not a source-scale
     # graph construction; the actual theorem uses a very large powered degree.
     assert 2*9**10 < 10**10
+    assert 2*25**3 < 32**3
     schedules = 0
     for B in range(1, 101):
         LB = (4*B+1).bit_length()
         K = (1 << 24)*(4*B)**2*LB
-        k = 10*((2*K-1).bit_length())
+        k = 6*((2*K-1).bit_length())
         D = 8**k
         for factor in (1, 2, 3, 4, 5, 16, 100):
             m = D*factor
