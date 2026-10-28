@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "fixed-block-grouping-obstruction",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "fixed_size_universal_grouping_obstruction",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "ec45f184710a6adcd74e1aea31f29d7d1c44d0e2",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Near-half-density equality networks exist for which every fixed-size equal grouping has a full block and common-width padding cannot track the total cost.",
+  "improves_bound": false,
+  "evidence": [
+    "research/fixed-block-grouping-obstruction/README.md",
+    "research/fixed-block-grouping-obstruction/PROOF.md",
+    "research/fixed-block-grouping-obstruction/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/fixed-block-grouping-obstruction/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of probabilistic existence and pair-factor rank",
+    "Determine whether the actual rectangular crossing pieces realize the graph family or enable a different grouping interface"
+  ]
+}
