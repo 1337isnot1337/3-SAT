@@ -1,0 +1,7 @@
+{
+  "support_isolation_cases": 65808,
+  "largest_first_isolating_prime_index": 7,
+  "gf16_interpolations": 549,
+  "unweighted_even_support_control": "PASS",
+  "status": "PASS"
+}
