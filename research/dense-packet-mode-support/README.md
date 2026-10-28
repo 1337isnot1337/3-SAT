@@ -27,8 +27,8 @@ labeling. The network is disconnected and easily simplified; nonzero terms
 may cancel after summation, and other algorithms may aggregate or eliminate
 them. This is a scoped support result, not a time lower bound. The count is
 smaller than the formal `exp(Theta(M/sqrt(u)))` envelope. For one consecutive triple placement, pairing and telescoping give exact
-valuations for the first three individual modes and their first mixed pair;
-these do not bound arbitrary mixed-mode coefficients. A sharper bound on coefficient valuations is needed to bridge that gap, and even that would
+valuations for the first three individual modes and all three of their mixed
+pairs; these do not bound arbitrary mixed-mode coefficients. A sharper bound on coefficient valuations is needed to bridge that gap, and even that would
 not by itself establish a SAT lower bound or improvement.
 
 ## Reproduce

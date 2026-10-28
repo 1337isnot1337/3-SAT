@@ -77,6 +77,13 @@ def packet(L, q, b):
              * sum((row[e1] for row in forms), start=F(0))
              - sum((row[e0]*row[e1] for row in forms), start=F(0)))
     assert polynomial[emix] == mixed
+    e2 = (0, 0, 1) + (0,)*(K-3)
+    for ea, eb in ((e0, e2), (e1, e2)):
+        pair = tuple(x+y for x, y in zip(ea, eb))
+        formula = (sum((row[ea] for row in forms), start=F(0))
+                   * sum((row[eb] for row in forms), start=F(0))
+                   - sum((row[ea]*row[eb] for row in forms), start=F(0)))
+        assert polynomial[pair] == formula
     source = [phi(F(K-1), k) for k in range(K)]
     assert all(valuation(v) == 0 for v in source)
     assert all(comb(K-1, k) % 2 == 1 for k in range(K))
@@ -133,11 +140,25 @@ def first_mode(a):
     mixed = common**2*(sum(f, F(0))*sum(g, F(0))
                        - sum((x*y for x, y in zip(f, g)), F(0)))
     assert valuation(mixed) == 2*a+(4 if a % 2 else 6)
+    h2 = [F(7*(L+r), (T+2*r)*(T+2*r-2)*(T+2*r-4)) for r in range(n)]
+    h1 = [-x/2 for x in g]
+    m02 = 16*common**2*(sum(f, F(0))*sum(h2, F(0))
+                        - sum((x*y for x, y in zip(f, h2)), F(0)))
+    m12 = -32*common**2*(sum(h1, F(0))*sum(h2, F(0))
+                         - sum((x*y for x, y in zip(h1, h2)), F(0)))
+    assert valuation(m02) == 2*(a+1)+4+(1 if a % 2 else 0)
+    assert valuation(m12) == 2*(a+1)+5+(1 if a % 2 else 0)
+    def h2mod(r):
+        return 7*r*pow((1+2*r)*(2*r-1)*(2*r-3), -1, 16) % 16
+    assert sum(h2mod(r) for r in range(16)) % 16 == 8
+    assert sum(pow(1+2*r, -1, 16)*h2mod(r) for r in range(16)) % 16 == 8
+    assert sum(pow((1+2*r)*(2*r-1), -1, 16)*h2mod(r) for r in range(16)) % 16 == 8
     assert sum(pow(z*z*(z-2), -1, 16) for z in range(1, 16, 2)) % 16 == 0
     return {'a': a, 'L': L, 'q': q, 'common_v2': valuation(common),
             'first_mode_excess_v2': extra, 'complete_pairing_v2': valuation(complete),
             'mode_1_v2': valuation(sums[0]), 'mode_2_v2': valuation(sums[1]),
-            'telescoping_identities': True, 'mixed_0_1_v2': valuation(mixed)}
+            'telescoping_identities': True, 'mixed_0_1_v2': valuation(mixed),
+            'mixed_0_2_v2': valuation(m02), 'mixed_1_2_v2': valuation(m12)}
 
 
 def packing():

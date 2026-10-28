@@ -253,6 +253,41 @@ using `v2(G)=a+1` yields the claimed valuations. The two small cases
 `a=5,...,9` and the residue table. This controls one mixed pair, not
 arbitrary many-mode coefficients.
 
+### The other mixed pairs among the first three modes
+
+In this same placement, the coefficients of `Z_0 Z_2` and `Z_1 Z_2` have
+respective valuations
+
+```
+2(a+1)+4+(1 if a is odd, 0 if a is even),
+2(a+1)+5+(1 if a is odd, 0 if a is even).                (5)
+```
+
+To see this, write the mode-2 row coefficient as `16G h_2(r)`, where
+
+```
+h_2(r)=7(L+r)/[(T+2r)(T+2r-2)(T+2r-4)].
+```
+
+Write `h_0(r)=1/(T+2r)` and `h_1(r)=1/[(T+2r)(T+2r-2)]`. The degree-two
+product identity gives `16G^2` times
+`(sum h_0)(sum h_2)-sum h_0 h_2` for the first pair, and `-32G^2` times
+the analogous expression with `h_1` for the second.
+
+For `a>=6`, modulo 16 the functions `h_0,h_1` have period eight in `r`;
+`h_2,h_0 h_2,h_1 h_2` have period 16 and each has sum 8 over a period.
+`K` is a multiple of 32, so their complete sums vanish modulo 16. The
+previous complete-sum identities cover `h_0,h_1`. Removing the last one
+row for odd `a` or the last two for even `a`, the two bracketed
+expressions are respectively `(14,6)` or `(9,11)` modulo 16. Their
+valuations are therefore both one or both zero, proving (5). The checker
+verifies the period sums and independently evaluates the exact coefficients
+for `a=3,...,9`, including the finite cases `a=3,4,5`. It also checks the
+degree-two product identity against direct packet expansion for `L=8,16`.
+Together with the preceding calculation this settles all three mixed pairs
+among modes 0, 1 and 2 for this placement. It does not settle coefficients
+involving an unbounded number of modes.
+
 ## 4. Exponent count and the source precision
 
 Choose
@@ -270,12 +305,12 @@ noneligible packets contribute a power of two from their free unary
 columns. Thus each complete summand has valuation at most
 
 ```
-M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (5)
+M + 30 P b L(a+2) <= M + 0.03 M L/u.                    (6)
 ```
 
 The source's actual precision at `t=1` is
 `p_t=p+8 ceil(3M/u)L+8M(a+1)`, hence `p_t>=24ML/u`. For large `N`, the
-right side of (5) is strictly below `p_t`. All complete summands are
+right side of (6) is strictly below `p_t`. All complete summands are
 therefore nonzero modulo `2^p_t`.
 
 The Newton mode weight satisfies `w_k<=a+1+3k`. The total weight of every
