@@ -14,8 +14,8 @@ changing the equation row basis can avoid its coefficientwise support witness;
 the earlier witness has a sparse equivalent basis. This package gives a
 different, explicit low-load quadratic family in which **every invertible F2
 row basis** retains at least `2^Omega(n log log n)` surviving scalar-lift
-incidence coefficients before branching. The same order survives on the
-all-zero branch of one source high-incidence step, even with row-basis
+incidence coefficients before branching. The same order survives on each branch of one source high-incidence
+step that remains after explicit constant-one rejection, even with row-basis
 changes before and after it. In the predecessor's degree-array scheme,
 some array on that branch requires `Omega(n log log n)` bits for an injective
 index of its nonzero valid assignments. The [proof](PROOF.md) states all
@@ -24,8 +24,8 @@ parameters and the exact scope.
 This is an obstruction to the specific coefficientwise indexing interface,
 not a SAT lower bound or a new algorithm. The family has a trivial satisfying
 assignment, and neither aggregation nor non-invertible preprocessing is
-excluded. A dense basis may trigger high-incidence branching; the new branch statement
-is confined to the all-zero branch of one step, and does not exclude
+excluded. A dense basis may trigger high-incidence branching; the branch statement
+covers one step, and does not exclude
 structure-aware simplification or repeated branching. There is no improvement to the selected
 alpha or its general-density logarithmic factor.
 
@@ -43,8 +43,9 @@ The [saved output](verification.json) records all 1,009 nonzero row
 combinations for n=3,...,9, with L=min(floor(log2 n), floor((n-1)/2));
 11,468 exact Mobius coefficient checks; all 20,160 invertible 4-by-4 binary
 matrices; 700 seeded invertible bases; all 504 zero-substitution masks for n=3,...,8
-with one generated residual basis each; and a duplicate-support cancellation
-control. It hash-binds the proof and checker. These finite controls do not
+with one generated residual basis each; all 1,080 free/zero/one substitutions
+for n=3,...,6 with generated bases and 332 explicit constant rejections; and
+a duplicate-support cancellation control. It hash-binds the proof and checker. These finite controls do not
 mechanically prove the all-size pigeonhole argument, replay the accepted
 algorithm, or establish a full complexity bound.
 
@@ -55,8 +56,12 @@ incidence coefficients, a basis combined with repeated high-incidence branching,
 construction whose complete post-branch behaviour can be accounted for. Such
 work must charge all reduction queries, branches, entry computation, modes,
 recursion, precision, recovery and space; this package supplies no such cost
-improvement. Issue #28 separately studies transfer aggregation for a different
-cyclic witness.
+improvement. Issue #28 and [PR #48](https://github.com/1337isnot1337/3-SAT/pull/48)
+study bounded-span transfer aggregation. Its author noted in issue #29 that
+the original private-edge family has cyclic span L+1, so the PR's stated
+transfer construction would count it in polynomial time for L=floor(log2 n),
+including with fixed-bit constraints. That unreviewed complementary result
+reinforces the distinction between coefficient support and computation time.
 
 The accepted OpenAI source is pinned at
 `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a` by the repository

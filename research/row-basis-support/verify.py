@@ -39,7 +39,8 @@ def main():
     checks = {"systems": 0, "nonzero_row_combinations": 0,
               "mobius_edge_coefficients": 0, "exhaustive_invertible_4x4": 0,
               "sampled_invertible_bases": 0, "zero_substitutions": 0,
-              "residual_bases": 0, "negative_controls": 0}
+              "residual_bases": 0, "boolean_substitutions": 0,
+              "constant_rejected": 0, "negative_controls": 0}
     rng = random.Random(20261027)
     for n in range(3, 10):
         length = min(n.bit_length() - 1, (n - 1) // 2)
@@ -90,6 +91,52 @@ def main():
                 product *= length * row.bit_count()
             assert product >= length ** n
             checks["sampled_invertible_bases"] += 1
+    # Exhaust all three-way free/zero/one assignments for small n. Use the
+    # full indicator truth table for independently obtained coefficients.
+    for n in range(3, 7):
+        length = min(n.bit_length() - 1, (n - 1) // 2)
+        rows = edges(n, length)
+        for digits in itertools.product(range(3), repeat=n):
+            fixed = sum(1 << i for i, d in enumerate(digits) if d != 0)
+            ones = sum(1 << i for i, d in enumerate(digits) if d == 2)
+            residual = []
+            for row in rows:
+                poly = set()
+                for edge in row:
+                    if edge & fixed & ~ones:
+                        continue
+                    monomial = edge & ~fixed
+                    poly.symmetric_difference_update({monomial})
+                residual.append(poly)
+            basis = [1 << i for i in range(n)]
+            for _ in range(3 * n):
+                i, j = rng.sample(range(n), 2)
+                basis[i] ^= basis[j]
+            polys = []
+            for basisrow in basis:
+                poly = set()
+                for i in range(n):
+                    if basisrow >> i & 1:
+                        poly.symmetric_difference_update(residual[i])
+                polys.append(poly)
+            checks["boolean_substitutions"] += 1
+            if any(poly == {0} for poly in polys):
+                checks["constant_rejected"] += 1
+                continue
+            good = {i for i, row in enumerate(rows)
+                    if 2 * sum(not (e & fixed) for e in row) >= length}
+            assert len(good) >= n - 4 * fixed.bit_count()
+            goodmask = sum(1 << i for i in good)
+            assert sum(bool(row & goodmask) for row in basis) >= len(good)
+            for row, poly in zip(basis, polys):
+                if row & goodmask:
+                    quadratics = [x for x in poly if x.bit_count() == 2]
+                    assert 2 * len(quadratics) >= length
+                    for edge in quadratics:
+                        assert projector_coefficient(poly, edge) % 2 == 1
+                if 0 in poly:
+                    assert any(x != 0 and projector_coefficient(poly, x) % 2
+                               for x in poly)
     for basis in itertools.product(range(16), repeat=4):
         if rank(basis) == 4:
             assert all(basis)

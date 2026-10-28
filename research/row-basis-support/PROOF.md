@@ -58,11 +58,12 @@ including dense ones, at this stated pre-branch coefficientwise interface.
 It does not require materializing all coefficients; it is a count of the
 valid assignments any such injective indexing must represent.
 
-## The all-zero high-incidence branch
+## Surviving high-incidence branches
 
-The preceding argument also survives a bounded set of zero substitutions,
+The preceding argument also survives a bounded set of arbitrary Boolean
+substitutions on each branch that survives constant-equation rejection,
 even if the row basis changes both before and after the substitutions.
-Let B variables be fixed to zero. Each variable belongs to exactly 2L of
+Let B variables be fixed to arbitrary Boolean values. Each variable belongs to exactly 2L of
 the private edges, so at most 2LB edges disappear. Call an original row
 good if at least L/2 of its edges survive. Each bad row has lost more than
 L/2 edges, and there are therefore fewer than 4B bad rows. Surviving edges
@@ -74,14 +75,23 @@ row space has at least g rows with a nonzero coefficient in a good original
 row: their projections to the good coordinates must span F2^g. Every such
 row has at least L/2 distinct quadratic monomials. This includes any
 invertible transformation before the substitutions and any subsequent
-choice of basis of the restricted row space. Each residual equation remains
-homogeneous, and its zero-indicator lift has constant coefficient one.
-Pick a surviving quadratic monomial independently in each of g of those rows
-and use the constant coefficient in all other rows. The product gives at
-least (L/2)^g distinct incidence monomials of degree 2g and coefficient
-+/-1 modulo 2^(f+1), where f=n-B is the number of free variables. They
-are within the scalar cutoff: there are a>=g residual equations and
-2g<=2(a+f). Each individual assignment-sum contribution also survives.
+choice of basis of the restricted row space. Substitution may create linear and constant terms, but does not alter the
+quadratic coefficients on pairs of free variables. For each residual equation
+Q, its integer zero-indicator E satisfies E=1+Q on the Boolean cube modulo 2.
+By uniqueness of multilinear representation over F2, the coefficient of
+every nonconstant monomial of E has the same parity as its coefficient in Q.
+Thus every present linear or quadratic monomial has an odd lift coefficient.
+
+Pick a surviving quadratic monomial independently in each of g of the rows
+with a good component. In every other row whose constant term is zero, use
+the constant coefficient one. If its constant term is one, select any
+present nonconstant monomial; it has an odd lift coefficient and degree at
+most two. Such a monomial exists unless the row is the constant-one equation,
+in which case that branch is rejected. The product gives at least (L/2)^g
+distinct incidence monomials of degree at most 2a and odd coefficient modulo
+2^(f+1), where a>=g is the number of residual equations and f=n-B is the
+number of free variables. They are within the scalar cutoff 2(a+f). Each
+individual assignment-sum contribution also survives.
 For B=o(n) this remains 2^Omega(n log log n), even after the degree-array
 pigeonhole count. This is an existential branch statement, not a lower
 bound for an algorithm that simplifies or recognizes the entire instance.
@@ -89,11 +99,11 @@ bound for an algorithm that simplifies or recognizes the entire instance.
 For the source's single high-incidence step, let N be the total incidence
 count at that step, even after an invertible row change. A variable is fixed
 only when its load exceeds ceil(N/n) ceil(sqrt(ceil(log2 n))). The sum of
-loads is N, so B<=n/ceil(sqrt(ceil(log2 n)))=o(n). The all-zero branch is
-one of the enumerated branches and has the property above. With arbitrary
-nonzero fixed values the residual equations may have linear and constant
-terms; this proof makes no claim for those branches. Repeating the branching
-step or allowing other preprocessing also requires a new argument.
+loads is N, so B<=n/ceil(sqrt(ceil(log2 n)))=o(n). Every enumerated branch that survives explicit constant-one rejection has
+the property above. A branch may still be inconsistent or trivially solved
+by stronger preprocessing, so this does not imply work is necessarily spent
+on it. Repeating the branching step or allowing other preprocessing also
+requires a new argument.
 
 ## Limits and complete cost boundary
 

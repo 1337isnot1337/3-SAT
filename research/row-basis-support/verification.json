@@ -1,5 +1,7 @@
 {
   "checks": {
+    "boolean_substitutions": 1080,
+    "constant_rejected": 332,
     "exhaustive_invertible_4x4": 20160,
     "mobius_edge_coefficients": 11468,
     "negative_controls": 1,
@@ -11,7 +13,7 @@
   },
   "scope": "bounded exact checks only; no independent proof review",
   "sha256": {
-    "PROOF.md": "e250efda637a4d9b965dabd8724db07fae7bfd888f173c24ab0fd73f4aee2cb3",
-    "verify.py": "9a0bb7617925acbbd01e89129835837b97f630feabca2699acf6ad2dcd9cde5f"
+    "PROOF.md": "a2807c249be4598eec4090425c7793bc42adaa00f5aff91838f2133dc850cb7a",
+    "verify.py": "7883c2f986623fcfc7c852a1dcb5527f7ab86500389c852f627386f6c67e79fb"
   }
 }
