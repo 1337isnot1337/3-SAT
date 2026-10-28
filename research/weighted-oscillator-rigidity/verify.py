@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact finite operator replay, independent of the all-size proof."""
 from itertools import product
-from math import factorial
+from math import factorial, isqrt
 
 
 def apply(state, k, a, b):
@@ -126,6 +126,25 @@ def main():
         enumerate_words(1, 0)
         assert dp == direct
         quotient_cases += len(dp)
+    injections = 0
+    for prime in (2, 3, 5, 7, 13, 17, 257):
+        for n in (256, 257, 300):
+            boundary = isqrt(n//2)
+            modes = [k for k in range(1, boundary+1) if k % prime]
+            for flags in product((0, 1), repeat=len(modes)):
+                small = [k for k, flag in zip(modes, flags) if flag]
+                remainder = n-sum(small)
+                if remainder % prime:
+                    padding = [remainder]
+                else:
+                    a = boundary+1 if (boundary+1) % prime else boundary+2
+                    padding = [a, remainder-a]
+                assert sum(small + padding) == n
+                assert all(k > boundary and k % prime for k in padding)
+                assert len(set(padding)) == len(padding)
+                assert sorted(k for k in small + padding if k <= boundary) == small
+                injections += 1
+    print(f'PASS: {injections} explicit per-grade injections across 21 prime/grade pairs')
     print(f'PASS: {quotient_cases} characteristic-p quotient-grade counts against direct monomial enumeration')
     print(f'PASS: {finite_field_checks} characteristic-p direct identity checks and 8 radical controls')
     print(f'PASS: {recurrence_cases} constant and {varying_cases} varying recurrence sequences; 4 sharp periodic controls')

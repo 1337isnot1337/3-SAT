@@ -129,6 +129,31 @@ for `0<t<=1`, `prod_k (1-exp(-tk))^-1 <= exp(C/t)` by expanding the
 logarithm and bounding its geometric series; take t=1/sqrt(E).
 
 Thus this natural finite-characteristic radical quotient retains square-root
-*cumulative* grade growth, even when p is allowed to vary with E. It does
-not establish matching bounds at every individual grade or rule out some other pairing, a new identity, or a
-different contraction. No resulting SAT time is claimed.
+*cumulative* grade growth, even when p is allowed to vary with E. The next section strengthens this to an individual-grade bound; neither
+result rules out another pairing, a new identity, or a different contraction. No resulting SAT time is claimed.
+
+## Uniform lower bound at every large grade
+
+In fact, the preceding quotient has the same growth at **every sufficiently
+large individual grade**, uniformly in p. Let `h_p(n)` be the coefficient of
+`z^n` in `H_p(z)`. For every n>=256 choose `B=floor(sqrt(n/2))`, and take any
+subset S of the indices at most B not divisible by p. Its sum is at most
+`B(B+1)/2 <= n/2`, so the remaining grade R is at least n/2.
+
+If p does not divide R, pad the monomial by the single mode R. Otherwise,
+choose `a` to be B+1 unless p divides B+1, in which case take B+2. Both a
+and R-a are not divisible by p. Since n>=256 implies `a<=B+2<=n/8`,
+we have `R-a>a>B`; pad by these two distinct modes. In either case all
+padding indices are larger than B, and all occupations are 0 or 1, strictly
+less than p. Thus the small-index portion uniquely recovers S, so this is an
+injection into the grade-n quotient basis. At least half the indices 1,...,B
+are not divisible by p. Therefore
+
+    h_p(n) >= 2^(B-floor(B/p)) >= 2^(B/2).
+
+The unrestricted partition bound supplies `h_p(n)<=exp(O(sqrt(n)))` with an
+absolute constant. Hence `log h_p(n)=Theta(sqrt(n))` uniformly for all
+primes p and n>=256. The padding construction is part of the proof; the
+finite checker independently enumerates its stated sample domain. This is a
+result about the specific vacuum quotient and not a substitute for a complete
+finite-field crossing construction or cost analysis.

@@ -15,8 +15,8 @@ this is sharp and applies to arbitrary weights over any field. A separate
 characteristic-p example satisfies the scalar h=1 identity with nonzero c but
 has missing annihilation modes and a degenerate standard vacuum pairing.
 Uniformly in p, its nondegenerate quotient still has `exp(Theta(sqrt(E)))`
-cumulative grade dimension through E; no individual-grade lower bound is
-asserted. No SAT time or
+both individual-grade and cumulative dimension `exp(Theta(sqrt(E)))` for
+large E, using absolute constants. No SAT time or
 alpha improvement is claimed; no independent review or formal verification
 was performed.
 
@@ -43,7 +43,8 @@ annihilation weights in `{-2,-1,0,1,2}`. It directly applies operators for
 these shifts; it does not establish the all-size proof. It also replays 14,760
 finite constant- and varying-coefficient scalar-recurrence sequences and four
 sharp periodic controls. It also checks 192 finite-characteristic identities,
-eight pairing-radical controls, and 65 finite quotient-grade counts. A first
+eight pairing-radical controls, 65 finite quotient-grade counts, and 31,680
+explicit padding injections. A first
 checker run
 wrongly required a canonical zero polynomial to have a particular exponent
 representation; the corrected checker compares its coefficient and checks
