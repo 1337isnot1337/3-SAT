@@ -42,7 +42,9 @@ over F2, F3 and F5. It also constructs the full independent-set tables
 through dimension three and checks their ranks over those fields. Additional
 checks cover subspace lattices over F3 through dimension three and F4 through
 dimension two, with coefficient fields F2, F3 and F5; the complete
-projective independence tables are also checked through dimension two. The [hash-bound output](verification.json) records exact
+projective independence tables are also checked through dimension two.
+A paired-basis F3 control shows the universal upper bound need not be
+achieved by every matrix. The [hash-bound output](verification.json) records exact
 counts. Finite checks do not constitute independent review of the proof.
 
 ## Credit and limits

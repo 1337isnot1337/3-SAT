@@ -191,7 +191,14 @@ def run():
             assert actual == ranks
             control['full_table_order'] = len(full)
         general_controls.append(control)
-    return {'general_prime_power_controls': general_controls,
+    # With q=3 and only two paired basis directions, the matching-
+    # characteristic universal upper bound 5 is not always attained.
+    pair = [(1,0),(0,1)]
+    subsets = [[v for i,v in enumerate(pair) if mask >> i & 1] for mask in range(4)]
+    pair_table = [[int(general_rank(x+y,3) == len(x)+len(y))
+                   for y in subsets] for x in subsets]
+    assert field_rank(pair_table,3) == 4
+    return {'F3_paired_basis_rank': 4, 'general_prime_power_controls': general_controls,
             'dimensions_0_to_4': results, 'full_projective_table_ranks': full_ranks,
             'exact_factorization_entries': factor_checks,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

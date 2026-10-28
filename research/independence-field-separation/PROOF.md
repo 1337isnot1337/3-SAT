@@ -114,7 +114,9 @@ subspace-disjointness matrix is a minor. Its zeta factorization is invertible
 on both sides. In characteristic p its rank is exactly the displayed bound;
 if char(K) differs from p, including characteristic zero, every mu_q(W) is
 nonzero and its rank is N_(q,b). These ranks are therefore exact for this
-configuration. The identity for mu_q follows from the same Gaussian-binomial
+configuration. The matching-characteristic upper bound need not be exact
+for every representation: two copies of a basis of F_3^2 have cut rank 4
+over F_3, while the universal bound is 5. The identity for mu_q follows from the same Gaussian-binomial
 recurrence and product with 2 replaced by q.
 
 The binary theorem is the q=2 case. The extension is a representation-field
