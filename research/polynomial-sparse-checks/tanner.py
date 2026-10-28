@@ -27,18 +27,21 @@ def mul(a, b, f, r):
     return out
 
 
-def build(n, m, B, *, max_degree=4096, max_work=20_000_000):
+def build(n, m, B, *, variant="source", max_degree=4096, max_work=20_000_000):
     if any(type(x) is not int for x in (n, m, B)) or min(n, m, B) < 1 or m > B*n:
         raise ValueError('requires positive integers and m <= B*n')
     mu = m.bit_length()
-    P = 20000*B*B*mu*mu
-    D0 = 320000*B*B*mu**3
+    if variant not in ("source", "retuned"):
+        raise ValueError("unknown parameter variant")
+    scale = mu if variant == "source" else 64 + 8*(B*mu+1).bit_length()
+    P = 20000*B*B*scale*scale
+    D0 = 320000*B*B*scale*scale*mu
     d = min(m, D0)
     q = 1
     while q*d < m:
         q *= 2
     c = (d+8*B-1)//(8*B)
-    h = (d+100*B*mu-1)//(100*B*mu)-1
+    h = (d+100*B*scale-1)//(100*B*scale)-1
     r = (d-1).bit_length()
     # Explicit conservative cap; this is a bounded reference, not a complexity estimate.
     if d > max_degree or q*d*max(c, 1) + d*q*q*max(q, 1) > max_work:
@@ -46,7 +49,7 @@ def build(n, m, B, *, max_degree=4096, max_work=20_000_000):
     if q == 1:
         shifts = [0]*d
     else:
-        denominator = 400*B*mu
+        denominator = 400*B*scale
         state = [1]*(2*(q-1))
         shifts = []
         for _ in range(d):
@@ -75,6 +78,8 @@ def build(n, m, B, *, max_degree=4096, max_work=20_000_000):
     for side in (0,1):
         for vertex in range(q):
             for local_row in local:
+                if not local_row:
+                    continue
                 row = 0
                 for port in range(d):
                     if not (local_row >> port & 1):

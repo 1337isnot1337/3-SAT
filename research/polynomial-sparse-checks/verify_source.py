@@ -25,4 +25,8 @@ except ValueError:
     pass
 else:
     raise AssertionError('execution cap ignored')
+retuned = tanner.build(16384, 16384, 1, variant='retuned', max_degree=16384, max_work=40_000_000)
+assert (retuned['q'], retuned['h'], len(retuned['rows'])) == (1, 1, 2)
+assert all(any((row >> j) & 1 for row in retuned['rows']) for j in range(16384))
+print('PASS: retuned parameters n=m=16384, B=1, q=1; all 16384 singleton words rejected')
 print('PASS: source parameters n=m=2048, B=1, q=1, 2 nonzero rows; all 2048 singleton words rejected; density and cap controls')
