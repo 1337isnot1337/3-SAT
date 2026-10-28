@@ -77,7 +77,19 @@ def main():
         sharp = [int(n % d == 0) for n in range(8*d+4)]
         assert all(sharp[n] == sharp[n-d] for n in range(d, len(sharp)))
         assert all(sum(sharp[n:n+d]) == 1 for n in range(len(sharp)-d+1))
-    print(f'PASS: {recurrence_cases} finite recurrence sequences and 4 sharp periodic controls')
+    varying_cases = 0
+    for d in range(1, 5):
+        for tail in product(range(-1, 2), repeat=d):
+            for initial in product(range(-1, 2), repeat=d):
+                seq = list(initial)
+                for n in range(d, 8*d + 4):
+                    seq.append(-sum((tail[j-1] + (n+j) % 2) * seq[n-j]
+                                    for j in range(1, d+1)))
+                for start in range(len(seq)-d):
+                    if not any(seq[start:start+d]):
+                        assert not any(seq[start+d:])
+                varying_cases += 1
+    print(f'PASS: {recurrence_cases} constant and {varying_cases} varying recurrence sequences; 4 sharp periodic controls')
     print(f'PASS: 15625 weight assignments, {checks} operator differences, '
           f'{passing} satisfying the three checked shifts, 125000 pairing checks')
 

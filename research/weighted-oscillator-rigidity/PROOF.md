@@ -58,16 +58,17 @@ accepted baseline because no replacement algorithm is proposed. A genuinely
 new identity, non-scalar or coupled oscillators, or a different pairing is
 outside the classification and is a meaningful changed premise.
 
-## Beyond second differences: any finite scalar recurrence
+## Beyond second differences: bounded-order scalar recurrence
 
 A more general changed premise is a fixed finite-order scalar locality
 relation. Let `(g_n)_{n>=0}` be a sequence over any field, and suppose
 that for all n sufficiently large,
 
-    p_0 g_n + p_1 g_{n-1} + ... + p_d g_{n-d} = 0,   p_0 != 0.   (2)
+    p_0(n) g_n + p_1(n) g_{n-1} + ... + p_d(n) g_{n-d} = 0,
+    p_0(n) != 0 for every sufficiently large integer n.             (2)
 
-Here `d>=1` is a fixed upper bound on the number of lags; coefficients may
-vanish. If `d` consecutive terms vanish sufficiently far out, (2) forces
+Here `d>=1` is a fixed upper bound on the number of lags; the other
+coefficients may vary with n and may vanish. If `d` consecutive terms vanish sufficiently far out, (2) forces
 all subsequent terms to vanish inductively. Consequently, if the sequence
 has infinitely many nonzero terms, **every** sufficiently late block of d
 consecutive indices contains a nonzero term. Its support therefore has lower
@@ -85,4 +86,7 @@ weighted commutator sequence with arbitrarily long gaps. This strengthens the
 predecessor's nonrational-series observation for its special `g_n=n[n in S]`
 to arbitrary weights; it does not assert that any finite recurrence suffices
 for the crossing identity, nor does it rule out non-scalar locality, a changed
-pairing, or a recurrence order growing with the instance size.
+pairing, a leading coefficient that vanishes infinitely often, or a recurrence
+order growing with the instance size. Polynomial-coefficient recurrences over
+characteristic zero meet the leading-coefficient condition whenever that
+polynomial is not identically zero.
