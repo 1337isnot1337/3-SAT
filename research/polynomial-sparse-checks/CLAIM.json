@@ -14,7 +14,8 @@
     "research/polynomial-sparse-checks/PROOF.md",
     "research/polynomial-sparse-checks/verify.py",
     "research/polynomial-sparse-checks/tanner.py",
-    "research/polynomial-sparse-checks/verify_source.py"
+    "research/polynomial-sparse-checks/verify_source.py",
+    "research/polynomial-sparse-checks/COMPOSITION.md"
   ],
   "reproduce": [
     "python3",
