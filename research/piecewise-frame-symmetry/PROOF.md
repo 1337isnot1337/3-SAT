@@ -90,6 +90,33 @@ supporting types above the floor required for that entropy method. This
 argument applies whether or not the invariant dual is self-Fourier; it
 therefore also covers all of the common-dual seeds of that method.
 
+## A bounded two-frame atom screen
+
+For R=2, [two_frame_screen.py](two_frame_screen.py) constructs the
+55-vector rational adapted basis of the ten-class type space, ordered by
+actual type cardinality, using the predecessor's elimination algorithm.
+Treat those basis vectors and their L-pullbacks as a fixed atom alphabet;
+charge each atom by the sum of the ceiling base-two logs of its exact
+original and Walsh support cardinalities. L preserves both supports.
+
+At threshold 20 bits, the 48 qualifying atoms per frame have a 96-column
+two-frame evaluation matrix. Its rank is 92 modulo 65,521, while adjoining
+the target column gives rank 93. Four explicit independent *rational*
+column dependencies bound its characteristic-zero rank by 92, so the
+modular augmented rank excludes a rational representation. The one-frame
+48-column matrix has full modular column rank, and its augmented rank is
+49, yielding the same exclusion. At 21 bits all 55 original adapted-basis
+vectors are available and span the target exactly over the rationals.
+Thus the minimum maximum atom cost in this *fixed alphabet* is 21 bits
+for both one and two frames. The checker compresses the 4,096 word rows
+to 853 distinct pairs of original and transformed types; it verifies the
+four exact dependencies on every pair.
+
+This is a finite result for a specified alphabet, not a lower bound on
+arbitrary low-support linear combinations, other bases, larger R, or
+general two-frame pieces. In particular, cancellations inside a different
+atom can change its support and are not covered by this screen.
+
 ## Open construction
 
 Try a polynomial-size decomposition whose pieces use either the original
