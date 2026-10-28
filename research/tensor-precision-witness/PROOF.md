@@ -33,23 +33,25 @@ of products and ratios of `O(L)` integers of size `O(L)`. Their residues
 modulo `2^p` can be calculated in polynomial time in `L,p` by inverting odd
 integers modulo `2^p`.
 
-For each `d`, use a separate full packet, mark row slot `x_d` and column
-slot `y_d` with `y_d-x_d=d`, and fix the column bits to zero except for
-`X_(y_d)=1`. For all marked rows together use the single tensor
+Use two full packets. In the first fix the column bits to zero except for
+`X_(L-1)=1`; its rows `x=0,...,L-1` produce shifts `d=L-1-x`.
+In the second fix all column bits to zero except `X_0=1`; its rows
+`x=1,...,L-1` produce the negative shifts `d=-x`. Mark these `2L-1`
+rows, and on them use the single tensor
 
 ```
 A(Y) = c_* + sum_d c_d Y_(x_d).
 ```
 
-All other row bits are unrestricted, represented by unary `(1,1)` tensors;
+The one unmarked row is unrestricted, represented by a unary `(1,1)` tensor;
 column bits are fixed by unary `(1,0)` or `(0,1)` tensors. In the source's
 multilinear affine deformation, summing the row bits replaces every marked
-`Y_(x_d)` in `A` by `(WX)_(x_d)=W_d(T)`. Unmarked row sums are one.
+`Y_(x_d)` in `A` by `(WX)_(x_d)=W_d(T)`. The unmarked row sum is one.
 Equation (1) proves that the deformed contraction is exactly `H_1(T)`.
 Tensor entry evaluation is a sum of `2L-1` stored coefficients. Repeating
 independently `h` times multiplies the contractions to `H_1(T)^h`.
 
-This network has `M=h L(2L-1)` real ports and maximum tensor degree `2L-1`.
+This network has `M=2hL` real ports and maximum tensor degree `2L-1`.
 There are no hidden sums in the entry oracle beyond polynomially many
 operations; the denominators are odd. This construction does not show that
 its packetization satisfies all balance conditions of the source's packing
@@ -57,8 +59,8 @@ lemma or that the corresponding Boolean network exists.
 
 For an odd grid node, the predecessor's exact content formula gives
 `v2(content H_1(t+2Lz)^h) = h(a+1+L sum_(j=1)^a j/2^j) = Theta(hL)`.
-Since `M=hL(2L-1)`, this is `Theta(M/L)`, not the generic witness's
-`Theta(M)` scale at `u=1`. Full jets through degree below `h` also vanish.
+Since `M=2hL`, this is `Theta(M)`, not the generic witness's
+`Theta(ML)` scale at `u=1`. Full jets through degree below `h` also vanish.
 Neither observation is a lower bound on tensor-aware algorithms that can
 inspect these particularly simple tensors. No reduction, recursion, entry,
 leaf or SAT cost is claimed to improve.

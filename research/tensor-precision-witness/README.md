@@ -5,8 +5,8 @@ Starting from [the generic precision witness](../parity-recovery-precision/PROOF
 we realize its `u=1` family exactly by prescribed Cauchy packets over the
 source's 2-adic coefficient ring. This does not realize the predecessor's
 matching `h=floor(M/(2u))` parameter choice: our construction uses
-`M=hL(2L-1)` real matched ports and a row tensor of degree `2L-1`. Its
-precision obstruction is only `Theta(M/L)`. It does not improve a SAT bound,
+`M=2hL` real matched ports and a row tensor of degree `2L-1`. Its
+precision obstruction is `Theta(M)`. It does not improve a SAT bound,
 claim an alpha improvement, or settle Boolean-input realizability.
 
 ## Statement
@@ -18,7 +18,7 @@ H_1(T) = product over odd t in S of (T-t)/(-t).
 ```
 
 For any positive `h`, there is an explicitly described packet network over
-`Z_(2)` whose deformed contraction is `H_1(T)^h`. Each copy uses `2L-1`
+`Z_(2)` whose deformed contraction is `H_1(T)^h`. Each copy uses two
 full packets of `L` matched ports and one row tensor of degree `2L-1`;
 all other tensors are unary. Thus this is an existence result for a specified
 packetization, not a proof that the source's packing procedure will select it.

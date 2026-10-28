@@ -35,6 +35,9 @@ def v2(q):
 def main():
     cases = 0
     for L in (2, 4, 8, 16):
+        # One fixed column in each of two full packets covers every shift.
+        shifts = {L - 1 - x for x in range(L)} | {-x for x in range(1, L)}
+        assert shifts == set(range(-L + 1, L))
         grid = range(-L, L)
         C = [Q(1)]
         H = [Q(1)]
