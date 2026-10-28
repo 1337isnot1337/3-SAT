@@ -19,8 +19,11 @@ total degree at most `2q` has a nonzero rational summand; for positive
 clauses the exact support is degrees `q` through `3q`. This gives
 `binom(K+2q, 2q)` equality tuples, with `K>=3q`. The proof uses an explicit
 common-sign argument and includes all source-side Boolean moments. It does
-not establish nonvanishing at a particular two-adic precision, or global
-packing admissibility. For this family, a degree-`d` source moment has
+not construct a globally admissible packet embedding. A rational-height
+argument shows that every listed local summand survives the source
+child precision at `t=1`, conditional on such an embedding and an evaluation
+set containing `zeta=1`. This does not establish nonvanishing after other
+group tensors are included. For this family, a degree-`d` source moment has
 at least `K-d` powers of two; the proof combines this with the Newton row
 weights to give a precision-aware lower valuation bound. This uses the free
 unary column tensors and is not a general child-network invariant.
@@ -38,8 +41,8 @@ instance satisfying every asymptotic packing condition.
 
 There is no improved complete cost: reductions, tensor descriptions, entry
 work, mode enumeration, precision, recursion and recovery remain at their
-accepted baseline bounds. The rational nonzero tuples might vanish at a
-particular two-adic precision. A future gain requires a uniform invariant
+accepted baseline bounds. At smaller precisions rational terms can vanish.
+A future gain requires a uniform invariant
 covering clauses, child packet tensors, and repacking, followed by the full
 cost analysis. The all-size identities await independent review.
 

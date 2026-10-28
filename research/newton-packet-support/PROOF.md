@@ -131,10 +131,9 @@ also handles `beta=0`. The stars-and-bars count proves the displayed sizes.
 
 This is an all-size statement about a specified single-packet rational
 contraction and the **general** Newton expansion. In particular `K=3q`
-gives exponentially many nonzero tuples as `q` grows. It does not show
-that those terms survive a given precision, lie below the actual taper's
-weighted budget, or persist after embedding the packet into a globally
-admissible packed recursive instance. It does not exclude cancellation
+gives exponentially many nonzero tuples as `q` grows. The taper comparison
+below is conditional on the local packet being present; this construction
+does not itself embed it into a globally admissible packed recursive instance. It does not exclude cancellation
 with other terms in the final contraction, establish a lower bound for a
 more efficient aggregation algorithm, or improve or refute a SAT bound.
 The bounded checker separately tests `(K,q)=(3,1),(4,1),(6,2)` for each
@@ -173,6 +172,63 @@ finite instances satisfy (3). For `K=6, q=2`, 47 of 210 equality terms and
 these listed terms survive. These are specified test precisions, not an
 assertion that the source's actual taper chooses either value. A surviving
 summand does not preclude cancellation in the final sum.
+
+### Comparison with the source taper, conditional on the local packet
+
+For either growing family, every listed local summand is also nonzero
+modulo the source-prescribed child precision at an active `t=1` call,
+provided the call contains this local packet and the evaluation set
+includes the binary-coordinate lift `zeta=1`. Both the equality and clause
+families use the general Newton expansion. This statement concerns the
+isolated packet summands: it does not construct a globally packed SAT
+instance with this packet or exclude cancellation or extra valuation from
+other group tensors.
+
+Here is a deliberately loose uniform bound, included to avoid inferring
+modular nonvanishing from rational nonvanishing. Let `a=log2 L` and
+`H=20 L(a+2)`. The numerators and denominators, in lowest terms, of every
+row coefficient `a_xk` and source coefficient `phi_k(j)` have at most
+`H` binary digits. Indeed `T+x<4L`, all factors of `C(T)` and `C'(0)`
+have absolute value below `4L`, and the formulas for the falling
+factorials, `k!`, and `c_k` have at most `O(L)` factors of magnitude at
+most `4L^2`; direct counting gives the stated generous bound. All these
+coefficients are in `Z_(2)` by the predecessor's integrality argument.
+
+There are fewer than `L^2` such row and column coefficients. Their odd
+lowest-term denominators have a common odd multiple `D` whose binary
+logarithm is at most `L^2 H`. Multiplying any coefficient by `D` gives an
+integer of absolute value at most `D 2^H`. A term of degree `d<=K` in the
+row coefficient and source moment can be expanded using at most
+`2^K(4K)^(2K)` products, each containing `2d` such coefficients. Thus
+its nonzero numerator over the odd denominator `D^(2d)` has at most
+
+```
+K + 2K log2(4K) + 2K(L^2 H + H) + 1
+    <= 200 L^4(a+2)                                      (4)
+```
+
+bits. Its two-adic valuation is no larger than that bit bound. This also
+handles degree zero. The common-sign proof above ensures the numerator is
+nonzero; the estimate does not assume its valuation is close to the lower
+bound (3).
+
+The source has `r=64`, `D_arr=r^(2a)=L^12`, `u<=a`, and active packing
+condition `M>=L D_arr=L^13`. For `t=1`, `D_t=L` and the explicit child
+precision is `p_t=p+8hL+8M(a+1)`, where `h=ceil(3M/u)`. Consequently
+
+```
+p_t >= 24 M L/u >= 24 L^14/a > 200 L^4(a+2)            (L>=8).
+```
+
+Thus every nonzero summand is nonzero modulo `2^p_t`. The usual mode
+weight of each degree-`d` tuple is also far below that precision, since
+`w_k<=a+1+3k` and `d<=K<=L/2`. The source permits choosing distinct
+binary-coordinate lifts for evaluation; the conditional statement chooses
+a set containing 1. It does not assert what happens at all other evaluation
+points, or when this packet is combined with the rest of a child group.
+The finite checker verifies the height bound, weighted-budget comparison,
+and actual valuations for its registered cases; the general estimate is
+an author-checked argument awaiting independent review.
 
 ## 4. A child need not retain the input table family
 

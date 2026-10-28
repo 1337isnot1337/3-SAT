@@ -126,9 +126,21 @@ def family(K, q, kind):
         valuations[e] = v2_fraction(v*moments[e])
         margins.append(valuations[e]-lower)
         assert margins[-1] >= 0
+    a = L.bit_length()-1
+    entry_height_bound = 20*L*(a+2)
+    entries = [v for row in rows for v in row.values()] + [v for row in basis for v in row]
+    assert all(max(abs(x.numerator).bit_length(), x.denominator.bit_length()) <= entry_height_bound
+               for x in entries)
+    height_bound = 200*L**4*(a+2)
+    taper_lower = (24*L**14 + a-1)//a
+    assert max(valuations.values()) <= height_bound < taper_lower
+    assert max(sum(weights[k]*e[k] for k in range(K)) for e in p) < taper_lower
     return {'K': K, 'q': q, 'kind': kind, 'L': L, 'nonzero_tuples': len(p),
             'source_assignments': 2**K, 'all_moments_nonzero': True,
             'exact_sum': True, 'min_bound_margin': min(margins),
+            'entry_height_bound_bits': entry_height_bound,
+            'height_bound_bits': height_bound, 'taper_lower_bound': taper_lower,
+            'all_summands_survive_taper_lower_bound': True,
             'summand_valuation_range': [min(valuations.values()), max(valuations.values())],
             'nonzero_mod_2_to_p': {str(p): sum(v < p for v in valuations.values())
                                    for p in (8, 16, 32, 64, 128)}}
