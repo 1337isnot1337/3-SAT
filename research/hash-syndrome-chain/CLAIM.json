@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "hash-syndrome-chain",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The Boolean binary-kernel indicator has exact cut rank 2^b over any field and an optimal ordered syndrome chain; a separate O(n+km+a+h)-wire sparse-row network computes the linked weighted clause fingerprint. No SAT bound improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/hash-syndrome-chain/PROOF.md",
+    "research/hash-syndrome-chain/verify.py",
+    "research/hash-syndrome-chain/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/hash-syndrome-chain/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size statements and network accounting",
+    "Integrate a concrete representation with all source contraction hypotheses and costs",
+    "No full faster SAT algorithm or alpha improvement is claimed"
+  ]
+}
