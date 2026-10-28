@@ -29,3 +29,9 @@ The convergence of p_t toward 1/2 is essentially optimal if the same distributio
     2^(m-1) / (2^m - sum_{j=0}^{s-1} binom(m,j)).
 
 For P>=4, the omitted weights satisfy j<m/4. With z=1/3, the omitted count is at most (1+z)^m z^(-m/4) = (4 * 3^(-3/4))^m. Thus the probability upper bound is at most 1/[2(1-(2 * 3^(-3/4))^m)] = 1/2+2^{-Omega(m)}. Our p_t=1/2-O(1/t) approaches this ceiling as t grows. The unit-clause formula above realizes every violation vector, but this bound concerns a uniform promise over all large supports; after particular initial checks the surviving supports may be a strict subset. It is not a lower bound for formula-aware or preprocessed SAT algorithms.
+
+## Keeping the original maximum row width on dense leaves
+
+For leaves with m>=n, the original source parameters obey D0=16 mu P with mu=floor(log2 m)+1. With t=max(8,ceil(log log(n+16))), we have t<=16mu for all sufficiently large n because mu>=floor(log2 n)+1. Consequently the enlarged greedy lists satisfy tP<=D0: the n+o(n) equation construction does not increase the source's maximum list-length or monomial-width envelope on these leaves. All its extra field and candidate work is polynomial, and the source's fixed-polylog sparse-query constant still applies.
+
+A uniform algorithm may process leaves with m<n directly using the accepted fixed-density clause network (counting unused declared variables as in the source), since then its network has O_k(n) wires. It processes m>=n leaves by the near-one sparse-query route above and sums disjoint leaf counts sequentially. The direct branch, finite small-n fallback, sparsification tree, all candidate calls and all contraction work remain charged; the selected general-density alpha and runtime exponent do not change. The n+o(n) *equation* statement pertains to the sparse-query branch; the direct clause-network branch has its own count and cost.
