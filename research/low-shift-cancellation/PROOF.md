@@ -349,6 +349,47 @@ latter, b^d has h-1 fields and a^e has h; a weight-two uncontracted
 term cannot leave equal numbers for contraction, while the only weight-one
 term is an energy-changing current. Duality gives the zero zeroth moment.
 
+## Four exact antisymmetric moment constraints
+
+For any Laurent polynomial supported in [-h,h], define
+
+```
+M_k(P)=sum_{s!=0} sign(s) |s|^k [z^s]P,    k=1,2,3,4.
+```
+
+All rows in either one-sided low-shift space satisfy these four equations.
+To check this, let `b_j=j^k` for j>=0 and write
+`Delta^3 b_t=b_(t+3)-3b_(t+2)+3b_(t+1)-b_t`. On the positive-only
+basis polynomial for a part j, M_k evaluates to
+
+```
+(j+1) Delta^3 b_(j-1) - (j-1) Delta^3 b_(j-2).
+```
+
+For the reversed negative-only basis the corresponding expression, up to
+a common sign, is
+
+```
+(j-2h+3) Delta^3 b_(j-1) - (j-1) Delta^3 b_(j-2).
+```
+
+For k<=2 these are zero. For k=3 they are constants in j; for k=4 they
+are affine in j, since `Delta^3 j^4=24j+36`. The multiplicity differences
+are symmetric under j -> h-j and have coefficient sum zero, so sums of
+both constants and affine terms vanish. The symmetric low-shift rows also
+have M_k=0 automatically.
+
+For even h>=4 the two one-sided spaces have combined dimension h-4, and
+their antisymmetric projection is injective by the preceding section.
+The antisymmetric low-shift space has dimension h. The four moment
+functionals are independent there: their values on shifts 1,2,3,4 form a
+nonsingular Vandermonde-type matrix. Hence the antisymmetric projection
+of the two constructed spaces is **exactly** the joint kernel of M_1,...,M_4.
+For odd h the constructed dimension is h-5, so one further independent
+constraint remains; no formula for it is asserted here. These are
+statements about the constructed low-shift subspace, not universal moment
+relations for every crossing piece.
+
 ## Independence from the predecessor witnesses
 
 PR #59 constructs h symmetric rows F_l with nonzero endpoints at +/-(h+l),

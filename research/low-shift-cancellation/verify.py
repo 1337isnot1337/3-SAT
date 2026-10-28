@@ -342,6 +342,8 @@ def run():
             output = (h-a, a)
             values = one_sided(output, reference)
             assert all(0 <= shift <= h for shift in values)
+            for degree in range(1, 5):
+                assert sum(value*shift**degree for shift, value in values.items() if shift) == 0
             one_sided_rows.append([values.get(j, 0) for j in range(h+1)])
             combined_positive.append([values.get(j, 0) for j in range(-h, h+1)])
             reverse_values = closed_reverse_two(h, output)
@@ -349,6 +351,8 @@ def run():
             difference = {j: denom*reverse_values.get(j, 0)-ref_denom*reverse_ref.get(j, 0)
                           for j in set(reverse_values)|set(reverse_ref)}
             assert all(not value or -h <= j <= 0 for j, value in difference.items())
+            for degree in range(1, 5):
+                assert sum(value*(-j)**degree for j, value in difference.items() if j) == 0
             combined_negative.append([difference.get(j, 0) for j in range(-h, h+1)])
             if h <= 6:
                 d = (2,) + (1,)*(h-2)
