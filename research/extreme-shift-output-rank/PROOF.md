@@ -33,6 +33,11 @@ a single predecessor piece. Applying it to every entry of a scalar pairing
 matrix makes that entire pairing zero. The choice of W need not be a
 coordinate subspace, and P need not be an orthogonal projection.
 
+More generally, for a sum of L raw pieces with independently chosen shifts,
+labels and charges, the same rank bound holds with one `K_s` for each
+summand, including repeated shifts. Thus bounded label mixing is covered
+without assuming a common pair of input labels.
+
 ## Proof
 
 Use the definition of the charged piece as the sum over `0<=i<=2h` of
@@ -51,9 +56,9 @@ A nonzero scalar multiple of `Id_W` has rank D, giving the final claim.
 No unproved generic-rank or noncancellation assumption is used.
 
 The bound is per raw piece. A construction that sums several different
-label-pair pieces at the *same* shift must charge each additional summand;
-this result does not automatically survive arbitrary mixing of label axes.
-It also does not assert that the upper bound K_s is attained.
+label-pair pieces at the *same* shift must charge each additional summand.
+It does not automatically survive arbitrary mixing of label axes, and it
+does not assert that the upper bound K_s is attained.
 
 ## Large-capacity consequence
 
@@ -82,6 +87,20 @@ the rank condition and the same polynomial envelope imply
 `h-t_max=O_C(sqrt(h) log h)`. Since the smallest supported absolute shift
 equals `2h-t_max`, the stated bound follows. This shift need not lie close
 to zero.
+
+The same conclusion allows polynomially many mixed raw pieces per scalar
+entry: if `L_h<=h^A`, replace the number of shifts in the rank budget by
+`L_h`. The quantitative error becomes `O_{A,C}(sqrt(h) log h)`. More
+generally, the fixed-epsilon extreme-support exclusion still holds when
+
+```math
+ \limsup_{h\to\infty}\frac{\log L_h}{\sqrt h}
+ < \pi\sqrt{2/3}\,(1-\sqrt{1-\epsilon}).
+```
+
+This includes `log L_h=o(sqrt(h))`. The generic local normalization in PR #19 may mix
+`N=exp(Theta(sqrt(h)))` label entries, so it is not covered by that
+subexponential-mixing condition without a sharper argument.
 
 In particular, the grade choice in PR #19 has `D_h=N=2^lambda` and
 `p(h)<h^2 N`, so its output dimension meets this condition with C=2.

@@ -16,6 +16,11 @@ author-checked all-size argument, substantially AI-assisted and not
 independently or formally reviewed. It does not rule out the open central-gap
 target, improve a SAT bound, or change the selected result.
 
+The proof also charges sums of multiple raw pieces. Polynomially many mixed
+pieces retain the quantitative shift requirement; a stated exponential-rate
+condition suffices for the fixed-epsilon exclusion. Generic exponential-size
+label normalization is not automatically covered.
+
 Run the finite checks with:
 
 ```sh
