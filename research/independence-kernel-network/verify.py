@@ -261,8 +261,9 @@ def run():
         reduced = row_rref(rows)
         assert rank(rows) == n
         assert set(reduced) == {1 << i | 1 << (n+i) for i in range(n)}
-        dense_controls.append({'n': n, 'original_ones': 2*n*(n-1),
-                               'reduced_ones': 2*n})
+        assert sum(v.bit_count() for v in rows) == 2*n*(n-1)
+        assert sum(v.bit_count() for v in reduced) == 2*n
+        dense_controls.append(n)
     general_cases = {}
     for q in (3,4):
         count = 0
@@ -315,8 +316,7 @@ def run():
     for b in range(1, 33):
         widths = list(range(b+1)) + list(range(b-1,-1,-1))
         assert sum(widths) == b*b
-        controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
-                         'ordered_width_sum': sum(widths)})
+        controls.append(b)
     # Over F3, support aggregation from 3-ary kernel inputs to subset
     # coefficients is rectangular and can lower cut rank.
     h3 = [[int((x+y) % 3 == 0) for y in range(3)] for x in range(3)]
@@ -333,7 +333,7 @@ def run():
     assert unmatched_independence == 0 and unmatched_kernel == 2
     return {'row_basis_cases': row_basis_cases,
             'nonzero_column_rowspace_cases': nonzero_column_cases,
-            'dense_rowspace_controls': dense_controls,
+            'dense_rowspace_controls': {'cases': len(dense_controls), 'max_n': max(dense_controls)},
             'GF8_size_parity_interpolations': parity_interpolations,
             'F3_kernel_and_coefficient_rank_control': [3,2],
             'mismatched_characteristic_control_F3': [unmatched_independence, unmatched_kernel],
@@ -342,7 +342,7 @@ def run():
             'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
             'explicit_xor_gate_cases': gate_cases, 'zeta_coefficient_checks': zeta_entries,
             'GF8_weighted_and_group_lift_cases': 2000, 'seed': 25104,
-            'paired_order_controls': controls,
+            'paired_order_controls': {'cases': len(controls), 'max_b': max(controls)},
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 
 
