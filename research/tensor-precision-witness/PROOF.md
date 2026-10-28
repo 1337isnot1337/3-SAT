@@ -271,3 +271,31 @@ The obstruction assumes these particular fixed column assignments and this
 single-pair port budget. It does not cover column sums, other packetizations,
 more packets, or equality only modulo a finite precision. It is not a
 lower bound for general tensor contraction or SAT.
+
+### Arbitrary fixed one-hot columns in the two packets
+
+The degree obstruction and quartic exclusion extend to any positions
+`y_1,y_2` of the two fixed one-hot columns. At node `t`, let `r_t` be the
+number of the `2L` row factors which are nonzero. Each packet contributes at
+most one, so `r_t<=2`; summing over grid nodes gives `sum_t r_t=2L` because
+each row has exactly one slot-difference node. Thus
+
+```
+D_y(T) = product_(t in S) (T-t)^(3-r_t)
+```
+
+is monic of degree `6L-2L=4L`. Every product of at least three distinct row
+factors is divisible by `D_y`, since at most `r_t` factors survive at `t`.
+The products of at most two factors still have degree at most `4L-2`.
+Therefore the remainder of any such contraction modulo `D_y` has degree at
+most `4L-2`, ruling out every polynomial of degree exactly `4L-1` for every
+choice of fixed one-hot columns.
+
+The value of `H_1^4` at `-L` is nonzero and its values at `L-1` and
+`-L+1` are zero. If no row survives at either extreme, all matrix entries
+are zero there and the contraction equals its value at `-L`. Thus any
+realization must have a selected column `L-1` to support `t=L-1`, and a
+selected column `0` to support `t=-L+1`. With only two columns, this forces
+the endpoint pair already excluded above. Hence no pair of fixed one-hot
+columns realizes `H_1^4`, even over the rationals. Different column
+assignments, unfixed columns, and more packets remain outside this statement.
