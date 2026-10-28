@@ -134,3 +134,59 @@ The companion checker independently performs GF(2) row reduction at
 n=16,32,64,128,256 and checks every one of the 2^16 original x-assignments
 at n=16, where the exact count is 2208. These checks support the statement
 but do not replace its polynomial-gcd proof.
+
+## An arbitrary-size kernel-parameterized count
+
+The same change of representation applies to every n >= 16. Let
+
+    h(Y) = gcd(g(Y), Y^n-1),    d = deg h,
+    n_odd = n / 2^v2(n),       D = gcd(n_odd, 2^L-1).
+
+There is a deterministic exact counting algorithm using
+`poly(n) 2^d` bit operations and polynomial space, with `d <= D`.
+Its cost is polynomial for every subfamily with `d=O(log n)`. In
+particular, if D=1, the Lucas formula above holds verbatim, even if n
+is not a power of two. For example, n=3*2^r with even r has
+L=r-1 odd and D=1, giving an infinite non-power-of-two subfamily.
+These are conditions on this special family, not on general queries.
+
+To prove the count, write f=Y^n-1 and q=f/h. If the coefficient
+convention reverses g, replace g by the reversal Y^deg(g) g(Y^-1);
+this is a unit times the original under cyclic reversal, so d is the
+same. The convolution kernel consists exactly of polynomials qv with
+`deg v<d`: after dividing g and f by h, the quotients are coprime,
+forcing q to divide every kernel element. Conversely, every such
+multiple is in the kernel. All qv have degree <n and are distinct, so
+this lists precisely 2^d cyclic vectors m.
+
+For each vector m, count its Boolean preimages x by the trace of the
+ordered matrix product
+
+    product_(j=0)^(n-1) A_(m_j),
+    A_0=[[1,1],[1,0]],  A_1=[[0,0],[0,1]],
+
+where A_b[a,c]=1 iff a*c=b. This product enforces every adjacent
+relation and the cyclic boundary; its trace counts each labeled x
+exactly once. Summing the 2^d traces counts precisely the solutions.
+Binary-polynomial gcd, division and kernel generation use polynomial
+bit time and space; each matrix entry is at most 2^n. Enumerating v
+sequentially gives the stated worst-run cost and polynomial space.
+No randomness, amplification, outer reduction, or contraction is used
+for this special-family algorithm.
+
+For the bound on d, g'=1, so g and h are squarefree. In characteristic
+two, telescoping gives `g(Y)^2+g(Y)=Y^(2^L)+Y`; each root of g lies in
+F_(2^L). A common root with f is nonzero, has order dividing n_odd,
+and has order dividing 2^L-1. The cyclic multiplicative group of
+F_(2^L) contains exactly D roots whose order divides both numbers.
+Since h is squarefree, its degree is the number of its distinct roots
+in a splitting field, and d<=D. When D=1 the only possible common root
+is 1. It is present exactly when L is even, yielding the same zero or
+all-one kernel as above.
+
+Run `python3 -I -B research/sidon-parity-circuits/arbitrary.py` for exact
+checks at 14 sizes, including nontrivial dimensions d=3 and d=7. The
+program checks every generated kernel vector against the original rows
+and directly exhausts every x-assignment at n=16,17,18. The enumeration
+is exponential in d by design; the bound on d does not make it
+polynomial for arbitrary n.

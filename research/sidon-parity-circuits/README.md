@@ -22,7 +22,11 @@ No generalized runtime improvement is claimed. For power-of-two n, the
 proof also derives an exact polynomial-time count for this same witness: its
 answer is F_(n-1)+F_(n+1), plus one when L is even. This uses a cyclic
 row-space change and the structure of the actual quadratic monomials, both
-outside the restricted circuit model.
+outside the restricted circuit model. More generally, the same family at
+arbitrary n has a deterministic polynomial-space exact count in time
+`poly(n) 2^d`, where `d=deg gcd(g,Y^n-1)` and `d` is at most
+`gcd(n_odd,2^L-1)`. This is polynomial only under an explicit parameter
+condition, such as `d=O(log n)`.
 
 The question was whether simple gate-level parity sharing uniformly gives
 O(n) wires for low-load sparse queries. Success is a rigorous obstruction
@@ -36,6 +40,7 @@ From the repository root, with Python 3.11+ and only the standard library:
 
 ```sh
 python3 -I -B research/sidon-parity-circuits/verify.py
+python3 -I -B research/sidon-parity-circuits/arbitrary.py
 make verify
 ```
 
@@ -44,7 +49,9 @@ variable loads and the source threshold, and the constructed gate counts at
 n=16,20,31,32,64,100,128,256,512. It checks 680 gate-constraint assignments
 and 9,504 quadratic scope assignments. It also checks the binary matrix rank
 at five power-of-two sizes and exhausts all 65,536 original assignments at
-n=16, obtaining 2,208 solutions. These finite checks do not mechanically
+n=16, obtaining 2,208 solutions. The arbitrary-size checker verifies the
+full kernel enumeration at 14 sizes, including d=7, and exhausts the
+original Boolean assignments at n=16,17,18. These finite checks do not mechanically
 prove the all-size statement. No external dependency or heavy check is added
 to default CI.
 
