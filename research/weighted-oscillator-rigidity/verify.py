@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""Exact finite operator replay, independent of the all-size proof."""
+from itertools import product
+from math import factorial
+
+
+def apply(state, k, a, b):
+    coeff, powers = state
+    if k == 0 or coeff == 0:
+        return (0, powers)
+    j = abs(k) - 1
+    powers = list(powers)
+    if k < 0:
+        powers[j] += 1
+        coeff *= a[j]
+    else:
+        coeff *= b[j] * powers[j]
+        powers[j] = max(0, powers[j] - 1)
+    return coeff, tuple(powers)
+
+
+def composition(powers, left, right, a, b):
+    return apply(apply((1, powers), right, a, b), left, a, b)
+
+
+def difference(powers, s, a, b):
+    total = 0
+    for shift, multiplier in ((-1, 1), (0, -2), (1, 1)):
+        k = s + shift
+        c1, p1 = composition(powers, -k, k, a, b)
+        c2, p2 = composition(powers, k, -k, a, b)
+        assert not c1 or p1 == powers
+        assert not c2 or p2 == powers
+        total += multiplier * (c1 - c2)
+    return total
+
+
+def main():
+    values = range(-2, 3)
+    powers_list = list(product(range(2), repeat=3))
+    checks = passing = 0
+    for weights in product(values, repeat=6):
+        a, b = weights[:3], weights[3:]
+        g = [0] + [a[i] * b[i] for i in range(3)]
+        identity = all(difference((0, 0, 0), s, a, b) == 0 for s in (0, 1, 2))
+        assert identity == (g[2] == 2*g[1] and g[3] == 3*g[1])
+        passing += identity
+        for s in (0, 1, 2):
+            expected = -( ( -g[1] if s == 0 else g[s-1]) - 2*g[s] + g[s+1])
+            for powers in powers_list:
+                assert difference(powers, s, a, b) == expected
+                checks += 1
+        for n in powers_list:
+            state = (1, (0, 0, 0))
+            for i, count in enumerate(n):
+                for _ in range(count):
+                    state = apply(state, -(i+1), a, b)
+            for i, count in enumerate(n):
+                for _ in range(count):
+                    state = apply(state, i+1, a, b)
+            expected = 1
+            for i, count in enumerate(n):
+                expected *= factorial(count) * g[i+1] ** count
+            assert state[0] == expected
+            assert not expected or state[1] == (0, 0, 0)
+    print(f'PASS: 15625 weight assignments, {checks} operator differences, '
+          f'{passing} satisfying the three checked shifts, 125000 pairing checks')
+
+
+if __name__ == '__main__':
+    main()
