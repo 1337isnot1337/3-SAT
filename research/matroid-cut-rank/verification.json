@@ -1,0 +1,13 @@
+{
+  "checker_sha256": "05b6aff45a9961477a53b37a508d2650d38973e911ad5bbb206955ae7e5613ea",
+  "exhaustive_cut_witnesses": 20480,
+  "exhaustive_matrices_3x4": 4096,
+  "exhaustive_width_histogram": {
+    "0": 13683,
+    "1": 6545,
+    "2": 252
+  },
+  "seed": 3725,
+  "seeded_cut_witnesses": 9000,
+  "seeded_matrices_4x8": 1000
+}
