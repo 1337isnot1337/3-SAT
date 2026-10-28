@@ -192,6 +192,12 @@ rank-budget method by itself cannot exclude any support containing such a
 shift. Sharper restricted-operator ranks or additional structural equations
 would be needed to address that part of the central-gap target.
 
+The finite checker also gives a direct control: at each of grades 4 and 6,
+and for every integer shift `|s|<=h`, at least one of the four selected
+input-label pairs has full output rank D on the predecessor codebook. This
+is stronger than observing that the upper budget is large in those finite
+cases, but it does not say the piece is scalar or prove an all-size claim.
+
 ## Reproduction and scope
 
 `python3 -I -B research/extreme-shift-output-rank/verify.py` performs exact

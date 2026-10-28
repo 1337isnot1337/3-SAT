@@ -48,6 +48,11 @@ all-size proof. The proof states the exact support and dimension conditions,
 the multiple-label-mixing limit, the partition asymptotics and the remaining
 obligations.
 
+At grades 4 and 6, finite controls find a full-rank output operator for
+every shift `|s|<=h` among four sampled input-label pairs. These controls
+show why a uniform per-piece rank reduction cannot dispose of those finite
+central shifts; they do not establish scalarity or an all-size result.
+
 An exact scan of the predecessor's selected grades through `h=2000` finds
 the first passing rank-budget inequalities at `(h, lambda)=(887,93)`,
 `(92,23)` and `(14,5)` for epsilon `1/4`, `1/2` and `3/4`, respectively.

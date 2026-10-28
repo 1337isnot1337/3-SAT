@@ -102,9 +102,17 @@ def main():
             if model.predecessor.exact_rank(mat) > budget(h, shift):
                 raise ValueError('Separable label mixture exceeds single-piece bound')
             mixed_checks += 1
+        central_ranks = []
+        for shift in range(-h, h+1):
+            max_rank = max(model.predecessor.exact_rank(operator_matrix(data, x, v, shift, shift < 0))
+                           for x in (0, n-1) for v in (0, n-1))
+            if max_rank != n:
+                raise ValueError('Registered central full-rank control changed')
+            central_ranks.append({'shift': shift, 'maximum_rank': max_rank})
         profiles.append({'bits': bits, 'h': h, 'N': n, 'fixed_label_pairs': 4,
                          'shifts': shifts, 'two_order_and_rank_checks': count,
                          'separable_label_mixture_checks': mixed_checks,
+                         'central_full_rank_controls': central_ranks,
                          'max_observed_compressed_rank': maximum,
                          'endpoint_pair_budget': budget(h,-2*h)+budget(h,2*h),
                          'endpoint_scalar_weight_checks': endpoint_scalar_checks})
