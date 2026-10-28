@@ -17,7 +17,8 @@ The bounds
 
     2^floor(b^2/4) <= N_b <= 2^(floor(b^2/4)+b)
 
-show the rank separation is 2^(b^2/4+O(b)) versus 2^b. For b=0, use the
+show the rank separation is 2^(b^2/4+O(b)) versus 2^b; the stronger
+constant-factor estimate below sharpens the first exponent to b^2/4+O(1). For b=0, use the
 empty matrix and N_0=1. The construction has 2(2^b-1) columns; the claim is
 not a lower bound in terms of an unrelated input length or a different cut.
 
@@ -118,3 +119,25 @@ recurrence and product with 2 replaced by q.
 
 The binary theorem is the q=2 case. The extension is a representation-field
 statement, not a use of nonbinary checks in the accepted 3-SAT algorithm.
+
+## Constant-factor subspace asymptotics
+
+For each fixed q>=2, in fact N_(q,b)=Theta_q(q^floor(b^2/4)). The lower
+bound follows from the same `[I_k | C]` construction over F_q. For the
+upper bound, counting ordered bases gives
+
+    [b j]_q = q^(j(b-j)) product_(h=1)^j
+                (1-q^(-(b-j+h)))/(1-q^(-h))
+            <= C_q q^(j(b-j)),
+    C_q = product_(h>=1) (1-q^(-h))^(-1) < infinity.
+
+The infinite product converges because sum_h q^(-h) converges. Put
+k=floor(b/2); as j moves away from k, floor(b^2/4)-j(b-j) is at least
+`d(d-1)` for d=|j-k|. Hence
+
+    N_(q,b) <= 2 C_q (sum_(d>=0) q^(-d(d-1))) q^floor(b^2/4).
+
+The displayed constant depends only on q. In particular, the binary
+odd-characteristic and rational rank is exactly 2^(floor(b^2/4)+O(1)),
+while its characteristic-two rank is exactly 2^b. This quantitative
+sharpening does not change the fixed-cut or no-SAT-lower-bound scope.

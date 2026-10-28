@@ -9,13 +9,13 @@ Contributor: Cinna Davis, with substantial OpenAI Codex assistance. Apache-2.0.
 `F2^b` split one per side, the binary independence table has rank exactly
 `N_b`, the number of subspaces, over Q and every odd-characteristic field,
 but rank exactly `2^b` over characteristic two. Here
-`2^floor(b²/4) <= N_b <= 2^(floor(b²/4)+b)`. A general cut of intersection
+`N_b=Theta(2^floor(b²/4))`. A general cut of intersection
 dimension b has rank at most `N_b` over any field.
 
 More generally, for matrices represented over `F_q` with `q=p^r`, the full
 projective configuration has rank `1+(q^b-1)/(q-1)` when the coefficient
 field has characteristic p, and rank `N_(q,b)` otherwise. The same values
-are universal upper bounds in their respective cases. This is an algebraic
+are universal upper bounds in their respective cases. For fixed q, `N_(q,b)=Theta_q(q^floor(b²/4))`. This is an algebraic
 extension, not a nonbinary SAT construction.
 
 The proof takes one basis for each subspace and factors the resulting
