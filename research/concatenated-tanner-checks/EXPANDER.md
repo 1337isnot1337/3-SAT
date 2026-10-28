@@ -89,6 +89,30 @@ therefore a constant-row-weight, constant-relative-distance sparse-check
 matrix with O(n) rows. The XOR-Cayley degree lower bound in PROOF.md does not
 apply to this different graph.
 
+## Linear-size hashed fingerprint network at fixed density
+
+There is a second conditional composition with the merged
+[hash-syndrome-chain package](../hash-syndrome-chain/README.md). Fix B and
+fixed clause width k, and consider one nontrivial leaf with m<=Bn clauses.
+Use the checks above and append the predecessor's t=O(n) random violation
+hash rows, each with at most 2P(B) sampled occurrences. The check matrix has
+`a=O(n)` rows and at most
+
+    h <= 3n D(B) + 2P(B)t = O_B(n)
+
+nonzero entries. The predecessor's Boolean row network consequently has
+`s=n+km+a+h=O_{B,k}(n)` wires. Its equality-tree conversion and grouped
+field-weight tensors retain its stated degree, entry-oracle, bipartite,
+truncated-ring and polynomial-space conditions. For field size at least 6n,
+the cited grouped-weight construction evaluates the hashed fingerprint in
+`poly(input) * 2^{O_{B,k}(n/sqrt(log n))}` time and polynomial space. Build
+the checks and random rows in polynomial time and use the predecessor's
+finite-exception fallback. This is one hashed-fingerprint evaluation for a
+fixed-density leaf, not a new unrestricted or fixed-density SAT bound: the
+accepted exact counter already has the same fixed-density exponent. For
+B growing with n, D(B) and P(B) are not constants and this linear-size claim
+must not be used.
+
 ## A limitation of the inherited isolation sampler
 
 The isolation wrapper samples K coordinates independently with uniform
