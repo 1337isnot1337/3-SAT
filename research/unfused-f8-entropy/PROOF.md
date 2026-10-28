@@ -184,7 +184,11 @@ input orbits. The replay checks an explicit exact rational combination of
 orbits; see [six-relation.json](six-relation.json). Therefore an invariant
 seed supported there must pair to zero, and the group-average argument
 extends the conclusion to arbitrary seeds. This is a six-macro statement,
-not optimality among other block sizes or other proof methods.
+not optimality among other block sizes or other proof methods. There is no
+additional target-pairing seed with the negative Fourier eigenvalue: by
+self-adjointness, pairing any negative-eigenvalue seed with the positive-
+eigenvalue target q gives zero. Thus the pure-eigenvector qualification
+covers both possible eigenvalues.
 
 ## Extension to separate macro groups
 
