@@ -158,3 +158,24 @@ of rank 3 over F_3, while the 2-by-2 independence table has rank 2.
 
 This is a general matroid-polynomial component and does not replace the
 binary sparse hashes in the SAT reduction.
+
+## A sparse-matroid parity corollary
+
+For a binary matrix with a+h=O(m) and polynomial-size input description,
+s=Theta(m). The accepted theorem and the network above therefore give a
+deterministic polynomial-space evaluation of I_A at one point of a field
+of degree O(log m) in
+
+    poly(m) 2^O(m/sqrt(log m))
+
+bit operations. Moreover, put every weight equal to t. Then
+I_A(t,...,t)=sum_(k=0)^m c_k t^k, where c_k is the parity of the number
+of k-element independent sets. Construct F_(2^e) with 2^e>m, evaluate this
+polynomial at m+1 distinct field points sequentially, and interpolate its
+coefficients. Standard finite-field interpolation and the m+1 evaluations
+add only polynomial time and space factors. The outputs c_k lie in F_2.
+Thus all independent-set size parities have the same stated asymptotic time
+and polynomial-space guarantee under the accepted theorem. The extension
+to fixed q=2^r matroids has q-dependent constants and still reports parity.
+This is a consequence for explicitly sparse matroid representations; it
+is not an improvement to the selected general 3-SAT theorem.

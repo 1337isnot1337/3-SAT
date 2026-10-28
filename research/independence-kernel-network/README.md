@@ -32,6 +32,13 @@ avoids that separation. Thus the topology bypasses a fixed-order width cost,
 not every ordering or every SAT representation. General clause inputs can
 still require more than the desired `n log log n` wires.
 
+For matrices with `a+h=O(m)`, the bound is
+`poly(m) 2^O(m/sqrt(log m))` with polynomial space. Evaluating at `m+1`
+field points and interpolating also recovers the parity of the number of
+independent sets of every cardinality within that same envelope. These are
+conditional consequences of the accepted contraction theorem for sparse
+matroid inputs, not new general 3-SAT bounds.
+
 ## Reproduction
 
 ```sh
@@ -42,7 +49,8 @@ make verify
 The checker compares the independent-set and kernel formulas on all 4,096
 binary 3-by-4 matrices and all 16 Boolean weight vectors, with explicit
 XOR-accumulator path counts and zeta coefficient checks, plus 2,000 seeded GF(8) weight vectors with
-grouped polynomial-lift controls. The prime-power identity is checked
+grouped polynomial-lift controls, plus 200 end-to-end GF(8) size-parity
+interpolations. The prime-power identity is checked
 exhaustively on 2-by-2 matrices over F3 and F4, with a mismatched-
 characteristic failure control, including explicit binary
 linear-map controls for the F4 row checks. It also checks

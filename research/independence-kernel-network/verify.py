@@ -88,6 +88,26 @@ def evaluate(cols, weights):
     assert lifted.bit_length() <= 5
 
 
+def gf8_interpolate(values):
+    n = len(values)
+    rows = []
+    for x, value in enumerate(values):
+        powers = [1]
+        for _ in range(1,n):
+            powers.append(mul(powers[-1],x))
+        rows.append(powers + [value])
+    for col in range(n):
+        pivot = next(i for i in range(col,n) if rows[i][col])
+        rows[col], rows[pivot] = rows[pivot], rows[col]
+        inverse = next(i for i in range(1,8) if mul(i, rows[col][col]) == 1)
+        rows[col] = [mul(v,inverse) for v in rows[col]]
+        for i in range(n):
+            if i != col:
+                coefficient = rows[i][col]
+                rows[i] = [x ^ mul(coefficient,y) for x,y in zip(rows[i],rows[col])]
+    return [row[-1] for row in rows]
+
+
 def small_add(a, b, q):
     return (a+b) % 3 if q == 3 else a ^ b
 
@@ -199,6 +219,30 @@ def run():
                 general_identity(cols,weights,q)
                 count += 1
         general_cases[str(q)] = count
+    parity_interpolations = 0
+    for _ in range(200):
+        cols = [rng.randrange(8) for _ in range(4)]
+        counts = [0]*5
+        for mask in range(16):
+            chosen = [v for i,v in enumerate(cols) if mask >> i & 1]
+            if rank(chosen) == len(chosen):
+                counts[len(chosen)] ^= 1
+        values = []
+        for x in range(5):
+            value = 0
+            for mask in range(16):
+                syndrome = 0
+                for i,v in enumerate(cols):
+                    if mask >> i & 1:
+                        syndrome ^= v
+                if syndrome == 0:
+                    term = 1
+                    for i in range(4):
+                        term = mul(term, x if mask >> i & 1 else 1 ^ x)
+                    value ^= term
+            values.append(value)
+        assert gf8_interpolate(values) == counts
+        parity_interpolations += 1
     encoded_q4_checks = 0
     for raw in itertools.product(range(4), repeat=4):
         cols = [(raw[0],raw[1]), (raw[2],raw[3])]
@@ -234,7 +278,8 @@ def run():
     unmatched_independence = (1+1+1) % 3
     unmatched_kernel = ((1+1)**2+1) % 3
     assert unmatched_independence == 0 and unmatched_kernel == 2
-    return {'F3_kernel_and_coefficient_rank_control': [3,2],
+    return {'GF8_size_parity_interpolations': parity_interpolations,
+            'F3_kernel_and_coefficient_rank_control': [3,2],
             'mismatched_characteristic_control_F3': [unmatched_independence, unmatched_kernel],
             'prime_power_identity_cases': general_cases,
             'encoded_F4_row_checks': encoded_q4_checks,

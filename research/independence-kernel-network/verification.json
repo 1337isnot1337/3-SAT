@@ -3,9 +3,10 @@
     3,
     2
   ],
+  "GF8_size_parity_interpolations": 200,
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "227617c33140135c82d3b881082ed52872ac6f007055c5a0b37aff24951cf9a9",
+  "checker_sha256": "42ce8f234ef2c149b6b0d371b6f004e069a8487f56fc63f5045aea9dcd46af66",
   "encoded_F4_row_checks": 8192,
   "explicit_xor_gate_cases": 65536,
   "matrices_3x4": 4096,
