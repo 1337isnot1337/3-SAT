@@ -1,0 +1,177 @@
+{
+  "status": "pass",
+  "scope": "Exact finite support/array identities, star balance controls, and numerical instances of the written asymptotic formulas; not an implementation or independent proof review",
+  "exact_support_evaluations": 5367,
+  "small_support_families": 45,
+  "largest_exact_code_bit_bound": 8,
+  "star_balance_controls": [
+    {
+      "edges": 4,
+      "max_balanced_ports": 0.1875
+    },
+    {
+      "edges": 16,
+      "max_balanced_ports": 0.75
+    },
+    {
+      "edges": 257,
+      "max_balanced_ports": 12.046875
+    }
+  ],
+  "asymptotic_formula_fixtures": [
+    {
+      "log2_n": 64,
+      "J": 8,
+      "log2_J": 3.0,
+      "degree_lower": 6.917529027637084e+18,
+      "nominal_wires": 5.5340232221128655e+19,
+      "leaf_scale": 6.833431415502123e+18,
+      "degree_lower_over_leaf_scale": 1.0123067909841283,
+      "active_degree_edge_floor": 1.4757395258959112e+20
+    },
+    {
+      "log2_n": 64,
+      "J": 6,
+      "log2_J": 2.584962500721156,
+      "degree_lower": 7.947356948485876e+18,
+      "nominal_wires": 4.768414169093941e+19,
+      "leaf_scale": 5.897721371130188e+18,
+      "degree_lower_over_leaf_scale": 1.3475300795640865,
+      "active_degree_edge_floor": 1.69543614901032e+20
+    },
+    {
+      "log2_n": 64,
+      "J": 64,
+      "log2_J": 6.0,
+      "degree_lower": 1.7293822569064694e+18,
+      "nominal_wires": 1.1068046444225731e+20,
+      "leaf_scale": 1.3563847338322645e+19,
+      "degree_lower_over_leaf_scale": 0.1274993896473868,
+      "active_degree_edge_floor": 3.689348814733801e+19
+    },
+    {
+      "log2_n": 64,
+      "J": 256,
+      "log2_J": 8.0,
+      "degree_lower": 5.764607522997535e+17,
+      "nominal_wires": 1.4757395258967641e+20,
+      "leaf_scale": 1.8029027789344498e+19,
+      "degree_lower_over_leaf_scale": 0.03197403426492319,
+      "active_degree_edge_floor": 1.229782938239474e+19
+    },
+    {
+      "log2_n": 128,
+      "J": 8,
+      "log2_J": 3.0,
+      "degree_lower": 1.2760588759535192e+38,
+      "nominal_wires": 1.0208471007628154e+39,
+      "leaf_scale": 8.967748004910708e+37,
+      "degree_lower_over_leaf_scale": 1.4229423878266358,
+      "active_degree_edge_floor": 2.722258935367508e+39
+    },
+    {
+      "log2_n": 128,
+      "J": 7,
+      "log2_J": 2.807354922057604,
+      "degree_lower": 1.364704825235583e+38,
+      "nominal_wires": 9.552933776649083e+38,
+      "leaf_scale": 8.394985957259331e+37,
+      "degree_lower_over_leaf_scale": 1.6256189494343256,
+      "active_degree_edge_floor": 2.9113702938359104e+39
+    },
+    {
+      "log2_n": 128,
+      "J": 128,
+      "log2_J": 7.0,
+      "degree_lower": 1.8609191940988822e+37,
+      "nominal_wires": 2.3819765684465692e+39,
+      "leaf_scale": 2.0826745167076155e+38,
+      "degree_lower_over_leaf_scale": 0.08935237739599877,
+      "active_degree_edge_floor": 3.969960947410948e+38
+    },
+    {
+      "log2_n": 128,
+      "J": 4096,
+      "log2_J": 12.0,
+      "degree_lower": 9.969209968386869e+35,
+      "nominal_wires": 4.0833884030512616e+39,
+      "leaf_scale": 3.559734113522919e+38,
+      "degree_lower_over_leaf_scale": 0.002800549043962377,
+      "active_degree_edge_floor": 2.1267647932558654e+37
+    },
+    {
+      "log2_n": 256,
+      "J": 8,
+      "log2_J": 3.0,
+      "degree_lower": 4.3422033463993573e+76,
+      "nominal_wires": 3.473762677119486e+77,
+      "leaf_scale": 2.1644117940852737e+76,
+      "degree_lower_over_leaf_scale": 2.0061817063949534,
+      "active_degree_edge_floor": 9.263367138985296e+77
+    },
+    {
+      "log2_n": 256,
+      "J": 256,
+      "log2_J": 8.0,
+      "degree_lower": 3.618502788666131e+75,
+      "nominal_wires": 9.263367138985296e+77,
+      "leaf_scale": 5.755976271534499e+76,
+      "degree_lower_over_leaf_scale": 0.06286514429465266,
+      "active_degree_edge_floor": 7.719472615821079e+76
+    },
+    {
+      "log2_n": 256,
+      "J": 65536,
+      "log2_J": 16.0,
+      "degree_lower": 2.826955303645415e+73,
+      "nominal_wires": 1.8526734277970591e+78,
+      "leaf_scale": 1.1489792844864365e+77,
+      "degree_lower_over_leaf_scale": 0.00024604058069758756,
+      "active_degree_edge_floor": 6.030837981110218e+74
+    },
+    {
+      "log2_n": 512,
+      "J": 8,
+      "log2_J": 3.0,
+      "degree_lower": 5.027927973728474e+153,
+      "nominal_wires": 4.022342378982779e+154,
+      "leaf_scale": 1.7748958951854196e+153,
+      "degree_lower_over_leaf_scale": 2.832801623671126,
+      "active_degree_edge_floor": 1.0726246343954078e+155
+    },
+    {
+      "log2_n": 512,
+      "J": 9,
+      "log2_J": 3.169925001442312,
+      "degree_lower": 4.722416174629059e+153,
+      "nominal_wires": 4.250174557166153e+154,
+      "leaf_scale": 1.875283846918361e+153,
+      "degree_lower_over_leaf_scale": 2.518240735870129,
+      "active_degree_edge_floor": 1.007448783920866e+155
+    },
+    {
+      "log2_n": 512,
+      "J": 512,
+      "log2_J": 9.0,
+      "degree_lower": 2.356841237685222e+152,
+      "nominal_wires": 1.2067027136948337e+155,
+      "leaf_scale": 5.316490456783707e+153,
+      "degree_lower_over_leaf_scale": 0.04433077152763347,
+      "active_degree_edge_floor": 5.027927973728474e+153
+    },
+    {
+      "log2_n": 512,
+      "J": 8388608,
+      "log2_J": 23.0,
+      "degree_lower": 3.6761710928521125e+148,
+      "nominal_wires": 3.0837958238867973e+155,
+      "leaf_scale": 1.356877207470948e+154,
+      "degree_lower_over_leaf_scale": 2.7092879684404474e-06,
+      "active_degree_edge_floor": 7.842498331417839e+149
+    }
+  ],
+  "accepted_contraction_implemented": false,
+  "new_sat_bound_claimed": false,
+  "proof_sha256": "d72d7fee383c1964de50967d8242a767096cdc8d50fc6e3c850565829e381bde",
+  "checker_sha256": "7e729d09fdac317ede3a8f1fe4f70dfcb2ead49cfbbcc1d52d3d3c7cc9fd8a70"
+}

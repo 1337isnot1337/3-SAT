@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "aggregate-packing-limits",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "representation_obstruction",
+  "author": "1337isnot1337, with substantial Kimi AI assistance",
+  "base_commit": "fdb2d6d5e585b75f12e79fd0f67934eed22af173",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Balanced real-port packing requires maximum degree at most 3M/r, and unsplit aggregate vertices preserve this obstruction through recursion. In the stated one-monomial aggregate model, wires o(n log log n) imply a persistent-degree/direct-leaf obstruction asymptotically larger than the accepted leaf exponent; keeping that scale retains Theta(n log log n) wires. This is representation-specific and establishes no new SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/aggregate-packing-limits/PROOF.md",
+    "research/aggregate-packing-limits/verify.py",
+    "research/aggregate-packing-limits/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/aggregate-packing-limits/verify.py"
+  ],
+  "remaining_obligations": [
+    "Run repository-wide verification",
+    "Independent review of the written all-size argument",
+    "Any improvement requires a new tensor decomposition, unbalanced recursion, or faster leaf method"
+  ]
+}
