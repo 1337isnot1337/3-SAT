@@ -71,3 +71,31 @@ for r in range(1, 5):
 # A duplicate evaluation point is a deliberately invalid local-code control.
 assert 1 ^ 1 == 0
 print(f'PASS: {shift_cases} exact potential constructions; {subset_cases} Vandermonde binary-support checks; duplicate-column negative control')
+
+# A complete small Cayley-Tanner composition: q=4, four distinct shifts,
+# GF(4) local Vandermonde checks with h=3, followed by shortening.
+# This is a scaled fixture; it does not instantiate the source's large D0.
+q, d, h = 4, 4, 3
+f, r = field(2), 2
+rows = []
+for side in (0, 1):
+    for vertex in range(q):
+        for i in range(h):
+            for bit in range(r):
+                row = 0
+                for port in range(d):
+                    left = vertex if side == 0 else vertex ^ port
+                    edge = left*d + port
+                    power = 1
+                    for _ in range(i):
+                        power = mul(power, port, f, r)
+                    if (power >> bit) & 1:
+                        row |= 1 << edge
+                rows.append(row)
+accepted = [v for v in range(1 << (q*d))
+            if all((row & v).bit_count() % 2 == 0 for row in rows)]
+assert accepted == [0, (1 << (q*d)) - 1]
+shortened = [v for v in accepted if v >> 12 == 0]
+assert shortened == [0]
+assert max(row.bit_count() for row in rows) <= d
+print(f'PASS: complete {q*d}-edge Tanner fixture, {len(rows)} rows, full and shortened kernels')
