@@ -220,7 +220,14 @@ def run():
         assert sum(widths) == b*b
         controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
                          'ordered_width_sum': sum(widths)})
-    return {'prime_power_identity_cases': general_cases,
+    # Binary parallel pair, z=(1,1), evaluated over the mismatched F3:
+    # independent polynomial is 1+1+1=0, while the weighted kernel sum
+    # is (1+1)^2+1=2. This rejects extending the identity across fields.
+    unmatched_independence = (1+1+1) % 3
+    unmatched_kernel = ((1+1)**2+1) % 3
+    assert unmatched_independence == 0 and unmatched_kernel == 2
+    return {'mismatched_characteristic_control_F3': [unmatched_independence, unmatched_kernel],
+            'prime_power_identity_cases': general_cases,
             'encoded_F4_row_checks': encoded_q4_checks,
             'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
             'explicit_xor_gate_cases': gate_cases, 'zeta_coefficient_checks': zeta_entries,

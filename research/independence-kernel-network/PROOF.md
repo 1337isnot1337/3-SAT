@@ -129,8 +129,9 @@ characteristic p. The same coefficient count proves
 
 Indeed, the coefficient of z_S is the image in K of
 q^(|S|-rank_Fq(A_S)), which is one for independent S and zero otherwise.
-This does not assert the identity when the coefficient characteristic
-differs from p.
+The characteristic condition matters: for binary parallel columns A=[1 1]
+and z_1=z_2=1 over F_3, the independence polynomial is 0 but the weighted
+kernel sum is 2. No mismatched-characteristic identity is claimed.
 
 For fixed q=2^r and K=F_(2^e), encode each x_j by r Boolean bits in a
 fixed F_2 basis of F_q. Multiplication by each fixed matrix entry is an

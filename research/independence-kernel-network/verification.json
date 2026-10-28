@@ -1,10 +1,14 @@
 {
   "GF8_weighted_and_group_lift_cases": 2000,
   "boolean_weight_cases": 65536,
-  "checker_sha256": "7b2044a7cdd0257cf97400c8cc7d2bcf91c6b102ce08d0a6ab9d0d7f074f2ad0",
+  "checker_sha256": "7722f80410a0cade0e60fe2b00c09887bec36a41436fb9432d8279a1bb7769a4",
   "encoded_F4_row_checks": 8192,
   "explicit_xor_gate_cases": 65536,
   "matrices_3x4": 4096,
+  "mismatched_characteristic_control_F3": [
+    0,
+    2
+  ],
   "paired_order_controls": [
     {
       "b": 1,
