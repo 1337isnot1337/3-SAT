@@ -255,6 +255,66 @@ while the full-packet bound would require 5. Exact finite controls are
 included in `verify_periodic.py`; they are examples, not a proof for all
 `L`.
 
+## Complete blocks inside partial packets
+
+The cancellation also holds in partial packets when its supporting columns
+come in complete blocks. Fix `B=2^b` with `1<=b<=a-u`, so `B<=h=L/P`.
+In each packet and residue `r mod P`, divide the `h` slot indices
+`j=0,...,h-1` into aligned blocks of `B` consecutive indices. Mark a
+block only if every one of its slots `r+jP` is real. Let `N` be the number
+of marked slots across the network. Assume
+
+```
+N/h >= 360 ln(2P).
+```
+
+There is a deterministic polynomial-time Boolean unary construction whose
+origin contraction is 1 and whose complete jets at every active node are
+divisible by
+
+```
+2^((floor(N/8)+1)*(a+2-u+b+1)).
+```
+
+To construct it, choose a binary word for each packet as above. Fix a
+column to 1 only when its slot is marked and its residue bit is 1; all
+other columns are fixed to 0. Fix the corresponding marked rows to 1 and
+leave all other rows unrestricted. At the origin this still contracts to
+1. A marked row counts for residue shift `d` when its bit is 1 and the
+shifted residue bit is 0. The expected count is `N/4`.
+
+If `n_{j,r}` is the number of marked slots in packet `j` and residue `r`,
+then `n_{j,r}<=h`, `sum n_{j,r}=N`, and changing one word bit changes
+the count by at most `n_{j,r}+n_{j,r-d}`. The sum of squared differences
+is therefore at most `4hN`. Set `q=1-1/(16h)`, `eta=-ln(q)` and
+`m=floor(N/8)`. Bounded differences and `1/(16h)<=eta<=1/(15h)` yield
+
+```
+E sum_{d=1}^{P-1} q^(N_d-m)
+ <= P exp(-eta N/8 + eta^2 h N/2)
+ <= P exp(-N/(180h)) < 1.
+```
+
+The displayed size assumption gives the strict final inequality. The same
+cycle-transfer conditional-expectation algorithm fixes all word bits in
+polynomial time and yields more than `m` selected rows for every active
+residue.
+
+For a selected row and a marked block, the `B` columns form a consecutive
+arithmetic progression of step `P`. Apply the preceding power-sum
+argument with `h` replaced by `B`, using the first column of that block as
+`y_0`. Its Cauchy sum is divisible by `2^(a+2-u+b+1)`; sum over marked
+blocks and multiply the selected-row factors. Other row factors are
+integral. The comparison zero network again gives identical active-node
+data at the stated precision and opposite origin parity.
+
+The bound is deliberately expressed in terms of `N`. A packet can have
+occupancy fraction `1-1/B` while containing no marked block: omit one
+slot from every aligned block. Thus the source's total packet-count bound
+alone does not guarantee `N=Omega(M)`. The checker `verify_blocks.py`
+replays selected rows on four bounded occupancy patterns; no generic
+packing-density conclusion or SAT bound follows.
+
 ## Deformation calculation
 
 Let `C(T)=product_{s=-L}^{L-1}(T-s)` and `alpha=2L`. The source's

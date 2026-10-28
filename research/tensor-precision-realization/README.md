@@ -18,18 +18,20 @@ A second construction uses periodic words to make every retained active
 node vanish modulo `2^((floor(M/8)+1)*(a+2-u))` under the source packing
 conditions. This is a separate input family from the all-nonzero-node
 witness and gives `Omega(M(a-u))` precision when `a-u` grows. Full
-packets admit an additional `a-u+1` bits per selected row when `a>u` through a proved
-Cauchy power-sum cancellation; this uniform row bound is sharp. A three-slot partial packet gives a
-counterexample to carrying that bound over unchanged.
+packets admit an additional `a-u+1` bits per selected row when `a>u`
+through a Cauchy power-sum cancellation; this uniform row bound is sharp.
+A three-slot partial packet gives a counterexample to carrying that bound over unchanged. For partial packets,
+complete dyadic blocks retain a quantitative version in terms of the number
+of occupied slots belonging to such blocks; the source packing alone does
+not guarantee that number is large.
 
 This strengthens the earlier actual-network witness for growing packets,
 but it does not realize the generic tapered polynomial or match its
-`MD_i/u` scale. The partial-packet argument requires the source packet-count bound and
-entries chosen after the graph-only packing. Tensor-aware algorithms are
-not covered.
-The predecessor, concurrent PRs #52 and #65, and frozen source pins appear
-in the proof. The selected
-result remains unchanged.
+`MD_i/u` scale. The partial-packet argument requires the source packet-count
+bound and entries chosen after the graph-only packing. Tensor-aware
+algorithms are not covered. The predecessor, concurrent PRs #52 and #65,
+and frozen source pins appear in the proof. The selected result remains
+unchanged.
 
 Reproduce with Python 3.11+ and the standard library:
 
@@ -37,6 +39,7 @@ Reproduce with Python 3.11+ and the standard library:
 python3 -I -B research/tensor-precision-realization/verify.py
 python3 -I -B research/tensor-precision-realization/verify_partial.py
 python3 -I -B research/tensor-precision-realization/verify_periodic.py
+python3 -I -B research/tensor-precision-realization/verify_blocks.py
 make verify
 ```
 
@@ -47,7 +50,7 @@ The partial-packet checker exhausts all nonempty occupancy subsets at
 lengths 2 and 4, with 114 path-transfer and 114 complete-product checks.
 The periodic checker compares 66 cycle transfers with brute force and checks
 672 packet products, 924 selected row factors and the partial-packet
-counterexample. These finite checks do
-not prove the all-size constructions. Next, investigate
-whether tensor-specific structure can reach the taper scale at low-valuation
+counterexample. The block checker tests 1,432 selected rows across four
+occupancy patterns. These finite checks do not prove the all-size
+constructions. Next, investigate whether tensor-specific structure can reach the taper scale at low-valuation
 nodes without increasing wire count.

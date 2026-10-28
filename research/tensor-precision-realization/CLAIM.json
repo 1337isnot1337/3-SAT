@@ -14,12 +14,14 @@
     "research/tensor-precision-realization/PROOF.md",
     "research/tensor-precision-realization/verify.py",
     "research/tensor-precision-realization/verify_partial.py",
-    "research/tensor-precision-realization/verify_periodic.py"
+    "research/tensor-precision-realization/verify_periodic.py",
+    "research/tensor-precision-realization/verify_blocks.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-realization/verify.py",
     "python3 -I -B research/tensor-precision-realization/verify_partial.py",
     "python3 -I -B research/tensor-precision-realization/verify_periodic.py",
+    "python3 -I -B research/tensor-precision-realization/verify_blocks.py",
     "make verify"
   ],
   "remaining_obligations": [
