@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Scalar creation and annihilation weights preserve the existing h=1 two-order identity at all shifts exactly when their products are c k; in characteristic zero, nonzero c forces all indices and zero c makes the standard positive-grade vacuum pairing degenerate. Any infinitely supported scalar sequence with a eventually nondegenerate order-d recurrence with coefficients varying by index has support lower density at least 1/d, over any field; this is sharp. A characteristic-p example has nonzero c, missing annihilation modes, and degenerate standard vacuum pairing despite satisfying h=1.",
+  "statement": "Scalar creation and annihilation weights preserve the existing h=1 two-order identity at all shifts exactly when their products are c k; in characteristic zero, nonzero c forces all indices and zero c makes the standard positive-grade vacuum pairing degenerate. Any infinitely supported scalar sequence with a eventually nondegenerate order-d recurrence with coefficients varying by index has support lower density at least 1/d, over any field; this is sharp. A characteristic-p example has nonzero c, missing annihilation modes, and degenerate standard vacuum pairing despite satisfying h=1. For fixed p, its vacuum-pairing quotient still has exp(Theta_p(sqrt(E))) cumulative grade dimension.",
   "improves_bound": false,
   "evidence": [
     "research/weighted-oscillator-rigidity/PROOF.md",

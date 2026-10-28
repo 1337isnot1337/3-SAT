@@ -101,6 +101,32 @@ def main():
                 finite_field_checks += 1
         # Pairing t_1^p with D_1^p and t_p with D_p both vanish mod p.
         assert factorial(prime) % prime == 0 and b[prime-1] == 0
+    quotient_cases = 0
+    for prime in (2, 3, 5):
+        limit = 12
+        dp = [1] + [0]*limit
+        for k in range(1, limit+1):
+            if k % prime == 0:
+                continue
+            new = [0]*(limit+1)
+            for degree, value in enumerate(dp):
+                for multiplicity in range(prime):
+                    target = degree + k*multiplicity
+                    if target <= limit:
+                        new[target] += value
+            dp = new
+        direct = [0]*(limit+1)
+        def enumerate_words(k, degree):
+            if k > limit:
+                direct[degree] += 1
+                return
+            for multiplicity in range(prime if k % prime else 1):
+                if degree+k*multiplicity <= limit:
+                    enumerate_words(k+1, degree+k*multiplicity)
+        enumerate_words(1, 0)
+        assert dp == direct
+        quotient_cases += len(dp)
+    print(f'PASS: {quotient_cases} characteristic-p quotient-grade counts against direct monomial enumeration')
     print(f'PASS: {finite_field_checks} characteristic-p direct identity checks and 8 radical controls')
     print(f'PASS: {recurrence_cases} constant and {varying_cases} varying recurrence sequences; 4 sharp periodic controls')
     print(f'PASS: 15625 weight assignments, {checks} operator differences, '

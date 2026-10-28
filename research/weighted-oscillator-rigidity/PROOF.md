@@ -103,3 +103,31 @@ to zero, because repeated differentiation introduces the zero factor p. Thus
 neither the no-missing-index conclusion nor nondegeneracy of the usual Fock
 pairing extends to this characteristic-p example. This says nothing about
 other pairings or a complete finite-field crossing construction.
+
+## Growth of the characteristic-p pairing quotient
+
+Continue the preceding example over F_p, grading `t_k` by k. The vacuum
+pairing between monomials is diagonal: for occupation vectors m,n it is
+zero unless m=n, and then is `product_k n_k! (k mod p)^n_k`. Consequently,
+the nondegenerate quotient has basis the monomials with `n_k=0` when p
+divides k, and `0<=n_k<p` otherwise. Its Hilbert series is
+
+    H_p(z) = product_{k>=1, p does not divide k} (1+z^k+...+z^((p-1)k)).
+
+For fixed p, let N_p(E) be the sum of dimensions through grade E. Then
+
+    log N_p(E) = Theta_p(sqrt(E)).
+
+For the lower bound take B=floor(sqrt(E)), and all subsets of indices
+1,...,B not divisible by p, with occupancy one. Every subset has total grade
+at most B(B+1)/2<=E for E>=1, and the distinct quotient basis monomials
+number `2^(B-floor(B/p))`. For the upper bound, this quotient's cumulative
+dimension is at most the number of unrestricted partitions of all grades up
+to E. The standard generating-function estimate gives `exp(O(sqrt(E)))`:
+for `0<t<=1`, `prod_k (1-exp(-tk))^-1 <= exp(C/t)` by expanding the
+logarithm and bounding its geometric series; take t=1/sqrt(E).
+
+Thus this natural finite-characteristic radical quotient retains square-root
+*cumulative* grade growth. It does not establish matching bounds at every
+individual grade or rule out some other pairing, a p growing with input, a
+new identity, or a different contraction. No resulting SAT time is claimed.
