@@ -192,11 +192,19 @@ rank-budget method by itself cannot exclude any support containing such a
 shift. Sharper restricted-operator ranks or additional structural equations
 would be needed to address that part of the central-gap target.
 
-The finite checker also gives a direct control: at each of grades 4 and 6,
-and for every integer shift `|s|<=h`, at least one of the four selected
-input-label pairs has full output rank D on the predecessor codebook. This
-is stronger than observing that the upper budget is large in those finite
-cases, but it does not say the piece is scalar or prove an all-size claim.
+Finite checkers also give a direct control: at grades 4, 6, 9 and 12, the
+last selected row/column label pair has full output rank D on the
+predecessor codebook for every integer shift `|s|<=h`. This is stronger than
+observing that the upper budget is large in those finite cases, but it does
+not say the piece is scalar or prove an all-size claim.
+
+A naive route to proving this control uniformly also fails: in the
+predecessor's output ordering, the `s=-h` matrix for that pair is lower
+triangular at grades 4, 6 and 9, but not at grade 12. At grade 12 its entry
+at output index 2 and input index 7 is `-34488115200`, and the reverse entry
+is `-6157022699520`. Because both are nonzero, no common permutation of the
+input and output basis can make this matrix triangular. A uniform argument
+would need a non-permutation basis change or a different structural invariant.
 
 ## Reproduction and scope
 

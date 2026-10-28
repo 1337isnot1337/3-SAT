@@ -16,7 +16,11 @@
     "research/extreme-shift-output-rank/verify.py",
     "research/extreme-shift-output-rank/verification.json",
     "research/extreme-shift-output-rank/thresholds.py",
-    "research/extreme-shift-output-rank/thresholds.json"
+    "research/extreme-shift-output-rank/thresholds.json",
+    "research/extreme-shift-output-rank/central.py",
+    "research/extreme-shift-output-rank/central.json",
+    "research/extreme-shift-output-rank/triangular.py",
+    "research/extreme-shift-output-rank/triangular.json"
   ],
   "reproduce": [
     "python3",

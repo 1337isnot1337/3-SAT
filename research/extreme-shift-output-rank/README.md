@@ -36,6 +36,10 @@ python3 -I -B research/extreme-shift-output-rank/verify.py > /tmp/extreme-shift.
 cmp /tmp/extreme-shift.json research/extreme-shift-output-rank/verification.json
 python3 -I -B research/extreme-shift-output-rank/thresholds.py > /tmp/extreme-thresholds.json
 cmp /tmp/extreme-thresholds.json research/extreme-shift-output-rank/thresholds.json
+python3 -I -B research/extreme-shift-output-rank/central.py > /tmp/extreme-central.json
+cmp /tmp/extreme-central.json research/extreme-shift-output-rank/central.json
+python3 -I -B research/extreme-shift-output-rank/triangular.py > /tmp/extreme-triangular.json
+cmp /tmp/extreme-triangular.json research/extreme-shift-output-rank/triangular.json
 make verify
 ```
 
@@ -48,10 +52,18 @@ all-size proof. The proof states the exact support and dimension conditions,
 the multiple-label-mixing limit, the partition asymptotics and the remaining
 obligations.
 
-At grades 4 and 6, finite controls find a full-rank output operator for
-every shift `|s|<=h` among four sampled input-label pairs. These controls
-show why a uniform per-piece rank reduction cannot dispose of those finite
-central shifts; they do not establish scalarity or an all-size result.
+At grades 4, 6, 9 and 12, a separate finite replay finds that the last
+selected row/column label pair gives a full-rank output operator for every
+shift `|s|<=h`. These controls show why a uniform per-piece rank reduction
+cannot dispose of those finite central shifts; they do not establish
+scalarity or an all-size result. The grade-12 control is intentionally kept
+out of default CI.
+
+The same sampled piece at shift `-h` is triangular in the original output
+order at grades 4, 6 and 9. At grade 12 it has a nonzero two-cycle, so no
+common permutation of input and output basis vectors makes it triangular.
+This rules out a simple permutation-based proof of the observed full ranks;
+it does not rule out a non-permutation basis or another proof.
 
 An exact scan of the predecessor's selected grades through `h=2000` finds
 the first passing rank-budget inequalities at `(h, lambda)=(887,93)`,
