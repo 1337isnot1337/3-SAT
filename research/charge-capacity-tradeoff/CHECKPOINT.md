@@ -22,11 +22,11 @@ finite evidence only, with no all-size formula or SAT improvement. The work
 does not relate shift width to effective degree or rule out charge-dependent
 normalization, projected compressions, or arbitrary decompositions.
 
-Canonical main was refreshed at `cca27db`; this branch must contain that head
-before the final push. `make verify` passed locally before that merge. The
-truncated recurrence and spot outputs bind checker, model and source hashes;
-hosted CI should be checked against the final PR head. The baseline selected
-alpha remains 1/2.
+Canonical main `0d38d11` is integrated in merge `ba54676`. The merged tree
+passes `make verify`: 7 frozen sources, 5 tasks, 48 research claims, 377 local
+links, and all 17 unit tests. The truncated recurrence and spot outputs bind
+checker, model and source hashes; hosted CI should be checked against the
+final PR head. The baseline selected alpha remains 1/2.
 
 The adjacent-shift h=4 two-output example does not extend by the same
 unprojected all-ones scalar-subspace mechanism to h>=5, because its relevant
@@ -36,9 +36,11 @@ remain open. Issue #108 is investigating projected partition codebooks, and
 issues #21/#23 have investigated fixed-charge scalar filters: read their live
 updates before claiming related work.
 
-The latest issue #20 update and PR body should identify this finite screen as
-separate from the capacity theorem and the fixed-charge filter work in issues
-#21/#23. A finite search up to h=400 found no case in which the structural
+The latest issue #20 update and PR body should identify this finite next-degree
+screen as separate from the capacity theorem and the fixed-charge filter work
+in issues #21/#23. Main's extreme-shift output-rank argument excludes only
+shifts `|s| >= (1+epsilon)h` under its output-dimension condition; this screen
+includes `|s|=h` and studies charge degree `2h-3`. A finite search up to h=400 found no case in which the structural
 cover optimum beat both the balanced cover and the full-dimension bound. This
 is exploratory only, has no saved certificate or general proof, and must not
 be treated as a theorem or substituted for the exact minimum formula.
