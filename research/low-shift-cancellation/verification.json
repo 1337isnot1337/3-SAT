@@ -1,8 +1,10 @@
 {
   "h_range": [
-    5,
+    4,
     40
   ],
-  "normal_order_cancellation_cases": 342,
-  "complete_recurrence_row_comparisons": 4
+  "three_partition_formula_cases": 1840,
+  "complete_recurrence_row_comparisons": 6,
+  "multiplicity_and_kernel_rank_cases": 37,
+  "prime": 1000003
 }
