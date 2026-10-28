@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "deterministic-crt-transfer",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "conditional_deterministic_crt_rank_transfer",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Under the PR 17 rational crossing contract plus a polynomial-bit computable certificate covering all odd bad primes through the call-size cap, a deterministic polynomial-size set of good primes and signed CRT recover every original integer query with polynomial overhead. The nilpotently conjugated polynomial-height adapted-basis families have such certificates. The general PR 17 contract remains randomized; no better rho, alpha, or polynomial-space bound is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/deterministic-crt-transfer/PROOF.md",
+    "research/deterministic-crt-transfer/verify.py",
+    "research/deterministic-crt-transfer/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/deterministic-crt-transfer/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the conditional all-size argument and prime certificate",
+    "A uniform cheaper crossing family with both rank bounds and a valid compact certificate",
+    "A deterministic transfer under the full unrestricted PR 17 denominator contract"
+  ]
+}

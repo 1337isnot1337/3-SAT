@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "finite CRT and one rational crossing, not the master algorithm",
+  "signed_crt_cases": 6400,
+  "negative_controls": 3,
+  "crossing": {
+    "n": 8,
+    "primes": [
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "pieces": 4,
+    "factorizations": 40,
+    "exact_predicate_counts": 256,
+    "maximum_denominator_bits_minus_one": 9
+  },
+  "sha256": {
+    "research/deterministic-crt-transfer/verify.py": "f22639017e8c259144354d78f0d74a05024d011a40fd55bb8d9469d067bca6a7",
+    "research/deterministic-crt-transfer/PROOF.md": "0f34b6414b0f523f8adbee4cef02d206f89358de4c8e161690e12f6c560e84ee",
+    "research/odd-prime-rank-transfer/field.py": "36b63603503a088b03934e0b33f13f888a5881b1f5b9030c94e8a87920defeba",
+    "research/three-bit-macro-walsh/refined.py": "5eee33b3ba0e1e701cfe3cd9e67b94bf645399976a559c85410ff1bdacf55afb"
+  }
+}
