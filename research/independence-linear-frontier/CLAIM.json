@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "independence-linear-frontier",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "e1e57cd165d9806b1bbf6500153ee1f37fedf093",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Over characteristic two, binary-matroid independence has exact cut rank 2^b and a polynomial-entry ordered amplitude chain with b Boolean bond bits per cut; the same upper rank fails in an F3 example. No SAT improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/independence-linear-frontier/PROOF.md",
+    "research/independence-linear-frontier/verify.py",
+    "research/independence-linear-frontier/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/independence-linear-frontier/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the linear transition and exact rank proof",
+    "Determine whether nonlocal topology or restricted queries can avoid the ordered width cost",
+    "Account for ring embedding, contraction and all SAT reduction costs"
+  ]
+}
