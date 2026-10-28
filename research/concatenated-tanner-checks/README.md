@@ -14,7 +14,8 @@ words. With a changed Tanner degree and mixing budget, this gives, for
 `O(B^4 log^2(B+2) log(m+2))` whose kernel has distance at least
 `m/O(B^4 log^2(B+2))`. Construction is polynomial in n,m and numeric B.
 For fixed B the kernel distance is a constant fraction of m and row weight
-is logarithmic. Constants are enormous and no practical advantage is claimed.
+is logarithmic. The extra B^2 factor can make the bounds worse when B grows;
+constants are enormous and no practical advantage is claimed.
 
 For the B=8 sparse-code isolation interface, the code checks and isolation
 rows both have O(log n) terms. Its random trials and all contraction costs

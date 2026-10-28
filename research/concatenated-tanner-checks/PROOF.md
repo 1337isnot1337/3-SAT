@@ -22,8 +22,10 @@ both bit operations and space, of a binary matrix with m columns, at most 3n
 rows, row weight at most d, and every nonzero kernel word of weight at least
 m/P. Thus for fixed B the row weight is O(log(m+2)) and the kernel distance
 is a constant fraction of m. Uniformly, d=O(B^4 log^2(B+2) log(m+2)) and
-P=O(B^4 log^2(B+2)). The constants are extraordinarily large. No improved
-SAT exponent or alpha follows from this component alone.
+P=O(B^4 log^2(B+2)). The extra B^2 factor means these bounds can be worse
+than the source or PR #107 when B grows with m; only the fixed-B logarithmic
+orders are asserted as improvements. The constants are extraordinarily large.
+No improved SAT exponent or alpha follows from this component alone.
 
 ## A short binary inner code
 
