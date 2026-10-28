@@ -21,12 +21,12 @@ operator row is zero. This is an equality on the **whole output space**,
 not only a compressed codebook. It does not imply the other input labels
 have low rank or that a high-capacity asymmetric label minor is impossible.
 
-The cutoff is sharp at every h>=1. For q=1 and the source's single-part
+The cutoff is sharp at every h>=1. For every integer charge q and the source's single-part
 second label b^(h), the next moment has a positive explicit diagonal entry:
 
 ```math
- [t_h]\left(\sum_s s^{h+1}Q_s^{(1)}(a^{(h)},b^{(h)})\right)t_h
- =(h+1)!h!\left(1+h{2h-1\choose h-1}+(-1)^{h-1}h\right)>0.
+ [t_h]\left(\sum_s s^{h+1}Q_s^{(q)}(a^{(h)},b^{(h)})\right)t_h
+ =(h+1)!h!\left(q^2+h{2h-1\choose h-1}+(-1)^{h-1}h\right)>0.
 ```
 
 [PROOF.md](PROOF.md) gives the all-grade contraction argument, including
@@ -37,18 +37,32 @@ weight `(s^3-s)/6` has a zero `(h)` row when h>=3, explaining one
 component of the finite pairing-rank observations in PR #89. It does not
 prove their conjectured `p(h)-p(h-3)` rank formula.
 
+## A length-band consequence
+
+For any two input partitions mu,nu of weight h, an operator moment of
+order d vanishes whenever `abs(length(mu)-length(nu))>d`, at any output
+energy and integer charge. More generally, the same holds for every shift
+polynomial of degree at most d. [LENGTH-BAND.md](LENGTH-BAND.md) proves this
+by counting unmatched fields in the charged contraction expansion. The
+strict inequality is sharp: a grade-4 length difference of 3 gives a
+nonzero third moment. This is a sparsity statement, not a bound on the rank
+of the remaining band.
+
 ## Checks and limits
 
 ```sh
 python3 -I -B research/charged-single-current/verify.py > /tmp/charged-single-current.json
 cmp /tmp/charged-single-current.json research/charged-single-current/verification.json
+python3 -I -B research/charged-single-current/band.py > /tmp/charged-length-band.json
+cmp /tmp/charged-length-band.json research/charged-single-current/band-verification.json
 make verify
 ```
 
 The standard-library checker verifies 210 instances of the binomial
 contraction identity, 3,802 complete output-vector moment identities across
 h=1,...,6, several output energies and charges, and the explicit next-moment
-coefficient at each grade. The report records the exact test scopes, nonzero
+coefficient at each grade for five charges. The separate length-band checker
+verifies 1,712 complete vector moments and an exact nonzero boundary case. The report records the exact test scopes, nonzero
 witnesses and hashes. The operator implementation is shared with the
 predecessor and is not an independent oracle or formal review.
 

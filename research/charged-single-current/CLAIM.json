@@ -8,13 +8,16 @@
   "base_commit": "88b5f35432f8707a005c51d346e4c4c4cf6e416c",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For every h>=1, integer charge and output energy, the charged operator row indexed by the one-part input label has zero moments of orders 1 through h for every homogeneous weight-h second label. An explicit positive diagonal formula proves order h+1 is nonzero for one choice at every h. The all-grade proof is author-checked; no SAT improvement is claimed.",
+  "statement": "For every h>=1, integer charge and output energy, the charged operator row indexed by the one-part input label has zero moments of orders 1 through h for every homogeneous weight-h second label. An explicit positive diagonal formula proves order h+1 is nonzero for the single-part second label at every h and every integer charge. The all-grade proof is author-checked; no SAT improvement is claimed. More generally, all operator moments of degree d vanish for input partitions whose length difference exceeds d; the strict length bound is sharp in a finite example.",
   "improves_bound": false,
   "evidence": [
     "research/charged-single-current/README.md",
     "research/charged-single-current/PROOF.md",
     "research/charged-single-current/verify.py",
-    "research/charged-single-current/verification.json"
+    "research/charged-single-current/verification.json",
+    "research/charged-single-current/LENGTH-BAND.md",
+    "research/charged-single-current/band.py",
+    "research/charged-single-current/band-verification.json"
   ],
   "reproduce": [
     "python3",

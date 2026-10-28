@@ -88,28 +88,28 @@ expanding f.
 
 ## Sharpness for every grade
 
-Take q=1, `b=b^(h)=(h-1)! t_h` and the input/output state `t_h` in V_h.
+Take any integer q, `b=b^(h)=(h-1)! t_h` and the input/output state `t_h` in V_h.
 The only no-contraction contribution at order h+1 comes from the j=1
 component of a^(h), whose coefficient is `(-1)^(h-1)h`; the sole fully
 contracted term is constant. At coincident coordinates the diagonal
 coefficient of the normal-ordered product of the t1 and th fields is
 
 ```math
- (-1)^{h-1}+h\left(1+{-h-1\choose h-1}\right).
+ q^2(-1)^{h-1}+h\left(1+{-h-1\choose h-1}\right).
 ```
 
-The first term uses the two charge-one zero modes. The other two terms
+The first term uses the two charge-q zero modes. The other two terms
 annihilate the part h and then recreate it, with the two possible choices
 of which field supplies the creation. Multiplying by the encoded a and b
 coefficients and applying the (h+1)-st logarithmic derivative gives
 
 ```math
- [t_h]\left(\sum_s s^{h+1}Q_s^{(1)}(a^{(h)},b^{(h)})\right)t_h
- =(h+1)!h!\left(1+h{2h-1\choose h-1}+(-1)^{h-1}h\right)>0. \tag{4}
+ [t_h]\left(\sum_s s^{h+1}Q_s^{(q)}(a^{(h)},b^{(h)})\right)t_h
+ =(h+1)!h!\left(q^2+h{2h-1\choose h-1}+(-1)^{h-1}h\right)>0. \tag{4}
 ```
 
 Here `{ -h-1 choose h-1}=(-1)^(h-1){2h-1 choose h-1}`; the displayed
-integer is positive for every h>=1. Thus the cutoff in (1) is sharp at
+integer is positive for every h>=1 and every integer q. Thus the cutoff in (1) is sharp at
 every grade. The checker independently compares (4) to exact finite operator
 vectors for h=1,...,6.
 

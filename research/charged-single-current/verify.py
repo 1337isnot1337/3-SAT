@@ -42,14 +42,17 @@ def main():
                                     moments[d-1][out]=moments[d-1].get(out,0)+shift**d*value
                         assert all(not any(vec.values()) for vec in moments)
                         vector_checks+=h
-        # A concrete nonzero next moment shows the cutoff h cannot generally be extended.
-        sharp=m.charged.moment((h,),(h,),(h,),h+1,1)
-        expected=math.factorial(h+1)*math.factorial(h)*(1+h*math.comb(2*h-1,h-1)+(-1)**(h-1)*h)
-        assert dict(sharp).get((h,),0)==expected and expected>0
+        # The sharpness coefficient is positive for every integer charge.
+        sharpness=[]
+        for q in (-2,-1,0,1,2):
+            sharp=m.charged.moment((h,),(h,),(h,),h+1,q)
+            expected=math.factorial(h+1)*math.factorial(h)*(q*q+h*math.comb(2*h-1,h-1)+(-1)**(h-1)*h)
+            assert dict(sharp).get((h,),0)==expected and expected>0
+            sharpness.append({'charge':q,'expected_diagonal':expected,
+                              'witness':[[list(part),value] for part,value in sharp]})
         reports.append({'grade':h,'energies':energies,'charges':charges,
                         'complete_vector_identities':vector_checks,'piece_calls':piece_calls,
-                        'next_moment_witness':[[list(part),value] for part,value in sharp],
-                        'sharpness_formula_value':expected})
+                        'sharpness':sharpness})
         print('grade',h,'completed',file=sys.stderr,flush=True)
     files=[HERE/'verify.py',HERE/'PROOF.md',path,
            *(ROOT/'research/charged-operator-moments'/name for name in ('charged.py','pairing.py','predecessor.py'))]
