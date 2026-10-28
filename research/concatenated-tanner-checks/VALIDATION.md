@@ -31,3 +31,10 @@ and its output SHA-256 was
 `ec2047efcb94cd031540e1527f96517e135a1fdf7b8c9332822c2fc19d1e9ea2`.
 The source-scale and external-theorem limits above remain; this replay does
 not establish the cited spectral theorem.
+
+At commit `42bf1eb`, both scoped checkers and byte comparisons were replayed
+in the detached worktree, and `make verify` passed. The expander checker
+SHA-256 was `678b6c5b635c9df10371a28f868ac37f731ecf02429b343178d9d6fa6ecef372`
+and its saved output SHA-256 was
+`48e049fdc1002b33e99937f20b3bd39bfdc773c2d54a740d221702408d0c6eb9`.
+This includes the complete scaled Tanner fixture; it remains author replay.
