@@ -1,0 +1,47 @@
+# Nonlocal kernel network for the independence polynomial
+
+Status: `scoped_checked` for finite identities; the all-size argument is
+author-checked and awaits independent review. No SAT speedup is claimed.
+Task `decision-only`; base `c7c5a03434b396e227e9ab573b5b7cdea52b47fa`.
+Contributor: Cinna Davis, with substantial OpenAI Codex assistance. Apache-2.0.
+
+[PROOF.md](PROOF.md) rewrites the binary-matroid independence polynomial
+at **arbitrary** characteristic-two field values as a weighted sum over
+`ker(A)`, using the Boolean interpolation factors `z_j` and `1+z_j`.
+An exact nonlocal network uses sparse row parity constraints, equality
+trees and `O(m+a+h)` wires for an a-by-m binary matrix with h ones.
+Grouping field weights and applying the owner-accepted contraction theorem
+then evaluates one point in polynomial space and
+`(s+L)^O(1) 2^O(s/sqrt(log s))` time, with `s=m+a+h` and field degree
+`O(log s)`. It is a component evaluation, not a full SAT algorithm.
+
+For `[I_b | I_b]` with separated copies, the network has O(b) wires while
+the ordered chain from PR #104 needs b² bond wires; an interleaved order
+avoids that separation. Thus the topology bypasses a fixed-order width cost,
+not every ordering or every SAT representation. General clause inputs can
+still require more than the desired `n log log n` wires.
+
+## Reproduction
+
+```sh
+python3 -I -B research/independence-kernel-network/verify.py
+make verify
+```
+
+The checker compares the independent-set and kernel formulas on all 4,096
+binary 3-by-4 matrices and all 16 Boolean weight vectors, plus 2,000 seeded
+GF(8) weight vectors with grouped polynomial-lift controls. It also checks
+32 paired-column width profiles. The [saved output](verification.json) pins
+the checker hash and seed. These are finite controls, not an independent
+review or an implementation of the accepted contraction solver.
+
+## Credit and next steps
+
+The shared-code identity and field lift are from PR #2, the free Boolean
+kernel row network from PR #83, and the ordered independence chain and cut
+rank from PR #104. All remain separate unreviewed research. The frozen OpenAI
+source is pinned in [SOURCES.json](../../SOURCES.json), especially
+`thm:tensor-contraction`. Standard interpolation and parity networks are used
+without a priority claim. A SAT application must integrate actual clauses,
+all queries, branching, precision, recovery, randomness and the full cost;
+the selected result remains unchanged.

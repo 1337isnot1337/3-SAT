@@ -1,0 +1,201 @@
+{
+  "GF8_weighted_and_group_lift_cases": 2000,
+  "boolean_weight_cases": 65536,
+  "checker_sha256": "5b8e68dfc152ea85bcde1eb04871f2309af1a28d334de42b7c3e0fff86d45691",
+  "matrices_3x4": 4096,
+  "paired_order_controls": [
+    {
+      "b": 1,
+      "columns": 2,
+      "ones": 2,
+      "ordered_width_sum": 1
+    },
+    {
+      "b": 2,
+      "columns": 4,
+      "ones": 4,
+      "ordered_width_sum": 4
+    },
+    {
+      "b": 3,
+      "columns": 6,
+      "ones": 6,
+      "ordered_width_sum": 9
+    },
+    {
+      "b": 4,
+      "columns": 8,
+      "ones": 8,
+      "ordered_width_sum": 16
+    },
+    {
+      "b": 5,
+      "columns": 10,
+      "ones": 10,
+      "ordered_width_sum": 25
+    },
+    {
+      "b": 6,
+      "columns": 12,
+      "ones": 12,
+      "ordered_width_sum": 36
+    },
+    {
+      "b": 7,
+      "columns": 14,
+      "ones": 14,
+      "ordered_width_sum": 49
+    },
+    {
+      "b": 8,
+      "columns": 16,
+      "ones": 16,
+      "ordered_width_sum": 64
+    },
+    {
+      "b": 9,
+      "columns": 18,
+      "ones": 18,
+      "ordered_width_sum": 81
+    },
+    {
+      "b": 10,
+      "columns": 20,
+      "ones": 20,
+      "ordered_width_sum": 100
+    },
+    {
+      "b": 11,
+      "columns": 22,
+      "ones": 22,
+      "ordered_width_sum": 121
+    },
+    {
+      "b": 12,
+      "columns": 24,
+      "ones": 24,
+      "ordered_width_sum": 144
+    },
+    {
+      "b": 13,
+      "columns": 26,
+      "ones": 26,
+      "ordered_width_sum": 169
+    },
+    {
+      "b": 14,
+      "columns": 28,
+      "ones": 28,
+      "ordered_width_sum": 196
+    },
+    {
+      "b": 15,
+      "columns": 30,
+      "ones": 30,
+      "ordered_width_sum": 225
+    },
+    {
+      "b": 16,
+      "columns": 32,
+      "ones": 32,
+      "ordered_width_sum": 256
+    },
+    {
+      "b": 17,
+      "columns": 34,
+      "ones": 34,
+      "ordered_width_sum": 289
+    },
+    {
+      "b": 18,
+      "columns": 36,
+      "ones": 36,
+      "ordered_width_sum": 324
+    },
+    {
+      "b": 19,
+      "columns": 38,
+      "ones": 38,
+      "ordered_width_sum": 361
+    },
+    {
+      "b": 20,
+      "columns": 40,
+      "ones": 40,
+      "ordered_width_sum": 400
+    },
+    {
+      "b": 21,
+      "columns": 42,
+      "ones": 42,
+      "ordered_width_sum": 441
+    },
+    {
+      "b": 22,
+      "columns": 44,
+      "ones": 44,
+      "ordered_width_sum": 484
+    },
+    {
+      "b": 23,
+      "columns": 46,
+      "ones": 46,
+      "ordered_width_sum": 529
+    },
+    {
+      "b": 24,
+      "columns": 48,
+      "ones": 48,
+      "ordered_width_sum": 576
+    },
+    {
+      "b": 25,
+      "columns": 50,
+      "ones": 50,
+      "ordered_width_sum": 625
+    },
+    {
+      "b": 26,
+      "columns": 52,
+      "ones": 52,
+      "ordered_width_sum": 676
+    },
+    {
+      "b": 27,
+      "columns": 54,
+      "ones": 54,
+      "ordered_width_sum": 729
+    },
+    {
+      "b": 28,
+      "columns": 56,
+      "ones": 56,
+      "ordered_width_sum": 784
+    },
+    {
+      "b": 29,
+      "columns": 58,
+      "ones": 58,
+      "ordered_width_sum": 841
+    },
+    {
+      "b": 30,
+      "columns": 60,
+      "ones": 60,
+      "ordered_width_sum": 900
+    },
+    {
+      "b": 31,
+      "columns": 62,
+      "ones": 62,
+      "ordered_width_sum": 961
+    },
+    {
+      "b": 32,
+      "columns": 64,
+      "ones": 64,
+      "ordered_width_sum": 1024
+    }
+  ],
+  "seed": 25104
+}
