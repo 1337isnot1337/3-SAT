@@ -38,3 +38,10 @@ SHA-256 was `678b6c5b635c9df10371a28f868ac37f731ecf02429b343178d9d6fa6ecef372`
 and its saved output SHA-256 was
 `48e049fdc1002b33e99937f20b3bd39bfdc773c2d54a740d221702408d0c6eb9`.
 This includes the complete scaled Tanner fixture; it remains author replay.
+
+At commit `85a07a8`, the detached worktree repeated both scoped checkers,
+both byte comparisons and `make verify`; all passed. The expander checker
+SHA-256 was `c0a53b43c61e0b45d845553fa7c86db36e337653d14dd5089f5600c536891937`
+and its output SHA-256 was
+`4d81a8beb15488748660805e6b0c5a8fef206fa56a6affe157c3a3973bef334e`.
+This adds finite information-set checks and remains an author replay.
