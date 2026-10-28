@@ -283,7 +283,11 @@ selected rows. If `P-1` divides `Q`, the count is exactly
 `M P/(4(P-1))` at every nonzero residue shift, attaining the preceding
 full-packet averaging upper bound simultaneously. Other complete cycles
 give the displayed lower bound; leftover packets cannot reduce it.
-This is an explicit polynomial-time construction. The source packing
+For exact equality, `M P/(4(P-1))=Q h P^2/(4(P-1))` must be an integer.
+Because `h` and `P^2/4` are powers of two and are coprime to the odd
+number `P-1`, this requires `P-1` to divide `Q`. Thus the word cycle
+uses the smallest possible positive number of full packets for exact
+equality. This is an explicit polynomial-time construction. The source packing
 conditions imply `Q=M/L>=D_arr` for full packets, so the incomplete-cycle
 loss is negligible in the growing source regime. This exact optimum is
 only for the number of selected rows in the specified word mechanism;

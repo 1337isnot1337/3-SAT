@@ -136,12 +136,16 @@ def main():
             averaging_checks+=1
     character_checks=0
     for p in (2,4,8,16):
-        for h in (1,2,3):
+        for h in (1,2,3,4):
             words=[[((v & r).bit_count() & 1) for r in range(p)]
                    for v in range(1,p)]
             for d in range(1,p):
                 assert sum(mismatch([h]*p,word,d) for word in words)==h*p*p//4
                 character_checks+=1
+            if h & (h-1)==0:
+                for count in range(1,3*p):
+                    assert ((count*h*p*p)%(4*(p-1))==0) == (count%(p-1)==0)
+                    character_checks+=1
             for count in (p-1,p,2*(p-1)):
                 chosen=[words[j%(p-1)] for j in range(count)]
                 for d in range(1,p):
