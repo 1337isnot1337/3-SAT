@@ -75,7 +75,9 @@ weight at least
 
     delta(delta-epsilon) qd = qd/(2K^2) >= m/P.
 
-Each check has at most d nonzeros. When m>D, d=D>=32B and
+Each check has at most d nonzeros. Each retained column occurs in at most
+2c rows, since its edge meets exactly two vertices and each has c checks;
+parallel edges retain separate port identities. When m>D, d=D>=32B and
 `c<=d/(16B)`, hence `2qc<=qd/(8B)<m/(2B)<=n`. When m<=D,
 `2c<=m/(16B)+2<=3n`. Thus the result has at most 3n checks, each of weight
 at most D(B), and relative kernel distance at least 1/P(B).
@@ -110,7 +112,8 @@ designate n of them for the input assignment; set the remaining N-r-n
 information coordinates to zero. Each assignment then extends to exactly one
 codeword. The resulting representation uses N-n=ceil(n/L) auxiliary bits and
 exactly r+(N-r-n)=N-n equations: r selected constant-weight checks and
-N-r-n unary zero checks. Distinct encoded assignments remain at relative
+N-r-n unary zero checks. Each encoded variable appears in at most 2c+1 of
+these code equations. Distinct encoded assignments remain at relative
 distance at least 1/P(2L). The information-set computation and row selection
 are polynomial time and space. Handle n<4L by direct enumeration; for fixed L
 this is a finite exception.

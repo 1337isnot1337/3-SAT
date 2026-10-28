@@ -163,12 +163,15 @@ def check_tanner_fixture():
             words |= {w ^ b for w in words}
         assert all(all((row & word).bit_count() % 2 == 0 for row in rows)
                    for word in words)
-        return words, len(rows)
-    full, rows = kernel(32)
-    short, short_rows = kernel(25)
+        max_column = max(sum((row >> bit) & 1 for row in rows) for bit in range(m))
+        assert max_column <= 2*len(local)
+        return words, len(rows), max_column
+    full, rows, max_column = kernel(32)
+    short, short_rows, short_max_column = kernel(25)
     assert short == {word for word in full if word >> 25 == 0}
     return {'full_words':len(full), 'short_words':len(short), 'rows':rows,
-            'short_rows':short_rows,
+            'short_rows':short_rows, 'max_column_degree':max_column,
+            'short_max_column_degree':short_max_column,
             'full_minimum_weight':min(w.bit_count() for w in full if w),
             'short_minimum_weight':min(w.bit_count() for w in short if w)}
 

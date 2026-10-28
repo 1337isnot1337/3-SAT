@@ -21,7 +21,9 @@
   "tanner_fixture": {
     "full_minimum_weight": 4,
     "full_words": 2048,
+    "max_column_degree": 6,
     "rows": 56,
+    "short_max_column_degree": 6,
     "short_minimum_weight": 4,
     "short_rows": 56,
     "short_words": 128
