@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "newton-packet-support",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Ternary equality has local mode degree at most two, while a source-style zero-mode child packet need not be an equality table; the specified rational packet has full degree-feasible support.",
+  "improves_bound": false,
+  "evidence": [
+    "research/newton-packet-support/PROOF.md",
+    "research/newton-packet-support/verify.py",
+    "research/newton-packet-support/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/newton-packet-support/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size identities and scope",
+    "A recursive invariant, actual precision-aware global support bound, and complete cost analysis for any proposed speedup"
+  ]
+}

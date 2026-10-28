@@ -1,0 +1,55 @@
+{
+  "cases": {
+    "equality": {
+      "all_source_moments_nonzero": true,
+      "direct_assignment_pairs": 64,
+      "exact_child_sum_equals_direct": true,
+      "nonzero_tuples": 10,
+      "tuples_by_total_degree": [
+        1,
+        3,
+        6,
+        0
+      ]
+    },
+    "positive_clause": {
+      "all_source_moments_nonzero": true,
+      "direct_assignment_pairs": 64,
+      "exact_child_sum_equals_direct": true,
+      "nonzero_tuples": 19,
+      "tuples_by_total_degree": [
+        0,
+        3,
+        6,
+        10
+      ]
+    }
+  },
+  "equality_boolean_identity_checks": 510,
+  "packet": {
+    "L": 8,
+    "T": 17,
+    "i": 0,
+    "inactive_mode": 3,
+    "kernel_entry_identities": 9,
+    "row_and_column_slots": [
+      0,
+      2,
+      4
+    ],
+    "t": 1,
+    "zeta": 1
+  },
+  "sha256": {
+    "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
+    "research/newton-packet-support/PROOF.md": "6b779bcfd89a429405a980f1e43b8f5b936101261c12705bea38edc87dba910c",
+    "research/newton-packet-support/verify.py": "b4eeec51fb1bdcfba97b8d5837f6543e46575a3c7120b4b08547e59d4e01d2c5",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+    "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
+  },
+  "zero_mode_child": {
+    "cubic_coefficient": -1,
+    "nonzero_boolean_entries": 1,
+    "table": "product(1-Y_i)"
+  }
+}
