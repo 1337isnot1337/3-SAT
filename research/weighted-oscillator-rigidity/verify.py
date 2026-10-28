@@ -102,7 +102,7 @@ def main():
         # Pairing t_1^p with D_1^p and t_p with D_p both vanish mod p.
         assert factorial(prime) % prime == 0 and b[prime-1] == 0
     quotient_cases = 0
-    for prime in (2, 3, 5):
+    for prime in (2, 3, 5, 13, 17):
         limit = 12
         dp = [1] + [0]*limit
         for k in range(1, limit+1):
