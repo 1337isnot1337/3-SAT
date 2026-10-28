@@ -1,5 +1,5 @@
 {
-  "checker_sha256": "342ee47cfa8df1ecb4efcc923a21745cb44f6adead55c710d7ec13398dd6e0b5",
+  "checker_sha256": "fdf5ce4af2e66798de917425a29527a39bffba9c62f163c693d1b7c7683483c8",
   "dimensions_0_to_4": [
     {
       "dimension": 0,
@@ -75,6 +75,58 @@
         "5": 16
       },
       "table_order": 128
+    }
+  ],
+  "general_prime_power_controls": [
+    {
+      "dimension": 1,
+      "q": 3,
+      "ranks": {
+        "2": 2,
+        "3": 2,
+        "5": 2
+      },
+      "subspaces": 2
+    },
+    {
+      "dimension": 2,
+      "q": 3,
+      "ranks": {
+        "2": 6,
+        "3": 5,
+        "5": 6
+      },
+      "subspaces": 6
+    },
+    {
+      "dimension": 3,
+      "q": 3,
+      "ranks": {
+        "2": 28,
+        "3": 14,
+        "5": 28
+      },
+      "subspaces": 28
+    },
+    {
+      "dimension": 1,
+      "q": 4,
+      "ranks": {
+        "2": 2,
+        "3": 2,
+        "5": 2
+      },
+      "subspaces": 2
+    },
+    {
+      "dimension": 2,
+      "q": 4,
+      "ranks": {
+        "2": 6,
+        "3": 7,
+        "5": 7
+      },
+      "subspaces": 7
     }
   ]
 }

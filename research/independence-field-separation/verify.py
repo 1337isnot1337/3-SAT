@@ -2,6 +2,7 @@
 """Exact lattice-factorization and field-rank controls."""
 import hashlib
 import json
+import itertools
 from pathlib import Path
 
 
@@ -60,6 +61,43 @@ def full_projective_table(b):
              for right in subsets] for left in subsets]
 
 
+def small_field_add(x, y, q):
+    return (x+y) % 3 if q == 3 else x ^ y
+
+
+def small_field_mul(x, y, q):
+    if q == 3:
+        return x*y % 3
+    out = 0
+    while y:
+        if y & 1:
+            out ^= x
+        x <<= 1
+        if x & 4:
+            x ^= 7
+        y >>= 1
+    return out
+
+
+def general_subspaces(q, b):
+    zero = (0,) * b
+    universe = list(itertools.product(range(q), repeat=b))
+    spaces = {frozenset([zero])}
+    todo = list(spaces)
+    while todo:
+        space = todo.pop()
+        for v in universe:
+            if v in space:
+                continue
+            new = frozenset(tuple(small_field_add(u[i], small_field_mul(c,v[i],q),q)
+                                  for i in range(b))
+                            for u in space for c in range(q))
+            if new not in spaces:
+                spaces.add(new)
+                todo.append(new)
+    return sorted(spaces, key=lambda x: (len(x), tuple(sorted(x))))
+
+
 def run():
     results = []
     factor_checks = 0
@@ -90,7 +128,35 @@ def run():
         observed = {str(p): field_rank(full, p) for p in (2,3,5)}
         assert observed == results[b]['ranks']
         full_ranks.append({'dimension': b, 'table_order': len(full), 'ranks': observed})
-    return {'dimensions_0_to_4': results, 'full_projective_table_ranks': full_ranks,
+    general_controls = []
+    for q,b in ((3,1), (3,2), (3,3), (4,1), (4,2)):
+        spaces = general_subspaces(q,b)
+        zero = (0,) * b
+        mu = []
+        for space in spaces:
+            power, dimension = 1, 0
+            while power < len(space):
+                power *= q
+                dimension += 1
+            assert power == len(space)
+            mu.append((-1)**dimension * q**(dimension*(dimension-1)//2))
+        matrix = []
+        for x in spaces:
+            row = []
+            for y in spaces:
+                meet = x & y
+                value = sum(mu[i] for i,z in enumerate(spaces) if z <= meet)
+                assert value == int(meet == {zero})
+                row.append(value)
+            matrix.append(row)
+        characteristic = 3 if q == 3 else 2
+        ranks = {str(p): field_rank(matrix,p) for p in (2,3,5)}
+        for p in (2,3,5):
+            expected = 1 + (q**b-1)//(q-1) if p == characteristic else len(spaces)
+            assert ranks[str(p)] == expected
+        general_controls.append({'q': q, 'dimension': b, 'subspaces': len(spaces), 'ranks': ranks})
+    return {'general_prime_power_controls': general_controls,
+            'dimensions_0_to_4': results, 'full_projective_table_ranks': full_ranks,
             'exact_factorization_entries': factor_checks,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 

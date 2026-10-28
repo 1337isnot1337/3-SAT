@@ -87,3 +87,34 @@ number of terms in any exact separable decomposition across this specified
 cut, by matrix rank; it does not bound arbitrary graph topologies or the
 complexity of a SAT instance. It does not imply that every binary matrix has
 large rank, or that an all-order chain must incur this separation.
+
+## Prime-power extension
+
+The same proof applies to a matroid represented over F_q, q=p^r, and a
+(possibly unrelated) coefficient field K. Let N_(q,b) be the number of
+F_q-subspaces of a b-dimensional intersection. For every cut, the table
+rank is at most N_(q,b). If char(K)=p, factorization (3) with
+
+    mu_q(W)=(-1)^d q^(d(d-1)/2)
+
+gives the sharper universal upper bound
+
+    1 + (q^b-1)/(q-1),
+
+because only dimensions 0 and 1 survive in K. To apply the factorization to
+an arbitrary cut, map independent row and column selections to their
+intersection subspaces and discard dependent ones; the resulting table is a
+submatrix of the full subspace-disjointness matrix, with repetitions and
+zero rows or columns allowed.
+
+For two copies of one representative of every one-dimensional subspace of
+F_q^b, each possible subspace has a chosen basis on each side, so the full
+subspace-disjointness matrix is a minor. Its zeta factorization is invertible
+on both sides. In characteristic p its rank is exactly the displayed bound;
+if char(K) differs from p, including characteristic zero, every mu_q(W) is
+nonzero and its rank is N_(q,b). These ranks are therefore exact for this
+configuration. The identity for mu_q follows from the same Gaussian-binomial
+recurrence and product with 2 replaced by q.
+
+The binary theorem is the q=2 case. The extension is a representation-field
+statement, not a use of nonbinary checks in the accepted 3-SAT algorithm.

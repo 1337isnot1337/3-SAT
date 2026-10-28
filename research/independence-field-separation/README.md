@@ -12,6 +12,12 @@ but rank exactly `2^b` over characteristic two. Here
 `2^floor(b²/4) <= N_b <= 2^(floor(b²/4)+b)`. A general cut of intersection
 dimension b has rank at most `N_b` over any field.
 
+More generally, for matrices represented over `F_q` with `q=p^r`, the full
+projective configuration has rank `1+(q^b-1)/(q-1)` when the coefficient
+field has characteristic p, and rank `N_(q,b)` otherwise. The same values
+are universal upper bounds in their respective cases. This is an algebraic
+extension, not a nonbinary SAT construction.
+
 The proof takes one basis for each subspace and factors the resulting
 subspace-disjointness minor as `Z diag(mu) Z^T`. Its integer Möbius
 coefficients are nonzero in odd characteristic and vanish in characteristic
@@ -31,7 +37,9 @@ make verify
 The checker enumerates all binary subspaces through dimension four, checks
 every entry of the integer factorization and calculates the matrix ranks
 over F2, F3 and F5. It also constructs the full independent-set tables
-through dimension three and checks their ranks over those fields. The [hash-bound output](verification.json) records exact
+through dimension three and checks their ranks over those fields. Additional
+checks cover subspace lattices over F3 through dimension three and F4 through
+dimension two, with coefficient fields F2, F3 and F5. The [hash-bound output](verification.json) records exact
 counts. Finite checks do not constitute independent review of the proof.
 
 ## Credit and limits
