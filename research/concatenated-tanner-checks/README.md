@@ -44,3 +44,9 @@ for polynomial-time shifts and the source-parameter Vandermonde construction;
 and [PR #107](https://github.com/1337isnot1337/3-SAT/pull/107) for the
 preceding degree-sensitive parameters. No literature priority is claimed.
 Apache-2.0.
+
+The [non-Cayley follow-up](EXPANDER.md) replaces the logarithmic-degree graph
+by a powered published Margulis--Gabber--Galil expander. Subject to that cited
+spectral theorem, fixed B gives constant-weight checks and constant relative
+distance; B-dependent constants are much larger. Its exact small-graph checks
+are reproduced with `python3 -I -B research/concatenated-tanner-checks/verify_expander.py`.

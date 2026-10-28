@@ -1,0 +1,14 @@
+{
+  "base_graph_sides": [
+    2,
+    3
+  ],
+  "mixing_subset_pairs": 787200,
+  "padding_schedules": 700,
+  "powers": [
+    1,
+    2,
+    3
+  ],
+  "result": "pass"
+}

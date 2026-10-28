@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-28",
+  "sources": [
+    {
+      "title": "Expander Graphs and Their Applications",
+      "authors": ["Shlomo Hoory", "Nathan Linial", "Avi Wigderson"],
+      "publication": "Bulletin of the American Mathematical Society 43 (2006)",
+      "url": "https://www.math.ias.edu/~avi/PUBLICATIONS/MYPAPERS/HLW06/hlw06.pdf",
+      "sha256": "b733e23c10bb94448e86e86cd2a7300e7469b3a8c393214e0fdd14ba90661bd4",
+      "scope": "Construction 8.1 and Theorem 8.2, stating the Gabber-Galil spectral bound",
+      "license": "Not established; external PDF not redistributed"
+    },
+    {
+      "title": "Explicit constructions of linear-sized superconcentrators",
+      "authors": ["Ofer Gabber", "Zvi Galil"],
+      "publication": "Journal of Computer and System Sciences 22 (1981), 407-420",
+      "url": "https://doi.org/10.1016/0022-0000%2881%2990040-4",
+      "scope": "Original spectral result credited by the inspected published survey; original article not inspected",
+      "license": "Not established; source not redistributed"
+    }
+  ]
+}
