@@ -233,3 +233,41 @@ constant-factor saving in the principal parameter `L`, not a realization at
 the predecessor's generic multiplicity for the same `M`. The same source
 packing, degree cap, Boolean input, and independent-review qualifications
 apply.
+
+## Sharp degree boundary for the two fixed-column packets
+
+Consider precisely the two full packets used in the quadratic construction,
+with one column bit fixed to one in each and all other column bits fixed to
+zero. The row tensor may be any rational-valued table on all `2L` row bits;
+its unique multilinear polynomial gives a rational linear combination of
+products of distinct row factors. These factors are `W_d` for all
+`-L<d<L`, with `W_0` present twice.
+
+Define the monic polynomial
+
+```
+D(T) = T (T+L)^3 product_(t in S excluding 0,-L) (T-t)^2.
+```
+
+Its degree is `4L`. Every product of three distinct row factors is divisible
+by `D`: at each grid node other than zero and `-L`, at most one factor is
+nonzero; at zero at most two are nonzero; and at `-L` every factor is zero.
+The same holds for every product of more factors. Products of zero, one, or
+two factors have degree at most `4L-2`. Consequently every contraction in
+this fixed-column model has remainder of degree at most `4L-2` on division
+by `D`. In particular no polynomial of degree exactly `4L-1` is realizable,
+even with arbitrary rational row entries. The previous quadratic theorem is
+therefore sharp as a universal degree statement for this model.
+
+Let `H_1=P_0` be the odd-root factor. It is an even polynomial of degree
+`L`. Write `c` for the nonzero leading coefficient of `H_1^4`. The
+coefficient of `T^(4L-1)` in `H_1^4` is zero, whereas the coefficient of
+`T^(4L-1)` in `D` is `3L` (the sum of its roots is `-3L`). Thus the
+remainder of `H_1^4` modulo `D` has coefficient `-3Lc` at that degree and
+cannot occur in the fixed-column model. This holds for every power-of-two
+`L>=2` and does not depend on 2-adic integrality.
+
+The obstruction assumes these particular fixed column assignments and this
+single-pair port budget. It does not cover column sums, other packetizations,
+more packets, or equality only modulo a finite precision. It is not a
+lower bound for general tensor contraction or SAT.

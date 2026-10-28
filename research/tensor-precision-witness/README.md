@@ -28,6 +28,11 @@ are generally not Boolean or integers, although their odd denominators are
 units in the source coefficient ring. The construction and its costs are in
 [PROOF.md](PROOF.md).
 
+For the same two fixed-column packets, arbitrary rational row tensors cannot
+realize any polynomial of degree exactly `4L-1` or the fourth power of the
+odd-root factor. A divisibility invariant proves this for every `L`; it
+does not cover other column assignments or more packets.
+
 For `u=1`, the predecessor's content formula yields `Theta(M)` shifted
 precision content for this network. Its generic witness, using the same `M`
 but multiplicity `floor(M/2)`, has content `Theta(ML)`. This construction
@@ -55,6 +60,7 @@ python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py
 python3 -I -B research/tensor-precision-witness/screen_one_packet_nonlinear.py
 python3 -I -B research/tensor-precision-witness/verify_quadratic.py
 python3 -I -B research/tensor-precision-witness/screen_taper_squares.py
+python3 -I -B research/tensor-precision-witness/verify_fixed_columns.py
 make verify
 ```
 
@@ -79,7 +85,8 @@ an all-size saving or obstruction. The quadratic checker verifies 61 exact
 identities, including every monomial in the stated degree range for `L=2,4,8`
 and the square and cube of the odd-root factor for `L=2,4,8,16`. The last
 checker verifies ten quadratic identities for the squares of the remaining
-taper factors at `L=4,8,16,32`.
+taper factors at `L=4,8,16,32`. The fixed-column checker verifies divisibility
+of 620 triple products and the quartic remainder at `L=2,4,8`.
 
 The all-size argument is author-checked. Boolean realization and realization
 with the predecessor's multiplicity `h=Theta(M/u)` remain open. No complete
