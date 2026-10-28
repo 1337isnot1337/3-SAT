@@ -159,12 +159,57 @@ coefficients vanish by the earlier triangular argument. For any codebook
 containing e and d, y_h=e is present. If q hook states are present, q
 of the F rows and q-1 of the G rows are available, proving rank >=2q-1.
 
+## Coverage of the original lexicographic codebook
+
+Let p(j) count partitions, put kappa=pi*sqrt(2/3), and set
+`R=floor(sqrt(h) log(h)/4)`. The source chooses the minimum h with
+p(h)>=2^lambda, so `2^lambda > p(h-1)`. For a hook y with largest
+part r<=R, each partition of h-r-1 maps injectively to a partition of
+h by adding a part r+1. Every image has largest part at least r+1 and
+therefore occurs lexicographically after y. Thus the number of states
+later than y is at least p(h-r-1), which is at least p(h-R-1). If
+
+```
+p(h-R-1) > p(h)-p(h-1),
+```
+
+then y's zero-based index is strictly less than p(h-1), and y belongs
+to the original codebook.
+
+To prove the inequality asymptotically, write d_j=p(j)-p(j-1), the
+number of partitions of j with no part one. For j>=2, increasing a
+largest part by one injects these partitions into those of j+1 with no
+part one. Thus d_j is nondecreasing. Every partition consists of some
+ones and a partition without ones, so p(n)=sum_{j=0}^n d_j. With
+k=floor(sqrt(h)), this gives `p(h+k) >= k d_h`. The Hardy–Ramanujan
+asymptotic quoted in the pinned source makes p(h+k)/p(h) bounded, hence
+
+```
+[p(h)-p(h-1)]/p(h) = O(h^(-1/2)).
+```
+
+The same asymptotic, with R=(sqrt(h) log h)/4+O(1), gives
+
+```
+p(h-R-1)/p(h) = h^(-kappa/8+o(1)).
+```
+
+Since kappa<4, this is eventually larger than the previous O(h^-1/2)
+term. Consequently the original codebook contains all R hooks with
+largest parts 1,...,R for all sufficiently large h. Together with e and
+d, its shift rank is at least 2R-1. The partition asymptotic and
+minimality of h give sqrt(h)=Theta(lambda), yielding an
+Omega(lambda log lambda) lower bound for the actual codebook. This does
+not close the gap to 4h or bound any SAT runtime. The checker verifies
+sufficient inequalities through h=1000, including the stronger R; that
+finite range is not the asymptotic proof.
+
 ## Boundary
 
 The original binary codebook consists of the lexicographically first
 2^lambda partitions at its minimum h. It need not contain every hook:
 the checker reports actual coverage for lambda 1,2,3. The conditional q
-bound is valid for that codebook without changing its encoding. Full-space
+bound and the asymptotic coverage argument apply without changing its encoding. Full-space
 2h-1 is not automatically an original-codebook bound. The first-moment
 relation from PR #10 gives an independent upper bound 4h on the full
 piece-family rank. Closing the remaining gap requires further witnesses or relations. No

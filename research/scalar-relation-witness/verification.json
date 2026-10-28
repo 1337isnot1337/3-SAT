@@ -70,5 +70,9 @@
       ]
     }
   ],
-  "second_moment_input_states": 42
+  "second_moment_input_states": 42,
+  "coverage_inequality_checked_h": [
+    11,
+    1000
+  ]
 }

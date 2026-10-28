@@ -94,8 +94,17 @@ def run():
                                 result[u] = result.get(u, 0) + scale*v*w
                 assert not any(result.values())
                 moment_cases += 1
+    partition_counts = [1] + [0] * 1000
+    for part in range(1, 1001):
+        for n in range(part, 1001):
+            partition_counts[n] += partition_counts[n - part]
+    for h in range(11, 1001):
+        for r in (math.isqrt(h), math.floor(math.sqrt(h) * math.log(h) / 4)):
+            assert (partition_counts[h - r - 1]
+                    > partition_counts[h] - partition_counts[h - 1])
     print(json.dumps({'hook_checks': report, 'source_codebook_coverage': codebooks,
-                      'second_moment_input_states': moment_cases}, indent=2))
+                      'second_moment_input_states': moment_cases,
+                      'coverage_inequality_checked_h': [11, 1000]}, indent=2))
 
 if __name__ == '__main__':
     run()

@@ -15,6 +15,9 @@ prior uncharged first-moment relation bounds full rank by 4h; the remaining
 gap is open. A binary codebook containing the two small reference states and
 q of the specified hooks inherits rank at least 2q-1. The source's actual
 lexicographic codebook may omit hooks; do not substitute 2h-1 for 2q-1 there.
+For sufficiently large parameters it contains at least
+`R=floor(sqrt(h) log(h)/4)` of these hooks, so its rank is at least
+2R-1 = Omega(lambda log lambda).
 
 The hook construction is a partial answer to the all-size question raised
 by [PR #10](https://github.com/1337isnot1337/3-SAT/pull/10), which proved
@@ -33,7 +36,8 @@ make verify
 
 The first command checks both families of endpoint formulas, symmetry, support and exact
 integer entries for h=2,...,6, plus full-rank modular triangular minors; it
-also checks the second moment for h=1,...,4 and E=0,...,h+1;
+also checks the second moment for h=1,...,4 and E=0,...,h+1, and the
+sufficient codebook inequality for 11<=h<=1000;
 it reports actual codebook coverage for lambda=1,2,3. The all-size
 conclusion is the written argument, not an extrapolation from the finite
 screen. The [saved output](verification.json) can be compared byte-for-byte

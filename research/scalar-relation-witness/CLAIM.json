@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For every h >= 2, explicit symmetric and antisymmetric hook entries of the full partition-space uncharged crossing family yield shift-span rank at least 2h-1; a codebook containing the reference states and q hooks inherits rank at least 2q-1. On energy E the all-ones label slice obeys Q_s=Q_-s and sum_s (s^2-4hE) Q_s=0, bounding its rank by 2h at E=h.",
+  "statement": "For every h >= 2, explicit symmetric and antisymmetric hook entries yield full partition-space shift rank at least 2h-1; a codebook containing the reference states and q hooks inherits rank at least 2q-1. The source lexicographic codebook has q >= floor(sqrt(h) log(h)/4) for all sufficiently large h. On energy E the all-ones label slice obeys Q_s=Q_-s and sum_s (s^2-4hE) Q_s=0, bounding its rank by 2h at E=h.",
   "improves_bound": false,
   "evidence": [
     "research/scalar-relation-witness/PROOF.md",
