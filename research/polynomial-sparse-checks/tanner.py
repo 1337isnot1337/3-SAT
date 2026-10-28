@@ -83,6 +83,7 @@ def build(n, m, B, *, max_degree=4096, max_work=20_000_000):
                     edge = left*d+port
                     if edge < m:
                         row |= 1 << edge
-                rows.append(row)
+                if row:
+                    rows.append(row)
     assert len(rows) <= 3*n and all(row.bit_count() <= D0 for row in rows)
     return {'rows': rows, 'P': P, 'D0': D0, 'q': q, 'd': d, 'h': h, 'c': c}

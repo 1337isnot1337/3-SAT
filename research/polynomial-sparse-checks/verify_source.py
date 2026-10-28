@@ -8,7 +8,7 @@ spec.loader.exec_module(tanner)
 result = tanner.build(2048, 2048, 1)
 assert (result['q'], result['d'], result['h']) == (1, 2048, 1)
 rows = result['rows']
-assert len(rows) == 512
+assert len(rows) == 2
 assert all(any((row >> j) & 1 for row in rows) for j in range(2048))
 assert all(all((row & ((1 << a) | (1 << b))).bit_count() % 2 == 0 for row in rows)
            for a, b in ((0, 1), (0, 2047), (100, 1500)))
@@ -25,4 +25,4 @@ except ValueError:
     pass
 else:
     raise AssertionError('execution cap ignored')
-print('PASS: source parameters n=m=2048, B=1, q=1, 512 rows; all 2048 singleton words rejected; density and cap controls')
+print('PASS: source parameters n=m=2048, B=1, q=1, 2 nonzero rows; all 2048 singleton words rejected; density and cap controls')
