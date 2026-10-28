@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "hash-frontier-width",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Every ordering of a binary matrix with kernel dimension k and minimum kernel weight D>=2 has frontier width at least k/ceil(m/(D-1)); the accepted sparse-check distance and row count give a conditional application. No SAT bound is changed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/hash-frontier-width/PROOF.md",
+    "research/hash-frontier-width/verify.py",
+    "research/hash-frontier-width/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/hash-frontier-width/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size proof and application",
+    "Determine actual nullity and frontier width for relevant sparse-check matrices",
+    "Develop a complete representation and full SAT cost accounting; no speedup is claimed"
+  ]
+}

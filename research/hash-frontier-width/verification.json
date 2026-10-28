@@ -1,0 +1,129 @@
+{
+  "block_sum_checks": 57624,
+  "checker_sha256": "0dfe24eece161de5279ad103bf7b92681ab3561d3ed149c89394449845a76efd",
+  "direct_sum_circuit_controls": [
+    {
+      "block_length": 2,
+      "blocks": 1,
+      "kernel_dimension": 1,
+      "max_width": 1
+    },
+    {
+      "block_length": 2,
+      "blocks": 2,
+      "kernel_dimension": 2,
+      "max_width": 1
+    },
+    {
+      "block_length": 2,
+      "blocks": 3,
+      "kernel_dimension": 3,
+      "max_width": 1
+    },
+    {
+      "block_length": 2,
+      "blocks": 4,
+      "kernel_dimension": 4,
+      "max_width": 1
+    },
+    {
+      "block_length": 3,
+      "blocks": 1,
+      "kernel_dimension": 1,
+      "max_width": 1
+    },
+    {
+      "block_length": 3,
+      "blocks": 2,
+      "kernel_dimension": 2,
+      "max_width": 1
+    },
+    {
+      "block_length": 3,
+      "blocks": 3,
+      "kernel_dimension": 3,
+      "max_width": 1
+    },
+    {
+      "block_length": 3,
+      "blocks": 4,
+      "kernel_dimension": 4,
+      "max_width": 1
+    },
+    {
+      "block_length": 4,
+      "blocks": 1,
+      "kernel_dimension": 1,
+      "max_width": 1
+    },
+    {
+      "block_length": 4,
+      "blocks": 2,
+      "kernel_dimension": 2,
+      "max_width": 1
+    },
+    {
+      "block_length": 4,
+      "blocks": 3,
+      "kernel_dimension": 3,
+      "max_width": 1
+    },
+    {
+      "block_length": 4,
+      "blocks": 4,
+      "kernel_dimension": 4,
+      "max_width": 1
+    },
+    {
+      "block_length": 5,
+      "blocks": 1,
+      "kernel_dimension": 1,
+      "max_width": 1
+    },
+    {
+      "block_length": 5,
+      "blocks": 2,
+      "kernel_dimension": 2,
+      "max_width": 1
+    },
+    {
+      "block_length": 5,
+      "blocks": 3,
+      "kernel_dimension": 3,
+      "max_width": 1
+    },
+    {
+      "block_length": 5,
+      "blocks": 4,
+      "kernel_dimension": 4,
+      "max_width": 1
+    },
+    {
+      "block_length": 6,
+      "blocks": 1,
+      "kernel_dimension": 1,
+      "max_width": 1
+    },
+    {
+      "block_length": 6,
+      "blocks": 2,
+      "kernel_dimension": 2,
+      "max_width": 1
+    },
+    {
+      "block_length": 6,
+      "blocks": 3,
+      "kernel_dimension": 3,
+      "max_width": 1
+    },
+    {
+      "block_length": 6,
+      "blocks": 4,
+      "kernel_dimension": 4,
+      "max_width": 1
+    }
+  ],
+  "matrices": 4096,
+  "matrices_with_distance_at_least_2": 2401,
+  "permutation_checks": 57624
+}
