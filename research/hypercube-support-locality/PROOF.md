@@ -96,6 +96,51 @@ problem-specific algorithms, or changes of coefficient representation are
 not excluded. Large circular span alone does not establish computational
 hardness.
 
+## Span after a limited number of substitutions
+
+Fix any `B` variables to arbitrary bits and let `f=n-B >= 2` be the number
+of remaining variables. Every cube edge with both endpoints free remains a
+quadratic monomial in its original row; those monomials are still private.
+Consequently every collection of residual polynomials spanning the restricted
+row space, including a basis chosen after arbitrary invertible row changes,
+must contain each surviving edge in some row. Lower-degree terms and
+constants caused by substitution cannot cancel these quadratic coefficients.
+
+Put the free variables in any cyclic order, and let `S` be its first
+`q=floor(f/2)` vertices. For any cube vertex set `S`, its edge boundary
+obeys
+
+```
+|boundary(S)| >= 2 q (n-q)/n.
+```
+
+For completeness, take normalized inner product on functions on the cube.
+The characters `(-1)^(T dot x)` form an orthonormal basis, and the cube
+Laplacian has eigenvalue `2|T|` on character T. For `1_S`, the Laplacian
+quadratic form is `|boundary(S)|/n`, while the nonconstant Fourier mass is
+`q/n*(1-q/n)`. Every nonconstant eigenvalue is at least two, proving the
+inequality. At most `dB` boundary edges touch deleted vertices. Thus at
+least `2q(n-q)/n - dB` edges join the two free halves.
+
+If every residual row scope lies in a cyclic interval of at most `s`
+free variables, each surviving edge has circular distance at most `s-1`.
+An edge crossing between the two consecutive halves has its endpoint in S
+within `s-1` positions of one of the two cuts. There are at most `2(s-1)`
+such vertices, each of degree at most `d`. Therefore
+
+```
+2d(s-1) >= 2q(n-q)/n - dB.
+```
+
+For `B=o(n/d)` the right side is `n/2-o(n)`, so every such residual spanning
+collection and cyclic order still has `s=Omega(n/d)=Omega(n/log n)`.
+This applies even to an inconsistent fixed branch, and is an interface
+statement, not a lower bound on work a solver must perform. It does **not**
+cover the source's full single-step allowance `B=O(n/sqrt(d))`; for that
+larger regime the displayed right-hand side may be nonpositive. No claim
+about repeated preprocessing or a coefficientwise support bound after
+substitution is made here.
+
 ## A different exact count by bipartite linear algebra
 
 The cube is bipartite, with color classes `A` and `B` of size `n/2`.
@@ -133,8 +178,9 @@ family, not a faster general SAT algorithm. Neither the coefficientwise obstruct
 nor the circular-span bound establishes the cost of the entire dense
 reduction, its branches and queries, tensor entries, contractions,
 precision, recovery, or space. The accepted bound and alpha remain unchanged.
-In particular, a local per-branch observation from PR #44 is not imported
-here as a proved claim; arbitrary substitutions require separate accounting.
+In particular, a coefficient-support post-branch observation from PR #44
+is not imported here as a proved claim; the span-after-substitution argument
+has its own explicit smaller branch-size restriction.
 
 `verify.py` checks explicit small cubes, all invertible four-row bases,
 seeded larger bases, exact integer subset-Mobius coefficients, and circular

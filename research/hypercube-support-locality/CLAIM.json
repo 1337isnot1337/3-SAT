@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Explicit even-dimensional oriented hypercube sparse quadratic systems retain Omega(n log log n) injective scalar-lift index bits under invertible row bases, and every such basis and cyclic order has span Omega(n/log n). A bipartite exact count uses 2^(n/2) poly(n) time. No SAT lower bound or improved general algorithm.",
+  "statement": "Explicit even-dimensional oriented hypercube sparse quadratic systems retain Omega(n log log n) injective scalar-lift index bits under invertible row bases. Every cyclic order and residual spanning basis has span Omega(n/log n) after o(n/log n) substitutions. A bipartite exact count uses 2^(n/2) poly(n) time. No SAT lower bound or improved general algorithm.",
   "improves_bound": false,
   "evidence": [
     "research/hypercube-support-locality/PROOF.md",
@@ -23,7 +23,7 @@
   ],
   "remaining_obligations": [
     "Independent review of the written all-size argument",
-    "Coefficientwise support after substitutions and repeated branching not covered",
+    "Coefficientwise support after substitutions and cyclic span through the full high-incidence branch allowance are not covered",
     "General aggregation and alternative algorithms not excluded",
     "No improved all-input SAT bound or alpha"
   ]

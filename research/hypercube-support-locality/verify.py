@@ -102,7 +102,7 @@ def main():
     rng = random.Random(670104)
     checks = {'cube_edges': 0, 'row_combinations': 0, 'mobius_coefficients': 0,
               'invertible_4_by_4_bases': 0, 'seeded_bases': 0,
-              'cyclic_orders': 0, 'bipartite_fixed_branches': 0}
+              'cyclic_orders': 0, 'bipartite_fixed_branches': 0, 'deleted_vertex_orders': 0}
     for d in (2, 4, 6):
         rows = construction(d)
         n, ell = len(rows), d // 2
@@ -133,6 +133,25 @@ def main():
         for order in orders:
             check_order(rows, order, d)
             checks['cyclic_orders'] += 1
+        if n <= 16:
+            # Every deletion set, with the surviving labels in natural cyclic order.
+            for deleted in range(1 << n):
+                order = [v for v in range(n) if not (deleted >> v) & 1]
+                if len(order) < 2:
+                    continue
+                b = deleted.bit_count()
+                half = len(order) // 2
+                first = set(order[:half])
+                positions = {v: i for i, v in enumerate(order)}
+                remaining_edges = [(u, v) for u, v in all_edges
+                                   if u in positions and v in positions]
+                crossing = sum((u in first) != (v in first) for u, v in remaining_edges)
+                width = max((min((positions[u] - positions[v]) % len(order),
+                                 (positions[v] - positions[u]) % len(order))
+                             for u, v in remaining_edges), default=0)
+                assert n * (crossing + d * b) >= 2 * half * (n - half)
+                assert crossing <= 2 * d * width
+                checks['deleted_vertex_orders'] += 1
         if n <= 16:
             # Independent exhaustive full assignments, then test restrictions.
             solutions = [x for x in range(1 << n)
