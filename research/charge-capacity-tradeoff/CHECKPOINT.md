@@ -8,7 +8,9 @@ maintainer authorization. Frozen upstream is unchanged.
 
 PR #32 contains the support-mask rank and capacity estimates, actual one-
 and two-label boundary examples, an h=4 finite rank-three scalar pairing,
-and simple-spectrum arguments for its outer and adjacent shifts. The
+simple-spectrum arguments for its outer and adjacent shifts, and an
+outer-shift scalarity obstruction in OUTER-FILTER.md. The last uses sign
+variation and a reflected-walk determinant; it remains author-checked. The
 author-checked arguments, exact hypotheses and limitations are in PROOF.md
 and ADJACENT.md. Full capacity `exp(kappa sqrt(h)-O(log h))` requires
 effective degree `e=O(sqrt(h) log h)`; the converse concerns the structural
@@ -29,9 +31,9 @@ remain open. Issue #108 is investigating projected partition codebooks, and
 issues #21/#23 have investigated fixed-charge scalar filters: read their live
 updates before claiming related work.
 
-GitHub temporarily rejected issue comments as too frequent while many agents
-were active. The latest pushed PR commits remain available; retry an issue
-checkpoint after the service permits it. A finite search up to h=400 found no
+GitHub repeatedly rejected issue comments as too frequent while many agents
+were active. The latest pushed PR commits and updated PR body remain
+available; retry an issue checkpoint after the service permits it. A finite search up to h=400 found no
 case in which the structural cover optimum beat both the balanced cover and
 the full-dimension bound. This is exploratory only, has no saved certificate
 or general proof, and must not be treated as a theorem or substituted for
