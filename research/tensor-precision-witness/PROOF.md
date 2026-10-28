@@ -114,3 +114,75 @@ The same finite-precision realization holds for arbitrarily large `P`, with
 `P`-bit entries and their computation charged. It does not give literal
 polynomial equality over the rationals, canonical Boolean tensors, a better
 precision scale, or compatibility with arbitrary packetization.
+
+## Quadratic interpolation and three powers per packet pair
+
+The preceding linear construction can share packets across powers. Keep the
+two fixed columns, but now use *all* `2L` row bits in a single row tensor.
+The resulting row values are `W_d` for `-L<d<L`, plus a second independent
+row with the same value `W_0`. We prove that every
+`F in Z_(2)[T]` of degree at most `4L-2` is a polynomial of degree at most
+two in these row values, with coefficients in `Z_(2)`.
+
+Divide by the monic integer polynomial `C`: write `F=P+C R` with
+`deg P<2L`. Both `P` and `R` lie in `Z_(2)[T]`, and `deg R<=2L-2`.
+Linear interpolation expresses `P=c_*+sum_d c_d W_d`, with
+`c_*=P(-L)`, `c_d=(P(d)-c_*)/U_d`, and units
+`U_d=W_d(d)`. In particular the coefficients are 2-integral.
+
+Set
+
+```
+Q=(W_0^2-W_0)/C,     beta=L C0 R(-L).
+```
+
+`Q` is a polynomial: on the grid, `W_0` is one at zero and zero at all
+other points. Differentiating at `-L` gives `Q(-L)=1/(L C0)`. Thus
+`R-beta Q` has degree at most `2L-2` and vanishes at `-L`.
+For every nonzero slot difference put
+
+```
+q_d=(d C0 R(d)+beta)/U_d.
+```
+
+These coefficients are 2-integral. For `d != 0`, the Cauchy identity is
+
+```
+W_d W_0 / C = (W_d-W_0)/(d C0).                        (3)
+```
+
+As polynomials, the right sides of (3) vanish at `-L`. At any nonzero grid
+node `e`, only `d=e` is nonzero, and `Q(e)=-1/(C0 e)`. Therefore
+`sum_(d!=0) q_d (W_d W_0/C)` agrees with `R-beta Q` at all `2L-1` nodes
+other than zero. Both have degree at most `2L-2`, so they agree identically.
+Consequently
+
+```
+F = c_* + sum_d c_d W_d + beta (W_0^2-W_0)
+      + sum_(d!=0) q_d W_d W_0.                         (4)
+```
+
+All multiplications in (4) use distinct row bits: the two zero-shift rows
+provide `W_0^2`, and each other `W_d` has its own row. A single tensor whose
+Boolean table is the right-hand multilinear expression realizes `F` after
+row summation. Its *polynomial* degree is two and its tensor vertex has `2L`
+ports. Given a polynomial-size coefficient description of `F`, evaluating
+its tensor entry takes polynomially many operations in `L`, coefficient size,
+and requested precision; this is not an exponential table lookup.
+
+The `j=0` factor `P_0` has odd root denominators and hence lies in
+`Z_(2)[T]`, with degree `L`. Its powers one, two, and three have degree at
+most `4L-2` for `L>=2`, so each uses two full packets. For arbitrary `h`,
+partition `P_0^h` into `ceil(h/3)` such factors; use the earlier linear
+construction for each of the other `h(u-1)` factors. This realizes the same
+tapered witness with
+
+```
+M = 2L (ceil(h/3) + h(u-1))
+```
+
+real ports. For `u=1`, the resulting `h` is asymptotically `3M/(2L)` rather
+than `M/(2L)`, still a factor `Theta(L)` below the generic `h=Theta(M)` at
+the same port budget. The argument retains the preceding 2-adic coefficient,
+finite-precision integer-lift, prescribed-packing, and Boolean limitations.
+It proves no all-size result for higher powers or the remaining taper factors.
