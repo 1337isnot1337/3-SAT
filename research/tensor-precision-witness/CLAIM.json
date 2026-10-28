@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "The generic tapered witness has a prescribed Cauchy-packet realization over Z_(2), and finite-precision integer lifts; quadratic interpolation shares two packets across three odd-root factors.",
+  "statement": "The generic tapered witness has a prescribed Cauchy-packet realization over Z_(2), and integer lifts; quadratic interpolation shares packet pairs across three odd-root factors or two of each remaining factor.",
   "improves_bound": false,
   "evidence": [
     "research/tensor-precision-witness/PROOF.md",
@@ -17,7 +17,8 @@
     "research/tensor-precision-witness/check_integer_lifts.py",
     "research/tensor-precision-witness/screen_two_packet_powers.py",
     "research/tensor-precision-witness/screen_one_packet_nonlinear.py",
-    "research/tensor-precision-witness/verify_quadratic.py"
+    "research/tensor-precision-witness/verify_quadratic.py",
+    "research/tensor-precision-witness/screen_taper_squares.py"
   ],
   "reproduce": [
     "python3 -I -B research/tensor-precision-witness/verify.py",
@@ -26,6 +27,7 @@
     "python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py",
     "python3 -I -B research/tensor-precision-witness/screen_one_packet_nonlinear.py",
     "python3 -I -B research/tensor-precision-witness/verify_quadratic.py",
+    "python3 -I -B research/tensor-precision-witness/screen_taper_squares.py",
     "make verify"
   ],
   "remaining_obligations": [

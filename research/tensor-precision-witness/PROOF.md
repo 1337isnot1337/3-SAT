@@ -93,7 +93,7 @@ odd.
 
 ## Finite-precision integer lifts
 
-Fix any positive precision `P`. For every entry of each affine row tensor,
+Fix any positive precision `P`. For every entry of each row tensor,
 replace its `Z_(2)` value by the unique integer in `[0,2^P)` congruent to it
 modulo `2^P`. Keep the unary zero/one tensors unchanged. The replacement is
 an entrywise congruence, even though the integer-valued row tensor need no
@@ -174,7 +174,7 @@ The `j=0` factor `P_0` has odd root denominators and hence lies in
 `Z_(2)[T]`, with degree `L`. Its powers one, two, and three have degree at
 most `4L-2` for `L>=2`, so each uses two full packets. For arbitrary `h`,
 partition `P_0^h` into `ceil(h/3)` such factors; use the earlier linear
-construction for each of the other `h(u-1)` factors. This realizes the same
+construction for each of the other `h(u-1)` factors. This preliminary construction realizes the same
 tapered witness with
 
 ```
@@ -185,4 +185,51 @@ real ports. For `u=1`, the resulting `h` is asymptotically `3M/(2L)` rather
 than `M/(2L)`, still a factor `Theta(L)` below the generic `h=Theta(M)` at
 the same port budget. The argument retains the preceding 2-adic coefficient,
 finite-precision integer-lift, prescribed-packing, and Boolean limitations.
-It proves no all-size result for higher powers or the remaining taper factors.
+It proves no all-size result for higher powers; the next section handles
+pairs of the remaining taper factors.
+
+## Sharing pairs of every taper factor
+
+The quadratic interpolation also realizes `P_j^2` for every `0<=j<a`, even
+though `P_j` need not lie in `Z_(2)[T]`. Its degree is
+`4L-2L/2^j <= 4L-4`. To check the same coefficient formulas, let `A` be the
+monic product over the selected roots of `P_j`, so `P_j=A/A(0)`, and let
+`B=C/A`, the monic product over complementary roots including zero. Divide
+`A=B Q+E` over `Z[T]`, with `deg E<deg B`. Then
+
+```
+P_j^2 = A E/A(0)^2 + C * A Q/A(0)^2.                  (5)
+```
+
+The first term has degree below `2L` and agrees with `P_j^2` on the whole
+grid: on roots of `A` both vanish, and on roots of `B` one has `E=A`.
+Thus it is the polynomial remainder used in quadratic interpolation. Its
+grid values are integral, so all linear interpolation coefficients are
+2-integral.
+
+Let `R=A Q/A(0)^2` be the quotient in (5). Since `C0=A(0)B'(0)`,
+
+```
+C0 R(t) = B'(0) Q(t) A(t)/A(0).
+```
+
+For every grid node the final ratio is either zero or a 2-adic unit, as in
+the first section, and `Q(t)` and `B'(0)` are integers. Therefore
+`C0 R(t)` is 2-integral at every node. The formulas in the quadratic section
+then show that both `beta=L C0 R(-L)` and every
+`q_d=(d C0 R(d)+beta)/U_d` are 2-integral. This proves the exact two-packet
+realization for the square, with polynomial-time entry evaluation.
+
+For general `h`, group each factor `P_j^h`, `j>=1`, into `ceil(h/2)` squares
+or a final singleton. Together with grouping `P_0^h` in threes, the entire
+witness therefore uses
+
+```
+M = 2L (ceil(h/3) + (u-1) ceil(h/2))                   (6)
+```
+
+real ports, improving the earlier all-size port count. This is still a
+constant-factor saving in the principal parameter `L`, not a realization at
+the predecessor's generic multiplicity for the same `M`. The same source
+packing, degree cap, Boolean input, and independent-review qualifications
+apply.
