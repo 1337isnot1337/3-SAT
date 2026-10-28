@@ -89,6 +89,31 @@ therefore a constant-row-weight, constant-relative-distance sparse-check
 matrix with O(n) rows. The XOR-Cayley degree lower bound in PROOF.md does not
 apply to this different graph.
 
+## A limitation of the inherited isolation sampler
+
+The isolation wrapper samples K coordinates independently with uniform
+coefficient bits and requires each pairwise collision bias to be at most
+`eta=(2n)^(-4)`. For this particular sampling rule, K=Omega(log n) is
+necessary even if the code has constant relative distance. Indeed, any
+binary linear code of dimension r>=2 on N coordinates has a nonzero word of
+weight at most 2N/3: at each nonzero coordinate exactly 2^(r-1) of its 2^r
+codewords have a one, so averaging over the nonzero words gives that bound.
+Apply this to the dimension-n subcode of encoded assignments, for n>=2.
+
+Let w be the weight of that nonzero difference and R>=N the padded size.
+One sampled occurrence with an independent uniform coefficient has parity
+sign expectation `1-w/R`; K independent occurrences give collision bias
+exactly `(1-w/R)^K >= 3^(-K)`, even when repeated coordinates cancel.
+Thus the stated universal pairwise-bias requirement forces
+
+    K >= 4 log(2n)/log 3.
+
+Our fixed-B substitution has P constant, so the predecessor's K=O(P log n)
+sampling length matches this lower bound in order. This is a bound on the
+number of sampled occurrences for this particular independent sampler and its
+pairwise-bias target. It is not a lower bound on the final row support, on
+other hash distributions, or on isolation or SAT algorithms generally.
+
 ## SAT composition and evidence boundary
 
 At B=8, substituting these checks into the existing sparse-code isolation
@@ -101,7 +126,9 @@ asserted.
 
 `verify_expander.py` checks the eight port permutations, symmetry, and exact
 forward/inverse powered-port identities, rational mixing inequalities for every pair of vertex subsets on sides t=2,3
-and powers 1,2,3, plus 700 integer padding/row-budget schedules. It does not
+and powers 1,2,3, plus 700 integer padding/row-budget schedules. It also
+checks the two-dimensional subcode averaging bound and small exact sampler
+biases. It does not
 prove the cited all-size spectral theorem, construct its huge required power,
 run a source-scale Tanner instance, or independently review the concatenated
 local code or SAT composition. Those remain explicit limitations.

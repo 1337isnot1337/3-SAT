@@ -11,5 +11,7 @@
     2,
     3
   ],
-  "result": "pass"
+  "result": "pass",
+  "sampler_bias_cases": 12,
+  "subcodes_checked": 129
 }

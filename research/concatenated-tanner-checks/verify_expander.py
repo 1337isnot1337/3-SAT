@@ -70,6 +70,28 @@ def check_port_inverses():
     return cases
 
 
+def check_sampler_bias():
+    subcodes = 0
+    for n in range(2, 5):
+        for a in range(1, 1 << n):
+            for b in range(a+1, 1 << n):
+                assert min(a.bit_count(), b.bit_count(), (a ^ b).bit_count())*3 <= 2*n
+                subcodes += 1
+    cases = 0
+    for w in range(1, 5):
+        for k in range(1, 4):
+            good = 0
+            for samples in itertools.product(range(8), repeat=k):
+                parity = 0
+                for z in samples:
+                    index, coefficient = z//2, z%2
+                    parity ^= coefficient * (index < w)
+                good += parity == 0
+            assert 2*good == 8**k + (2*(4-w))**k
+            cases += 1
+    return subcodes, cases
+
+
 def main():
     cases = 0
     for n in (2, 3):
@@ -104,7 +126,9 @@ def main():
             assert m <= q*d < 4*m
             assert 2*q*c <= 3*n
             schedules += 1
+    subcodes, sampler_cases = check_sampler_bias()
     print(json.dumps({'result':'pass', 'mixing_subset_pairs':cases,
+                      'subcodes_checked':subcodes, 'sampler_bias_cases':sampler_cases,
                       'padding_schedules':schedules, 'base_graph_sides':[2,3],
                       'powers':[1,2,3], 'port_inverse_cases':check_port_inverses()},
                      indent=2, sort_keys=True))
