@@ -8,7 +8,7 @@
   "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "In the ten-class unfused F8 macro scheme, the lifted four-block six-class dual has minimum refined type size 2401. No positive self-Fourier seed on at most seven macros meets the strict type-floor threshold for the predecessor tensorization obstruction: size excludes blocks at most five an exact modular rank excludes block six, and a symmetry-reduced modular rank excludes target-pairing seeds at block seven. This is a scoped certificate-method result, not a crossing-rate or SAT bound.",
+  "statement": "In the ten-class unfused F8 macro scheme, the lifted four-block six-class dual has minimum refined type size 2401. No positive self-Fourier seed on at most eight macros meets the strict type-floor threshold for the predecessor tensorization obstruction: size excludes blocks at most five an exact modular rank excludes block six, and a symmetry-reduced modular rank excludes target-pairing seeds at block seven; a full-rank frozen minor excludes target-pairing seeds at block eight. This is a scoped certificate-method result, not a crossing-rate or SAT bound.",
   "improves_bound": false,
   "evidence": [
     "research/unfused-f8-dual/README.md",
@@ -16,7 +16,11 @@
     "research/unfused-f8-dual/screen.py",
     "research/unfused-f8-dual/verification.json",
     "research/unfused-f8-dual/seven.py",
-    "research/unfused-f8-dual/seven-verification.json"
+    "research/unfused-f8-dual/seven-verification.json",
+    "research/unfused-f8-dual/eight.py",
+    "research/unfused-f8-dual/eight.cpp",
+    "research/unfused-f8-dual/eight-pivot-rows.json",
+    "research/unfused-f8-dual/eight-verification.json"
   ],
   "reproduce": [
     "python3",

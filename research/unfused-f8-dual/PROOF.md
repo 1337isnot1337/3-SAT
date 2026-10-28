@@ -31,7 +31,7 @@ obstruction to `2 sqrt(2) lambda + O(log lambda)` requires
  W > 2^{3b\sqrt 2}.
 ```
 
-We show that no such target-pairing certificate exists for `1 <= b <= 7`. This is only a
+We show that no such target-pairing certificate exists for `1 <= b <= 8`. This is only a
 necessary condition for a strict obstruction *using this single-seed floor
 argument*; it is not a necessary condition for any other kind of proof.
 
@@ -88,14 +88,39 @@ nonzero target pairing, even without an invariance assumption. NumPy is used
 only for exact signed 64-bit modular arithmetic, whose products stay below
 `2^63`; the script checks this bound and primality.
 
-This establishes the stated b<=7 limit, including arbitrary real
+## Eight-macro frozen minor
+
+At b=8 there are 24,310 types, of which exactly 6,345 exceed the strict
+threshold. The neighboring type sizes are 14,527,298,520 and
+16,602,626,880; the checker certifies their classification with
+`1697/50 < 24 sqrt(2) < 679/20`, together with
+`14527298520^50 < 2^1697` and `16602626880^20 > 2^679`.
+
+The same six-element group reduces the eligible types to 1,382 input
+orbits, and all types to 5,594 output orbits. The replay constructs the
+integer `T-8^8 I` orbit-sum columns modulo 65,521. The saved list of 1,382
+output rows identifies a square minor; exact modular elimination gives a
+nonzero pivot in each column, proving full column rank. It follows by the
+same averaging argument that no eligible positive-eigenvalue seed has a
+nonzero target pairing. Twenty entries of the constructed matrix are also
+compared with a separate direct, target-pruned coefficient recurrence.
+
+The C++ builder stores coefficients in signed 64-bit integers: the sum of
+absolute coefficients of each local transformed row is at most 64, so any
+individual degree-eight coefficient has absolute value at most `64^8`, and
+an orbit sum is at most six times that, safely below `2^63`. The NumPy
+elimination reduces modulo the prime at each step, with products below
+`2^63`. This computation checks a specified finite minor; the 20 controls
+are not a complete independent implementation of the whole matrix.
+
+This establishes the stated b<=8 limit, including arbitrary real
 coefficients. It neither constrains negative-eigenvalue or asymmetric
-certificates, nor certificates without a uniform type floor, nor b>=8.
+certificates, nor certificates without a uniform type floor, nor b>=9.
 The computation is a bounded exact rank check, not a proof by extrapolation.
 
 ## Next work and cost boundary
 
-Explore b>=8 with a structural or symmetry-reduced exact linear system;
+Explore b>=9 with a structural or symmetry-reduced exact linear system;
 first establish feasible time and memory before materializing all types.
 Alternatively change the support-dual method or exhibit actual pieces with
 proved two-sided support bounds. A successful finite dual would still need
