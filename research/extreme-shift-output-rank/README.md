@@ -1,0 +1,38 @@
+# Extreme-shift output-rank obstruction
+
+For the charged crossing interface, every fixed-label raw piece factors
+through small intermediate partition spaces near the ends of the shift range.
+The [proof](PROOF.md) gives an exact rank-sum bound on its compression to any
+output space. If that rank budget is below the output dimension, a scalar
+output pairing must be zero.
+
+For output energy `h` and dimension at least `p(h)/poly(h)`, this excludes
+nonzero scalar pairings supported *only* on shifts
+`|s| >= (1+epsilon)h`, for each fixed `0<epsilon<1` and all sufficiently
+large h. The result is independent of the label-pairing rank and applies to
+non-coordinate output spaces. It is a scoped, author-checked all-size
+argument, substantially AI-assisted and not independently or formally
+reviewed. It does not rule out the open central-gap target, improve a SAT
+bound, or change the selected result.
+
+Run the finite checks with:
+
+```sh
+python3 -I -B research/extreme-shift-output-rank/verify.py > /tmp/extreme-shift.json
+cmp /tmp/extreme-shift.json research/extreme-shift-output-rank/verification.json
+make verify
+```
+
+The finite checks cover both operator orders and compressed operator ranks
+for four label pairs at each of grades 4 and 6, plus bounded endpoint scalar
+controls. They do not independently verify the all-size proof. The proof
+states the exact support and dimension conditions, the multiple-label-mixing
+limit, the partition asymptotics and the remaining obligations.
+
+The source construction is [PR #11](../charged-operator-moments/PROOF.md),
+with the scalar-filter target and leading-capacity grade choice in
+[PR #19](../charged-asymmetric-crossing/NEXT.md). The finite fixed-codebook
+screens in [PR #46](../asymmetric-scalar-filter/README.md) and
+[PR #97](../grade-nine-filter/README.md) motivated this separate rank
+question; those finite screens are not used as an all-size proof. The base
+commit is `1dfac844cbb1e570c99579ecf48c1007d72da7c9`.

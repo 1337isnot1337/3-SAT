@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "extreme-shift-output-rank",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "all_size_extreme_shift_output_rank_obstruction",
+  "author": "OpenAI Codex",
+  "base_commit": "1dfac844cbb1e570c99579ecf48c1007d72da7c9",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For the charged raw crossing pieces, a scalar pairing on a D-dimensional output space must vanish if the sum of the intermediate partition-space dimensions for its supported shifts is less than D. In particular, at output energy h and dimension at least p(h)/poly(h), support only at absolute shifts at least (1+epsilon)h forces zero scalar pairing for fixed positive epsilon and all sufficiently large h. This does not exclude filters with intermediate shifts or improve a SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/extreme-shift-output-rank/README.md",
+    "research/extreme-shift-output-rank/PROOF.md",
+    "research/extreme-shift-output-rank/verify.py",
+    "research/extreme-shift-output-rank/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/extreme-shift-output-rank/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size rank argument and inherited two-order identity",
+    "The wider central-gap target allows intermediate shifts and is not excluded",
+    "Mixing multiple raw label pairs at a shift must be separately charged",
+    "No complete SAT algorithm or improved selected bound"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}

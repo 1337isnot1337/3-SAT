@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "finite fixed-label compressed operator controls; all-size argument is in PROOF.md",
+  "profiles": [
+    {
+      "bits": 1,
+      "h": 4,
+      "N": 2,
+      "fixed_label_pairs": 4,
+      "shifts": [
+        -8,
+        -7,
+        -6,
+        0,
+        6,
+        7,
+        8
+      ],
+      "two_order_and_rank_checks": 28,
+      "max_observed_compressed_rank": 2,
+      "endpoint_pair_budget": 2,
+      "endpoint_scalar_weight_checks": 0
+    },
+    {
+      "bits": 2,
+      "h": 6,
+      "N": 4,
+      "fixed_label_pairs": 4,
+      "shifts": [
+        -12,
+        -11,
+        -10,
+        0,
+        10,
+        11,
+        12
+      ],
+      "two_order_and_rank_checks": 28,
+      "max_observed_compressed_rank": 4,
+      "endpoint_pair_budget": 2,
+      "endpoint_scalar_weight_checks": 100
+    }
+  ],
+  "model_sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
+}
