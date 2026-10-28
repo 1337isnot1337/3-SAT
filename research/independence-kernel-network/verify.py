@@ -46,6 +46,20 @@ def reduce_gf8(a):
     return a
 
 
+def row_gate_paths(cols, row, mask):
+    # Sum local ternary XOR tensors over every accumulator state.
+    paths = [1, 0]
+    for j, col in enumerate(cols):
+        if col >> row & 1:
+            x = (mask >> j) & 1
+            next_paths = [0, 0]
+            for old in range(2):
+                for new in range(2):
+                    next_paths[new] += paths[old] * int(new == (old ^ x))
+            paths = next_paths
+    return paths[0]
+
+
 def evaluate(cols, weights):
     independent = kernel = lifted = 0
     m = len(cols)
@@ -74,10 +88,19 @@ def evaluate(cols, weights):
 
 
 def run():
-    exhaustive = 0
+    exhaustive = gate_cases = 0
     for packed in range(8**4):
         cols = [(packed >> (3*j)) & 7 for j in range(4)]
         for mask in range(16):
+            paths = 1
+            for row in range(3):
+                paths *= row_gate_paths(cols, row, mask)
+            syndrome = 0
+            for j, col in enumerate(cols):
+                if mask >> j & 1:
+                    syndrome ^= col
+            assert paths == int(syndrome == 0)
+            gate_cases += 1
             weights = [(mask >> j) & 1 for j in range(4)]
             evaluate(cols, weights)
             exhaustive += 1
@@ -94,6 +117,7 @@ def run():
         controls.append({'b': b, 'columns': 2*b, 'ones': 2*b,
                          'ordered_width_sum': sum(widths)})
     return {'matrices_3x4': 4096, 'boolean_weight_cases': exhaustive,
+            'explicit_xor_gate_cases': gate_cases,
             'GF8_weighted_and_group_lift_cases': 2000, 'seed': 25104,
             'paired_order_controls': controls,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

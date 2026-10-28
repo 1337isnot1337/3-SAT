@@ -29,8 +29,9 @@ make verify
 ```
 
 The checker compares the independent-set and kernel formulas on all 4,096
-binary 3-by-4 matrices and all 16 Boolean weight vectors, plus 2,000 seeded
-GF(8) weight vectors with grouped polynomial-lift controls. It also checks
+binary 3-by-4 matrices and all 16 Boolean weight vectors, with explicit
+XOR-accumulator path counts, plus 2,000 seeded GF(8) weight vectors with
+grouped polynomial-lift controls. It also checks
 32 paired-column width profiles. The [saved output](verification.json) pins
 the checker hash and seed. These are finite controls, not an independent
 review or an implementation of the accepted contraction solver.
