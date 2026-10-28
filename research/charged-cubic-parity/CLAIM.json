@@ -8,13 +8,17 @@
   "base_commit": "09eb83522f0fed85749e1a83d1fc5adba7954b3a",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "For all source labels indexed at the same grade, integer charges and output energies, the charged cubic weighted moment has scalar compression on each fixed partition-length parity sector, with the same scalar in both; both sectors have p(E)/poly(E) capacity, and the scalar pairing is affine in E. An author-checked all-grade argument is supplied. Full-label ranks 2,4,5,8 at h=3,4,5,6 are finite observations only; no uniform pairing rank or SAT improvement is proved.",
+  "statement": "For all source labels indexed at the same grade, integer charges and output energies, the charged cubic weighted moment has scalar compression on each fixed partition-length parity sector, with the same scalar in both; both sectors have p(E)/poly(E) capacity, and the scalar pairing is affine in E. An author-checked all-grade argument is supplied. Full-label ranks 2,4,5,8 at h=3,4,5,6 are finite observations only; no uniform pairing rank or SAT improvement is proved. At h=7,8,9,10 the energy-interpolated pairing ranks are 10,15,19,27; a finite control rejects simple t1-stability of the kernel.",
   "improves_bound": false,
   "evidence": [
     "research/charged-cubic-parity/README.md",
     "research/charged-cubic-parity/PROOF.md",
     "research/charged-cubic-parity/verify.py",
-    "research/charged-cubic-parity/verification.json"
+    "research/charged-cubic-parity/verification.json",
+    "research/charged-cubic-parity/rank_screen.py",
+    "research/charged-cubic-parity/rank-verification.json",
+    "research/charged-cubic-parity/kernel_control.py",
+    "research/charged-cubic-parity/kernel-control.json"
   ],
   "reproduce": [
     "python3",

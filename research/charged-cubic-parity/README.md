@@ -35,6 +35,11 @@ source's leading central rank envelope as h grows.
 python3 -I -B research/charged-cubic-parity/verify.py > /tmp/charged-cubic-parity.json
 cmp /tmp/charged-cubic-parity.json research/charged-cubic-parity/verification.json
 make verify
+# Additional, slower finite-rank and kernel controls:
+python3 -I -B research/charged-cubic-parity/rank_screen.py > /tmp/cubic-ranks.json
+cmp /tmp/cubic-ranks.json research/charged-cubic-parity/rank-verification.json
+python3 -I -B research/charged-cubic-parity/kernel_control.py > /tmp/cubic-kernel.json
+cmp /tmp/cubic-kernel.json research/charged-cubic-parity/kernel-control.json
 ```
 
 The standard-library checker first compares the cubic zero-mode formula
@@ -60,6 +65,12 @@ this charged parity compression. [PR #62](https://github.com/1337isnot1337/3-SAT
 found the grade-6 cubic codebooks and the merge/split graph, prompting this
 proof. See [source pins](../charged-asymmetric-crossing/SOURCES.json) for
 the upstream Anthropic operator construction and license.
+
+A natural multiplication-stability shortcut fails in a finite control:
+at E=4, q=1, multiplying a grade-4 right-kernel vector by t1 (with the
+source label scaling included) does not put it in the grade-5 kernel. The
+[kernel control](kernel-control.json) records the exact nonzero residual;
+it does not rule out other descriptions of the kernel.
 
 The next precise question is whether the scalar pairing has rank
 `exp(pi sqrt(2h/3)-O(log h))` uniformly, with a computable minor and
