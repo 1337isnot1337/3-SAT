@@ -107,6 +107,31 @@ def case(L, b):
             assert v2(exact[exp]*prod((source[k]**exp[k] for k in range(b)), start=F(1))) == 0
             exact_checks += 1
 
+    # A clause y OR NOT a, paired with a local auxiliary Cauchy block.
+    # Modulo two that block is the identity for b<=L/2.
+    aux = [[common/(T+2*r-(2*t+1)) for t in range(b)] for r in range(b)]
+    assert all((v2(aux[r][t]) == 0 if r == t else v2(aux[r][t]) >= 1)
+               for r in range(b) for t in range(b))
+    clause_exact = 0
+    if b <= 4:
+        collected = {}
+        for bits in product((0, 1), repeat=b):
+            av = [sum((aux[r][t]*bits[t] for t in range(b)), start=F(0))
+                  for r in range(b)]
+            part = {zero: F(1)}
+            for r in range(b):
+                nxt = {e: value*(1-av[r]) for e, value in part.items()}
+                for exp, value in part.items():
+                    for k in range(b):
+                        key = tuple(e+int(i == k) for i, e in enumerate(exp))
+                        nxt[key] = nxt.get(key, F(0))+value*av[r]*coeff[r][k]
+                part = nxt
+            for exp, value in part.items():
+                collected[exp] = collected.get(exp, F(0))+value
+        for exp in witnesses.values():
+            assert v2(collected[exp]) == 0
+            clause_exact += 1
+
     # Full K-mode kernel identity and full local tensor contraction.
     W = lambda r: common/(T-2*(K-1)+2*r)
     for r in range(b):
@@ -115,6 +140,15 @@ def case(L, b):
                       *(1-2*(1+2*k)*k)*row_basis(z,k)*source[k]
                       for k in range(K)), start=F(0))
         assert actual == W(r)
+    if b <= 4:
+        for bits in product((0, 1), repeat=b):
+            for r in range(b):
+                av = sum((aux[r][t]*bits[t] for t in range(b)), start=F(0))
+                yv = W(r)
+                summed = sum((int(y or not u)*(yv if y else 1-yv)
+                              *(av if u else 1-av)
+                              for y, u in product((0, 1), repeat=2)), start=F(0))
+                assert summed == 1-av+av*yv
     direct = prod((1+W(r) for r in range(b)), start=F(1))
     assignments = sum((prod((2*W(r) if bits[r] else 1-W(r) for r in range(b)),
                             start=F(1)) for bits in product((0, 1), repeat=b)), start=F(0))
@@ -123,13 +157,43 @@ def case(L, b):
             'distinct_support_witnesses': len(witnesses),
             'max_witness_degree': max(map(sum, witnesses.values())),
             'exact_rational_witness_checks': exact_checks,
-            'source_units': True, 'full_kernel_and_contraction_match': True}
+            'source_units': True, 'full_kernel_and_contraction_match': True,
+            'auxiliary_block_identity_mod_2': True,
+            'clause_exact_witness_checks': clause_exact}
+
+
+def toy_pairing():
+    # Exact packet count and paired-row labels for r=2, a=3, B_pad=L.
+    # This is a packing control, not the source asymptotic schedule.
+    r, a = 2, 3
+    L, b = 2**a, 2
+    pairs = 0
+    comparisons = 0
+    for rest in product(((0, 0), (0, 1), (1, 1)), repeat=a-1):
+        unequal = sum(lo != hi for lo, hi in rest)
+        auxiliary_packets = 2**unequal
+        target_packets = 2**(unequal+1)
+        assert target_packets == 2*auxiliary_packets
+        for _ in range(auxiliary_packets):
+            pairs += 1
+            for j in range(b):
+                slot = 2*j
+                def row_label(first):
+                    return tuple(lo if lo == hi or not (slot >> i & 1) else hi
+                                 for i, (lo, hi) in enumerate((first,) + rest))
+                assert row_label((0, 0)) == row_label((0, 1))
+                comparisons += 1
+    assert pairs == r**(2*a-2)
+    return {'r': r, 'a': a, 'L': L, 'packet_pairs': pairs,
+            'paired_row_label_checks': comparisons,
+            'asymptotic_schedule_claimed_for_toy': False}
 
 
 def main():
     paths = [HERE/'verify.py', HERE/'PROOF.md', ROOT/'research/cauchy-newton-modes/PROOF.md',
              ROOT/'upstream/openai-eth-2026/build/quantitative-contraction.tex']
     return {'cases': [case(16, 2), case(32, 4), case(64, 8)],
+            'toy_packet_pairing': toy_pairing(),
             'sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in paths}}
 

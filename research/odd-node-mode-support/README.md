@@ -15,9 +15,11 @@ are inside the source's weighted budget and nonzero modulo its prescribed
 precision. This matches the order of the formal enumeration envelope for
 this specific representation and call.
 
-The selected row tensor is unary `(1,2)`, so this is a **general tensor
-input**, not a claim about the literal SAT reduction's clause/equality
-tables. The network is disconnected and easily simplified; the source's
+The first construction uses the unary tensor `(1,2)`. A paired-packet
+construction replaces it with Boolean two-literal clauses, unary pins and
+free unary tensors while preserving the support scale. Neither is claimed to
+be the literal subdivided SAT-reduction output. The network is disconnected
+and easily simplified; the source's
 default labeling need not select this packing, and nonzero summands can
 cancel or be aggregated. The result does not establish a SAT lower bound,
 an algorithmic time lower bound, or a speedup.
@@ -29,7 +31,10 @@ at zero. Therefore every subset of modes has at least one *original*
 exponent tuple with an odd normalized coefficient. The proof carefully
 allows higher powers to fold in the quotient; it does not assume the
 original squarefree coefficients are all odd. Pinned source mode values
-are units and the actual taper leaves room for these terms.
+are units and the actual taper leaves room for these terms. For the Boolean
+clause construction, an auxiliary packet has a local Cauchy block equal to
+the identity modulo two, so summing its bits recovers the same normalized
+coefficient parity.
 
 Reproduce using Python 3.11+ and the standard library:
 
@@ -42,8 +47,9 @@ make verify
 frozen source and PR #4's mode proof. Exact `(L,b)=(16,2),(32,4),(64,8)`
 checks verify the residue permutation, binary matrix rank, original
 exponent-tuple witnesses for all supports, source units, full kernel
-identities and local contractions. For `b<=4` selected coefficients are
-also independently recomputed as exact rationals. These finite checks do
+identities and local contractions. They also check the auxiliary Cauchy
+block modulo two and toy packet-pair labels. For `b<=4`, weighted-unary and
+Boolean-clause selected coefficients are recomputed as exact rationals. These finite checks do
 not review the all-size proof or implement the full recursion.
 
 Issue [#22](https://github.com/1337isnot1337/3-SAT/issues/22) coordinates

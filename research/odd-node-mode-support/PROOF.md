@@ -24,9 +24,10 @@ weighted mode budget and are nonzero modulo its prescribed child precision.
 This matches the order of the formal mode-enumeration upper envelope for
 this specified representation and call.
 
-The changed premise is essential: the network uses a unary tensor `(1,2)`
-and is a general weighted tensor-network input, not claimed to be the
-literal SAT-to-network reduction. The source's default deterministic
+The first construction uses a unary tensor `(1,2)`. Section 5 replaces it
+with Boolean two-literal clauses and auxiliary bits while retaining the
+same support scale. Neither construction is claimed to be the literal
+subdivided SAT-to-network reduction. The source's default deterministic
 labeling need not choose the specified valid packing. The network is
 disconnected and easily simplified; nonzero summands may be aggregated or
 cancel after addition. The result is **not** a SAT lower bound, an
@@ -181,6 +182,84 @@ inside the weighted budget and its complete summand is nonzero modulo
 because `P=Theta(M/L)` and the largest-power-of-two choice gives
 `b=Theta(L/sqrt(u))`. This proves only the scoped statement above.
 
+## 5. Replacing the weighted unary tensors by Boolean clauses
+
+There is a second explicit balanced full-packet family with the same
+`exp(Omega(M/sqrt(u)))` conclusion, using only Boolean two-literal clause
+tables, unary pins and `(1,1)` tables. It uses **two** paired packets per
+selected gadget. It is not asserted to be the precise subdivided network
+produced by the source's fixed-density SAT reduction.
+
+Use the same parameters and equal pair-class loads as in Section 1. For each
+fixed vector of unordered coordinate pairs in coordinates `1,...,a-1`,
+pair an auxiliary packet whose coordinate-zero pair is `{0,0}` with a
+distinct target packet whose coordinate-zero pair is `{0,1}`. For each
+such vector, the source orientation allocation gives twice as many target
+packets as auxiliary packets: an unequal coordinate adds one orientation
+bit. Pair every auxiliary packet with one target and leave the remaining
+targets unselected. All packets remain full. The number of pairs is
+`P=M/(r^2 L)`, since exactly a `1/r^2` fraction of full packet slots have
+coordinate-zero ordered pair `(0,0)`.
+
+For each pair and each `0<=r<b`, put a binary clause vertex with one row
+port at even target slot `2r` and its other row port at even auxiliary slot
+`2r`. These two ports have the same complete row label: their coordinate-zero
+symbols are both 0, the other unordered pairs and slot bits are identical,
+and the packet orientation convention is shared. The clause table is
+
+```
+A(y,a)=1-a+ya,  the satisfaction table for y OR NOT a.
+```
+
+All other row ports have unary `(1,1)` tables. In the target packet pin
+all odd columns to zero and pin all even columns to zero except the last,
+which is one. In the auxiliary packet leave the odd columns at slots
+`2r+1`, `0<=r<b`, free with unary `(1,1)` tables, and pin all remaining
+columns to zero. All other packets have `(1,1)` on every port. This is an
+explicit bounded-degree input network with unchanged pair-class loads and
+packet balance.
+
+Let `X_s` be the free auxiliary column bits and `U_r` the deformed auxiliary
+row form. At `T=2L+1`, its local Cauchy matrix is
+
+```
+J_rs=G/[T+2r-(2s+1)]=G/[2(L+r-s)].
+```
+
+When `r=s`, `v2(J_rr)=v2(G)-v2(2L)=0`, so it is one modulo two. If
+`r!=s`, then `0<|r-s|<b<=L/2`, so
+`v2(L+r-s)=v2(r-s)<a`; hence `v2(J_rs)>=1`. Therefore
+`U_r=sum_s J_rs X_s = X_r mod 2`. This auxiliary packet has an equal
+coordinate-zero symbol pair, so all these entries are local and no auxiliary
+crossing modes are introduced.
+
+Summing the two row bits of each clause gives
+`1-U_r+U_r z_r`, where `z_r` is the target row form. Set target modes with
+index `>=b` to zero and divide the first `b` mode coefficients by their
+weights as in Section 2. Reducing modulo two and summing all auxiliary
+column assignments yields the **formal** polynomial
+
+```
+sum_{X in F_2^b} prod_r (1-X_r+X_r sum_k V[r,k] Z_k)
+ = prod_r (1+sum_k V[r,k] Z_k).                          (4)
+```
+
+The right side is exactly (2), before taking the Boolean quotient in the
+mode variables. Thus the witnesses `beta(S)` of Section 3 are also odd
+normalized coefficients for the Boolean-clause gadget. The target source
+mode values remain units. The per-packet weighted budget and exact
+valuation are unchanged; the other free columns contribute at most `M`
+powers of two. Since `P=M/(r^2 L)=Theta(M/L)`, the count and precision
+comparison in Section 4 hold with a different absolute constant.
+
+The checker constructs the actual auxiliary `J` for all three finite cases
+and verifies its modulo-two identity. For `b<=4`, it also sums the actual
+rational clause-gadget coefficients over all auxiliary assignments and
+checks each selected original exponent tuple has odd normalized coefficient;
+it separately checks the clause table identity. These checks do not replace
+independent review of the all-size pairing or establish that the source's
+specific subdivision and default packing select this instance.
+
 ## Evidence and open obligations
 
 The [checker](verify.py) tests `(L,b)=(16,2),(32,4),(64,8)`: exact
@@ -194,7 +273,7 @@ implement the full recursion. The frozen source labels are
 `eq:tensor-recursion-identity`; root `SOURCES.json` supplies hashes and
 licenses.
 
-A stronger result for actual SAT-reduction tables would need a different
-input construction: `(1,2)` is not one of the stated clause/equality
-input tables. An algorithmic lower bound would separately need to rule out
+The Boolean-clause family uses clause, pin and unary tables, but a result
+for the exact subdivided SAT-reduction output still needs its additional
+equality wires placed and analyzed through the deformation. An algorithmic lower bound would separately need to rule out
 simplification, aggregation and alternate packing. No such claim is made.
