@@ -153,8 +153,14 @@ For example, support restricted to `|s|>=7h/4` requires at least
 `N^{1/2-o(1)}` separable label-pair summands for a nonzero scalar entry.
 When charge is fixed and a shift-s term is written in fixed label bases
 with coefficient matrix `C_s`, rational matrix-rank factorization writes it
-as `rank(C_s)` separable pairs. Thus the same lower bound applies to
-`sum_s rank(C_s)`, for every such representation of a nonzero scalar entry.
+as `rank(C_s)` separable pairs. Every such representation of a nonzero
+scalar entry therefore satisfies the sharper finite inequality
+
+```math
+ D_h\le\sum_s \operatorname{rank}(C_s)K_s.
+```
+
+In particular, the preceding lower bound applies to `sum_s rank(C_s)`.
 This is a statement about coefficient representations; it does not imply
 that expanding or evaluating every summand separately is unavoidable.
 
