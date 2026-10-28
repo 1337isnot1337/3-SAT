@@ -85,14 +85,32 @@
       "offdiagonal_same_parity_checks": 72
     }
   ],
+  "affine_energy_checks": [
+    {
+      "label_grade": 3,
+      "label_pairs": 9
+    },
+    {
+      "label_grade": 4,
+      "label_pairs": 25
+    },
+    {
+      "label_grade": 5,
+      "label_pairs": 49
+    },
+    {
+      "label_grade": 6,
+      "label_pairs": 121
+    }
+  ],
   "one_state_rank_only": {
     "label_grade": 6,
     "labels": 11,
     "scalar_pairing_rank": 8
   },
   "sha256": {
-    "research/charged-cubic-parity/verify.py": "334df2f145845041ab04b82703512c969c61056749ec6135fda9d26c184206a8",
-    "research/charged-cubic-parity/PROOF.md": "c90a339f593509a07c1fac54ac604693587e8d80b8904b3928bb4adcf3064e0a",
+    "research/charged-cubic-parity/verify.py": "7a4c7c00c069d27c80c6e59118000aa0c1422e7293896dc832a47b7ea78346b4",
+    "research/charged-cubic-parity/PROOF.md": "1d48472ae4b8958d5561a4c87d5b4ebb6f7b8cc1f1f2db9a1822e912e1e0767d",
     "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
     "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
     "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",

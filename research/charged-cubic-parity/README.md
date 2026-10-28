@@ -17,7 +17,9 @@ also has terms that split or merge one part and map between the two sectors.
 [PROOF.md](PROOF.md) derives the result from the charged low-weight zero-mode
 algebra and proves that either output sector contains at least
 `(p(E)-1)/(E^2+1)` basis states at energy E>=2. This retains the full leading
-partition-capacity exponent, up to polynomial factors.
+partition-capacity exponent, up to polynomial factors. The pairing scalar
+is affine in output energy, so its entire matrix at any energy is determined
+by its values at energies 0 and 1.
 
 The input-label scalar pairing has to be sufficiently high rank before it
 can be normalized into a crossing. In finite full-label calculations at
@@ -42,7 +44,8 @@ against 76 direct normal-ordered calculations through energy 5 and charges
 and every within-parity off-diagonal entry. Additional complete tests at
 (h,E)=(3,4) use q=-1,0,2. It computes the full label-pairing rank at h=6
 from one output state, without constructing the full h=6 output tensor.
-The saved report records these scopes and SHA-256 binds the code and shared
+The checker also verifies the affine energy identity on every label pair
+at h=3,4,5,6. The saved report records these scopes and SHA-256 binds the code and shared
 predecessor modules. The operator implementation is shared; these finite
 checks are not independent confirmation of the all-grade proof.
 

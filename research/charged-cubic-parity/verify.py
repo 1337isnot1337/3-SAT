@@ -77,6 +77,17 @@ def rank_only(h):
     return {'label_grade':h,'labels':len(labels),'scalar_pairing_rank':rank(matrix)}
 
 
+def affine_test(h):
+    labels=model.predecessor.partitions(h)
+    for mu in labels:
+        for nu in labels:
+            f0=cubic(mu,nu,()).get((),0)
+            f1=cubic(mu,nu,(1,)).get((1,),0)
+            fh=cubic(mu,nu,(h,)).get((h,),0)
+            assert fh==(1-h)*f0+h*f1
+    return {'label_grade':h,'label_pairs':len(labels)**2}
+
+
 def zero_mode_check():
     checked=0
     for energy in range(6):
@@ -105,12 +116,14 @@ def main():
     direct_zero_mode_checks=zero_mode_check()
     complete=[full_test(h,e) for h,e in [(2,2),(3,2),(3,3),(3,4),(4,4),(5,5)]]
     more_charges=[full_test(3,4,q) for q in (-1,0,2)]
+    affine=[affine_test(h) for h in (3,4,5,6)]
     extended=rank_only(6)
     assert [x['scalar_pairing_rank'] for x in complete] == [1,2,2,2,4,5]
     assert extended['scalar_pairing_rank']==8
     paths=[HERE/'verify.py',HERE/'PROOF.md',path,*(ROOT/'research/charged-operator-moments'/name for name in
                                  ('charged.py','pairing.py','predecessor.py'))]
-    print(json.dumps({'direct_cubic_zero_mode_checks':direct_zero_mode_checks,'full_parity_compression_tests':complete,'additional_charge_checks':more_charges,'one_state_rank_only':extended,
+    print(json.dumps({'direct_cubic_zero_mode_checks':direct_zero_mode_checks,'full_parity_compression_tests':complete,'additional_charge_checks':more_charges,'affine_energy_checks':affine,
+                      'one_state_rank_only':extended,
                       'sha256':{str(p.relative_to(ROOT)):sha256(p.read_bytes()).hexdigest() for p in paths}},indent=2))
 
 if __name__=='__main__': main()

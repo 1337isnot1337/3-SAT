@@ -81,6 +81,24 @@ to either fixed parity space is zero. All remaining terms are scalars on
 all of V_E, with the same value in both parity sectors. Equation (1)
 follows for every a,b, E and q, including the zero or empty sectors.
 
+## Affine dependence on output energy
+
+The scalar G is affine in E for fixed source labels and charge. Indeed,
+the Laurent contraction coefficients and their reduction to low-weight
+zero modes are independent of the representation V_E, while (2) and the
+other scalar zero modes depend on E at most linearly. Consequently
+
+```math
+ G_{h,E,q}=(1-E)G_{h,0,q}+E G_{h,1,q}.             \tag{3}
+```
+
+The two values on the right are the diagonal coefficients on the vacuum
+and the single-part state `(1)`, respectively. Thus a uniform exact
+construction of the input pairing can evaluate only these two output
+energies, rather than constructing all grade-E output tensors. This is a
+construction identity, not a proof of invertibility or a smaller asymptotic
+rank envelope.
+
 ## Output capacity and limitations
 
 For E>=2, each partition except `1^E` can be mapped to the opposite length
