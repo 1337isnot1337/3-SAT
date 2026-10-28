@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "ten-class local scheme, type floors through six macros, and finite modular rank",
+  "class_sizes": [
+    1,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "max_type_sizes": [
+    7,
+    98,
+    2058,
+    57624,
+    2016840,
+    84707280
+  ],
+  "lifted_old_seed_minimum": 2401,
+  "six_macro_candidate_types": 84,
+  "constraint_rows": 5005,
+  "prime": 1000000007,
+  "modular_rank": 84,
+  "bindings": {
+    "research/unfused-f8-dual/screen.py": "875bf4f84f86d76474ebe4d9ae94d9d2b158bfa795e3759958e99da857dc132b",
+    "research/three-bit-macro-walsh/schemes.py": "25a4088b8de4b993ecbd1afac7e4246db4954f5e92165c3ed556424e09c91235",
+    "research/three-bit-macro-walsh/four-block-dual.json": "be01ea894d2772bbab5b825165f6aa6de8b24b2eb3fc27b3d567babae877a5d0"
+  }
+}
