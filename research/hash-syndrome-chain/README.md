@@ -19,8 +19,12 @@ degree equality trees. After linking Boolean clause violations and weights,
 it computes the hashed weighted fingerprint with `O(n+km+a+h)` wires,
 where h is the number of ones of the a-by-m check matrix. For the source
 checks and decision wrapper, `h<=3n D_0+2Pt`, giving `n polylog(n)` size
-in the stated regime. This does not establish an improvement over the
-accepted arbitrary-density bound. An ordered chain may need quadratically
+in the stated regime. A family of root leaves of the source sparsifier has
+`n floor((log_2 n)^(1/4))` clause bits, each relevant to the free hash
+predicate, so this individual-input architecture alone cannot uniformly
+reach `O(n log log n)` wires. These formulas are in fact easy, and a changed
+encoding or preprocessing can avoid the cost. This does not establish an
+improvement over the accepted arbitrary-density bound. An ordered chain may need quadratically
 many wires in a conditional linear-nullity regime; the nonlocal sparse-row
 network is not subject to that chain bound.
 
@@ -33,7 +37,7 @@ make verify
 
 The checker covers all 4,096 binary 3-by-4 matrices, 65,536 syndrome inputs,
 and 20,480 cut tables over each of F2 and F3. It also compares 1,000 seeded
-GF(8) weighted clause fixtures with their syndrome-chain evaluation. The
+GF(8) weighted clause fixtures with their syndrome-chain evaluation, and 27 cyclic implication fixtures for the leaf-family properties. The
 [hash-bound output](verification.json) records counts and seed. The tests
 are finite controls; no accepted contraction solver is implemented.
 

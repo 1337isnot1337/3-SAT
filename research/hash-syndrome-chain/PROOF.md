@@ -104,3 +104,43 @@ Omega(n^2/polylog(n)). The sparse row network above uses a different,
 nonlocal topology and may be much smaller. The row-count condition may be
 vacuous on some leaves; this says nothing about a generic lower bound on
 SAT or about networks after substituting restricted violation patterns.
+
+## A source-sparsifier leaf with too many individual inputs
+
+The row network keeps each clause-violation bit as an individual binary
+input. Under the accepted distance guarantee, if m>P, every column of A^(0)
+is nonzero: a zero column would give a weight-one kernel vector. Appending
+rows cannot turn a nonzero column into zero. Hence for every j, the free-bit
+function f(z)=1[Az=0] satisfies f(0)=1 and f(e_j)=0, so it depends on all m
+input bits. Any exact binary-port network with these m independent inputs
+must connect each input at least once; the explicit row construction has at
+least m input incidences. This is a representation cost, not a lower bound
+for arbitrary encodings or for the original formula after substitution.
+
+This is not vacuous for the source sparsifier's leaf conditions. Let
+lambda=ceil(log_2 n), t=floor(lambda^(1/4)), and for sufficiently large n
+consider all distinct width-two clauses
+
+    (not x_i or x_(i+j)),  i in Z/nZ, 1<=j<=t.
+
+There are exactly m=nt non-tautological clauses, with no repeated or
+strictly containing clauses. Every signed literal occurs in exactly t of
+them. In the source's k=3 sparsifier, sigma=1/ceil(sqrt(lambda)); its
+chosen threshold M obeys M>=1/sigma, since its stopping inequality has
+Gamma>=1 and h>=1. Therefore t<M. The only nonempty proper subsets of a
+width-two clause are single literals, so the source's branch condition
+never triggers: the normalized formula itself is a leaf. Its m exceeds
+n ceil(log_2 lambda) eventually, and hence it lies beyond the source's
+simple clause-network threshold. The source choice also has M=poly(lambda),
+so B=poly(lambda), P=poly(lambda), and m>P for large n. Consequently a
+free-violation-bit row representation of this leaf uses at least
+n floor(lambda^(1/4)) individual input incidences, asymptotically more than
+n log log n.
+
+The family is deliberately easy: the j=1 implications form a directed
+cycle, forcing all variables equal; exactly the all-zero and all-one
+assignments satisfy it. The actual violation vectors are therefore highly
+restricted, and simplifying the formula or using an alternative encoding can
+avoid this representation. The example does not give an input or time lower
+bound, does not preclude a faster algorithm, and does not assert that the
+source code's particular output matrix is unique.

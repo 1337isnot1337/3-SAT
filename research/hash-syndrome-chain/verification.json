@@ -1,7 +1,8 @@
 {
   "GF8_weighted_clause_fixtures": 1000,
-  "checker_sha256": "73a874b647ca70c4cf0f1c224ec568a48b6ab7b15ac12d0b96ca0e537577bf17",
+  "checker_sha256": "5140582d167fbd5f49229030efbc7b31c3ca995be0d4b416baf3b27fc4fa89a0",
   "cut_ranks_in_each_of_F2_and_F3": 20480,
+  "cyclic_clause_fixtures": 27,
   "matrices_3x4": 4096,
   "seed": 25137,
   "syndrome_inputs": 65536

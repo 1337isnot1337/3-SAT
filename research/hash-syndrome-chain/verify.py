@@ -106,7 +106,21 @@ def run():
                 via_chain ^= weight
         assert direct == via_chain
         fingerprints += 1
-    return {'matrices_3x4': 4096, 'syndrome_inputs': inputs,
+    cyclic_fixtures = 0
+    for n in range(4, 13):
+        for t in range(1, min(n, 4)):
+            clauses = {(i, (i+j) % n) for i in range(n) for j in range(1, t+1)}
+            assert len(clauses) == n*t
+            for i in range(n):
+                assert sum(u == i for u,v in clauses) == t
+                assert sum(v == i for u,v in clauses) == t
+            satisfying = []
+            for x in range(1 << n):
+                if all(not ((x >> u) & 1) or ((x >> v) & 1) for u,v in clauses):
+                    satisfying.append(x)
+            assert satisfying == [0, (1 << n)-1]
+            cyclic_fixtures += 1
+    return {'cyclic_clause_fixtures': cyclic_fixtures, 'matrices_3x4': 4096, 'syndrome_inputs': inputs,
             'cut_ranks_in_each_of_F2_and_F3': cuts,
             'GF8_weighted_clause_fixtures': fingerprints, 'seed': 25137,
             'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
