@@ -148,7 +148,8 @@ iterated logarithm or increase alpha.
 ## Evidence and open review
 
 The verifier checks 20,000 seeded integer schedules, directly exercises a
-positive-h parameter branch using a 65,537-bit integer, checks two scaled
+positive-h parameter branch using a 65,537-bit integer, checks 2,000 exact
+inner-code entropy cases, checks two scaled
 conditional-expectation constructions, and enumerates all 32,767 nonzero
 words in a small GF(8)-outer, binary-inner concatenated code. The finite
 checks do not verify the general proof, construct a source-scale q>1 Tanner

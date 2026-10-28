@@ -1,6 +1,8 @@
 {
   "direct_positive_h": 2,
+  "entropy_checks": 2000,
   "parameter_cases": 20000,
+  "positive_entropy_cases": 1031,
   "regimes": {
     "local_construct": 19919,
     "local_fallback": 81,

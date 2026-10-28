@@ -2,6 +2,7 @@
 """Finite controls for concatenated local codes and Tanner parameters."""
 import itertools
 import json
+import math
 import random
 
 
@@ -133,10 +134,29 @@ def main():
     assert h > 0 and 16*ell <= huge_d and 4*N*s >= huge_d
     assert N*t + u*s + huge_d-N*ell <= (huge_d+7)//8
     assert (h+1)*40960*2 >= s
+    entropy_checks = positive_entropy = 0
+    for _ in range(2000):
+        s0 = rng.randint(1, 500000)
+        B0 = rng.randint(1, 12)
+        t0 = s0//(64*B0)
+        ell0 = s0+t0
+        if t0:
+            ratio = (2*t0+ell0+t0-1)//t0
+            L0 = (ratio-1).bit_length()
+            h0 = t0//(64*L0)
+            if h0:
+                assert sum(math.comb(ell0, i) for i in range(1, h0+1)) < 1 << t0
+                positive_entropy += 1
+        else:
+            h0 = 0
+        assert (h0+1)*40960*B0*(B0+1).bit_length() >= s0
+        entropy_checks += 1
     bad_words = make_check(8, 4, 1) + make_check(8, 7, 2)
     codewords, minimum = toy_concatenation()
     print(json.dumps({'seed': 834211, 'parameter_cases': 20000, 'regimes': regimes,
-                      'direct_positive_h': h, 'toy_low_weight_words': bad_words, 'toy_codewords': codewords,
+                      'direct_positive_h': h, 'entropy_checks': entropy_checks,
+                      'positive_entropy_cases': positive_entropy,
+                      'toy_low_weight_words': bad_words, 'toy_codewords': codewords,
                       'toy_min_distance': minimum, 'result': 'pass'}, indent=2, sort_keys=True))
 
 
