@@ -141,6 +141,25 @@ larger regime the displayed right-hand side may be nonpositive. No claim
 about repeated preprocessing or a coefficientwise support bound after
 substitution is made here.
 
+The proof method has a concrete obstruction at the source allowance scale.
+For even d, delete all `binom(d,d/2)` vertices of middle Hamming weight.
+The lower and upper weight classes have equal size `(n-B)/2`, and no cube
+edge joins them: an edge changes Hamming weight by exactly one. Ordering the
+lower class consecutively and then the upper class gives zero edges across
+the two halves. By the central binomial asymptotic,
+
+```
+B = (sqrt(2/pi)+o(1)) n/sqrt(d)
+    < n/ceil(sqrt(d))
+```
+
+for sufficiently large even d. Thus this arbitrary deletion set satisfies
+the *numerical* single-step cardinality allowance, yet the proof cannot
+obtain a positive crossing-edge bound for its half cut. This does not show
+that the source high-incidence procedure selects exactly those vertices,
+nor that the remaining equations admit small cyclic span: it only shows
+that this particular cut argument cannot establish span at that scale.
+
 ## A different exact count by bipartite linear algebra
 
 The cube is bipartite, with color classes `A` and `B` of size `n/2`.

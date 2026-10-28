@@ -21,7 +21,10 @@ equation with cyclic span at least `1+n/(2d)`. This blocks the logarithmic
 cyclic-span premise of [PR #48](https://github.com/1337isnot1337/3-SAT/pull/48)
 for this family. The span bound also survives `B=o(n/log n)` arbitrary fixed-bit substitutions
 and any residual spanning basis, but this does not cover the source
-preprocessing allowance `O(n/sqrt(log n))`. It does not rule out other aggregation, simplification,
+preprocessing allowance `O(n/sqrt(log n))`. Removing the middle Hamming
+layer gives an explicit half-cut with no surviving crossing edges at that
+allowance scale; this only limits that proof technique. It does not rule out
+other aggregation, simplification,
 variable elimination, nonlinear changes, or other algorithms; the all-zero
 assignment is an immediate solution. See [PROOF.md](PROOF.md) for the exact
 representation, cost limits, and all-size arguments.
@@ -36,7 +39,8 @@ make verify
 Saved [verification.json](verification.json) covers dimensions 2, 4 and 6:
 228 edges, 1,015 combinations, 56,060 integer Mobius coefficients, all
 20,160 invertible 4-by-4 bases, 200 seeded larger bases, 424 cyclic orders, 65,530 deleted-vertex/order
-cases, and 202 fixed-bit branches checked against exhaustive counts. Finite checks do not prove the asymptotic statements. The written
+cases, 10 middle-layer arithmetic controls, and 202 fixed-bit branches
+checked against exhaustive counts. Finite checks do not prove the asymptotic statements. The written
 proof awaits independent review.
 
 Sources: canonical main `630041c9da3a26edb8c8f59d5f8a4132a188c8bd`;

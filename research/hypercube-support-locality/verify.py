@@ -2,6 +2,7 @@
 """Bounded exact controls for the oriented-hypercube support witness."""
 import itertools
 import json
+import math
 import random
 
 
@@ -102,7 +103,7 @@ def main():
     rng = random.Random(670104)
     checks = {'cube_edges': 0, 'row_combinations': 0, 'mobius_coefficients': 0,
               'invertible_4_by_4_bases': 0, 'seeded_bases': 0,
-              'cyclic_orders': 0, 'bipartite_fixed_branches': 0, 'deleted_vertex_orders': 0}
+              'cyclic_orders': 0, 'bipartite_fixed_branches': 0, 'deleted_vertex_orders': 0, 'middle_layer_controls': 0}
     for d in (2, 4, 6):
         rows = construction(d)
         n, ell = len(rows), d // 2
@@ -184,6 +185,19 @@ def main():
                 assert rank(basis) == n
                 assert all(len(combination(rows, mask)) >= ell for mask in basis)
                 checks['seeded_bases'] += 1
+    for d in range(2, 22, 2):
+        n = 1 << d
+        middle = math.comb(d, d // 2)
+        root_ceiling = math.isqrt(d) + (math.isqrt(d) ** 2 != d)
+        assert middle <= n // root_ceiling
+        assert 2 * sum(math.comb(d, j) for j in range(d // 2)) + middle == n
+        # Cube edges flip one bit, hence cannot join weights below and above d/2.
+        if d <= 8:
+            for row in construction(d):
+                for u, v in row:
+                    assert not (u.bit_count() < d // 2 < v.bit_count() or
+                                v.bit_count() < d // 2 < u.bit_count())
+        checks['middle_layer_controls'] += 1
     print(json.dumps({'seed': 670104, 'checks': checks, 'status': 'pass'}, indent=2, sort_keys=True))
 
 
