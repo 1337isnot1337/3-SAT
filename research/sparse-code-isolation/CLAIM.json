@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "sparse-code-isolation",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "45c962254338a250e712bbd79089d979a97d395f",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Sparse-check encoding and sparse random affine isolation permit parity-only decision in the predecessor general-density wrapper for all inputs, with its time envelope; isolation randomness remains and no improved bound is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/sparse-code-isolation/PROOF.md",
+    "research/sparse-code-isolation/verify.py",
+    "research/sparse-code-isolation/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/sparse-code-isolation/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of construction and predecessor evaluator and wrapper",
+    "No full contraction or SAT implementation",
+    "No smaller time exponent or fewer total random bits established"
+  ]
+}
