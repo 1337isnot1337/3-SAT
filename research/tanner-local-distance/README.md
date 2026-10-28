@@ -36,3 +36,12 @@ controls; no huge q>1 graph was constructed. Source: OpenAI commit
 potential mechanisms are credited to [PR #78](https://github.com/1337isnot1337/3-SAT/pull/78)
 (head `7003b57622dbb327f7ee2e30fa2c9d36aa0ed774`), which retains the source
 parameters. No literature priority is claimed. Apache-2.0.
+
+Parallel-work note: [issue #70](https://github.com/1337isnot1337/3-SAT/issues/70)
+announced the same field-degree retuning before issue #91 was opened, and
+[PR #78's RETUNED.md](https://github.com/1337isnot1337/3-SAT/blob/0f61b3989dcec45ab77d638592d2f1e643d6e753/research/polynomial-sparse-checks/RETUNED.md)
+gives an independently developed version with a conservative explicit degree
+bound R. This package uses the actual degree r in P, and the two constructions
+choose different graph-degree constants; no uniform comparison of D is
+asserted. Both written arguments remain author-checked. We discovered and
+coordinated the overlap after the initial claims, and claim no exclusivity.
