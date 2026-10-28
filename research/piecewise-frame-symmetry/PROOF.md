@@ -142,7 +142,15 @@ both one and two frames for this expanded alphabet.
 
 This is a real finite improvement over the 21-bit adapted-only alphabet,
 but it comes from enlarging the atom family, not from the second frame.
-It says nothing about unrestricted pieces, other bases, larger instances or
+The finite result also applies to every nonzero rank-one transvection
+between the two macro a-blocks with its inverse-transpose b action. Every
+such L' is conjugate to L by a transformation g in G: independent F8
+scalings move the source functional and target vector independently, and
+macro swap reverses direction. Since all original atoms are G-invariant,
+the two-frame alphabet for L' is the pullback of the L alphabet by g^-1.
+The target and both support costs are preserved, so the same result holds.
+
+This does not cover unrestricted pieces, other bases, larger instances or
 an asymptotic crossing rate. The annihilator is verified directly over the
 rationals rather than inferred from modular non-membership.
 

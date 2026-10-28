@@ -27,7 +27,9 @@ finds no two-frame gain for one specified adapted-basis atom alphabet at
 two macros. The same exclusion covers pieces certified by pairs of type
 prefixes; it does not exclude other pieces or larger sizes. Adding type and
 Fourier-type atoms improves the finite optimum from 21 to 19 bits in both
-frames; an exact annihilator excludes 18 bits within that expanded alphabet. Its
+frames; an exact annihilator excludes 18 bits within that expanded alphabet.
+The same finite result applies to every nonzero rank-one cross-block frame
+change, by conjugation within the original type-symmetry group. Its
 [outputs](verification.json), [atom-screen output](two-frame-verification.json),
 and [expanded screen](expanded-verification.json)
 pin their sources and checkers; finite checks do
