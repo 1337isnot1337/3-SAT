@@ -18,8 +18,11 @@ target, improve a SAT bound, or change the selected result.
 
 The proof also charges sums of multiple raw pieces. Polynomially many mixed
 pieces retain the quantitative shift requirement; a stated exponential-rate
-condition suffices for the fixed-epsilon exclusion. Generic exponential-size
-label normalization is not automatically covered.
+condition suffices for the fixed-epsilon exclusion. Conversely, any nonzero
+scalar entry on those extreme shifts needs at least
+`N^(1-sqrt(1-epsilon)-o(1))` raw summands at the predecessor's selected
+dimension N. Generic exponential-size label normalization is not
+automatically covered, and a summand bound is not a general runtime bound.
 
 Run the finite checks with:
 

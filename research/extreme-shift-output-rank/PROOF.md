@@ -102,6 +102,19 @@ This includes `log L_h=o(sqrt(h))`. The generic local normalization in PR #19 ma
 `N=exp(Theta(sqrt(h)))` label entries, so it is not covered by that
 subexponential-mixing condition without a sharper argument.
 
+Conversely, a nonzero scalar entry supported on those extreme shifts needs
+at least
+
+```math
+ L_h\ge \frac{D_h}{(2h+1)p(\lfloor(1-\epsilon)h\rfloor)}
+ \ge\exp\!\left(\pi\sqrt{2/3}\,(1-\sqrt{1-\epsilon})\sqrt h-O_C(\log h)\right),
+```
+
+where the exponential expression is a lower bound under the stated capacity
+assumption. For PR #19's selected dimension this is
+`L_h >= N^{1-sqrt(1-epsilon)-o(1)}`. This is a necessary raw-summand count,
+not a runtime lower bound for every possible representation or algorithm.
+
 In particular, the grade choice in PR #19 has `D_h=N=2^lambda` and
 `p(h)<h^2 N`, so its output dimension meets this condition with C=2.
 The estimate is asymptotic and does not provide a numerical threshold here.
