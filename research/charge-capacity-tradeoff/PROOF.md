@@ -113,7 +113,7 @@ P(a)+P(k-a-1), for -1<=a<=k. The increments p(i) are nondecreasing,
 so moving a toward the middle cannot increase this sum. The minimum is
 therefore (7). For k=0,1,2,3,4 this gives ranks 1,2,3,4,6.
 This fixed-deficit formula establishes only structural-mask rank; the
-endpoint below realizes k=0 but no general operator attainment follows.
+examples below realize k=0 and k=1, but no general attainment follows.
 The finite checker also verifies (7) for all covered grades through 35.
 
 ## Attaining the rank-one endpoint
@@ -140,6 +140,33 @@ factorization costs of a new crossing family.
 actual predecessor operators at h=1,2,3, all label pairs, output grades
 0,1,2, and shifts from -h-1 through h+1 in both operator orders. This is
 a finite check of the formula, not independent verification of the proof.
+
+## A two-label actual pairing one degree below the endpoint
+
+For h>=2 use row and column labels `a=(1^h)` and `b=(2,1^(h-2))`.
+Extract q^(2h-1) from the individual raw piece Q_h. On every output grade,
+the resulting operator matrix in the order (a,b) is
+
+    [[0, -h(h-1)/2], [-1, 0]] tensor Id.                       (9)
+
+Its determinant is `-h(h-1)/2`, nonzero over the rationals, so the
+structural mask rank 2 for k=1 is attained with a scalar output. This
+is an individual component, not a complete crossing family.
+
+For (b,b), the total number of currents is 2h-2, so the coefficient is
+zero. For (a,a), degree 2h-1 would require exactly one nonzero current;
+the total mode of the two factors must sum to zero, so that term vanishes.
+For each off-diagonal pair, attaining degree 2h-1 forces every current
+into its zero mode. At s=h that also forces the alternating index i=0.
+The column scale for b is h(h-1)/2 and its zero-mode coefficient is -1.
+For the b row, its dual factor `-y_2=-2t_1-t_2` contributes -2+1=-1
+on zero modes; its other factors contribute one. These give (9). The same
+mode argument works in either operator order and for every output grade.
+
+`near_endpoint.py` checks all four entries in both orders on output grades
+0,1,2 for h=2,3,4 using rational interpolation of degree at most 2h. It
+samples enough charges to remove the possible degree-2h contribution;
+it does not infer a general family or prove the all-size argument.
 
 ## Limits and cost
 

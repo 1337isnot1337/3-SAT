@@ -20,7 +20,9 @@ At fixed deficit e=2h-k, the exact structural rank stabilizes to a sum
 of cumulative partition numbers. At e=2h the rank-one mask is actually attained: extracting q^(2h) from
 an individual raw charged piece gives an explicit scalar identity on the
 all-ones row and column labels. This endpoint has only one label and does
-not establish a useful crossing family.
+not establish a useful crossing family. One degree lower, an outer-shift
+piece also attains the two-label structural rank via a scalar operator
+matrix; this remains constant label capacity.
 
 This quantifies the charge-independent support lemma in
 [the predecessor](../charged-asymmetric-crossing/NEXT.md), merged in PR 19;
@@ -36,6 +38,7 @@ Reproduce the bounded independent matching check and repository checks:
 ```sh
 python3 -I -B research/charge-capacity-tradeoff/verify.py
 python3 -I -B research/charge-capacity-tradeoff/endpoint.py
+python3 -I -B research/charge-capacity-tradeoff/near_endpoint.py
 make verify
 ```
 
@@ -43,7 +46,9 @@ make verify
 thresholds, strict finite improvements and SHA-256 hashes. These finite
 checks do not prove the all-size arguments or general operator realizability.
 [endpoint-verification.json](endpoint-verification.json) records the exact
-finite-difference endpoint checks and predecessor module hashes.
+finite-difference endpoint checks; [near-endpoint-verification.json](near-endpoint-verification.json)
+records rational interpolation checks of the two-label case. Both include
+predecessor module hashes.
 The exact partition asymptotic is the standard Hardy--Ramanujan estimate,
 also used by the predecessor. The charged construction, first-moment rank,
 and earlier support lemma are credited to PRs 11 and 19. No priority,
