@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "all_xy_assignments": 65808,
+    "all_y_assignments": 65812,
+    "basis_square_checks": 2046,
+    "block_image_checks": 1364,
+    "codeword_weight_controls": 4000,
+    "column_overlap_checks": 34782,
+    "contradictory_branches": 1915,
+    "dual_enumerator_checks": 2,
+    "even_branch_cases": 6661,
+    "formula_counts": {
+      "1": "9",
+      "2": "100",
+      "3": "6561",
+      "4": "59228416"
+    },
+    "odd_branch_cases": 881
+  },
+  "scope": "bounded exact controls; no independent proof review",
+  "sha256": {
+    "PROOF.md": "23cbaff5cbc952da75fe271c697240d2b7b82a7b523031cfc453de6303b90a30",
+    "verify.py": "690450c6115c25c1de15e34cbf4419e28beb04826eab8be7f33e6b43ae09610e"
+  }
+}

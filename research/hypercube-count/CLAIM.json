@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "hypercube-count",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with substantial OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The bipartite hypercube system has exact count 3^(2^d) for odd d; its fixed branches admit poly(m)2^b time for odd d and poly(m)2^(m/2) for even d. The even-d image is self-dual, yielding exact count congruences.",
+  "improves_bound": false,
+  "evidence": [
+    "research/hypercube-count/PROOF.md",
+    "research/hypercube-count/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/hypercube-count/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size argument",
+    "Determine whether even d has a simpler count or faster branch restrictions"
+  ]
+}
