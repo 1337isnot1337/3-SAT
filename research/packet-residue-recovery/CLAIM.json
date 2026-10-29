@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "packet-residue-recovery",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For any graph-only packet assignment, a canonical Boolean unary network has opposite-parity collision with zero data through precision K(a+1-i) at every retained node of valuation i<u and jet order below K, where K >= ceil(M/2^u).",
+  "improves_bound": false,
+  "evidence": [
+    "research/packet-residue-recovery/PROOF.md",
+    "research/packet-residue-recovery/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/packet-residue-recovery/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size proof",
+    "Realize or rule out generic tapered MD_i/u precision for the actual Boolean tensor interface",
+    "Assess whether tensor-aware recovery can exploit structure of arbitrary inputs"
+  ]
+}
