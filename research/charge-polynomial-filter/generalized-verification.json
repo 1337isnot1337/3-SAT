@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "scope": "complete finite scalar spans at lambda=2,h=6; no all-size or asymptotic claim",
+  "lambda": 2,
+  "h": 6,
+  "N": 4,
+  "maximum_raw_charge_degree": 11,
+  "maximum_amplified_degree": 22,
+  "fixed_charge_rescaling_checks": 524,
+  "raw_coefficient_tensor_sha256": "497c08310f2610666907f58226ddb071e062f61b1290073a761e6037052c6d12",
+  "amplified_coefficient_tensor_sha256": "6d0cc310823eae9be266a67f8c9048d32e5a04aa8ce83569480616d88a40015b",
+  "pair_degree_sha256": "2cddb538670a720ab1af484f42dd545b66d1e481ac8a53895c79bc952ec3fb1b",
+  "bands": [
+    {
+      "removed_abs_shift_le": 4,
+      "allowed_deficit_columns": 140,
+      "constraint_rank": 104,
+      "scalar_weight_nullity": 36,
+      "label_matrix_space_dimension": 10,
+      "determinant_monomials": 336,
+      "full_rank_scalar_pairing_exists": true,
+      "witness": {
+        "weights": [
+          {"deficit": 5, "shift": -12, "value": 82180221555544242},
+          {"deficit": 5, "shift": -10, "value": -2661340139858400},
+          {"deficit": 5, "shift": -9, "value": -951629508376800},
+          {"deficit": 5, "shift": -8, "value": -306983312328000},
+          {"deficit": 5, "shift": -7, "value": -78293398722000},
+          {"deficit": 5, "shift": -6, "value": -13796989668000},
+          {"deficit": 5, "shift": -5, "value": -1216198830000},
+          {"deficit": 5, "shift": 5, "value": 63702870000},
+          {"deficit": 5, "shift": 6, "value": -32961852000},
+          {"deficit": 5, "shift": 7, "value": -3383732814000},
+          {"deficit": 5, "shift": 8, "value": -24414680136000},
+          {"deficit": 5, "shift": 9, "value": -108962003449200},
+          {"deficit": 5, "shift": 10, "value": -359401679832800},
+          {"deficit": 5, "shift": 11, "value": -889646713049511},
+          {"deficit": 7, "shift": -9, "value": -79705398100500},
+          {"deficit": 7, "shift": -8, "value": 37632054211200},
+          {"deficit": 7, "shift": 7, "value": 3213718221600}
+        ],
+        "label_matrix": [
+          [345216776834880000, 72525183122016000, 0, 5253978945600000],
+          [526056421898016000, 9944205024600000, 0, 553198060800000],
+          [0, 0, -243384704640000, 0],
+          [33998368995360000, 103724636400000, 0, 0]
+        ],
+        "determinant": 35384349483854932705176624783801493437610721280000000000000000,
+        "piece_count": 17,
+        "normalized_crossing_entries": 256,
+        "finite_shared_bit_upper_bound": 8,
+        "coefficient_rank_inflation_bound": 23
+      },
+      "family": "raw"
+    },
+    {
+      "removed_abs_shift_le": 5,
+      "allowed_deficit_columns": 118,
+      "constraint_rank": 93,
+      "scalar_weight_nullity": 25,
+      "label_matrix_space_dimension": 6,
+      "determinant_monomials": 0,
+      "full_rank_scalar_pairing_exists": false,
+      "family": "raw"
+    },
+    {
+      "removed_abs_shift_le": 5,
+      "allowed_deficit_columns": 205,
+      "constraint_rank": 136,
+      "scalar_weight_nullity": 69,
+      "label_matrix_space_dimension": 7,
+      "determinant_monomials": 210,
+      "full_rank_scalar_pairing_exists": true,
+      "witness": {
+        "weights": [
+          {"deficit": 12, "shift": -12, "value": 62364577063014432106638657233782341307429002852},
+          {"deficit": 12, "shift": -11, "value": 7023728532464895958711317791506644531802725741},
+          {"deficit": 12, "shift": -10, "value": 92245882569002142342496971238002669951519450},
+          {"deficit": 12, "shift": -9, "value": 26416149928065602426551514001677142959154528},
+          {"deficit": 12, "shift": -8, "value": 6568493993844569879243426997810064865787096},
+          {"deficit": 12, "shift": -7, "value": 1138931412063122867314681358103790777863564},
+          {"deficit": 12, "shift": -6, "value": 26488109421230817986895212466767302978062},
+          {"deficit": 12, "shift": 6, "value": 399401819981342144403723553019393579669478},
+          {"deficit": 12, "shift": 7, "value": 4036231547678000767872752262310247740416636},
+          {"deficit": 12, "shift": 8, "value": 21858089798482254836692435398750860850923484},
+          {"deficit": 12, "shift": 9, "value": 84136671662546586106799157490943092064673867},
+          {"deficit": 12, "shift": 10, "value": 257401511584627152559682472231080609684604150},
+          {"deficit": 12, "shift": 11, "value": 655945676108397880424702740982479277882782494},
+          {"deficit": 12, "shift": 12, "value": 638569493936810266710938948484248386493778828},
+          {"deficit": 14, "shift": -12, "value": 893167691571587768918525647534489533907532698860},
+          {"deficit": 14, "shift": -10, "value": -34589888662945842417865183771444783840661954160},
+          {"deficit": 14, "shift": -9, "value": -10609672167796058133079736945750692885706747580},
+          {"deficit": 14, "shift": -8, "value": -2463340768515188425734632417712375361643608980},
+          {"deficit": 14, "shift": -7, "value": -403262655276641083743410188490403976351805940},
+          {"deficit": 14, "shift": -6, "value": -38161842655013006792909143006391468065761470},
+          {"deficit": 14, "shift": 6, "value": -1883271575988578178230104642147834428068050},
+          {"deficit": 14, "shift": 7, "value": -12226141665753499501971210613068557157666420},
+          {"deficit": 14, "shift": 8, "value": -32843609250616035848807584358064610226380500},
+          {"deficit": 14, "shift": 9, "value": -39873090072457833209883120937132097295435540},
+          {"deficit": 16, "shift": -9, "value": -255700667662108670331120515875441689576024180}
+        ],
+        "label_matrix": [
+          [1552950008912239469253735928102615795371991870848000, 1695387016304100161488348501479266503223426664000, -514571305359127328135867322780637751810645068800, 15217011603807494900971779675394198822867910400],
+          [15457579954723462290341503455868375290638367864000, -1644811332397926964635628135310086218806301600, 17035597176102918495624750619446435305901600, 0],
+          [536831610653527233674961517031398251219815581200, 5593705658401669896252425108289394150371240, 0, 0],
+          [-6244473732366825636005148331559022802561269600, 0, 0, 0]
+        ],
+        "determinant": -9054869322040205816809363607216305717300776954414154636461327394394160851868056359473788711273109191805990816925987675568644631529408877066624586069705718344715342005698560000000,
+        "piece_count": 25,
+        "normalized_crossing_entries": 256,
+        "finite_shared_bit_upper_bound": 8,
+        "coefficient_rank_inflation_bound": 23
+      },
+      "family": "length_amplified"
+    },
+    {
+      "removed_abs_shift_le": 6,
+      "allowed_deficit_columns": 169,
+      "constraint_rank": 120,
+      "scalar_weight_nullity": 49,
+      "label_matrix_space_dimension": 5,
+      "determinant_monomials": 0,
+      "full_rank_scalar_pairing_exists": false,
+      "family": "length_amplified"
+    }
+  ],
+  "bindings": {
+    "polynomial.py": "ea28d0b966a2910b70b55ef851f8e26a78b263dec5104fba641a687bcc89c7fd",
+    "linear.py": "d970a684273e4c8311e450eec12f7f3b82091523a81b509e554aa916267c29cf",
+    "deficit.py": "c46ff03e6ec6953732bbf732f02fb7dc296538c810f06250fa50b7b11a682b78",
+    "generalized.py": "a79c966f8919d5c4641e3ff7045ec678ca31e6075c1e7133a3a08228ec7c6d5c",
+    "REGISTERED.md": "1fe6c37fa6121ce60bddd9cf0f4811dc1af39f1055e69150903c9eefaa63bd52"
+  }
+}

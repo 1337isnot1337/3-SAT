@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "accepted_baseline": {
+    "repository": "https://github.com/openai/math",
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "manifest": "SOURCES.json",
+    "scope": "Owner-accepted theorem unchanged; not audited"
+  },
+  "codebook_predecessor": {
+    "package": "research/charged-asymmetric-crossing",
+    "pr": 19,
+    "merge_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+    "module": "research/charged-asymmetric-crossing/model.py",
+    "sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "credit": "Actual asymmetric charged crossing, grade/minor selection, local normalization and rational rank/time proof"
+  },
+  "charged_predecessor": {
+    "package": "research/charged-operator-moments",
+    "pr": 11,
+    "merge_commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+    "credit": "Charge-one/current recurrence and all-size first-moment/rank identities; polynomial lift follows its same recurrence over Z[q]"
+  },
+  "rational_transfer": {
+    "package": "research/odd-prime-rank-transfer",
+    "pr": 17,
+    "merge_commit": "72daf9b8fd3bb23f29852f5150c0af1256119a46",
+    "credit": "Rational rank-only compiler and paid exact integer-query recovery; no all-size filter supplied here"
+  },
+  "earlier_scalar_constraints": {
+    "branch": "research/operator-moment-recovery",
+    "commit": "8191d2e2813615e4941216c012b151c96c5d7ce5",
+    "path": "research/operator-moment-recovery/screen.py",
+    "credit": "Necessary and sufficient off-diagonal/diagonal scalar-output constraint pattern; earlier uncharged smaller codebooks are distinct"
+  },
+  "external_operator_source": {
+    "url": "https://hexagonmath.org/2610.00577v1",
+    "source_url": "https://hexagonmath.org/src/2610.00577v1",
+    "main_tex_sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553",
+    "archive_sha256": "c6021d3d5fc00965ea5aeef1467a6eec93007d933ee7ec336dc91c77bc35e8d2",
+    "labels": [
+      "def:genpieces",
+      "thm:halfpieces",
+      "eq:half-row",
+      "eq:half-col"
+    ],
+    "license": "CC BY 4.0",
+    "scope": "Original operator and directional factor interfaces; external full theorem not owner-selected or independently/formally checked"
+  },
+  "method_bindings": {
+    "METHOD.md": "06d168949ba7a15140602d8d333b7cfc18ab6c867d333ee9dfbdc4e71eae9a96",
+    "REGISTERED.md": "85916ab7dfa4a19f76f3efdd9037e261d71755689a63b5d63771f1c96483e2f7"
+  },
+  "new_work": {
+    "license": "Apache-2.0",
+    "disclosure": "Substantial OpenAI Codex assistance; no priority or independent review claim",
+    "scope": "Exact charge-polynomial lift, finite full charge-span scalar classification, determinant-space witnesses and scoped negative results"
+  }
+}
