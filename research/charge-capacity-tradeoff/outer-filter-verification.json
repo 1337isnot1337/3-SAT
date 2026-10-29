@@ -1,0 +1,92 @@
+{
+  "checker_sha256": "a873de0499625010b542f22a7cf4480c05470d70504fef4641a77c3cc4f4c77b",
+  "constraint_ranks": [
+    {
+      "h": 2,
+      "rank": 1
+    },
+    {
+      "h": 3,
+      "rank": 2
+    },
+    {
+      "h": 4,
+      "rank": 3
+    },
+    {
+      "h": 5,
+      "rank": 4
+    },
+    {
+      "h": 6,
+      "rank": 5
+    },
+    {
+      "h": 7,
+      "rank": 6
+    },
+    {
+      "h": 8,
+      "rank": 7
+    },
+    {
+      "h": 9,
+      "rank": 8
+    },
+    {
+      "h": 10,
+      "rank": 9
+    },
+    {
+      "h": 11,
+      "rank": 10
+    },
+    {
+      "h": 12,
+      "rank": 11
+    },
+    {
+      "h": 13,
+      "rank": 12
+    },
+    {
+      "h": 14,
+      "rank": 13
+    },
+    {
+      "h": 15,
+      "rank": 14
+    },
+    {
+      "h": 16,
+      "rank": 15
+    },
+    {
+      "h": 17,
+      "rank": 16
+    },
+    {
+      "h": 18,
+      "rank": 17
+    },
+    {
+      "h": 19,
+      "rank": 18
+    },
+    {
+      "h": 20,
+      "rank": 19
+    }
+  ],
+  "folded_walk_cases": 55,
+  "operator_cases": 354,
+  "operator_grades": [
+    2,
+    4
+  ],
+  "result": "PASS",
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

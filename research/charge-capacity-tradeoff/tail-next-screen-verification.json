@@ -1,0 +1,197 @@
+{
+  "both_operator_orders": true,
+  "checker_sha256": "c2a0d1683a876f0f397884d49affe2a830ecf7e2a9087ff4275edbef15b52ad9",
+  "prime": 65537,
+  "result": "PASS",
+  "results": [
+    {
+      "basis": [
+        [
+          "1/10",
+          "2/5",
+          "1"
+        ]
+      ],
+      "constraint_count": 12,
+      "h": 2,
+      "mode": "positive",
+      "modular_rank": 2,
+      "pairing_ranks": [
+        2
+      ],
+      "shifts": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "basis": [
+        [
+          "10",
+          "4",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "7",
+          "2",
+          "0",
+          "1/2",
+          "1",
+          "0"
+        ],
+        [
+          "-14/5",
+          "-4/5",
+          "0",
+          "-1/10",
+          "0",
+          "1"
+        ]
+      ],
+      "constraint_count": 12,
+      "h": 2,
+      "mode": "bilateral",
+      "modular_rank": 3,
+      "pairing_ranks": [
+        2,
+        2,
+        2
+      ],
+      "shifts": [
+        -4,
+        -3,
+        -2,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "basis": [],
+      "constraint_count": 72,
+      "h": 3,
+      "mode": "positive",
+      "modular_rank": 4,
+      "pairing_ranks": [],
+      "shifts": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "basis": [
+        [
+          "128",
+          "49",
+          "100/7",
+          "17/7",
+          "1/7",
+          "4/7",
+          "1",
+          "0"
+        ],
+        [
+          "-49",
+          "-75/4",
+          "-153/28",
+          "-13/14",
+          "-1/28",
+          "-3/28",
+          "0",
+          "1"
+        ]
+      ],
+      "constraint_count": 72,
+      "h": 3,
+      "mode": "bilateral",
+      "modular_rank": 6,
+      "pairing_ranks": [
+        2,
+        2
+      ],
+      "shifts": [
+        -6,
+        -5,
+        -4,
+        -3,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "basis": [],
+      "constraint_count": 600,
+      "h": 4,
+      "mode": "positive",
+      "modular_rank": 5,
+      "pairing_ranks": [],
+      "shifts": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "basis": [
+        [
+          "110",
+          "41",
+          "63/5",
+          "43/15",
+          "11/30",
+          "1/30",
+          "1/5",
+          "3/5",
+          "1",
+          "0"
+        ],
+        [
+          "-41",
+          "-168/11",
+          "-258/55",
+          "-16/15",
+          "-3/22",
+          "-1/110",
+          "-8/165",
+          "-6/55",
+          "0",
+          "1"
+        ]
+      ],
+      "constraint_count": 600,
+      "h": 4,
+      "mode": "bilateral",
+      "modular_rank": 8,
+      "pairing_ranks": [
+        4,
+        4
+      ],
+      "shifts": [
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

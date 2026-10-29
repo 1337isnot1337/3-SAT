@@ -1,0 +1,29 @@
+{
+  "both_operator_orders": true,
+  "checker_sha256": "9c4f45d1b01a47851687fda841c2a63555fc27d3e72045e1914fef70103a527f",
+  "grades": [
+    2,
+    4
+  ],
+  "label_ranks_at_E_h": [
+    {
+      "h": 2,
+      "rank": 2
+    },
+    {
+      "h": 3,
+      "rank": 3
+    },
+    {
+      "h": 4,
+      "rank": 3
+    }
+  ],
+  "operator_cases": 758,
+  "output_grades": "0 through h",
+  "result": "PASS",
+  "source_hashes": {
+    "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

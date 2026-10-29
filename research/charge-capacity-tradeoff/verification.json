@@ -1,0 +1,13 @@
+{
+  "check": "exact partition counts, greedy matching versus minimum cover, capacity sandwich and fixed-deficit formula",
+  "fixed_deficit_cases": 341,
+  "max_grade": 35,
+  "sha256": {
+    "CLAIM.json": "ea4e60ec3c6244936e00068dbc01a1907768b142f48ce8124901086566d05b75",
+    "PROOF.md": "4e4d4ce9e1e1bf0c041d8ce96b1c64cf0c8ca23750a33874532e1934f469eb26",
+    "README.md": "d114ba730a5063a57b0447ccd57ece56ad65365c82fd4d6f4d6bf7d113bd360b",
+    "verify.py": "073a5b695bca46564b97431d0d0a78dec9f82fdc5b6655ca324469197940d40e"
+  },
+  "strict_improvements_over_predecessor_cover": 430,
+  "threshold_cases": 1330
+}
