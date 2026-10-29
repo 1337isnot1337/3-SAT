@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "onehot-taper-obstruction",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis",
+  "base_commit": "f2a153bac5f73c5dc2d77abe229655fb1fd954ec",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A single packet with an affine row table modulo two and exactly-one-hot column support cannot realize taper node residues for any 1<=u<=a; allowing zero input gives a Boolean counterexample at u=1 and precision one.",
+  "improves_bound": false,
+  "evidence": [
+    "research/onehot-taper-obstruction/PROOF.md",
+    "research/onehot-taper-obstruction/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/onehot-taper-obstruction/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size proof",
+    "Higher-precision constructions with zero input or nonlinear row tables",
+    "Compatibility with actual balanced packing and full SAT cost"
+  ]
+}
