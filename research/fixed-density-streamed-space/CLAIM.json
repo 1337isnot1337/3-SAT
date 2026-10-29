@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "fixed-density-streamed-space",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "conditional_fixed_density_streamed_composition",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "2c1cc3a7c7bc330da38ae77a6d67707380254a3b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Under the source master crossing-rank and recurrence hypotheses, polynomial-workspace root and factor evaluators, and a polynomially generated good-prime inventory, the fixed-density clause-network counting route has the source n/(log n)^alpha time envelope and polynomial workspace including sequential CRT. The accepted baseline already has polynomial-space alpha 1/2; no improved alpha or arbitrary-density result is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/fixed-density-streamed-space/PROOF.md",
+    "research/fixed-density-streamed-space/verify.py",
+    "research/fixed-density-streamed-space/verification.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/fixed-density-streamed-space/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of conditional time and full fixed-density workspace accounting",
+    "Workspace and time analysis for arbitrary-density profiles, greedy queries and sparsification",
+    "A cheaper valid crossing family with both rank and streamability conditions"
+  ]
+}
