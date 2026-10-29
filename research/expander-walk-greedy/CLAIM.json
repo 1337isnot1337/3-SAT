@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "expander-walk-greedy",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "sparse_greedy_query_compression",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "An enumerated pairwise-independent finite-field index family and polynomial-evaluation coefficient family give fewer than 64 max(q,P)^2 P^2 candidate rows per round, q < 2m; each support of size at least m/P is rejected with probability at least 1/12, enabling 8n greedy rounds under the source counting oracle. This compresses preprocessing but does not improve the selected SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/expander-walk-greedy/PROOF.md",
+    "research/expander-walk-greedy/verify.py",
+    "research/expander-walk-greedy/SMALL-BIAS.md",
+    "research/expander-walk-greedy/verify_bias.py",
+    "research/expander-walk-greedy/CONSTANT-DEGREE.md",
+    "research/expander-walk-greedy/PAIRWISE.md",
+    "research/expander-walk-greedy/verify_pairwise.py",
+    "research/expander-walk-greedy/HANDOFF-64.md",
+    "research/expander-walk-greedy/verify_handoff.py",
+    "research/expander-walk-greedy/NEAR-ONE.md",
+    "research/expander-walk-greedy/verify_near_one.py",
+    "research/expander-walk-greedy/verify_ceiling.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/expander-walk-greedy/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of near-one equation accounting, source initial-row bound, and full sparse-query contract",
+    "Independent review of the pairwise-index proof and complete oracle composition",
+    "Independent review of the all-size construction, coefficient family and oracle cost composition",
+    "Implement and independently replay the cited constant-degree expander construction and rational spectral checker",
+    "Find a changed contraction or preprocessing contract where candidate compression affects a dominant term",
+    "No improved alpha or full new SAT algorithm is claimed"
+  ]
+}
