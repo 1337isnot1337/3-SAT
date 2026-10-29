@@ -1,0 +1,235 @@
+{
+  "actual_quadratic_crossing_cases": [
+    {
+      "flattening_ranks": {
+        "column": {
+          "filtered": 1,
+          "source": 1
+        },
+        "row": {
+          "filtered": 1,
+          "source": 1
+        }
+      },
+      "h": 1,
+      "labels": 1,
+      "nonzero_filtered_entries": 3,
+      "retained_shifts": 3
+    },
+    {
+      "flattening_ranks": {
+        "column": {
+          "filtered": 4,
+          "source": 4
+        },
+        "row": {
+          "filtered": 4,
+          "source": 4
+        }
+      },
+      "h": 2,
+      "labels": 2,
+      "nonzero_filtered_entries": 44,
+      "retained_shifts": 7
+    },
+    {
+      "flattening_ranks": {
+        "column": {
+          "filtered": 9,
+          "source": 9
+        },
+        "row": {
+          "filtered": 9,
+          "source": 9
+        }
+      },
+      "h": 3,
+      "labels": 3,
+      "nonzero_filtered_entries": 301,
+      "retained_shifts": 11
+    },
+    {
+      "flattening_ranks": {
+        "column": {
+          "filtered": 25,
+          "source": 25
+        },
+        "row": {
+          "filtered": 25,
+          "source": 25
+        }
+      },
+      "h": 4,
+      "labels": 5,
+      "nonzero_filtered_entries": 2979,
+      "retained_shifts": 15
+    }
+  ],
+  "alpha_improvement_claimed": false,
+  "crossing_sum_checks": 723,
+  "directional_rank_checks": 8,
+  "finite_rank_and_spectral_rows": [
+    {
+      "dimension": 1,
+      "eigenvalues": [
+        0,
+        1,
+        "1"
+      ],
+      "h": 1,
+      "nullity": 0,
+      "rank": 1,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 2,
+      "eigenvalues": [
+        0,
+        1,
+        "0"
+      ],
+      "h": 2,
+      "nullity": 1,
+      "rank": 1,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 3,
+      "eigenvalues": [
+        0,
+        1,
+        "-1/3"
+      ],
+      "h": 3,
+      "nullity": 1,
+      "rank": 2,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 5,
+      "eigenvalues": [
+        0,
+        1,
+        "-1/2"
+      ],
+      "h": 4,
+      "nullity": 2,
+      "rank": 3,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 7,
+      "eigenvalues": [
+        0,
+        1,
+        "-3/5"
+      ],
+      "h": 5,
+      "nullity": 3,
+      "rank": 4,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 11,
+      "eigenvalues": [
+        0,
+        1,
+        "-2/3"
+      ],
+      "h": 6,
+      "nullity": 5,
+      "rank": 6,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 15,
+      "eigenvalues": [
+        0,
+        1,
+        "-5/7"
+      ],
+      "h": 7,
+      "nullity": 7,
+      "rank": 8,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 22,
+      "eigenvalues": [
+        0,
+        1,
+        "-3/4"
+      ],
+      "h": 8,
+      "nullity": 11,
+      "rank": 11,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 30,
+      "eigenvalues": [
+        0,
+        1,
+        "-7/9"
+      ],
+      "h": 9,
+      "nullity": 15,
+      "rank": 15,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 42,
+      "eigenvalues": [
+        0,
+        1,
+        "-4/5"
+      ],
+      "h": 10,
+      "nullity": 22,
+      "rank": 20,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 56,
+      "eigenvalues": [
+        0,
+        1,
+        "-9/11"
+      ],
+      "h": 11,
+      "nullity": 30,
+      "rank": 26,
+      "rank_formula": "p(h)-p(h-2)"
+    },
+    {
+      "dimension": 77,
+      "eigenvalues": [
+        0,
+        1,
+        "-5/6"
+      ],
+      "h": 12,
+      "nullity": 42,
+      "rank": 35,
+      "rank_formula": "p(h)-p(h-2)"
+    }
+  ],
+  "independent_second_moment_entries": 594,
+  "integrality_entries": 41073,
+  "nonzero_length_filtration_entries": 106,
+  "piece_count": "4h-1, omitting s=+1 and s=-1",
+  "quadratic_crossing_filter_constructed": true,
+  "result": "PASS",
+  "rho_improvement_claimed": false,
+  "scope": "independent exact operators at h<=6, spectral identities at h<=14, inverses at h<=12, and actual crossing tensors at h<=4",
+  "source_sha256": {
+    "PROOF.md": "f441e575c3020d2722ec88f3b98a7295f03080e544f2e3d86806a83ff7099a94",
+    "SOURCES.json": "9133932d4e05b52f0315c5b84a259cfce37ac875d1434709ac7473d276ec4405",
+    "filter.py": "e0a038d1022f0568e32dd47e47bfe3ef6ce9e324bd46d63e292a301f6d1545c4",
+    "second.py": "014bb300728f18f7ae2cf8fbdcdc28b37a80f4d31c0ed890c1feb7edb1e6451f",
+    "verify.py": "4830ef4db1bc161e01a9cabcb102a4ab37615d8893efe36e5fdc8951865decc1"
+  },
+  "spectral_inverse_checks": 12,
+  "spectral_operator_identity_inputs": 1386,
+  "uniform_rank_spectral_and_inverse_proof": "PROOF.md sections 2-3"
+}

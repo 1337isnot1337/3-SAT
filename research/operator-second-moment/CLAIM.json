@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "operator-second-moment",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "second_moment_spectrum_and_quadratic_crossing_filter",
+  "author": "1337isnot1337, with substantial AI assistance from Kimi",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The uncharged second operator moment has exact partition pairing 4hE h! U_h with U_h=(1/(2h))F(FA+2A d/du_1). An all-size harmonic argument proves image U_h=ker L^2, rank p(h)-p(h-2), and U_h(U_h-1)(U_h+(h-2)/h)=0 with explicit nonzero multiplicities. The explicit rational inverse of I-4h^2U_h yields actual crossing pieces weighted by 1-s^2 that omit s=+1 and s=-1, using 4h-1 pieces and preserving both directional ranks and the source rho=1/sqrt(2) envelope. Uniform entry generation and heights fit the predecessor rational-transfer contract. No smaller rho, SAT alpha improvement or selected-result change is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/operator-second-moment/PROOF.md",
+    "research/operator-second-moment/second.py",
+    "research/operator-second-moment/filter.py",
+    "research/operator-second-moment/verify.py",
+    "research/operator-second-moment/verification.json",
+    "research/operator-second-moment/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/operator-second-moment/verify.py"
+  ],
+  "external_source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "remaining_obligations": [
+    "Independent review of the all-size second-moment, spectral and crossing-filter arguments",
+    "A higher-moment or different mechanism removing a whole central interval while retaining leading capacity and both rank bounds",
+    "Full master-time transfer remains conditional on the written component proofs and is not an implemented SAT solver",
+    "No smaller rho, larger alpha or selected-result change is claimed"
+  ]
+}

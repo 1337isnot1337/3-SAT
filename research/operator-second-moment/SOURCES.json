@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "canonical_main_at_branch_creation": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "accepted_openai_source_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "external_paper": "https://hexagonmath.org/2610.00577v1",
+  "external_repository_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "operator_predecessor": {
+    "package": "research/charged-operator-moments",
+    "commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+    "proof_sha256": "94f3f840f92eea3ae3b9b5d37f880836e51243f38f24a43c15d4156046c14ddd",
+    "modules": {
+      "charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+      "pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+      "predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+    },
+    "license": "Apache-2.0",
+    "changes_to_predecessor_files": false
+  },
+  "related_uniform_first_moment_filter": {
+    "package": "research/charged-asymmetric-crossing",
+    "merged_at": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+    "distinction": "That package normalizes the charged first moment and omits s=0. This package derives the uncharged second moment and studies a distinct quadratic filter; no filter is claimed here."
+  }
+}
