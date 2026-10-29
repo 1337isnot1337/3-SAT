@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "interaction-cover-affine",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "structural_exact_counting_interface",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "f64e1babba809276639257f37cd218ee18824257",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "An interaction-graph vertex cover yields a deterministic exact affine-counting interface for listed Boolean polynomial systems and 3-CNF; sparse disjoint-pair queries can require a linear-size cover. No unrestricted SAT improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/interaction-cover-affine/PROOF.md",
+    "research/interaction-cover-affine/verify.py",
+    "research/interaction-cover-affine/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/interaction-cover-affine/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written all-size proof",
+    "No small-cover guarantee for all sparse queries or rejected candidates",
+    "Complete dense-reduction composition remains open",
+    "No improved unrestricted SAT bound or alpha"
+  ]
+}
