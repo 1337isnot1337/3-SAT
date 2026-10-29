@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "tensor-precision-witness",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis (with OpenAI Codex assistance)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The tapered witness has prescribed Cauchy-packet realizations over Z_(2) and finite-precision integer lifts; two fixed one-hot columns have a sharp universal quadratic interpolation boundary and cannot realize the odd-root fourth power.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tensor-precision-witness/PROOF.md",
+    "research/tensor-precision-witness/verify.py",
+    "research/tensor-precision-witness/screen_one_packet.py",
+    "research/tensor-precision-witness/check_integer_lifts.py",
+    "research/tensor-precision-witness/screen_two_packet_powers.py",
+    "research/tensor-precision-witness/screen_one_packet_nonlinear.py",
+    "research/tensor-precision-witness/verify_quadratic.py",
+    "research/tensor-precision-witness/screen_taper_squares.py",
+    "research/tensor-precision-witness/verify_fixed_columns.py",
+    "research/tensor-precision-witness/verify_onehot_pairs.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/tensor-precision-witness/verify.py",
+    "python3 -I -B research/tensor-precision-witness/screen_one_packet.py",
+    "python3 -I -B research/tensor-precision-witness/check_integer_lifts.py",
+    "python3 -I -B research/tensor-precision-witness/screen_two_packet_powers.py",
+    "python3 -I -B research/tensor-precision-witness/screen_one_packet_nonlinear.py",
+    "python3 -I -B research/tensor-precision-witness/verify_quadratic.py",
+    "python3 -I -B research/tensor-precision-witness/screen_taper_squares.py",
+    "python3 -I -B research/tensor-precision-witness/verify_fixed_columns.py",
+    "python3 -I -B research/tensor-precision-witness/verify_onehot_pairs.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Realize matching h=Theta(M/u) with the source packing, or prove an obstruction.",
+    "Determine whether an odd-normalized witness has a Boolean realization."
+  ]
+}
