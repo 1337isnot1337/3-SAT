@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "concatenated-tanner-checks",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "research_component",
+  "author": "1337isnot1337 with OpenAI Codex assistance",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Concatenated local codes yield polynomial-time sparse Tanner checks with fixed-B constant relative distance. A powered cited Margulis-Gabber-Galil expander gives fixed-B constant row weight; the Cayley variant has logarithmic row weight. No improved SAT exponent.",
+  "improves_bound": false,
+  "evidence": [
+    "research/concatenated-tanner-checks/PROOF.md",
+    "research/concatenated-tanner-checks/verify.py",
+    "research/concatenated-tanner-checks/verification.json",
+    "research/concatenated-tanner-checks/VALIDATION.md",
+    "research/concatenated-tanner-checks/EXPANDER.md",
+    "research/concatenated-tanner-checks/EXTERNAL-SOURCES.json",
+    "research/concatenated-tanner-checks/verify_expander.py",
+    "research/concatenated-tanner-checks/expander-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/concatenated-tanner-checks/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of entropy bound, all-size construction, complexity and composition",
+    "No source-scale q>1 Tanner graph, nontrivial inner-code run at source scale, or end-to-end SAT solver",
+    "No alpha or complete SAT exponent improvement claimed",
+    "Independent review of the external spectral-theorem transfer, powered-graph ports, padding, and row-count composition"
+  ]
+}

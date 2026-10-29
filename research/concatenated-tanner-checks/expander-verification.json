@@ -1,0 +1,31 @@
+{
+  "base_graph_sides": [
+    2,
+    3
+  ],
+  "information_set_matrices": 276,
+  "information_set_projections": 102,
+  "mixing_subset_pairs": 787200,
+  "near_rate_inequalities": 1312,
+  "padding_schedules": 700,
+  "port_inverse_cases": 7592,
+  "powers": [
+    1,
+    2,
+    3
+  ],
+  "result": "pass",
+  "sampler_bias_cases": 12,
+  "spectral_psd_certificates": 5,
+  "subcodes_checked": 129,
+  "tanner_fixture": {
+    "full_minimum_weight": 4,
+    "full_words": 2048,
+    "max_column_degree": 6,
+    "rows": 56,
+    "short_max_column_degree": 6,
+    "short_minimum_weight": 4,
+    "short_rows": 56,
+    "short_words": 128
+  }
+}
