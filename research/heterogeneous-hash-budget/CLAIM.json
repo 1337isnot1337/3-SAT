@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "heterogeneous-hash-budget",
+  "task": "dense-encoding",
+  "status": "draft",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Draft density-sensitive decision composition using fewer wide checks and separate incidence layers; no unrestricted improvement; finite checks pending.",
+  "improves_bound": false,
+  "evidence": [],
+  "reproduce": [],
+  "remaining_obligations": [
+    "Bounded exact two-layer and parameter replay",
+    "Independent review of new argument and named predecessor proofs",
+    "Remove density logarithm or outer sparsification cost for the unrestricted goal"
+  ]
+}
