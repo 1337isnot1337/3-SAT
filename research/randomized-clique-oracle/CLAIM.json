@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "randomized-clique-oracle",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "randomized_universal_clique_query_bound",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Bounded-error randomized decision in the unrestricted clique table oracle model requires a sharp constant fraction of all entries on a zero/one-hot subfamily under a worst-outcome query cap.",
+  "improves_bound": false,
+  "evidence": [
+    "research/randomized-clique-oracle/README.md",
+    "research/randomized-clique-oracle/PROOF.md",
+    "research/randomized-clique-oracle/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/randomized-clique-oracle/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the coupling and worst-outcome bound",
+    "Identify exploitable structured tables and account for a complete SAT algorithm"
+  ]
+}
