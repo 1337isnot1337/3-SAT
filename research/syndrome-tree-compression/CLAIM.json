@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "syndrome-tree-compression",
+  "task": "dense-encoding",
+  "status": "draft",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Draft author-checked tree-state construction and Boolean-port degree lower bound; bounded replay pending; no SAT improvement.",
+  "improves_bound": false,
+  "evidence": [],
+  "reproduce": [],
+  "remaining_obligations": [
+    "Complete bounded exact checker and repository validation",
+    "Independent review of written proof",
+    "A changed encoding with a complete smaller general-density cost"
+  ]
+}
