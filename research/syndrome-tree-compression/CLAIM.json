@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "syndrome-tree-compression",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For a supplied tree, exact syndrome states attain every cut-rank bound. Every exact field-valued tree realization of a binary [m,k,D] code indicator with k>0 has maximum Boolean-port degree at least ceil(k/floor(m/D)); applied conditionally to the accepted sparse-check interface. No SAT time gain.",
+  "improves_bound": false,
+  "evidence": [
+    "research/syndrome-tree-compression/PROOF.md",
+    "research/syndrome-tree-compression/verify.py",
+    "research/syndrome-tree-compression/verification.json",
+    "research/syndrome-tree-compression/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3 -I -B research/syndrome-tree-compression/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of written all-size proof",
+    "Restricted-pattern or cyclic encoding with a smaller complete cost",
+    "Complete all-input SAT improvement; no selected result change"
+  ]
+}
