@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "L": 16,
+      "all_source_units": true,
+      "distinct_denominators": 8,
+      "full_kernel_and_contraction_match": true,
+      "max_summand_v2": 12,
+      "modes_and_triples": 2,
+      "squarefree_summands": 4
+    },
+    {
+      "L": 32,
+      "all_source_units": true,
+      "distinct_denominators": 13,
+      "full_kernel_and_contraction_match": true,
+      "max_summand_v2": 24,
+      "modes_and_triples": 3,
+      "squarefree_summands": 8
+    },
+    {
+      "L": 64,
+      "all_source_units": true,
+      "distinct_denominators": 18,
+      "full_kernel_and_contraction_match": true,
+      "max_summand_v2": 41,
+      "modes_and_triples": 4,
+      "squarefree_summands": 16
+    }
+  ],
+  "sha256": {
+    "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
+    "research/clustered-mode-support/PROOF.md": "6db7cd66f4f88d02147e036771a3373fe87fd524a98a626503518f2b5cc5a0d6",
+    "research/clustered-mode-support/verify.py": "e94faee355ae29099f3c238f770de0199179d5a6e53a4472f70c8e6cd1ee4637",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  }
+}

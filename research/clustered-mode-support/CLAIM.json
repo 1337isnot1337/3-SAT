@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "clustered-mode-support",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "8d6010ab8934b8942611ba98c3a80723f65e0d53",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A specified balanced root packing of an explicit bounded-degree tensor-network family has exp(Omega(M/u)) distinct retained Newton child-product summands nonzero at the source child precision, at t=1 and zeta=1.",
+  "improves_bound": false,
+  "evidence": [
+    "research/clustered-mode-support/PROOF.md",
+    "research/clustered-mode-support/verify.py",
+    "research/clustered-mode-support/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/clustered-mode-support/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of packing, shared-denominator, sign, valuation and count arguments",
+    "The construction does not claim default-labeling behavior or a lower bound against simplification and aggregation",
+    "The gap to the M/sqrt(u) formal exponent remains",
+    "Any SAT improvement needs a uniform algorithm and full cost analysis"
+  ]
+}
