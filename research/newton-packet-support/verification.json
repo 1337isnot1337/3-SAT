@@ -1,0 +1,213 @@
+{
+  "cases": {
+    "equality": {
+      "all_source_moments_nonzero": true,
+      "direct_assignment_pairs": 64,
+      "exact_child_sum_equals_direct": true,
+      "nonzero_tuples": 10,
+      "tuples_by_total_degree": [
+        1,
+        3,
+        6,
+        0
+      ]
+    },
+    "positive_clause": {
+      "all_source_moments_nonzero": true,
+      "direct_assignment_pairs": 64,
+      "exact_child_sum_equals_direct": true,
+      "nonzero_tuples": 19,
+      "tuples_by_total_degree": [
+        0,
+        3,
+        6,
+        10
+      ]
+    }
+  },
+  "equality_boolean_identity_checks": 510,
+  "family": [
+    {
+      "K": 3,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 800,
+      "exact_sum": true,
+      "height_bound_bits": 4096000,
+      "kind": "equality",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 10,
+        "16": 8,
+        "32": 10,
+        "64": 10,
+        "8": 3
+      },
+      "nonzero_tuples": 10,
+      "q": 1,
+      "source_assignments": 8,
+      "summand_valuation_range": [
+        3,
+        19
+      ],
+      "taper_lower_bound": 35184372088832
+    },
+    {
+      "K": 3,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 800,
+      "exact_sum": true,
+      "height_bound_bits": 4096000,
+      "kind": "clause",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 19,
+        "16": 9,
+        "32": 19,
+        "64": 19,
+        "8": 2
+      },
+      "nonzero_tuples": 19,
+      "q": 1,
+      "source_assignments": 8,
+      "summand_valuation_range": [
+        6,
+        30
+      ],
+      "taper_lower_bound": 35184372088832
+    },
+    {
+      "K": 4,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 800,
+      "exact_sum": true,
+      "height_bound_bits": 4096000,
+      "kind": "equality",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 15,
+        "16": 8,
+        "32": 15,
+        "64": 15,
+        "8": 1
+      },
+      "nonzero_tuples": 15,
+      "q": 1,
+      "source_assignments": 16,
+      "summand_valuation_range": [
+        4,
+        25
+      ],
+      "taper_lower_bound": 35184372088832
+    },
+    {
+      "K": 4,
+      "L": 8,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 800,
+      "exact_sum": true,
+      "height_bound_bits": 4096000,
+      "kind": "clause",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 34,
+        "16": 7,
+        "32": 31,
+        "64": 34,
+        "8": 0
+      },
+      "nonzero_tuples": 34,
+      "q": 1,
+      "source_assignments": 16,
+      "summand_valuation_range": [
+        9,
+        39
+      ],
+      "taper_lower_bound": 35184372088832
+    },
+    {
+      "K": 6,
+      "L": 16,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 1920,
+      "exact_sum": true,
+      "height_bound_bits": 78643200,
+      "kind": "equality",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 210,
+        "16": 6,
+        "32": 47,
+        "64": 202,
+        "8": 1
+      },
+      "nonzero_tuples": 210,
+      "q": 2,
+      "source_assignments": 64,
+      "summand_valuation_range": [
+        6,
+        72
+      ],
+      "taper_lower_bound": 432345564227567616
+    },
+    {
+      "K": 6,
+      "L": 16,
+      "all_moments_nonzero": true,
+      "all_summands_survive_taper_lower_bound": true,
+      "entry_height_bound_bits": 1920,
+      "exact_sum": true,
+      "height_bound_bits": 78643200,
+      "kind": "clause",
+      "min_bound_margin": 0,
+      "nonzero_mod_2_to_p": {
+        "128": 917,
+        "16": 1,
+        "32": 39,
+        "64": 571,
+        "8": 0
+      },
+      "nonzero_tuples": 917,
+      "q": 2,
+      "source_assignments": 64,
+      "summand_valuation_range": [
+        15,
+        118
+      ],
+      "taper_lower_bound": 432345564227567616
+    }
+  ],
+  "packet": {
+    "L": 8,
+    "T": 17,
+    "i": 0,
+    "inactive_mode": 3,
+    "kernel_entry_identities": 9,
+    "row_and_column_slots": [
+      0,
+      2,
+      4
+    ],
+    "t": 1,
+    "zeta": 1
+  },
+  "sha256": {
+    "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
+    "research/newton-packet-support/PROOF.md": "a25fc31b12bb565aa90827f5e2d9ff7bbc34eae054e82432d70c4094678e3bff",
+    "research/newton-packet-support/verify.py": "6ba8ca5264cc733626d3b77f10b7810a6035a42ee814f45ded10f9d31119d8eb",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860",
+    "upstream/openai-eth-2026/build/quantitative-reduction.tex": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
+  },
+  "zero_mode_child": {
+    "cubic_coefficient": -1,
+    "nonzero_boolean_entries": 1,
+    "table": "product(1-Y_i)"
+  }
+}
