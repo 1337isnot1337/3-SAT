@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""Exact finite controls for the row-basis support construction."""
+import hashlib
+import itertools
+import json
+import random
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+
+def rank(rows):
+    pivots = {}
+    for x in rows:
+        while x:
+            p = x.bit_length() - 1
+            if p in pivots:
+                x ^= pivots[p]
+            else:
+                pivots[p] = x
+                break
+    return len(pivots)
+
+def edges(n, length):
+    return [{(1 << i) | (1 << ((i + j) % n))
+             for j in range(1, length + 1)} for i in range(n)]
+
+def projector_coefficient(edge_set, mask):
+    # Boolean Mobius inversion, independently of the support argument.
+    ans = 0
+    sub = mask
+    while True:
+        parity = sum((sub & e) == e for e in edge_set) % 2
+        ans += (-1 if (mask.bit_count() - sub.bit_count()) % 2 else 1) * (1 - parity)
+        if sub == 0:
+            return ans
+        sub = (sub - 1) & mask
+
+def main():
+    checks = {"systems": 0, "nonzero_row_combinations": 0,
+              "mobius_edge_coefficients": 0, "exhaustive_invertible_4x4": 0,
+              "sampled_invertible_bases": 0, "zero_substitutions": 0,
+              "residual_bases": 0, "boolean_substitutions": 0,
+              "constant_rejected": 0, "negative_controls": 0}
+    rng = random.Random(20261027)
+    for n in range(3, 10):
+        length = min(n.bit_length() - 1, (n - 1) // 2)
+        rows = edges(n, length)
+        assert all(len(row) == length for row in rows)
+        assert len(set.union(*rows)) == n * length
+        scopes = [set(v for e in row for v in range(n) if e & (1 << v)) for row in rows]
+        assert all(len(s) == length + 1 for s in scopes)
+        assert all(sum(v in s for s in scopes) == length + 1 for v in range(n))
+        for selection in range(1, 1 << n):
+            combined = set().union(*(rows[i] for i in range(n) if selection >> i & 1))
+            assert len(combined) == length * selection.bit_count()
+            for edge in combined:
+                assert projector_coefficient(combined, edge) == -1
+                checks["mobius_edge_coefficients"] += 1
+            checks["nonzero_row_combinations"] += 1
+        checks["systems"] += 1
+        # Every zero substitution for n<=8; sample residual bases on each.
+        if n <= 8:
+            for fixed in range(1 << n):
+                residual = [{e for e in row if not (e & fixed)} for row in rows]
+                live = [i for i, row in enumerate(residual) if row]
+                good = {i for i in live if 2 * len(residual[i]) >= length}
+                assert len(good) >= n - 4 * fixed.bit_count()
+                basis = [1 << i for i in live]
+                if len(basis) > 1:
+                    for _ in range(3 * len(basis)):
+                        i, j = rng.sample(range(len(basis)), 2)
+                        basis[i] ^= basis[j]
+                goodmask = sum(1 << i for i in good)
+                assert sum(bool(row & goodmask) for row in basis) >= len(good)
+                for row in basis:
+                    if row & goodmask:
+                        q = set().union(*(residual[i] for i in live if row >> i & 1))
+                        assert 2 * len(q) >= length
+                        for edge in q:
+                            assert projector_coefficient(q, edge) == -1
+                checks["zero_substitutions"] += 1
+                checks["residual_bases"] += 1
+        for _ in range(100):
+            basis = [1 << i for i in range(n)]
+            for _ in range(6 * n):
+                i, j = rng.sample(range(n), 2)
+                basis[i] ^= basis[j]
+            assert rank(basis) == n
+            product = 1
+            for row in basis:
+                product *= length * row.bit_count()
+            assert product >= length ** n
+            checks["sampled_invertible_bases"] += 1
+    # Exhaust all three-way free/zero/one assignments for small n. Use the
+    # full indicator truth table for independently obtained coefficients.
+    for n in range(3, 7):
+        length = min(n.bit_length() - 1, (n - 1) // 2)
+        rows = edges(n, length)
+        for digits in itertools.product(range(3), repeat=n):
+            fixed = sum(1 << i for i, d in enumerate(digits) if d != 0)
+            ones = sum(1 << i for i, d in enumerate(digits) if d == 2)
+            residual = []
+            for row in rows:
+                poly = set()
+                for edge in row:
+                    if edge & fixed & ~ones:
+                        continue
+                    monomial = edge & ~fixed
+                    poly.symmetric_difference_update({monomial})
+                residual.append(poly)
+            basis = [1 << i for i in range(n)]
+            for _ in range(3 * n):
+                i, j = rng.sample(range(n), 2)
+                basis[i] ^= basis[j]
+            polys = []
+            for basisrow in basis:
+                poly = set()
+                for i in range(n):
+                    if basisrow >> i & 1:
+                        poly.symmetric_difference_update(residual[i])
+                polys.append(poly)
+            checks["boolean_substitutions"] += 1
+            if any(poly == {0} for poly in polys):
+                checks["constant_rejected"] += 1
+                continue
+            good = {i for i, row in enumerate(rows)
+                    if 2 * sum(not (e & fixed) for e in row) >= length}
+            assert len(good) >= n - 4 * fixed.bit_count()
+            goodmask = sum(1 << i for i in good)
+            assert sum(bool(row & goodmask) for row in basis) >= len(good)
+            for row, poly in zip(basis, polys):
+                if row & goodmask:
+                    quadratics = [x for x in poly if x.bit_count() == 2]
+                    assert 2 * len(quadratics) >= length
+                    for edge in quadratics:
+                        assert projector_coefficient(poly, edge) % 2 == 1
+                if 0 in poly:
+                    assert any(x != 0 and projector_coefficient(poly, x) % 2
+                               for x in poly)
+    for basis in itertools.product(range(16), repeat=4):
+        if rank(basis) == 4:
+            assert all(basis)
+            checks["exhaustive_invertible_4x4"] += 1
+    assert checks["exhaustive_invertible_4x4"] == 20160
+    # Duplicate monomials cancel over F2: a private support hypothesis is essential.
+    a = {(1 << 0) | (1 << 1)}
+    assert not (a ^ a)
+    assert projector_coefficient(a ^ a, 3) == 0
+    checks["negative_controls"] += 1
+    result = {"scope": "bounded exact checks only; no independent proof review",
+              "checks": checks,
+              "sha256": {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
+                         for name in ("PROOF.md", "verify.py")}}
+    print(json.dumps(result, indent=2, sort_keys=True))
+
+if __name__ == "__main__":
+    main()

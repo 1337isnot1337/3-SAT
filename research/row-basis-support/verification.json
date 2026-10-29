@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "boolean_substitutions": 1080,
+    "constant_rejected": 332,
+    "exhaustive_invertible_4x4": 20160,
+    "mobius_edge_coefficients": 11468,
+    "negative_controls": 1,
+    "nonzero_row_combinations": 1009,
+    "residual_bases": 504,
+    "sampled_invertible_bases": 700,
+    "systems": 7,
+    "zero_substitutions": 504
+  },
+  "scope": "bounded exact checks only; no independent proof review",
+  "sha256": {
+    "PROOF.md": "a2807c249be4598eec4090425c7793bc42adaa00f5aff91838f2133dc850cb7a",
+    "verify.py": "7883c2f986623fcfc7c852a1dcb5527f7ab86500389c852f627386f6c67e79fb"
+  }
+}
