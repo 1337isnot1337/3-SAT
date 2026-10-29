@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "charged-cubic-leading",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "cubic_leading_charge_scalar_pairing",
+  "author": "Cinna Davis (with OpenAI Codex)",
+  "base_commit": "88b5f35432f8707a005c51d346e4c4c4cf6e416c",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The coefficient of q^3 in the charged cubic weighted moment is a scalar on every output energy space, with an explicit all-grade label-pairing formula. Four-charge finite differences and an exact grade-9 minor yield a conditional-on-proof finite eight-label crossing. Ranks through h=15 are finite observations; no uniform rank theorem or SAT improvement is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/charged-cubic-leading/README.md",
+    "research/charged-cubic-leading/PROOF.md",
+    "research/charged-cubic-leading/verify.py",
+    "research/charged-cubic-leading/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/charged-cubic-leading/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-grade charge-coefficient formula",
+    "Uniform high-rank minors and fully paid normalizers",
+    "A fixed-fraction shift exclusion or a proved directional-rank gain with complete SAT costs"
+  ],
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent or formal review",
+  "selected_result_changed": false
+}
