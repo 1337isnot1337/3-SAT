@@ -1,0 +1,38 @@
+{
+  "scope": "E=h pairing reconstructed from E=0,1 using the written affine-energy argument; no all-grade rank claim",
+  "results": [
+    {
+      "grade": 7,
+      "dimension": 15,
+      "rank": 10,
+      "matrix_sha256": "deda579d98c99eb9fa6dcf4ad997dd09121a4331a86cd610c2bc0e3eb0b1f6e7"
+    },
+    {
+      "grade": 8,
+      "dimension": 22,
+      "rank": 15,
+      "matrix_sha256": "b778039e81357fdab39f33dceeaece3b75613ae3a21d12e130e91e5527163ba7"
+    },
+    {
+      "grade": 9,
+      "dimension": 30,
+      "rank": 19,
+      "matrix_sha256": "903daaf11086a89162d2fd09515eb8723db721d1c309908990186b57e916fc93"
+    },
+    {
+      "grade": 10,
+      "dimension": 42,
+      "rank": 27,
+      "matrix_sha256": "1dd2a00efcdff5cc0ec26ba8c49013607b100b9c349bd0734755eee945ebc159"
+    }
+  ],
+  "sha256": {
+    "research/charged-cubic-parity/rank_screen.py": "3ece1f81521032e6f1c8f05ab17ab53415b5cdff6d070671326d8ade9d7b88f7",
+    "research/charged-cubic-parity/verify.py": "7a4c7c00c069d27c80c6e59118000aa0c1422e7293896dc832a47b7ea78346b4",
+    "research/charged-cubic-parity/PROOF.md": "1d48472ae4b8958d5561a4c87d5b4ebb6f7b8cc1f1f2db9a1822e912e1e0767d",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
