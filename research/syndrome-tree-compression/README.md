@@ -1,6 +1,7 @@
 # Branching syndrome trees and contraction degree
 
-Status: draft, all-size proof author-checked and awaiting independent review.
+Status: `scoped_checked` for bounded tests; the all-size proof is author-checked
+and awaiting independent review.
 No improved SAT time bound or alpha is claimed. Coordination:
 [issue #149](https://github.com/1337isnot1337/3-SAT/issues/149).
 Base `c600b21ee7800a49c05718a254be50168e6b355b`.
@@ -34,6 +35,26 @@ Accepted OpenAI source commit `7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`,
 [SOURCES.json](../../SOURCES.json). Contributor: Cinna Davis with substantial
 OpenAI Codex assistance; new material Apache-2.0.
 
-The scoped checker and saved evidence are being prepared. The next changed
-premise must use restricted input patterns or a non-tree topology; this
-package does not complete the active goal of beating the SAT bound.
+Reproduce with Python 3.11+ and the standard library, from the repository root:
+
+```sh
+python3 -I -B research/syndrome-tree-compression/verify.py > /tmp/syndrome-tree-replay.json
+cmp /tmp/syndrome-tree-replay.json research/syndrome-tree-compression/verification.json
+make verify
+```
+
+[Saved evidence](verification.json) covers 2,100 matrix/layout cases, including
+all two-row binary matrices with 1..4 columns on five layouts and 400 seeded
+larger grouped-input cases. There are 28,200 exact integer contractions,
+9,692 flattening-rank checks over F2/F3, and 2,941 separator/injectivity checks.
+The controls include zero kernels, zero columns, empty internal vertices,
+all inputs at one vertex, repetition codes through length 12, a Hamming-code
+parameter fixture, and restricted input patterns that destroy the generic
+rank obstruction. These are finite component checks, not an implementation
+of the accepted SAT solver or independent review of the all-size proof.
+The checker is separate from default CI. [Source pins](SOURCES.json) record
+versioned external PDF hashes without redistributing those papers.
+
+The next changed premise must use restricted input patterns or a non-tree
+topology; this package does not complete the active goal of beating the SAT
+bound.
