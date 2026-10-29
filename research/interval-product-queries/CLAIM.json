@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "interval-product-queries",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "parameterized_exact_counting",
+  "author": "Cinna Davis (OpenAI Codex assisted)",
+  "base_commit": "4ce0cb947bdb6837718c7061e45d3a723219d703",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "For arbitrary explicit affine binary systems A m=b on cyclic adjacent products m_i=x_i x_(i+1), a deterministic polynomial-space exact count takes poly(n+a) 2^(d-r) lambda^r bit operations, where d is nullity, r is the maximum length of a cyclic interval of independent kernel coordinate functionals, and lambda=1.754877666.... A consistent family has d=n/2 and r=2. No general SAT improvement is claimed. A greedily found packing of t jointly independent consecutive triples gives poly(n+a) 2^(d-3t) 7^t time; an explicit fragmented family makes this candidate bound exponentially smaller than a single-block bound. Its decision problem is NP-complete even with matrix row weight at most two, via a non-parsimonious 3-SAT reduction.",
+  "improves_bound": false,
+  "evidence": [
+    "research/interval-product-queries/PROOF.md",
+    "research/interval-product-queries/verify.py",
+    "research/interval-product-queries/reduction.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/interval-product-queries/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size proof and costs",
+    "Establish any needed r bound for actual all-input outer queries",
+    "Account for reductions, all candidate queries and decoding before any SAT claim"
+  ]
+}
