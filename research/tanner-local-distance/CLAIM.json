@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "tanner-local-distance",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "research_component",
+  "author": "1337isnot1337 with OpenAI Codex assistance",
+  "base_commit": "e1e57cd165d9806b1bbf6500153ee1f37fedf093",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Degree-sensitive Vandermonde local codes and conditional-potential Cayley shifts give polynomially constructible Tanner sparse checks with improved logarithmic degree and distance parameters; no improved SAT exponent.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tanner-local-distance/PROOF.md",
+    "research/tanner-local-distance/verify.py",
+    "research/tanner-local-distance/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/tanner-local-distance/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size parameters and cost composition",
+    "No source-scale q>1 graph or end-to-end SAT implementation",
+    "An exponent gain requires a changed encoding or contraction beyond the stated logarithmic component gain"
+  ]
+}
