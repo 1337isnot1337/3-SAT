@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "polynomial-sparse-checks",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "sparse_check_construction",
+  "author": "Cinna Davis with OpenAI Codex",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A polynomial-time deterministic Tanner construction gives fewer than n/25 initial rows and permits retuned distance parameter P=20000 B\u00b2R\u00b2 and row width D=320000 B\u00b2R\u00b2mu, with R=64+8 ceil(log2(Bmu+2)); every nonzero kernel vector has weight at least m/P. The source has P=20000 B\u00b2mu\u00b2 and D=320000 B\u00b2mu\u00b3. No improved SAT bound is claimed.",
+  "improves_bound": false,
+  "evidence": [
+    "research/polynomial-sparse-checks/PROOF.md",
+    "research/polynomial-sparse-checks/verify.py",
+    "research/polynomial-sparse-checks/tanner.py",
+    "research/polynomial-sparse-checks/verify_source.py",
+    "research/polynomial-sparse-checks/COMPOSITION.md",
+    "research/polynomial-sparse-checks/ROW-COUNT.md",
+    "research/polynomial-sparse-checks/RETUNED.md",
+    "research/polynomial-sparse-checks/verify_retuned.py",
+    "research/polynomial-sparse-checks/REDUNDANCY.md",
+    "research/polynomial-sparse-checks/verify_redundancy.py"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/polynomial-sparse-checks/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of retuned graph, local-code and dense-query composition, including finite parameter cases",
+    "Independent review of the source-parameter inequalities and all-size bit-complexity argument",
+    "Replay the q>1 Tanner matrix construction with full source parameters",
+    "No improved alpha or full SAT algorithm is claimed"
+  ]
+}
