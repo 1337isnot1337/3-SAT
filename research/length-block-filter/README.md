@@ -64,3 +64,8 @@ supply the exact coefficient recurrence and earlier scalar-span tests;
 `extreme-shift-output-rank` bounds the possible support-only improvement.
 These predecessors remain unchanged. The accepted OpenAI theorem remains a
 premise, with frozen source commit 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a.
+
+The active extension is described in [LEFT-MODULE.md](LEFT-MODULE.md):
+shift-dependent local input maps recover the entire scalar row space in
+finite tests, rather than a chosen length-block pairing. The uniform
+containment and full SAT bound remain unproved.

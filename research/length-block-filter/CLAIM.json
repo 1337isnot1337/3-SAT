@@ -14,7 +14,9 @@
     "research/length-block-filter/README.md",
     "research/length-block-filter/probe.py",
     "research/length-block-filter/exploratory/first-moment-h8.jsonl",
-    "research/length-block-filter/exploratory/crossing-h10-length4.jsonl"
+    "research/length-block-filter/exploratory/crossing-h10-length4.jsonl",
+    "research/length-block-filter/LEFT-MODULE.md",
+    "research/length-block-filter/left_mixing.py"
   ],
   "reproduce": [],
   "remaining_obligations": [

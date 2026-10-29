@@ -46,3 +46,20 @@ entry costs, child size, recovery and outer decision costs. A merely smaller
 constant in the same partition-count envelope will not establish a better
 selected bound. The source affine deformation and frozen sources are not
 changed. No exterior contraction algorithm is claimed here.
+
+## Disposition of the squarefree-mode proposal
+
+Squarefreeness alone does not change the source partition-count exponent.
+In the abstract budget with R modes of each weight j and total precision P,
+choose b with R*b*(b+1)/2 < P. Every subset of the R*b modes of weights at
+most b is feasible, so there are at least 2^(R*b) subsets. For the source
+scales R=Theta(M/D), P=Theta(MD/u), and D/sqrt(u) growing, b=Theta(D/sqrt(u))
+gives 2^Omega(M/sqrt(u)). This is a statement about that unchanged budget,
+not a lower bound on an exterior deformation with additional algebraic
+relations or a new precision theorem. The squarefree-only version is stopped.
+
+The current constructive question is [LEFT-MODULE.md](LEFT-MODULE.md).
+A further possible representation uses charged Heisenberg intertwiners;
+no implementation or scalar-gap theorem for that representation exists in
+this checkpoint. It must not be confused with the already implemented
+central D_0=q variation.
