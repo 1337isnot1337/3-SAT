@@ -1,0 +1,146 @@
+{
+  "first_mode_cases": [
+    {
+      "L": 8,
+      "a": 3,
+      "common_v2": 4,
+      "complete_pairing_v2": 4,
+      "first_mode_excess_v2": 0,
+      "mixed_0_1_v2": 10,
+      "mixed_0_2_v2": 13,
+      "mixed_1_2_v2": 14,
+      "mode_1_v2": 5,
+      "mode_2_v2": 8,
+      "q": 1,
+      "telescoping_identities": true
+    },
+    {
+      "L": 16,
+      "a": 4,
+      "common_v2": 5,
+      "complete_pairing_v2": 6,
+      "first_mode_excess_v2": 2,
+      "mixed_0_1_v2": 14,
+      "mixed_0_2_v2": 14,
+      "mixed_1_2_v2": 15,
+      "mode_1_v2": 7,
+      "mode_2_v2": 9,
+      "q": 2,
+      "telescoping_identities": true
+    },
+    {
+      "L": 32,
+      "a": 5,
+      "common_v2": 6,
+      "complete_pairing_v2": 8,
+      "first_mode_excess_v2": 0,
+      "mixed_0_1_v2": 14,
+      "mixed_0_2_v2": 17,
+      "mixed_1_2_v2": 18,
+      "mode_1_v2": 7,
+      "mode_2_v2": 10,
+      "q": 5,
+      "telescoping_identities": true
+    },
+    {
+      "L": 64,
+      "a": 6,
+      "common_v2": 7,
+      "complete_pairing_v2": 10,
+      "first_mode_excess_v2": 2,
+      "mixed_0_1_v2": 18,
+      "mixed_0_2_v2": 18,
+      "mixed_1_2_v2": 19,
+      "mode_1_v2": 9,
+      "mode_2_v2": 11,
+      "q": 10,
+      "telescoping_identities": true
+    },
+    {
+      "L": 128,
+      "a": 7,
+      "common_v2": 8,
+      "complete_pairing_v2": 12,
+      "first_mode_excess_v2": 0,
+      "mixed_0_1_v2": 18,
+      "mixed_0_2_v2": 21,
+      "mixed_1_2_v2": 22,
+      "mode_1_v2": 9,
+      "mode_2_v2": 12,
+      "q": 21,
+      "telescoping_identities": true
+    },
+    {
+      "L": 256,
+      "a": 8,
+      "common_v2": 9,
+      "complete_pairing_v2": 14,
+      "first_mode_excess_v2": 2,
+      "mixed_0_1_v2": 22,
+      "mixed_0_2_v2": 22,
+      "mixed_1_2_v2": 23,
+      "mode_1_v2": 11,
+      "mode_2_v2": 13,
+      "q": 42,
+      "telescoping_identities": true
+    },
+    {
+      "L": 512,
+      "a": 9,
+      "common_v2": 10,
+      "complete_pairing_v2": 16,
+      "first_mode_excess_v2": 0,
+      "mixed_0_1_v2": 22,
+      "mixed_0_2_v2": 25,
+      "mixed_1_2_v2": 26,
+      "mode_1_v2": 11,
+      "mode_2_v2": 14,
+      "q": 85,
+      "telescoping_identities": true
+    }
+  ],
+  "packet_cases": [
+    {
+      "L": 8,
+      "all_source_modes_units": true,
+      "chosen_modes": 2,
+      "direct_row_assignments": 8,
+      "exact_contraction_identity": true,
+      "mixed_coefficient_identity": true,
+      "modes_K": 4,
+      "odd_common_denominator_bound": true,
+      "q": 1,
+      "selected_subsets": 4,
+      "selected_summand_max_v2": 10
+    },
+    {
+      "L": 16,
+      "all_source_modes_units": true,
+      "chosen_modes": 3,
+      "direct_row_assignments": 64,
+      "exact_contraction_identity": true,
+      "mixed_coefficient_identity": true,
+      "modes_K": 8,
+      "odd_common_denominator_bound": true,
+      "q": 2,
+      "selected_subsets": 8,
+      "selected_summand_max_v2": 21
+    }
+  ],
+  "sha256": {
+    "research/cauchy-newton-modes/PROOF.md": "3724c6a5a06b85d0424a0be301ffc7ddfa0dedf9fba778cc2047f7be43ce36db",
+    "research/dense-packet-mode-support/PROOF.md": "0972e48851ac86925411f364faceff4bc8166c223685ff5ae776dfb37eb2fed1",
+    "research/dense-packet-mode-support/verify.py": "e985e32606061fadc7f6b840a1e40f877603118d93b62dda4d12e7abd60cec49",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  },
+  "toy_packing": {
+    "L": 8,
+    "a": 3,
+    "all_pair_loads_equal": 8,
+    "asymptotic_schedule_claimed_for_toy": false,
+    "eligible_packets": 8,
+    "eligible_target_rows_grouped_by_label": true,
+    "packets": 64,
+    "r": 2
+  }
+}
