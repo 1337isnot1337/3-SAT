@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "odd-node-mode-support",
+  "task": "weighted-modes",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis with OpenAI Codex assistance",
+  "base_commit": "1dfac844cbb1e570c99579ecf48c1007d72da7c9",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A no-duplicate, contradictory unit-CNF family and the source per-edge subdivision admit specified balanced root packings with exp(Omega(M/sqrt(u))) retained odd-node Newton child-product summands nonzero at the source child precision.",
+  "improves_bound": false,
+  "evidence": [
+    "research/odd-node-mode-support/PROOF.md",
+    "research/odd-node-mode-support/verify.py",
+    "research/odd-node-mode-support/verification.json",
+    "research/odd-node-mode-support/filler-moments.py",
+    "research/odd-node-mode-support/filler-moments-verification.json",
+    "research/odd-node-mode-support/reduction-gadget.py",
+    "research/odd-node-mode-support/reduction-gadget-verification.json",
+    "research/odd-node-mode-support/mixed-pin-screen.py",
+    "research/odd-node-mode-support/mixed-pin-screen-verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/odd-node-mode-support/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the mixed-pin lemma, exact subdivided CNF construction, Pascal/Boolean quotient and precision accounting",
+    "The input is immediately unsatisfiable by unit propagation",
+    "No lower bound against preprocessing, default labeling or aggregation",
+    "A SAT improvement requires a uniform algorithm and complete cost analysis"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "L": 8,
+      "independent_bit_sum_checks": 93,
+      "last_row_singleton_mod_16": 2,
+      "nonboundary_zero_moments": 63
+    },
+    {
+      "L": 16,
+      "independent_bit_sum_checks": 0,
+      "last_row_singleton_mod_16": 2,
+      "nonboundary_zero_moments": 575
+    },
+    {
+      "L": 32,
+      "independent_bit_sum_checks": 0,
+      "last_row_singleton_mod_16": 2,
+      "nonboundary_zero_moments": 14
+    },
+    {
+      "L": 64,
+      "independent_bit_sum_checks": 0,
+      "last_row_singleton_mod_16": 2,
+      "nonboundary_zero_moments": 14
+    }
+  ],
+  "scope": "finite modulo-16 screen; nonboundary generalization unproved",
+  "sha256": {
+    "research/odd-node-mode-support/PROOF.md": "6c625599e346fb26ea59ae83cbe4bba9ebc9617cb29c170a48e87a5242c4674c",
+    "research/odd-node-mode-support/filler-moments.py": "f1dcefc1c3487ae11b04f31a99acaf41f6a606545e3c676f2cd29dbd64db805f",
+    "upstream/openai-eth-2026/build/quantitative-contraction.tex": "671642d7b53154d92344e8c4be0240f18929632ebcfdf73b07c3e9939b873860"
+  }
+}
