@@ -1,0 +1,37 @@
+{
+  "accepted_baseline": {
+    "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+    "scope": "Owner-accepted theorem used as a premise; not audited"
+  },
+  "raw_charge_predecessor": {
+    "package": "research/charge-polynomial-filter",
+    "branch_head": "1cf8bf329bf7bc8489cbe804f0e57ed44ab9cc2e",
+    "credit": "Exact polynomial normal-order recurrence, complete scalar-output constraints and rational matrix-space classification"
+  },
+  "asymmetric_codebooks": {
+    "package": "research/charged-asymmetric-crossing",
+    "merge_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+    "credit": "PR 19 uniform row, column and output labels and local normalization"
+  },
+  "charged_operators": {
+    "package": "research/charged-operator-moments",
+    "merge_commit": "b91287aa1361fa49d68afe5cc94c23077dce93db",
+    "credit": "PR 11 zero-charge mode and first-moment pairing"
+  },
+  "rational_transfer": {
+    "package": "research/odd-prime-rank-transfer",
+    "merge_commit": "72daf9b8fd3bb23f29852f5150c0af1256119a46",
+    "credit": "PR 17 paid rational rank and exact integer-query transfer; no filter supplied"
+  },
+  "external_operator_source": {
+    "url": "https://hexagonmath.org/2610.00577v1",
+    "main_tex_sha256": "ce4b77cc1d1d5a033ea41c00321cbd88871adfa62648614defa0bab8a63a9553",
+    "labels": ["def:genpieces", "thm:halfpieces", "eq:Q", "eq:ops"],
+    "license": "CC BY 4.0"
+  },
+  "new_work": {
+    "license": "Apache-2.0",
+    "disclosure": "Substantial AI assistance; no priority or independent-review claim",
+    "scope": "Charge-dependent local deficit normalization and exact finite scalar classification"
+  }
+}

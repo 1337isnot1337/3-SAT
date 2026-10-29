@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "deficit-charge-filter",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "finite_complete_charge_deficit_scalar_filter_classification",
+  "author": "Cinna Davis (substantial AI assistance)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "A charge-dependent local length rescaling gives a new scalar-filter space. Complete exact finite classifications on the registered PR 19 codebooks find full-rank filtered crossings at h=4 after removing central shifts through absolute value 3 and at h=6 through absolute value 2. The h=6 cutoff 5 and maximal cutoffs are singular in these finite spaces. A full-weight-space h=4 control retains rank four at cutoff 1 and only rank one at cutoff 3. No all-size filter, leading-capacity proof, smaller rho or improved SAT exponent is obtained.",
+  "improves_bound": false,
+  "evidence": [
+    "research/deficit-charge-filter/README.md",
+    "research/deficit-charge-filter/screen.py",
+    "research/deficit-charge-filter/verification.json",
+    "research/deficit-charge-filter/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/deficit-charge-filter/screen.py"
+  ],
+  "remaining_obligations": [
+    "All-size scalarity and full-rank existence for a constant-fraction central shift filter",
+    "Leading row, column and output codebook capacity",
+    "Polynomial piece count, uniform entry generation, coefficient heights and both directional rank envelopes",
+    "Complete rational transfer and master recursion composition",
+    "Independent review"
+  ],
+  "ai_assistance": "Substantial AI assistance; no independent or formal review",
+  "selected_result_changed": false
+}
