@@ -1,0 +1,397 @@
+{
+  "artifact_sha256": {
+    "PROOF.md": "c2862140fcb6049d878bf759dec31f20e830b1879b94f129a424b91552e4dd3f",
+    "moments.py": "f5f2d2b667d81a64e8549c71e1e13ff6f9de3f1192699eea7bab215733cbb90e",
+    "screen.py": "c67db83cd8c67dae6435f3fab5d7f44847c18fe0bc62b0ea2d2c17a2d2fa7658"
+  },
+  "coded_cases": [
+    {
+      "binary_dimension": 2,
+      "h": 2,
+      "lambda": 1,
+      "moments": [
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 4,
+          "power": 0
+        },
+        {
+          "middle_flattening_rank_over_Q": 0,
+          "nonzero_entries": 0,
+          "power": 1
+        },
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 2,
+          "power": 2
+        },
+        {
+          "middle_flattening_rank_over_Q": 2,
+          "nonzero_entries": 4,
+          "power": 3
+        },
+        {
+          "middle_flattening_rank_over_Q": 3,
+          "nonzero_entries": 6,
+          "power": 4
+        },
+        {
+          "middle_flattening_rank_over_Q": 2,
+          "nonzero_entries": 6,
+          "power": 5
+        },
+        {
+          "middle_flattening_rank_over_Q": 4,
+          "nonzero_entries": 8,
+          "power": 6
+        }
+      ],
+      "nonzero_scalar_constraints": 6,
+      "quadratic_weights_exhaust_scalar_recovery": true,
+      "scalar_weight_space": {
+        "method": "modular_lower_matches_explicit_nullvector_upper",
+        "modular_lower_bounds": {
+          "1009": 6,
+          "101": 6,
+          "103": 6
+        },
+        "proved_upper_bound": 6,
+        "rank_over_Q": 6,
+        "weight_space_dimension": 3
+      },
+      "second_moment_entry_checks": 16,
+      "second_moment_pairing": [
+        [
+          32,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "second_moment_pairing_rank_over_Q": 1,
+      "third_cut_is_not_two_direction_gain_control": {
+        "certification": "mod101 lower bound equals full matrix dimension",
+        "row_and_column_rank_over_Q": 4,
+        "third_cut_rank": 1
+      }
+    },
+    {
+      "binary_dimension": 4,
+      "h": 4,
+      "lambda": 2,
+      "moments": [
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 16,
+          "power": 0
+        },
+        {
+          "middle_flattening_rank_over_Q": 0,
+          "nonzero_entries": 0,
+          "power": 1
+        },
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 24,
+          "power": 2
+        },
+        {
+          "middle_flattening_rank_over_Q": 2,
+          "nonzero_entries": 58,
+          "power": 3
+        },
+        {
+          "middle_flattening_rank_over_Q": 4,
+          "nonzero_entries": 76,
+          "power": 4
+        },
+        {
+          "middle_flattening_rank_over_Q": 6,
+          "nonzero_entries": 76,
+          "power": 5
+        },
+        {
+          "middle_flattening_rank_over_Q": 10,
+          "nonzero_entries": 114,
+          "power": 6
+        }
+      ],
+      "nonzero_scalar_constraints": 114,
+      "quadratic_weights_exhaust_scalar_recovery": true,
+      "scalar_weight_space": {
+        "method": "modular_lower_matches_explicit_nullvector_upper",
+        "modular_lower_bounds": {
+          "1009": 14,
+          "101": 14,
+          "103": 14
+        },
+        "proved_upper_bound": 14,
+        "rank_over_Q": 14,
+        "weight_space_dimension": 3
+      },
+      "second_moment_entry_checks": 256,
+      "second_moment_pairing": [
+        [
+          1536,
+          0,
+          2304,
+          4608
+        ],
+        [
+          0,
+          -768,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          -3072
+        ],
+        [
+          0,
+          0,
+          0,
+          1536
+        ]
+      ],
+      "second_moment_pairing_rank_over_Q": 3,
+      "third_cut_is_not_two_direction_gain_control": {
+        "certification": "mod101 lower bound equals full matrix dimension",
+        "row_and_column_rank_over_Q": 16,
+        "third_cut_rank": 1
+      }
+    },
+    {
+      "binary_dimension": 8,
+      "h": 6,
+      "lambda": 3,
+      "moments": [
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 64,
+          "power": 0
+        },
+        {
+          "middle_flattening_rank_over_Q": 0,
+          "nonzero_entries": 0,
+          "power": 1
+        },
+        {
+          "middle_flattening_rank_over_Q": 1,
+          "nonzero_entries": 144,
+          "power": 2
+        },
+        {
+          "middle_flattening_rank_over_Q": 2,
+          "nonzero_entries": 520,
+          "power": 3
+        },
+        {
+          "middle_flattening_rank_over_Q": 4,
+          "nonzero_entries": 836,
+          "power": 4
+        },
+        {
+          "middle_flattening_rank_over_Q": 6,
+          "nonzero_entries": 998,
+          "power": 5
+        },
+        {
+          "middle_flattening_rank_over_Q": 10,
+          "nonzero_entries": 1276,
+          "power": 6
+        }
+      ],
+      "nonzero_scalar_constraints": 1838,
+      "quadratic_weights_exhaust_scalar_recovery": true,
+      "scalar_weight_space": {
+        "method": "modular_lower_matches_explicit_nullvector_upper",
+        "modular_lower_bounds": {
+          "1009": 22,
+          "101": 22,
+          "103": 22
+        },
+        "proved_upper_bound": 22,
+        "rank_over_Q": 22,
+        "weight_space_dimension": 3
+      },
+      "second_moment_entry_checks": 4096,
+      "second_moment_pairing": [
+        [
+          103680,
+          0,
+          1555200,
+          0,
+          1036800,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -69120,
+          0,
+          -34560,
+          0,
+          -207360,
+          0,
+          -103680
+        ],
+        [
+          0,
+          0,
+          -103680,
+          0,
+          -138240,
+          0,
+          -138240,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -414720,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          155520,
+          0,
+          207360,
+          0,
+          207360,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          138240,
+          0,
+          51840
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -138240,
+          0,
+          -103680
+        ]
+      ],
+      "second_moment_pairing_rank_over_Q": 5,
+      "third_cut_is_not_two_direction_gain_control": {
+        "certification": "mod101 lower bound equals full matrix dimension",
+        "row_and_column_rank_over_Q": 64,
+        "third_cut_rank": 1
+      }
+    }
+  ],
+  "full_state_pairings": [
+    {
+      "dimension": 2,
+      "dimension_minus_p_h_minus_2": 1,
+      "h": 2,
+      "pairing_sha256": "6a7a36d53591b53af5d73f94bcc4f723d79f47eef36350898d06ffd7a8101a40",
+      "rank_over_Q": 1
+    },
+    {
+      "dimension": 3,
+      "dimension_minus_p_h_minus_2": 2,
+      "h": 3,
+      "pairing_sha256": "1b3cc028164a0673aad92c0ea7f6a05b91f4255006d7aea01aefc41857db0922",
+      "rank_over_Q": 2
+    },
+    {
+      "dimension": 5,
+      "dimension_minus_p_h_minus_2": 3,
+      "h": 4,
+      "pairing_sha256": "fe482474a032eb9856364dfd4a982c60cede9a96980a27e5a679b50f5aa92f88",
+      "rank_over_Q": 3
+    },
+    {
+      "dimension": 7,
+      "dimension_minus_p_h_minus_2": 4,
+      "h": 5,
+      "pairing_sha256": "983299c591daae66a039a47cbc071d23e7300dfd171ca5e2072a8faf8ae326dc",
+      "rank_over_Q": 4
+    },
+    {
+      "dimension": 11,
+      "dimension_minus_p_h_minus_2": 6,
+      "h": 6,
+      "pairing_sha256": "135c3701fd4e8b2eda31dd1422130c1bf3e8a54f9ddc4a28fe653a13ec37d3ff",
+      "rank_over_Q": 6
+    },
+    {
+      "dimension": 15,
+      "dimension_minus_p_h_minus_2": 8,
+      "h": 7,
+      "pairing_sha256": "febe2d5082645f9ffc7d2367ad74a83bd9a33fde552d6e7ad5727ebe2f8270ab",
+      "rank_over_Q": 8
+    },
+    {
+      "dimension": 22,
+      "dimension_minus_p_h_minus_2": 11,
+      "h": 8,
+      "pairing_sha256": "9159d3555a45139df2e8f668eaadf86fb6e406f2f80da7b36d761883b3ef519b",
+      "rank_over_Q": 11
+    },
+    {
+      "dimension": 30,
+      "dimension_minus_p_h_minus_2": 15,
+      "h": 9,
+      "pairing_sha256": "ecb9deed468df6ff4734d9ec2cb816a04f4b966b6336c5b59b106a52fc1b0090",
+      "rank_over_Q": 15
+    },
+    {
+      "dimension": 42,
+      "dimension_minus_p_h_minus_2": 20,
+      "h": 10,
+      "pairing_sha256": "e1a62f8475d4be5cebf7404eed89bd1f5dbc3c1312ae243c0c7c994e69370c1c",
+      "rank_over_Q": 20
+    },
+    {
+      "dimension": 56,
+      "dimension_minus_p_h_minus_2": 26,
+      "h": 11,
+      "pairing_sha256": "3922239e823546ff52e10defbe17f86c72b4b442f16e4e4024b4da1c1b9a935b",
+      "rank_over_Q": 26
+    },
+    {
+      "dimension": 77,
+      "dimension_minus_p_h_minus_2": 35,
+      "h": 12,
+      "pairing_sha256": "c8473df75c047b4ccd36d1a92fdf6653eb244cf859e83de3dec89069ee923bf6",
+      "rank_over_Q": 35
+    }
+  ],
+  "general_second_moment_cases": 217,
+  "predecessor_operator_sha256": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+  "result": "PASS_FINITE_SCALAR_MOMENT_RECOVERY",
+  "schema_version": 1,
+  "scope": "Exact finite scalar-recovery weights and Wick second-moment checks; no asymptotic rank or improved SAT bound"
+}

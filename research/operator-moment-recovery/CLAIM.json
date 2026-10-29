@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "operator-moment-recovery",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "higher_operator_moment_component_primitive",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "7561c0836b94d33166fc9e0eff6e15cc160f03ef",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "In the zero-charge operator construction the second piece moment is an explicit integral Wick pairing times the identity on each energy space. For j>=2, the j-th moment has rank at most p(j)-1 across the third cut (x,v)|(y,u). Exact finite lambda=1,2,3 scalar-recovery spaces are quadratic, with singular second pairings, and do not give central-piece removal with invertible normalization. These primitives and finite constraints give no smaller rho, alpha or full SAT time envelope.",
+  "improves_bound": false,
+  "evidence": [
+    "research/operator-moment-recovery/PROOF.md",
+    "research/operator-moment-recovery/moments.py",
+    "research/operator-moment-recovery/screen.py",
+    "research/operator-moment-recovery/verification.json",
+    "research/operator-moment-recovery/HANDOFF.md",
+    "research/anthropic-operator-ranks/SOURCES.json",
+    "research/anthropic-operator-ranks/verification.json"
+  ],
+  "reproduce": ["python3", "-I", "-B", "research/operator-moment-recovery/screen.py"],
+  "remaining_obligations": [
+    "Independent review of both written all-size operator arguments",
+    "A uniform classification of the scalar recovery space and full-state pairing rank pattern",
+    "Invertible low-height product recovery and improved required directional costs under a changed construction"
+  ],
+  "alpha": "1/2",
+  "full_time_envelope_changed": false,
+  "independent_review_records": [],
+  "formal_verification": null,
+  "ai_assistance": "Substantial OpenAI Codex assistance; author checks only, no independent or human review claimed."
+}
