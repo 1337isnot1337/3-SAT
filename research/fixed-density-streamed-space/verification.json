@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "finite direct occurrence networks and CRT, not master recursion",
+  "formulas": 871,
+  "network_grouping_comparisons": 2613,
+  "empty_clause_controls": 174,
+  "unused_variable_controls": 909,
+  "sha256": {
+    "research/fixed-density-streamed-space/PROOF.md": "96494f2e5ee3c2d47d3e9b16f3d63f7551eca7c9fca8724316ae726c6e2f098b",
+    "research/fixed-density-streamed-space/verify.py": "3670428a5a4c46a84de84e05ae8c943afc7e068376545ab969a536010e5a4964",
+    "research/deterministic-crt-transfer/verify.py": "f22639017e8c259144354d78f0d74a05024d011a40fd55bb8d9469d067bca6a7"
+  }
+}
