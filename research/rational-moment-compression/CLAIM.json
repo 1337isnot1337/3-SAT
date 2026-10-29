@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "rational-moment-compression",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "OpenAI Codex (substantial AI assistance)",
+  "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Constructive rational oblique compression replaces exponential diagonal-signature loss by M(M+1)/2; charged moment order sqrt(E)/log^2(E) retains leading output capacity, with no improved SAT bound.",
+  "improves_bound": false,
+  "evidence": [
+    "research/rational-moment-compression/PROOF.md",
+    "research/rational-moment-compression/compression.py",
+    "research/rational-moment-compression/verify.py",
+    "research/rational-moment-compression/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/rational-moment-compression/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the all-size component proof and predecessor moment identity",
+    "High-rank input pairing with a uniform minor and normalization",
+    "A fixed-fraction central interval or actual directional-rank gain",
+    "Full SAT reduction, query, entry, recursion, precision, recovery, and space costs"
+  ]
+}
