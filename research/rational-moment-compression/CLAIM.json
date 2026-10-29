@@ -8,7 +8,7 @@
   "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
   "baseline_result": "OAI-2026-10-25",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
-  "statement": "Constructive rational oblique compression replaces exponential diagonal-signature loss by M(M+1)/2; charged moment order sqrt(E)/log^2(E) retains leading output capacity, with no improved SAT bound.",
+  "statement": "Constructive rational oblique compression replaces exponential diagonal-signature loss by M; charged moment order sqrt(E)/log^2(E) retains leading output capacity, with no improved SAT bound.",
   "improves_bound": false,
   "evidence": [
     "research/rational-moment-compression/PROOF.md",

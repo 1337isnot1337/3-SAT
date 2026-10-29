@@ -9,7 +9,7 @@ an exponential diagonal-signature loss by a polynomial loss. For M integer
 operators, including identity, whose union transition graph has maximum
 degree Delta, the [proof](PROOF.md) constructs U,V with
 
-    UV=I_k,   U A_a V=c_a I_k,   k >= N/((Delta+1) M(M+1)/2).
+    UV=I_k,   U A_a V=c_a I_k,   k >= N/((Delta+1) M).
 
 The maps act separately on the two output axes and do not increase either
 directional flattening rank. They are oblique maps, not orthogonal

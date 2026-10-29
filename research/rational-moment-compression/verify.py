@@ -21,7 +21,7 @@ def require(value, message):
 def check_compression(matrices, result):
     u, v = result["u"], result["v"]
     k, n, m = len(u), len(matrices[0]), len(matrices)
-    require(k * (result["max_degree"]+1) * m*(m+1) >= 2*n,
+    require(k * (result["max_degree"]+1) * m >= n,
             "Dimension guarantee failed")
     for a, scalar in zip(matrices, result["scalars"]):
         actual = sandwich(u, a, v)
@@ -39,7 +39,7 @@ def affine_controls():
                       for _ in range(n)]
             groups, weights, c, layers = affine_groups(points)
             require(sum(r*b for r,b in layers.items()) == n, "Lost vectors")
-            require(len(groups)*m*(m+1) >= 2*n, "Affine packing bound")
+            require(len(groups)*m >= n, "Affine packing bound")
             require(len({i for g in groups for i in g}) == sum(map(len,groups)),
                     "Groups not disjoint")
             for g,w in zip(groups,weights):
@@ -52,6 +52,7 @@ def affine_controls():
     points = [(1,0,0)]*12 + [(1,1,0)]*3 + [(1,0,1)]
     groups,weights,c,layers=affine_groups(points)
     require(set(layers)=={1,2,3}, "Rank-descent fixture was ineffective")
+    require(len(groups)==12, "All rank strata must contribute groups")
     require(sum(r*b for r,b in layers.items())==len(points), "Descent count")
     return {"seeded_cases":cases,"ranks_seen":sorted(ranks_seen),
             "rank_descent_layers":layers}

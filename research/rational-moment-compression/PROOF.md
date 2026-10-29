@@ -10,21 +10,19 @@ Let x_1,...,x_N be rational vectors in Q^M, all with first coordinate one.
 There are k disjoint nonempty groups G_j and rational weights a_(j,i) such that
 
     sum_(i in G_j) a_(j,i) x_i = c,       c_1=1,
-    k >= N / T_M,                       T_M=M(M+1)/2.       (1)
+    k >= N / M.       (1)
 
 The common c can be chosen to be one of the input vectors. Weights need not
 be positive. In particular their sum in each group is one.
 
 Algorithm: repeatedly remove a maximal linearly independent subset of the
-remaining vectors. The rank never increases. At any rank r, every removed
-subset is a basis of the same r-dimensional space: a proper containment
-between two spaces of equal dimension is impossible. Let b_r be the number
-of bases removed at rank r. No rank-zero remainder is possible because the
-first coordinate is one. Thus N=sum_(r=1)^M r b_r. Select a rank whose b_r is
-largest. Since sum r=T_M, its b_r is at least N/T_M. Choose c as any vector
-in its first basis and express c uniquely in every selected basis. This
-proves (1), including the common-span and disjoint-support claims.
-
+remaining vectors, retaining every removed basis as a group. Let c be any
+vector in the final group. Every earlier maximal basis spans all vectors
+that were still present, including c. Hence c lies in every group's span.
+Each group has at most M elements, so the number of groups is at least N/M.
+Express c uniquely in each basis. Its first coordinate is one, so all the
+resulting coordinate sums are one. This proves (1). Rank may drop along the
+way; no groups are discarded when it does.
 Gaussian elimination implements the algorithm in a polynomial number of bit
 operations in N, M and the input bit length. For integer inputs of magnitude
 at most B, each coordinate solution uses an r-by-r nonsingular integer minor
@@ -47,7 +45,7 @@ u_j=sum_(i in G_j)a_(j,i)e_i^T. Write V for the columns and U for the rows.
 Disjoint supports and graph independence give the exact identities
 
     UV=I_k,                U A_a V=c_a I_k,
-    k >= N / ((Delta+1) T_M).                           (2)
+    k >= N / ((Delta+1) M).                           (2)
 
 These are rational oblique maps. U need not be V transpose, U and V need
 not be positive, and the column space of V need not be invariant under A_a.
@@ -70,11 +68,11 @@ The predecessor's normal-ordering argument bounds every integer entry by B
 and the union transition degree by Delta. It applies to all E,d; no
 asymptotic selection is needed for these inequalities. Equation (2) supplies
 
-    k >= p(E) / ((1+2M(2E+1)^d) M(M+1)/2).              (3)
+    k >= p(E) / ((1+2M(2E+1)^d) M).              (3)
 
 The predecessor instead used the diagonal-signature pigeonhole factor
 (2B+1)^M. The change is to rational linear combinations on the two output
-axes. This replaces that factor by T_M without claiming that basis subsets
+axes. This replaces that factor by M without claiming that basis subsets
 of the improved size exist.
 
 All matrices can be listed using at most
@@ -91,7 +89,7 @@ Use d=max(1,d(E)) for the finite exceptions. The source partition estimate
 log p(E)=kappa sqrt(E)+O(log(E+2)), kappa=pi sqrt(2/3), and the elementary
 bound M<= (d+1) exp(3 sqrt(d)) give
 
-    log((Delta+1)T_M)=O(d log E+sqrt(d)+log(d+1))=o(sqrt E).
+    log((Delta+1)M)=O(d log E+sqrt(d)+log(d+1))=o(sqrt E).
 
 Consequently k>=exp(kappa sqrt(E)-o(sqrt E)), and construction takes
 exp(O(sqrt E)) bit time and space. The rational map entries have

@@ -45,19 +45,20 @@ def coordinates(basis, target):
 
 
 def affine_groups(signatures):
-    """Pack disjoint bases, stratify by rank, keep the largest stratum."""
+    """Pack disjoint maximal bases, all spanning the final surviving point."""
     if not signatures or any(v[0] != 1 for v in signatures):
         raise ValueError("Nonempty signatures with leading coordinate one required")
     remaining = list(range(len(signatures)))
     layers = {}
+    groups = []
     while remaining:
         local = independent_indices([signatures[i] for i in remaining])
         group = [remaining[i] for i in local]
+        groups.append(group)
         layers.setdefault(len(group), []).append(group)
         removed = set(group)
         remaining = [i for i in remaining if i not in removed]
-    groups = max(layers.values(), key=len)
-    target = signatures[groups[0][0]]
+    target = signatures[groups[-1][0]]
     weights = [coordinates([signatures[i] for i in g], target) for g in groups]
     return groups, weights, target, {r: len(gs) for r, gs in layers.items()}
 
