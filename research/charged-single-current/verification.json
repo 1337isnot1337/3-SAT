@@ -1,0 +1,481 @@
+{
+  "binomial_contraction_checks": 210,
+  "results": [
+    {
+      "grade": 1,
+      "energies": [
+        0,
+        1,
+        2
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 16,
+      "piece_calls": 88,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 12,
+          "witness": [
+            [
+              [
+                1
+              ],
+              12
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 6,
+          "witness": [
+            [
+              [
+                1
+              ],
+              6
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 4,
+          "witness": [
+            [
+              [
+                1
+              ],
+              4
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 6,
+          "witness": [
+            [
+              [
+                1
+              ],
+              6
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 12,
+          "witness": [
+            [
+              [
+                1
+              ],
+              12
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 2,
+      "energies": [
+        0,
+        1,
+        2
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 64,
+      "piece_calls": 240,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 96,
+          "witness": [
+            [
+              [
+                2
+              ],
+              96
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 60,
+          "witness": [
+            [
+              [
+                2
+              ],
+              60
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 48,
+          "witness": [
+            [
+              [
+                2
+              ],
+              48
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 60,
+          "witness": [
+            [
+              [
+                2
+              ],
+              60
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 96,
+          "witness": [
+            [
+              [
+                2
+              ],
+              96
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 3,
+      "energies": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 252,
+      "piece_calls": 924,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 5328,
+          "witness": [
+            [
+              [
+                3
+              ],
+              5328
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 4896,
+          "witness": [
+            [
+              [
+                3
+              ],
+              4896
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 4752,
+          "witness": [
+            [
+              [
+                3
+              ],
+              4752
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 4896,
+          "witness": [
+            [
+              [
+                3
+              ],
+              4896
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 5328,
+          "witness": [
+            [
+              [
+                3
+              ],
+              5328
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "energies": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "charges": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "complete_vector_identities": 720,
+      "piece_calls": 2620,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 403200,
+          "witness": [
+            [
+              [
+                4
+              ],
+              403200
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 394560,
+          "witness": [
+            [
+              [
+                4
+              ],
+              394560
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 391680,
+          "witness": [
+            [
+              [
+                4
+              ],
+              391680
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 394560,
+          "witness": [
+            [
+              [
+                4
+              ],
+              394560
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 403200,
+          "witness": [
+            [
+              [
+                4
+              ],
+              403200
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "energies": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_identities": 770,
+      "piece_calls": 2814,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 55209600,
+          "witness": [
+            [
+              [
+                5
+              ],
+              55209600
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 54950400,
+          "witness": [
+            [
+              [
+                5
+              ],
+              54950400
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 54864000,
+          "witness": [
+            [
+              [
+                5
+              ],
+              54864000
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 54950400,
+          "witness": [
+            [
+              [
+                5
+              ],
+              54950400
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 55209600,
+          "witness": [
+            [
+              [
+                5
+              ],
+              55209600
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 6,
+      "energies": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_identities": 1980,
+      "piece_calls": 7414,
+      "sharpness": [
+        {
+          "charge": -2,
+          "expected_diagonal": 10051776000,
+          "witness": [
+            [
+              [
+                6
+              ],
+              10051776000
+            ]
+          ]
+        },
+        {
+          "charge": -1,
+          "expected_diagonal": 10040889600,
+          "witness": [
+            [
+              [
+                6
+              ],
+              10040889600
+            ]
+          ]
+        },
+        {
+          "charge": 0,
+          "expected_diagonal": 10037260800,
+          "witness": [
+            [
+              [
+                6
+              ],
+              10037260800
+            ]
+          ]
+        },
+        {
+          "charge": 1,
+          "expected_diagonal": 10040889600,
+          "witness": [
+            [
+              [
+                6
+              ],
+              10040889600
+            ]
+          ]
+        },
+        {
+          "charge": 2,
+          "expected_diagonal": 10051776000,
+          "witness": [
+            [
+              [
+                6
+              ],
+              10051776000
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "research/charged-single-current/verify.py": "e039e81301e971738c30945aebd1b602130a3eee3c4a7c8f8dea3f618a46a0ca",
+    "research/charged-single-current/PROOF.md": "81b413ea44b6f27fab6f1c3348e983664a96206aad20777aacb3509a2f358b37",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}

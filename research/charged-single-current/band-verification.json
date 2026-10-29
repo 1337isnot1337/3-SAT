@@ -1,0 +1,103 @@
+{
+  "results": [
+    {
+      "grade": 1,
+      "energies": [
+        0,
+        1
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_moments": 0,
+      "piece_calls": 0
+    },
+    {
+      "grade": 2,
+      "energies": [
+        0,
+        1,
+        2
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_moments": 16,
+      "piece_calls": 120
+    },
+    {
+      "grade": 3,
+      "energies": [
+        0,
+        1,
+        3
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_moments": 80,
+      "piece_calls": 660
+    },
+    {
+      "grade": 4,
+      "energies": [
+        0,
+        1,
+        4
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_moments": 392,
+      "piece_calls": 3780
+    },
+    {
+      "grade": 5,
+      "energies": [
+        0,
+        1,
+        5
+      ],
+      "charges": [
+        0,
+        1
+      ],
+      "complete_vector_moments": 1224,
+      "piece_calls": 12996
+    }
+  ],
+  "boundary_witness": [
+    [
+      [
+        2,
+        2
+      ],
+      6912
+    ],
+    [
+      [
+        3,
+        1
+      ],
+      13824
+    ],
+    [
+      [
+        4
+      ],
+      14400
+    ]
+  ],
+  "sha256": {
+    "research/charged-single-current/band.py": "b55c6981bb369c765de1a1bfeb3a0907fb6e71edc2ffbe3f5bd45f9cf144685b",
+    "research/charged-single-current/LENGTH-BAND.md": "4f57c5a34f5d0ab1a7e34f6e1ef46d842ff820a8d9993fa1517407428c229c22",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/charged-operator-moments/pairing.py": "949d5e4f07d546cab4e4f995f96a6a2b3d534f21ee0ce98470374120226044df",
+    "research/charged-operator-moments/predecessor.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f"
+  }
+}
