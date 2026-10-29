@@ -1,0 +1,21 @@
+{
+  "canonical_base": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "files": [
+    {
+      "path": "research/charge-polynomial-filter/polynomial.py",
+      "sha256": "ea28d0b966a2910b70b55ef851f8e26a78b263dec5104fba641a687bcc89c7fd"
+    },
+    {
+      "path": "research/length-power-filter/screen.py",
+      "sha256": "0b83be6587a34332ff5b94454e079b5cc4329712539ca550fd9b266a736addae"
+    },
+    {
+      "path": "research/charged-asymmetric-crossing/model.py",
+      "sha256": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef"
+    },
+    {
+      "path": "research/charged-operator-moments/PROOF.md",
+      "sha256": "94f3f840f92eea3ae3b9b5d37f880836e51243f38f24a43c15d4156046c14ddd"
+    }
+  ]
+}
