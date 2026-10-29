@@ -1,0 +1,22 @@
+{
+  "canonical_base": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "accepted_source_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "files": [
+    {
+      "path": "upstream/openai-eth-2026/build/quantitative-reduction.tex",
+      "sha256": "0b2b136c4f37ee0583dda40ee0c0d692f4751537d3d18539a389cd467ea8359a"
+    },
+    {
+      "path": "research/characteristic-two-decision/PROOF.md",
+      "sha256": "fab7941bb1479166152655bf2e989ed6828933f6ef35eb85987fe024fcfae207"
+    },
+    {
+      "path": "research/characteristic-two-decision/FOLLOWUPS.md",
+      "sha256": "24a15233e58d96a9860393ea0f47d92e1cb600a0a8dee4dec48b80d76ce60530"
+    },
+    {
+      "path": "research/aggregate-packing-limits/PROOF.md",
+      "sha256": "d72d7fee383c1964de50967d8242a767096cdc8d50fc6e3c850565829e381bde"
+    }
+  ]
+}

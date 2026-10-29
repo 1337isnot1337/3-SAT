@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "grouped-parity-indicators",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "grouping_cost_certificate",
+  "author": "OpenAI Codex (substantial AI assistance)",
+  "base_commit": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Exact finite grouped Boolean cancellation and profile/index certificates, plus a sufficient full-cost contraction interface. No global SAT bound improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/grouped-parity-indicators/PROOF.md",
+    "research/grouped-parity-indicators/verify.py",
+    "research/grouped-parity-indicators/verification.json",
+    "research/grouped-parity-indicators/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/grouped-parity-indicators/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of the written sufficient interface",
+    "Uniform cheaper grouping or boundary-contraction algorithm for every generated sparse query",
+    "Pay outer reductions and random failure budgets before claiming any global bound improvement",
+    "The finite checker is not an implementation of the fast contraction"
+  ]
+}
