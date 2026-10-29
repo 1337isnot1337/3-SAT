@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "tensor-precision-realization",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "research_attempt",
+  "author": "Cinna Davis, with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Boolean unary inputs on source graph-only packets force all-nonzero-node jet-order and precision collisions at (1/4-o(1))M, and a separate family forces stronger active-node precision; author-checked, no independent review.",
+  "improves_bound": false,
+  "evidence": [
+    "research/tensor-precision-realization/PROOF.md",
+    "research/tensor-precision-realization/verify.py",
+    "research/tensor-precision-realization/verify_partial.py",
+    "research/tensor-precision-realization/verify_periodic.py",
+    "research/tensor-precision-realization/verify_blocks.py",
+    "research/tensor-precision-realization/verify_all_nodes.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/tensor-precision-realization/verify.py",
+    "python3 -I -B research/tensor-precision-realization/verify_partial.py",
+    "python3 -I -B research/tensor-precision-realization/verify_periodic.py",
+    "python3 -I -B research/tensor-precision-realization/verify_blocks.py",
+    "python3 -I -B research/tensor-precision-realization/verify_all_nodes.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size argument",
+    "Realize tapered precision scale or prove a tensor-specific barrier"
+  ]
+}
