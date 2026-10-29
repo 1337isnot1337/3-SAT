@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "quadratic-rank-sums",
+  "task": "dense-encoding",
+  "status": "scoped_checked",
+  "kind": "quadratic_rank_counting_interface",
+  "author": "1337isnot1337, with OpenAI Codex assistance",
+  "base_commit": "c7c5a03434b396e227e9ab573b5b7cdea52b47fa",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Degree-two F2 systems with quadratic coefficient row rank r can be counted exactly in 2^r poly(input) time and polynomial space; cubic systems admit a conditional cubic-transversal and per-branch-rank interface. Sparse query assumptions do not force the relevant costs small. No general SAT improvement.",
+  "improves_bound": false,
+  "evidence": [
+    "research/quadratic-rank-sums/PROOF.md",
+    "research/quadratic-rank-sums/verify.py",
+    "research/quadratic-rank-sums/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/quadratic-rank-sums/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size proof",
+    "No uniformly small combined cubic-transversal and branch-rank bound",
+    "Complete composition for all generated and rejected queries remains open",
+    "No improved unrestricted SAT bound or alpha"
+  ]
+}
