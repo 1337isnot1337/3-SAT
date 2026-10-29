@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "pairwise-sparse-hashes",
+  "task": "decision-only",
+  "status": "scoped_checked",
+  "kind": "decision_interface_component",
+  "author": "1337isnot1337 with OpenAI Codex assistance",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Pairwise-independent field-affine indices and trace-based coefficient sampling reduce random-bit use per sparse hash row to logarithmic in the original universe size, while preserving row count, width, error target and time envelope. Support-only arguments show row width and seed length are both optimal up to constants for a universal constant rejection guarantee (P>=2 for the seed bound). No improved exponent.",
+  "improves_bound": false,
+  "evidence": [
+    "research/pairwise-sparse-hashes/PROOF.md",
+    "research/pairwise-sparse-hashes/verify.py",
+    "research/pairwise-sparse-hashes/verification.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/pairwise-sparse-hashes/verify.py"
+  ],
+  "remaining_obligations": [
+    "Independent review of all-size probability and full inherited cost accounting",
+    "No implementation of accepted tensor contraction",
+    "An exponent improvement would require a changed width, wire, or contraction mechanism"
+  ]
+}
