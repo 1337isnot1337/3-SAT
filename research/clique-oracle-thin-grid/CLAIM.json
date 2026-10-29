@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "clique-oracle-thin-grid",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "universal_oracle_and_ideal_thin_grid_bound",
+  "author": "OpenAI Codex (AI-assisted)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "Unrestricted deterministic clique table queries have an exponential oracle floor; under the stated ideal thin-grid relaxation a bounded child yields no fixed-factor reduction as the other coefficient vanishes.",
+  "improves_bound": false,
+  "evidence": [
+    "research/clique-oracle-thin-grid/README.md",
+    "research/clique-oracle-thin-grid/PROOF.md",
+    "research/clique-oracle-thin-grid/verify.py"
+  ],
+  "reproduce": [
+    "python3 -I -B research/clique-oracle-thin-grid/verify.py",
+    "make verify"
+  ],
+  "remaining_obligations": [
+    "Independent review of the oracle and ideal-model arguments",
+    "Investigate structured child-table access and all costs of a feasible unequal-grid recursion"
+  ]
+}
