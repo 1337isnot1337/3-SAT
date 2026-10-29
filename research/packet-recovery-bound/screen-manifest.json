@@ -1,0 +1,14 @@
+{
+  "scope": "completed finite common-recovery and qD-profile screen; no full-bound improvement",
+  "files": {
+    "recovery.py": "d524b0dda6c09bf96cea9db73adb36042e7bc275ea9e068044954fab7cec65a0",
+    "previous_probe.py": "be8799a6ea9e688cd23b2a32f6d701b9f7c4a6c006da5346ff645e49a3fcf1ba",
+    "lattice_screen.py": "a8f9a2790fe91de5d713857cf8b4bca585da83155b0b24386a1007acfa0d240e",
+    "METHOD.md": "b92ce638ba6f17ec1652f6038b2d828fee6434edbfca89eb20073dcd52ffd155",
+    "lattice-L2.json": "ae046e55a238abfac18f6cef33a736568d4a01822c0a91ef8a077f89c4264a05",
+    "lattice-L4.json": "fc784a4ae7f0d95171d89dd2266fe5c596dc5f5a82f5fa32befb00bab77ad5f9",
+    "lattice-L8.json": "6f42f317c17e80cf1ffce03914243eb10e42ea6fc7c1d910fb4864a233e5c2aa"
+  },
+  "optional_dependency": "python-flint 0.9.0",
+  "selected_result_changed": false
+}

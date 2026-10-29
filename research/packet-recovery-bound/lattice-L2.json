@@ -1,0 +1,44 @@
+{
+  "L": 2,
+  "precision": 80,
+  "numerator_precision": 82,
+  "generators": 16,
+  "basis_sha256": "d4303ce57d2e1a88070dbbc29009c0604956539cfb40106036b98c200c0a00fd",
+  "flint_version": "0.9.0",
+  "results": [
+    {
+      "required_precision": 10,
+      "cutoff": 80,
+      "status": "finite_exact_threshold",
+      "pivot_valuations": [
+        0,
+        0,
+        1,
+        2,
+        5,
+        6,
+        9
+      ],
+      "shape": [
+        14,
+        7
+      ],
+      "upper_certificate_verified": true,
+      "lower_certificate_verified": true,
+      "uncompressed_crosscheck": true,
+      "minimum_integer_q_for_precision_qD": 5,
+      "qD_precisions": [
+        10,
+        10
+      ],
+      "qD_endpoint_certificates_verified": true,
+      "L": 2,
+      "u": 1,
+      "nodes": [
+        -1,
+        1
+      ]
+    }
+  ],
+  "limits": "Finite actual polynomial-generator lattice; not a uniform recovery theorem or SAT bound."
+}

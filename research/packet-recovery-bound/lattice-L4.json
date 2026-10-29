@@ -1,0 +1,133 @@
+{
+  "L": 4,
+  "precision": 80,
+  "numerator_precision": 96,
+  "generators": 256,
+  "basis_sha256": "89d6c4b4166bf04eed5f412d14dbd85011e66567457a38767970871e9b05a511",
+  "flint_version": "0.9.0",
+  "results": [
+    {
+      "required_precision": 50,
+      "cutoff": 80,
+      "status": "finite_exact_threshold",
+      "pivot_valuations": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        8,
+        8,
+        11,
+        15,
+        17,
+        18,
+        21,
+        24,
+        26,
+        29,
+        32,
+        36,
+        39,
+        42,
+        45,
+        49
+      ],
+      "shape": [
+        116,
+        29
+      ],
+      "upper_certificate_verified": true,
+      "lower_certificate_verified": true,
+      "uncompressed_crosscheck": true,
+      "minimum_integer_q_for_precision_qD": 13,
+      "qD_precisions": [
+        52,
+        52,
+        52,
+        52
+      ],
+      "qD_endpoint_certificates_verified": true,
+      "L": 4,
+      "u": 1,
+      "nodes": [
+        -3,
+        -1,
+        1,
+        3
+      ]
+    },
+    {
+      "required_precision": 17,
+      "cutoff": 80,
+      "status": "finite_exact_threshold",
+      "pivot_valuations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        16
+      ],
+      "shape": [
+        174,
+        29
+      ],
+      "upper_certificate_verified": true,
+      "lower_certificate_verified": true,
+      "uncompressed_crosscheck": true,
+      "minimum_integer_q_for_precision_qD": 7,
+      "qD_precisions": [
+        28,
+        14,
+        28,
+        28,
+        14,
+        28
+      ],
+      "qD_endpoint_certificates_verified": true,
+      "L": 4,
+      "u": 2,
+      "nodes": [
+        -3,
+        -2,
+        -1,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "limits": "Finite actual polynomial-generator lattice; not a uniform recovery theorem or SAT bound."
+}
