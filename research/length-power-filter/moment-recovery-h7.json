@@ -1,0 +1,77 @@
+{
+  "h": 7,
+  "N": 4,
+  "length_power": 2,
+  "cutoff": 6,
+  "retained_shifts": "|s|>=7",
+  "maximum_raw_charge_degree": 13,
+  "charge_evaluation_checks": 836,
+  "scalar_weight_nullity": 170,
+  "scalar_constraint_rank": 202,
+  "label_matrix_space_dimension": 16,
+  "moments": {
+    "highest_0": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_1": {
+      "label_matrix_rank": 4,
+      "member": true
+    },
+    "highest_2": {
+      "label_matrix_rank": 2,
+      "member": true
+    },
+    "highest_3": {
+      "label_matrix_rank": 2,
+      "member": true
+    },
+    "highest_4": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_5": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_6": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_7": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_8": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_9": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "highest_11": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "uncharged_0": {
+      "label_matrix_rank": 1,
+      "member": true
+    },
+    "uncharged_2": {
+      "label_matrix_rank": 2,
+      "member": true
+    },
+    "uncharged_3": {
+      "label_matrix_rank": 2,
+      "member": true
+    },
+    "uncharged_4": {
+      "label_matrix_rank": 2,
+      "member": true
+    }
+  },
+  "status": "PASS",
+  "scope": "exact finite scalar-span membership; no all-size gain",
+  "script_sha256": "6078fc3fff4a7a5c30c505e488dd9f126d30ac59265d62e655af5fb664ad8e13"
+}

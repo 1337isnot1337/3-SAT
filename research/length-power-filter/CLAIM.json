@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "length-power-filter",
+  "task": "contraction-schedule",
+  "status": "scoped_checked",
+  "kind": "finite_complete_length_power_charge_scalar_filter_classification",
+  "author": "Cinna Davis (substantial AI assistance)",
+  "base_commit": "630041c9da3a26edb8c8f59d5f8a4132a188c8bd",
+  "baseline_result": "OAI-2026-10-25",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "statement": "The local invertible charge rescaling q^(2(len(mu)+len(nu))) gives a new scalar-filter space while preserving both directional ranks at each charge evaluation. Complete exact finite classifications on the PR 19 codebooks find an actual normalized crossing at lambda=2,h=6 after removing every shift -6,...,6; the raw space is already singular at cutoff 5 and the new entire scalar matrix space is singular at cutoff 7. At lambda=1,h=4 the new space has a full-rank crossing through cutoff 4 and none at cutoff 5. Exact scalar-span membership checks at h=4, h=6 and h=7 further recover the invertible highest-charge first-moment minor using only shifts |s|>=h. These finite witnesses do not prove uniform recovery, an all-size filter, leading capacity, smaller rho or improved SAT exponent.",
+  "improves_bound": false,
+  "evidence": [
+    "research/length-power-filter/README.md",
+    "research/length-power-filter/screen.py",
+    "research/length-power-filter/verification.json",
+    "research/length-power-filter/moment_recovery.py",
+    "research/length-power-filter/moment-recovery-h4.json",
+    "research/length-power-filter/moment-recovery-h6.json",
+    "research/length-power-filter/moment-recovery-h7.json",
+    "research/length-power-filter/SOURCES.json"
+  ],
+  "reproduce": [
+    "python3",
+    "-I",
+    "-B",
+    "research/length-power-filter/screen.py"
+  ],
+  "remaining_obligations": [
+    "All-size scalarity and full-rank existence for a constant-fraction central shift filter",
+    "Leading row, column and output codebook capacity",
+    "Polynomial piece count, uniform entry generation, coefficient heights and both directional rank envelopes",
+    "Complete rational transfer and master recursion composition",
+    "Independent review"
+  ],
+  "ai_assistance": "Substantial AI assistance; no independent or formal review",
+  "selected_result_changed": false
+}
