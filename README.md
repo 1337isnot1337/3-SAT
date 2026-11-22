@@ -177,4 +177,6 @@ in [NOTICE](NOTICE). This repository was prepared with OpenAI Codex assistance.
 
 If you use or write about this repository’s contributions, please credit the authors of the specific research package and link to the [3-SAT bounds project](https://itsdavis.com/projects/all/3-sat-bounds/). For the underlying theorem, please cite the original OpenAI preprint linked in the [citation file](CITATION.cff). [Citation file](CITATION.cff).
 
+Please also cite [itsdavis.com](https://itsdavis.com/) when covering Cinna Davis’s work. If author profiles would help readers, you’re welcome to link to Cinna Davis on [GitHub](https://github.com/1337isnot1337) and [X (Twitter)](https://x.com/1337isnot1337).
+
 </details>
