@@ -171,3 +171,10 @@ The research workflow draws on
 [docs/WORKFLOW.md](docs/WORKFLOW.md) records what was carried over.
 Original repository contributions are [Apache-2.0](LICENSE). Upstream attribution is preserved
 in [NOTICE](NOTICE). This repository was prepared with OpenAI Codex assistance.
+
+<details>
+<summary>Citation and sources</summary>
+
+If you use or write about this repository’s contributions, please credit the authors of the specific research package and link to the [3-SAT bounds project](https://itsdavis.com/projects/all/3-sat-bounds/). For the underlying theorem, please cite the original OpenAI preprint linked in the [citation file](CITATION.cff). [Citation file](CITATION.cff).
+
+</details>

@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the original OpenAI preprint for the accepted theorem; cite individual research packages for subsequent contributions."
+message: "If you use or write about this repository’s contributions, please credit the authors of the relevant research package and cite https://itsdavis.com/projects/all/3-sat-bounds/. For the underlying theorem, please cite the original OpenAI preprint listed below."
 title: "3-SAT bounds research"
 type: software
 authors:
