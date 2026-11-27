@@ -1,0 +1,32 @@
+{
+  "external_predecessors": [
+    {
+      "author": "Navin Kashyap",
+      "title": "On Minimal Tree Realizations of Linear Codes",
+      "version": "0711.1383v1",
+      "url": "https://arxiv.org/pdf/0711.1383v1",
+      "retrieved_utc": "2026-10-28",
+      "sha256": "3bd157d011afbb63807a80576584c172eede6758584500c12602b04b8ad68add",
+      "bytes": 376316,
+      "redistributed": false,
+      "use": "Predecessor credit for minimal tree realizations and vertex-cut methods; local argument is self-contained."
+    },
+    {
+      "author": "Navin Kashyap",
+      "title": "Constraint Complexity of Realizations of Linear Codes on Arbitrary Graphs",
+      "version": "0805.2199v1",
+      "url": "https://arxiv.org/pdf/0805.2199v1",
+      "retrieved_utc": "2026-10-28",
+      "sha256": "86b0b9527c18396e2b40041eb2a859bc49b15fdfedd52de73396002136558b5c",
+      "bytes": 270769,
+      "redistributed": false,
+      "use": "Predecessor credit for minimal tree realizations and vertex-cut methods; local argument is self-contained."
+    }
+  ],
+  "repository_predecessor_base": "c600b21ee7800a49c05718a254be50168e6b355b",
+  "repository_predecessors": [
+    "research/hash-syndrome-chain/PROOF.md",
+    "research/hash-frontier-width/PROOF.md"
+  ],
+  "accepted_source_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
+}

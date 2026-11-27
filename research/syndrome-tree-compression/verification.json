@@ -1,0 +1,95 @@
+{
+  "counts": {
+    "field_cut_ranks": 9692,
+    "integer_contractions": 28200,
+    "matrix_layout_cases": 2100,
+    "separator_and_injectivity_checks": 2941
+  },
+  "exhaustive_scope": "All 2-row binary matrices with 1..4 columns; five tree/input layouts each.",
+  "hamming_parameters": {
+    "D": 3,
+    "k": 11,
+    "m": 15,
+    "tree_degree_lower_bound": 3
+  },
+  "limits": "Finite algebra/representation checks only; no SAT algorithm, asymptotic benchmark or independent proof review.",
+  "low_nullity_controls": [
+    {
+      "D": 2,
+      "k": 1,
+      "m": 2,
+      "max_degree": 2
+    },
+    {
+      "D": 3,
+      "k": 1,
+      "m": 3,
+      "max_degree": 3
+    },
+    {
+      "D": 4,
+      "k": 1,
+      "m": 4,
+      "max_degree": 3
+    },
+    {
+      "D": 5,
+      "k": 1,
+      "m": 5,
+      "max_degree": 3
+    },
+    {
+      "D": 6,
+      "k": 1,
+      "m": 6,
+      "max_degree": 3
+    },
+    {
+      "D": 7,
+      "k": 1,
+      "m": 7,
+      "max_degree": 3
+    },
+    {
+      "D": 8,
+      "k": 1,
+      "m": 8,
+      "max_degree": 3
+    },
+    {
+      "D": 9,
+      "k": 1,
+      "m": 9,
+      "max_degree": 3
+    },
+    {
+      "D": 10,
+      "k": 1,
+      "m": 10,
+      "max_degree": 3
+    },
+    {
+      "D": 11,
+      "k": 1,
+      "m": 11,
+      "max_degree": 3
+    },
+    {
+      "D": 12,
+      "k": 1,
+      "m": 12,
+      "max_degree": 3
+    }
+  ],
+  "restricted_pattern_control": [
+    1,
+    1
+  ],
+  "seed": 14920261028,
+  "seeded_scope": "400 matrices with 3 rows and 5..8 columns, random grouped-input trees; 40 full contractions/rank replays.",
+  "sha256": {
+    "PROOF.md": "7d958a7518b76d5d0b20f764198724da3158131e342f1fef39982d7df0f912c2",
+    "verify.py": "1a460b9a6ae08f7ba38aef83f991a3bab9540dc83796ec8e3a2b3e249a960c04"
+  },
+  "status": "bounded_checks_passed"
+}
