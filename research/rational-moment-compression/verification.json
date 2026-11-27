@@ -1,0 +1,164 @@
+{
+  "affine": {
+    "rank_descent_layers": {
+      "1": 9,
+      "2": 2,
+      "3": 1
+    },
+    "ranks_seen": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "seeded_cases": 144
+  },
+  "charged": {
+    "actual_filter_matrix_entries": 473,
+    "cases": [
+      {
+        "charge": 1,
+        "compressed_dimension": 2,
+        "degree": 3,
+        "energy": 3,
+        "fields": 7,
+        "independent_states": 2,
+        "label_grade": 2,
+        "rank_layers": {
+          "1": 2
+        },
+        "states": 3
+      },
+      {
+        "charge": 0,
+        "compressed_dimension": 3,
+        "degree": 3,
+        "energy": 4,
+        "fields": 7,
+        "independent_states": 3,
+        "label_grade": 2,
+        "rank_layers": {
+          "1": 3
+        },
+        "states": 5
+      },
+      {
+        "charge": 2,
+        "compressed_dimension": 4,
+        "degree": 3,
+        "energy": 5,
+        "fields": 7,
+        "independent_states": 4,
+        "label_grade": 3,
+        "rank_layers": {
+          "1": 4
+        },
+        "states": 7
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 1,
+        "degree": 4,
+        "energy": 6,
+        "fields": 12,
+        "independent_states": 3,
+        "label_grade": 2,
+        "rank_layers": {
+          "3": 1
+        },
+        "states": 11
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 2,
+        "degree": 4,
+        "energy": 7,
+        "fields": 12,
+        "independent_states": 4,
+        "label_grade": 2,
+        "rank_layers": {
+          "1": 1,
+          "3": 1
+        },
+        "states": 15
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 2,
+        "degree": 5,
+        "energy": 8,
+        "fields": 19,
+        "independent_states": 5,
+        "label_grade": 2,
+        "rank_layers": {
+          "2": 1,
+          "3": 1
+        },
+        "states": 22
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 2,
+        "degree": 5,
+        "energy": 9,
+        "fields": 19,
+        "independent_states": 5,
+        "label_grade": 2,
+        "rank_layers": {
+          "2": 1,
+          "3": 1
+        },
+        "states": 30
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 3,
+        "degree": 5,
+        "energy": 10,
+        "fields": 19,
+        "independent_states": 7,
+        "label_grade": 3,
+        "rank_layers": {
+          "1": 1,
+          "3": 2
+        },
+        "states": 42
+      },
+      {
+        "charge": 1,
+        "compressed_dimension": 4,
+        "degree": 5,
+        "energy": 12,
+        "fields": 19,
+        "independent_states": 11,
+        "label_grade": 3,
+        "rank_layers": {
+          "2": 1,
+          "3": 3
+        },
+        "states": 77
+      }
+    ],
+    "cases_with_output_dimension_above_one": 8,
+    "independent_operator_comparisons": 56
+  },
+  "matrices": {
+    "distinct_signatures": 32,
+    "negative_controls": 2,
+    "new_code_dimension": 16,
+    "old_signature_class_maximum": 1,
+    "seeded_sparse_cases": 75
+  },
+  "sha256": {
+    "research/anthropic-operator-ranks/operators.py": "efcdb6468673d240e0f794484874c149ac4f313669f7898248c901b100991b2f",
+    "research/charged-asymmetric-crossing/model.py": "7f495836772409f6c705642040f6b5a4307532539037c7d28bed1bdf66fd6fef",
+    "research/charged-operator-moments/charged.py": "1afcd1e6e898a06664ebe7ca930047a607e311ae96fd4511c9d24fcf5a48d509",
+    "research/partition-transition-codebooks/PROOF.md": "5fbfece1dc22120d9a1f1b5c544afb57a3160bd18d320efaa8f964b6d449ff57",
+    "research/rational-moment-compression/PROOF.md": "35c8464ae31e93f9133a86dbad4e44aaf8398803c561ba1569e7cdfbf9cb24c4",
+    "research/rational-moment-compression/compression.py": "63696e8f19e16953894ab115f0c9cd9537d3ea445ac38c78e54bf0753e1b0af7",
+    "research/rational-moment-compression/verify.py": "818447167cb629abab75357bec4e148d08e90b4c6a4bf30de007b0f219b75d24"
+  },
+  "status": "PASS"
+}
