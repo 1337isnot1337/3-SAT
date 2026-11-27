@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "scope": "finite exact grouping and encoding checks; no fast contraction or global improvement",
+  "seed": 14820261028,
+  "identity_cases": 1163,
+  "profiles_checked": 8670,
+  "invalid_index_assignments_checked": 19280,
+  "fixture_groupings": 203,
+  "pareto_groupings": [
+    {
+      "grouping": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "factor_degrees": [
+        3,
+        3,
+        3
+      ],
+      "factor_scope_sizes": [
+        3,
+        3,
+        3
+      ],
+      "profile_count": 36,
+      "max_wires": 4,
+      "max_tensor_degree": 2,
+      "max_discovery_scope": 3,
+      "worst_wire_profile": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "grouping": [
+        [
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "factor_degrees": [
+        4,
+        3
+      ],
+      "factor_scope_sizes": [
+        5,
+        3
+      ],
+      "profile_count": 24,
+      "max_wires": 4,
+      "max_tensor_degree": 3,
+      "max_discovery_scope": 5,
+      "worst_wire_profile": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "grouping": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "factor_degrees": [
+        3,
+        5
+      ],
+      "factor_scope_sizes": [
+        3,
+        5
+      ],
+      "profile_count": 18,
+      "max_wires": 5,
+      "max_tensor_degree": 3,
+      "max_discovery_scope": 5,
+      "worst_wire_profile": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "grouping": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "factor_degrees": [
+        4
+      ],
+      "factor_scope_sizes": [
+        6
+      ],
+      "profile_count": 9,
+      "max_wires": 4,
+      "max_tensor_degree": 4,
+      "max_discovery_scope": 6,
+      "worst_wire_profile": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "negative_control": {
+    "one_group_degree": 6,
+    "equations": 3
+  },
+  "cancellation_control": {
+    "ungrouped_degree_sum": 4,
+    "grouped_degree": 3
+  },
+  "script_sha256": "e1c7e7e3be9f3b6605668081692efbd4b1b8bc1444f15480b97c0c4ed72c86ef"
+}
